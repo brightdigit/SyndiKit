@@ -91,10 +91,11 @@ public struct Channel : Codable {
         let siteUrl : URL = site.site_url
         
         
-        guard let title = item.title, let summary = item.description, let url = item.link.flatMap(URL.init(string:)) else {
+        
+        guard let title = item.title, let summary = item.description ?? item.content?.contentEncoded ?? item.media?.mediaDescription?.value, let url = item.link.flatMap(URL.init(string:)) else {
           return nil
         }
-        let content = item.content?.contentEncoded,
+        let content = item.content?.contentEncoded
 //let ytId: String
         //let itId = item.media.
         let published = item.pubDate ?? Date()
@@ -114,10 +115,11 @@ public struct Channel : Codable {
       self.itemCount = atom.entries?.count
       self.items = atom.entries?.compactMap({ (entry) -> Item?  in
         let siteUrl : URL = site.site_url
+       
         guard let title = entry.title else {
           return nil
         }
-        guard let summary  = entry.summary?.value else {
+        guard let summary  = entry.summary?.value ?? entry.content?.value else {
           return nil
         }
         guard let url: URL = entry.links?.first?.attributes?.href.flatMap(URL.init(string:)) else {
@@ -135,6 +137,20 @@ public struct Site : Codable {
   public let site_url : URL
   public let feed_url : URL
   public let twitter_url : URL?
+  
+  public init (
+  title : String,
+author : String,
+site_url : URL,
+feed_url : URL,
+twitter_url : URL?
+  ) {
+    self.title = title
+    self.author = author
+    self.site_url = site_url
+    self.feed_url = feed_url
+    self.twitter_url = twitter_url
+  }
 }
 
 public struct LanguageCategory : Codable {
