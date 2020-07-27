@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/nmdias/FeedKit.git", from: "9.1.0"),
+      
+      .package(url: "https://github.com/brightdigit/FeedKit.git", .branch("master")),
       .package(url: "https://github.com/shibapm/Komondor", from: "1.0.5"),
       .package(url: "https://github.com/eneko/SourceDocs", from: "1.0.0"),
     ],

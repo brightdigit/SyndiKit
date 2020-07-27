@@ -119,7 +119,7 @@ public struct Channel : Codable {
         guard let title = entry.title else {
           return nil
         }
-        guard let summary  = entry.summary?.value ?? entry.content?.value else {
+        guard let summary  = entry.summary?.value ?? entry.content?.value ?? entry.media?.mediaGroup?.mediaDescription?.value else {
           return nil
         }
         guard let url: URL = entry.links?.first?.attributes?.href.flatMap(URL.init(string:)) else {
