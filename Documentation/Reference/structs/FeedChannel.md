@@ -1,9 +1,9 @@
 **STRUCT**
 
-# `Channel`
+# `FeedChannel`
 
 ```swift
-public struct Channel: Codable
+public struct FeedChannel: Codable
 ```
 
 ## Properties
@@ -76,7 +76,7 @@ public let category: String
 ### `items`
 
 ```swift
-public let items: [Item]
+public let items: [FeedItem]
 ```
 
 ### `itemCount`

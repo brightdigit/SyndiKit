@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Item: Codable {
+public struct FeedItem: Codable {
   public let siteUrl: URL
   public let id: String
   public let title: String
