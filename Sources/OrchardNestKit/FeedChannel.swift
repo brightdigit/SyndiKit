@@ -1,7 +1,7 @@
 import FeedKit
 import Foundation
 
-public struct Channel: Codable {
+public struct FeedChannel: Codable {
   static let youtubeImgBaseURL = URL(string: "https://img.youtube.com/vi/")!
   public static func imageURL(fromYoutubeId ytId: String) -> URL {
     return youtubeImgBaseURL.appendingPathComponent(ytId).appendingPathComponent("hqdefault.jpg")
@@ -18,7 +18,7 @@ public struct Channel: Codable {
   public let ytId: String?
   public let language: String
   public let category: String
-  public let items: [Item]
+  public let items: [FeedItem]
   public let itemCount: Int?
 
   // swiftlint:disable:next function_body_length
@@ -41,7 +41,7 @@ public struct Channel: Codable {
       self.category = category
       itemCount = json.items?.count
 
-      items = json.items?.compactMap { (item) -> Item? in
+      items = json.items?.compactMap { (item) -> FeedItem? in
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
@@ -53,7 +53,7 @@ public struct Channel: Codable {
         let content = item.contentHtml ?? item.contentText
         let image = item.image.flatMap(URL.init(string:)) ?? item.bannerImage.flatMap(URL.init(string:))
         let published = item.datePublished ?? item.dateModified ?? Date()
-        return Item(
+        return FeedItem(
           siteUrl: siteUrl,
           id: id,
           title: title,
@@ -65,7 +65,7 @@ public struct Channel: Codable {
           audio: nil,
           published: published
         )
-      } ?? [Item]()
+      } ?? [FeedItem]()
 
     case let .rss(rss):
       title = rss.title ?? site.title
@@ -82,7 +82,7 @@ public struct Channel: Codable {
       ytId = nil
 
       itemCount = rss.items?.count
-      items = rss.items?.compactMap { (item) -> Item? in
+      items = rss.items?.compactMap { (item) -> FeedItem? in
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
@@ -103,7 +103,7 @@ public struct Channel: Codable {
         // let ytId: String
         // let itId = item.media.
         let published = item.pubDate ?? Date()
-        return Item(
+        return FeedItem(
           siteUrl: siteUrl,
           id: id,
           title: title,
@@ -115,7 +115,7 @@ public struct Channel: Codable {
           audio: enclosure?.audioURL,
           published: published
         )
-      } ?? [Item]()
+      } ?? [FeedItem]()
     case let .atom(atom):
 
       title = atom.title ?? site.title
@@ -140,7 +140,7 @@ public struct Channel: Codable {
         URL(string: $0, relativeTo: site.feed_url)
       } ?? ytId.map(Self.imageURL)
       self.ytId = ytId
-      items = atom.entries?.compactMap { (entry) -> Item? in
+      items = atom.entries?.compactMap { (entry) -> FeedItem? in
         let siteUrl: URL = site.site_url
         let media = entry.links?.compactMap(Enclosure.init(element:))
         guard let title = entry.title else {
@@ -163,7 +163,7 @@ public struct Channel: Codable {
         } else {
           ytId = nil
         }
-        return Item(
+        return FeedItem(
           siteUrl: siteUrl,
           id: id,
           title: title,
@@ -175,7 +175,7 @@ public struct Channel: Codable {
           audio: media?.compactMap { $0.audioURL }.first,
           published: entry.published ?? Date()
         )
-      } ?? [Item]()
+      } ?? [FeedItem]()
     }
   }
 }

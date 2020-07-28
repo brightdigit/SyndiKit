@@ -1,9 +1,9 @@
 **STRUCT**
 
-# `Item`
+# `FeedItem`
 
 ```swift
-public struct Item: Codable
+public struct FeedItem: Codable
 ```
 
 ## Properties

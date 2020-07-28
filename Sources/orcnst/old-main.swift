@@ -4,12 +4,12 @@ import OrchardNestKit
 typealias OrganizedSite = (String, String, Site)
 
 class OldRunner {
-  func main () {
+  func main() throws {
     if true {
       let blogs = URL(string: "https://raw.githubusercontent.com/daveverwer/iOSDevDirectory/master/blogs.json")!
 
       let reader = BlogReader()
-      let sites = try! reader.sites(fromURL: blogs)
+      let sites = try reader.sites(fromURL: blogs)
 
       let orgSites = sites.flatMap { (content) -> [OrganizedSite] in
         let language = content.language
@@ -22,12 +22,12 @@ class OldRunner {
 
       let channelResults = orgSites.map { args in
         Result {
-          try Channel(language: args.0, category: args.1, site: args.2)
+          try FeedChannel(language: args.0, category: args.1, site: args.2)
         }
       }
 
       var errors = [Error]()
-      var channels = [Channel]()
+      var channels = [FeedChannel]()
 
       for result in channelResults {
         switch result {
@@ -42,15 +42,14 @@ class OldRunner {
 
       let encoder = JSONEncoder()
       encoder.outputFormatting = .prettyPrinted
-      let data = try! encoder.encode(channels)
+      let data = try encoder.encode(channels)
 
-      try! data.write(to:
+      try data.write(to:
         URL(fileURLWithPath: "/Users/leo/data.json")
       )
 
     } else {
-      let data = try! Data(contentsOf: URL(fileURLWithPath: "/Users/leo/Downloads/data.json"))
+      let data = try Data(contentsOf: URL(fileURLWithPath: "/Users/leo/Downloads/data.json"))
     }
-
   }
 }

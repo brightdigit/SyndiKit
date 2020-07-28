@@ -43,6 +43,16 @@ public final class Configurator: ConfiguratorProtocol {
 
     app.databases.use(.postgres(configuration: postgreSQLConfig), as: .psql)
 
+    app.migrations.add([
+      CategoryMigration(),
+      LanguageMigration(),
+      ChannelMigration(),
+      EntryMigration(),
+      PodcastEpisodeMigration(),
+      YouTubeChannelMigration(),
+      YouTubeVideoMigration()
+    ])
+
 //    app.databases.middleware.use(UserEmailerMiddleware(app: app))
 //
 //    app.migrations.add(CreateDevice())
@@ -62,7 +72,7 @@ public final class Configurator: ConfiguratorProtocol {
 //        app.webSockets.save(websocket, withID: workoutId)
 //      }
 //    }
-
+    try app.autoMigrate().wait()
     //   services.register(wss, as: WebSocketServer.self)
     app.get { _ in
       "Hello"
