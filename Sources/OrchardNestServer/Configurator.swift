@@ -1,9 +1,24 @@
 import Fluent
 import FluentPostgresDriver
+import OrchardNestKit
+import Plot
+import QueuesFluentDriver
 import Vapor
 
-public protocol ConfiguratorProtocol {
-  func configure(_ app: Application) throws
+extension HTML: ResponseEncodable {
+  public func encodeResponse(for request: Request) -> EventLoopFuture<Response> {
+    var headers = HTTPHeaders()
+    headers.add(name: .contentType, value: "text/html")
+    return request.eventLoop.makeSucceededFuture(.init(
+      status: .ok, headers: headers, body: .init(string: render())
+    ))
+  }
+}
+
+struct OrganizedSite {
+  let languageCode: String
+  let categorySlug: String
+  let site: Site
 }
 
 //
@@ -22,13 +37,18 @@ public final class Configurator: ConfiguratorProtocol {
     // Register middleware
     // var middlewares = MiddlewareConfig() // Create _empty_ middleware config
     // middlewares.use(SessionsMiddleware.self) // Enables sessions.
-    let rootPath = Environment.get("ROOT_PATH") ?? app.directory.publicDirectory
+    // let rootPath = Environment.get("ROOT_PATH") ?? app.directory.publicDirectory
 
 //    app.webSockets = WebSocketRepository()
 //
 //    app.middleware.use(DirectoryIndexMiddleware(publicDirectory: rootPath))
 
-    app.middleware.use(ErrorMiddleware.default(environment: app.environment))
+    app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+
+//    // Configure Leaf
+//    app.views.use(.leaf)
+//    app.leaf.cache.isEnabled = app.environment.isRelease
+//    app.middleware.use(ErrorMiddleware.default(environment: app.environment))
     // middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     // services.register(middlewares)
 
@@ -41,18 +61,24 @@ public final class Configurator: ConfiguratorProtocol {
       postgreSQLConfig = PostgresConfiguration(hostname: "localhost", username: "orchardnest")
     }
 
-    app.databases.use(.postgres(configuration: postgreSQLConfig), as: .psql)
-
+    app.databases.use(.postgres(configuration: postgreSQLConfig, maxConnectionsPerEventLoop: 8, connectionPoolTimeout: .seconds(60)), as: .psql)
+    app.http.client.configuration.ignoreUncleanSSLShutdown = true
+    app.http.client.configuration.decompression = .enabled(limit: .none)
+    app.http.client.configuration.timeout = .init(connect: .seconds(12), read: .seconds(12))
     app.migrations.add([
       CategoryMigration(),
       LanguageMigration(),
+      CategoryTitleMigration(),
       ChannelMigration(),
       EntryMigration(),
       PodcastEpisodeMigration(),
       YouTubeChannelMigration(),
-      YouTubeVideoMigration()
+      YouTubeVideoMigration(),
+      JobModelMigrate(schema: "queue_jobs")
     ])
 
+    app.queues.configuration.refreshInterval = .seconds(25)
+    app.queues.use(.fluent())
 //    app.databases.middleware.use(UserEmailerMiddleware(app: app))
 //
 //    app.migrations.add(CreateDevice())
@@ -72,10 +98,23 @@ public final class Configurator: ConfiguratorProtocol {
 //        app.webSockets.save(websocket, withID: workoutId)
 //      }
 //    }
+
+    app.queues.add(RefreshJob())
+    try app.queues.startInProcessJobs(on: .default)
+    app.commands.use(RefreshCommand(help: "Imports data into the database"), as: "refresh")
+
     try app.autoMigrate().wait()
     //   services.register(wss, as: WebSocketServer.self)
-    app.get { _ in
-      "Hello"
+
+    let api = app.grouped("api", "v1")
+    try app.register(collection: HTMLController())
+    try api.grouped("entires").register(collection: EntryController())
+
+    app.post("jobs") { req in
+      req.queue.dispatch(
+        RefreshJob.self,
+        RefreshConfiguration()
+      ).map { HTTPStatus.created }
     }
   }
 }

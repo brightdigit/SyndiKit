@@ -12,9 +12,9 @@ struct EntryMigration: Migration {
       .field("content", .string)
       .field("url", .string, .required)
       .field("image", .string)
-      .field("published_at", .date, .required)
-      .field("created_at", .date, .required)
-      .field("updated_at", .date, .required)
+      .field("published_at", .datetime, .required)
+      .field("created_at", .datetime, .required)
+      .field("updated_at", .datetime, .required)
       .create()
   }
 

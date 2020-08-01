@@ -22,9 +22,10 @@ public struct FeedChannel: Codable {
   public let itemCount: Int?
 
   // swiftlint:disable:next function_body_length
-  public init(language: String, category: String, site: Site) throws {
-    let parser = FeedParser(URL: site.feed_url)
+  public init(language: String, category: String, site: Site, data: Data) throws {
+    let parser = FeedParser(data: data)
     let feed = try parser.parse().get()
+
     switch feed {
     case let .json(json):
       title = json.title ?? site.title
@@ -47,12 +48,14 @@ public struct FeedChannel: Codable {
         guard let title = item.title,
           let summary = item.summary,
           let url = item.externalUrl.flatMap(URL.init(string:)) ?? item.url.flatMap(URL.init(string:)),
-          let id = item.id ?? item.url ?? item.externalUrl else {
+          let id = item.id ?? item.url ?? item.externalUrl,
+          let published = item.datePublished ?? item.dateModified
+        else {
           return nil
         }
         let content = item.contentHtml ?? item.contentText
         let image = item.image.flatMap(URL.init(string:)) ?? item.bannerImage.flatMap(URL.init(string:))
-        let published = item.datePublished ?? item.dateModified ?? Date()
+
         return FeedItem(
           siteUrl: siteUrl,
           id: id,
@@ -90,7 +93,9 @@ public struct FeedChannel: Codable {
           item.content?.contentEncoded ??
           item.media?.mediaDescription?.value,
           let id = item.guid?.value ?? item.link,
-          let url = item.link.flatMap(URL.init(string:)) else {
+          let url = item.link.flatMap(URL.init(string:)),
+          let published = item.pubDate ?? item.dublinCore?.dcDate
+        else {
           return nil
         }
         let enclosure = item.enclosure.flatMap(Enclosure.init)
@@ -102,7 +107,7 @@ public struct FeedChannel: Codable {
           }.first
         // let ytId: String
         // let itId = item.media.
-        let published = item.pubDate ?? Date()
+
         return FeedItem(
           siteUrl: siteUrl,
           id: id,
@@ -148,13 +153,18 @@ public struct FeedChannel: Codable {
         }
         guard let summary = entry.summary?.value ??
           entry.content?.value ??
-          entry.media?.mediaGroup?.mediaDescription?.value else {
+          entry.media?.mediaGroup?.mediaDescription?.value
+        else {
           return nil
         }
         guard let url: URL = entry.links?.first?.attributes?.href.flatMap(URL.init(string:)) else {
           return nil
         }
         guard let id = entry.id else {
+          return nil
+        }
+
+        guard let published = entry.published else {
           return nil
         }
         let ytId: String?
@@ -173,7 +183,7 @@ public struct FeedChannel: Codable {
           image: media?.compactMap { $0.imageURL }.first,
           ytId: ytId,
           audio: media?.compactMap { $0.audioURL }.first,
-          published: entry.published ?? Date()
+          published: published
         )
       } ?? [FeedItem]()
     }
