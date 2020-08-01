@@ -92,8 +92,8 @@ public let itemCount: Int?
 public static func imageURL(fromYoutubeId ytId: String) -> URL
 ```
 
-### `init(language:category:site:)`
+### `init(language:category:site:data:)`
 
 ```swift
-public init(language: String, category: String, site: Site) throws
+public init(language: String, category: String, site: Site, data: Data) throws
 ```

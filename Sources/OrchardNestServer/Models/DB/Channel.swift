@@ -25,19 +25,19 @@ final class Channel: Model {
   var author: String
 
   @Field(key: "site_url")
-  var siteUrl: URL
+  var siteUrl: String
 
   @Field(key: "feed_url")
-  var feedUrl: URL
+  var feedUrl: String
 
   @OptionalField(key: "twitter_handle")
   var twitterHandle: String?
 
   @OptionalField(key: "image")
-  var image: URL?
+  var imageURL: String?
 
   @Field(key: "published_at")
-  var updated: Date
+  var publishedAt: Date
 
   // When this Planet was created.
   @Timestamp(key: "created_at", on: .create)
@@ -46,4 +46,15 @@ final class Channel: Model {
   // When this Planet was last updated.
   @Timestamp(key: "updated_at", on: .update)
   var updatedAt: Date?
+
+  @Children(for: \.$channel)
+  var entries: [Entry]
+}
+
+extension Channel: Validatable {
+  static func validations(_ validations: inout Validations) {
+    validations.add("siteUrl", as: URL.self)
+    validations.add("feedUrl", as: URL.self)
+    validations.add("imageURL", as: URL.self)
+  }
 }

@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class Entry: Model {
+final class Entry: Model, Content {
   static var schema = "entries"
 
   init() {}
@@ -25,10 +25,10 @@ final class Entry: Model {
   var content: String?
 
   @Field(key: "url")
-  var url: URL
+  var url: String
 
   @OptionalField(key: "image")
-  var image: URL?
+  var imageURL: String?
 
   @Field(key: "published_at")
   var publishedAt: Date
@@ -42,5 +42,9 @@ final class Entry: Model {
   var updatedAt: Date?
 }
 
-// public let ytId: String?
-// public let audio: URL?
+extension Entry: Validatable {
+  static func validations(_ validations: inout Validations) {
+    validations.add("url", as: URL.self)
+    validations.add("imageURL", as: URL.self)
+  }
+}
