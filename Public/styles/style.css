@@ -7,9 +7,8 @@ header > nav {
 }
 header > nav > ul {
   list-style: none;
-  margin: -5px;
 }
-header > h1 {
+header h1 {
   margin: 20px 0px;
 }
 header .logo {
@@ -19,7 +18,15 @@ header > nav > ul > li {
   float: left;
   margin: 5px;
   padding: 5px;
-
+}
+header > nav > ul:first-child > li:first-child {
+  margin-left: -5px;
+}
+header > nav > ul.float-right li {
+  float: right;
+}
+header.container {
+  margin-bottom: 20px;
 }
 ul.articles {
   list-style: none;
