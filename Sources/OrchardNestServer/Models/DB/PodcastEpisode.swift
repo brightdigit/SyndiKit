@@ -16,6 +16,9 @@ final class PodcastEpisode: Model {
 
   @Field(key: "audio")
   var audioURL: String
+
+  @Parent(key: "entry_id")
+  var entry: Entry
 }
 
 extension PodcastEpisode: Validatable {

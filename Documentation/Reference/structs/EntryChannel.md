@@ -25,6 +25,12 @@ public let title: String
 public let author: String
 ```
 
+### `siteURL`
+
+```swift
+public let siteURL: URL
+```
+
 ### `twitterHandle`
 
 ```swift
@@ -38,12 +44,13 @@ public let imageURL: URL?
 ```
 
 ## Methods
-### `init(id:title:author:twitterHandle:imageURL:)`
+### `init(id:title:siteURL:author:twitterHandle:imageURL:)`
 
 ```swift
 public init(
   id: UUID,
   title: String,
+  siteURL: URL,
   author: String,
   twitterHandle: String?,
   imageURL: URL?

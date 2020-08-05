@@ -55,12 +55,19 @@ public let imageURL: URL?
 public let publishedAt: Date
 ```
 
+### `category`
+
+```swift
+public let category: EntryCategory
+```
+
 ## Methods
-### `init(id:channel:feedId:title:summary:url:imageURL:publishedAt:)`
+### `init(id:channel:category:feedId:title:summary:url:imageURL:publishedAt:)`
 
 ```swift
 public init(id: UUID,
             channel: EntryChannel,
+            category: EntryCategory,
             feedId: String,
             title: String,
             summary: String,

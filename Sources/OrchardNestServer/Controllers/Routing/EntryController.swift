@@ -13,11 +13,28 @@ extension String {
   }
 }
 
+extension Entry {
+  func category() throws -> EntryCategory {
+    guard let category = EntryCategoryType(rawValue: channel.$category.id) else {
+      return .development
+    }
+
+    if let url = podcastEpisode.flatMap({ URL(string: $0.audioURL) }) {
+      return .podcasts(url)
+    } else if let youtubeID = youtubeVideo?.youtubeId {
+      return .youtube(youtubeID)
+    } else {
+      return try EntryCategory(type: category)
+    }
+  }
+}
+
 extension EntryChannel {
   init(channel: Channel) throws {
     try self.init(
       id: channel.requireID(),
       title: channel.title,
+      siteURL: channel.siteUrl.asURL(),
       author: channel.author,
       twitterHandle: channel.twitterHandle,
       imageURL: channel.imageURL?.asURL()
@@ -30,6 +47,7 @@ extension EntryItem {
     try self.init(
       id: entry.requireID(),
       channel: EntryChannel(channel: entry.channel),
+      category: entry.category(),
       feedId: entry.feedId,
       title: entry.title,
       summary: entry.summary,

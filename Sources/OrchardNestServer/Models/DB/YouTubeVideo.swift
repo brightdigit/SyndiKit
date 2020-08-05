@@ -16,6 +16,9 @@ final class YoutubeVideo: Model {
 
   @Field(key: "youtube_id")
   var youtubeId: String
+
+  @Parent(key: "entry_id")
+  var entry: Entry
 }
 
 extension YoutubeVideo {
