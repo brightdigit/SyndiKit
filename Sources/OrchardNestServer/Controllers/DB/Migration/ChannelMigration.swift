@@ -17,7 +17,6 @@ struct ChannelMigration: Migration {
       .field("published_at", .datetime, .required)
       .field("created_at", .datetime, .required)
       .field("updated_at", .datetime, .required)
-      .unique(on: "site_url")
       .unique(on: "feed_url")
       .create()
   }

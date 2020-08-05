@@ -40,6 +40,20 @@ final class Entry: Model, Content {
   // When this Planet was last updated.
   @Timestamp(key: "updated_at", on: .update)
   var updatedAt: Date?
+
+  @Children(for: \.$entry)
+  var podcastEpisodes: [PodcastEpisode]
+
+  var podcastEpisode: PodcastEpisode? {
+    return podcastEpisodes.first
+  }
+
+  @Children(for: \.$entry)
+  var youtubeVideos: [YoutubeVideo]
+
+  var youtubeVideo: YoutubeVideo? {
+    return youtubeVideos.first
+  }
 }
 
 extension Entry: Validatable {

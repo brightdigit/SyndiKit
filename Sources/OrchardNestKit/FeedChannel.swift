@@ -1,6 +1,15 @@
 import FeedKit
 import Foundation
 
+extension URL {
+  func ensureAbsolute(_ baseURL: URL) -> URL {
+    guard host == nil else {
+      return self
+    }
+    return URL(string: relativeString, relativeTo: baseURL) ?? self
+  }
+}
+
 public struct FeedChannel: Codable {
   static let youtubeImgBaseURL = URL(string: "https://img.youtube.com/vi/")!
   public static func imageURL(fromYoutubeId ytId: String) -> URL {
@@ -93,11 +102,12 @@ public struct FeedChannel: Codable {
           item.content?.contentEncoded ??
           item.media?.mediaDescription?.value,
           let id = item.guid?.value ?? item.link,
-          let url = item.link.flatMap(URL.init(string:)),
+          let itemUrl = item.link.flatMap(URL.init(string:)),
           let published = item.pubDate ?? item.dublinCore?.dcDate
         else {
           return nil
         }
+        let url = itemUrl.ensureAbsolute(siteUrl)
         let enclosure = item.enclosure.flatMap(Enclosure.init)
         let content = item.content?.contentEncoded
         let image = item.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:)) ??
@@ -157,7 +167,7 @@ public struct FeedChannel: Codable {
         else {
           return nil
         }
-        guard let url: URL = entry.links?.first?.attributes?.href.flatMap(URL.init(string:)) else {
+        guard let entryUrl: URL = entry.links?.first?.attributes?.href.flatMap(URL.init(string:)) else {
           return nil
         }
         guard let id = entry.id else {
@@ -173,6 +183,7 @@ public struct FeedChannel: Codable {
         } else {
           ytId = nil
         }
+        let url = entryUrl.ensureAbsolute(siteUrl)
         return FeedItem(
           siteUrl: siteUrl,
           id: id,

@@ -1,0 +1,82 @@
+html, body {
+  margin: 10px;
+  font-family: 'Catamaran', sans-serif;
+}
+header > nav {
+  display: block
+}
+header > nav > ul {
+  list-style: none;
+  margin: -5px;
+}
+header > h1 {
+  margin: 20px 0px;
+}
+header .logo {
+  height: 0.9em;
+}
+header > nav > ul > li {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+
+}
+ul.articles {
+  list-style: none;
+}
+
+ul.articles li {
+  padding: 1em 0px;
+}
+
+ul.articles li > .title i.el {
+  margin-right: 4px;
+}
+
+ul.articles li > .summary {
+  padding: 8px 0px;
+}
+
+ul.articles li > .publishedAt,  ul.articles li > .author{
+  font-size: 0.8em;
+}
+
+ul.articles li > .author a.twitter-handle{
+  line-height: 2em;
+  height: 2em;
+  padding: 0px 5px;
+  text-transform: unset;
+}
+
+main nav.posts-filter ul {
+  list-style: none
+}
+
+main nav.posts-filter ul li{
+  float: left;
+  list-style: none
+}
+
+main nav.posts-filter ul li a.button{
+  padding: 0px 10px;
+  line-height: 2.25em;
+  height: 2.25em;
+  margin-right: 1em;
+}
+
+ul.articles li > .social-share > ul{
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+}
+
+ul.articles li > .social-share > ul li{
+  display: inline-block;
+  padding: 0;
+}
+
+ul.articles li > .social-share > ul > li > a{
+  line-height: 2em;
+  height: 2em;
+  padding: 0px 5px;
+}

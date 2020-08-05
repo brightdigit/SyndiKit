@@ -7,7 +7,7 @@ struct ChannelFeedItemsConfiguration {
 
   init(channels: [String: Channel], feedArgs: FeedConfiguration) {
     let channel: Channel
-    if let oldChannel = channels[feedArgs.channel.siteUrl.absoluteString] {
+    if let oldChannel = channels[feedArgs.channel.feedUrl.absoluteString] {
       channel = oldChannel
     } else {
       channel = Channel()
