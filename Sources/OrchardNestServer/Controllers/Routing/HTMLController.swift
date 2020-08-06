@@ -12,13 +12,13 @@ extension Node where Context == HTML.BodyContext {
       .class("posts-filter clearfix row"),
       .ul(
         .class("column"),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-calendar")), .text(" Latest"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-cogs")), .text(" Development"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-bullhorn")), .text(" Marketing"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-brush")), .text(" Design"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-podcast")), .text(" Podcasts"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-video")), .text(" Videos"))),
-        .li(.a(.class("button"), .href("#"), .i(.class("el el-envelope")), .text(" Newsletters")))
+        .li(.a(.class("button"), .href("/"), .i(.class("el el-calendar")), .text(" Latest"))),
+        .li(.a(.class("button"), .href("/entries/development"), .i(.class("el el-cogs")), .text(" Development"))),
+        .li(.a(.class("button"), .href("/entries/marketing"), .i(.class("el el-bullhorn")), .text(" Marketing"))),
+        .li(.a(.class("button"), .href("/entries/design"), .i(.class("el el-brush")), .text(" Design"))),
+        .li(.a(.class("button"), .href("/entries/podcasts"), .i(.class("el el-podcast")), .text(" Podcasts"))),
+        .li(.a(.class("button"), .href("/entries/videos"), .i(.class("el el-video")), .text(" Videos"))),
+        .li(.a(.class("button"), .href("/entries/newsletters"), .i(.class("el el-envelope")), .text(" Newsletters")))
       )
     )
   }
@@ -32,13 +32,13 @@ extension Node where Context == HTML.BodyContext {
         .class("row"),
         .ul(
           .class("column"),
-          .li(.a(.href("#"), .i(.class("el el-home")), .text(" Home"))),
-          .li(.a(.href("#"), .i(.class("el el-info-circle")), .text(" About"))),
-          .li(.a(.href("#"), .i(.class("el el-question-sign")), .text(" Support")))
+          .li(.a(.href("/"), .i(.class("el el-home")), .text(" Home"))),
+          .li(.a(.href("/about"), .i(.class("el el-info-circle")), .text(" About"))),
+          .li(.a(.href("/support"), .i(.class("el el-question-sign")), .text(" Support")))
         ),
         .ul(.class("float-right column"),
-            .li(.a(.href("#"), .i(.class("el el-github")), .text(" github"))),
-            .li(.a(.href("#"), .i(.class("el el-twitter")), .text(" twitter"))))
+            .li(.a(.href("https://github.com/brightdigit/OrchardNest"), .i(.class("el el-github")), .text(" github"))),
+            .li(.a(.href("https://twitter.com/OrchardNest"), .i(.class("el el-twitter")), .text(" twitter"))))
       ),
       .div(
         .class("row"),
@@ -90,16 +90,6 @@ extension Node where Context == HTML.DocumentContext {
 extension Node where Context == HTML.ListContext {
   static func li(forEntryItem item: EntryItem) -> Self {
     return
-      /*
-        <li class="blog-post">
-                      <a class="title" href="#"><h3><i class="el el-website"></i> Swift: Property wrappers</h3></a>
-                      <div class="publishedAt">Published July 31, 2020</div>
-                      <div class="summary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet.
-                      </div>
-                      <div class="author">By John Doe at <a href="/sites/">swiftui.com</a></div>
-                    </li>
-        */
       .li(
         .class("blog-post"),
 
@@ -135,15 +125,6 @@ extension Node where Context == HTML.ListContext {
               .src($0)
             )
           )
-//                        <audio controls>
-//                         <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4"
-//                                 type='audio/mp4'>
-//                         <!-- The next two lines are only executed if the browser doesn't support MP4 files -->
-//                         <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga"
-//                                 type='audio/ogg; codecs=vorbis'>
-//                         <!-- The next line will only be executed if the browser doesn't support the <audio> tag-->
-//                         <p>Your user agent does not support the HTML5 Audio element.</p>
-//                        </audio>
         },
         .div(
           .class("author"),
@@ -153,7 +134,15 @@ extension Node where Context == HTML.ListContext {
           .a(
             .href("/channels/" + item.channel.id.uuidString),
             .text(item.channel.siteURL.host ?? item.channel.title)
-          )
+          ),
+          .unwrap(item.channel.twitterHandle) {
+            .a(
+              .href("https://twitter.com/\($0)"),
+              .class("button twitter-handle"),
+              .i(.class("el el-twitter")),
+              .text(" @\($0)")
+            )
+          }
         ),
         .div(
           .class("social-share clearfix"),
@@ -162,7 +151,7 @@ extension Node where Context == HTML.ListContext {
             .li(
               .a(
                 .class("button"),
-                .href("https://twitter.com/intent/tweet?text=\(item.title)\(item.channel.twitterHandle.map { "&via=\($0)" } ?? "")&url=\(item.url)"),
+                .href(item.twitterShareLink),
                 .i(.class("el el-twitter")),
                 .text(" Tweet")
               )
