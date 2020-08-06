@@ -53,6 +53,7 @@ ul.articles li > .author a.twitter-handle{
   height: 2em;
   padding: 0px 5px;
   text-transform: unset;
+  margin-left: 4px;
 }
 
 main nav.posts-filter ul {

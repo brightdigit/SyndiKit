@@ -147,4 +147,9 @@ public extension EntryItem {
     }
     return nil
   }
+
+  var twitterShareLink: String {
+    let text = title + (channel.twitterHandle.map { " from @\($0)" } ?? "")
+    return "https://twitter.com/intent/tweet?text=\(text)&via=orchardnest&url=\(url)"
+  }
 }

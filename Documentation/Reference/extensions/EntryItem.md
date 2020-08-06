@@ -17,3 +17,9 @@ var podcastEpisodeURL: URL?
 ```swift
 var youtubeID: String?
 ```
+
+### `twitterShareLink`
+
+```swift
+var twitterShareLink: String
+```
