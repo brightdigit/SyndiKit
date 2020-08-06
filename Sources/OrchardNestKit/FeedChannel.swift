@@ -86,7 +86,7 @@ public struct FeedChannel: Codable {
       siteUrl = rss.link.flatMap(URL.init(string:)) ?? site.site_url
       feedUrl = site.feed_url
       twitterHandle = site.twitter_url?.lastPathComponent
-      image = rss.image?.url.flatMap(URL.init(string:))
+      image = rss.image?.url.flatMap(URL.init(string:)) ?? rss.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:))
       // self.image = atom.image
       updated = rss.pubDate ?? Date()
       self.language = language
