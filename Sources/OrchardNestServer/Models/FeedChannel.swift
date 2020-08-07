@@ -9,7 +9,7 @@ struct EmptyError: Error {}
 
 extension FeedChannel {
   static func parseSite(_ site: OrganizedSite, using _: Client, on eventLoop: EventLoop) -> EventLoopFuture<Result<FeedChannel, FeedError>> {
-    let uri = URI(string: site.site.feed_url.absoluteString)
+    // let uri = URI(string: site.site.feed_url.absoluteString)
     // let headers = HTTPHeaders([("Host", uri.host!), ("User-Agent", "OrchardNest-Robot"), ("Accept", "*/*")])
 
     let promise = eventLoop.makePromise(of: Result<Data, Error>.self)

@@ -1,10 +1,87 @@
 import Fluent
 import FluentSQL
+import Ink
 import OrchardNestKit
 import Plot
 import Vapor
 
 struct InvalidDatabaseError: Error {}
+
+extension Node where Context == HTML.BodyContext {
+  static func playerForPodcast(withAppleId appleId: Int) -> Self {
+    .ul(
+      .class("podcast-players"),
+      .li(
+        .a(
+          .href("https://podcasts.apple.com/podcast/id\(appleId)"),
+          .img(
+            .src("/images/podcast-players/apple/icon.svg")
+          ),
+          .div(
+            .div(
+              .text("Listen on")
+            ),
+            .div(
+              .class("name"),
+              .text("Apple Podcasts")
+            )
+          )
+        )
+      ),
+      .li(
+        .a(
+          .href("https://overcast.fm/itunes\(appleId)"),
+          .img(
+            .src("/images/podcast-players/overcast/icon.svg")
+          ),
+          .div(
+            .div(
+              .text("Listen on")
+            ),
+            .div(
+              .class("name"),
+              .text("Overcast")
+            )
+          )
+        )
+      ),
+      .li(
+        .a(
+          .href("https://castro.fm/itunes/\(appleId)"),
+          .img(
+            .src("/images/podcast-players/castro/icon.svg")
+          ),
+          .div(
+            .div(
+              .text("Listen on")
+            ),
+            .div(
+              .class("name"),
+              .text("Castro")
+            )
+          )
+        )
+      ),
+      .li(
+        .a(
+          .href("https://podcasts.apple.com/podcast/id\(appleId)"),
+          .img(
+            .src("/images/podcast-players/pocketcasts/icon.svg")
+          ),
+          .div(
+            .div(
+              .text("Listen on")
+            ),
+            .div(
+              .class("name"),
+              .text("Pocket Casts")
+            )
+          )
+        )
+      )
+    )
+  }
+}
 
 extension Node where Context == HTML.BodyContext {
   static func filters() -> Self {
@@ -37,8 +114,8 @@ extension Node where Context == HTML.BodyContext {
           .li(.a(.href("/support"), .i(.class("el el-question-sign")), .text(" Support")))
         ),
         .ul(.class("float-right column"),
-            .li(.a(.href("https://github.com/brightdigit/OrchardNest"), .i(.class("el el-github")), .text(" github"))),
-            .li(.a(.href("https://twitter.com/OrchardNest"), .i(.class("el el-twitter")), .text(" twitter"))))
+            .li(.a(.href("https://github.com/brightdigit/OrchardNest"), .i(.class("el el-github")), .text(" GitHub"))),
+            .li(.a(.href("https://twitter.com/OrchardNest"), .i(.class("el el-twitter")), .text(" Twitter"))))
       ),
       .div(
         .class("row"),
@@ -112,7 +189,6 @@ extension Node where Context == HTML.ListContext {
             .allow("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),
             .allowfullscreen(true)
           )
-//                        <iframe width="560" height="315" src="https://www.youtube.com/embed/GCQ2JtEuGsI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         },
         .div(
           .class("summary"),
@@ -125,6 +201,9 @@ extension Node where Context == HTML.ListContext {
               .src($0)
             )
           )
+        },
+        .unwrap(item.channel.podcastAppleId) {
+          .playerForPodcast(withAppleId: $0)
         },
         .div(
           .class("author"),
@@ -204,13 +283,21 @@ extension EntryCategory {
 }
 
 struct HTMLController {
+  let views: [String: Markdown]
+
+  init(views: [String: Markdown]?) {
+    self.views = views ?? [String: Markdown]()
+  }
+
   func category(req: Request) throws -> EventLoopFuture<HTML> {
     guard let category = req.parameters.get("category") else {
       throw Abort(.notFound)
     }
 
     return Entry.query(on: req.db)
-      .with(\.$channel)
+      .with(\.$channel) { builder in
+        builder.with(\.$podcasts).with(\.$youtubeChannels)
+      }
       .join(parent: \.$channel)
       .with(\.$podcastEpisodes)
       .join(children: \.$podcastEpisodes, method: .left)
@@ -253,8 +340,38 @@ struct HTMLController {
       }
   }
 
+  func page(req: Request) -> EventLoopFuture<HTML> {
+    guard let name = req.parameters.get("page") else {
+      return req.eventLoop.makeFailedFuture(Abort(.notFound))
+    }
+
+    guard let view = views[name] else {
+      return req.eventLoop.makeFailedFuture(Abort(.notFound))
+    }
+
+    let html = HTML(
+      .head(withSubtitle: "Support and FAQ"),
+      .body(
+        .header(),
+        .main(
+          .class("container"),
+          .filters(),
+          .section(
+            .class("row"),
+            .raw(view.html)
+          )
+        )
+      )
+    )
+
+    return req.eventLoop.future(html)
+  }
+
   func index(req: Request) -> EventLoopFuture<HTML> {
-    return Entry.query(on: req.db).join(LatestEntry.self, on: \Entry.$id == \LatestEntry.$id).with(\.$channel)
+    return Entry.query(on: req.db).join(LatestEntry.self, on: \Entry.$id == \LatestEntry.$id)
+      .with(\.$channel) { builder in
+        builder.with(\.$podcasts).with(\.$youtubeChannels)
+      }
       .join(parent: \.$channel)
       .with(\.$podcastEpisodes)
       .join(children: \.$podcastEpisodes, method: .left)
@@ -296,5 +413,6 @@ extension HTMLController: RouteCollection {
   func boot(routes: RoutesBuilder) throws {
     routes.get("", use: index)
     routes.get("category", ":category", use: category)
+    routes.get(":page", use: page)
   }
 }

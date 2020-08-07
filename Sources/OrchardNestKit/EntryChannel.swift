@@ -7,6 +7,7 @@ public struct EntryChannel: Codable {
   public let siteURL: URL
   public let twitterHandle: String?
   public let imageURL: URL?
+  public let podcastAppleId: Int?
 
   public init(
     id: UUID,
@@ -14,7 +15,8 @@ public struct EntryChannel: Codable {
     siteURL: URL,
     author: String,
     twitterHandle: String?,
-    imageURL: URL?
+    imageURL: URL?,
+    podcastAppleId: Int?
   ) {
     self.id = id
     self.title = title
@@ -22,5 +24,6 @@ public struct EntryChannel: Codable {
     self.author = author
     self.twitterHandle = twitterHandle
     self.imageURL = imageURL
+    self.podcastAppleId = podcastAppleId
   }
 }

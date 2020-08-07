@@ -1,5 +1,6 @@
 import Fluent
 import FluentPostgresDriver
+import Ink
 import OrchardNestKit
 import Plot
 import QueuesFluentDriver
@@ -71,6 +72,8 @@ public final class Configurator: ConfiguratorProtocol {
       PodcastEpisodeMigration(),
       YouTubeChannelMigration(),
       YouTubeVideoMigration(),
+      PodcastChannelMigration(),
+      ChannelStatusMigration(),
       LatestEntriesMigration(),
       JobModelMigrate(schema: "queue_jobs")
     ])
@@ -105,7 +108,22 @@ public final class Configurator: ConfiguratorProtocol {
     //   services.register(wss, as: WebSocketServer.self)
 
     let api = app.grouped("api", "v1")
-    try app.register(collection: HTMLController())
+    let parser = MarkdownParser()
+
+    let textPairs = FileManager.default.enumerator(atPath: app.directory.viewsDirectory)?.compactMap { $0 as? String }.map { path in
+      print(app.directory.viewsDirectory + path)
+      return URL(fileURLWithPath: app.directory.viewsDirectory + path)
+    }.compactMap { url in
+      (try? String(contentsOf: url)).map { (url.deletingPathExtension().lastPathComponent, $0) }
+    }
+
+    let pages = textPairs.map(Dictionary.init(uniqueKeysWithValues:))?.mapValues(
+      parser.parse
+    )
+
+    debugPrint(pages)
+
+    try app.register(collection: HTMLController(views: pages))
     try api.grouped("entires").register(collection: EntryController())
 
     app.post("jobs") { req in

@@ -43,8 +43,14 @@ public let twitterHandle: String?
 public let imageURL: URL?
 ```
 
+### `podcastAppleId`
+
+```swift
+public let podcastAppleId: Int?
+```
+
 ## Methods
-### `init(id:title:siteURL:author:twitterHandle:imageURL:)`
+### `init(id:title:siteURL:author:twitterHandle:imageURL:podcastAppleId:)`
 
 ```swift
 public init(
@@ -53,6 +59,7 @@ public init(
   siteURL: URL,
   author: String,
   twitterHandle: String?,
-  imageURL: URL?
+  imageURL: URL?,
+  podcastAppleId: Int?
 )
 ```
