@@ -32,7 +32,7 @@ ul.articles {
   list-style: none;
 }
 
-ul.articles li {
+ul.articles > li {
   padding: 1em 0px;
 }
 
@@ -88,3 +88,46 @@ ul.articles li > .social-share > ul > li > a{
   height: 2em;
   padding: 0px 5px;
 }
+
+ul.articles li > ul.podcast-players {
+  list-style: none;
+  margin: 0;
+}
+
+ul.articles li > ul.podcast-players > li {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+ul.articles li > ul.podcast-players > li > a {
+  border: solid 1px;
+  height: 3em;
+  display: inline-block;
+  padding: 4px;
+  border-radius: 8px;
+  width: 10em;
+}
+
+ul.articles li > ul.podcast-players > li img {
+  object-fit: contain;
+  height: 100%;
+}
+
+ul.articles li > ul.podcast-players > li img+div {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+ul.articles li > ul.podcast-players > li img+div > div:first-child {
+  font-size: 0.7em;
+}
+/*
+ul.articles li > ul.podcast-players > li {
+  height: 2em;
+  display: inline-block;
+}
+
+
+
+
+*/

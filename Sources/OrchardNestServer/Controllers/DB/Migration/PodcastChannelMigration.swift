@@ -1,16 +1,16 @@
 import Fluent
 import Vapor
 
-struct YouTubeChannelMigration: Migration {
+struct PodcastChannelMigration: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
-    database.schema(YouTubeChannel.schema)
+    database.schema(PodcastChannel.schema)
       .field("channel_id", .uuid, .identifier(auto: false), .references(Channel.schema, .id))
-      .field("youtube_id", .string, .required)
-      .unique(on: "youtube_id")
+      .field("apple_id", .int, .required)
+      .unique(on: "apple_id")
       .create()
   }
 
   func revert(on database: Database) -> EventLoopFuture<Void> {
-    database.schema(YouTubeChannel.schema).delete()
+    database.schema(PodcastChannel.schema).delete()
   }
 }
