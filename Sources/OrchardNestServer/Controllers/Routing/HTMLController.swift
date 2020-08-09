@@ -145,7 +145,17 @@ extension Node where Context == HTML.DocumentContext {
       .head(
         .title("OrchardNest - \(subtitle)"),
         .meta(.charset(.utf8)),
+        .raw("""
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXSE03BMPF"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
+          gtag('config', 'G-GXSE03BMPF');
+        </script>
+        """),
         .link(.rel(.appleTouchIcon), .sizes("180x180"), .href("/apple-touch-icon.png")),
         .link(.rel(.appleTouchIcon), .type("image/png"), .sizes("32x32"), .href("/favicon-32x32.png")),
         .link(.rel(.appleTouchIcon), .type("image/png"), .sizes("16x16"), .href("/favicon-16x16.png")),
@@ -197,6 +207,7 @@ extension Node where Context == HTML.ListContext {
         .unwrap(item.podcastEpisodeURL) {
           .audio(
             .controls(true),
+            .attribute(named: "preload", value: "metadata"),
             .source(
               .src($0)
             )

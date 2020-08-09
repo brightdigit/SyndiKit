@@ -16,7 +16,7 @@ let package = Package(
       name: "OrchardNestServer",
       targets: ["OrchardNestServer"]
     ),
-    .executable(name: "orcnst", targets: ["orcnst"])
+    .executable(name: "orchardnestd", targets: ["orchardnestd"])
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
@@ -47,7 +47,7 @@ let package = Package(
                      .product(name: "Plot", package: "Plot"),
                      .product(name: "Ink", package: "Ink")]
     ),
-    .target(name: "orcnst",
+    .target(name: "orchardnestd",
             dependencies: ["OrchardNestKit", "OrchardNestServer", "FeedKit"]),
     .testTarget(
       name: "OrchardNestKitTests",
