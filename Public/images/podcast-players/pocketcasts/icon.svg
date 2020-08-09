@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="drawing.svg"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   id="svg61"
+   version="1.1"
+   viewBox="0 0 12.7 12.7"
+   height="12.7mm"
+   width="12.7mm">
+  <defs
+     id="defs55" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="216"
+     inkscape:window-x="1701"
+     inkscape:window-height="979"
+     inkscape:window-width="1627"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="435.42857"
+     inkscape:cx="-38.85715"
+     inkscape:zoom="0.35"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata58">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-116.87024,-32.959524)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,116.87024,32.959524)"
+       id="Pocket-Casts-Roundel---Red">
+      <g
+         id="Group">
+        <path
+           d="M 48,24 C 48,37.255111 37.255111,48 24,48 10.744889,48 0,37.255111 0,24 0,10.744889 10.744889,0 24,0 37.255111,0 48,10.744889 48,24"
+           id="Fill-23"
+           fill="#f43e37" />
+        <g
+           id="Glyph---White"
+           transform="translate(5.333333,5.333333)"
+           fill="#ffffff">
+          <path
+             d="M 0,18.5 C 0,8.2827321 8.2827321,0 18.5,0 28.717268,0 37,8.2827321 37,18.5 H 32.375 C 32.375,10.837049 26.162951,4.625 18.5,4.625 10.837049,4.625 4.625,10.837049 4.625,18.5 c 0,7.662951 6.212049,13.875 13.875,13.875 V 37 C 8.2827321,37 0,28.717268 0,18.5 Z M 18.5,29.6 C 12.369639,29.6 7.4,24.630361 7.4,18.5 7.4,12.369639 12.369639,7.4 18.5,7.4 c 6.130361,0 11.1,4.969639 11.1,11.1 h -4.036364 c 0,-3.901139 -3.162497,-7.063636 -7.063636,-7.063636 -3.901139,0 -7.063636,3.162497 -7.063636,7.063636 0,3.901139 3.162497,7.063636 7.063636,7.063636 z"
+             id="Path" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

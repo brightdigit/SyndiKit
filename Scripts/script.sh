@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $TRAVIS_OS_NAME = 'osx' ]]; then
-  swiftformat --lint . && swiftlint
+  swift run swiftformat --lint . && swift run swiftlint
 elif [[ $TRAVIS_OS_NAME = 'linux' ]]; then
   # What to do in Ubunutu
   RELEASE_DOT=$(lsb_release -sr)
