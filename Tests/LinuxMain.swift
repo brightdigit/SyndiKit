@@ -1,7 +1,8 @@
 import XCTest
 
-import OrchardNestTests
+import OrchardNestKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += OrchardNestTests.allTests()
+tests += OrchardNestKitTests.__allTests()
+
 XCTMain(tests)
