@@ -16,18 +16,19 @@ let package = Package(
       name: "OrchardNestServer",
       targets: ["OrchardNestServer"]
     ),
-    .executable(name: "orcnst-serve", targets: ["orcnst-serve"]),
-    .executable(name: "orcnst", targets: ["orcnst"])
+    .executable(name: "orchardnestd", targets: ["orchardnestd"])
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
     .package(url: "https://github.com/brightdigit/FeedKit.git", .branch("master")),
     .package(url: "https://github.com/shibapm/Komondor", from: "1.0.5"),
-    .package(url: "https://github.com/eneko/SourceDocs", from: "1.0.0"),
+    .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"),
     .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
     .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
     .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
-    .package(name: "QueuesFluentDriver", url: "https://github.com/m-barthelemy/vapor-queues-fluent-driver.git", from: "0.3.8")
+    .package(name: "QueuesFluentDriver", url: "https://github.com/m-barthelemy/vapor-queues-fluent-driver.git", from: "0.3.8"),
+    .package(name: "Plot", url: "https://github.com/johnsundell/plot.git", from: "0.8.0"),
+    .package(url: "https://github.com/JohnSundell/Ink.git", from: "0.1.0")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -42,12 +43,12 @@ let package = Package(
                      .product(name: "Fluent", package: "fluent"),
                      .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
                      .product(name: "Vapor", package: "vapor"),
-                     .product(name: "QueuesFluentDriver", package: "QueuesFluentDriver")]
+                     .product(name: "QueuesFluentDriver", package: "QueuesFluentDriver"),
+                     .product(name: "Plot", package: "Plot"),
+                     .product(name: "Ink", package: "Ink")]
     ),
-    .target(name: "orcnst",
-            dependencies: ["OrchardNestKit", "FeedKit"]),
-    .target(name: "orcnst-serve",
-            dependencies: ["OrchardNestKit", "OrchardNestServer"]),
+    .target(name: "orchardnestd",
+            dependencies: ["OrchardNestKit", "OrchardNestServer", "FeedKit"]),
     .testTarget(
       name: "OrchardNestKitTests",
       dependencies: ["OrchardNestKit"]
@@ -65,7 +66,7 @@ let package = Package(
         "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",
         "swift run swiftformat .",
         "swift run swiftlint autocorrect",
-        "swift run sourcedocs generate --spm-module OrchardNest -r",
+        "swift run sourcedocs generate --spm-module OrchardNestKit -c -r",
         // "swift run swiftpmls mine",
         "git add .",
         "swift run swiftformat --lint .",
