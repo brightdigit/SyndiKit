@@ -5,6 +5,12 @@ import OrchardNestKit
 import Plot
 import QueuesFluentDriver
 import Vapor
+extension Date {
+  func get(_ type: Calendar.Component) -> Int {
+    let calendar = Calendar.current
+    return calendar.component(type, from: self)
+  }
+}
 
 extension HTML: ResponseEncodable {
   public func encodeResponse(for request: Request) -> EventLoopFuture<Response> {
@@ -101,6 +107,17 @@ public final class Configurator: ConfiguratorProtocol {
 //    }
 
     app.queues.add(RefreshJob())
+    app.queues.schedule(RefreshJob()).daily().at(.midnight)
+    app.queues.schedule(RefreshJob()).daily().at(7, 30)
+    app.queues.schedule(RefreshJob()).daily().at(19, 30)
+    #if DEBUG
+      if !app.environment.isRelease {
+        let minute = Date().get(.minute)
+        [0, 30].map { ($0 + minute + 5).remainderReportingOverflow(dividingBy: 60).partialValue }.forEach { minute in
+          app.queues.schedule(RefreshJob()).hourly().at(.init(integerLiteral: minute))
+        }
+      }
+    #endif
     try app.queues.startInProcessJobs(on: .default)
     app.commands.use(RefreshCommand(help: "Imports data into the database"), as: "refresh")
 
@@ -108,11 +125,12 @@ public final class Configurator: ConfiguratorProtocol {
     //   services.register(wss, as: WebSocketServer.self)
 
     let api = app.grouped("api", "v1")
+
+    let markdownDirectory = app.directory.viewsDirectory
     let parser = MarkdownParser()
 
-    let textPairs = FileManager.default.enumerator(atPath: app.directory.viewsDirectory)?.compactMap { $0 as? String }.map { path in
-      print(app.directory.viewsDirectory + path)
-      return URL(fileURLWithPath: app.directory.viewsDirectory + path)
+    let textPairs = FileManager.default.enumerator(atPath: markdownDirectory)?.compactMap { $0 as? String }.map { path in
+      URL(fileURLWithPath: app.directory.viewsDirectory + path)
     }.compactMap { url in
       (try? String(contentsOf: url)).map { (url.deletingPathExtension().lastPathComponent, $0) }
     }
@@ -120,8 +138,6 @@ public final class Configurator: ConfiguratorProtocol {
     let pages = textPairs.map(Dictionary.init(uniqueKeysWithValues:))?.mapValues(
       parser.parse
     )
-
-    debugPrint(pages)
 
     try app.register(collection: HTMLController(views: pages))
     try api.grouped("entires").register(collection: EntryController())
