@@ -140,11 +140,13 @@ extension Node where Context == HTML.BodyContext {
 }
 
 extension Node where Context == HTML.DocumentContext {
-  static func head(withSubtitle subtitle: String) -> Self {
+  static func head(withSubtitle subtitle: String, andDescription description: String) -> Self {
     return
       .head(
         .title("OrchardNest - \(subtitle)"),
         .meta(.charset(.utf8)),
+        .meta(.name("viewport"), .content("width=device-width, initial-scale=1")),
+        .meta(.name("description"), .content(description)),
         .raw("""
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXSE03BMPF"></script>
@@ -156,6 +158,8 @@ extension Node where Context == HTML.DocumentContext {
           gtag('config', 'G-GXSE03BMPF');
         </script>
         """),
+        .link(.rel(.preload), .href("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;800&display=swap"), .attribute(named: "as", value: "style")),
+        .link(.rel(.preload), .href("/styles/elusive-icons/css/elusive-icons.min.css"), .attribute(named: "as", value: "style")),
         .link(.rel(.appleTouchIcon), .sizes("180x180"), .href("/apple-touch-icon.png")),
         .link(.rel(.appleTouchIcon), .type("image/png"), .sizes("32x32"), .href("/favicon-32x32.png")),
         .link(.rel(.appleTouchIcon), .type("image/png"), .sizes("16x16"), .href("/favicon-16x16.png")),
@@ -164,9 +168,7 @@ extension Node where Context == HTML.DocumentContext {
         .meta(.name("msapplication-TileColor"), .content("#2b5797")),
         .meta(.name("theme-color"), .content("#ffffff")),
         .link(.rel(.stylesheet), .href("/styles/elusive-icons/css/elusive-icons.min.css")),
-
         .link(.rel(.stylesheet), .href("/styles/normalize.css")),
-
         .link(.rel(.stylesheet), .href("/styles/milligram.css")),
         .link(.rel(.stylesheet), .href("/styles/style.css")),
         .link(.rel(.stylesheet), .href("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;800&display=swap"))
@@ -194,11 +196,19 @@ extension Node where Context == HTML.ListContext {
           .text(item.publishedAt.description)
         ),
         .unwrap(item.youtubeID) {
-          .iframe(
-            .src("https://www.youtube.com/embed/" + $0),
-            .allow("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),
-            .allowfullscreen(true)
+          .div(
+            .class("video-content"),
+            .a(
+              .href(item.url),
+              .img(.src("https://img.youtube.com/vi/\($0)/mqdefault.jpg"))
+            ),
+            .iframe(
+              .attribute(named: "data-src", value: "https://www.youtube.com/embed/" + $0),
+              .allow("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),
+              .allowfullscreen(true)
+            )
           )
+
         },
         .div(
           .class("summary"),
@@ -207,7 +217,7 @@ extension Node where Context == HTML.ListContext {
         .unwrap(item.podcastEpisodeURL) {
           .audio(
             .controls(true),
-            .attribute(named: "preload", value: "metadata"),
+            .attribute(named: "preload", value: "none"),
             .source(
               .src($0)
             )
@@ -330,7 +340,7 @@ struct HTMLController {
       }
       .map { (items) -> HTML in
         HTML(
-          .head(withSubtitle: "Swift Articles and News"),
+          .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News of Category \(category)"),
           .body(
             .header(),
             .main(
@@ -361,7 +371,7 @@ struct HTMLController {
     }
 
     let html = HTML(
-      .head(withSubtitle: "Support and FAQ"),
+      .head(withSubtitle: "Support and FAQ", andDescription: view.metadata["description"] ?? name),
       .body(
         .header(),
         .main(
@@ -398,7 +408,7 @@ struct HTMLController {
       }
       .map { (items) -> HTML in
         HTML(
-          .head(withSubtitle: "Swift Articles and News"),
+          .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News"),
           .body(
             .header(),
             .main(
