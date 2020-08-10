@@ -19,16 +19,17 @@ let package = Package(
     .executable(name: "orchardnestd", targets: ["orchardnestd"])
   ],
   dependencies: [
-    // Dependencies declare other packages that this package depends on.
     .package(url: "https://github.com/brightdigit/FeedKit.git", .branch("master")),
-    .package(url: "https://github.com/shibapm/Komondor", from: "1.0.5"),
-    .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"),
     .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
     .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
     .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
     .package(name: "QueuesFluentDriver", url: "https://github.com/m-barthelemy/vapor-queues-fluent-driver.git", from: "0.3.8"),
     .package(name: "Plot", url: "https://github.com/johnsundell/plot.git", from: "0.8.0"),
-    .package(url: "https://github.com/JohnSundell/Ink.git", from: "0.1.0")
+    .package(url: "https://github.com/JohnSundell/Ink.git", from: "0.1.0"),
+    // dev
+    .package(url: "https://github.com/shibapm/Komondor", from: "1.0.5"),
+    .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"),
+    .package(url: "https://github.com/shibapm/Rocket", from: "0.1.0")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.

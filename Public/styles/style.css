@@ -72,6 +72,10 @@ main nav.posts-filter ul li a.button{
   margin-right: 1em;
 }
 
+ul.articles li > .video-content iframe {
+  display: none;
+}
+
 ul.articles li > .social-share > ul{
   list-style: none;
   display: inline-block;
@@ -121,13 +125,3 @@ ul.articles li > ul.podcast-players > li img+div {
 ul.articles li > ul.podcast-players > li img+div > div:first-child {
   font-size: 0.7em;
 }
-/*
-ul.articles li > ul.podcast-players > li {
-  height: 2em;
-  display: inline-block;
-}
-
-
-
-
-*/
