@@ -5,7 +5,7 @@ struct EntryMigration: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
     database.schema(Entry.schema)
       .id()
-      .field("channel_id", .uuid, .required)
+      .field("channel_id", .uuid, .required, .references(Channel.schema, .id, onDelete: .cascade, onUpdate: .cascade))
       .field("feed_id", .string, .required)
       .field("title", .string, .required)
       .field("summary", .string, .required)

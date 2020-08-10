@@ -177,7 +177,7 @@ extension Node where Context == HTML.DocumentContext {
 }
 
 extension Node where Context == HTML.ListContext {
-  static func li(forEntryItem item: EntryItem) -> Self {
+  static func li(forEntryItem item: EntryItem, formatDateWith formatter: DateFormatter) -> Self {
     return
       .li(
         .class("blog-post"),
@@ -193,7 +193,7 @@ extension Node where Context == HTML.ListContext {
         ),
         .div(
           .class("publishedAt"),
-          .text(item.publishedAt.description)
+          .text(formatter.string(from: item.publishedAt))
         ),
         .unwrap(item.youtubeID) {
           .div(
@@ -305,6 +305,12 @@ extension EntryCategory {
 
 struct HTMLController {
   let views: [String: Markdown]
+  static let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .short
+    formatter.dateStyle = .medium
+    return formatter
+  }()
 
   init(views: [String: Markdown]?) {
     self.views = views ?? [String: Markdown]()
@@ -351,7 +357,7 @@ struct HTMLController {
                 .ul(
                   .class("articles column"),
                   .forEach(items) {
-                    .li(forEntryItem: $0)
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
                   }
                 )
               )
@@ -422,7 +428,7 @@ struct HTMLController {
                 .ul(
                   .class("articles column"),
                   .forEach(items) {
-                    .li(forEntryItem: $0)
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
                   }
                 )
               )
@@ -463,7 +469,7 @@ struct HTMLController {
                 .ul(
                   .class("articles column"),
                   .forEach(items) {
-                    .li(forEntryItem: $0)
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
                   }
                 )
               )
