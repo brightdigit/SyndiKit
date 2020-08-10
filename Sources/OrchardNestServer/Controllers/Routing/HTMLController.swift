@@ -388,6 +388,50 @@ struct HTMLController {
     return req.eventLoop.future(html)
   }
 
+  func channel(req: Request) throws -> EventLoopFuture<HTML> {
+    guard let channel = req.parameters.get("channel").flatMap(UUID.init(uuidString:)) else {
+      throw Abort(.notFound)
+    }
+
+    return Entry.query(on: req.db)
+      .with(\.$channel) { builder in
+        builder.with(\.$podcasts).with(\.$youtubeChannels)
+      }
+      .join(parent: \.$channel)
+      .with(\.$podcastEpisodes)
+      .join(children: \.$podcastEpisodes, method: .left)
+      .with(\.$youtubeVideos)
+      .join(children: \.$youtubeVideos, method: .left)
+      .filter(Channel.self, \Channel.$id == channel)
+      .sort(\.$publishedAt, .descending)
+      .limit(32)
+      .all()
+      .flatMapEachThrowing {
+        try EntryItem(entry: $0)
+      }
+      .map { (items) -> HTML in
+        HTML(
+          .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News"),
+          .body(
+            .header(),
+            .main(
+              .class("container"),
+              .filters(),
+              .section(
+                .class("row"),
+                .ul(
+                  .class("articles column"),
+                  .forEach(items) {
+                    .li(forEntryItem: $0)
+                  }
+                )
+              )
+            )
+          )
+        )
+      }
+  }
+
   func index(req: Request) -> EventLoopFuture<HTML> {
     return Entry.query(on: req.db).join(LatestEntry.self, on: \Entry.$id == \LatestEntry.$id)
       .with(\.$channel) { builder in
@@ -435,5 +479,6 @@ extension HTMLController: RouteCollection {
     routes.get("", use: index)
     routes.get("category", ":category", use: category)
     routes.get(":page", use: page)
+    routes.get("channels", ":channel", use: channel)
   }
 }
