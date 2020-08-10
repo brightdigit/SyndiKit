@@ -64,3 +64,31 @@ extension Channel: Validatable {
     validations.add("imageURL", as: URL.self)
   }
 }
+
+extension UUID {
+  var base32Encoded: String {
+    // swiftlint:disable:next force_cast
+    let bytes = Mirror(reflecting: uuid).children.map { $0.value as! UInt8 }
+    return Data(bytes).base32EncodedString()
+  }
+}
+
+extension String {
+  var base32UUID: UUID? {
+    guard let data = Data(base32Encoded: self) else {
+      return nil
+    }
+    var bytes = [UInt8](repeating: 0, count: data.count)
+    _ = bytes.withUnsafeMutableBufferPointer {
+      data.copyBytes(to: $0)
+    }
+    return NSUUID(uuidBytes: bytes) as UUID
+  }
+}
+
+extension Array where Element == UInt8 {
+  public init(uuid: UUID) {
+    // swiftlint:disable:next force_cast
+    self = Mirror(reflecting: uuid.uuid).children.map { $0.value as! UInt8 }
+  }
+}

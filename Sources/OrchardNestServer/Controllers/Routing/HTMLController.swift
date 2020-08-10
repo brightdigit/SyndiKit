@@ -232,7 +232,7 @@ extension Node where Context == HTML.ListContext {
           .text(item.channel.author),
           .text(" at "),
           .a(
-            .href("/channels/" + item.channel.id.uuidString),
+            .href("/channels/" + item.channel.id.base32Encoded.lowercased()),
             .text(item.channel.siteURL.host ?? item.channel.title)
           ),
           .unwrap(item.channel.twitterHandle) {
@@ -395,7 +395,7 @@ struct HTMLController {
   }
 
   func channel(req: Request) throws -> EventLoopFuture<HTML> {
-    guard let channel = req.parameters.get("channel").flatMap(UUID.init(uuidString:)) else {
+    guard let channel = req.parameters.get("channel").flatMap({ $0.base32UUID }) else {
       throw Abort(.notFound)
     }
 
