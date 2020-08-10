@@ -59,13 +59,20 @@ struct RefreshJob: ScheduledJob, Job {
 
     context.logger.info("downloading blog list...")
 
-    return context.application.client.get(URI(string: Self.url.absoluteString)).flatMapThrowing { (response) -> [LanguageContent] in
+    let blogsDownload = context.application.client.get(URI(string: Self.url.absoluteString)).flatMapThrowing { (response) -> [LanguageContent] in
       try response.content.decode([LanguageContent].self, using: decoder)
-    }.map(SiteCatalogMap.init).flatMap { (siteCatalogMap) -> EventLoopFuture<Void> in
+    }.map(SiteCatalogMap.init)
 
+    let ignoringFeedURLs = ChannelStatus.query(on: database).filter(\.$status == ChannelStatusType.ignore).field(\.$id).all().map { $0.compactMap { $0.id.flatMap(URL.init(string:)) }}
+
+    return blogsDownload.and(ignoringFeedURLs).flatMap { (siteCatalogMap, ignoringFeedURLs) -> EventLoopFuture<Void> in
       let languages = siteCatalogMap.languages
       let categories = siteCatalogMap.categories
-      let organizedSites = siteCatalogMap.organizedSites
+      let organizedSites = siteCatalogMap.organizedSites.filter {
+        !ignoringFeedURLs.contains($0.site.feed_url)
+      }
+
+      let channelCleanup = Channel.query(on: database).filter(\.$feedUrl ~~ ignoringFeedURLs.map { $0.absoluteString }).delete()
 
       let futureLanguages = languages.map { Language.from($0, on: database) }.flatten(on: database.eventLoop)
       let futureCategories = categories.map { Category.from($0.key, on: database) }.flatten(on: database.eventLoop)
@@ -253,7 +260,7 @@ struct RefreshJob: ScheduledJob, Job {
           PodcastEpisode.upsert(newEpisode, on: database)
         }
 
-        return futYTVideos.and(futYTChannels).and(futPodEpisodes).and(podcastChannels).transform(to: ())
+        return futYTVideos.and(futYTChannels).and(futPodEpisodes).and(podcastChannels).and(channelCleanup).transform(to: ())
       }
     }
   }

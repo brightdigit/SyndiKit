@@ -177,7 +177,7 @@ extension Node where Context == HTML.DocumentContext {
 }
 
 extension Node where Context == HTML.ListContext {
-  static func li(forEntryItem item: EntryItem) -> Self {
+  static func li(forEntryItem item: EntryItem, formatDateWith formatter: DateFormatter) -> Self {
     return
       .li(
         .class("blog-post"),
@@ -193,7 +193,7 @@ extension Node where Context == HTML.ListContext {
         ),
         .div(
           .class("publishedAt"),
-          .text(item.publishedAt.description)
+          .text(formatter.string(from: item.publishedAt))
         ),
         .unwrap(item.youtubeID) {
           .div(
@@ -305,6 +305,12 @@ extension EntryCategory {
 
 struct HTMLController {
   let views: [String: Markdown]
+  static let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .short
+    formatter.dateStyle = .medium
+    return formatter
+  }()
 
   init(views: [String: Markdown]?) {
     self.views = views ?? [String: Markdown]()
@@ -351,7 +357,7 @@ struct HTMLController {
                 .ul(
                   .class("articles column"),
                   .forEach(items) {
-                    .li(forEntryItem: $0)
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
                   }
                 )
               )
@@ -388,6 +394,50 @@ struct HTMLController {
     return req.eventLoop.future(html)
   }
 
+  func channel(req: Request) throws -> EventLoopFuture<HTML> {
+    guard let channel = req.parameters.get("channel").flatMap(UUID.init(uuidString:)) else {
+      throw Abort(.notFound)
+    }
+
+    return Entry.query(on: req.db)
+      .with(\.$channel) { builder in
+        builder.with(\.$podcasts).with(\.$youtubeChannels)
+      }
+      .join(parent: \.$channel)
+      .with(\.$podcastEpisodes)
+      .join(children: \.$podcastEpisodes, method: .left)
+      .with(\.$youtubeVideos)
+      .join(children: \.$youtubeVideos, method: .left)
+      .filter(Channel.self, \Channel.$id == channel)
+      .sort(\.$publishedAt, .descending)
+      .limit(32)
+      .all()
+      .flatMapEachThrowing {
+        try EntryItem(entry: $0)
+      }
+      .map { (items) -> HTML in
+        HTML(
+          .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News"),
+          .body(
+            .header(),
+            .main(
+              .class("container"),
+              .filters(),
+              .section(
+                .class("row"),
+                .ul(
+                  .class("articles column"),
+                  .forEach(items) {
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
+                  }
+                )
+              )
+            )
+          )
+        )
+      }
+  }
+
   func index(req: Request) -> EventLoopFuture<HTML> {
     return Entry.query(on: req.db).join(LatestEntry.self, on: \Entry.$id == \LatestEntry.$id)
       .with(\.$channel) { builder in
@@ -419,7 +469,7 @@ struct HTMLController {
                 .ul(
                   .class("articles column"),
                   .forEach(items) {
-                    .li(forEntryItem: $0)
+                    .li(forEntryItem: $0, formatDateWith: Self.dateFormatter)
                   }
                 )
               )
@@ -435,5 +485,6 @@ extension HTMLController: RouteCollection {
     routes.get("", use: index)
     routes.get("category", ":category", use: category)
     routes.get(":page", use: page)
+    routes.get("channels", ":channel", use: channel)
   }
 }
