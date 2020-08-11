@@ -15,7 +15,8 @@ extension Node where Context == HTML.BodyContext {
         .a(
           .href("https://podcasts.apple.com/podcast/id\(appleId)"),
           .img(
-            .src("/images/podcast-players/apple/icon.svg")
+            .src("/images/podcast-players/apple/icon.svg"),
+            .alt("Listen on Apple Podcasts")
           ),
           .div(
             .div(
@@ -32,7 +33,8 @@ extension Node where Context == HTML.BodyContext {
         .a(
           .href("https://overcast.fm/itunes\(appleId)"),
           .img(
-            .src("/images/podcast-players/overcast/icon.svg")
+            .src("/images/podcast-players/overcast/icon.svg"),
+            .alt("Listen on Overcast")
           ),
           .div(
             .div(
@@ -49,7 +51,8 @@ extension Node where Context == HTML.BodyContext {
         .a(
           .href("https://castro.fm/itunes/\(appleId)"),
           .img(
-            .src("/images/podcast-players/castro/icon.svg")
+            .src("/images/podcast-players/castro/icon.svg"),
+            .alt("Listen on Castro")
           ),
           .div(
             .div(
@@ -66,7 +69,8 @@ extension Node where Context == HTML.BodyContext {
         .a(
           .href("https://podcasts.apple.com/podcast/id\(appleId)"),
           .img(
-            .src("/images/podcast-players/pocketcasts/icon.svg")
+            .src("/images/podcast-players/pocketcasts/icon.svg"),
+            .alt("Listen on Pocket Casts")
           ),
           .div(
             .div(
@@ -123,7 +127,8 @@ extension Node where Context == HTML.BodyContext {
           .class("column"),
           .img(
             .class("logo"),
-            .src("/images/logo.svg")
+            .src("/images/logo.svg"),
+            .alt("OrchardNest")
           ),
           .text("&nbsp;OrchardNest")
         )
@@ -195,12 +200,15 @@ extension Node where Context == HTML.ListContext {
           .class("publishedAt"),
           .text(formatter.string(from: item.publishedAt))
         ),
-        .unwrap(item.youtubeID) {
+        .unwrap(item.youtubeID, {
           .div(
             .class("video-content"),
             .a(
               .href(item.url),
-              .img(.src("https://img.youtube.com/vi/\($0)/mqdefault.jpg"))
+              .img(
+                .src("https://img.youtube.com/vi/\($0)/mqdefault.jpg"),
+                .alt(item.title)
+              )
             ),
             .iframe(
               .attribute(named: "data-src", value: "https://www.youtube.com/embed/" + $0),
@@ -209,7 +217,14 @@ extension Node where Context == HTML.ListContext {
             )
           )
 
-        },
+        }, else:
+        .unwrap(item.fallbackImageURL) {
+          .div(
+            .class("featured-image"),
+            .style("background-image: url(\($0));"),
+            .attribute(named: "title", value: item.title)
+          )
+        }),
         .div(
           .class("summary"),
           .text(item.summary.plainTextShort)
