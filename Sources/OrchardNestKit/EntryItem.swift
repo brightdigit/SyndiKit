@@ -152,4 +152,8 @@ public extension EntryItem {
     let text = title + (channel.twitterHandle.map { " from @\($0)" } ?? "")
     return "https://twitter.com/intent/tweet?text=\(text)&via=orchardnest&url=\(url)"
   }
+
+  var fallbackImageURL: URL? {
+    return imageURL ?? channel.imageURL
+  }
 }

@@ -23,3 +23,9 @@ var youtubeID: String?
 ```swift
 var twitterShareLink: String
 ```
+
+### `fallbackImageURL`
+
+```swift
+var fallbackImageURL: URL?
+```

@@ -76,6 +76,36 @@ ul.articles li > .video-content iframe {
   display: none;
 }
 
+ul.articles li > .video-content {
+  max-width: 100%;
+  width: 320px;
+  height: 180px;
+}
+
+ul.articles li > .featured-image {
+  background-size: cover;
+  width: 320px;
+  background-position: center;
+  height: 180px;
+  max-width: 100%;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 40.0rem) {
+  ul.articles li > .featured-image {
+    float: right;
+    width: 320px;
+    height: 180px;
+    margin-left: 1em;
+    background-size: contain;
+  }
+  
+  ul.articles li > .video-content {
+    float: right;
+    margin-left: 1em;
+  }
+}
+
 ul.articles li > .social-share > ul{
   list-style: none;
   display: inline-block;
