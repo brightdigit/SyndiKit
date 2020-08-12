@@ -45,14 +45,14 @@ final class Entry: Model, Content {
   var podcastEpisodes: [PodcastEpisode]
 
   var podcastEpisode: PodcastEpisode? {
-    return podcastEpisodes.first
+    return $podcastEpisodes.value?.first
   }
 
   @Children(for: \.$entry)
   var youtubeVideos: [YoutubeVideo]
 
   var youtubeVideo: YoutubeVideo? {
-    return youtubeVideos.first
+    return $youtubeVideos.value?.first
   }
 }
 
