@@ -1,6 +1,17 @@
 import Foundation
 import OrchardNestKit
 import Plot
+import Vapor
+
+extension HTML: ResponseEncodable {
+  public func encodeResponse(for request: Request) -> EventLoopFuture<Response> {
+    var headers = HTTPHeaders()
+    headers.add(name: .contentType, value: "text/html")
+    return request.eventLoop.makeSucceededFuture(.init(
+      status: .ok, headers: headers, body: .init(string: render())
+    ))
+  }
+}
 
 public extension Node where Context == HTML.BodyContext {
   static func playerForPodcast(withAppleId appleId: Int) -> Self {

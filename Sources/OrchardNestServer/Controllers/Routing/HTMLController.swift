@@ -3,6 +3,7 @@ import FluentSQL
 import Ink
 import OrchardNestKit
 import Plot
+import QueuesFluentDriver
 import Vapor
 
 struct HTMLController {
@@ -165,6 +166,73 @@ struct HTMLController {
         )
       }
   }
+
+  func sitemap(req: Request) -> EventLoopFuture<SiteMap> {
+    let last = (req.queue as? FluentQueue).map {
+      $0.list(state: .completed).map { $0.map { $0.queuedAt }.max() }
+    } ?? req.eventLoop.makeSucceededFuture(nil)
+    let urls = req.application.routes.all.filter { route in
+
+      guard route.method == .GET else {
+        return false
+      }
+
+      if case let .constant(name) = route.path.first {
+        guard name != "api" else {
+          return false
+        }
+      }
+
+      if case let .constant(name) = route.path.last {
+        guard name != "sitemap.xml" else {
+          return false
+        }
+      }
+
+      return true
+    }.map { (route) -> EventLoopFuture<[URL]> in
+      let baseURL = URL(string: "https://orchardnest.com")!
+
+      let components: [SiteMapPathComponent] = route.path.compactMap { path in
+        switch path {
+        case let .constant(constant):
+          return .name(constant)
+        case let .parameter(parameter):
+          guard let mappable = MappableParameter(rawValue: parameter) else {
+            return nil
+          }
+          return .parameter(mappable)
+        default:
+          return nil
+        }
+      }
+
+      let urls = components.map { (component) -> EventLoopFuture<[String]> in
+        switch component {
+        case let .name(name):
+          return req.eventLoop.makeSucceededFuture([name])
+        case let .parameter(parameter):
+          return parameter.pathComponents(on: req.db, withViews: [String](self.views.keys), from: req.eventLoop)
+        }
+      }.flatten(on: req.eventLoop).map { $0.crossReduce().map { $0.joined(separator: "/") }.map(baseURL.appendingPathComponent(_:)) }
+
+      return urls
+    }.flatten(on: req.eventLoop)
+
+    return urls.map { $0.flatMap { $0 }}.and(last).map { (urls, last) -> SiteMap in
+      SiteMap(
+        .forEach(urls) { url in
+          .url(
+            .loc(url),
+            .changefreq(.hourly),
+            .unwrap(last) {
+              .lastmod($0)
+            }
+          )
+        }
+      )
+    }
+  }
 }
 
 extension HTMLController: RouteCollection {
@@ -173,5 +241,6 @@ extension HTMLController: RouteCollection {
     routes.get("categories", ":category", use: category)
     routes.get(":page", use: page)
     routes.get("channels", ":channel", use: channel)
+    routes.get("sitemap.xml", use: sitemap)
   }
 }
