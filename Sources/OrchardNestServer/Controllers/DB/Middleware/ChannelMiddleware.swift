@@ -12,11 +12,11 @@ struct ChannelMiddleware: ModelMiddleware {
     return model
   }
 
-  func create(model: Channel, on db: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
-    next.create(trim(model: model), on: db)
+  func create(model: Channel, on database: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
+    next.create(trim(model: model), on: database)
   }
 
-  func update(model: Channel, on db: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
-    next.update(trim(model: model), on: db)
+  func update(model: Channel, on database: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
+    next.update(trim(model: model), on: database)
   }
 }

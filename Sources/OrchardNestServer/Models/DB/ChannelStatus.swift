@@ -1,10 +1,6 @@
 import Fluent
 import Vapor
 
-enum ChannelStatusType: String, Codable, CaseIterable {
-  case ignore
-}
-
 final class ChannelStatus: Model {
   static var schema = "channel_statuses"
 

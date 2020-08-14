@@ -6,6 +6,7 @@ struct YouTubeVideoMigration: Migration {
     database.schema(YoutubeVideo.schema)
       .field("entry_id", .uuid, .identifier(auto: false), .references(Entry.schema, .id))
       .field("youtube_id", .string, .required)
+      .field("seconds", .int, .required)
       .unique(on: "youtube_id")
       .create()
   }

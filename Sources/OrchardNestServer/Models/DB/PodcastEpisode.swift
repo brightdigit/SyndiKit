@@ -6,9 +6,10 @@ final class PodcastEpisode: Model {
 
   init() {}
 
-  init(entryId: UUID, audioURL: String) {
+  init(entryId: UUID, audioURL: String, seconds: Int) {
     id = entryId
     self.audioURL = audioURL
+    self.seconds = seconds
   }
 
   @ID(custom: "entry_id", generatedBy: .user)
@@ -16,6 +17,9 @@ final class PodcastEpisode: Model {
 
   @Field(key: "audio")
   var audioURL: String
+
+  @Field(key: "seconds")
+  var seconds: Int
 
   @Parent(key: "entry_id")
   var entry: Entry
