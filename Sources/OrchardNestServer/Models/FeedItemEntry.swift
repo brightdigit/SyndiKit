@@ -23,7 +23,6 @@ struct FeedItemEntry {
       newEntry.summary = config.feedItem.summary
       newEntry.title = config.feedItem.title
       newEntry.url = config.feedItem.url.absoluteString
-      // context.logger.info("saving entry for \"\(config.feedItem.url)\"")
       return newEntry.save(on: database).transform(to: Self(entry: newEntry, feedItem: config.feedItem))
     }
   }
@@ -31,16 +30,9 @@ struct FeedItemEntry {
 
 extension FeedItemEntry {
   var podcastEpisode: PodcastEpisode? {
-    guard let id = entry.id, let audioURL = feedItem.audio else {
+    guard let id = entry.id, let audioURL = feedItem.audio, let duration = feedItem.duration else {
       return nil
     }
-    return PodcastEpisode(entryId: id, audioURL: audioURL.absoluteString)
-  }
-
-  var youtubeVideo: YoutubeVideo? {
-    guard let id = entry.id, let youtubeId = feedItem.ytId else {
-      return nil
-    }
-    return YoutubeVideo(entryId: id, youtubeId: youtubeId)
+    return PodcastEpisode(entryId: id, audioURL: audioURL.absoluteString, seconds: Int(duration.rounded()))
   }
 }

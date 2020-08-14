@@ -11,11 +11,11 @@ struct EntryMiddleware: ModelMiddleware {
     return model
   }
 
-  func create(model: Entry, on db: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
-    return next.create(trim(model: model), on: db)
+  func create(model: Entry, on database: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
+    return next.create(trim(model: model), on: database)
   }
 
-  func update(model: Entry, on db: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
-    return next.update(trim(model: model), on: db)
+  func update(model: Entry, on database: Database, next: AnyModelResponder) -> EventLoopFuture<Void> {
+    return next.update(trim(model: model), on: database)
   }
 }

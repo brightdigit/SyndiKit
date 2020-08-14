@@ -86,25 +86,6 @@ public final class Configurator: ConfiguratorProtocol {
 
     app.queues.configuration.refreshInterval = .seconds(25)
     app.queues.use(.fluent())
-//    app.databases.middleware.use(UserEmailerMiddleware(app: app))
-//
-//    app.migrations.add(CreateDevice())
-//    app.migrations.add(CreateAppleUser())
-//    app.migrations.add(CreateDeviceWorkout())
-//    app.migrations.add(ActivateWorkout())
-    // let wss = NIOWebSocketServer.default()
-
-//    app.webSocket("api", "v1", "workouts", ":id", "listen") { req, websocket in
-//      guard let idData = try? Base32CrockfordEncoding.encoding.decode(base32Encoded: req.parameters.get("id")!) else {
-//        return
-//      }
-//      let workoutID = UUID(data: idData)
-//
-//      _ = Workout.find(workoutID, on: req.db).unwrap(or: Abort(HTTPResponseStatus.notFound)).flatMapThrowing { workout in
-//        let workoutId = try workout.requireID()
-//        app.webSockets.save(websocket, withID: workoutId)
-//      }
-//    }
 
     app.queues.add(RefreshJob())
     app.queues.schedule(RefreshJob()).daily().at(.midnight)
@@ -126,21 +107,10 @@ public final class Configurator: ConfiguratorProtocol {
 
     let api = app.grouped("api", "v1")
 
-    let markdownDirectory = app.directory.viewsDirectory
-    let parser = MarkdownParser()
-
-    let textPairs = FileManager.default.enumerator(atPath: markdownDirectory)?.compactMap { $0 as? String }.map { path in
-      URL(fileURLWithPath: app.directory.viewsDirectory + path)
-    }.compactMap { url in
-      (try? String(contentsOf: url)).map { (url.deletingPathExtension().lastPathComponent, $0) }
-    }
-
-    let pages = textPairs.map(Dictionary.init(uniqueKeysWithValues:))?.mapValues(
-      parser.parse
-    )
-
-    try app.register(collection: HTMLController(views: pages))
+    try app.register(collection: HTMLController(markdownDirectory: app.directory.viewsDirectory))
     try api.grouped("entires").register(collection: EntryController())
+    try api.grouped("channels").register(collection: ChannelController())
+    try api.grouped("categories").register(collection: CategoryController())
 
     app.post("jobs") { req in
       req.queue.dispatch(

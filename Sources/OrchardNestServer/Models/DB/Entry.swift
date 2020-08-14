@@ -1,13 +1,14 @@
 import Fluent
+import OrchardNestKit
 import Vapor
 
-final class Entry: Model, Content {
-  static var schema = "entries"
+public final class Entry: Model, Content {
+  public static var schema = "entries"
 
-  init() {}
+  public init() {}
 
   @ID()
-  var id: UUID?
+  public var id: UUID?
 
   @Parent(key: "channel_id")
   var channel: Channel
@@ -57,8 +58,24 @@ final class Entry: Model, Content {
 }
 
 extension Entry: Validatable {
-  static func validations(_ validations: inout Validations) {
+  public static func validations(_ validations: inout Validations) {
     validations.add("url", as: URL.self)
     validations.add("imageURL", as: URL.self)
+  }
+}
+
+public extension Entry {
+  func category() throws -> EntryCategory {
+    guard let category = EntryCategoryType(rawValue: channel.$category.id) else {
+      return .development
+    }
+
+    if let podcastEpisode = self.podcastEpisode, let url = URL(string: podcastEpisode.audioURL) {
+      return .podcasts(url, podcastEpisode.seconds)
+    } else if let youtubeVideo = self.youtubeVideo {
+      return .youtube(youtubeVideo.youtubeId, youtubeVideo.seconds)
+    } else {
+      return try EntryCategory(type: category)
+    }
   }
 }

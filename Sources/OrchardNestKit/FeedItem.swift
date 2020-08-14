@@ -10,5 +10,6 @@ public struct FeedItem: Codable {
   public let image: URL?
   public let ytId: String?
   public let audio: URL?
+  public let duration: TimeInterval?
   public let published: Date
 }
