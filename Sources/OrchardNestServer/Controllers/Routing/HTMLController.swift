@@ -214,7 +214,7 @@ struct HTMLController {
         case let .parameter(parameter):
           return parameter.pathComponents(on: req.db, withViews: [String](self.views.keys), from: req.eventLoop)
         }
-      }.flatten(on: req.eventLoop).map { $0.crossReduce().map { $0.joined(separator: "/") }.map(baseURL.appendingPathComponent(_:)) }
+      }.flatten(on: req.eventLoop).map { $0.crossReduce().map { $0.joined(separator: "/") }.map(baseURL.safeAppendingPathComponent(_:)) }
 
       return urls
     }.flatten(on: req.eventLoop)
