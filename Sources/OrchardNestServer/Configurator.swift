@@ -12,22 +12,6 @@ extension Date {
   }
 }
 
-extension HTML: ResponseEncodable {
-  public func encodeResponse(for request: Request) -> EventLoopFuture<Response> {
-    var headers = HTTPHeaders()
-    headers.add(name: .contentType, value: "text/html")
-    return request.eventLoop.makeSucceededFuture(.init(
-      status: .ok, headers: headers, body: .init(string: render())
-    ))
-  }
-}
-
-struct OrganizedSite {
-  let languageCode: String
-  let categorySlug: String
-  let site: Site
-}
-
 //
 public final class Configurator: ConfiguratorProtocol {
   public static let shared: ConfiguratorProtocol = Configurator()
@@ -35,29 +19,7 @@ public final class Configurator: ConfiguratorProtocol {
   //
   ///// Called before your application initializes.
   public func configure(_ app: Application) throws {
-    // Register providers first
-    // try services.register(FluentPostgreSQLProvider())
-    // try services.register(AuthenticationProvider())
-
-    // services.register(DirectoryIndexMiddleware.self)
-
-    // Register middleware
-    // var middlewares = MiddlewareConfig() // Create _empty_ middleware config
-    // middlewares.use(SessionsMiddleware.self) // Enables sessions.
-    // let rootPath = Environment.get("ROOT_PATH") ?? app.directory.publicDirectory
-
-//    app.webSockets = WebSocketRepository()
-//
-//    app.middleware.use(DirectoryIndexMiddleware(publicDirectory: rootPath))
-
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
-
-//    // Configure Leaf
-//    app.views.use(.leaf)
-//    app.leaf.cache.isEnabled = app.environment.isRelease
-//    app.middleware.use(ErrorMiddleware.default(environment: app.environment))
-    // middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
-    // services.register(middlewares)
 
     // Configure a SQLite database
     let postgreSQLConfig: PostgresConfiguration
