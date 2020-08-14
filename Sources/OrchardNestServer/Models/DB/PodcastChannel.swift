@@ -35,7 +35,6 @@ extension PodcastChannel {
         }.all().flatMapEach(on: database.eventLoop) { channel in
           channel.delete(on: database)
         }.flatMap { _ in
-          // context.logger.info("saving yt channel \"\(newChannel.youtubeId)\"")
           newChannel.save(on: database)
         }
       }

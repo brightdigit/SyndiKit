@@ -61,6 +61,12 @@ public let ytId: String?
 public let audio: URL?
 ```
 
+### `duration`
+
+```swift
+public let duration: TimeInterval?
+```
+
 ### `published`
 
 ```swift
