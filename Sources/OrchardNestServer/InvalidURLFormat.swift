@@ -1,0 +1,1 @@
+struct InvalidURLFormat: Error {}

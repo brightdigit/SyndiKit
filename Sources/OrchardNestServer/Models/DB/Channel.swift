@@ -1,13 +1,13 @@
 import Fluent
 import Vapor
 
-final class Channel: Model {
-  static var schema = "channels"
+public final class Channel: Model {
+  public static var schema = "channels"
 
-  init() {}
+  public init() {}
 
   @ID()
-  var id: UUID?
+  public var id: UUID?
 
   @Field(key: "title")
   var title: String
@@ -58,9 +58,30 @@ final class Channel: Model {
 }
 
 extension Channel: Validatable {
-  static func validations(_ validations: inout Validations) {
+  public static func validations(_ validations: inout Validations) {
     validations.add("siteUrl", as: URL.self)
     validations.add("feedUrl", as: URL.self)
     validations.add("imageURL", as: URL.self)
+  }
+}
+
+extension UUID {
+  var base32Encoded: String {
+    // swiftlint:disable:next force_cast
+    let bytes = Mirror(reflecting: uuid).children.map { $0.value as! UInt8 }
+    return Data(bytes).base32EncodedString()
+  }
+}
+
+extension String {
+  var base32UUID: UUID? {
+    guard let data = Data(base32Encoded: self) else {
+      return nil
+    }
+    var bytes = [UInt8](repeating: 0, count: data.count)
+    _ = bytes.withUnsafeMutableBufferPointer {
+      data.copyBytes(to: $0)
+    }
+    return NSUUID(uuidBytes: bytes) as UUID
   }
 }
