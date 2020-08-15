@@ -82,7 +82,10 @@ struct HTMLController {
     }
 
     let html = HTML(
-      .head(withSubtitle: "Support and FAQ", andDescription: view.metadata["description"] ?? name),
+      .head(
+        withSubtitle: view.metadata["description"] ?? name,
+        andDescription: view.metadata["description"] ?? name
+      ),
       .body(
         .header(),
         .main(
@@ -90,7 +93,10 @@ struct HTMLController {
           .filters(),
           .section(
             .class("row"),
-            .raw(view.html)
+            .article(
+              .class("page column"),
+              .raw(view.html)
+            )
           )
         )
       )
