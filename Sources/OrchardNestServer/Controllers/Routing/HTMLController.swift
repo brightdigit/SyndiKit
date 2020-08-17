@@ -45,8 +45,8 @@ struct HTMLController {
         }
         return entries
       }
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
@@ -108,8 +108,8 @@ struct HTMLController {
       .filter(Channel.self, \Channel.$id == channel)
       .limit(32)
       .all()
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
@@ -141,8 +141,8 @@ struct HTMLController {
       .filter(Channel.self, \Channel.$language.$id == "en")
       .limit(32)
       .all()
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
