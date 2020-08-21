@@ -19,6 +19,7 @@ public extension Node where Context == HTML.BodyContext {
       .class("podcast-players"),
       .li(
         .a(
+          .target(.blank),
           .href("https://podcasts.apple.com/podcast/id\(appleId)"),
           .img(
             .src("/images/podcast-players/apple/icon.svg"),
@@ -37,6 +38,7 @@ public extension Node where Context == HTML.BodyContext {
       ),
       .li(
         .a(
+          .target(.blank),
           .href("https://overcast.fm/itunes\(appleId)"),
           .img(
             .src("/images/podcast-players/overcast/icon.svg"),
@@ -55,6 +57,7 @@ public extension Node where Context == HTML.BodyContext {
       ),
       .li(
         .a(
+          .target(.blank),
           .href("https://castro.fm/itunes/\(appleId)"),
           .img(
             .src("/images/podcast-players/castro/icon.svg"),
@@ -73,6 +76,7 @@ public extension Node where Context == HTML.BodyContext {
       ),
       .li(
         .a(
+          .target(.blank),
           .href("https://podcasts.apple.com/podcast/id\(appleId)"),
           .img(
             .src("/images/podcast-players/pocketcasts/icon.svg"),
@@ -121,11 +125,12 @@ public extension Node where Context == HTML.BodyContext {
           .class("column"),
           .li(.a(.href("/"), .i(.class("el el-home")), .text(" Home"))),
           .li(.a(.href("/about"), .i(.class("el el-info-circle")), .text(" About"))),
-          .li(.a(.href("/support"), .i(.class("el el-question-sign")), .text(" Support")))
+          .li(.a(.href("/support"), .i(.class("el el-question-sign")), .text(" Support"))),
+          .li(.a(.href("https://iosdevdirectory.com/contributing"), .target(.blank), .i(.class("el el-plus-sign")), .text(" Add a Site")))
         ),
         .ul(.class("float-right column"),
-            .li(.a(.href("https://github.com/brightdigit/OrchardNest"), .i(.class("el el-github")), .text(" GitHub"))),
-            .li(.a(.href("https://twitter.com/OrchardNest"), .i(.class("el el-twitter")), .text(" Twitter"))))
+            .li(.a(.href("https://github.com/brightdigit/OrchardNest"), .target(.blank), .i(.class("el el-github")), .text(" GitHub"))),
+            .li(.a(.href("https://twitter.com/OrchardNest"), .target(.blank), .i(.class("el el-twitter")), .text(" Twitter"))))
       ),
       .div(
         .class("row"),
@@ -191,14 +196,53 @@ public extension Node where Context == HTML.DocumentContext {
   }
 }
 
+public extension Node where Context == HTML.BodyContext {
+  static func year(fromDate date: Date = Date()) -> Self {
+    text(HTMLController.yearFormatter.string(from: date))
+  }
+}
+
+public extension Node where Context == HTML.BodyContext {
+  static func footer() -> Self {
+    return footer(
+      .class("container"),
+      .div(
+        .class("row"),
+        .span(
+          .class("column"),
+          .hr(),
+          .span(
+            .text("Site Designed and Maintained by "),
+            .a(
+              .target(.blank),
+              .href("https://twitter.com/leogdion"),
+              .text("Leo Dion. ")
+            )
+          ),
+          .span(
+            .a(
+              .target(.blank),
+              .href("https://brightdigit.com"),
+              .text("Bright Digit, LLC")
+            ),
+            .text(". Copyright ©"),
+            .year()
+          )
+        )
+      )
+    )
+  }
+}
+
 public extension Node where Context == HTML.ListContext {
   static func li(forEntryItem item: EntryItem, formatDateWith formatter: DateFormatter) -> Self {
     return
       .li(
         .class("blog-post"),
-
+        .id("entry-\(item.id.base32Encoded)"),
         .a(
           .href(item.url),
+          .target(.blank),
           .class("title"),
           .h3(
             .i(.class("el el-\(item.category.elClass)")),
@@ -221,6 +265,7 @@ public extension Node where Context == HTML.ListContext {
             .class("video-content"),
             .a(
               .href(item.url),
+              .target(.blank),
               .img(
                 .src("https://img.youtube.com/vi/\($0)/mqdefault.jpg"),
                 .alt(item.title)
@@ -268,6 +313,7 @@ public extension Node where Context == HTML.ListContext {
           ),
           .unwrap(item.channel.twitterHandle) {
             .a(
+              .target(.blank),
               .href("https://twitter.com/\($0)"),
               .class("button twitter-handle"),
               .i(.class("el el-twitter")),
@@ -281,6 +327,7 @@ public extension Node where Context == HTML.ListContext {
           .ul(
             .li(
               .a(
+                .target(.blank),
                 .class("button"),
                 .href(item.twitterShareLink),
                 .i(.class("el el-twitter")),
