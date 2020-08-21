@@ -175,7 +175,6 @@ body.category.podcasts ul.articles li > .featured-image {
     background-size: contain;
 }
 body.category.podcasts h3 {
-    font-size: 2.8rem;
     font-size: 1.5rem;
     line-height: 1.3;
 }
@@ -303,4 +302,12 @@ body.category.youtube  ul.articles li.blog-post .author {
 body.category.youtube  ul.articles li.blog-post .author .a {
   clear: both;
   display: block;
+}
+
+.page{
+  font-size: 2rem;
+}
+
+.page.about img:first-child {
+  margin-top: 2rem;
 }

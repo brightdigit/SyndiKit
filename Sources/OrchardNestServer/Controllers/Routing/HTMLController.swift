@@ -8,6 +8,13 @@ import Vapor
 
 struct HTMLController {
   let views: [String: Markdown]
+
+  static let yearFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy"
+    return formatter
+  }()
+
   static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.timeStyle = .short
@@ -45,8 +52,8 @@ struct HTMLController {
         }
         return entries
       }
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
@@ -66,7 +73,8 @@ struct HTMLController {
                   }
                 )
               )
-            )
+            ),
+            .footer()
           )
         )
       }
@@ -82,7 +90,10 @@ struct HTMLController {
     }
 
     let html = HTML(
-      .head(withSubtitle: "Support and FAQ", andDescription: view.metadata["description"] ?? name),
+      .head(
+        withSubtitle: view.metadata["description"] ?? name,
+        andDescription: view.metadata["description"] ?? name
+      ),
       .body(
         .header(),
         .main(
@@ -90,9 +101,13 @@ struct HTMLController {
           .filters(),
           .section(
             .class("row"),
-            .raw(view.html)
+            .article(
+              .class("page column \(name)"),
+              .raw(view.html)
+            )
           )
-        )
+        ),
+        .footer()
       )
     )
 
@@ -108,8 +123,8 @@ struct HTMLController {
       .filter(Channel.self, \Channel.$id == channel)
       .limit(32)
       .all()
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
@@ -128,7 +143,8 @@ struct HTMLController {
                   }
                 )
               )
-            )
+            ),
+            .footer()
           )
         )
       }
@@ -141,8 +157,8 @@ struct HTMLController {
       .filter(Channel.self, \Channel.$language.$id == "en")
       .limit(32)
       .all()
-      .flatMapEachThrowing {
-        try EntryItem(entry: $0)
+      .mapEachCompact {
+        try? EntryItem(entry: $0)
       }
       .map { (items) -> HTML in
         HTML(
@@ -161,7 +177,8 @@ struct HTMLController {
                   }
                 )
               )
-            )
+            ),
+            .footer()
           )
         )
       }
