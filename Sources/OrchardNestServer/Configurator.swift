@@ -19,6 +19,9 @@ public final class Configurator: ConfiguratorProtocol {
   //
   ///// Called before your application initializes.
   public func configure(_ app: Application) throws {
+    let html = HTMLController(markdownDirectory: app.directory.viewsDirectory)
+    app.middleware = .init()
+    app.middleware.use(ErrorPageMiddleware(htmlController: html))
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     // Configure a SQLite database
@@ -69,7 +72,7 @@ public final class Configurator: ConfiguratorProtocol {
 
     let api = app.grouped("api", "v1")
 
-    try app.register(collection: HTMLController(markdownDirectory: app.directory.viewsDirectory))
+    try app.register(collection: html)
     try api.grouped("entires").register(collection: EntryController())
     try api.grouped("channels").register(collection: ChannelController())
     try api.grouped("categories").register(collection: CategoryController())
