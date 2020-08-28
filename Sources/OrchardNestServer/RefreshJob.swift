@@ -284,9 +284,9 @@ struct RefreshJob: ScheduledJob, Job {
         let futYTVideos = futureEntries.flatMap { (entries) -> EventLoopFuture<[YoutubeVideo]> in
           let possibleVideos = entries
             .compactMap { $0.feedItem.ytId }
-            
+
           context.logger.info("parsing \(possibleVideos.count) videos")
-            
+
           return possibleVideos.chunked(by: 50)
             .map(Self.queryURL(forYouTubeWithIds:))
             .map { client.get($0) }
@@ -298,7 +298,7 @@ struct RefreshJob: ScheduledJob, Job {
             }.map { (arrays: [[(String, TimeInterval)]]) -> [(String, TimeInterval)] in
               arrays.flatMap { $0 }
             }.map([String: TimeInterval].init(uniqueKeysWithValues:)).map { durations in
-              
+
               let youtubeVideos = entries.compactMap { (entry) -> YoutubeVideo? in
                 guard let id = entry.entry.id else {
                   return nil
@@ -314,7 +314,7 @@ struct RefreshJob: ScheduledJob, Job {
               context.logger.info("upserting \(youtubeVideos.count) videos")
               return youtubeVideos
             }
-          
+
         }.recover { _ in [YoutubeVideo]() }
           .flatMapEach(on: database.eventLoop) { newVideo in
             YoutubeVideo.upsert(newVideo, on: database)
