@@ -32,7 +32,7 @@ public struct ErrorPageMiddleware: Middleware {
       }
 
       do {
-        html = try htmlController.view(viewName)
+        html = try self.htmlController.view(viewName)
       } catch {
         let body = "<h1>Internal Error</h1><p>There was an internal error. Please try again later.</p>"
         request.logger.error("Failed to render custom error page - \(error)")
