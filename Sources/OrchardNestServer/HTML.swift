@@ -226,7 +226,14 @@ public extension Node where Context == HTML.BodyContext {
               .text("Bright Digit, LLC")
             ),
             .text(". Copyright ©"),
-            .year()
+            .year(),
+            .text(". ")
+          ),
+          .span(
+            .a(
+              .href("/privacy-policy"),
+              .text("Privacy Policy")
+            )
           )
         )
       )
