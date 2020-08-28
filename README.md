@@ -1,6 +1,6 @@
 &nbsp;
 
-<a href="https://orchardnest.com"><img src="Public/images/logo.svg" height="125px">&nbsp;&nbsp;<img src="Public/images/wordmark.svg" height="100px"></a>
+<a href="https://orchardnest.com"><img src="Public/images/logo.svg" height="100px">&nbsp;&nbsp;<img src="Public/images/wordmark.svg" height="75px"></a>
 
 
 
@@ -89,14 +89,47 @@ Give an example
 ```
 --->
 
-<!--
+##  Configuration
+
+These are required environment variables used by **OrchardNest**:
+
+### `DATABASE_URL`
+
+Connection URL to the PostgreSQL database.
+
+### `YOUTUBE_API_KEY`
+
+YouTube API Key used for getting YouTube metadata.
+
 ## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
+
+To run the server simply run:
+
+### Running the Server
+
+```
+orchardnestd serve 
+```
+
+### Running the Scheduled Jobs
+
+```
+orchardnestd queues --scheduled
+```
 
 ## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
 
--->
+Here's the current deployment setup for **OrchardNest**:
+
+* **Linode** for hosting on a ...
+* With **Ubuntu 20.04.1** installed, along with
+* Using **PostgreSQL Server 12.2** for the database
+* **nginx 1.18.0** for the http server
+* **supervisord 4.1.0** for managing processes
+* **Cloudflare** for help with caching and serving content
+
+Futher details on the server configuration files can be found in [the Configuration directory](Configuration).
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 * [Server-Side Swift with Vapor 4](https://vapor.codes)
@@ -110,11 +143,10 @@ Add additional notes about how to deploy this on a live system.
 ## ✍️ Authors <a name = "authors"></a>
 - [@leogdion](https://github.com/leogdion) - Idea & Initial work
 
-<!--
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
--->
+Thank you to...
+
+- [Dave Verwer](https://github.com/daveverwer/) for [iOS Dev Weekly](https://iosdevweekly.com), [Swift Package Index](https://swiftpackageindex.com), but most importantly the **(iOS Dev Directory,)[https://iosdevdirectory.com]** which OrchardNest uses to gather content from the community
+- [John Sundell](https://github.com/JohnSundell) for Publish but also the components **OrchardNest** uses [Ink](https://github.com/JohnSundell/Ink) and [Plot](https://github.com/JohnSundell/Plot) for helping render our beautiful web site
+- **[The Vapor team](https://github.com/vapor)** for making a solid server-side framework for Swift developers
+- **[Linode](https://www.linode.com/?r=97e09acbd5d304d87dadef749491d245e71c74e7)** for hosting this great site
