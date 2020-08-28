@@ -80,13 +80,9 @@ struct HTMLController {
       }
   }
 
-  func page(req: Request) -> EventLoopFuture<HTML> {
-    guard let name = req.parameters.get("page") else {
-      return req.eventLoop.makeFailedFuture(Abort(.notFound))
-    }
-
+  func view(_ name: String) throws -> HTML {
     guard let view = views[name] else {
-      return req.eventLoop.makeFailedFuture(Abort(.notFound))
+      throw Abort(.notFound)
     }
 
     let html = HTML(
@@ -110,6 +106,16 @@ struct HTMLController {
         .footer()
       )
     )
+
+    return html
+  }
+
+  func page(req: Request) throws -> EventLoopFuture<HTML> {
+    guard let name = req.parameters.get("page") else {
+      return req.eventLoop.makeFailedFuture(Abort(.notFound))
+    }
+
+    let html = try view(name)
 
     return req.eventLoop.future(html)
   }
@@ -259,5 +265,13 @@ extension HTMLController: RouteCollection {
     routes.get(":page", use: page)
     routes.get("channels", ":channel", use: channel)
     routes.get("sitemap.xml", use: sitemap)
+//    routes.get("**", use: { (request) -> EventLoopFuture<Response> in
+//      guard let page = try? self.view("404") else {
+//        throw Abort(.notFound)
+//      }
+//
+//
+//      return page.encodeResponse(status: .notFound, for: request)
+//    })
   }
 }
