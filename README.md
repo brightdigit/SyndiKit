@@ -146,7 +146,7 @@ Futher details on the server configuration files can be found in [the Configurat
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 Thank you to...
 
-- [Dave Verwer](https://github.com/daveverwer/) for [iOS Dev Weekly](https://iosdevweekly.com), [Swift Package Index](https://swiftpackageindex.com), but most importantly the **(iOS Dev Directory,)[https://iosdevdirectory.com]** which OrchardNest uses to gather content from the community
+- [Dave Verwer](https://github.com/daveverwer/) for [iOS Dev Weekly](https://iosdevweekly.com), [Swift Package Index](https://swiftpackageindex.com), but most importantly the **[iOS Dev Directory](https://iosdevdirectory.com)** which OrchardNest uses to gather content from the community
 - [John Sundell](https://github.com/JohnSundell) for Publish but also the components **OrchardNest** uses [Ink](https://github.com/JohnSundell/Ink) and [Plot](https://github.com/JohnSundell/Plot) for helping render our beautiful web site
 - **[The Vapor team](https://github.com/vapor)** for making a solid server-side framework for Swift developers
 - **[Linode](https://www.linode.com/?r=97e09acbd5d304d87dadef749491d245e71c74e7)** for hosting this great site
