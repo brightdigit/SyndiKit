@@ -1,4 +1,10 @@
-# OrchardNest
+&nbsp;
+
+<a href="https://orchardnest.com"><img src="Public/images/logo.svg" height="100px">&nbsp;&nbsp;<img src="Public/images/wordmark.svg" height="75px"></a>
+
+
+
+# Swift Articles and News at _[orchardnest.com](https://orchardnest.com)_
 
 [![SwiftPM](https://img.shields.io/badge/SPM-Linux%20%7C%20iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-success?logo=swift)](https://swift.org)
 [![Twitter](https://img.shields.io/badge/twitter-@leogdion-blue.svg?style=flat)](http://twitter.com/leogdion)
@@ -18,27 +24,129 @@
 [![Code Climate issues](https://img.shields.io/codeclimate/issues/brightdigit/OrchardNest)](https://codeclimate.com/github/brightdigit/OrchardNest)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-# Requirements 
+## 🧐 About <a name = "about"></a>
 
-* [CocoaPods](https://cocoapods.org)
-* [XCodeGen](https://github.com/yonaskolb/XcodeGen)
-* [SourceDocs](https://github.com/eneko/SourceDocs)
+**OrchardNest is a site built by Leo Dion and dedicated to the Swift and Apple Developer community by providing a source for news, tutorials, podcasts, YouTube videos, and other updates.**
 
-# How to get started
+**Based on the wonderful [iOS Dev Directory by Dave Verwer](https://iosdevdirectory.com)**, this aggreates, filters, curates the variety of RSS feeds availables from developers, designers, podcasters, youtubers and newsletters. 
 
-1. [Use the template](https://github.com/brightdigit/EggSeed/generate)
-2. Run [`./setup.sh`](https://github.com/brightdigit/EggSeed/blob/master/setup.sh) once you have your own repo. 
-3. It will create the corresponding files for your Swift Package/Cocoapod/Carthage.
-4. Customize by 
-  * updating Package.swift
-  * supported OSes in Pod spec
-  * update [SwiftFormat](https://github.com/brightdigit/EggSeed/blob/master/.swiftformat) and [SwiftLint](https://github.com/brightdigit/EggSeed/blob/master/.swiftlint.yml) settings
-  * Add Documentation and Notes to README.md
-  * update [travis-ci](https://github.com/brightdigit/EggSeed/blob/master/.travis.yml) or [github actions files](https://github.com/brightdigit/EggSeed/tree/master/.github/workflows)
-  * integrate third-party analysis services and badges such as [CodeCov](https://codecov.io), [CodeClimate](https://codeclimate.com), [CodeFactor](https://www.codefactor.io/dashboard), [Hound](https://houndci.com)
-5. Code Away!
-5. Add to [SwiftPM](https://github.com/daveverwer/SwiftPMLibrary)
+## 🏁 Getting Started <a name = "getting_started"></a>
+Here's how to get the server up and running...
 
-# DESCRIPTION HERE
+### Prerequisites
+What things you need to install the software and how to install them.
 
-[Documentation Here](/docs/README.md)
+#### PostgreSQL Server 12.2
+Either via server install or docker. 
+
+```
+docker run --rm  --name orchardnest-pg -e POSTGRES_HOST_AUTH_METHOD=trust -d -p 5432:5432
+```
+
+Create the database by running the `create_db.sql` script:
+
+```
+psql -h localhost -U postgres < create_db.sql
+```
+
+#### Swift 5.2 
+
+For details on installing Swift 5.2, check out [the instructions from swift.org.](https://swift.org/getting-started/)
+
+<!--
+### Installing
+A step by step series of examples that tell you how to get a development env running.
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo.
+
+## 🔧 Running the tests <a name = "tests"></a>
+Explain how to run the automated tests for this system.
+
+### Break down into end to end tests
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+Explain what these tests test and why
+
+```
+Give an example
+```
+--->
+
+##  Configuration
+
+These are required environment variables used by **OrchardNest**:
+
+### `DATABASE_URL`
+
+Connection URL to the PostgreSQL database.
+
+### `YOUTUBE_API_KEY`
+
+YouTube API Key used for getting YouTube metadata.
+
+## 🎈 Usage <a name="usage"></a>
+
+To run the server simply run:
+
+### Running the Server
+
+```
+orchardnestd serve 
+```
+
+### Running the Scheduled Jobs
+
+```
+orchardnestd queues --scheduled
+```
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+Here's the current deployment setup for **OrchardNest**:
+
+* **Linode** for hosting on a ...
+* With **Ubuntu 20.04.1** installed, along with
+* Using **PostgreSQL Server 12.2** for the database
+* **nginx 1.18.0** for the http server
+* **supervisord 4.1.0** for managing processes
+* **Cloudflare** for help with caching and serving content
+
+Futher details on the server configuration files can be found in [the Configuration directory](Configuration).
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+* [Server-Side Swift with Vapor 4](https://vapor.codes)
+* PostgreSQL Database with Fluent for Vapor
+* [Job Queue via Vapor Queues Fluent Driver](https://github.com/m-barthelemy/vapor-queues-fluent-driver) by [Matthieu Barthélemy](https://github.com/m-barthelemy)
+* [Plot by John Sundell](https://github.com/johnsundell/plot) for HTML Rendering
+* [Ink by John Sundell](https://github.com/JohnSundell/Ink) for Markdown Parsing
+* [Milligram for CSS](https://milligram.io) 
+* [Elusive Icons for Icons](http://elusiveicons.com)
+
+## ✍️ Authors <a name = "authors"></a>
+- [@leogdion](https://github.com/leogdion) - Idea & Initial work
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+Thank you to...
+
+- [Dave Verwer](https://github.com/daveverwer/) for [iOS Dev Weekly](https://iosdevweekly.com), [Swift Package Index](https://swiftpackageindex.com), but most importantly the **[iOS Dev Directory](https://iosdevdirectory.com)** which OrchardNest uses to gather content from the community
+- [John Sundell](https://github.com/JohnSundell) for Publish but also the components **OrchardNest** uses [Ink](https://github.com/JohnSundell/Ink) and [Plot](https://github.com/JohnSundell/Plot) for helping render our beautiful web site
+- **[The Vapor team](https://github.com/vapor)** for making a solid server-side framework for Swift developers
+- **[Linode](https://www.linode.com/?r=97e09acbd5d304d87dadef749491d245e71c74e7)** for hosting this great site
