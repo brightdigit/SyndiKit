@@ -46,10 +46,10 @@ public struct FeedChannel: Codable {
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
-          let summary = item.summary,
-          let url = item.externalUrl.flatMap(URL.init(string:)) ?? item.url.flatMap(URL.init(string:)),
-          let id = item.id ?? item.url ?? item.externalUrl,
-          let published = item.datePublished ?? item.dateModified
+              let summary = item.summary,
+              let url = item.externalUrl.flatMap(URL.init(string:)) ?? item.url.flatMap(URL.init(string:)),
+              let id = item.id ?? item.url ?? item.externalUrl,
+              let published = item.datePublished ?? item.dateModified
         else {
           return nil
         }
@@ -89,12 +89,12 @@ public struct FeedChannel: Codable {
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
-          let summary = item.description ??
-          item.content?.contentEncoded ??
-          item.media?.mediaDescription?.value,
-          let id = item.guid?.value ?? item.link,
-          let itemUrl = item.link.flatMap(URL.init(string:)),
-          let published = item.pubDate ?? item.dublinCore?.dcDate
+              let summary = item.description ??
+              item.content?.contentEncoded ??
+              item.media?.mediaDescription?.value,
+              let id = item.guid?.value ?? item.link,
+              let itemUrl = item.link.flatMap(URL.init(string:)),
+              let published = item.pubDate ?? item.dublinCore?.dcDate
         else {
           return nil
         }
