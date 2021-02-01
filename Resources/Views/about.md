@@ -7,7 +7,7 @@ description: About Orchardnest
 
 **OrchardNest is a site built by Leo Dion and dedicated to the Swift and Apple Developer community by providing a source for news, tutorials, podcasts, YouTube videos, and other updates.**
 
-**Based on the wonderful [iOS Dev Directory by Dave Verwer](https://iosdevdirectory.com)**, this aggreates, filters, curates the variety of RSS feeds availables from [developers](/development), [designers](/design), [podcasters](/podcasts), [youtubers](/youtube) and [newsletters](/newsletters). 
+**Based on the wonderful [iOS Dev Directory by Dave Verwer](https://iosdevdirectory.com)**, this aggreates, filters, curates the variety of RSS feeds availables from [developers](/categories/development), [designers](/categories/design), [podcasters](/categories/podcasts), [youtubers](/categories/youtube) and [newsletters](/categories/newsletters). 
 
 If I am missing a site I highly recommend checking out Dave's [guidence on how to add a site](https://iosdevdirectory.com/contributing/). My hope is that this site continues to grow and helps developers stay informed about the Apple ecosystem and Swift.
 
