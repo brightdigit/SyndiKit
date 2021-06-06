@@ -53,22 +53,20 @@ public final class Configurator: ConfiguratorProtocol {
     app.queues.use(.fluent())
 
     app.queues.add(RefreshJob())
-    app.queues.schedule(RefreshJob()).daily().at(.midnight)
-    app.queues.schedule(RefreshJob()).daily().at(7, 30)
-    app.queues.schedule(RefreshJob()).daily().at(19, 30)
+    app.queues.schedule(RefreshScheduledJob()).daily().at(.midnight)
+    app.queues.schedule(RefreshScheduledJob()).daily().at(7, 30)
+    app.queues.schedule(RefreshScheduledJob()).daily().at(19, 30)
     #if DEBUG
       if !app.environment.isRelease {
         let minute = Date().get(.minute)
-        [0, 30].map { ($0 + minute + 5).remainderReportingOverflow(dividingBy: 60).partialValue }.forEach { minute in
-          app.queues.schedule(RefreshJob()).hourly().at(.init(integerLiteral: minute))
+        [0, 30].map { ($0 + minute + 1).remainderReportingOverflow(dividingBy: 60).partialValue }.forEach { minute in
+          app.queues.schedule(RefreshScheduledJob()).hourly().at(.init(integerLiteral: minute))
         }
       }
     #endif
-    try app.queues.startInProcessJobs(on: .default)
     app.commands.use(RefreshCommand(help: "Imports data into the database"), as: "refresh")
 
     try app.autoMigrate().wait()
-    //   services.register(wss, as: WebSocketServer.self)
 
     let api = app.grouped("api", "v1")
 
@@ -82,6 +80,11 @@ public final class Configurator: ConfiguratorProtocol {
         RefreshJob.self,
         RefreshConfiguration()
       ).map { HTTPStatus.created }
+    }
+
+    if CommandLine.arguments.contains("queues") {
+      app.logger.info("Starting Scheduled Jobs")
+      try app.queues.startScheduledJobs()
     }
   }
 }
