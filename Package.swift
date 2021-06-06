@@ -68,7 +68,7 @@ let package = Package(
     "komondor": [
       "pre-push": [
         "swift test --enable-code-coverage --enable-test-discovery",
-        "swift run swift-test-codecov .build/debug/codecov/OrchardNest.json -v \(requiredCoverage)"
+        "swift run swift-test-codecov .build/debug/codecov/OrchardNest.json --minimum \(requiredCoverage)"
       ],
       "pre-commit": [
         "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",
