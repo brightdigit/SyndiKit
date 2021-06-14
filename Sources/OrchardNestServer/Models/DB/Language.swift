@@ -20,7 +20,7 @@ final class Language: Model {
 
 extension Language {
   static func from(_ pair: (String, String), on database: Database) -> EventLoopFuture<Language> {
-    Language.find(pair.0, on: database).flatMap { (langOpt) -> EventLoopFuture<Language> in
+    Language.find(pair.0, on: database).flatMap { langOpt -> EventLoopFuture<Language> in
       let language: Language
       if let actual = langOpt {
         actual.title = pair.1

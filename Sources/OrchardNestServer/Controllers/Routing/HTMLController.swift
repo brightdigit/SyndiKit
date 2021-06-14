@@ -46,7 +46,7 @@ struct HTMLController {
       .filter(Channel.self, \Channel.$language.$id == "en")
       .limit(32)
       .all()
-      .flatMapThrowing { (entries) -> [Entry] in
+      .flatMapThrowing { entries -> [Entry] in
         guard entries.count > 0 else {
           throw Abort(.notFound)
         }
@@ -55,7 +55,7 @@ struct HTMLController {
       .mapEachCompact {
         try? EntryItem(entry: $0)
       }
-      .map { (items) -> HTML in
+      .map { items -> HTML in
         HTML(
           .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News of Category \(category)"),
           .body(
@@ -132,7 +132,7 @@ struct HTMLController {
       .mapEachCompact {
         try? EntryItem(entry: $0)
       }
-      .map { (items) -> HTML in
+      .map { items -> HTML in
         HTML(
           .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News"),
           .body(
@@ -166,7 +166,7 @@ struct HTMLController {
       .mapEachCompact {
         try? EntryItem(entry: $0)
       }
-      .map { (items) -> HTML in
+      .map { items -> HTML in
         HTML(
           .head(withSubtitle: "Swift Articles and News", andDescription: "Swift Articles and News"),
           .body(
@@ -213,7 +213,7 @@ struct HTMLController {
       }
 
       return true
-    }.map { (route) -> EventLoopFuture<[URL]> in
+    }.map { route -> EventLoopFuture<[URL]> in
       let baseURL = URL(string: "https://orchardnest.com")!
 
       let components: [SiteMapPathComponent] = route.path.compactMap { path in
@@ -230,7 +230,7 @@ struct HTMLController {
         }
       }
 
-      let urls = components.map { (component) -> EventLoopFuture<[String]> in
+      let urls = components.map { component -> EventLoopFuture<[String]> in
         switch component {
         case let .name(name):
           return req.eventLoop.makeSucceededFuture([name])
@@ -242,7 +242,7 @@ struct HTMLController {
       return urls
     }.flatten(on: req.eventLoop)
 
-    return urls.map { $0.flatMap { $0 }}.and(last).map { (urls, last) -> SiteMap in
+    return urls.map { $0.flatMap { $0 }}.and(last).map { urls, last -> SiteMap in
       SiteMap(
         .forEach(urls) { url in
           .url(

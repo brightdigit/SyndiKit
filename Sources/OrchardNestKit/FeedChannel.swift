@@ -42,7 +42,7 @@ public struct FeedChannel: Codable {
       self.category = category
       itemCount = json.items?.count
 
-      items = json.items?.compactMap { (item) -> FeedItem? in
+      items = json.items?.compactMap { item -> FeedItem? in
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
@@ -85,7 +85,7 @@ public struct FeedChannel: Codable {
       ytId = nil
 
       itemCount = rss.items?.count
-      items = rss.items?.compactMap { (item) -> FeedItem? in
+      items = rss.items?.compactMap { item -> FeedItem? in
         let siteUrl: URL = site.site_url
 
         guard let title = item.title,
@@ -147,7 +147,7 @@ public struct FeedChannel: Codable {
         URL(string: $0, relativeTo: site.feed_url)
       } ?? ytId.map(Self.imageURL)
       self.ytId = ytId
-      items = atom.entries?.compactMap { (entry) -> FeedItem? in
+      items = atom.entries?.compactMap { entry -> FeedItem? in
         let siteUrl: URL = site.site_url
         let media = entry.links?.compactMap(Enclosure.init(element:))
         guard let title = entry.title else {

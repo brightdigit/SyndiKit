@@ -25,7 +25,7 @@ extension PodcastChannel {
   static func upsert(_ newChannel: PodcastChannel, on database: Database) -> EventLoopFuture<Void> {
     PodcastChannel.find(newChannel.id, on: database)
       .optionalMap { $0.appleId == newChannel.appleId ? $0 : nil }
-      .flatMap { (channel) -> EventLoopFuture<Void> in
+      .flatMap { channel -> EventLoopFuture<Void> in
         guard let channelId = newChannel.id, channel == nil else {
           return database.eventLoop.makeSucceededFuture(())
         }

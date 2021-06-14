@@ -34,7 +34,7 @@ extension PodcastEpisode: Validatable {
 extension PodcastEpisode {
   static func upsert(_ newEpisode: PodcastEpisode, on database: Database) -> EventLoopFuture<Void> {
     return PodcastEpisode.find(newEpisode.id, on: database)
-      .flatMap { (episode) -> EventLoopFuture<Void> in
+      .flatMap { episode -> EventLoopFuture<Void> in
         let savingEpisode: PodcastEpisode
         if let oldEpisode = episode {
           oldEpisode.audioURL = newEpisode.audioURL
