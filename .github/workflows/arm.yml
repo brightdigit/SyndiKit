@@ -71,6 +71,6 @@ jobs:
           dpkg-reconfigure --frontend noninteractive tzdata
           curl -s https://packagecloud.io/install/repositories/swift-arm/release/script.deb.sh | sudo bash
           apt update
-          apt-get install -y swift-lang
+          apt-get install -y swiftlang
           swift build -v
           swift test --enable-test-discovery --enable-code-coverage -v
