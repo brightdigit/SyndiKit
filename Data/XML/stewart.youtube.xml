@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCOWdR4sFkmolWkU2fg669Gg"/>
+ <id>yt:channel:UCOWdR4sFkmolWkU2fg669Gg</id>
+ <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+ <title>Stewart Lynch</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg"/>
+ <author>
+  <name>Stewart Lynch</name>
+  <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+ </author>
+ <published>2009-08-15T02:10:21+00:00</published>
+ <entry>
+  <id>yt:video:QrTChgzseVk</id>
+  <yt:videoId>QrTChgzseVk</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>SwiftUI Login Screen Workflow</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=QrTChgzseVk"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-06-20T13:44:57+00:00</published>
+  <updated>2021-06-20T13:44:57+00:00</updated>
+  <media:group>
+   <media:title>SwiftUI Login Screen Workflow</media:title>
+   <media:content url="https://www.youtube.com/v/QrTChgzseVk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QrTChgzseVk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the first video in a two part series where I will be looking at creating a method for adding a login screen to your app and being able to manage the presentation of the correct view based on the status of your login authentication without using either a Navigation stack or a modal sheet. IN the series we are also going to be exploring Biometric authentication with face and touchId along with securely storing your credentials in the keychain.
+
+We will be building out the app so that you will be able to add this structure to any project and to be able to present meaningful error messages to yoiur users.
+
+In the second video to follow, once we have authenticated using an email and password, we are going to give the user the ability to authenticate using a biometric option if they want and securely store the authenticated credentials in the keychain.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+3:32 Login ViewModel
+7:14 LoginView
+10:25 Authentication Class
+16:39 Error Handling
+
+Part 2: Coming June 27
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/MySecureApp-Part1Starter.zip
+
+Completed Project:
+https://github.com/StewartLynch/My-Secure-App---Part1-Completed/tree/main
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="33" average="5.00" min="1" max="5"/>
+    <media:statistics views="390"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4ochXtdrd70</id>
+  <yt:videoId>4ochXtdrd70</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Sorting Objects in Swift with Multiple Criteria</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4ochXtdrd70"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-06-13T13:45:37+00:00</published>
+  <updated>2021-06-13T13:45:37+00:00</updated>
+  <media:group>
+   <media:title>Sorting Objects in Swift with Multiple Criteria</media:title>
+   <media:content url="https://www.youtube.com/v/4ochXtdrd70?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4ochXtdrd70/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video we are going to take a look at Sorting Objects in Swift.  In particular, we will be looking at the sorted(by:)  instance method for sorting elements of a sequence using the provided predicate as the comparison between arguments.
+
+After a short introduction, the focus will be on sorting objects using multiple criteria and in this section, I will show you how you can easily sort objects over multiple criteria and how to define default sort orders for your objects by implementing the Comparable protocol.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+1:22 Simple Type Array Sort
+4:15 Sorting Objects by property or multiple criteria
+10:28 Using Tuples to sort objects with multiple criteria
+12:38 Creating Default sorts with Comparable Protocol
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/SortingObjects-Starter.zip
+
+Completed Project:
+https://github.com/StewartLynch/Sorting-Objects-Multiple-Criteria
+
+Other references:
+ Earlier video that introduces sorted method:
+   https://youtu.be/TnbAABxVq5w
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="58" average="5.00" min="1" max="5"/>
+    <media:statistics views="472"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:lF9fOeUwWF8</id>
+  <yt:videoId>lF9fOeUwWF8</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Switching Themes in SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=lF9fOeUwWF8"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-06-06T13:54:22+00:00</published>
+  <updated>2021-06-08T03:20:37+00:00</updated>
+  <media:group>
+   <media:title>Switching Themes in SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/lF9fOeUwWF8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/lF9fOeUwWF8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video we are going to look at how you can dynamically change the theme of your app.  This means changing the colors and other objects of all items to match a theme at the click of a button.
+
+Table of Contents:
+0:00 Introduction
+2:40 Theme Protocol
+4:00 Theme Definitions
+7:22 DataSource and Testing
+11:45 Adding Theme Changer Buttons
+16:20 Resolving the NavigationAppearance Issue
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/ThemeChangerStarter.zip
+
+Completed Project:
+https://github.com/StewartLynch/Theme-Changer---Completed
+
+Other references:
+ NavigationBar Styling in SwiftUO
+  youtu.be/kCJyhG8zjvY
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="59" average="5.00" min="1" max="5"/>
+    <media:statistics views="489"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:r29-06lbLmQ</id>
+  <yt:videoId>r29-06lbLmQ</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>CollectionView Paging Layout for SwiftUI and Layout Designer</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=r29-06lbLmQ"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-05-30T13:48:03+00:00</published>
+  <updated>2021-06-01T01:21:13+00:00</updated>
+  <media:group>
+   <media:title>CollectionView Paging Layout for SwiftUI and Layout Designer</media:title>
+   <media:content url="https://www.youtube.com/v/r29-06lbLmQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/r29-06lbLmQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, I will be introducing you to a new App called Layout Designer and the corresponding Swift Xcode Package called CollectionViewPagingLayout that will help you spruce up the layout and presentation of content in your iOAS apps.  It is the answer to a custom CollectionView layout for SwiftUI.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+1:48 Starter Project Overview
+4:04 Refactor to use ScrollView
+10:06 Layout Designer Overview
+12:32 Implementing CollectionViewPagingLayout
+
+Starter Project Files:
+   http://www.createchsol.com/StarterProjects/HappyFacts-Starter.zip
+
+Completed Project:
+   https://github.com/StewartLynch/Layout-Manager-And-CollectionViewPagingLayout
+
+Other references:
+ CollectionViewPagingLayout Github Page:
+   https://github.com/amirdew/CollectionViewPagingLayout
+
+Layout Designer on App Store
+   https://apps.apple.com/nl/app/layout-designer/id1507238011?l=en&amp;mt=1
+
+iCarousel
+   https://github.com/nicklockwood/iCarousel
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="70" average="5.00" min="1" max="5"/>
+    <media:statistics views="716"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:u1kGK9RTEH4</id>
+  <yt:videoId>u1kGK9RTEH4</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Channel Watcher - An Open Source, SwiftUI, Combine, iPhone, iPad, Mac app</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=u1kGK9RTEH4"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-05-23T13:48:08+00:00</published>
+  <updated>2021-05-26T02:02:22+00:00</updated>
+  <media:group>
+   <media:title>Channel Watcher - An Open Source, SwiftUI, Combine, iPhone, iPad, Mac app</media:title>
+   <media:content url="https://www.youtube.com/v/u1kGK9RTEH4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/u1kGK9RTEH4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I This video is all about an application was created using SwiftUI and i have also used the Combine framework for network calls
+The application let's you maintain a list of YouTube channels, playlists and videos so that you can get easy access and watch on your phone, iPad or Mac.
+
+It uses the MVVM design pattern and is built for iPhone, iPad and Mac.  For the Mac, I have used Mac catalyst and you may not find that it is an ideal mac citizen, but it certainly is functional.
+
+In this video, I will present a short demostration of what the app is all abut and then I will show you how you can create your on project on the Google Cloud platform and obtain your own YouTube Data API Key.
+
+We will test the application and then locate the compiled mac App so you can have int on your own computer
+
+Following that, I will take you through a walkthrough of the code.  Along the way, I will popint you to some other resources and videos that I or others have created that have helped me develop the code.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+1:35 Channel Watcher Overview
+3:23 Getting an API Key and Testing the App
+8:18 Installing the Mac App
+9:32 Code walkthrough
+
+Source Code:
+   https://github.com/StewartLynch/Channel-Watcher
+
+Video References:
+Mohammad Azam Udemy Course on Core Data
+   https://www.udemy.com/course/core-data-in-ios/
+
+Donny Walls Combine article on Recursive Network Calls
+   https://www.donnywals.com/recursively-execute-a-paginated-network-call-with-combine/
+
+Enum Alert Builder
+   https://youtu.be/itApM8HKTJc
+
+Mobile Weather App
+  https://www.createchsol.com/WeatherAppCourse/
+
+UIKit Integration with SwiftUI
+   https://youtu.be/k4h9i6KVvi8
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="77" average="5.00" min="1" max="5"/>
+    <media:statistics views="848"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:tuHcwRe61KE</id>
+  <yt:videoId>tuHcwRe61KE</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Demystifying Completion Handlers and Asynchronous Functions</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=tuHcwRe61KE"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-05-16T13:51:55+00:00</published>
+  <updated>2021-05-17T22:21:13+00:00</updated>
+  <media:group>
+   <media:title>Demystifying Completion Handlers and Asynchronous Functions</media:title>
+   <media:content url="https://www.youtube.com/v/tuHcwRe61KE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/tuHcwRe61KE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video I am going to ty to demystify CompletionHandlers in Swift.
+
+We will be looking at asynchronous functions and the need to create a completion handler when we try to fetch data from a service that uses an asynchronous method.  Along the way we will also look at the background and main thread and how we can let our users know that our app is busy fetching data.  
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+4:03 The Asynchronous Function problem
+8:00 Completion Handler
+13:45 Working on a Background Thread issue
+16:00 Cleaning up the the UI
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/LilStockQuoteStarter.zip
+
+Completed Project:
+https://github.com/StewartLynch/DemystifyingCompletionHandlers
+
+Other references:
+Old video on Completion Handlers:
+   https://youtu.be/JmPbnuJxzHg
+Introduction to Closures:
+   https:// youtu.be/4-EvBzIT5Y0
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="72" average="5.00" min="1" max="5"/>
+    <media:statistics views="729"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:kCJyhG8zjvY</id>
+  <yt:videoId>kCJyhG8zjvY</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Navigation Bar Styling in SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=kCJyhG8zjvY"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-05-09T13:28:24+00:00</published>
+  <updated>2021-05-11T08:59:31+00:00</updated>
+  <media:group>
+   <media:title>Navigation Bar Styling in SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/kCJyhG8zjvY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/kCJyhG8zjvY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, I am going to show you how you can modify the styling of your navigation bar in SwiftUI.  We will eventually create a resusable View Modifier that you can use in any project.  In the process we will dig into the documentation and I will point out some things to be aware of along the way.
+
+Table of Contents:
+0:00 Introduction
+1:55 Add Color Background to all views
+5:46 UINavigationBarAppearance Documentations
+7:30 Initializer to add UINavigationBar modifiers
+11:56 Custom View Modifier
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/NavBarStylingStarter.zip
+
+Completed Project:
+https://github.com/StewartLynch/NavBarStyling---Completed
+
+Other references:
+ Custom SwiftUI View Modifiers:
+  https://youtu.be/XdfVPPfnZZU
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="111" average="5.00" min="1" max="5"/>
+    <media:statistics views="1290"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:NY0LFoHQUbk</id>
+  <yt:videoId>NY0LFoHQUbk</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Introduction to Generics in Swift</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=NY0LFoHQUbk"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-05-02T13:35:13+00:00</published>
+  <updated>2021-05-04T00:33:59+00:00</updated>
+  <media:group>
+   <media:title>Introduction to Generics in Swift</media:title>
+   <media:content url="https://www.youtube.com/v/NY0LFoHQUbk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/NY0LFoHQUbk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear, abstracted manner.
+I n this video we are going to take a look at how you can get started writing your own generic, reusable functions.
+We will cover the basics before we explore a couple of different, practical examples.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Table of Contents:
+0:00 Introduction
+1:20 The Basics
+8:36 Decoding with Generics
+15:32 Multiple Protocol Conformance
+
+Starter Project Files:
+http://www.createchsol.com/StarterProjects/Introduction_to_Generics-Starter.playground.zip
+
+Completed Project:
+https://github.com/StewartLynch/Introduction-to-Generics-in-Swift--Completed
+
+Other references:
+JSON Codable Series
+   https://www.youtube.com/playlist?list=PLBn01m5Vbs4DKrm1gwIr_a-0B7yvlTZP6
+
+Access Control in Swift
+   https://youtu.be/V7B3ZmvV_Us
+
+Sorted Higher Order Function
+   https:// youtu.be/TnbAABxVq5w
+
+Reduce Higher Order Function
+   https://youtu.be/9wAhKodOyFI
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="95" average="5.00" min="1" max="5"/>
+    <media:statistics views="1222"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:JmLGI3hdh6c</id>
+  <yt:videoId>JmLGI3hdh6c</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Combine   CurrentValueSubject</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=JmLGI3hdh6c"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-29T13:50:35+00:00</published>
+  <updated>2021-04-30T23:50:22+00:00</updated>
+  <media:group>
+   <media:title>Combine   CurrentValueSubject</media:title>
+   <media:content url="https://www.youtube.com/v/JmLGI3hdh6c?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/JmLGI3hdh6c/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the sixth and final video of the  SwiftUI ToDo App series where we are  build a ToDo app from scratch in SwiftUI and then refactor it to use the Combine Framework. In this video we complete our transformation to Combine, by removing the @Published property wrapper from our two properties and instead, create two CurrentValueSubject publishers to handle updates. 
+Also included with this video are a list of resources that I have used to learn combine.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Starter Files (Completed project from the previous video):
+http://www.createchsol.com/ToDoAppCourse/Part5Completed.zip
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part6Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+   https://youtu.be/JmLGI3hdh6c
+
+Combine Resources References:
+Ray Wenderlich -  Combine - Asynchronous programing with Swift
+   https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0
+
+Mohammed Azam - Udemy - The Complete Guided to Combine Framework in iOS using Swift
+   https://www.udemy.com/course/the-complete-guide-to-combine-framework-in-ios-using-swift/
+
+Ben Scheirman -  Combine Courser for mere Mortals
+   https://combineswift.com
+
+Donny Walls -  Practical Combine - An Introduction to Combine with Real Examples
+   https://gumroad.com/l/practical-combine
+
+Daniel Steinburg - A Combine KickStart
+https://gumroad.com/l/combineKickstart
+
+Karin Prater- Learn Combine with great coding examples in UIKit and SwiftUI
+​ https://www.swiftyplace.com/combine-course
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="44" average="5.00" min="1" max="5"/>
+    <media:statistics views="413"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Cy7zokKsB4M</id>
+  <yt:videoId>Cy7zokKsB4M</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Combine @Published properties and Just Publisher</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Cy7zokKsB4M"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-27T13:44:04+00:00</published>
+  <updated>2021-04-28T22:49:12+00:00</updated>
+  <media:group>
+   <media:title>Combine @Published properties and Just Publisher</media:title>
+   <media:content url="https://www.youtube.com/v/Cy7zokKsB4M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/Cy7zokKsB4M/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the fifth video of the  SwiftUI ToDo App series where we are  building an ToDo app from scratch in SwiftUI and then refactor it to use the Combine Framework. In this video we will continue our transformation to Combine by looking at the &quot;Just&quot; publisher and also adding a sink subscriber to our properties that are decorated with the @Published property wrapper.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Starter Files (Completed project from the previous video):
+http://www.createchsol.com/ToDoAppCourse/Part4Completed.zip
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part5Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+   https://youtu.be/JmLGI3hdh6c
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="52" average="5.00" min="1" max="5"/>
+    <media:statistics views="463"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:1YtC5wVtiZ0</id>
+  <yt:videoId>1YtC5wVtiZ0</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Combine   PassthroughSubject and SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=1YtC5wVtiZ0"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-25T13:38:24+00:00</published>
+  <updated>2021-04-29T13:48:59+00:00</updated>
+  <media:group>
+   <media:title>Combine   PassthroughSubject and SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/1YtC5wVtiZ0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/1YtC5wVtiZ0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the fourth video of the  SwiftUI ToDo App series where we are  building an ToDoapp from scratch in SwiftUI and then will refactor it to use the Combine Framework. In this video we will be begin our transformation to Combine, using the PassthroughSubject publisher and the sink subscriber .
+
+Starter Files (Completed project from the previous video):
+http://www.createchsol.com/ToDoAppCourse/Part3Completed.zip
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part4Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+  https://youtu.be/JmLGI3hdh6c
+
+Other references made in this video:
+Karen Prater Course
+   https://www.swiftyplace.com/combine-course
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="57" average="5.00" min="1" max="5"/>
+    <media:statistics views="615"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:dpmy-msRlCA</id>
+  <yt:videoId>dpmy-msRlCA</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Responsible Error Handling In SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=dpmy-msRlCA"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-22T13:38:47+00:00</published>
+  <updated>2021-04-29T13:49:10+00:00</updated>
+  <media:group>
+   <media:title>Responsible Error Handling In SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/dpmy-msRlCA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/dpmy-msRlCA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the third video of the  SwiftUI ToDo App series where we are  building an ToDoapp from scratch in SwiftUI and then will refactor it to use the Combine Framework. In this video we will be refactoring our code just a little to provide our users with some responsible information should our app not be able to load or store our list of ToDos .
+
+Starter Files (Completed project from the previous video):
+http://www.createchsol.com/ToDoAppCourse/Part2Completed.zip
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part3Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+   https://youtu.be/JmLGI3hdh6c
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="57" average="5.00" min="1" max="5"/>
+    <media:statistics views="552"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:PC0OXxAH-O0</id>
+  <yt:videoId>PC0OXxAH-O0</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>File DataPersistence in SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=PC0OXxAH-O0"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-20T13:33:06+00:00</published>
+  <updated>2021-04-27T13:41:59+00:00</updated>
+  <media:group>
+   <media:title>File DataPersistence in SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/PC0OXxAH-O0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/PC0OXxAH-O0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the second video of the  SwiftUI ToDo App series where we are  building an ToDoapp from scratch in SwiftUI and then will refactor it to use the Combine Framework. In this video we will be building our data persistence layer. We will using the Codable protocol in Swift to encode and decode our data so that we can save and restore our list of ToDos from a file stored in our app's documents directory.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Starter Files (Completed project from the previous video):
+http://www.createchsol.com/ToDoAppCourse/Part1Completed.zip
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part2Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+  https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+   Coming April 29
+
+Other references made in this video:
+A Better Result
+   https://youtu.be/AIb3CQH8_jg
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="63" average="5.00" min="1" max="5"/>
+    <media:statistics views="695"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:EeSzURDoGCQ</id>
+  <yt:videoId>EeSzURDoGCQ</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Building the ToDo app in SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=EeSzURDoGCQ"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-18T13:43:42+00:00</published>
+  <updated>2021-04-29T13:49:24+00:00</updated>
+  <media:group>
+   <media:title>Building the ToDo app in SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/EeSzURDoGCQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EeSzURDoGCQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is the first video in the 6 part series where we build a ToDo app in SwiftUI and then refactor it using Combine.
+In this video we will build out the app leaving out persistence and error handling which we will cover in the following videos.  We will use MVVM as the design patter and introduce an interesting technique for presenting a modal sheet for both creating a new or updating an existing ToDo item.
+Check out the introductory video listed below to get an app overview and what we will be covering.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+
+Completed Project for this video:
+http://www.createchsol.com/ToDoAppCourse/Part1Completed.zip
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+1. Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+2. Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+3. Meaningful Error Handling
+  https://youtu.be/dpmy-msRlCA
+4. Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+5. Combine: Just and @Published PropertyWrapper
+  https://youtu.be/Cy7zokKsB4M
+6. Combine: CurrentValueSubject
+  https://youtu.be/JmLGI3hdh6c
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="96" average="5.00" min="1" max="5"/>
+    <media:statistics views="1305"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Uf_pmEwmpJo</id>
+  <yt:videoId>Uf_pmEwmpJo</yt:videoId>
+  <yt:channelId>UCOWdR4sFkmolWkU2fg669Gg</yt:channelId>
+  <title>Not another SwiftUI ToDo App!!!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Uf_pmEwmpJo"/>
+  <author>
+   <name>Stewart Lynch</name>
+   <uri>https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg</uri>
+  </author>
+  <published>2021-04-14T13:47:46+00:00</published>
+  <updated>2021-04-25T05:26:06+00:00</updated>
+  <media:group>
+   <media:title>Not another SwiftUI ToDo App!!!</media:title>
+   <media:content url="https://www.youtube.com/v/Uf_pmEwmpJo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/Uf_pmEwmpJo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Don't be discouraged by the title.  This is different.  This is the introduction to a 6 part series where we build a ToDo App in SwiftUI that includes the MVVM design pattern, data persistence by coding and decoding data and saving to the documents directory and meaningful user feedback on errors.  Then..... we refactor the app using the Combine reactive framework, learning about different Combine publishers and subscribers and how they all work with SwiftUI.
+
+If you want to support my work, you can buy me a coffee :)
+https://ko-fi.com/stewartlynch
+Monthly subscribers get immediate access.
+
+All Tutorials in this series
+Introduction:
+   https://youtu.be/Uf_pmEwmpJo
+Building the ToDo App in SwiftUI
+   https://youtu.be/EeSzURDoGCQ
+Data Persistence
+   https://youtu.be/PC0OXxAH-O0
+Meaningful Error Handling
+   https://youtu.be/dpmy-msRlCA
+Combine: PassthroughSubject and .sink
+   https://youtu.be/1YtC5wVtiZ0
+Combine: Just and @Published PropertyWrapper
+  Coming April 27
+Combine: CurrentValueSubject
+   Coming April 29
+
+Other References:
+Stewart Lynch's YouTube Channel:
+   https://youtube.com/StewartLynch
+Stewart Lynch on Twitter:
+   https://twitter.com/StewartLynch
+CreaTECH Solutions Website:
+   https://www.createchsol.com
+Stewart Lynch's GitHub:
+   https://github.com/StewartLynch</media:description>
+   <media:community>
+    <media:starRating count="109" average="5.00" min="1" max="5"/>
+    <media:statistics views="911"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

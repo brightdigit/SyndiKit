@@ -1,0 +1,744 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "apple on Andy Ibanez",
+  "home_page_url": "https://www.andyibanez.com/tags/apple/",
+  "description": "Recent content in apple on Andy Ibanez",
+  "items": [
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-async-await-in-swift/",
+      "url": "https://www.andyibanez.com/posts/understanding-async-await-in-swift/",
+      "title": "Understanding async/await in Swift",
+      "content_html": "This article is part of my Modern Concurrency in Swift article series.\nBefore you try to dive in with concurrency in Swift, you need to understand async/await. There&rsquo;s no way around it. While async/await are not the only concurrency options, Apple&rsquo;s SDKs are starting to make heavy use of them. There is no doubt that third-party library providers will start offering these as well.\nThis article will explore async/await and nothing else.",
+      "summary": "This article is part of my Modern Concurrency in Swift article series.\nBefore you try to dive in with concurrency in Swift, you need to understand async/await. There&rsquo;s no way around it. While async/await are not the only concurrency options, Apple&rsquo;s SDKs are starting to make heavy use of them. There is no doubt that third-party library providers will start offering these as well.\nThis article will explore async/await and nothing else.",
+      "date_published": "2021-06-16T11:01:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/modern-concurrency-in-swift-introduction/",
+      "url": "https://www.andyibanez.com/posts/modern-concurrency-in-swift-introduction/",
+      "title": "Modern Concurrency in Swift: Introduction",
+      "content_html": "Introduction This is a tutorial series focused on the new async/await APIs Apple introduced in WWDC2021. I do not know how many articles it is going to have yet, but they will be posted in the upcoming weeks.\nThe WWDC2021 session videos do a great job explaining these new APIs, but I feel they can still be overwhelming for both newcomers and long-time developers alike. My intention with this series is to talk about the new concurrency APIs, one step a time, covering a few concepts on each article, until you can feel confident with your understanding of these APIs.",
+      "summary": "Introduction This is a tutorial series focused on the new async/await APIs Apple introduced in WWDC2021. I do not know how many articles it is going to have yet, but they will be posted in the upcoming weeks.\nThe WWDC2021 session videos do a great job explaining these new APIs, but I feel they can still be overwhelming for both newcomers and long-time developers alike. My intention with this series is to talk about the new concurrency APIs, one step a time, covering a few concepts on each article, until you can feel confident with your understanding of these APIs.",
+      "date_published": "2021-06-16T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/strategies-asking-users-rate-your-app/",
+      "url": "https://www.andyibanez.com/posts/strategies-asking-users-rate-your-app/",
+      "title": "Strategies For Asking Users to Rate Your App",
+      "content_html": "Having our apps have good reviews is generally a good thing. After all, many users look into how many stars an app has before deciding on downloading it. Apps with a general poor rating may not get many downloads (unless they are &ldquo;essential&rdquo; apps of any kind, such as companion app to another service).\nWe all as developers have experience that users are quick to give a one-star review when something doesn&rsquo;t work right, but they are never inclined to rate 5 stars when they are satisfied with an app.",
+      "summary": "Having our apps have good reviews is generally a good thing. After all, many users look into how many stars an app has before deciding on downloading it. Apps with a general poor rating may not get many downloads (unless they are &ldquo;essential&rdquo; apps of any kind, such as companion app to another service).\nWe all as developers have experience that users are quick to give a one-star review when something doesn&rsquo;t work right, but they are never inclined to rate 5 stars when they are satisfied with an app.",
+      "date_published": "2021-06-02T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/my-wwdc-2021-wishlist/",
+      "url": "https://www.andyibanez.com/posts/my-wwdc-2021-wishlist/",
+      "title": "My WWDC 2021 Wishlist",
+      "content_html": "WWDC is undoubtly my favorite event of the year, and it has been for the past 11 years. This week I&rsquo;m taking a break from writing technical articles and I want to talk about my personal wishlist, both for features and developers tools.\nWriting Actual ViewControllers for the Settings App The iOS Settings.app was supposed to be a place where you as a user, have a centralized place to configure all your settings for all your apps.",
+      "summary": "WWDC is undoubtly my favorite event of the year, and it has been for the past 11 years. This week I&rsquo;m taking a break from writing technical articles and I want to talk about my personal wishlist, both for features and developers tools.\nWriting Actual ViewControllers for the Settings App The iOS Settings.app was supposed to be a place where you as a user, have a centralized place to configure all your settings for all your apps.",
+      "date_published": "2021-05-26T11:00:07.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/quick-tip-notifying-users-app-updates-for-free/",
+      "url": "https://www.andyibanez.com/posts/quick-tip-notifying-users-app-updates-for-free/",
+      "title": "Quick Tip: Notifying Users of App Updates - For Free",
+      "content_html": "This may sound surprising to you, but even though we have app autoupdate on iOS now (and we have had it for a very long time), many people don&rsquo;t have it on, or the system simply doesn&rsquo;t prioritize app updates because users don&rsquo;t prioritize it enough. In fact, in my day job, in which I maintain a user-facing banking app, the vast majority of users are not even in the latest version.",
+      "summary": "This may sound surprising to you, but even though we have app autoupdate on iOS now (and we have had it for a very long time), many people don&rsquo;t have it on, or the system simply doesn&rsquo;t prioritize app updates because users don&rsquo;t prioritize it enough. In fact, in my day job, in which I maintain a user-facing banking app, the vast majority of users are not even in the latest version.",
+      "date_published": "2021-05-19T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/integrating-face-id-touch-id-swiftui/",
+      "url": "https://www.andyibanez.com/posts/integrating-face-id-touch-id-swiftui/",
+      "title": "Integrating FaceID/TouchID with SwiftUI",
+      "content_html": "As SwiftUI is still relatively new, and it is not clear yet for many people how to use MVVM on iOS, I decided to write this short article in which I explain how one would integrate Face ID/Touch ID with SwiftUI.\nLet&rsquo;s remember that SwiftUI uses the MVVM design pattern over the traditional MVC, and this can be confusing for people who are migrating to the new pattern for the first time.",
+      "summary": "As SwiftUI is still relatively new, and it is not clear yet for many people how to use MVVM on iOS, I decided to write this short article in which I explain how one would integrate Face ID/Touch ID with SwiftUI.\nLet&rsquo;s remember that SwiftUI uses the MVVM design pattern over the traditional MVC, and this can be confusing for people who are migrating to the new pattern for the first time.",
+      "date_published": "2021-05-12T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/the-nsdateinterval-object/",
+      "url": "https://www.andyibanez.com/posts/the-nsdateinterval-object/",
+      "title": "The NSDateInterval Object",
+      "content_html": "The NSDateInterval Object\nSomehow, this shiny new object, which was actually introduced in iOS 10, flew past my radar. Today I want to take a few minutes to talk about the NSDateInterval object. This object allows us to quickly calculate the time interval (represented as a NSTimeInterval) between dates, it allows us to check if two dates overlap, and it allows us to check if a given date is within a certain interval.",
+      "summary": "The NSDateInterval Object\nSomehow, this shiny new object, which was actually introduced in iOS 10, flew past my radar. Today I want to take a few minutes to talk about the NSDateInterval object. This object allows us to quickly calculate the time interval (represented as a NSTimeInterval) between dates, it allows us to check if two dates overlap, and it allows us to check if a given date is within a certain interval.",
+      "date_published": "2021-05-05T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/swift-print-in-depth/",
+      "url": "https://www.andyibanez.com/posts/swift-print-in-depth/",
+      "title": "Swift's print in Depth",
+      "content_html": "Ah, print. Probably the most known, the most used, the most popular debugging tool, and probably the most loved line of code of all time. You have undoubtedly used print before, if not in Swift, in other languages. The vast majority of programmers have started their software building skills with a print or equivalent somewhere.\nWe have all used print before, but this short article is about using the function to the max - it actually has a secret or two you might not know about.",
+      "summary": "Ah, print. Probably the most known, the most used, the most popular debugging tool, and probably the most loved line of code of all time. You have undoubtedly used print before, if not in Swift, in other languages. The vast majority of programmers have started their software building skills with a print or equivalent somewhere.\nWe have all used print before, but this short article is about using the function to the max - it actually has a secret or two you might not know about.",
+      "date_published": "2021-04-28T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/raw-strings-swift/",
+      "url": "https://www.andyibanez.com/posts/raw-strings-swift/",
+      "title": "Raw Strings in Swift",
+      "content_html": "We have all worked with strings before. Printing a piece of text, or displaying some information to users in a label, can all be done in strings. But regardless of how popular strings are, they actually have a lot of complex or unknown functionality that can help developers, but they struggle to see the light of day.\nIn this article, we will explore a very interesting aspect of strings in Swift: Raw Strings, what they are, and how they can be helpful to your every day job.",
+      "summary": "We have all worked with strings before. Printing a piece of text, or displaying some information to users in a label, can all be done in strings. But regardless of how popular strings are, they actually have a lot of complex or unknown functionality that can help developers, but they struggle to see the light of day.\nIn this article, we will explore a very interesting aspect of strings in Swift: Raw Strings, what they are, and how they can be helpful to your every day job.",
+      "date_published": "2021-04-21T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/javascriptcore-and-swift/",
+      "url": "https://www.andyibanez.com/posts/javascriptcore-and-swift/",
+      "title": "JavaScriptCore and Swift",
+      "content_html": "JavaScriptCore and Swift\nRegardless how you feel about JavaScript as a programming language, there is one simple fact: JavaScript is pretty ubiquitous, and its uses have expanded beyond web scripting. It has become a pretty popular language for a vast array of domains. For this reason, making languages interoperate with it is pretty important, and both Swift and Objective-C are no exception. We can work with JavaScript, not only by executing JavaScript code directly from our Swift code, but we can even expose code from Swift and Objective-C to JavaScript.",
+      "summary": "JavaScriptCore and Swift\nRegardless how you feel about JavaScript as a programming language, there is one simple fact: JavaScript is pretty ubiquitous, and its uses have expanded beyond web scripting. It has become a pretty popular language for a vast array of domains. For this reason, making languages interoperate with it is pretty important, and both Swift and Objective-C are no exception. We can work with JavaScript, not only by executing JavaScript code directly from our Swift code, but we can even expose code from Swift and Objective-C to JavaScript.",
+      "date_published": "2021-04-14T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/xcode-new-file-templates/",
+      "url": "https://www.andyibanez.com/posts/xcode-new-file-templates/",
+      "title": "Xcode New File Templates",
+      "content_html": "As you work on projects, you may notice that there&rsquo;s one thing that can be really improved: Creating new files. Every single developer has gone to the File &gt; New File screen on Xcode to create files before. Whether to create new view controllers, data models, or whatever else, it is one of the most common places you may use in your day to day life as an iOS developers.",
+      "summary": "As you work on projects, you may notice that there&rsquo;s one thing that can be really improved: Creating new files. Every single developer has gone to the File &gt; New File screen on Xcode to create files before. Whether to create new view controllers, data models, or whatever else, it is one of the most common places you may use in your day to day life as an iOS developers.",
+      "date_published": "2021-04-07T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/using-nsmeasurement-for-working-with-dimensions-and-units/",
+      "url": "https://www.andyibanez.com/posts/using-nsmeasurement-for-working-with-dimensions-and-units/",
+      "title": "Using NSMeasurement For Working with Dimensions and Units",
+      "content_html": "Software development can be an easy thing, as it can be a very complex thing. And one of those complex things is keeping in mind all the different languages, locations, and standards users may use in their daily lives. This makes working with certain information. From different date formats to entirely different measuring system, software is challenging, especially when working with anything that requires localization. The situation is just so bad that a lot of software just make assumptions about their users environment and don&rsquo;t let you change any settings.",
+      "summary": "Software development can be an easy thing, as it can be a very complex thing. And one of those complex things is keeping in mind all the different languages, locations, and standards users may use in their daily lives. This makes working with certain information. From different date formats to entirely different measuring system, software is challenging, especially when working with anything that requires localization. The situation is just so bad that a lot of software just make assumptions about their users environment and don&rsquo;t let you change any settings.",
+      "date_published": "2021-03-24T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/using-corelocation-with-swiftui/",
+      "url": "https://www.andyibanez.com/posts/using-corelocation-with-swiftui/",
+      "title": "Using CoreLocation With SwiftUI",
+      "content_html": "SwiftUI forces us to change our way of thinking when building iOS apps. It makes us change from writing our apps in MVC to MVVM.\nIn this article, we will explore how SwiftUI can be used with certain frameworks that aren&rsquo;t &ldquo;SwiftUI ready&rdquo;. While this article uses CoreLocation as an example, keep in mind that you can use what you learn from this to integrate almost any other framework with SwiftUI, whether it is provided by Apple or not.",
+      "summary": "SwiftUI forces us to change our way of thinking when building iOS apps. It makes us change from writing our apps in MVC to MVVM.\nIn this article, we will explore how SwiftUI can be used with certain frameworks that aren&rsquo;t &ldquo;SwiftUI ready&rdquo;. While this article uses CoreLocation as an example, keep in mind that you can use what you learn from this to integrate almost any other framework with SwiftUI, whether it is provided by Apple or not.",
+      "date_published": "2021-03-17T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/getting-to-know-the-simulator-better/",
+      "url": "https://www.andyibanez.com/posts/getting-to-know-the-simulator-better/",
+      "title": "Getting to Know the Simulator Better",
+      "content_html": "Every iOS developer has used the simulator. Alongside Xcode, it&rsquo;s probably one of the most used tool by us all. We use the simulator to test our iOS, iPadOS, and watchOS apps without having to run them in an iOS device.\nBut other than helping us test our apps, the simulator actually has many nice features that can help make our job a little bit easier. With the use of these features we can avoid using physical devices until it&rsquo;s time to do an actual test run or one.",
+      "summary": "Every iOS developer has used the simulator. Alongside Xcode, it&rsquo;s probably one of the most used tool by us all. We use the simulator to test our iOS, iPadOS, and watchOS apps without having to run them in an iOS device.\nBut other than helping us test our apps, the simulator actually has many nice features that can help make our job a little bit easier. With the use of these features we can avoid using physical devices until it&rsquo;s time to do an actual test run or one.",
+      "date_published": "2021-03-10T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/what-i-learned-from-selling-an-app/",
+      "url": "https://www.andyibanez.com/posts/what-i-learned-from-selling-an-app/",
+      "title": "What I Learned From Selling an App",
+      "content_html": "What I Learned From Selling an App\nA few weeks ago, I sold and transferred my app, Next Anime Episode, to another developer.\nIn this article, I will discuss the reasons I transferred my app, and what I learned along the way in the process of transferring it.\nWhy I Sold My App As a developer who works a full time job and work on indie apps as a hobby, there are many ideas I want to work on.",
+      "summary": "What I Learned From Selling an App\nA few weeks ago, I sold and transferred my app, Next Anime Episode, to another developer.\nIn this article, I will discuss the reasons I transferred my app, and what I learned along the way in the process of transferring it.\nWhy I Sold My App As a developer who works a full time job and work on indie apps as a hobby, there are many ideas I want to work on.",
+      "date_published": "2021-03-03T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/multithreading-options-on-apple-platforms/",
+      "url": "https://www.andyibanez.com/posts/multithreading-options-on-apple-platforms/",
+      "title": "Multithreading Options on Apple Platforms",
+      "content_html": "We have reached the point in which computers are really fast. Especially Apple&rsquo;s, as they have control of both the hardware and software, so, oftentimes, some tasks that could be sped up with multithreading, are not necessary anymore. But, for those cases when you do need multithreading, we have many options available.\nOn Apple&rsquo;s platforms there is a surprising amount of concurrency tools. You are likely familiar with the most used one, the Grand Central Dispatch, DispatchQueue, which is pretty good and it covers the vast majority of use cases.",
+      "summary": "We have reached the point in which computers are really fast. Especially Apple&rsquo;s, as they have control of both the hardware and software, so, oftentimes, some tasks that could be sped up with multithreading, are not necessary anymore. But, for those cases when you do need multithreading, we have many options available.\nOn Apple&rsquo;s platforms there is a surprising amount of concurrency tools. You are likely familiar with the most used one, the Grand Central Dispatch, DispatchQueue, which is pretty good and it covers the vast majority of use cases.",
+      "date_published": "2021-02-24T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/optionset-in-swift/",
+      "url": "https://www.andyibanez.com/posts/optionset-in-swift/",
+      "title": "OptionSet in Swift",
+      "content_html": "Creating configurable APIs for other developers can be a fun task. But depending on what languages and tools you are using, you may sometimes create customizable APIs that are more pleasant than others.\nIn today&rsquo;s article, we will explore a tiny feature in Swift that allows us to create configurable APIs easily that are a joy to use by other developers: OptionSet.\nIntroducing OptionSet Like its name implies, an OptionSet gives us a group of options.",
+      "summary": "Creating configurable APIs for other developers can be a fun task. But depending on what languages and tools you are using, you may sometimes create customizable APIs that are more pleasant than others.\nIn today&rsquo;s article, we will explore a tiny feature in Swift that allows us to create configurable APIs easily that are a joy to use by other developers: OptionSet.\nIntroducing OptionSet Like its name implies, an OptionSet gives us a group of options.",
+      "date_published": "2021-02-17T11:30:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/intercepting-ios-network-request-calls-proxyman/",
+      "url": "https://www.andyibanez.com/posts/intercepting-ios-network-request-calls-proxyman/",
+      "title": "Intercepting iOS Network Request Calls with Proxyman",
+      "content_html": "Intercepting iOS Network Request Calls with Proxyman\nWorking with network APIs can be tricky, especially when debugging. You oftentimes have to ask yourself if your app is sending and receiving the expected information. You also often worry about whether the web service returns whatever it promises it will return. Working with APIs is both easy and tricky due to all the implications behind the scenes. What happens if the service goes down and sends unexpected responses?",
+      "summary": "Intercepting iOS Network Request Calls with Proxyman\nWorking with network APIs can be tricky, especially when debugging. You oftentimes have to ask yourself if your app is sending and receiving the expected information. You also often worry about whether the web service returns whatever it promises it will return. Working with APIs is both easy and tricky due to all the implications behind the scenes. What happens if the service goes down and sends unexpected responses?",
+      "date_published": "2021-02-10T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/nil-null-mess-objective-c-and-swift/",
+      "url": "https://www.andyibanez.com/posts/nil-null-mess-objective-c-and-swift/",
+      "title": "nil-null-mess in Objective-C and Swift",
+      "content_html": "All programmers are familiar with the concept of nullability. Whether something exists or not. Whether something is there or not.\nObjective-C is very dynamic when it comes to dealing with nullability. All Objective-C programmers are familiar with this phrase:\n messages can be sent to nil.\n Which means that nil itself can call methods, safely enough, without crashing.\nIn Swift, we have a bit more safety. We can send &ldquo;messages&rdquo; to nil, but only if they are the result of a chained optional.",
+      "summary": "All programmers are familiar with the concept of nullability. Whether something exists or not. Whether something is there or not.\nObjective-C is very dynamic when it comes to dealing with nullability. All Objective-C programmers are familiar with this phrase:\n messages can be sent to nil.\n Which means that nil itself can call methods, safely enough, without crashing.\nIn Swift, we have a bit more safety. We can send &ldquo;messages&rdquo; to nil, but only if they are the result of a chained optional.",
+      "date_published": "2021-02-03T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-basic-data-structures-dictionaries-in-depth/",
+      "url": "https://www.andyibanez.com/posts/understanding-basic-data-structures-dictionaries-in-depth/",
+      "title": "Understanding Basic Data Structures in Swift: Dictionaries in Depth",
+      "content_html": "Whether you are a seasoned developer with a lot of code out in the wild world, or you started learning programming this week, chances are you hace used (and seen) dictionaries being used in many places. Also known as hashmaps or hash tables, dictionaries allow us to store key-value mappings, from one object to another.\nIn this article we will study this structure which is known by everyone, and we will also learn about its quirks and unknown features.",
+      "summary": "Whether you are a seasoned developer with a lot of code out in the wild world, or you started learning programming this week, chances are you hace used (and seen) dictionaries being used in many places. Also known as hashmaps or hash tables, dictionaries allow us to store key-value mappings, from one object to another.\nIn this article we will study this structure which is known by everyone, and we will also learn about its quirks and unknown features.",
+      "date_published": "2021-01-27T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-basic-data-structures-swift-sets/",
+      "url": "https://www.andyibanez.com/posts/understanding-basic-data-structures-swift-sets/",
+      "title": "Understanding Basic Data Structures in Swift: Sets",
+      "content_html": "I&rsquo;m introducing a short small series in which we will talk about basic data structures in Swift. My goal is not to show how they are implemented internally, but rather to show when they can be useful.\nIn truth, unless you have studied Computer Science to some capacity, chances are you are missing on a lot of powerful existing data structures that can help you write better code. I have been studying iOS development for a long time with many resources, and none of the resources ever dive into useful data structures, such as sets.",
+      "summary": "I&rsquo;m introducing a short small series in which we will talk about basic data structures in Swift. My goal is not to show how they are implemented internally, but rather to show when they can be useful.\nIn truth, unless you have studied Computer Science to some capacity, chances are you are missing on a lot of powerful existing data structures that can help you write better code. I have been studying iOS development for a long time with many resources, and none of the resources ever dive into useful data structures, such as sets.",
+      "date_published": "2021-01-20T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/being-ios-developer-bolivia/",
+      "url": "https://www.andyibanez.com/posts/being-ios-developer-bolivia/",
+      "title": "Being an iOS Developer in Bolivia (and South America)",
+      "content_html": "Happy New Years everyone! To kick off this year, I wanted to write a non-technical article. This time I want to focus on a topic that you won&rsquo;t find in many other places, and that is what it is like to hunt for iOS jobs in Bolivia, and what my experience has been like being one here. By the end of this article, you will hopefully understand a very different market compared to countries such as the USA, and you will be able to make a decision on whether this is a field you want to pursue or not.",
+      "summary": "Happy New Years everyone! To kick off this year, I wanted to write a non-technical article. This time I want to focus on a topic that you won&rsquo;t find in many other places, and that is what it is like to hunt for iOS jobs in Bolivia, and what my experience has been like being one here. By the end of this article, you will hopefully understand a very different market compared to countries such as the USA, and you will be able to make a decision on whether this is a field you want to pursue or not.",
+      "date_published": "2021-01-13T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/happy-2021-short-break-notice/",
+      "url": "https://www.andyibanez.com/posts/happy-2021-short-break-notice/",
+      "title": "Happy 2021! And Short Break Notice",
+      "content_html": "This has been quite a year! Not only did we have the bad stuff happen (COVID-19), it has also been a crazy year for my personal development and for the growth of my blog.\nThanks to the events that happened mid-year, the reach of my blog has reached wide, and I have connected to a bunch of people thanks to all that.\nI want to take one minute to thank you all who have reached to me with questions about my articles, ideas, and even suggestions to improve my writing.",
+      "summary": "This has been quite a year! Not only did we have the bad stuff happen (COVID-19), it has also been a crazy year for my personal development and for the growth of my blog.\nThanks to the events that happened mid-year, the reach of my blog has reached wide, and I have connected to a bunch of people thanks to all that.\nI want to take one minute to thank you all who have reached to me with questions about my articles, ideas, and even suggestions to improve my writing.",
+      "date_published": "2020-12-20T19:53:06.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/expressibleby-protocols-swift/",
+      "url": "https://www.andyibanez.com/posts/expressibleby-protocols-swift/",
+      "title": "The \"ExpressibleBy-\" Protocols in Swift",
+      "content_html": "Swift gives us many interesting features to write cleaner and more obvious code. This code is more readable, and it helps both SDK consumers and code maintainers.\nOne such feature Swift has is the ExpressibleBy- family of protocols. This is a set of protocols that allow you to instantiate objects by providing some native Swift object. For example, we can instantiate an object providing a Boolean, or a String.\nThis family of protocols consist of the following protocols (this is not a complete list):",
+      "summary": "Swift gives us many interesting features to write cleaner and more obvious code. This code is more readable, and it helps both SDK consumers and code maintainers.\nOne such feature Swift has is the ExpressibleBy- family of protocols. This is a set of protocols that allow you to instantiate objects by providing some native Swift object. For example, we can instantiate an object providing a Boolean, or a String.\nThis family of protocols consist of the following protocols (this is not a complete list):",
+      "date_published": "2020-12-16T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/getting-started-app-store-connect-api/",
+      "url": "https://www.andyibanez.com/posts/getting-started-app-store-connect-api/",
+      "title": "Getting Started with the App Store Connect API",
+      "content_html": "In 2018, Apple introduced the App Store Connect API. We as iOS developers interact with App Store Connect almost daily. We like to see our sales reports, analytics, check how our apps are doing. Occasionally, we may need to register a new device or manage our users.\nMany of these tasks are so common that it was necessary to get an App Store Connect API at some point. Having an API allows us to automatize some aspects of our day to day tasks on App Store Connect, and to make some tasks easier and faster.",
+      "summary": "In 2018, Apple introduced the App Store Connect API. We as iOS developers interact with App Store Connect almost daily. We like to see our sales reports, analytics, check how our apps are doing. Occasionally, we may need to register a new device or manage our users.\nMany of these tasks are so common that it was necessary to get an App Store Connect API at some point. Having an API allows us to automatize some aspects of our day to day tasks on App Store Connect, and to make some tasks easier and faster.",
+      "date_published": "2020-12-09T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-limited-photo-library-ios-14/",
+      "url": "https://www.andyibanez.com/posts/understanding-limited-photo-library-ios-14/",
+      "title": "Understanding the Limited Photo Library in iOS 14",
+      "content_html": "This year, Apple introduced a new feature that gives users even more control over what photos may third party apps see when they see a Photo Picker. The system will first present an alert asking users if they want to give access to their photos at all, and they have the option to give access to all their photos, or only to the photos they choose.\nThis is great, but it has been a very confusing experience for both users and developers alike.",
+      "summary": "This year, Apple introduced a new feature that gives users even more control over what photos may third party apps see when they see a Photo Picker. The system will first present an alert asking users if they want to give access to their photos at all, and they have the option to give access to all their photos, or only to the photos they choose.\nThis is great, but it has been a very confusing experience for both users and developers alike.",
+      "date_published": "2020-12-02T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/lazy-sequences-in-swift/",
+      "url": "https://www.andyibanez.com/posts/lazy-sequences-in-swift/",
+      "title": "Lazy Sequences in Swift",
+      "content_html": "Lazy Sequences in Swift\nIf you have been writing Swift for a while, you have undoubtedly used high order functions such as .map and filter. These higher order function work on any collection, and they are very useful when we want to quickly transform objects into something else, or when you want to do other operations in sequences that would otherwise take more than one line of code if you were to make them with loops.",
+      "summary": "Lazy Sequences in Swift\nIf you have been writing Swift for a while, you have undoubtedly used high order functions such as .map and filter. These higher order function work on any collection, and they are very useful when we want to quickly transform objects into something else, or when you want to do other operations in sequences that would otherwise take more than one line of code if you were to make them with loops.",
+      "date_published": "2020-11-25T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/quick-tip-custom-debug-printing-customdebugstringconvertible-swift/",
+      "url": "https://www.andyibanez.com/posts/quick-tip-custom-debug-printing-customdebugstringconvertible-swift/",
+      "title": "Quick Tip: Custom Debug Printing with CustomDebugStringConvertible in Swift",
+      "content_html": "Printing stuff to the console is a simple but powerful step we can take when debugging our apps. But there are times when we want to print an object and we actually get something entirely different, often also useless.\nFor example, this commonly happens when working with classes and printing instances of them.\nclass User { let id: Int let name: String init(id: Int, name: String) { self.id = id self.",
+      "summary": "Printing stuff to the console is a simple but powerful step we can take when debugging our apps. But there are times when we want to print an object and we actually get something entirely different, often also useless.\nFor example, this commonly happens when working with classes and printing instances of them.\nclass User { let id: Int let name: String init(id: Int, name: String) { self.id = id self.",
+      "date_published": "2020-11-15T19:58:59.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-keypaths-swift/",
+      "url": "https://www.andyibanez.com/posts/understanding-keypaths-swift/",
+      "title": "Understanding KeyPaths in Swift",
+      "content_html": "KeyPath. It sounds like a very fancy word. And it is a feature you have likely used it, either knowingly or unknowingly. KeyPaths are one of my favorite features in Swift, but they can be a bit tricky to understand. In this article we will explore what KeyPaths are, and when you may want to use them.\nUnderstanding KeyPaths In simple words, a KeyPath is a reference to an actual property instead of a value.",
+      "summary": "KeyPath. It sounds like a very fancy word. And it is a feature you have likely used it, either knowingly or unknowingly. KeyPaths are one of my favorite features in Swift, but they can be a bit tricky to understand. In this article we will explore what KeyPaths are, and when you may want to use them.\nUnderstanding KeyPaths In simple words, a KeyPath is a reference to an actual property instead of a value.",
+      "date_published": "2020-11-11T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/quick-tip-hosting-json-files-github-for-free/",
+      "url": "https://www.andyibanez.com/posts/quick-tip-hosting-json-files-github-for-free/",
+      "title": "Quick Tip: Hosting JSON Files on Github for Free",
+      "content_html": "There are times in which you may want to host small JSON (or other small types of files) somewhere because your app needs them. Maybe you want to configure feature flags, or maybe you want to host IAP identifiers somewhere so as to not hardcode them in your app. This last case is something I did recently.\nThe immediate thought will be get a cheap server somewhere - after all, using something like Vultr you can get cheap hosting for as low as $2.",
+      "summary": "There are times in which you may want to host small JSON (or other small types of files) somewhere because your app needs them. Maybe you want to configure feature flags, or maybe you want to host IAP identifiers somewhere so as to not hardcode them in your app. This last case is something I did recently.\nThe immediate thought will be get a cheap server somewhere - after all, using something like Vultr you can get cheap hosting for as low as $2.",
+      "date_published": "2020-11-04T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/parsing-tricky-json-codable-swift/",
+      "url": "https://www.andyibanez.com/posts/parsing-tricky-json-codable-swift/",
+      "title": "Parsing Tricky JSON With Codable in Swift",
+      "content_html": "If you have been writing Swift in the past couple of years, you have probably been using Codable (which is really just the composition of Decodable and Encodable in the same protocol).\nIf you have been writing iOS apps for longer, you likely know about JSONSerialization as well, which is the backbone of Codable and it allows you to do more manual work when parsing JSON, seemingly giving you more control.",
+      "summary": "If you have been writing Swift in the past couple of years, you have probably been using Codable (which is really just the composition of Decodable and Encodable in the same protocol).\nIf you have been writing iOS apps for longer, you likely know about JSONSerialization as well, which is the backbone of Codable and it allows you to do more manual work when parsing JSON, seemingly giving you more control.",
+      "date_published": "2020-10-28T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/a-more-practical-custom-formatter/",
+      "url": "https://www.andyibanez.com/posts/a-more-practical-custom-formatter/",
+      "title": "A More Practical Custom Formatter",
+      "content_html": "I had announced that I wouldn&rsquo;t be able to write an article this week due to it being Elections Day in my country. that said I just can&rsquo;t leave you guys without article, so this is a short one.\nWe will write another NSFormatter subclass. It will allow us to compose E-mails easily. This should also help show that formatters can format string into anything else really.\nIn short, we will be able to &ldquo;compose&rdquo; emails using raw strings, like this:",
+      "summary": "I had announced that I wouldn&rsquo;t be able to write an article this week due to it being Elections Day in my country. that said I just can&rsquo;t leave you guys without article, so this is a short one.\nWe will write another NSFormatter subclass. It will allow us to compose E-mails easily. This should also help show that formatters can format string into anything else really.\nIn short, we will be able to &ldquo;compose&rdquo; emails using raw strings, like this:",
+      "date_published": "2020-10-21T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-custom-nsformatters-swift/",
+      "url": "https://www.andyibanez.com/posts/writing-custom-nsformatters-swift/",
+      "title": "Writing Custom NSFormatters in Swift",
+      "content_html": "Last year we explored some NSFormatters and how to use them. We also explored some formatters introduced in iOS 13. Finally, a few weeks ago we learned about yet more formatters, and how to better use the ones we already had. In short, we have explored how powerful NSFormatter is. One thing we haven&rsquo;t done yet though, is to write our own custom NSFormatter subclass.\nNSFormatter NSFormatter is an abstract class.",
+      "summary": "Last year we explored some NSFormatters and how to use them. We also explored some formatters introduced in iOS 13. Finally, a few weeks ago we learned about yet more formatters, and how to better use the ones we already had. In short, we have explored how powerful NSFormatter is. One thing we haven&rsquo;t done yet though, is to write our own custom NSFormatter subclass.\nNSFormatter NSFormatter is an abstract class.",
+      "date_published": "2020-10-14T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/benchmarking-app-metrickit/",
+      "url": "https://www.andyibanez.com/posts/benchmarking-app-metrickit/",
+      "title": "Benchmarking Your App with MetricKit",
+      "content_html": "Sometimes we may be interested on how well our app is performing out there in the world. After all, our apps may be running in different environments that are hard to test or that Instruments may not catch.\nFor this purpose, Apple introduced MetricKit back in WWDC2019. MetricKit allows us to aggregate and analyze this benchmark data on a per-device basis, and not only does it include information on performance and battery usage, but also on exceptions and crash reports.",
+      "summary": "Sometimes we may be interested on how well our app is performing out there in the world. After all, our apps may be running in different environments that are hard to test or that Instruments may not catch.\nFor this purpose, Apple introduced MetricKit back in WWDC2019. MetricKit allows us to aggregate and analyze this benchmark data on a per-device basis, and not only does it include information on performance and battery usage, but also on exceptions and crash reports.",
+      "date_published": "2020-10-07T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/formatting-notes-and-gotchas/",
+      "url": "https://www.andyibanez.com/posts/formatting-notes-and-gotchas/",
+      "title": "Formatting Notes and Gotchas",
+      "content_html": "A year ago, we talked about using NSFormatter for formatting data in a human readable format. WWDC2020 brings some updates and changes to the NSFormatter APIs that we need to be aware of. This article will complement the NSFormatter article from last year with best practices and things to look out for.\nImprovements for Combinations of Languages and Regions. NSFormatter always does its best to format the data according to the user&rsquo;s language and region where relevant.",
+      "summary": "A year ago, we talked about using NSFormatter for formatting data in a human readable format. WWDC2020 brings some updates and changes to the NSFormatter APIs that we need to be aware of. This article will complement the NSFormatter article from last year with best practices and things to look out for.\nImprovements for Combinations of Languages and Regions. NSFormatter always does its best to format the data according to the user&rsquo;s language and region where relevant.",
+      "date_published": "2020-09-30T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/a-short-guide-localization-apple-platforms/",
+      "url": "https://www.andyibanez.com/posts/a-short-guide-localization-apple-platforms/",
+      "title": "A Short Guide to Localization on Apple Platforms",
+      "content_html": "Translating our apps in different languages helps us reach wider audiences of different cultures. This reach can increase our app usage considerably and offer more monetization properties.\nIn this short article we will mention the features Apples gives us to translate our apps to different languages, namely NSLocalizedString and and stringsdict files. You will also understand when you will want to use each, as they have different use cases and an app that takes localization seriously will use both.",
+      "summary": "Translating our apps in different languages helps us reach wider audiences of different cultures. This reach can increase our app usage considerably and offer more monetization properties.\nIn this short article we will mention the features Apples gives us to translate our apps to different languages, namely NSLocalizedString and and stringsdict files. You will also understand when you will want to use each, as they have different use cases and an app that takes localization seriously will use both.",
+      "date_published": "2020-09-23T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/wwdc2020-whats-new-cryptokit/",
+      "url": "https://www.andyibanez.com/posts/wwdc2020-whats-new-cryptokit/",
+      "title": "WWDC2020: What's new in CryptoKit",
+      "content_html": "CryptoKit, introduced in WWDC2019, allows us to perform cryptographic operations very easily.\nWhile CryptoKit still doesn&rsquo;t offer many algorithms and functionality, it&rsquo;s still growing, and this year CryptoKit and do more.\nHKDF Key derivation functions have been available from day one, but it wasn&rsquo;t possible to derive keys independently. It was only possible to do so if you were using elliptic curve key agreement protocols.\nTo do this, there is a new HKDF object with static methods.",
+      "summary": "CryptoKit, introduced in WWDC2019, allows us to perform cryptographic operations very easily.\nWhile CryptoKit still doesn&rsquo;t offer many algorithms and functionality, it&rsquo;s still growing, and this year CryptoKit and do more.\nHKDF Key derivation functions have been available from day one, but it wasn&rsquo;t possible to derive keys independently. It was only possible to do so if you were using elliptic curve key agreement protocols.\nTo do this, there is a new HKDF object with static methods.",
+      "date_published": "2020-09-14T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/logging-messages-unified-logging-system-apple-platforms/",
+      "url": "https://www.andyibanez.com/posts/logging-messages-unified-logging-system-apple-platforms/",
+      "title": "Logging Messages With the Unified Logging System on Apple Platforms",
+      "content_html": "Last time we talked about the basics of the Unified Logging System, we set the basic concepts and code we need to write logs, along with the different logging levels, and more.\nIn this article we will talk about actually logging messages, how the framework is &ldquo;smart enough&rdquo; to strip out sensitive user info by default, and how we can control what gets stripped.\nLogging Messages The framework supports interpolated strings right out of the box when you are using the new system in Swift.",
+      "summary": "Last time we talked about the basics of the Unified Logging System, we set the basic concepts and code we need to write logs, along with the different logging levels, and more.\nIn this article we will talk about actually logging messages, how the framework is &ldquo;smart enough&rdquo; to strip out sensitive user info by default, and how we can control what gets stripped.\nLogging Messages The framework supports interpolated strings right out of the box when you are using the new system in Swift.",
+      "date_published": "2020-09-09T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/using-aswebauthenticationaession-swiftui/",
+      "url": "https://www.andyibanez.com/posts/using-aswebauthenticationaession-swiftui/",
+      "title": "Using ASWebAuthenticationSession with SwiftUI",
+      "content_html": "Working with REST APIs you have no control over can be a little monotonous. This is especially for OAuth 2.0 API that need you to do a little bit of setup, get your API keys with the service provider, and then you need to do the setup on your app&rsquo;s size: Configure your URL scheme, deal with that URL Scheme, and write code that does something when your app gets called with that URL.",
+      "summary": "Working with REST APIs you have no control over can be a little monotonous. This is especially for OAuth 2.0 API that need you to do a little bit of setup, get your API keys with the service provider, and then you need to do the setup on your app&rsquo;s size: Configure your URL scheme, deal with that URL Scheme, and write code that does something when your app gets called with that URL.",
+      "date_published": "2020-09-02T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/introduction-apples-unified-logging-system-ios14-swift/",
+      "url": "https://www.andyibanez.com/posts/introduction-apples-unified-logging-system-ios14-swift/",
+      "title": "Introduction to Apple's Unified Logging System on iOS 14 in Swift",
+      "content_html": "It is no surprise that software tend to write logs to a local file as they execute. As events, errors, or exceptional situations occur, a lot of software takes note of them using a local logging solution. This is done because these practices can allow us to troubleshoot problems for our users, find bugs, and in general understand the behavior of our software in untested or lesser tested scenarios.\nWhen comes to iOS and other Apple platforms, there have always been third party dependencies that allow you to do this.",
+      "summary": "It is no surprise that software tend to write logs to a local file as they execute. As events, errors, or exceptional situations occur, a lot of software takes note of them using a local logging solution. This is done because these practices can allow us to troubleshoot problems for our users, find bugs, and in general understand the behavior of our software in untested or lesser tested scenarios.\nWhen comes to iOS and other Apple platforms, there have always been third party dependencies that allow you to do this.",
+      "date_published": "2020-08-26T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/simpler-file-encryption-ios/",
+      "url": "https://www.andyibanez.com/posts/simpler-file-encryption-ios/",
+      "title": "Simpler File Encryption on iOS",
+      "content_html": "It&rsquo;s not news that iOS has a heavy a focus on privacy and security. Apple provides us with many tools to make encryption easy, like CryptoKit, a high-level Cryptography framework on iOS. When CryptoKit is not enough, we can leverage older, lower-level APIs to do more cryptographic operations or use cyphers not covered by CryptoKit. We can even make use of the Secure Enclave to leverage hardware-level security to our apps.",
+      "summary": "It&rsquo;s not news that iOS has a heavy a focus on privacy and security. Apple provides us with many tools to make encryption easy, like CryptoKit, a high-level Cryptography framework on iOS. When CryptoKit is not enough, we can leverage older, lower-level APIs to do more cryptographic operations or use cyphers not covered by CryptoKit. We can even make use of the Secure Enclave to leverage hardware-level security to our apps.",
+      "date_published": "2020-08-19T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/file-download-queue-combine/",
+      "url": "https://www.andyibanez.com/posts/file-download-queue-combine/",
+      "title": "A File Download Queue in Combine for Swift",
+      "content_html": "Combine allows us to create pipelines for a lot of tasks. Thanks to the fact it can do work concurrently without leveraging callbacks, it is very easy to build things that would otherwise be very complex.\nIn this short article, we will build a file download queue that downloads images sequentially. You can use this as the base for more complex queues.\nThe queue will download an array of images sequentially.",
+      "summary": "Combine allows us to create pipelines for a lot of tasks. Thanks to the fact it can do work concurrently without leveraging callbacks, it is very easy to build things that would otherwise be very complex.\nIn this short article, we will build a file download queue that downloads images sequentially. You can use this as the base for more complex queues.\nThe queue will download an array of images sequentially.",
+      "date_published": "2020-08-12T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/common-reasons-background-tasks-fail-ios/",
+      "url": "https://www.andyibanez.com/posts/common-reasons-background-tasks-fail-ios/",
+      "title": "Common Reasons for Background Tasks to Fail in iOS",
+      "content_html": "Apple introduced modern background tasks last year on iOS 13. These new APIs have been out for a little over year (counting the beta period). Many developers have tried to adopt them to moderate success. Many of them have found them to be very unpredictable and that only work a fraction of the time. If you look around the internet (and even on the comments in that article), you will see many developers weren&rsquo;t able to get them to work as expected.",
+      "summary": "Apple introduced modern background tasks last year on iOS 13. These new APIs have been out for a little over year (counting the beta period). Many developers have tried to adopt them to moderate success. Many of them have found them to be very unpredictable and that only work a fraction of the time. If you look around the internet (and even on the comments in that article), you will see many developers weren&rsquo;t able to get them to work as expected.",
+      "date_published": "2020-08-05T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/custom-views-modifiers-xcode-library-swiftui/",
+      "url": "https://www.andyibanez.com/posts/custom-views-modifiers-xcode-library-swiftui/",
+      "title": "Adding Custom SwiftUI Views and Modifiers to the Xcode Library",
+      "content_html": "Xcode 12 introduces the ability for developers to add their own SwiftUI views and modifiers to the Xcode library. This allows people using your code to discover your custom views, makes your codebase easier to learn, and it allows you to visually edit complex views visually rather than with code.\nIn this short article we will explore how we can add our own views and modifiers to the Xcode library.",
+      "summary": "Xcode 12 introduces the ability for developers to add their own SwiftUI views and modifiers to the Xcode library. This allows people using your code to discover your custom views, makes your codebase easier to learn, and it allows you to visually edit complex views visually rather than with code.\nIn this short article we will explore how we can add our own views and modifiers to the Xcode library.",
+      "date_published": "2020-07-29T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/wrapping-asynchronous-apis-into-combine-futures/",
+      "url": "https://www.andyibanez.com/posts/wrapping-asynchronous-apis-into-combine-futures/",
+      "title": "Wrapping Asynchronous APIs into Combine Futures",
+      "content_html": "Two of the concepts used a lot in Reactive Programming are the Future and Promises. Whether you have been using Combine for a while or are new to Reactive Programming, chances are you have seen these two words. These terms date to years ago. And I would be lying if I told you I knew what that they were for until I started learning Combine. The first time I heard about Futures and Promises was back in my NodeJS job half a decade ago, and I didn&rsquo;t understand these concepts back then.",
+      "summary": "Two of the concepts used a lot in Reactive Programming are the Future and Promises. Whether you have been using Combine for a while or are new to Reactive Programming, chances are you have seen these two words. These terms date to years ago. And I would be lying if I told you I knew what that they were for until I started learning Combine. The first time I heard about Futures and Promises was back in my NodeJS job half a decade ago, and I didn&rsquo;t understand these concepts back then.",
+      "date_published": "2020-07-22T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/sharing-data-apple-devices-multipeerconnectivity-framework/",
+      "url": "https://www.andyibanez.com/posts/sharing-data-apple-devices-multipeerconnectivity-framework/",
+      "title": "Sharing Data Across Apple Devices with the MultipeerConnectivity Framework",
+      "content_html": "There are times when we may want to share data across instances of our app running on different physical devices. You could develop a server or even leverage cloud storage, but did you know Apple provides a framework to share data directly across devices, without having to use an intermediary? This framework is the MultipeerConnectivity framework, and it has actually been around for a while. In this article, we will explore this framework to understand how we can use it to share data across instances of our app in different devices directly.",
+      "summary": "There are times when we may want to share data across instances of our app running on different physical devices. You could develop a server or even leverage cloud storage, but did you know Apple provides a framework to share data directly across devices, without having to use an intermediary? This framework is the MultipeerConnectivity framework, and it has actually been around for a while. In this article, we will explore this framework to understand how we can use it to share data across instances of our app in different devices directly.",
+      "date_published": "2020-07-15T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/new-uidatepicker-ios14/",
+      "url": "https://www.andyibanez.com/posts/new-uidatepicker-ios14/",
+      "title": "New UIDatePicker in iOS 14",
+      "content_html": "WWDC2020 brought many interesting and unexpected updates to many old and well known APIs. In this article, we will explore what&rsquo;s new with UIDatePicker on iOS, an API that has existed since the dawn of time and hasn&rsquo;t changed much since its introduction.\nA Short History on Pickers UIDatePicker is an API that has existed since the very early days of the iOS SDK - it goes all the way back to iOS 2.",
+      "summary": "WWDC2020 brought many interesting and unexpected updates to many old and well known APIs. In this article, we will explore what&rsquo;s new with UIDatePicker on iOS, an API that has existed since the dawn of time and hasn&rsquo;t changed much since its introduction.\nA Short History on Pickers UIDatePicker is an API that has existed since the very early days of the iOS SDK - it goes all the way back to iOS 2.",
+      "date_published": "2020-07-08T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/uimenu-improvements-ios14/",
+      "url": "https://www.andyibanez.com/posts/uimenu-improvements-ios14/",
+      "title": "UIMenu Improvements in iOS 14",
+      "content_html": "UIMenu is a new set of APIs that were originally introduced in iOS 13. The API allows us to add menus to different parts of our UIs, including binding actions to key combinations when using your iOS or iPadOS device with a keyboard. Starting on iOS and iPadOS 14 (and ported to macOS Catalyst), this object is more prevalent in the UI thanks to the fact it can be invoqued from different actions.",
+      "summary": "UIMenu is a new set of APIs that were originally introduced in iOS 13. The API allows us to add menus to different parts of our UIs, including binding actions to key combinations when using your iOS or iPadOS device with a keyboard. Starting on iOS and iPadOS 14 (and ported to macOS Catalyst), this object is more prevalent in the UI thanks to the fact it can be invoqued from different actions.",
+      "date_published": "2020-06-24T19:12:07.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/default-apps-may-not-be-possible-all-devs/",
+      "url": "https://www.andyibanez.com/posts/default-apps-may-not-be-possible-all-devs/",
+      "title": "The secret entitlements behind Default Apps on iOS",
+      "content_html": "I hate that my first WWDC article is going to be as lazy as this, but I thought I&rsquo;d write about it anyway so as to at least give an starting point to devs who will want to try creating their own default web browser or e-mail client on iOS and iPadOS.\nPlease note the vast majority of my thoughts here are based on a very short response I received on the dev forums.",
+      "summary": "I hate that my first WWDC article is going to be as lazy as this, but I thought I&rsquo;d write about it anyway so as to at least give an starting point to devs who will want to try creating their own default web browser or e-mail client on iOS and iPadOS.\nPlease note the vast majority of my thoughts here are based on a very short response I received on the dev forums.",
+      "date_published": "2020-06-24T02:42:31.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/error-protocol-specializations-swift/",
+      "url": "https://www.andyibanez.com/posts/error-protocol-specializations-swift/",
+      "title": "Error Protocol Specializations in Swift",
+      "content_html": "Earlier this week I was scrolling through my Twitter feed as usual and I found this tweet that made me realize I may have been handling errors incorrectly in Swift all my life. This prompted me to research a bit more about error handling in Swift, and it turns out there&rsquo;s many specialized Error protocols you can conform to, and you should probably be using them over the default Error provided by the language.",
+      "summary": "Earlier this week I was scrolling through my Twitter feed as usual and I found this tweet that made me realize I may have been handling errors incorrectly in Swift all my life. This prompted me to research a bit more about error handling in Swift, and it turns out there&rsquo;s many specialized Error protocols you can conform to, and you should probably be using them over the default Error provided by the language.",
+      "date_published": "2020-06-19T02:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/scanning-and-text-recognition-with-visionkit/",
+      "url": "https://www.andyibanez.com/posts/scanning-and-text-recognition-with-visionkit/",
+      "title": "Document Scanning and Text Recognition With Vision and VisionKit on iOS",
+      "content_html": "It is amazing what we can do with smartphones these days. Document scanning and text recognition are nothing new. But being able to have such a functionality in our pockets is pretty neat. These days we can create apps that have such features very quickly thanks to the push Apple has been doing to promote Machine Learning and Artificial Intelligence on their devices.\nStarting on iOS 11, we can natively scan documents with a system framework called VisionKit, and we can perform operations on images using a framework called Vision.",
+      "summary": "It is amazing what we can do with smartphones these days. Document scanning and text recognition are nothing new. But being able to have such a functionality in our pockets is pretty neat. These days we can create apps that have such features very quickly thanks to the push Apple has been doing to promote Machine Learning and Artificial Intelligence on their devices.\nStarting on iOS 11, we can natively scan documents with a system framework called VisionKit, and we can perform operations on images using a framework called Vision.",
+      "date_published": "2020-06-10T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/ios-keychain-touch-id-face-id/",
+      "url": "https://www.andyibanez.com/posts/ios-keychain-touch-id-face-id/",
+      "title": "Using the iOS Keychain with Biometrics",
+      "content_html": "If you have been using the keychain on your iOS apps you may want to start using Face ID/Touch ID to let your user access your app and their data. This is a common use case but it&rsquo;s very easy to do incorrectly.\nApple introduced Touch ID all the way back in 2013, and ever since then, every iOS device has come with some sort of biometric authentication method, be it Touch ID or Face ID.",
+      "summary": "If you have been using the keychain on your iOS apps you may want to start using Face ID/Touch ID to let your user access your app and their data. This is a common use case but it&rsquo;s very easy to do incorrectly.\nApple introduced Touch ID all the way back in 2013, and ever since then, every iOS device has come with some sort of biometric authentication method, be it Touch ID or Face ID.",
+      "date_published": "2020-06-03T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/using-ios-keychain-swift/",
+      "url": "https://www.andyibanez.com/posts/using-ios-keychain-swift/",
+      "title": "Using the iOS Keychain in Swift",
+      "content_html": "This article is an entirely rewritten version of an old tutorial I wrote years ago titled &ldquo;Using the iOS Keychain&rdquo;. Originally written in Objective-C, the old version has been archived but it is accessible here.\nThe Keychain is the place where you would store sensitive data. As secure as iOS currently is, the keychain is the right place to store passwords, authentication tokens, and other sensitive data. You should not store this kind of data in UserDefaults, even if iOS has made it harder to access that data for normal users in the latest versions.",
+      "summary": "This article is an entirely rewritten version of an old tutorial I wrote years ago titled &ldquo;Using the iOS Keychain&rdquo;. Originally written in Objective-C, the old version has been archived but it is accessible here.\nThe Keychain is the place where you would store sensitive data. As secure as iOS currently is, the keychain is the right place to store passwords, authentication tokens, and other sensitive data. You should not store this kind of data in UserDefaults, even if iOS has made it harder to access that data for normal users in the latest versions.",
+      "date_published": "2020-05-27T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/content-blockers-in-ios/",
+      "url": "https://www.andyibanez.com/posts/content-blockers-in-ios/",
+      "title": "Writing Content Blockers for iOS",
+      "content_html": "A few years ago, Apple introduced the Content Blocking APIs to Safari. Using these APIs, developers are able to write extensions that allow Safari to block content users do not want to see.\nMost commonly used for ads, content blockers are not really ad blockers. While they can, and commonly do, block ads, developers can write content blockers for all kind of content, including profanity, or other questionable content.\nContent Blocking VS Ad Blocking.",
+      "summary": "A few years ago, Apple introduced the Content Blocking APIs to Safari. Using these APIs, developers are able to write extensions that allow Safari to block content users do not want to see.\nMost commonly used for ads, content blockers are not really ad blockers. While they can, and commonly do, block ads, developers can write content blockers for all kind of content, including profanity, or other questionable content.\nContent Blocking VS Ad Blocking.",
+      "date_published": "2020-05-20T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/dependency-injection-storyboards/",
+      "url": "https://www.andyibanez.com/posts/dependency-injection-storyboards/",
+      "title": "Dependency Injection with Storyboards on Apple Platforms",
+      "content_html": "Every iOS developer has written a line of code like this one at least once:\nclass DollInfoViewController: UIViewController { var dollModel: Doll? override func viewDidLoad() { super.viewDidLoad() // Do any additional setup after loading the view. } } Or in the worst case, you may have seen code like this:\nvar dollModel: Doll! Then, when you want to create a view controller of that type you&rsquo;d do:\n// First we need to check if we can actually instantiate the view controller.",
+      "summary": "Every iOS developer has written a line of code like this one at least once:\nclass DollInfoViewController: UIViewController { var dollModel: Doll? override func viewDidLoad() { super.viewDidLoad() // Do any additional setup after loading the view. } } Or in the worst case, you may have seen code like this:\nvar dollModel: Doll! Then, when you want to create a view controller of that type you&rsquo;d do:\n// First we need to check if we can actually instantiate the view controller.",
+      "date_published": "2020-05-13T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/quick-introduction-reflection-swift/",
+      "url": "https://www.andyibanez.com/posts/quick-introduction-reflection-swift/",
+      "title": "Quick Introduction Reflection in Swift",
+      "content_html": "If you have been programming for a few years, you have undoubtedly come across the term Reflection. This feature allows us to inspect and work with the members of a type.\nif this doesn&rsquo;t make sense, suppose you wanted to check what members a type has. How would you do this? Ideally you&rsquo;d like to iterate over its members and print them. This is a very basic application of Reflection, but it should let think of other potential uses for it.",
+      "summary": "If you have been programming for a few years, you have undoubtedly come across the term Reflection. This feature allows us to inspect and work with the members of a type.\nif this doesn&rsquo;t make sense, suppose you wanted to check what members a type has. How would you do this? Ideally you&rsquo;d like to iterate over its members and print them. This is a very basic application of Reflection, but it should let think of other potential uses for it.",
+      "date_published": "2020-05-07T02:24:46.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-dynamicmemberlookup-dynamiccallable-swift/",
+      "url": "https://www.andyibanez.com/posts/understanding-dynamicmemberlookup-dynamiccallable-swift/",
+      "title": "Understanding @dynamicMemberLookup and @dynamicCallable in Swift",
+      "content_html": "If you have written code in a programming language such as Python or PHP, you can find many direct comparisons to Swift. For one, Swift is statically typed, whereas PHP and Python are not - Swift is considered a safe language as it has a bunch of features to protect you against mistakes - static typing, error throwing, optionality for dealing with nulls, to name a few -, whereas PHP and Python do not.",
+      "summary": "If you have written code in a programming language such as Python or PHP, you can find many direct comparisons to Swift. For one, Swift is statically typed, whereas PHP and Python are not - Swift is considered a safe language as it has a bunch of features to protect you against mistakes - static typing, error throwing, optionality for dealing with nulls, to name a few -, whereas PHP and Python do not.",
+      "date_published": "2020-04-27T04:51:02.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part6/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part6/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 6: Releasing And Installing Our Command Line Tool",
+      "content_html": "I wasn&rsquo;t sure if I should include this article as part of this series. But for the sake of completion, I decided to include it. This article is very short, but it tells us how to actually install our own tool in a system so we can start using it without writing its full path.\nTo recap, and before I end my series in Swift&rsquo;s ArgumentParser, let&rsquo;s give a quick overview of everything we have learned so far:",
+      "summary": "I wasn&rsquo;t sure if I should include this article as part of this series. But for the sake of completion, I decided to include it. This article is very short, but it tells us how to actually install our own tool in a system so we can start using it without writing its full path.\nTo recap, and before I end my series in Swift&rsquo;s ArgumentParser, let&rsquo;s give a quick overview of everything we have learned so far:",
+      "date_published": "2020-04-22T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part5/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part5/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 5: Tools with Asynchronous APIs",
+      "content_html": "In the past four weeks we have explored many of the features available to us via ArgumentParser and how to use them. Here&rsquo;s a recap of everything we learned so far:\n We learned the very basics We learned how to validate user input We explored a way to separate our tool into subcommands. And finally, we learned how we can improve our documentation pages  In this article, we will not explore a feature exposed to us via ArgumentParser.",
+      "summary": "In the past four weeks we have explored many of the features available to us via ArgumentParser and how to use them. Here&rsquo;s a recap of everything we learned so far:\n We learned the very basics We learned how to validate user input We explored a way to separate our tool into subcommands. And finally, we learned how we can improve our documentation pages  In this article, we will not explore a feature exposed to us via ArgumentParser.",
+      "date_published": "2020-04-15T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part4/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part4/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 4: Customizing Help",
+      "content_html": "Writing Command Line Tools in Swift Using ArgumentParser, Part 4: Customizing Help\nIn the past few weeks, we have explored how to use ArgumentParser and many of its features. It&rsquo;s great that ArgumentParser provides a lot of functionality for free, but it wouldn&rsquo;t make sense to build great tools that users can&rsquo;t figure out how to use. This week is all about that.\nWe saw how ArgumentParser can build a lot of documentation for free, but we can actually do more.",
+      "summary": "Writing Command Line Tools in Swift Using ArgumentParser, Part 4: Customizing Help\nIn the past few weeks, we have explored how to use ArgumentParser and many of its features. It&rsquo;s great that ArgumentParser provides a lot of functionality for free, but it wouldn&rsquo;t make sense to build great tools that users can&rsquo;t figure out how to use. This week is all about that.\nWe saw how ArgumentParser can build a lot of documentation for free, but we can actually do more.",
+      "date_published": "2020-04-08T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part3/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part3/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 3: Subcommands",
+      "content_html": "We have been having a lot of fun with ArgumentParser in the last two weeks, and the fun is not about to end any time soon. We have explored how we can build basic commands with the basic building blocks of the framework, and how we can perform advanced validation and error handling. This week, we will something very useful: Subcommands.\nSubcommands If you have used git directly from the command line before, you have used subcommands before.",
+      "summary": "We have been having a lot of fun with ArgumentParser in the last two weeks, and the fun is not about to end any time soon. We have explored how we can build basic commands with the basic building blocks of the framework, and how we can perform advanced validation and error handling. This week, we will something very useful: Subcommands.\nSubcommands If you have used git directly from the command line before, you have used subcommands before.",
+      "date_published": "2020-04-01T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part2/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part2/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 2: Validation & Errors",
+      "content_html": "Last week we explored how we can build a simple command line tool. We learned how to use @Argument, @Option, and @Flag as the building blocks for ArgumentParser command line tools. We we saw last week was enough to build many simple tools, but there&rsquo;s still a lot to explore, and cool things to learn.\nThis week we will learn about input validation and errors, so we can build better tools that take more constrained parameters when relevant.",
+      "summary": "Last week we explored how we can build a simple command line tool. We learned how to use @Argument, @Option, and @Flag as the building blocks for ArgumentParser command line tools. We we saw last week was enough to build many simple tools, but there&rsquo;s still a lot to explore, and cool things to learn.\nThis week we will learn about input validation and errors, so we can build better tools that take more constrained parameters when relevant.",
+      "date_published": "2020-03-25T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part1/",
+      "url": "https://www.andyibanez.com/posts/writing-commandline-tools-argumentparser-part1/",
+      "title": "Writing Command Line Tools in Swift Using ArgumentParser, Part 1: Introduction & Basic Usage",
+      "content_html": "A few weeks ago, the Swift project introduced the ArgumentParser package. This package makes it easy to write command line tools by providing automatic parsing, documentation generation, and more.\nIn this article, we will explore ArgumentParser, and how we can start building some command line tools with it, using the basic building blocks, which are three Property Wrappers called Argument, Option, and Flag.\nProject Configuration Open Xcode and create a new project of type &ldquo;Command Line Tool&rdquo;.",
+      "summary": "A few weeks ago, the Swift project introduced the ArgumentParser package. This package makes it easy to write command line tools by providing automatic parsing, documentation generation, and more.\nIn this article, we will explore ArgumentParser, and how we can start building some command line tools with it, using the basic building blocks, which are three Property Wrappers called Argument, Option, and Flag.\nProject Configuration Open Xcode and create a new project of type &ldquo;Command Line Tool&rdquo;.",
+      "date_published": "2020-03-18T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-function-builders/",
+      "url": "https://www.andyibanez.com/posts/understanding-function-builders/",
+      "title": "Understanding Function Builders in Swift",
+      "content_html": "WWDC2020 is just around the corner*, and it hasn&rsquo;t been one year since WWDC2019 took place. There is still a lot of ground to cover regarding the new tools and APIs demonstrated then. and In this article we will focus on a feature new to Swift itself: Function Builders.\n*: Maybe. :(\nIf you have been hacking away at SwiftUI, you have probably been wondering how it makes it possible to build great UIs with very nice syntactic sugar.",
+      "summary": "WWDC2020 is just around the corner*, and it hasn&rsquo;t been one year since WWDC2019 took place. There is still a lot of ground to cover regarding the new tools and APIs demonstrated then. and In this article we will focus on a feature new to Swift itself: Function Builders.\n*: Maybe. :(\nIf you have been hacking away at SwiftUI, you have probably been wondering how it makes it possible to build great UIs with very nice syntactic sugar.",
+      "date_published": "2020-03-11T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/using-nlembeddings/",
+      "url": "https://www.andyibanez.com/posts/using-nlembeddings/",
+      "title": "Finding Related Words with NLEmbedding",
+      "content_html": "There may be cases in which you need to find related words to others. With the NSLEmbedding class, you can find related strings based on the proximity of their vectors.\nUsing NLEmbedding Using NLEmbedding is very straight forward. A simple task is to get an array of related words, which come as an array of (String, NLDistance) back.\nThe distance between words tells you how &ldquo;related&rdquo; they are\nlet embedding = NLEmbedding.",
+      "summary": "There may be cases in which you need to find related words to others. With the NSLEmbedding class, you can find related strings based on the proximity of their vectors.\nUsing NLEmbedding Using NLEmbedding is very straight forward. A simple task is to get an array of related words, which come as an array of (String, NLDistance) back.\nThe distance between words tells you how &ldquo;related&rdquo; they are\nlet embedding = NLEmbedding.",
+      "date_published": "2020-03-04T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/analyzing-text-nltagger/",
+      "url": "https://www.andyibanez.com/posts/analyzing-text-nltagger/",
+      "title": "Analyzing Natural Language Text with NLTagger",
+      "content_html": "In the past few weeks, we have explored how we can tokenize natural language text and how to recognize the language a natural language text is written in. This week we will continue exploring more natural language APIs provided by the NaturalLanguage framework. We will learn about the NLTagger class, which allows us to to analyze natural language text to find parts of speech, lexical classes, lemma, scripts, and more. This API, introduced in iOS 12, implements machine learning to work, and just like the other NaturalLanguage classes, is very easy to use.",
+      "summary": "In the past few weeks, we have explored how we can tokenize natural language text and how to recognize the language a natural language text is written in. This week we will continue exploring more natural language APIs provided by the NaturalLanguage framework. We will learn about the NLTagger class, which allows us to to analyze natural language text to find parts of speech, lexical classes, lemma, scripts, and more. This API, introduced in iOS 12, implements machine learning to work, and just like the other NaturalLanguage classes, is very easy to use.",
+      "date_published": "2020-02-26T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/recognizing-language-nllanguagerecognizer/",
+      "url": "https://www.andyibanez.com/posts/recognizing-language-nllanguagerecognizer/",
+      "title": "Recognizing the language in a Natural Language Text with NLanguageRecognizer",
+      "content_html": "Continuing my trend of writing about language processing, today I want to discuss about identifying the language of a body of text. This is an interesting task we can do thanks, once again, to Apple&rsquo;s investment in APIs linked to machine learning.\nToday we will explore the NLLanguageRecognizer object. Introduced in iOS 12, this class can do a lot of language recognizing, from detecting the &ldquo;dominant language&rdquo; of a string, to all the possible languages.",
+      "summary": "Continuing my trend of writing about language processing, today I want to discuss about identifying the language of a body of text. This is an interesting task we can do thanks, once again, to Apple&rsquo;s investment in APIs linked to machine learning.\nToday we will explore the NLLanguageRecognizer object. Introduced in iOS 12, this class can do a lot of language recognizing, from detecting the &ldquo;dominant language&rdquo; of a string, to all the possible languages.",
+      "date_published": "2020-02-19T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/tokenizing-nltokenizer/",
+      "url": "https://www.andyibanez.com/posts/tokenizing-nltokenizer/",
+      "title": "Tokenizing Natural Language into Semantic Units in iOS",
+      "content_html": "Working with Natural Language is possible thanks to machine learning. Starting on iOS 12, Apple has provided many APIs just for this task. In this article we will explore how to use NLTokenizer to separate natural language text into its proper units.\nIntroduction to Natural Language Tokenizing If you are not familiar with the inner workings of Natural Language processing, tokenizing simply means that we separate a string and analyze it to find its semantic units.",
+      "summary": "Working with Natural Language is possible thanks to machine learning. Starting on iOS 12, Apple has provided many APIs just for this task. In this article we will explore how to use NLTokenizer to separate natural language text into its proper units.\nIntroduction to Natural Language Tokenizing If you are not familiar with the inner workings of Natural Language processing, tokenizing simply means that we separate a string and analyze it to find its semantic units.",
+      "date_published": "2020-02-12T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/matching-nl-nsdatadetector/",
+      "url": "https://www.andyibanez.com/posts/matching-nl-nsdatadetector/",
+      "title": "Matching Natural Language Text for Predefined Data Patterns on Apple's Devices",
+      "content_html": "iOS has a lot of APIs that deal with natural language detection. One such class is NSDataDetector. This class allows you to match different kinds of data in text, including dates, time, links, and more. This class, actually introduced a very long time ago (in the iOS 4.0 days!) makes it very easy to find this kind of data in strings. In this article we will explore how to use this very old class - whose documentation is Objective-C only at this time - in Swift, and how to do common tasks with it.",
+      "summary": "iOS has a lot of APIs that deal with natural language detection. One such class is NSDataDetector. This class allows you to match different kinds of data in text, including dates, time, links, and more. This class, actually introduced a very long time ago (in the iOS 4.0 days!) makes it very easy to find this kind of data in strings. In this article we will explore how to use this very old class - whose documentation is Objective-C only at this time - in Swift, and how to do common tasks with it.",
+      "date_published": "2020-02-05T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/speech-recognition-sfspeechrecognizer/",
+      "url": "https://www.andyibanez.com/posts/speech-recognition-sfspeechrecognizer/",
+      "title": "Recognizing Speech Locally on an iOS Device Using the Speech Framework",
+      "content_html": "As iOS becomes more advanced, features that we thought belonged to the long future start becoming more common place in today&rsquo;s software. One such feature is speech recognition, which allows a device to take verbal input from a user, transcribe it into text, and do something with it.\nIn iOS, we can do this using a framework called Speech, and an object called SFSpeechRecognizer. With this class, you can perform all kinds of speech recognition tasks.",
+      "summary": "As iOS becomes more advanced, features that we thought belonged to the long future start becoming more common place in today&rsquo;s software. One such feature is speech recognition, which allows a device to take verbal input from a user, transcribe it into text, and do something with it.\nIn iOS, we can do this using a framework called Speech, and an object called SFSpeechRecognizer. With this class, you can perform all kinds of speech recognition tasks.",
+      "date_published": "2020-01-29T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/haptics-with-uinotificationfeedbackgenerator/",
+      "url": "https://www.andyibanez.com/posts/haptics-with-uinotificationfeedbackgenerator/",
+      "title": "Generating Feedback Haptics with UINotificationFeedbackGenerator",
+      "content_html": "A few weeks ago, we talked about how we could play custom haptic feedbacks with CHHapticEngine. We saw how powerful and flexible that class is, letting us create different haptics for any context.\nSometimes though, you want to play simpler haptics to let the user know that something has occurred. The CHHapticEngine class can be overkill, and finding the right parameters to have interaction feedback can be very time consuming.",
+      "summary": "A few weeks ago, we talked about how we could play custom haptic feedbacks with CHHapticEngine. We saw how powerful and flexible that class is, letting us create different haptics for any context.\nSometimes though, you want to play simpler haptics to let the user know that something has occurred. The CHHapticEngine class can be overkill, and finding the right parameters to have interaction feedback can be very time consuming.",
+      "date_published": "2020-01-22T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/cryptokit-secure-enclave/",
+      "url": "https://www.andyibanez.com/posts/cryptokit-secure-enclave/",
+      "title": "CryptoKit and the Secure Enclave",
+      "content_html": "CryptoKit and the Secure Enclave\nApple&rsquo;s CryptoKit introduced this year is full of amazing features. Not only does it offer very easy to use cryptography, but it also offers an interface to a security feature that Apple introduced less than a decade ago: The Secure Enclave.\nThe Secure Enclave is a hardware feature for helping the system work with cryptographically secure data. In this article, we will build upon our previous CryptoKit knowledge (see the article linked above), and we will also learn what the Secure Enclave is all about.",
+      "summary": "CryptoKit and the Secure Enclave\nApple&rsquo;s CryptoKit introduced this year is full of amazing features. Not only does it offer very easy to use cryptography, but it also offers an interface to a security feature that Apple introduced less than a decade ago: The Secure Enclave.\nThe Secure Enclave is a hardware feature for helping the system work with cryptographically secure data. In this article, we will build upon our previous CryptoKit knowledge (see the article linked above), and we will also learn what the Secure Enclave is all about.",
+      "date_published": "2020-01-15T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/parametrized-shortcuts/",
+      "url": "https://www.andyibanez.com/posts/parametrized-shortcuts/",
+      "title": "Implementing Parametrizable Shortcut Actions for your iOS Apps",
+      "content_html": "All the way back to 2016, a group of very talented iOS developers released Workflow, a very popular app to let users create actions of different kinds within the system&rsquo;s constraints. You could create and automate different tasks, such as controlling a server via SSH, downloading all the images from a website, and more&hellip; Much, much more.\nApple saw the power of the app and acquired it in March 2017. This was very exciting, but we didn&rsquo;t hear anything from the app since.",
+      "summary": "All the way back to 2016, a group of very talented iOS developers released Workflow, a very popular app to let users create actions of different kinds within the system&rsquo;s constraints. You could create and automate different tasks, such as controlling a server via SSH, downloading all the images from a website, and more&hellip; Much, much more.\nApple saw the power of the app and acquired it in March 2017. This was very exciting, but we didn&rsquo;t hear anything from the app since.",
+      "date_published": "2020-01-08T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/modern-background-tasks-ios13/",
+      "url": "https://www.andyibanez.com/posts/modern-background-tasks-ios13/",
+      "title": "Modern Backgrounds Tasks in iOS 13",
+      "content_html": "In the article from last week, we explored the basic background execution APIs introduced since iOS 7. We explored how we could request additional time for a task to complete after entering the background, how we could defer downloads with URLSession, and how we could use silent push notifications to trigger background tasks.\nThe story with background tasks does not end there. iOS 13 introduced more APIs to do better background tasks, and that allow you to do things that weren&rsquo;t possible before.",
+      "summary": "In the article from last week, we explored the basic background execution APIs introduced since iOS 7. We explored how we could request additional time for a task to complete after entering the background, how we could defer downloads with URLSession, and how we could use silent push notifications to trigger background tasks.\nThe story with background tasks does not end there. iOS 13 introduced more APIs to do better background tasks, and that allow you to do things that weren&rsquo;t possible before.",
+      "date_published": "2019-12-25T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/background-execution-in-ios/",
+      "url": "https://www.andyibanez.com/posts/background-execution-in-ios/",
+      "title": "Background Execution on iOS",
+      "content_html": "In the early days of iOS development, developers had no way at all to perform background tasks beyond a very limited constraints of tasks, like music playback. Modern demands go beyond allowing people to play music in your app while they use a different app, and we as developers need to adapt to these changes. VoIP, lengthy networking, and even silent pushes to keep an app updated are very common these days, and fulfilling these demands used to be hard, if not outright impossible.",
+      "summary": "In the early days of iOS development, developers had no way at all to perform background tasks beyond a very limited constraints of tasks, like music playback. Modern demands go beyond allowing people to play music in your app while they use a different app, and we as developers need to adapt to these changes. VoIP, lengthy networking, and even silent pushes to keep an app updated are very common these days, and fulfilling these demands used to be hard, if not outright impossible.",
+      "date_published": "2019-12-18T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/formatting-relative-dates-relativedatetimeformatter/",
+      "url": "https://www.andyibanez.com/posts/formatting-relative-dates-relativedatetimeformatter/",
+      "title": "Formatting Relative Dates With RelativeDateTimeFormatter",
+      "content_html": "Formatting Relative Dates With RelativeDateTimeFormatter\nA few weeks ago we talked about formatting content with NSFormatter, an abstract class from which multiple formatting classes inherit from to allow you to format different kinds of data in a human-readable form. NSFormatter is not only a class you can inherit from yourself, but as iOS evolves, more formatters will be added to its family. This week, we will explore a new member of this family introduced in iOS 13: RelativeDateTimeFormatter.",
+      "summary": "Formatting Relative Dates With RelativeDateTimeFormatter\nA few weeks ago we talked about formatting content with NSFormatter, an abstract class from which multiple formatting classes inherit from to allow you to format different kinds of data in a human-readable form. NSFormatter is not only a class you can inherit from yourself, but as iOS evolves, more formatters will be added to its family. This week, we will explore a new member of this family introduced in iOS 13: RelativeDateTimeFormatter.",
+      "date_published": "2019-12-11T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/nsuserdefaults-property-wrappers/",
+      "url": "https://www.andyibanez.com/posts/nsuserdefaults-property-wrappers/",
+      "title": "UserDefaults and Property Wrappers",
+      "content_html": "Soon after I published this article, Christian Tietze wrote a fair criticism of this idea here.\nOnce you understand how property wrappers work, you can use this article to apply it to user defaults. The main idea is that property wrappers allow you to store your values differently and even externally. That said, you may or may not want to implement this in a real app. I recommend you read this article first, and then go back to Christian&rsquo;s to see more downsides of this idea other than the ones I mentioned below.",
+      "summary": "Soon after I published this article, Christian Tietze wrote a fair criticism of this idea here.\nOnce you understand how property wrappers work, you can use this article to apply it to user defaults. The main idea is that property wrappers allow you to store your values differently and even externally. That said, you may or may not want to implement this in a real app. I recommend you read this article first, and then go back to Christian&rsquo;s to see more downsides of this idea other than the ones I mentioned below.",
+      "date_published": "2019-12-04T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/understanding-property-wrappers-swift/",
+      "url": "https://www.andyibanez.com/posts/understanding-property-wrappers-swift/",
+      "title": "Understanding Property Wrappers in Swift",
+      "content_html": "Swift 5.1 introduced a sleuth of wonderful features, and amongst them, there&rsquo;s one that is essential for SwiftUI: Property Wrappers. Property wrappers are a powerful feature in Swift that allow you to wrap behavior along with properties. This allows us to do some interesting things. If you have seen SwiftUI, you&rsquo;ve seen the @State &ldquo;keyword&rdquo;, and you know that it allows you to modify structs. This is possible thanks to the behavior &ldquo;wrapped&rdquo; within properties marked with it.",
+      "summary": "Swift 5.1 introduced a sleuth of wonderful features, and amongst them, there&rsquo;s one that is essential for SwiftUI: Property Wrappers. Property wrappers are a powerful feature in Swift that allow you to wrap behavior along with properties. This allows us to do some interesting things. If you have seen SwiftUI, you&rsquo;ve seen the @State &ldquo;keyword&rdquo;, and you know that it allows you to modify structs. This is possible thanks to the behavior &ldquo;wrapped&rdquo; within properties marked with it.",
+      "date_published": "2019-11-27T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/intercepting-network-mitmproxy/",
+      "url": "https://www.andyibanez.com/posts/intercepting-network-mitmproxy/",
+      "title": "Intercepting Network Traffic with mitmproxy",
+      "content_html": "If you have been programming mobile apps for a while, you must have used a web based API - JSON based or otherwise - and you have had to deal with bugs related to your requests and responses to a web service. You have likely asked yourself why some parsing code is not working as expected, or why a request seems to have an invalid format. Intercepting your own network calls with a proxy can help you find the answer to these questions.",
+      "summary": "If you have been programming mobile apps for a while, you must have used a web based API - JSON based or otherwise - and you have had to deal with bugs related to your requests and responses to a web service. You have likely asked yourself why some parsing code is not working as expected, or why a request seems to have an invalid format. Intercepting your own network calls with a proxy can help you find the answer to these questions.",
+      "date_published": "2019-11-20T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/ios13-new-search-apis/",
+      "url": "https://www.andyibanez.com/posts/ios13-new-search-apis/",
+      "title": "New Search APIs in iOS 13",
+      "content_html": "iOS has always provided interesting search APIs, but they have always been limited and doing the most interesting tasks required you to either write your own implementation or use private APIs.\niOS 13 has provided some very nice improvements to the UI search APIs. In this article we will talk about two of them.\nUISearchBar finally exposes its text field I have been using UISearchController and UISearchBar for a very long time, and I have always found it bizarre that Apple didn&rsquo;t expose its underlying text field property.",
+      "summary": "iOS has always provided interesting search APIs, but they have always been limited and doing the most interesting tasks required you to either write your own implementation or use private APIs.\niOS 13 has provided some very nice improvements to the UI search APIs. In this article we will talk about two of them.\nUISearchBar finally exposes its text field I have been using UISearchController and UISearchBar for a very long time, and I have always found it bizarre that Apple didn&rsquo;t expose its underlying text field property.",
+      "date_published": "2019-11-13T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/cryptokit-not-enough/",
+      "url": "https://www.andyibanez.com/posts/cryptokit-not-enough/",
+      "title": "When CryptoKit is not Enough",
+      "content_html": "This article is a continuation to my Common Cryptographic Operations with CryptoKit article. If you want to learn how to use CryptoKit, read that one instead, and come to this one when you need a feature not offered by it.\nAs I have been playing with the amazing CryptoKit framework in the past few weeks, I have discovered a few more things that CryptoKit currently doesn&rsquo;t do. This is not generally a bad thing, and I think these limitations are related to what seem to be the goal of the framework:",
+      "summary": "This article is a continuation to my Common Cryptographic Operations with CryptoKit article. If you want to learn how to use CryptoKit, read that one instead, and come to this one when you need a feature not offered by it.\nAs I have been playing with the amazing CryptoKit framework in the past few weeks, I have discovered a few more things that CryptoKit currently doesn&rsquo;t do. This is not generally a bad thing, and I think these limitations are related to what seem to be the goal of the framework:",
+      "date_published": "2019-11-06T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/pattern-matching/",
+      "url": "https://www.andyibanez.com/posts/pattern-matching/",
+      "title": "Introduction to Patterns and Pattern Matching in Swift.",
+      "content_html": "Swift is a beautiful language, but it hides some powerful features from developers who come from more &ldquo;old-style&rdquo; programming languages such as C++ and Java. One such feature is Pattern Matching, and it allows you to write some cleaner code when dealing with some operations.\nFor example, consider casting. Casting is a feature in the vast majority of statically-typed languages. Casting is considered to be an ugly operation by some, because when you need to cast, it&rsquo;s usually because the language has a flaw that prevents it from telling you about the right data type underneath.",
+      "summary": "Swift is a beautiful language, but it hides some powerful features from developers who come from more &ldquo;old-style&rdquo; programming languages such as C++ and Java. One such feature is Pattern Matching, and it allows you to write some cleaner code when dealing with some operations.\nFor example, consider casting. Casting is a feature in the vast majority of statically-typed languages. Casting is considered to be an ugly operation by some, because when you need to cast, it&rsquo;s usually because the language has a flaw that prevents it from telling you about the right data type underneath.",
+      "date_published": "2019-10-30T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/nsnotificationcenter/",
+      "url": "https://www.andyibanez.com/posts/nsnotificationcenter/",
+      "title": "Understanding and Implementing NSNotificationCenter on Apple's Platforms",
+      "content_html": "Sometimes when you are writing an app, you need to be notified of events occurring somewhere else in the system - either in your own app, or in the operating system - and react to them accordingly. For example, you may be an app like Snapchat and you want to know when a screenshot has been taken. This is a system notification that you can &ldquo;listen&rdquo; to in order to react.",
+      "summary": "Sometimes when you are writing an app, you need to be notified of events occurring somewhere else in the system - either in your own app, or in the operating system - and react to them accordingly. For example, you may be an app like Snapchat and you want to know when a screenshot has been taken. This is a system notification that you can &ldquo;listen&rdquo; to in order to react.",
+      "date_published": "2019-10-23T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/filtering-arrays-nspredicate/",
+      "url": "https://www.andyibanez.com/posts/filtering-arrays-nspredicate/",
+      "title": "Filtering Arrays with Predicates",
+      "content_html": "Whether you have been programming for a while or are new at it, chances are you have had the need to search for results in an array. And while Apple&rsquo;s SDKs for iOS, macOS, iPadOS, and watchOS all use Foundation and have a set of handy tools to make that task easier, there is one particular API that is very powerful but doesn&rsquo;t get much use unless you pair with other frameworks such as Core Data: NSPredicate.",
+      "summary": "Whether you have been programming for a while or are new at it, chances are you have had the need to search for results in an array. And while Apple&rsquo;s SDKs for iOS, macOS, iPadOS, and watchOS all use Foundation and have a set of handy tools to make that task easier, there is one particular API that is very powerful but doesn&rsquo;t get much use unless you pair with other frameworks such as Core Data: NSPredicate.",
+      "date_published": "2019-10-16T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/common-cryptographic-operations-with-cryptokit/",
+      "url": "https://www.andyibanez.com/posts/common-cryptographic-operations-with-cryptokit/",
+      "title": "Common Cryptographic Operations With CryptoKit",
+      "content_html": "Apple has always taken security very seriously, so it&rsquo;s expected that they would provide developers with the same tools they have to help developers implement the same security measures in their apps. This year, Apple introduced CryptoKit.\nApple providing new cryptography tools is nothing new. They have provided the Security framework for a very long time, and a few years later they introduced CommonCrypto. The problem with these frameworks is that they can be very low level, being written in C, and it can be intimidating for new developers to adopt them in their project.",
+      "summary": "Apple has always taken security very seriously, so it&rsquo;s expected that they would provide developers with the same tools they have to help developers implement the same security measures in their apps. This year, Apple introduced CryptoKit.\nApple providing new cryptography tools is nothing new. They have provided the Security framework for a very long time, and a few years later they introduced CommonCrypto. The problem with these frameworks is that they can be very low level, being written in C, and it can be intimidating for new developers to adopt them in their project.",
+      "date_published": "2019-10-09T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/playing-custom-haptics-on-ios/",
+      "url": "https://www.andyibanez.com/posts/playing-custom-haptics-on-ios/",
+      "title": "Playing Custom Haptics on iOS",
+      "content_html": "Vibration and physical feedback has become an important feature of Apple&rsquo;s operating systems. Starting with the Apple Watch, Apple replaced the traditional vibration feedback with haptic feedback hardware, which allowed them to have more control over how vibrations and physical feedback work.\nFirst being introduced in the Apple Watch, Haptic Feedback has been a core part of the Apple ecosystem experience since. Just think about it, wouldn&rsquo;t it be weird if you force-touched the screen to do something, and there was no physical response from the device?",
+      "summary": "Vibration and physical feedback has become an important feature of Apple&rsquo;s operating systems. Starting with the Apple Watch, Apple replaced the traditional vibration feedback with haptic feedback hardware, which allowed them to have more control over how vibrations and physical feedback work.\nFirst being introduced in the Apple Watch, Haptic Feedback has been a core part of the Apple ecosystem experience since. Just think about it, wouldn&rsquo;t it be weird if you force-touched the screen to do something, and there was no physical response from the device?",
+      "date_published": "2019-10-02T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/nsformatter/",
+      "url": "https://www.andyibanez.com/posts/nsformatter/",
+      "title": "Formatting Content with NSFormatter",
+      "content_html": "Very often, we need to deal with data in a &ldquo;raw&rdquo; format that, if displayed directly to the user, it makes little sense to them. This kind of data includes a date timestamp, the number of bytes in a big file, or numbers with no rounding a bunch of decimals. There is a lot of data like this, and we need to be able to format it and show it to the user.",
+      "summary": "Very often, we need to deal with data in a &ldquo;raw&rdquo; format that, if displayed directly to the user, it makes little sense to them. This kind of data includes a date timestamp, the number of bytes in a big file, or numbers with no rounding a bunch of decimals. There is a lot of data like this, and we need to be able to format it and show it to the user.",
+      "date_published": "2019-09-25T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/ipad-multiwindow-support/",
+      "url": "https://www.andyibanez.com/posts/ipad-multiwindow-support/",
+      "title": "Understanding the Essentials for Adopting Multiwindow Support on iPadOS",
+      "content_html": "On WWDC2019, Apple decided to fork iOS into two different operating systems: iOS for iPhones, and iPadOS for iPads. This is to recognize the iPad as its own independent entity that has its own set of features compared to iOS. Amongst those features, iPadOS adds Multiwindow support, which allows our apps to run in more than one Window at the same time.\nWhat exactly is Multi-window support, and how does it work?",
+      "summary": "On WWDC2019, Apple decided to fork iOS into two different operating systems: iOS for iPhones, and iPadOS for iPads. This is to recognize the iPad as its own independent entity that has its own set of features compared to iOS. Amongst those features, iPadOS adds Multiwindow support, which allows our apps to run in more than one Window at the same time.\nWhat exactly is Multi-window support, and how does it work?",
+      "date_published": "2019-09-18T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/swift-result-type/",
+      "url": "https://www.andyibanez.com/posts/swift-result-type/",
+      "title": "Understanding the Result Type in Swift",
+      "content_html": "Error handling when expecting a result out of an operation is a very common thing to do. For this reason, various high-level programming languages have introduced a Result type into their libraries, on top of their existing error-handling features. This feature was implemented in Swift 5.\nA Result wraps a success or a failure. It is essentially an enum with two possible cases: .success and .failure. The .success case wraps the correct result of an operation, whereas a .",
+      "summary": "Error handling when expecting a result out of an operation is a very common thing to do. For this reason, various high-level programming languages have introduced a Result type into their libraries, on top of their existing error-handling features. This feature was implemented in Swift 5.\nA Result wraps a success or a failure. It is essentially an enum with two possible cases: .success and .failure. The .success case wraps the correct result of an operation, whereas a .",
+      "date_published": "2019-09-11T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/building-urls-with-nsurlcomponents/",
+      "url": "https://www.andyibanez.com/posts/building-urls-with-nsurlcomponents/",
+      "title": "Building URLs With NSURLComponents",
+      "content_html": "If you have been programming for Apple platforms for a while, chances are you have seen (or maybe even wrote yourself) a line of code that looks like this:\nlet url = URL(string: &#34;https://www.google.com/search?hl=en&amp;q=pullip&#34;)! Whether you wrote it yourself or someone else did it, one thing is clear: This is not a safe way to build URLs. Can you know, for sure, that your URL is actually valid? Intuitively, all of us can see a URL and see if it&rsquo;s valid, but there is a whole lot of governing in the URL format that at some point we may find funny URLs that look valid and aren&rsquo;t, or the other way around; they look invalid, but aren&rsquo;t.",
+      "summary": "If you have been programming for Apple platforms for a while, chances are you have seen (or maybe even wrote yourself) a line of code that looks like this:\nlet url = URL(string: &#34;https://www.google.com/search?hl=en&amp;q=pullip&#34;)! Whether you wrote it yourself or someone else did it, one thing is clear: This is not a safe way to build URLs. Can you know, for sure, that your URL is actually valid? Intuitively, all of us can see a URL and see if it&rsquo;s valid, but there is a whole lot of governing in the URL format that at some point we may find funny URLs that look valid and aren&rsquo;t, or the other way around; they look invalid, but aren&rsquo;t.",
+      "date_published": "2019-09-04T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/caching-content-with-nscache/",
+      "url": "https://www.andyibanez.com/posts/caching-content-with-nscache/",
+      "title": "Caching Content With NSCache",
+      "content_html": "When we are working with apps on iOS, iPadOS, macOS, watchOS, or TVOS, it&rsquo;s possible that at some point we will have to store and retrieve a lot of temporary data throughout the lifecycle of our software. Depending on our needs, we may need to cache data on disk and manually manage it ourselves, or we may only need it to cache it in memory. In the case of the latter, Apple offers NSCache, a mutable collection that lets us cache files in memory using key-value pairs.",
+      "summary": "When we are working with apps on iOS, iPadOS, macOS, watchOS, or TVOS, it&rsquo;s possible that at some point we will have to store and retrieve a lot of temporary data throughout the lifecycle of our software. Depending on our needs, we may need to cache data on disk and manually manage it ourselves, or we may only need it to cache it in memory. In the case of the latter, Apple offers NSCache, a mutable collection that lets us cache files in memory using key-value pairs.",
+      "date_published": "2019-08-28T11:00:00.000Z"
+    },
+    {
+      "guid": "https://www.andyibanez.com/posts/exploring-the-nsoperation-apis/",
+      "url": "https://www.andyibanez.com/posts/exploring-the-nsoperation-apis/",
+      "title": "Exploring the NSOperation APIs for Apple's Platforms",
+      "content_html": "The original title for this article was posted on my old website in 2012 and it was titled &ldquo;Multithreading on iOS And Mac OS X Using NSOperations&rdquo;. The original examples were written in Objective-C. This article has been rewritten from scratch not only to give the examples in Swift, but also to improve the quality of the old article. It has been shortened, and both language and tone have been revised.",
+      "summary": "The original title for this article was posted on my old website in 2012 and it was titled &ldquo;Multithreading on iOS And Mac OS X Using NSOperations&rdquo;. The original examples were written in Objective-C. This article has been rewritten from scratch not only to give the examples in Swift, but also to improve the quality of the old article. It has been shortened, and both language and tone have been revised.",
+      "date_published": "2019-08-21T11:00:00.000Z"
+    }
+  ]
+}

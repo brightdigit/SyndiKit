@@ -1,0 +1,145 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Stewart Lynch",
+  "home_page_url": "https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg",
+  "author": {
+    "name": "Stewart Lynch"
+  },
+  "items": [
+    {
+      "guid": "yt:video:QrTChgzseVk",
+      "url": "https://www.youtube.com/watch?v=QrTChgzseVk",
+      "title": "SwiftUI Login Screen Workflow",
+      "date_published": "2021-06-20T13:44:57.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:4ochXtdrd70",
+      "url": "https://www.youtube.com/watch?v=4ochXtdrd70",
+      "title": "Sorting Objects in Swift with Multiple Criteria",
+      "date_published": "2021-06-13T13:45:37.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:lF9fOeUwWF8",
+      "url": "https://www.youtube.com/watch?v=lF9fOeUwWF8",
+      "title": "Switching Themes in SwiftUI",
+      "date_published": "2021-06-06T13:54:22.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:r29-06lbLmQ",
+      "url": "https://www.youtube.com/watch?v=r29-06lbLmQ",
+      "title": "CollectionView Paging Layout for SwiftUI and Layout Designer",
+      "date_published": "2021-05-30T13:48:03.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:u1kGK9RTEH4",
+      "url": "https://www.youtube.com/watch?v=u1kGK9RTEH4",
+      "title": "Channel Watcher - An Open Source, SwiftUI, Combine, iPhone, iPad, Mac app",
+      "date_published": "2021-05-23T13:48:08.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:tuHcwRe61KE",
+      "url": "https://www.youtube.com/watch?v=tuHcwRe61KE",
+      "title": "Demystifying Completion Handlers and Asynchronous Functions",
+      "date_published": "2021-05-16T13:51:55.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:kCJyhG8zjvY",
+      "url": "https://www.youtube.com/watch?v=kCJyhG8zjvY",
+      "title": "Navigation Bar Styling in SwiftUI",
+      "date_published": "2021-05-09T13:28:24.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:NY0LFoHQUbk",
+      "url": "https://www.youtube.com/watch?v=NY0LFoHQUbk",
+      "title": "Introduction to Generics in Swift",
+      "date_published": "2021-05-02T13:35:13.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:JmLGI3hdh6c",
+      "url": "https://www.youtube.com/watch?v=JmLGI3hdh6c",
+      "title": "Combine   CurrentValueSubject",
+      "date_published": "2021-04-29T13:50:35.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:Cy7zokKsB4M",
+      "url": "https://www.youtube.com/watch?v=Cy7zokKsB4M",
+      "title": "Combine @Published properties and Just Publisher",
+      "date_published": "2021-04-27T13:44:04.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:1YtC5wVtiZ0",
+      "url": "https://www.youtube.com/watch?v=1YtC5wVtiZ0",
+      "title": "Combine   PassthroughSubject and SwiftUI",
+      "date_published": "2021-04-25T13:38:24.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:dpmy-msRlCA",
+      "url": "https://www.youtube.com/watch?v=dpmy-msRlCA",
+      "title": "Responsible Error Handling In SwiftUI",
+      "date_published": "2021-04-22T13:38:47.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:PC0OXxAH-O0",
+      "url": "https://www.youtube.com/watch?v=PC0OXxAH-O0",
+      "title": "File DataPersistence in SwiftUI",
+      "date_published": "2021-04-20T13:33:06.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:EeSzURDoGCQ",
+      "url": "https://www.youtube.com/watch?v=EeSzURDoGCQ",
+      "title": "Building the ToDo app in SwiftUI",
+      "date_published": "2021-04-18T13:43:42.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    },
+    {
+      "guid": "yt:video:Uf_pmEwmpJo",
+      "url": "https://www.youtube.com/watch?v=Uf_pmEwmpJo",
+      "title": "Not another SwiftUI ToDo App!!!",
+      "date_published": "2021-04-14T13:47:46.000Z",
+      "author": {
+        "name": "Stewart Lynch"
+      }
+    }
+  ]
+}

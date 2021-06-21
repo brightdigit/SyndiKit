@@ -1,0 +1,145 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Appfigures",
+  "home_page_url": "https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg",
+  "author": {
+    "name": "Appfigures"
+  },
+  "items": [
+    {
+      "guid": "yt:video:Eb6EeOqdTw8",
+      "url": "https://www.youtube.com/watch?v=Eb6EeOqdTw8",
+      "title": "What are Custom Product Pages in iOS 15 - The Basics",
+      "date_published": "2021-06-19T02:40:31.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:nqoxX09Tnmo",
+      "url": "https://www.youtube.com/watch?v=nqoxX09Tnmo",
+      "title": "What's new for Subscription Apps in iOS 15?",
+      "date_published": "2021-06-19T02:36:34.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:1WvLV3LuGHQ",
+      "url": "https://www.youtube.com/watch?v=1WvLV3LuGHQ",
+      "title": "These New App Store Guidelines are Interesting...",
+      "date_published": "2021-06-19T02:33:33.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:BpwokwdeKQw",
+      "url": "https://www.youtube.com/watch?v=BpwokwdeKQw",
+      "title": "A/B Testing in the App Store is a BIG DEAL for App Makers!!!",
+      "date_published": "2021-06-19T02:31:33.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:Er_wPp7LVGo",
+      "url": "https://www.youtube.com/watch?v=Er_wPp7LVGo",
+      "title": "What  Can You Do with Custom Product Pages in the New App Store?",
+      "date_published": "2021-06-19T02:26:39.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:nHUmqDxVTEc",
+      "url": "https://www.youtube.com/watch?v=nHUmqDxVTEc",
+      "title": "StoreKit 2 Will Forever Change How Apps Monetize",
+      "date_published": "2021-06-19T02:16:25.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:CtoD1ZZkRxY",
+      "url": "https://www.youtube.com/watch?v=CtoD1ZZkRxY",
+      "title": "AF Chats - WWDC 2021 Recap with Joe Cieplinski",
+      "date_published": "2021-06-17T15:54:19.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:M4SB2Ei94cI",
+      "url": "https://www.youtube.com/watch?v=M4SB2Ei94cI",
+      "title": "AF Chats - Anatomy of an App Store Scam with Kosta Eleftheriou",
+      "date_published": "2021-06-07T10:45:01.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:HHXn70jc-qU",
+      "url": "https://www.youtube.com/watch?v=HHXn70jc-qU",
+      "title": "This Week in Apps #64 - TikTok the King Maker",
+      "date_published": "2021-06-05T14:05:31.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:sG5Hm-h3NgE",
+      "url": "https://www.youtube.com/watch?v=sG5Hm-h3NgE",
+      "title": "This Week in Apps #63 - The Streaming Wars Continue",
+      "date_published": "2021-06-05T14:05:15.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:x2ZdYZ5HGnI",
+      "url": "https://www.youtube.com/watch?v=x2ZdYZ5HGnI",
+      "title": "This Week in Apps #62 - The Money's Still Good",
+      "date_published": "2021-05-22T01:06:34.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:LAZWoCvsN-w",
+      "url": "https://www.youtube.com/watch?v=LAZWoCvsN-w",
+      "title": "This Week in Apps #61 - ATT Continues to Wreak Havoc, Peacock Grows Up, and more.",
+      "date_published": "2021-05-22T01:05:45.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:tPKTYwitA5Q",
+      "url": "https://www.youtube.com/watch?v=tPKTYwitA5Q",
+      "title": "Live App Teardown (May. 2021) - Sunbasket and Color Defense",
+      "date_published": "2021-05-13T14:13:11.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:Hhz9iZrI1oQ",
+      "url": "https://www.youtube.com/watch?v=Hhz9iZrI1oQ",
+      "title": "This Week in Apps #60 - They're At It Again",
+      "date_published": "2021-05-10T17:33:13.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    },
+    {
+      "guid": "yt:video:H2dh8KoYG8A",
+      "url": "https://www.youtube.com/watch?v=H2dh8KoYG8A",
+      "title": "This Week in Apps #59 - Do They Even Care?",
+      "date_published": "2021-05-01T14:00:03.000Z",
+      "author": {
+        "name": "Appfigures"
+      }
+    }
+  ]
+}

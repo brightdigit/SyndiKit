@@ -1,0 +1,118 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Donny Wals",
+  "home_page_url": "https://www.donnywals.com/",
+  "description": "iOS developer, Speaker and Author",
+  "items": [
+    {
+      "guid": "https://www.donnywals.com/?p=1686",
+      "url": "https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/",
+      "title": "An introduction to synchronizing access with Swift’s Actors",
+      "content_html": "<p>We all know that async / await was one of this year&rsquo;s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is much safer and consistent than ever before. For example, the Swift team built an all-new threading...</p>\n<p><a href=\"https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "We all know that async / await was one of this year’s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is [&#8230;]",
+      "date_published": "2021-06-14T19:29:29.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1626",
+      "url": "https://www.donnywals.com/the-ios-developers-guide-to-wwdc-2021/",
+      "title": "The iOS Developer’s guide to WWDC 2021",
+      "content_html": "<p>WWDC is always an exciting time for iOS engineers. It&#039;s the one week a year where we&#039;re all newcomers to a whole range of features and APIs that Apple has just unleashed upon the world through their latest Xcode, macOS, iOS, tvOS, iPadOS, and watchOS betas. The entire iOS community comes out of hiding and we all come together to share thoughts, experiences, opinions, and findings. For a whole week...</p>\n<p><a href=\"https://www.donnywals.com/the-ios-developers-guide-to-wwdc-2021/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "WWDC is always an exciting time for iOS engineers. It's the one week a year where we're all newcomers to a whole range of features and APIs that Apple has just unleashed upon the world through their latest Xcode, macOS, iOS, tvOS, iPadOS, and watchOS betas. The entire iOS community [&#8230;]",
+      "date_published": "2021-05-31T12:53:39.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1604",
+      "url": "https://www.donnywals.com/whats-the-difference-between-a-singleton-and-a-shared-instance-in-swift/",
+      "title": "What’s the difference between a singleton and a shared instance in Swift?",
+      "content_html": "<p>A common pattern on iOS, and in Swift, is to define an instance of an object that you can access from any place in your app. Common examples are , , and . These objects can all be considered shared instances, or globally available instances. Defining a shared instance is commonly done as follows: It&#039;s common for developers to call this a singleton, or a singleton instance. The singleton pattern is...</p>\n<p><a href=\"https://www.donnywals.com/whats-the-difference-between-a-singleton-and-a-shared-instance-in-swift/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "A common pattern on iOS, and in Swift, is to define an instance of an object that you can access from any place in your app. Common examples are URLSession.shared, FileManager.default, and UserDefaults.standard. These objects can all be considered shared instances, or globally available instances. Defining a shared instance is [&#8230;]",
+      "date_published": "2021-04-19T07:35:53.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1579",
+      "url": "https://www.donnywals.com/splitting-a-json-object-into-an-enum-and-an-associated-object-with-codable/",
+      "title": "Splitting a JSON object into an enum and an associated object with Codable",
+      "content_html": "<p>Decoding data, like JSON, is often relatively straightforward. For a lot of use cases, you won&#039;t need to know or understand a lot more than what I explain in this post. However, sometimes you need to dive deeper into , and you end up writing custom encoding or decoding logic like I explain in this post. In more advanced scenarios, you might need to have an extremely flexible approach to decoding...</p>\n<p><a href=\"https://www.donnywals.com/splitting-a-json-object-into-an-enum-and-an-associated-object-with-codable/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "Decoding data, like JSON, is often relatively straightforward. For a lot of use cases, you won't need to know or understand a lot more than what I explain in this post. However, sometimes you need to dive deeper into Codable, and you end up writing custom encoding or decoding logic [&#8230;]",
+      "date_published": "2021-04-05T18:33:21.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1573",
+      "url": "https://www.donnywals.com/writing-custom-json-encoding-and-decoding-logic/",
+      "title": "Writing custom JSON encoding and decoding logic",
+      "content_html": "<p>The default behavior for is often good enough, especially when you combine this with custom CodingKeys, it&#039;s possible to encode and decode a wide variety of JSON data without any extra work. Unfortunately, there are a lot of situations where you&#039;ll need to have even more control. The reasons for needing this control are varied. You might want to flatten a deeply nested JSON structure into a single...</p>\n<p><a href=\"https://www.donnywals.com/writing-custom-json-encoding-and-decoding-logic/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "The default behavior for Codable is often good enough, especially when you combine this with custom CodingKeys, it's possible to encode and decode a wide variety of JSON data without any extra work. Unfortunately, there are a lot of situations where you'll need to have even more control. The reasons [&#8230;]",
+      "date_published": "2021-04-05T18:33:18.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1571",
+      "url": "https://www.donnywals.com/customizing-how-codable-objects-map-to-json-data/",
+      "title": "Customizing how Codable objects map to JSON data",
+      "content_html": "<p>In the introductory post for this series you learned the basics of decoding and encoding JSON to and from your Swift structs. In that post, you learned that your JSON object is essentially a dictionary, and that the JSON&#039;s dictionary key&#039;s are mapped to your Swift object&#039;s properties. When encoding, your Swift properties are used as keys in the encoded JSON output dictionary. Unfortunately...</p>\n<p><a href=\"https://www.donnywals.com/customizing-how-codable-objects-map-to-json-data/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "In the introductory post for this series you learned the basics of decoding and encoding JSON to and from your Swift structs. In that post, you learned that your JSON object is essentially a dictionary, and that the JSON's dictionary key's are mapped to your Swift object's properties. When encoding, [&#8230;]",
+      "date_published": "2021-04-05T18:33:13.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1569",
+      "url": "https://www.donnywals.com/an-introduction-to-working-with-codable-in-swift/",
+      "title": "An introduction to working with Codable in Swift",
+      "content_html": "<p>Virtually every modern application needs some way to retrieve, and use, data from a remote source. This data is commonly fetched by making a network request to a webserver that returns data in a JSON format. When you&#039;re working with Javascript, this JSON data can be easily decoded into a Javascript object. Javascript doesn&#039;t have strong typing, so a JSON object in Javascript is really just a...</p>\n<p><a href=\"https://www.donnywals.com/an-introduction-to-working-with-codable-in-swift/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "Virtually every modern application needs some way to retrieve, and use, data from a remote source. This data is commonly fetched by making a network request to a webserver that returns data in a JSON format. When you're working with Javascript, this JSON data can be easily decoded into a [&#8230;]",
+      "date_published": "2021-04-05T18:33:09.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1581",
+      "url": "https://www.donnywals.com/flattening-a-nested-json-response-into-a-single-struct-with-codable/",
+      "title": "Flattening a nested JSON response into a single struct with Codable",
+      "content_html": "<p>Often, you&#039;ll want you Swift models to resemble JSON that&#039;s produced by an external source, like a server, as closely as possible. However, there are times when the JSON you receive is nested several levels deep and you might not consider this appropriate or needed for your application. Or maybe you&#039;re only interested in a couple of fields from the JSON response and these fields are hidden several...</p>\n<p><a href=\"https://www.donnywals.com/flattening-a-nested-json-response-into-a-single-struct-with-codable/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "Often, you'll want you Swift models to resemble JSON that's produced by an external source, like a server, as closely as possible. However, there are times when the JSON you receive is nested several levels deep and you might not consider this appropriate or needed for your application. Or maybe [&#8230;]",
+      "date_published": "2021-04-04T14:43:44.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1530",
+      "url": "https://www.donnywals.com/preventing-unwanted-fetches-when-using-nsfetchedresultscontroller-and-fetchbatchsize/",
+      "title": "Preventing unwanted fetches when using NSFetchedResultsController and fetchBatchSize",
+      "content_html": "<p>This article covers a topic that is extensively covered in my Practical Core Data book. This book is intended to help you learn Core Data from scratch using modern techniques and every chapter features sample apps in SwiftUI as well as UIKit whenever this is relevant. When you use Core Data in a UIKit or SwiftUI app, the easiest way to do this is through a fetched results controller. In SwiftUI...</p>\n<p><a href=\"https://www.donnywals.com/preventing-unwanted-fetches-when-using-nsfetchedresultscontroller-and-fetchbatchsize/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "This article covers a topic that is extensively covered in my Practical Core Data book. This book is intended to help you learn Core Data from scratch using modern techniques and every chapter features sample apps in SwiftUI as well as UIKit whenever this is relevant. When you use Core [&#8230;]",
+      "date_published": "2021-01-18T08:45:28.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    },
+    {
+      "guid": "https://www.donnywals.com/?p=1445",
+      "url": "https://www.donnywals.com/10-things-ios-developers-should-focus-on-in-2021/",
+      "title": "10 things iOS developers should focus on in 2021",
+      "content_html": "<p>I know. This is a clickbaity title. And yes, I know that this list is not relevant for everybody. I know that not every iOS developer has to learn everything on this list. That said, this list is a list of technologies and skills that I think are either already important, or becoming increasingly important this year. It&#039;s a list of technologies and skills that I have learned, plan to learn...</p>\n<p><a href=\"https://www.donnywals.com/10-things-ios-developers-should-focus-on-in-2021/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "I know. This is a clickbaity title. And yes, I know that this list is not relevant for everybody. I know that not every iOS developer has to learn everything on this list. That said, this list is a list of technologies and skills that I think are either already [&#8230;]",
+      "date_published": "2021-01-04T08:00:12.000Z",
+      "author": {
+        "name": "donnywals"
+      }
+    }
+  ]
+}

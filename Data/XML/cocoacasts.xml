@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="https://cocoacasts.com/feed.rss" rel="self" type="application/rss+xml"/>
+    <title>Cocoacasts</title>
+    <link>https://cocoacasts.com</link>
+    <description>If you’re looking for a quick fix, then I don’t have anything to offer you. If you want to become a better Swift developer, then have a seat and let me share with you what I know.</description>
+    <language>en-us</language>
+    <pubDate>Fri, 18 Jun 2021 10:14:23 +0000</pubDate>
+    <lastBuildDate>Fri, 18 Jun 2021 10:14:23 +0000</lastBuildDate>
+    <ttl>40</ttl>
+    <item>
+      <title>Replacing Completion Handlers with Futures</title>
+      <description>In the previous episode, you learned about futures and promises. In this episode, I show you how to use them in a project.</description>
+      <pubDate>Fri, 18 Jun 2021 10:14:23 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-replacing-completion-handlers-with-futures</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-replacing-completion-handlers-with-futures</link>
+    </item>
+    <item>
+      <title>Futures and Promises</title>
+      <description>Earlier in this series, you learned how a subject can bridge the gap between imperative programming and reactive programming. While subjects are convenient in many ways, they are not always the best option. The **Combine** framework provides another option. In this episode, we zoom in on **futures** and **promises** to bridge the gap between imperative programming and reactive programming.</description>
+      <pubDate>Thu, 17 Jun 2021 09:58:53 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-futures-and-promises</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-futures-and-promises</link>
+    </item>
+    <item>
+      <title>Avoiding Infinite Loops</title>
+      <description>Infinite loops are every developer's nightmare, especially if they have disastrous consequences. You need to be mindful of infinite loops when working with Combine or any other reactive framework. The difficulty is that it isn't always obvious that you created an infinite loop. As a matter of fact, we introduced an infinite loop earlier in this series. You receive a bonus point if you can spot it.</description>
+      <pubDate>Thu, 27 May 2021 09:31:02 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-avoiding-infinite-loops</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-avoiding-infinite-loops</link>
+    </item>
+    <item>
+      <title>Seven Xcode Tricks Every Developer Should Know</title>
+      <description>To be productive and efficient, you need to know your tools. For a Swift developer, that means mastering Xcode. While Xcode is a complex piece of software with a fairly steep learning curve, the tricks I show you in this episode should significantly boost your productivity.</description>
+      <pubDate>Tue, 14 Nov 2017 10:52:44 +0000</pubDate>
+      <guid>https://cocoacasts.com/seven-xcode-tricks-every-developer-should-know</guid>
+      <link>https://cocoacasts.com/seven-xcode-tricks-every-developer-should-know</link>
+    </item>
+    <item>
+      <title>Image Caching with Kingfisher</title>
+      <description>In the previous episodes, we implemented a service to fetch and cache remote images. Even though the service we built is pretty flexible, some applications require a more powerful solution and more options to fit their needs.
+
+This episode focuses on [Kingfisher](https://github.com/onevcat/Kingfisher), a popular, open source library to fetch and cache remote images. You learn how to integrate **Kingfisher** in a project using **CocoaPods**. I show you how **Kingfisher** differs from the service we created earlier in this series and we take a peek under the hood to learn how **Kingfisher** does its magic.</description>
+      <pubDate>Wed, 19 May 2021 08:57:39 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-image-caching-with-kingfisher</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-image-caching-with-kingfisher</link>
+    </item>
+    <item>
+      <title>Limiting the Cache on Disk</title>
+      <description>Earlier in this series, you learned that a cache on disk has a number of benefits. It persists the cache across launches and it can be used to seed a cache in memory. Even though modern devices have plenty of disk space, we need to be mindful of the space the cache on disk takes up on the user's device. Applications like Twitter and Instagram fetch hundreds if not thousands of images. Even if those images are optimized and small in size, the cache on disk can grow quickly, taking up a non-trivial amount of space on the user's device. In this episode, we add the ability to limit the size of the cache on disk, similar to how the image service limits the size of the cache in memory.</description>
+      <pubDate>Thu, 13 May 2021 10:14:14 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-limiting-the-cache-on-disk</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-limiting-the-cache-on-disk</link>
+    </item>
+    <item>
+      <title>Asynchronously Reading Data from Disk</title>
+      <description>The previous episodes have illustrated that caching images can result in significant performance improvements. In the previous episode, I stressed the importance of writing cached images to disk on a background thread to prevent the image service from blocking the main thread.</description>
+      <pubDate>Tue, 11 May 2021 09:26:12 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-asynchronously-reading-data-from-disk</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-asynchronously-reading-data-from-disk</link>
+    </item>
+    <item>
+      <title>Caching Images on Disk</title>
+      <description>In this episode, we continue to improve the solution we implemented in this series by caching images on disk. Caching images on disk has a number of benefits. It reduces the number of requests the application makes and it improves the performance of the application. The user experiences the application as fast and snappy.</description>
+      <pubDate>Wed, 28 Apr 2021 08:59:44 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-caching-images-on-disk</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-caching-images-on-disk</link>
+    </item>
+    <item>
+      <title>Caching Images in Memory</title>
+      <description>We added the ability to cancel image requests in the previous episode. This and the next episode focus on caching images. We start simple by caching images in memory.</description>
+      <pubDate>Fri, 23 Apr 2021 09:13:23 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-caching-images-in-memory</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-caching-images-in-memory</link>
+    </item>
+    <item>
+      <title>Cancelling Image Requests</title>
+      <description>Most applications display images in some way, shape, or form. Those images are often fetched from a remote server, introducing a number of interesting challenges. Performing a request to a remote server takes time and it requires resources. It is therefore important to consider solutions to minimize the number of requests an application makes.</description>
+      <pubDate>Wed, 21 Apr 2021 13:02:50 +0000</pubDate>
+      <guid>https://cocoacasts.com/image-caching-in-swift-cancelling-image-requests</guid>
+      <link>https://cocoacasts.com/image-caching-in-swift-cancelling-image-requests</link>
+    </item>
+    <item>
+      <title>Failable Initializers</title>
+      <description>If you are new to Swift, then you may be wondering what a failable initializer is and why you would ever use one. In this episode, I show you how to create a failable initializer and I hope I can convince you of their benefits. I use failable initializers in every project I work on and you may be surprised when I say that you do too.</description>
+      <pubDate>Tue, 06 Apr 2021 13:56:35 +0000</pubDate>
+      <guid>https://cocoacasts.com/swift-patterns-failable-initializers</guid>
+      <link>https://cocoacasts.com/swift-patterns-failable-initializers</link>
+    </item>
+    <item>
+      <title>Recovering from Errors</title>
+      <description>Cloudy shows the user an error if it isn't able to fetch weather data from the weather API. We map any errors that are thrown to `WeatherDataError` in the `RootViewModel` class. This solution works fine and it is a fitting implementation for the weather application we are building. In this episode, I show you three other options to handle errors.</description>
+      <pubDate>Tue, 23 Mar 2021 16:04:50 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-recovering-from-errors</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-recovering-from-errors</link>
+    </item>
+    <item>
+      <title>Handling Errors</title>
+      <description>Even though we successfully used the **Combine** framework to fetch data from the weather API, the implementation is incomplete. We ignored error handling up until now and it is time to take a closer look at errors and how to handle them.</description>
+      <pubDate>Fri, 19 Mar 2021 13:55:36 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-handling-errors</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-handling-errors</link>
+    </item>
+    <item>
+      <title>Networking and Schedulers</title>
+      <description>Earlier in this series, you learned that reactive programming can be defined as working with asynchronous streams of data. A network request is an asynchronous operation and that makes reactive programming an excellent match for networking.</description>
+      <pubDate>Fri, 12 Mar 2021 10:31:01 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-networking-and-schedulers</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-networking-and-schedulers</link>
+    </item>
+    <item>
+      <title>Adding Type Safety to User Defaults with Extensions</title>
+      <description>The interface of the `UserDefaults` class is easy to use, but it lacks type safety. If you want to store and retrieve an enum, for example, you need to jump through a few hoops. Let me show you an example from [Cloudy](https://cocoacasts.com/meet-cloudy), the application we build in [Mastering MVVM With Swift](https://cocoacasts.com/series/mastering-mvvm-with-swift).</description>
+      <pubDate>Wed, 15 Nov 2017 09:07:15 +0000</pubDate>
+      <guid>https://cocoacasts.com/use-extensions-to-add-type-safety-to-user-defaults</guid>
+      <link>https://cocoacasts.com/use-extensions-to-add-type-safety-to-user-defaults</link>
+    </item>
+    <item>
+      <title>Builders</title>
+      <description>The builder pattern isn't a common pattern in Swift and Cocoa development and you don't find it in any of Apple's frameworks. It is one of the [Gang of Four](https://en.wikipedia.org/wiki/Design_Patterns) design patterns and widely used in Java development.</description>
+      <pubDate>Wed, 24 Feb 2021 15:56:54 +0000</pubDate>
+      <guid>https://cocoacasts.com/swift-patterns-builders</guid>
+      <link>https://cocoacasts.com/swift-patterns-builders</link>
+    </item>
+    <item>
+      <title>Subscribing to Settings Changes</title>
+      <description>In this episode, we fix the settings view using the **Combine** framework. We no longer rely on the delegation pattern to propagate settings changes. In the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-driving-table-view-cells-with-combine), we created a view model for the settings view controller. The settings view model exposes a publisher for each setting. Objects interested in settings changes can subscribe to these publishers. Let me show you how that works.</description>
+      <pubDate>Fri, 19 Feb 2021 09:59:43 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-subscribing-to-settings-changes</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-subscribing-to-settings-changes</link>
+    </item>
+    <item>
+      <title>Driving Table View Cells with Combine</title>
+      <description>Earlier in this series, we broke the settings view. The root view controller acts as the delegate of the settings view controller, but nothing happens when the user updates a setting in the settings view. In this and the next episode, we fix what we broke and reactify the application's settings view.</description>
+      <pubDate>Thu, 18 Feb 2021 11:29:50 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-driving-table-view-cells-with-combine</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-driving-table-view-cells-with-combine</link>
+    </item>
+    <item>
+      <title>Initializer Injection with View Controllers, Storyboards, and Segues</title>
+      <description>In the [previous episode](https://cocoacasts.com/initializer-injection-with-view-controllers-and-storyboards), you learned that it is possible to use initializer injection in combination with storyboards as of iOS 13 and tvOS 13. We didn't cover segues in that episode, though. That is the focus of this episode. Let's take a look at an example.</description>
+      <pubDate>Mon, 08 Feb 2021 09:24:13 +0000</pubDate>
+      <guid>https://cocoacasts.com/initializer-injection-with-view-controllers-storyboards-and-segues</guid>
+      <link>https://cocoacasts.com/initializer-injection-with-view-controllers-storyboards-and-segues</link>
+    </item>
+    <item>
+      <title>Initializer Injection with View Controllers and Storyboards</title>
+      <description>Storyboards have many benefits, but they also have a number of significant downsides. Not being able to control the initialization of a view controller is one of them, especially if you want to use initializer injection. As of iOS 13 and tvOS 13, that is no longer a problem. In this episode, I show you how to use initializer injection in combination with storyboards.</description>
+      <pubDate>Wed, 27 Jan 2021 14:16:57 +0000</pubDate>
+      <guid>https://cocoacasts.com/initializer-injection-with-view-controllers-and-storyboards</guid>
+      <link>https://cocoacasts.com/initializer-injection-with-view-controllers-and-storyboards</link>
+    </item>
+    <item>
+      <title>Abstract Classes</title>
+      <description>The title of this episode is a bit misleading because the Swift programming language has no support for abstract classes. There are a few workarounds, though. In this episode, we take a look at two alternatives to the abstract class pattern in Swift.</description>
+      <pubDate>Fri, 22 Jan 2021 11:24:17 +0000</pubDate>
+      <guid>https://cocoacasts.com/swift-patterns-abstract-classes</guid>
+      <link>https://cocoacasts.com/swift-patterns-abstract-classes</link>
+    </item>
+    <item>
+      <title>Namespaces</title>
+      <description>Types need to have a unique name. In Objective-C, naming collisions with other libraries and frameworks are avoided by adding a prefix to a type. That is why we use `UIView` instead of `View` and `CGRect` instead of `Rect`.</description>
+      <pubDate>Wed, 20 Jan 2021 11:14:40 +0000</pubDate>
+      <guid>https://cocoacasts.com/swift-patterns-namespaces</guid>
+      <link>https://cocoacasts.com/swift-patterns-namespaces</link>
+    </item>
+    <item>
+      <title>Five Xcode Tips To Speed Up Your Development</title>
+      <description>Xcode is a pretty complex piece of software and it changes with every major release. Apple's IDE (Integrated Development Environment) has dozens and dozens of tiny secrets, which you only discover the more you use it. In this episode, I share five tips that I use every day and could not do without.</description>
+      <pubDate>Tue, 14 Nov 2017 11:35:46 +0000</pubDate>
+      <guid>https://cocoacasts.com/five-xcode-tips-to-speed-up-your-development</guid>
+      <link>https://cocoacasts.com/five-xcode-tips-to-speed-up-your-development</link>
+    </item>
+    <item>
+      <title>Combine and Diffable Data Sources</title>
+      <description>In 2019, Apple introduced another powerful API alongside the Combine framework, diffable data sources. Diffable data sources make it almost trivial to build performant table and collection views. In this episode, I show you why diffable data sources work well with the Combine framework. I won't cover diffable data sources in detail in this series, but the API is straightforward and easy to pick up.</description>
+      <pubDate>Wed, 09 Dec 2020 16:28:34 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-combine-and-diffable-data-sources</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-combine-and-diffable-data-sources</link>
+    </item>
+    <item>
+      <title>Reactifying the Week View Controller</title>
+      <description>In this and the next episode, we shift focus to the week view controller. Populating the week view requires a different approach. It contains a table view and the week view model manages an array of `WeahterDayData` objects. Even though the approach is different, the patterns we apply are similar.</description>
+      <pubDate>Wed, 09 Dec 2020 11:19:05 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-reactifying-the-week-view-controller</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-reactifying-the-week-view-controller</link>
+    </item>
+    <item>
+      <title>Combining Publishers with Zip and Combine Latest</title>
+      <description>The Combine framework defines a range of operators to combine publishers. Combining publishers is a common pattern in reactive programming. In this episode, we improve the efficiency of the `RootViewModel` class by combining multiple publishers using the `zip` and `combineLatest` operators.</description>
+      <pubDate>Thu, 03 Dec 2020 10:35:58 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-combining-publishers-with-zip-and-combine-latest</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-combining-publishers-with-zip-and-combine-latest</link>
+    </item>
+    <item>
+      <title>Reducing State with Subjects</title>
+      <description>We ran into several issues in the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-reducing-complexity-and-code-duplication). The `assign(to:on)` and `sink(receiveValue:)` methods are convenient, but they don't always cut it. We need a solution that is robust and scales with the complexity of the project.</description>
+      <pubDate>Wed, 02 Dec 2020 10:00:31 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-reducing-state-with-subjects</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-reducing-state-with-subjects</link>
+    </item>
+    <item>
+      <title>Reducing Complexity and Code Duplication</title>
+      <description>In this episode, we optimize the implementation of the day view controller and the day view model. There are a few details we need to take care of. First, the day view controller should display an error message when its view model emits an error. Second, the day view controller should only display its activity indicator view if it has no weather data to display. Let's tackle these problems one by one.</description>
+      <pubDate>Tue, 01 Dec 2020 10:17:13 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-reducing-complexity-and-code-duplication</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-reducing-complexity-and-code-duplication</link>
+    </item>
+    <item>
+      <title>Bridging Imperative and Reactive Programming</title>
+      <description>There are a few user interface issues we need to address in this episode. The day view controller no longer shows its activity indicator view while it is waiting for weather data and the user interface elements that show the weather data should only be shown when there is weather data to display. Let's find out how we can resolve these issues.</description>
+      <pubDate>Wed, 25 Nov 2020 10:38:59 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-bridging-imperative-and-reactive-programming</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-bridging-imperative-and-reactive-programming</link>
+    </item>
+    <item>
+      <title>Driving the User Interface with Publishers</title>
+      <description>In the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-hiding-implementation-details-with-type-erasure), we put the foundation in place to reactify the `DayViewController` class. In this episode, you learn how to use publishers to drive the user interface of an application.</description>
+      <pubDate>Tue, 17 Nov 2020 10:44:14 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-driving-the-user-interface-with-publishers</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-driving-the-user-interface-with-publishers</link>
+    </item>
+    <item>
+      <title>Hiding Implementation Details with Type Erasure</title>
+      <description>The root view controller displays the weather data the publisher emits. Every time the publisher emits weather data, the child view controllers of the root view controller receive the weather data and display it to the user. This works fine, but we can make it more reactive.</description>
+      <pubDate>Mon, 16 Nov 2020 10:17:03 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-hiding-implementation-details-with-type-erasure</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-hiding-implementation-details-with-type-erasure</link>
+    </item>
+    <item>
+      <title>Using Publishers to Push Data</title>
+      <description>We made good progress in the previous episodes, but we need to make some changes to the `RootViewController` and `RootViewModel` classes. We address three issues in this episode. First, the `RootViewController` class shouldn't be aware of `CLLocation` objects. Second, the `RootViewModel` class should expose a publisher that emits weather data. Third, we need to restore the pull-to-refresh feature. Let's get started.</description>
+      <pubDate>Thu, 29 Oct 2020 10:49:41 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-using-publishers-to-push-data</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-using-publishers-to-push-data</link>
+    </item>
+    <item>
+      <title>Filtering and Transforming Elements with Operators</title>
+      <description>The `Published` property wrapper lowers the barrier to start integrating the Combine framework into a project. There are a few details you need to take into account, though. Remember from the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-reactifying-swift-with-the-published-property-wrapper) that we need to address two issues. Let's look at the first issue.</description>
+      <pubDate>Wed, 28 Oct 2020 09:33:26 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-filtering-and-transforming-elements-with-operators</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-filtering-and-transforming-elements-with-operators</link>
+    </item>
+    <item>
+      <title>Reactifying Swift with the Published Property Wrapper</title>
+      <description>The Cocoa frameworks use a range of asynchronous interfaces, including the target-action pattern, key-value observing, notifications, and callbacks. We can leverage the Combine framework to create a single, unified interface for asynchronous programming. This opens up a number of compelling advantages.</description>
+      <pubDate>Tue, 27 Oct 2020 09:52:15 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-reactifying-swift-with-the-published-property-wrapper</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-reactifying-swift-with-the-published-property-wrapper</link>
+    </item>
+    <item>
+      <title>Understanding the Life Cycle of a Subscription</title>
+      <description>You learned in the previous episode that a publisher sends zero or more values. A publisher emits an error if something goes wrong and, if the publisher is finite, it can send a completion event. In this episode, we continue exploring the relationship between publishers and subscribers. We zoom in on the life cycle of a subscription.</description>
+      <pubDate>Wed, 14 Oct 2020 09:59:36 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-understanding-the-life-cycle-of-a-subscription</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-understanding-the-life-cycle-of-a-subscription</link>
+    </item>
+    <item>
+      <title>Working With Publishers and Subscribers</title>
+      <description>Streams of values are at the heart of reactive programming. These values are delivered by publishers. In this episode, we zoom in on the relationship between publishers and subscribers.</description>
+      <pubDate>Thu, 08 Oct 2020 10:51:08 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-working-with-publishers-and-subscribers</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-working-with-publishers-and-subscribers</link>
+    </item>
+    <item>
+      <title>Adding Operators to the Mix</title>
+      <description>We haven't simplified or improved the implementation of the `setupNotificationHandling()` method of the `RootViewModel` class by adding Combine to the mix. In fact, Combine introduced additional complexity and we now need to manage the subscriptions we create. It is true that Combine comes with a bit of overhead. The traditional Cocoa API seems to be the better choice. Right?</description>
+      <pubDate>Thu, 01 Oct 2020 15:05:09 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-adding-operators-to-the-mix</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-adding-operators-to-the-mix</link>
+    </item>
+    <item>
+      <title>Managing Subscriptions</title>
+      <description>In the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-getting-your-feet-wet-with-combine), you learned about publishers and subscribers. Combine creates a subscription when a subscriber is attached to a publisher. In the `setupNotificationHandling()` method of the `RootViewModel` class, the subscription is returned to the view model as an `AnyCancellable` instance. The view model holds on to the `AnyCancellable` instance to prevent the subscription from terminating early. We covered this in the [previous episode](https://cocoacasts.com/building-reacting-applications-with-combine-getting-your-feet-wet-with-combine).</description>
+      <pubDate>Tue, 29 Sep 2020 15:36:28 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-managing-subscriptions</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-managing-subscriptions</link>
+    </item>
+    <item>
+      <title>Getting Your Feet Wet With Combine</title>
+      <description>It is time to show you what Combine feels like and what it can do for you. What do you gain by using the Combine framework in your projects? Let's start with some good news. The Combine framework has a relatively small vocabulary. You don't need to spend days or weeks familiarizing yourself with a plethora of types, protocols, and terminology.</description>
+      <pubDate>Fri, 25 Sep 2020 14:08:25 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-getting-your-feet-wet-with-combine</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-getting-your-feet-wet-with-combine</link>
+    </item>
+    <item>
+      <title>What Is Combine</title>
+      <description>Earlier in this series, we defined reactive programming as **working with asynchronous streams of data**. Now that you know what asynchronous streams of data are, it is clear why asynchronous programming is such a powerful concept.</description>
+      <pubDate>Fri, 25 Sep 2020 08:31:06 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-what-is-combine</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-what-is-combine</link>
+    </item>
+    <item>
+      <title>What Is Void in Swift</title>
+      <description>In the previous episodes of this series, we explored `AnyObject` and `Any`. Another keyword you encounter frequently in Swift is `Void`. What is `Void`? That is the focus of this installment of [What The Swift](https://cocoacasts.com/series/what-the-swift).</description>
+      <pubDate>Mon, 14 Sep 2020 08:18:55 +0000</pubDate>
+      <guid>https://cocoacasts.com/what-is-void-in-swift</guid>
+      <link>https://cocoacasts.com/what-is-void-in-swift</link>
+    </item>
+    <item>
+      <title>Pure Functions and Higher-Order Functions</title>
+      <description>In the [previous episode](https://cocoacasts.com/building-reactive-applications-with-combine-first-class-functions-and-function-types), you learned about function types and what it means for Swift to have first-class functions. With these concepts in mind, we continue exploring the functional features of the Swift programming language. In this episode, we explore **pure functions** and **higher-order functions**. We start with pure functions.</description>
+      <pubDate>Sat, 12 Sep 2020 08:55:53 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-pure-functions-and-higher-order-functions</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-pure-functions-and-higher-order-functions</link>
+    </item>
+    <item>
+      <title>First-Class Functions and Function Types</title>
+      <description>Swift isn't a functional programming language, but it does have a number of functional features. The Combine framework relies on these functional features so it is important that you understand the basics of functional programming. That is the focus of this and the next episode.</description>
+      <pubDate>Sat, 12 Sep 2020 06:37:54 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-first-class-functions-and-function-types</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-first-class-functions-and-function-types</link>
+    </item>
+    <item>
+      <title>Why You Should Default to Private Outlets</title>
+      <description>I love that access control is an integral component of the Swift programming language. Access control lets you carefully control what properties and methods an entity exposes. Rigorously applying access control has significant benefits. You can even [improve performance](https://cocoacasts.com/improve-swift-performance-through-access-control) through access control.
+</description>
+      <pubDate>Mon, 07 Sep 2020 09:45:41 +0000</pubDate>
+      <guid>https://cocoacasts.com/tips-and-tricks-why-you-should-default-to-private-outlets</guid>
+      <link>https://cocoacasts.com/tips-and-tricks-why-you-should-default-to-private-outlets</link>
+    </item>
+    <item>
+      <title>What Is Reactive Programming</title>
+      <description>Combine is sometimes referred to as a **functional reactive programming** framework, but that isn't correct. It is more accurate to describe Combine as a **reactive programming framework** that uses **functional programming techniques**.</description>
+      <pubDate>Sun, 06 Sep 2020 09:19:12 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-what-is-reactive-programming</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-what-is-reactive-programming</link>
+    </item>
+    <item>
+      <title>Using didSet Property Observers to Configure Outlets</title>
+      <description>I don't like long or complex `viewDidLoad()` methods. The `viewDidLoad()` method of a view controller should be short and easy to understand. The tip I am about to share with you helps declutter the `viewDidLoad()` method of the view controllers in your projects.</description>
+      <pubDate>Sat, 05 Sep 2020 10:12:04 +0000</pubDate>
+      <guid>https://cocoacasts.com/tips-and-tricks-using-didset-property-observers-to-configure-outlets</guid>
+      <link>https://cocoacasts.com/tips-and-tricks-using-didset-property-observers-to-configure-outlets</link>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <description>Welcome to **Building Reactive Applications With Combine**. As the name suggests, this series zooms in on Apple's **Combine** framework. We cover the the ins and outs of the framework and you learn everything you need to know to make your projects reactive with the **Combine** framework.</description>
+      <pubDate>Mon, 31 Aug 2020 06:01:11 +0000</pubDate>
+      <guid>https://cocoacasts.com/building-reactive-applications-with-combine-introduction</guid>
+      <link>https://cocoacasts.com/building-reactive-applications-with-combine-introduction</link>
+    </item>
+    <item>
+      <title>Testing and Mocking (Combine)</title>
+      <description>It is time to unit test the `AddLocationViewModel` class. Create a new unit test case class in the **Test Cases** group of the **CloudyTests** target and name it **AddLocationViewModelTests.swift**.</description>
+      <pubDate>Thu, 03 Sep 2020 08:47:28 +0000</pubDate>
+      <guid>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-testing-and-mocking-combine</guid>
+      <link>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-testing-and-mocking-combine</link>
+    </item>
+    <item>
+      <title>Testing and Mocking (RxSwift)</title>
+      <description>It is time to unit test the `AddLocationViewModel` class. Create a new unit test case class in the **Test Cases** group of the **CloudyTests** target and name it **AddLocationViewModelTests.swift**.</description>
+      <pubDate>Thu, 07 Dec 2017 08:22:24 +0000</pubDate>
+      <guid>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-testing-and-mocking-rxswift</guid>
+      <link>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-testing-and-mocking-rxswift</link>
+    </item>
+    <item>
+      <title>Protocol Oriented Programming and Dependency Injection (Combine)</title>
+      <description>If we want to unit test the `AddLocationViewModel` class, we need the ability to stub the responses of the geocoding requests we make to Apple's location services. Only then can we write fast and reliable unit tests. Being in control of your environment is essential if your goal is creating a fast and robust test suite.</description>
+      <pubDate>Wed, 19 Aug 2020 10:43:11 +0000</pubDate>
+      <guid>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-protocol-oriented-programming-and-dependency-injection-combine</guid>
+      <link>https://cocoacasts.com/mastering-model-view-viewmodel-with-swift-protocol-oriented-programming-and-dependency-injection-combine</link>
+    </item>
+  </channel>
+</rss>

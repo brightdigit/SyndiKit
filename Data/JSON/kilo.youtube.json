@@ -1,0 +1,145 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Kilo Loco",
+  "home_page_url": "https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA",
+  "author": {
+    "name": "Kilo Loco"
+  },
+  "items": [
+    {
+      "guid": "yt:video:3hccNoPE59U",
+      "url": "https://www.youtube.com/watch?v=3hccNoPE59U",
+      "title": "What Developers Thought of WWDC 2021",
+      "date_published": "2021-06-10T15:28:17.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:QW-oEfH_lgg",
+      "url": "https://www.youtube.com/watch?v=QW-oEfH_lgg",
+      "title": "Cache Images and URLs with Flutter | Day 27 - #30DaysOfFlutter",
+      "date_published": "2021-05-11T20:01:53.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:0Tp70eB5WrM",
+      "url": "https://www.youtube.com/watch?v=0Tp70eB5WrM",
+      "title": "Flutter: Social Media App",
+      "date_published": "2021-04-20T13:55:02.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:5E4T-Qb3l18",
+      "url": "https://www.youtube.com/watch?v=5E4T-Qb3l18",
+      "title": "Upload Images to Amplify Using Flutter | Day 26 - #30DaysOfFlutter",
+      "date_published": "2021-04-20T03:27:01.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:8XyRqtZCnrU",
+      "url": "https://www.youtube.com/watch?v=8XyRqtZCnrU",
+      "title": "Flutter: Social Media Post Feed",
+      "date_published": "2021-04-14T15:05:50.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:2Hoq6BafoEA",
+      "url": "https://www.youtube.com/watch?v=2Hoq6BafoEA",
+      "title": "Flutter: Remote Image Loading",
+      "date_published": "2021-04-12T15:15:17.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:WPhfsCSSM7k",
+      "url": "https://www.youtube.com/watch?v=WPhfsCSSM7k",
+      "title": "Flutter: Remote Image Loading",
+      "date_published": "2021-04-07T15:06:12.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:a4ix-CpsLLA",
+      "url": "https://www.youtube.com/watch?v=a4ix-CpsLLA",
+      "title": "Flutter: New Post Functionality for Social Media App",
+      "date_published": "2021-04-06T15:49:50.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:Rgw8k6MuEuY",
+      "url": "https://www.youtube.com/watch?v=Rgw8k6MuEuY",
+      "title": "Flutter: New Post UI for Social Media App",
+      "date_published": "2021-04-05T14:52:51.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:gho0MzVkS4c",
+      "url": "https://www.youtube.com/watch?v=gho0MzVkS4c",
+      "title": "Flutter with Swift and Xcode",
+      "date_published": "2021-04-01T16:47:18.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:BMBZBjfnqy8",
+      "url": "https://www.youtube.com/watch?v=BMBZBjfnqy8",
+      "title": "Flutter: Create New Post on Social Media App",
+      "date_published": "2021-03-31T15:06:08.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:jf6sU7fAeKE",
+      "url": "https://www.youtube.com/watch?v=jf6sU7fAeKE",
+      "title": "Flutter: Save Post Data",
+      "date_published": "2021-03-30T16:02:41.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:7iZAZ0CwFKI",
+      "url": "https://www.youtube.com/watch?v=7iZAZ0CwFKI",
+      "title": "Camera and Photo Gallery Using Image Picker with Flutter | Day 25 - #30DaysOfFlutter",
+      "date_published": "2021-03-30T04:44:18.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:gnxhNIle7VE",
+      "url": "https://www.youtube.com/watch?v=gnxhNIle7VE",
+      "title": "Flutter: Social Media Feed",
+      "date_published": "2021-03-29T16:06:48.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    },
+    {
+      "guid": "yt:video:SBJFl-3wqx8",
+      "url": "https://www.youtube.com/watch?v=SBJFl-3wqx8",
+      "title": "User Profile UI with BLoC and Flutter | Day 24 - #30DaysOfFlutter",
+      "date_published": "2021-03-25T17:29:43.000Z",
+      "author": {
+        "name": "Kilo Loco"
+      }
+    }
+  ]
+}
