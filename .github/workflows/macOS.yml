@@ -19,6 +19,7 @@ jobs:
 
     strategy:
       matrix:
+        os: [macos-11]
         xcode: ["/Applications/Xcode_12.3.app", "/Applications/Xcode_12.4.app", "/Applications/Xcode_13.0.app", "/Applications/Xcode_12.5.app"]
         include:
           - os: macos-10.5
