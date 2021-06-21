@@ -24,7 +24,7 @@ jobs:
           - os: macos-10.5
             xcode: "/Applications/Xcode_12.3.app"
           - os: macos-10.5
-            xcode: "/Applications/Xcode_12.4.app"]
+            xcode: "/Applications/Xcode_12.4.app"
 
     steps:
     - uses: actions/checkout@v2
