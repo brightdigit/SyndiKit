@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        xcode: ["/Applications/Xcode_12.3.app", "/Applications/Xcode_12.4.app", "/Applications/Xcode_12.5.app"]
+        xcode: ["/Applications/Xcode_12.3.app", "/Applications/Xcode_12.4.app"]
 
     steps:
     - uses: actions/checkout@v2
