@@ -116,7 +116,7 @@ Instagram - https://instagram.com/kilo_loco
    <media:description>In this live stream, Kilo Loco works on wrapping up the remaining UI for the post feed of the social media app</media:description>
    <media:community>
     <media:starRating count="34" average="4.88" min="1" max="5"/>
-    <media:statistics views="1130"/>
+    <media:statistics views="1131"/>
    </media:community>
   </media:group>
  </entry>
@@ -151,7 +151,7 @@ Instagram - https://instagram.com/kilo_loco
 
 #flutter #dartlang #30DaysOfFlutter</media:description>
    <media:community>
-    <media:starRating count="20" average="5.00" min="1" max="5"/>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
     <media:statistics views="857"/>
    </media:community>
   </media:group>
@@ -381,7 +381,7 @@ Instagram - https://instagram.com/kilo_loco
 #flutter #dartlang #30DaysOfFlutter</media:description>
    <media:community>
     <media:starRating count="67" average="5.00" min="1" max="5"/>
-    <media:statistics views="3690"/>
+    <media:statistics views="3693"/>
    </media:community>
   </media:group>
  </entry>
@@ -449,7 +449,7 @@ Instagram - https://instagram.com/kilo_loco
 #flutter #dartlang #30DaysOfFlutter</media:description>
    <media:community>
     <media:starRating count="30" average="4.87" min="1" max="5"/>
-    <media:statistics views="1044"/>
+    <media:statistics views="1045"/>
    </media:community>
   </media:group>
  </entry>

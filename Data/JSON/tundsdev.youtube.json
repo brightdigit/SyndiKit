@@ -1,0 +1,145 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "tundsdev",
+  "home_page_url": "https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ",
+  "author": {
+    "name": "tundsdev"
+  },
+  "items": [
+    {
+      "guid": "yt:video:l-iN0kY_bmg",
+      "url": "https://www.youtube.com/watch?v=l-iN0kY_bmg",
+      "title": "Setup SwiftUI App with Firebase SPM (Swift Package Manager, SwiftUI Tutorial, Firebase Crashlytics)",
+      "date_published": "2021-06-13T15:00:31.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:Dhfdg_6ksy8",
+      "url": "https://www.youtube.com/watch?v=Dhfdg_6ksy8",
+      "title": "Refactoring code in SwiftUI (SwiftUI Tutorial, SwiftUI Onboarding, SwiftUI)",
+      "date_published": "2021-06-04T15:17:40.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:v-6qU-DqaZo",
+      "url": "https://www.youtube.com/watch?v=v-6qU-DqaZo",
+      "title": "SwiftUI Form Validation using Combine (SwiftUI Tutorial, Regular Expressions, Combine Framework)",
+      "date_published": "2021-05-30T15:00:33.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:EWjLHRbQK4I",
+      "url": "https://www.youtube.com/watch?v=EWjLHRbQK4I",
+      "title": "Form Validation in UIKit using Combine Framework (Combine Framework, UIKit Tutorial, UIKit Form)",
+      "date_published": "2021-05-23T15:00:04.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:4YIckjckiWI",
+      "url": "https://www.youtube.com/watch?v=4YIckjckiWI",
+      "title": "Create a Dynamic Form in UIKit (Compositional Layout, Diffable Data Source, UICollectionView)",
+      "date_published": "2021-05-16T15:00:02.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:F5aDfGNdsac",
+      "url": "https://www.youtube.com/watch?v=F5aDfGNdsac",
+      "title": "Getting Started With Unit Testing in Swift (XCTest, Test Cases, Code Coverage)",
+      "date_published": "2021-05-09T15:00:03.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:HXYqU5ClIk4",
+      "url": "https://www.youtube.com/watch?v=HXYqU5ClIk4",
+      "title": "Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)",
+      "date_published": "2021-05-02T15:00:15.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:X2m0f2NoB10",
+      "url": "https://www.youtube.com/watch?v=X2m0f2NoB10",
+      "title": "Getting Started with Combine (Practical Combine Framework Examples in UIKit & SwiftUI)",
+      "date_published": "2021-04-25T15:00:13.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:sYVXpRFmv54",
+      "url": "https://www.youtube.com/watch?v=sYVXpRFmv54",
+      "title": "How I Became A Lead App Developer Without A Computer Science Degree (Self Taught Programmer)",
+      "date_published": "2021-04-18T14:10:35.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:j7a4jvHz4MM",
+      "url": "https://www.youtube.com/watch?v=j7a4jvHz4MM",
+      "title": "Dark Mode in SwiftUI using @Binding & @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)",
+      "date_published": "2021-04-11T15:00:16.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:cmaZUw7GSGs",
+      "url": "https://www.youtube.com/watch?v=cmaZUw7GSGs",
+      "title": "SwiftUI Link, Open links in Safari in SwiftUI (SwiftUI Tutorial, SwiftUI Link View)",
+      "date_published": "2021-04-07T15:06:53.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:fktqZRRQgyU",
+      "url": "https://www.youtube.com/watch?v=fktqZRRQgyU",
+      "title": "Build A Settings Screen In SwiftUI (SwiftUI Tutorial, SwiftUI Form, FormView)",
+      "date_published": "2021-04-06T15:00:13.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:-kxqoTCgxkI",
+      "url": "https://www.youtube.com/watch?v=-kxqoTCgxkI",
+      "title": "How to land your first iOS developer job (Self Taught iOS Developer, iOS developer, SwiftUI)",
+      "date_published": "2021-04-05T14:00:00.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:TZ3-iQ462Q8",
+      "url": "https://www.youtube.com/watch?v=TZ3-iQ462Q8",
+      "title": "Using UIKit in SwiftUI (SwiftUI Tutorial, SFSafariViewController, Xcode 12)",
+      "date_published": "2021-03-28T15:00:09.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    },
+    {
+      "guid": "yt:video:cfwEt__pnvA",
+      "url": "https://www.youtube.com/watch?v=cfwEt__pnvA",
+      "title": "SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)",
+      "date_published": "2021-03-21T15:09:18.000Z",
+      "author": {
+        "name": "tundsdev"
+      }
+    }
+  ]
+}

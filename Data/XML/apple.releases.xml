@@ -6,10 +6,18 @@
 <link>https://developer.apple.com/news/</link>
 <description>Apple Developer News and Updates feed provided by Apple, Inc.</description>
 <language>en-US</language>
-<lastBuildDate>Mon, 14 Jun 2021 10:00:00 PDT</lastBuildDate>
+<lastBuildDate>Mon, 21 Jun 2021 10:00:00 PDT</lastBuildDate>
 <generator>Custom</generator>
 <copyright>Copyright 2021, Apple Inc.</copyright>
 
+<item>
+<title>Xcode 12.5.1 (12E507)</title>
+<link>https://developer.apple.com/news/releases/?id=06212021</link>
+<guid>https://developer.apple.com/news/releases/?id=06212021</guid>
+<description>Xcode 12.5.1 (12E507)</description>
+<pubDate>Mon, 21 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[Xcode 12.5.1 (12E507)]]></content:encoded>
+</item>
 <item>
 <title>macOS Big Sur 11.5 beta 3 (20G5042c)</title>
 <link>https://developer.apple.com/news/releases/?id=06142021g</link>
@@ -153,14 +161,6 @@
 <description>tvOS 14.6 (18L569)</description>
 <pubDate>Mon, 24 May 2021 10:00:00 PDT</pubDate>
 <content:encoded><![CDATA[tvOS 14.6 (18L569)]]></content:encoded>
-</item>
-<item>
-<title>Xcode 12.5 (12E262)</title>
-<link>https://developer.apple.com/news/releases/?id=04262021f</link>
-<guid>https://developer.apple.com/news/releases/?id=04262021f</guid>
-<description>Xcode 12.5 (12E262)</description>
-<pubDate>Mon, 26 Apr 2021 10:00:00 PDT</pubDate>
-<content:encoded><![CDATA[Xcode 12.5 (12E262)]]></content:encoded>
 </item>
 <item>
 <title>App Store Connect Update</title>
