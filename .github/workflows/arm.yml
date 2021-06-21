@@ -70,6 +70,7 @@ jobs:
             fi
           dpkg-reconfigure --frontend noninteractive tzdata
           curl -s https://packagecloud.io/install/repositories/swift-arm/release/script.deb.sh | sudo bash
+          apt update
           apt-get install -y swift-lang
           swift build -v
           swift test --enable-test-discovery --enable-code-coverage -v
