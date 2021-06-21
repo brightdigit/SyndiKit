@@ -14,18 +14,17 @@ jobs:
     env:
       PACKAGE_NAME: RSSCoded
 
-    runs-on: macos-latest
+    runs-on: {{ matrix.os }}
     if: "!contains(github.event.head_commit.message, 'ci skip')"
 
     strategy:
       matrix:
-        runs-on:  [macos-10.15,macos-11]
-        xcode: ["/Applications/Xcode_12.3.app", "/Applications/Xcode_12.4.app"]
+        xcode: ["/Applications/Xcode_12.3.app", "/Applications/Xcode_12.4.app", "/Applications/Xcode_13.0.app", "/Applications/Xcode_12.5.app"]
         include:
-          - runs-on: macos-11
-            xcode: "/Applications/Xcode_12.5.app"
-          - runs-on: macos-11
-            xcode: "/Applications/Xcode_13.0.app"
+          - os: macos-10.5
+            xcode: "/Applications/Xcode_12.3.app"
+          - os: macos-10.5
+            xcode: "/Applications/Xcode_12.4.app"]
 
     steps:
     - uses: actions/checkout@v2
