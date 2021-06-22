@@ -1,7 +1,25 @@
 import Foundation
 
+struct RSSItem: Codable {
+  let title: String
+  let link: URL
+  let description: String
+  let guid: RSSGUID
+}
+
 struct RSSAuthor: Codable {
   let name: String
+}
+
+struct RSSChannel: Codable {
+  let title: String
+  let link: URL
+  let description: String?
+  let item: RSSItem
+}
+
+struct RSS: Codable {
+  let channel: RSSChannel
 }
 
 struct RSSJSON: Codable {
@@ -10,51 +28,51 @@ struct RSSJSON: Codable {
   let homePageUrl: URL
   let description: String?
   let author: RSSAuthor?
-  let items: [RSSItem]
+  let items: [RSSJSONItem]
 }
 
-struct RSSItem: Codable {
-  enum GUID: Codable {
-    case url(URL)
-    case uuid(UUID)
-    case path([String])
-    case string(String)
+enum RSSGUID: Codable {
+  case url(URL)
+  case uuid(UUID)
+  case path([String])
+  case string(String)
 
-    init(from decoder: Decoder) throws {
-      let container = try decoder.singleValueContainer()
-      let string = try container.decode(String.self)
-      if let url = URL(string: string) {
-        self = .url(url)
-      } else if let uuid = UUID(uuidString: string) {
-        self = .uuid(uuid)
+  init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    let string = try container.decode(String.self)
+    if let url = URL(string: string) {
+      self = .url(url)
+    } else if let uuid = UUID(uuidString: string) {
+      self = .uuid(uuid)
+    } else {
+      let components = string.components(separatedBy: ":")
+      if components.count > 1 {
+        self = .path(components)
       } else {
-        let components = string.components(separatedBy: ":")
-        if components.count > 1 {
-          self = .path(components)
-        } else {
-          self = .string(string)
-        }
+        self = .string(string)
       }
-    }
-
-    func encode(to encoder: Encoder) throws {
-      var container = encoder.singleValueContainer()
-      let string: String
-      switch self {
-      case let .url(url):
-        string = url.absoluteString
-      case let .uuid(uuid):
-        string = uuid.uuidString.lowercased()
-      case let .path(components):
-        string = components.joined(separator: ":")
-      case let .string(value):
-        string = value
-      }
-      try container.encode(string)
     }
   }
 
-  let guid: GUID
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    let string: String
+    switch self {
+    case let .url(url):
+      string = url.absoluteString
+    case let .uuid(uuid):
+      string = uuid.uuidString.lowercased()
+    case let .path(components):
+      string = components.joined(separator: ":")
+    case let .string(value):
+      string = value
+    }
+    try container.encode(string)
+  }
+}
+
+struct RSSJSONItem: Codable {
+  let guid: RSSGUID
   let url: URL
   let title: String
   let contentHtml: String?
