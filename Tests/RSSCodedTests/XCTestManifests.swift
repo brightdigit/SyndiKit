@@ -6,8 +6,7 @@
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__RSSCodedTests = [
-      ("testExampleRSS", testExampleRSS),
-      ("testExampleXML", testExampleXML)
+      ("testExample", testExample)
     ]
   }
 

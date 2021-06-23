@@ -2,6 +2,7 @@ import Foundation
 struct Feed: Codable {
   let id: String
   let title: String
+  let description: String?
   let published: Date?
   let pubDate: Date?
   let link: FeedLink
@@ -12,6 +13,7 @@ struct Feed: Codable {
   enum CodingKeys: String, CodingKey {
     case id
     case title
+    case description
     case published
     case pubDate
     case link

@@ -34,15 +34,15 @@ extension Sequence {
   }
 }
 
-protocol Decoder {
+protocol DecodingDecoder {
   func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
 }
 
-extension JSONDecoder: Decoder {}
+extension JSONDecoder: DecodingDecoder {}
 
-extension XMLDecoder: Decoder {}
+extension XMLDecoder: DecodingDecoder {}
 
-struct Decoding<DecoderType: Decoder, DecodingType: Decodable> {
+struct Decoding<DecoderType: DecodingDecoder, DecodingType: Decodable> {
   let decoder: DecoderType
 
   init(for _: DecodingType.Type, using decoder: DecoderType) {
@@ -54,85 +54,74 @@ struct Decoding<DecoderType: Decoder, DecodingType: Decodable> {
   }
 }
 
-final class RSSCodedTests: XCTestCase {
-  func testExampleRSS() throws {
-    let sourceURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
+struct DateDecoder {
+  let formatters: [DateFormatter]
 
-    let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+  static let RSS = DateDecoder(basedOnFormats:
+    "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
+    "yyyy-MM-dd'T'HH:mm:ssXXXXX",
+    "E, d MMM yyyy HH:mm:ss zzz")
 
+  internal init(formatters: [DateFormatter]) {
+    self.formatters = formatters
+  }
+
+  static func isoPOSIX(withFormat dateFormat: String) -> DateFormatter {
     let formatter = DateFormatter()
     formatter.calendar = Calendar(identifier: .iso8601)
     formatter.locale = Locale(identifier: "en_US_POSIX")
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    decoder.dateDecodingStrategy = .custom { decoder in
+    formatter.dateFormat = dateFormat
+    return formatter
+  }
 
+  init(basedOnFormats formats: String...) {
+    formatters = formats.map(Self.isoPOSIX(withFormat:))
+  }
+
+  func decode(from decoder: Decoder) throws -> Date {
+    for formatter in formatters {
       let container = try decoder.singleValueContainer()
       let dateStr = try container.decode(String.self)
 
-      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
       if let date = formatter.date(from: dateStr) {
         return date
       }
-      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-      if let date = formatter.date(from: dateStr) {
-        return date
-      }
-      throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
     }
+    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
+  }
+}
+
+final class RSSCodedTests: XCTestCase {
+  func parseJSONFrom(_ sourceURL: URL) throws -> [String: Result<RSSJSON, Error>] {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
 
     let decoding = Decoding(for: RSSJSON.self, using: decoder)
 
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
-    let feeds = urls.mapResult {
+    let pairs = urls.mapPairResult {
       try Data(contentsOf: $0)
-    }.flatResultMap { try decoding.decode(data: $0) }
-
-    for feed in feeds {
-      guard case let .failure(error) = feed else {
-        continue
-      }
-      dump(error)
+    }.flatResultMapValue { try decoding.decode(data: $0) }.map {
+      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
     }
+
+    return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func testExampleXML() throws {
-    let sourceURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
-
+  func parseXMLFrom(_ sourceURL: URL) throws -> [String: Result<RSSFeed, Error>] {
     let decoder = XMLDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-    let formatter = DateFormatter()
-    formatter.calendar = Calendar(identifier: .iso8601)
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    decoder.dateDecodingStrategy = .custom { decoder in
-
-      let container = try decoder.singleValueContainer()
-      let dateStr = try container.decode(String.self)
-
-      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-      if let date = formatter.date(from: dateStr) {
-        return date
-      }
-      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-      if let date = formatter.date(from: dateStr) {
-        return date
-      }
-      formatter.dateFormat = "E, d MMM yyyy HH:mm:ss zzz"
-      if let date = formatter.date(from: dateStr) {
-        return date
-      }
-      throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
-    }
+    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
 
     let rssDecoding = Decoding(for: RSS.self, using: decoder)
     let feedDecoding = Decoding(for: Feed.self, using: decoder)
 
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
-    let feeds = urls.mapPairResult {
+    let pairs = urls.mapPairResult {
       try Data(contentsOf: $0)
     }.flatResultMapValue { data throws -> RSSFeed in
       do {
@@ -140,18 +129,42 @@ final class RSSCodedTests: XCTestCase {
       } catch {
         return RSSFeed.rss(try rssDecoding.decode(data: data))
       }
+    }.map {
+      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
     }
 
-    var report = [String: Error]()
-    for feed in feeds {
-      guard case let .failure(error) = feed.1 else {
+    return Dictionary(uniqueKeysWithValues: pairs)
+  }
+
+  func testExample() throws {
+    let sourceURLXML = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
+
+    let xmlFeeds = try parseXMLFrom(sourceURLXML)
+
+    let sourceURLJSON = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
+
+    let jsonFeeds = try parseJSONFrom(sourceURLJSON)
+    for (name, xmlResult) in xmlFeeds {
+      guard let jsonResult = jsonFeeds[name] else {
         continue
       }
-      report[feed.0.deletingPathExtension().lastPathComponent] = error
+
+      let json: RSSJSON
+      let rss: RSSFeed
+
+      do {
+        json = try jsonResult.get()
+        rss = try xmlResult.get()
+      } catch {
+        XCTAssertNil(error)
+        continue
+      }
+
+      XCTAssertEqual(json.title, rss.title)
+      XCTAssertEqual(json.homePageUrl, rss.homePageUrl)
+      XCTAssertEqual(json.description, rss.description)
+      // XCTAssertEqual( json.author, json.author)
+      // XCTAssertEqual( json.items, json.items)
     }
-    for (key, value) in report {
-      print(key, value)
-    }
-    print(report.count, "errors")
   }
 }
