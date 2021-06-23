@@ -120,16 +120,27 @@ final class RSSCodedTests: XCTestCase {
       if let date = formatter.date(from: dateStr) {
         return date
       }
+      formatter.dateFormat = "E, d MMM yyyy HH:mm:ss zzz"
+      if let date = formatter.date(from: dateStr) {
+        return date
+      }
       throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
     }
 
-    let decoding = Decoding(for: RSS.self, using: decoder)
+    let rssDecoding = Decoding(for: RSS.self, using: decoder)
+    let feedDecoding = Decoding(for: Feed.self, using: decoder)
 
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
     let feeds = urls.mapPairResult {
       try Data(contentsOf: $0)
-    }.flatResultMapValue { try decoding.decode(data: $0) }
+    }.flatResultMapValue { data throws -> RSSFeed in
+      do {
+        return RSSFeed.feed(try feedDecoding.decode(data: data))
+      } catch {
+        return RSSFeed.rss(try rssDecoding.decode(data: data))
+      }
+    }
 
     var report = [String: Error]()
     for feed in feeds {

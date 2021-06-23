@@ -5,21 +5,132 @@ struct RSSItem: Codable {
   let link: URL
   let description: String
   let guid: RSSGUID
+  let pubDate: Date?
+  let contentEncoded: String?
+  let itunesTitle: String?
+  let itunesEpisode: String?
+  let itunesAuthor: String?
+  let itunesSubtitle: String?
+  let itunesSummary: String?
+  let itunesExplicit: String?
+  let itunesDuration: String?
+  let itunesImage: iTunesImage?
+
+  enum CodingKeys: String, CodingKey {
+    case title
+    case link
+    case description
+    case guid
+    case pubDate
+    case contentEncoded = "content:encoded"
+    case itunesTitle = "itunes:title"
+    case itunesEpisode = "itunes:episode"
+    case itunesAuthor = "itunes:author"
+    case itunesSubtitle = "itunes:subtitle"
+    case itunesSummary = "itunes:summary"
+    case itunesExplicit = "itunes:explicit"
+    case itunesDuration = "itunes:duration"
+    case itunesImage = "itunes:image"
+  }
 }
 
 struct RSSAuthor: Codable {
   let name: String
 }
 
+// swiftlint:disable:next type_name
+struct iTunesOwner: Codable {
+  let name: String
+  let email: String
+
+  enum CodingKeys: String, CodingKey {
+    case name = "itunes:name"
+    case email = "itunes:email"
+  }
+}
+
 struct RSSChannel: Codable {
   let title: String
   let link: URL
   let description: String?
-  let item: RSSItem
+  let lastBuildDate: Date?
+  let syUpdatePeriod: String?
+  let syUpdateFrequency: Int?
+  let item: [RSSItem]
+  let itunesAuthor: String?
+  let itunesImage: String?
+  let itunesOwner: iTunesOwner?
+  enum CodingKeys: String, CodingKey {
+    case title
+    case link
+    case description
+    case lastBuildDate
+    case syUpdatePeriod = "sy:updatePeriod"
+    case syUpdateFrequency = "sy:updateFrequency"
+    case item
+    case itunesAuthor = "itunes:author"
+    case itunesImage = "itunes:image"
+    case itunesOwner = "itunes:owner"
+  }
 }
 
 struct RSS: Codable {
   let channel: RSSChannel
+}
+
+// swiftlint:disable:next type_name
+typealias iTunesImage = FeedLink
+struct FeedLink: Codable {
+  let href: URL
+}
+
+struct FeedEntry: Codable {
+  let id: String
+  let title: String
+  let published: Date
+  let updated: Date
+  let link: FeedLink
+  let author: RSSAuthor
+  let ytVideoID: String?
+  let mediaDescription: String?
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case published
+    case updated
+    case link
+    case author
+    case ytVideoID = "yt:videoId"
+    case mediaDescription = "media:description"
+  }
+}
+
+enum RSSFeed {
+  case rss(RSS)
+  case feed(Feed)
+}
+
+struct Feed: Codable {
+  let id: String
+  let title: String
+  let published: Date?
+  let pubDate: Date?
+  let link: FeedLink
+  let entry: [FeedEntry]
+  let author: RSSAuthor
+  let ytChannelID: String?
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case published
+    case pubDate
+    case link
+    case entry
+    case author
+    case ytChannelID = "yt:channelId"
+  }
 }
 
 struct RSSJSON: Codable {
@@ -79,46 +190,4 @@ struct RSSJSONItem: Codable {
   let summary: String?
   let datePublished: Date?
   let author: RSSAuthor?
-//  {
-//    "guid": "https://www.donnywals.com/?p=1686",
-//    "url": "https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/",
-//    "title": "An introduction to synchronizing access with Swift’s Actors",
-//    "content_html": "<p>We all know that async / await was one of this year&rsquo;s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is much safer and consistent than ever before. For example, the Swift team built an all-new threading...</p>\n<p><a href=\"https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/\" rel=\"nofollow\">Source</a></p>",
-//    "summary": "We all know that async / await was one of this year’s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is [&#8230;]",
-//    "date_published": "2021-06-14T19:29:29.000Z",
-//    "author": {
-//      "name": "donnywals"
-//    }
-//  },
-
-//  {
-//    "guid": "yt:video:QrTChgzseVk",
-//    "url": "https://www.youtube.com/watch?v=QrTChgzseVk",
-//    "title": "SwiftUI Login Screen Workflow",
-//    "date_published": "2021-06-20T13:44:57.000Z",
-//    "author": {
-//      "name": "Stewart Lynch"
-//    }
-//  },
-
-//  {
-//    "guid": "https://swiftpackageindex.com/GraphQLSwift/Graphiti",
-//    "url": "https://swiftpackageindex.com/GraphQLSwift/Graphiti",
-//    "title": "Graphiti - 0.26.0",
-//    "content_html": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">Graphiti</a><small> – <a href=\"https://github.com/GraphQLSwift/Graphiti/releases/tag/0.26.0\">Version 0.26.0 release notes. </a></small></p><div><p>Merge pull request <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"923041202\" data-permission-text=\"Title is private\" data-url=\"https://github.com/GraphQLSwift/Graphiti/issues/64\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/GraphQLSwift/Graphiti/pull/64/hovercard\" href=\"https://github.com/GraphQLSwift/Graphiti/pull/64\">#64</a> from NeedleInAJayStack/preserveResultOrder</p>\n<ul>\n<li>Preserves result order: The returned object has field results in the same order as the query</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">GraphQLSwift/Graphiti</a></small></div>",
-//    "summary": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">Graphiti</a><small> – <a href=\"https://github.com/GraphQLSwift/Graphiti/releases/tag/0.26.0\">Version 0.26.0 release notes. </a></small></p><p>The Swift GraphQL Schema framework for macOS and Linux</p><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">GraphQLSwift/Graphiti</a></small></div>",
-//    "date_published": "2021-06-21T16:20:28.000Z"
-//  },
-
-//  {
-//    "guid": "https://ideveloper.castos.com/podcasts/17340/episodes/297-there-we39ve-talked-about-software",
-//    "url": "https://ideveloper.castos.com/podcasts/17340/episodes/297-there-we39ve-talked-about-software",
-//    "title": "297 - There, We've Talked About Software",
-//    "content_html": "<p>This week the boys talk the possible return to a new 'normal' and how companies like Apple might evolve, especially with the future of WWDC. Johns work on dynamically sized cells for low vision users and the evolution of accessibility. Scotty shares his client work hiatus to better focus on MoneyWell.</p>\r\n<p>James Dempsey &amp; The Breakpoints:</p>\r\n<p><a href=\"https://www.youtube.com/watch?v=9pp3LjPTDsY\" target=\"_blank\" rel=\"noopener\">Write To The Metal</a></p>\r\n<p><a href=\"https://youtu.be/xLpw4QTqD54\" target=\"_blank\" rel=\"noopener\">Liki Song Rehearsal</a></p>\r\n<p><a href=\"https://youtu.be/g7o1WY6PXR8\" target=\"_blank\" rel=\"noopener\">Liki Song Crowd Singalong</a></p>\r\n<p><a href=\"https://youtu.be/GRkjPvuyIOE\" target=\"_blank\" rel=\"noopener\">Almost Dropped My iPhone</a></p>",
-//    "summary": "<p>This week the boys talk the possible return to a new 'normal' and how companies like Apple might evolve, especially with the future of WWDC. Johns work on dynamically sized cells for low vision users and the evolution of accessibility. Scotty shares his client work hiatus to better focus on MoneyWell.</p>\r\n<p>James Dempsey &amp; The Breakpoints:</p>\r\n<p><a href=\"https://www.youtube.com/watch?v=9pp3LjPTDsY\" target=\"_blank\" rel=\"noopener\">Write To The Metal</a></p>\r\n<p><a href=\"https://youtu.be/xLpw4QTqD54\" target=\"_blank\" rel=\"noopener\">Liki Song Rehearsal</a></p>\r\n<p><a href=\"https://youtu.be/g7o1WY6PXR8\" target=\"_blank\" rel=\"noopener\">Liki Song Crowd Singalong</a></p>\r\n<p><a href=\"https://youtu.be/GRkjPvuyIOE\" target=\"_blank\" rel=\"noopener\">Almost Dropped My iPhone</a></p>",
-//    "date_published": "2021-06-17T14:00:00.000Z",
-//    "author": {
-//      "name": "Steve Scott (Scotty) & John Fox"
-//    }
-//  },
 }
