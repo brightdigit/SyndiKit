@@ -14,10 +14,10 @@ extension RSSFeed {
     }
   }
 
-  var homePageUrl: URL {
+  var homePageUrl: URL? {
     switch self {
     case let .feed(feed):
-      return feed.link.href
+      return feed.link.first { $0.rel == "alternate" }?.href
     case let .rss(rss):
       return rss.channel.link
     }
@@ -26,7 +26,7 @@ extension RSSFeed {
   var description: String? {
     switch self {
     case let .feed(feed):
-      return feed.description
+      return feed.description ?? feed.subtitle
     case let .rss(rss):
       return rss.channel.description
     }

@@ -7,3 +7,11 @@ struct RSSJSON: Codable {
   let author: RSSAuthor?
   let items: [RSSJSONItem]
 }
+
+extension RSSJSON {
+  var homePageURLHttp: URL? {
+    var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
+    components?.scheme = "http"
+    return components?.url
+  }
+}

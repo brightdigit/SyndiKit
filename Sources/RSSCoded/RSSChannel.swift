@@ -5,7 +5,7 @@ struct RSSChannel: Codable {
   let description: String?
   let lastBuildDate: Date?
   let syUpdatePeriod: String?
-  let syUpdateFrequency: Int?
+  let syUpdateFrequency: String?
   let item: [RSSItem]
   let itunesAuthor: String?
   let itunesImage: String?

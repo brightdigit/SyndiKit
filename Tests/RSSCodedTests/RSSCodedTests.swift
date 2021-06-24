@@ -115,6 +115,7 @@ final class RSSCodedTests: XCTestCase {
     let decoder = XMLDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
+    decoder.trimValueWhitespaces = false
 
     let rssDecoding = Decoding(for: RSS.self, using: decoder)
     let feedDecoding = Decoding(for: Feed.self, using: decoder)
@@ -134,6 +135,27 @@ final class RSSCodedTests: XCTestCase {
     }
 
     return Dictionary(uniqueKeysWithValues: pairs)
+  }
+
+  func testExampleMecid() throws {
+    let sourceURLXML = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
+
+    let mecidXML = URL(fileURLWithPath: "/Users/leo/Documents/Projects/RSSCoded/Data/XML/mecid.xml")
+    // sourceURLXML.appendingPathComponent("mecid.xml")
+
+    let decoder = XMLDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
+
+    let data = Result {
+      try Data(contentsOf: mecidXML)
+    }
+
+    let feed = data.flatMap { data in
+      Result {
+        try decoder.decode(Feed.self, from: data)
+      }
+    }
   }
 
   func testExample() throws {
@@ -160,11 +182,24 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      XCTAssertEqual(json.title, rss.title)
-      XCTAssertEqual(json.homePageUrl, rss.homePageUrl)
-      XCTAssertEqual(json.description, rss.description)
+      XCTAssertEqual(json.title, rss.title.trimmingCharacters(in: .whitespacesAndNewlines))
+      XCTAssertEqual(json.homePageUrl.remainingPath, rss.homePageUrl?.remainingPath.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+      if let description = rss.description {
+        XCTAssertEqual(json.description ?? "", description.trimmingCharacters(in: .whitespacesAndNewlines), "Description does not match for \(name)")
+
+      } else {
+        XCTAssertEqual(json.description?.count ?? 0, 0)
+      }
       // XCTAssertEqual( json.author, json.author)
       // XCTAssertEqual( json.items, json.items)
     }
+  }
+}
+
+extension URL {
+  var remainingPath: String {
+    let path = self.path
+
+    return path == "/" ? "" : path
   }
 }
