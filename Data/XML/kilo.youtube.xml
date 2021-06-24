@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCv75sKQFFIenWHrprnrR9aA"/>
+ <id>yt:channel:UCv75sKQFFIenWHrprnrR9aA</id>
+ <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+ <title>Kilo Loco</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA"/>
+ <author>
+  <name>Kilo Loco</name>
+  <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+ </author>
+ <published>2012-12-01T22:59:36+00:00</published>
+ <entry>
+  <id>yt:video:3hccNoPE59U</id>
+  <yt:videoId>3hccNoPE59U</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>What Developers Thought of WWDC 2021</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=3hccNoPE59U"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-06-10T15:28:17+00:00</published>
+  <updated>2021-06-10T22:02:55+00:00</updated>
+  <media:group>
+   <media:title>What Developers Thought of WWDC 2021</media:title>
+   <media:content url="https://www.youtube.com/v/3hccNoPE59U?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/3hccNoPE59U/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, Kilo Loco and Eman Harout (@emanharout) do a recap of the announcements made during WWDC 2021 and give their thoughts on how the new technologies will affect iOS developers over the next year.
+
+0:00:00 - Intro
+0:08:30 - FaceTime
+0:11:06 - Messages
+0:14:03 - Notifications
+0:16:02 - Focus
+0:19:47 - Live Text
+0:21:18 - Spotlight
+0:23:44 - Photo Memories
+0:24:44 - Wallet
+0:27:40 - Weather
+0:28:49 - Maps
+0:31:15 - AirPods
+0:34:16 - iPadOS
+0:40:43 - Privacy
+0:44:44 - watchOS
+0:45:38 - Home
+0:48:48 - macOS
+0:54:03 - Developer Technologies
+0:59:10 - Final Thoughts
+
+Kilo Loco on Social Media:
+www.kiloloco.com
+Discord - https://discord.gg/E7bNDWz
+Twitter - https://twitter.com/kilo_loco
+Instagram - https://instagram.com/kilo_loco
+
+#WWDC21 #AppleEvent #iOSDev</media:description>
+   <media:community>
+    <media:starRating count="24" average="4.83" min="1" max="5"/>
+    <media:statistics views="455"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:QW-oEfH_lgg</id>
+  <yt:videoId>QW-oEfH_lgg</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Cache Images and URLs with Flutter | Day 27 - #30DaysOfFlutter</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=QW-oEfH_lgg"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-05-11T20:01:53+00:00</published>
+  <updated>2021-05-13T00:16:31+00:00</updated>
+  <media:group>
+   <media:title>Cache Images and URLs with Flutter | Day 27 - #30DaysOfFlutter</media:title>
+   <media:content url="https://www.youtube.com/v/QW-oEfH_lgg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QW-oEfH_lgg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco shows you how to cache remote images and their URLs with Flutter. In this tutorial, you will learn how to create an image URL cache with AWS Amplify Storage, access the cached image URL to display a cached image, and save profile changes using Amplify DataStore.
+
+*** Show Notes and Links ***
+
+Project Files:
+https://github.com/Kilo-Loco/30DaysOfFlutter/tree/main/day27_cache_image
+
+Kilo Loco on Social Media:
+www.kiloloco.com
+Discord - https://discord.gg/E7bNDWz
+Twitter - https://twitter.com/kilo_loco
+Instagram - https://instagram.com/kilo_loco
+
+#flutter #dartlang #30DaysOfFlutter</media:description>
+   <media:community>
+    <media:starRating count="36" average="4.89" min="1" max="5"/>
+    <media:statistics views="795"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0Tp70eB5WrM</id>
+  <yt:videoId>0Tp70eB5WrM</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Social Media App</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0Tp70eB5WrM"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-20T13:55:02+00:00</published>
+  <updated>2021-04-22T03:46:22+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Social Media App</media:title>
+   <media:content url="https://www.youtube.com/v/0Tp70eB5WrM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0Tp70eB5WrM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this live stream, Kilo Loco works on wrapping up the remaining UI for the post feed of the social media app</media:description>
+   <media:community>
+    <media:starRating count="34" average="4.88" min="1" max="5"/>
+    <media:statistics views="1131"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:5E4T-Qb3l18</id>
+  <yt:videoId>5E4T-Qb3l18</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Upload Images to Amplify Using Flutter | Day 26 - #30DaysOfFlutter</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=5E4T-Qb3l18"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-20T03:27:01+00:00</published>
+  <updated>2021-04-22T02:37:24+00:00</updated>
+  <media:group>
+   <media:title>Upload Images to Amplify Using Flutter | Day 26 - #30DaysOfFlutter</media:title>
+   <media:content url="https://www.youtube.com/v/5E4T-Qb3l18?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/5E4T-Qb3l18/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco shows you how to upload files to AWS Amplify using the BLoC Library and Flutter. In this tutorial, you will learn how to add the Storage category to your Amplify app, upload images to Amazon S3, and get the URL of the images to display in the user profile.
+
+*** Show Notes and Links ***
+
+Project Files:
+https://github.com/Kilo-Loco/30DaysOfFlutter/tree/main/day26_upload_images
+
+Kilo Loco on Social Media:
+www.kiloloco.com
+Discord - https://discord.gg/E7bNDWz
+Twitter - https://twitter.com/kilo_loco
+Instagram - https://instagram.com/kilo_loco
+
+#flutter #dartlang #30DaysOfFlutter</media:description>
+   <media:community>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
+    <media:statistics views="857"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8XyRqtZCnrU</id>
+  <yt:videoId>8XyRqtZCnrU</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Social Media Post Feed</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=8XyRqtZCnrU"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-14T15:05:50+00:00</published>
+  <updated>2021-04-21T15:30:40+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Social Media Post Feed</media:title>
+   <media:content url="https://www.youtube.com/v/8XyRqtZCnrU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8XyRqtZCnrU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this live stream, Kilo Loco attempts to find the optimal solution for downloading and caching remote images and displaying them in the Post Feed for the social media app</media:description>
+   <media:community>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
+    <media:statistics views="502"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:2Hoq6BafoEA</id>
+  <yt:videoId>2Hoq6BafoEA</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Remote Image Loading</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=2Hoq6BafoEA"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-12T15:15:17+00:00</published>
+  <updated>2021-04-18T17:06:48+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Remote Image Loading</media:title>
+   <media:content url="https://www.youtube.com/v/2Hoq6BafoEA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/2Hoq6BafoEA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Continuing with the social media app by adding the remote image downloading functionality to the home feed.</media:description>
+   <media:community>
+    <media:starRating count="12" average="5.00" min="1" max="5"/>
+    <media:statistics views="360"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:WPhfsCSSM7k</id>
+  <yt:videoId>WPhfsCSSM7k</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Remote Image Loading</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=WPhfsCSSM7k"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-07T15:06:12+00:00</published>
+  <updated>2021-04-18T23:11:46+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Remote Image Loading</media:title>
+   <media:content url="https://www.youtube.com/v/WPhfsCSSM7k?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/WPhfsCSSM7k/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Continuing with the social media app by adding the remote image downloading functionality to the home feed.</media:description>
+   <media:community>
+    <media:starRating count="36" average="5.00" min="1" max="5"/>
+    <media:statistics views="1100"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:a4ix-CpsLLA</id>
+  <yt:videoId>a4ix-CpsLLA</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: New Post Functionality for Social Media App</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=a4ix-CpsLLA"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-06T15:49:50+00:00</published>
+  <updated>2021-04-18T19:05:41+00:00</updated>
+  <media:group>
+   <media:title>Flutter: New Post Functionality for Social Media App</media:title>
+   <media:content url="https://www.youtube.com/v/a4ix-CpsLLA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/a4ix-CpsLLA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Continuing with the social media app and adding the new post UI in this Live Stream</media:description>
+   <media:community>
+    <media:starRating count="34" average="4.76" min="1" max="5"/>
+    <media:statistics views="754"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Rgw8k6MuEuY</id>
+  <yt:videoId>Rgw8k6MuEuY</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: New Post UI for Social Media App</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Rgw8k6MuEuY"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-05T14:52:51+00:00</published>
+  <updated>2021-04-17T10:18:00+00:00</updated>
+  <media:group>
+   <media:title>Flutter: New Post UI for Social Media App</media:title>
+   <media:content url="https://www.youtube.com/v/Rgw8k6MuEuY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/Rgw8k6MuEuY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Continuing with the social media app and adding the new post UI in this Live Stream</media:description>
+   <media:community>
+    <media:starRating count="34" average="5.00" min="1" max="5"/>
+    <media:statistics views="1006"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:gho0MzVkS4c</id>
+  <yt:videoId>gho0MzVkS4c</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter with Swift and Xcode</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=gho0MzVkS4c"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-04-01T16:47:18+00:00</published>
+  <updated>2021-04-21T08:00:30+00:00</updated>
+  <media:group>
+   <media:title>Flutter with Swift and Xcode</media:title>
+   <media:content url="https://www.youtube.com/v/gho0MzVkS4c?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/gho0MzVkS4c/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Today Kilo Loco will be working with the newly announced Swift support for Flutter.</media:description>
+   <media:community>
+    <media:starRating count="69" average="4.71" min="1" max="5"/>
+    <media:statistics views="2592"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:BMBZBjfnqy8</id>
+  <yt:videoId>BMBZBjfnqy8</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Create New Post on Social Media App</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=BMBZBjfnqy8"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-03-31T15:06:08+00:00</published>
+  <updated>2021-04-20T23:58:09+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Create New Post on Social Media App</media:title>
+   <media:content url="https://www.youtube.com/v/BMBZBjfnqy8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/BMBZBjfnqy8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco continues working through the social media app for the #30DaysOfFlutter challenge. In this stream, he will attempt to save Post data.</media:description>
+   <media:community>
+    <media:starRating count="46" average="4.83" min="1" max="5"/>
+    <media:statistics views="1622"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:jf6sU7fAeKE</id>
+  <yt:videoId>jf6sU7fAeKE</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Save Post Data</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=jf6sU7fAeKE"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-03-30T16:02:41+00:00</published>
+  <updated>2021-04-17T10:21:36+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Save Post Data</media:title>
+   <media:content url="https://www.youtube.com/v/jf6sU7fAeKE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/jf6sU7fAeKE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this live coding session, Kilo Loco will be saving post data to his AWS Amplify backend</media:description>
+   <media:community>
+    <media:starRating count="61" average="5.00" min="1" max="5"/>
+    <media:statistics views="1767"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:7iZAZ0CwFKI</id>
+  <yt:videoId>7iZAZ0CwFKI</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Camera and Photo Gallery Using Image Picker with Flutter | Day 25 - #30DaysOfFlutter</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=7iZAZ0CwFKI"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-03-30T04:44:18+00:00</published>
+  <updated>2021-04-18T08:44:21+00:00</updated>
+  <media:group>
+   <media:title>Camera and Photo Gallery Using Image Picker with Flutter | Day 25 - #30DaysOfFlutter</media:title>
+   <media:content url="https://www.youtube.com/v/7iZAZ0CwFKI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/7iZAZ0CwFKI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco shows you how to use the image picker package to take pictures with the camera and access photos from the user's photo gallery with Flutter. This tutorial will cover using platform specific widgets, using the device's camera and accessing photos from the photo library, and displaying the picked photo as an avatar picture.
+
+0:00 - Intro
+0:36 - Configuring Permissions
+3:18 - Updating Profile Event
+4:18 - Cross Platform Action Sheet
+9:49 - Determine When to Show Action Sheet
+15:19 - Using the Image Picker
+20:12 - Showing Cross Platform Widget
+22:09 - Outro
+
+*** Show Notes and Links ***
+
+Project Files:
+https://github.com/Kilo-Loco/30DaysOfFlutter/tree/main/day25_image_picker
+
+Kilo Loco on Social Media:
+www.kiloloco.com
+Discord - https://discord.gg/E7bNDWz
+Twitter - https://twitter.com/kilo_loco
+Instagram - https://instagram.com/kilo_loco
+
+#flutter #dartlang #30DaysOfFlutter</media:description>
+   <media:community>
+    <media:starRating count="67" average="5.00" min="1" max="5"/>
+    <media:statistics views="3693"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:gnxhNIle7VE</id>
+  <yt:videoId>gnxhNIle7VE</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>Flutter: Social Media Feed</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=gnxhNIle7VE"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-03-29T16:06:48+00:00</published>
+  <updated>2021-04-19T09:08:13+00:00</updated>
+  <media:group>
+   <media:title>Flutter: Social Media Feed</media:title>
+   <media:content url="https://www.youtube.com/v/gnxhNIle7VE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/gnxhNIle7VE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco starts working on the home feed of the social media app in Flutter</media:description>
+   <media:community>
+    <media:starRating count="39" average="4.79" min="1" max="5"/>
+    <media:statistics views="1369"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:SBJFl-3wqx8</id>
+  <yt:videoId>SBJFl-3wqx8</yt:videoId>
+  <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
+  <title>User Profile UI with BLoC and Flutter | Day 24 - #30DaysOfFlutter</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=SBJFl-3wqx8"/>
+  <author>
+   <name>Kilo Loco</name>
+   <uri>https://www.youtube.com/channel/UCv75sKQFFIenWHrprnrR9aA</uri>
+  </author>
+  <published>2021-03-25T17:29:43+00:00</published>
+  <updated>2021-03-28T03:10:58+00:00</updated>
+  <media:group>
+   <media:title>User Profile UI with BLoC and Flutter | Day 24 - #30DaysOfFlutter</media:title>
+   <media:content url="https://www.youtube.com/v/SBJFl-3wqx8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/SBJFl-3wqx8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Kilo Loco shows you how to build out the user profile UI with functionality as the current user and when viewing another user's profile in Flutter. This tutorial covers laying out the profile UI, state management with BLoC, and dependency injection.
+
+0:00 - Intro
+1:19 - Creating Profile View
+7:35 - Create Profile Events
+10:54 - Create Profile State
+16:11 - Create Profile Bloc
+20:36 - Dependency Injection for Profile Bloc
+24:57 - Connecting Widgets to State
+33:47 - Outro
+
+*** Show Notes and Links ***
+
+Project Files:
+https://github.com/Kilo-Loco/30DaysOfFlutter/tree/main/day24_user_profile_ui
+
+Kilo Loco on Social Media:
+www.kiloloco.com
+Discord - https://discord.gg/E7bNDWz
+Twitter - https://twitter.com/kilo_loco
+Instagram - https://instagram.com/kilo_loco
+
+#flutter #dartlang #30DaysOfFlutter</media:description>
+   <media:community>
+    <media:starRating count="30" average="4.87" min="1" max="5"/>
+    <media:statistics views="1045"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

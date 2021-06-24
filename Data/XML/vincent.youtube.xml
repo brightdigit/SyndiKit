@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCjkoQk5fOk6lH-shlm53vlw"/>
+ <id>yt:channel:UCjkoQk5fOk6lH-shlm53vlw</id>
+ <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+ <title>Vincent Pradeilles</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw"/>
+ <author>
+  <name>Vincent Pradeilles</name>
+  <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+ </author>
+ <published>2013-03-16T18:10:42+00:00</published>
+ <entry>
+  <id>yt:video:wUoDhf4tzvY</id>
+  <yt:videoId>wUoDhf4tzvY</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Swift Tips #35 - reduce</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=wUoDhf4tzvY"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-17T15:16:45+00:00</published>
+  <updated>2021-06-19T05:54:59+00:00</updated>
+  <media:group>
+   <media:title>Swift Tips #35 - reduce</media:title>
+   <media:content url="https://www.youtube.com/v/wUoDhf4tzvY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/wUoDhf4tzvY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/
+
+•••••••••••• Music By •••••••••••••
+&quot;Picket Fences''
+Jay Man - OurMusicBox
+https://www.our-music-box.com
+https://www.youtube.com/c/ourmusicbox</media:description>
+   <media:community>
+    <media:starRating count="35" average="5.00" min="1" max="5"/>
+    <media:statistics views="492"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:p3qdi6KyzDk</id>
+  <yt:videoId>p3qdi6KyzDk</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Five weird but valid Swift syntaxes 😮</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=p3qdi6KyzDk"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-15T14:58:05+00:00</published>
+  <updated>2021-06-17T07:21:05+00:00</updated>
+  <media:group>
+   <media:title>Five weird but valid Swift syntaxes 😮</media:title>
+   <media:content url="https://www.youtube.com/v/p3qdi6KyzDk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/p3qdi6KyzDk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Go check out 👉 https://www.objc.io
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="77" average="4.74" min="1" max="5"/>
+    <media:statistics views="1008"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:rjw7Fesc1tk</id>
+  <yt:videoId>rjw7Fesc1tk</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>So what got the iOS community excited at WWDC 2021?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=rjw7Fesc1tk"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-10T15:08:51+00:00</published>
+  <updated>2021-06-17T07:21:02+00:00</updated>
+  <media:group>
+   <media:title>So what got the iOS community excited at WWDC 2021?</media:title>
+   <media:content url="https://www.youtube.com/v/rjw7Fesc1tk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/rjw7Fesc1tk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+TIMECODES
+00:00 - Intro
+00:25 - Actors (Donny Wals)
+01:16 - Xcode 13 (Paul Hudson)
+03:33 - SF Symbols 3 (Mike Stern)
+04:24 - Live Text (Gui Rambo)
+04:54 - FocusState in SwiftUI (Majid Jabrayilov)
+05:40 - async URLSession (John Sundell)
+06:08 - Automatic version &amp; build number (Josh Holtz)
+06:31 - Mandatory account deletion (Antoine v.d. Lee)
+07:00 - Already deprecated async API (Donny Wals)
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="46" average="5.00" min="1" max="5"/>
+    <media:statistics views="907"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:3OZ0FBOV0LQ</id>
+  <yt:videoId>3OZ0FBOV0LQ</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>My highlights of WWDC 2021 so far!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=3OZ0FBOV0LQ"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-08T14:52:46+00:00</published>
+  <updated>2021-06-17T07:20:59+00:00</updated>
+  <media:group>
+   <media:title>My highlights of WWDC 2021 so far!</media:title>
+   <media:content url="https://www.youtube.com/v/3OZ0FBOV0LQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/3OZ0FBOV0LQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="28" average="4.86" min="1" max="5"/>
+    <media:statistics views="635"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Oi_C7dD6ats</id>
+  <yt:videoId>Oi_C7dD6ats</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>How to SwiftUI #01 - Displaying images on top of each other</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Oi_C7dD6ats"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-03T15:03:30+00:00</published>
+  <updated>2021-06-05T23:36:35+00:00</updated>
+  <media:group>
+   <media:title>How to SwiftUI #01 - Displaying images on top of each other</media:title>
+   <media:content url="https://www.youtube.com/v/Oi_C7dD6ats?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/Oi_C7dD6ats/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://bit.ly/3fSEnie
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="50" average="4.84" min="1" max="5"/>
+    <media:statistics views="461"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:mzsz_Tit1HA</id>
+  <yt:videoId>mzsz_Tit1HA</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Don't use this syntax! (Or you'll get a retain cycle 😱)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=mzsz_Tit1HA"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-06-01T14:55:12+00:00</published>
+  <updated>2021-06-17T07:20:56+00:00</updated>
+  <media:group>
+   <media:title>Don't use this syntax! (Or you'll get a retain cycle 😱)</media:title>
+   <media:content url="https://www.youtube.com/v/mzsz_Tit1HA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/mzsz_Tit1HA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://bit.ly/3vL5tyB
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="82" average="4.90" min="1" max="5"/>
+    <media:statistics views="1120"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:2vZz1v-2v1E</id>
+  <yt:videoId>2vZz1v-2v1E</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Looking at some Shit Swift Code 💩, Live! 🎙 with Jérôme Alves</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=2vZz1v-2v1E"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-31T15:19:17+00:00</published>
+  <updated>2021-06-03T21:29:04+00:00</updated>
+  <media:group>
+   <media:title>Looking at some Shit Swift Code 💩, Live! 🎙 with Jérôme Alves</media:title>
+   <media:content url="https://www.youtube.com/v/2vZz1v-2v1E?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/2vZz1v-2v1E/hqdefault.jpg" width="480" height="360"/>
+   <media:description>We usually talk about good Swift code, but how about we talk about shit code this time?
+
+Jérôme is the creator of https://twitter.com/ShitSwiftDev and he's going to show us code that is terribly over-engineered, but somehow actually work!
+
+We're looking forward to seeing you in the chat 🧑🏽‍💻👨🏻‍💻👩🏻‍💻
+
+LINKS
+https://twitter.com/ShitSwiftDev
+https://github.com/jegnux/ShitSwiftDev
+https://twitter.com/jegnux
+https://github.com/jessesquires/esoteric-swift
+
+TIMECODES
+00:00:00 - Intro
+00:02:00 - Hello World
+00:04:37 - @dynamicMemberLookup
+00:14:17 - Ternary operator
+00:17:19 - Subscript Operator
+00:26:17 - Typesafe URL
+00:42:31 - Pikachu Architecture
+00:44:26 - callAsFunction
+00:46:44 - Basic Interpretor
+00:50:00 - Questions</media:description>
+   <media:community>
+    <media:starRating count="18" average="4.78" min="1" max="5"/>
+    <media:statistics views="733"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_VswqQqVlHo</id>
+  <yt:videoId>_VswqQqVlHo</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Swift Tips #34 - defer</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_VswqQqVlHo"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-27T15:01:18+00:00</published>
+  <updated>2021-05-28T22:18:37+00:00</updated>
+  <media:group>
+   <media:title>Swift Tips #34 - defer</media:title>
+   <media:content url="https://www.youtube.com/v/_VswqQqVlHo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_VswqQqVlHo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/
+
+•••••••••••• Music By •••••••••••••
+&quot;Picket Fences''
+Jay Man - OurMusicBox
+https://www.our-music-box.com
+https://www.youtube.com/c/ourmusicbox</media:description>
+   <media:community>
+    <media:starRating count="83" average="5.00" min="1" max="5"/>
+    <media:statistics views="722"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:58IChtjCPGM</id>
+  <yt:videoId>58IChtjCPGM</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Experimenting with Result Builders: it's harder than I thought 😰</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=58IChtjCPGM"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-25T14:58:45+00:00</published>
+  <updated>2021-05-26T23:09:12+00:00</updated>
+  <media:group>
+   <media:title>Experimenting with Result Builders: it's harder than I thought 😰</media:title>
+   <media:content url="https://www.youtube.com/v/58IChtjCPGM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/58IChtjCPGM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://github.com/vincent-pradeilles/KeyPathTesting
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="30" average="5.00" min="1" max="5"/>
+    <media:statistics views="641"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:6Abf8LDRRkI</id>
+  <yt:videoId>6Abf8LDRRkI</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>An introduction to Result Builders, Live! 🎙 with Antoine v.d. Lee</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=6Abf8LDRRkI"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-23T16:19:58+00:00</published>
+  <updated>2021-05-26T01:47:32+00:00</updated>
+  <media:group>
+   <media:title>An introduction to Result Builders, Live! 🎙 with Antoine v.d. Lee</media:title>
+   <media:content url="https://www.youtube.com/v/6Abf8LDRRkI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/6Abf8LDRRkI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>It's time for a new live coding, this time with Antoine v.d. Lee 🎙
+
+Result Builders are now officially part of Swift, so it's the perfect timing for an introduction to this new powerful language feature 😀
+
+We're looking forward to meeting you in the chat 🧑🏽‍💻👨🏻‍💻👩🏻‍💻
+
+LINKS
+https://www.avanderlee.com/swift/result-builders/
+https://twitter.com/twannl
+https://www.rocketsim.app
+https://github.com/carson-katri/awesome-result-builders
+
+Timecodes
+00:00:00 – Implementing a simple Result Builder
+00:14:40 – Supporting if-else
+00:29:00 – Supporting for loops
+00:33:50 – Integrating with UIKit APIs
+00:41:20 – Open source Result Builders
+00:43:55 – Limitations of Result Builders
+00:50:05 – Answering questions from the chat
+
+•••••••••••• Music By •••••••••••••
+&quot;Picket Fences''
+Jay Man - OurMusicBox
+https://www.our-music-box.com
+https://www.youtube.com/c/ourmusicbox</media:description>
+   <media:community>
+    <media:starRating count="34" average="5.00" min="1" max="5"/>
+    <media:statistics views="606"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:MZPeg8dqqzI</id>
+  <yt:videoId>MZPeg8dqqzI</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Swift Tips #33 - CaseIterable</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=MZPeg8dqqzI"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-20T15:05:51+00:00</published>
+  <updated>2021-05-22T15:05:59+00:00</updated>
+  <media:group>
+   <media:title>Swift Tips #33 - CaseIterable</media:title>
+   <media:content url="https://www.youtube.com/v/MZPeg8dqqzI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/MZPeg8dqqzI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://bit.ly/3sIjYkg
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/
+
+•••••••••••• Music By •••••••••••••
+&quot;Picket Fences''
+Jay Man - OurMusicBox
+https://www.our-music-box.com
+https://www.youtube.com/c/ourmusicbox</media:description>
+   <media:community>
+    <media:starRating count="59" average="5.00" min="1" max="5"/>
+    <media:statistics views="617"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:zhnqQCc032c</id>
+  <yt:videoId>zhnqQCc032c</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Why should you use enums and associated values? 🤔</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=zhnqQCc032c"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-18T14:59:43+00:00</published>
+  <updated>2021-06-17T07:20:54+00:00</updated>
+  <media:group>
+   <media:title>Why should you use enums and associated values? 🤔</media:title>
+   <media:content url="https://www.youtube.com/v/zhnqQCc032c?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/zhnqQCc032c/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://bit.ly/341bZVH
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="91" average="4.96" min="1" max="5"/>
+    <media:statistics views="886"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:F4PJBEBVDYM</id>
+  <yt:videoId>F4PJBEBVDYM</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Let's answer iOS Interview questions! (Using @Paul Hudson website)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=F4PJBEBVDYM"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-16T15:58:01+00:00</published>
+  <updated>2021-05-17T22:13:45+00:00</updated>
+  <media:group>
+   <media:title>Let's answer iOS Interview questions! (Using @Paul Hudson website)</media:title>
+   <media:content url="https://www.youtube.com/v/F4PJBEBVDYM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/F4PJBEBVDYM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>It seems you've enjoyed the Swift quizzes, so let's keep on with a similar topic 😀
+
+This time we're going to discuss iOS Interview questions, once again with the help of @Paul Hudson amazing website 👌
+
+Looking forward to seeing you all in the chat 🧑🏽‍💻👨🏻‍💻👩🏻‍💻
+
+LINKS
+https://www.hackingwithswift.com/interview-questions
+
+Timecodes
+00:00:00 – Intro
+00:02:26 – Difference between Array and Set?
+00:04:38 – What does #available do?
+00:07:32 – How do you make a network request?
+00:09:51 – Why is immutability important?
+00:15:17 – What does UIVisualEffectView?
+00:17:59 – Main differences between classes and structs?
+00:20:59 – Swift Package Manager, CocoaPods, Carthage
+00:24:49 – What is CGAffineTransform?
+00:28:25 – Swift vs ObjC
+00:31:57 – StoreKit
+00:35:24 – Differences between XIBs and storyboards?
+00:38:52 – Memory management in Swift
+00:41:09 – Dealing with crashes
+00:45:20 – NSAttributedString
+00:48:02 – How would you explain ARC?
+00:51:18 – Differences between CloudKit and CoreData?
+00:53:04 – What's the purpose of GameplayKit?
+00:55:26 – How do you list files in a directory?
+00:56:41 – What's the purpose of UIActivityViewController?
+00:59:36 – Storyboards vs code
+01:01:44 – What's a sensible minimum iOS deployment target?
+01:07:53 – Difference between String? and String!
+01:10:42 – Difference between @IBOutlet and @IBAction
+01:12:37 – CollectionView vs TableView
+01:14:46 –Contribution to open source
+01:18:46 – Difference between Float, Double and CGFloat
+01:21:34 – UIColor
+01:23:00 – defer keyword
+01:25:47 – How do you identify and resolve battery life issues?
+01:28:57 – What's the purpose of IBDesignable
+01:32:00 – Outro</media:description>
+   <media:community>
+    <media:starRating count="32" average="4.88" min="1" max="5"/>
+    <media:statistics views="582"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:FWjM8ESYgCA</id>
+  <yt:videoId>FWjM8ESYgCA</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Swift Community #6 GraphQL (with Ellen Shapiro)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=FWjM8ESYgCA"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-13T14:56:01+00:00</published>
+  <updated>2021-05-16T05:12:44+00:00</updated>
+  <media:group>
+   <media:title>Swift Community #6 GraphQL (with Ellen Shapiro)</media:title>
+   <media:content url="https://www.youtube.com/v/FWjM8ESYgCA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/FWjM8ESYgCA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+LINKS
+https://twitter.com/designatednerd
+https://github.com/apollographql/apollo-ios
+https://github.com/apple/swift-evolution/blob/main/proposals/0303-swiftpm-extensible-build-tools.md
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/
+
+•••••••••••• Music By •••••••••••••
+&quot;Picket Fences''
+Jay Man - OurMusicBox
+https://www.our-music-box.com
+https://www.youtube.com/c/ourmusicbox</media:description>
+   <media:community>
+    <media:starRating count="21" average="5.00" min="1" max="5"/>
+    <media:statistics views="532"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4TTSZZkdOs4</id>
+  <yt:videoId>4TTSZZkdOs4</yt:videoId>
+  <yt:channelId>UCjkoQk5fOk6lH-shlm53vlw</yt:channelId>
+  <title>Five tips to improve your Swift code 💪</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4TTSZZkdOs4"/>
+  <author>
+   <name>Vincent Pradeilles</name>
+   <uri>https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw</uri>
+  </author>
+  <published>2021-05-11T15:01:06+00:00</published>
+  <updated>2021-05-13T00:09:09+00:00</updated>
+  <media:group>
+   <media:title>Five tips to improve your Swift code 💪</media:title>
+   <media:content url="https://www.youtube.com/v/4TTSZZkdOs4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4TTSZZkdOs4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#iOS #swift #softwaredeveloper #iosdeveloper
+
+Thank you for watching this video 🙌
+
+Get the code shown in the video 👉 https://bit.ly/32Lsswn
+
+➜ Twitter: https://twitter.com/v_pradeilles
+➜ GitHub: https://github.com/vincent-pradeilles/
+➜ LinkedIn: https://www.linkedin.com/in/vincentpradeilles/</media:description>
+   <media:community>
+    <media:starRating count="111" average="4.96" min="1" max="5"/>
+    <media:statistics views="1395"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

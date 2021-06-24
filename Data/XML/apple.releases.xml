@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="https://developer.apple.com/news/releases/rss/releases.rss" rel="self" type="application/rss+xml" />
+<title>Releases - Apple Developer</title>
+<link>https://developer.apple.com/news/</link>
+<description>Apple Developer News and Updates feed provided by Apple, Inc.</description>
+<language>en-US</language>
+<lastBuildDate>Mon, 21 Jun 2021 10:00:00 PDT</lastBuildDate>
+<generator>Custom</generator>
+<copyright>Copyright 2021, Apple Inc.</copyright>
+
+<item>
+<title>Xcode 12.5.1 (12E507)</title>
+<link>https://developer.apple.com/news/releases/?id=06212021</link>
+<guid>https://developer.apple.com/news/releases/?id=06212021</guid>
+<description>Xcode 12.5.1 (12E507)</description>
+<pubDate>Mon, 21 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[Xcode 12.5.1 (12E507)]]></content:encoded>
+</item>
+<item>
+<title>macOS Big Sur 11.5 beta 3 (20G5042c)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021g</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021g</guid>
+<description>macOS Big Sur 11.5 beta 3 (20G5042c)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[macOS Big Sur 11.5 beta 3 (20G5042c)]]></content:encoded>
+</item>
+<item>
+<title>iOS 14.7 beta 3 (18G5042c)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021f</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021f</guid>
+<description>iOS 14.7 beta 3 (18G5042c)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iOS 14.7 beta 3 (18G5042c)]]></content:encoded>
+</item>
+<item>
+<title>iPadOS 14.7 beta 3 (18G5042c)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021e</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021e</guid>
+<description>iPadOS 14.7 beta 3 (18G5042c)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iPadOS 14.7 beta 3 (18G5042c)]]></content:encoded>
+</item>
+<item>
+<title>watchOS 7.6 beta 3 (18U5542b)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021d</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021d</guid>
+<description>watchOS 7.6 beta 3 (18U5542b)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[watchOS 7.6 beta 3 (18U5542b)]]></content:encoded>
+</item>
+<item>
+<title>tvOS 14.7 beta 3 (18M5542c)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021c</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021c</guid>
+<description>tvOS 14.7 beta 3 (18M5542c)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[tvOS 14.7 beta 3 (18M5542c)]]></content:encoded>
+</item>
+<item>
+<title>iOS 12.5.4 (16H50)</title>
+<link>https://developer.apple.com/news/releases/?id=06142021b</link>
+<guid>https://developer.apple.com/news/releases/?id=06142021b</guid>
+<description>iOS 12.5.4 (16H50)</description>
+<pubDate>Mon, 14 Jun 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iOS 12.5.4 (16H50)]]></content:encoded>
+</item>
+<item>
+<title>App Store Connect 1.6</title>
+<link>https://developer.apple.com/news/releases/?id=06072021h</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021h</guid>
+<description>App Store Connect 1.6 is now available on the App Store. This update lets you invite external users and manage TestFlight external beta testing. It also includes stability improvements and bug fixes. </description>
+<pubDate>Mon, 07 Jun 2021 14:00:00 PDT</pubDate>
+<content:encoded><![CDATA[<p>App Store Connect 1.6 is now available on the App Store. This update lets you invite external users and manage TestFlight external beta testing. It also includes stability improvements and bug fixes. </p>]]></content:encoded>
+</item>
+<item>
+<title>TestFlight Update</title>
+<link>https://developer.apple.com/news/releases/?id=06072021g</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021g</guid>
+<description>You can now submit apps built with Xcode 13 beta using the SDK for iOS 15 beta, iPadOS 15 beta, tvOS 15 beta, and watchOS 8 beta for internal and external testing, with support for the following:Family Controls on iOS and iPadOSCommunication Notifications on iOS, iPadOS, macOS, and tvOSTime-Sensitive Notifications on iOS, iPadOS, macOS, and tvOSHealthKit Estimate Recalibration on iOS and watchOSIn addition, when viewing TestFlight crash feedback in App Store Connect, you can now click “Open in Xcode 13” next to a piece of crash feedback to open the crash in the Crashes Organizer in Xcode.Not yet supported:Group Activities on iOS, iPadOS, macOS, and tvOSKnown issues:Builds that include App Clips cannot be delivered via Xcode Cloud.</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[<p>You can now submit apps built with Xcode 13 beta using the SDK for iOS 15 beta, iPadOS 15 beta, tvOS 15 beta, and watchOS 8 beta for internal and external testing, with support for the following:<p><li>Family Controls on iOS and iPadOS</li></p><p><li>Communication Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>Time-Sensitive Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>HealthKit Estimate Recalibration on iOS and watchOS</li></p><br><p>In addition, when viewing TestFlight crash feedback in App Store Connect, you can now click “Open in Xcode 13” next to a piece of crash feedback to open the crash in the Crashes Organizer in Xcode.</p><br><p><strong>Not yet supported:</strong></p><p><li>Group Activities on iOS, iPadOS, macOS, and tvOS</p></li><br><p><strong>Known issues:</strong></p><p><li>Builds that include App Clips cannot be delivered via Xcode&nbsp;Cloud.</li></p>]]></content:encoded>
+</item>
+<item>
+<title>Xcode 13 beta (13A5154h)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021f</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021f</guid>
+<description>Xcode 13 beta (13A5154h)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[Xcode 13 beta (13A5154h)]]></content:encoded>
+</item>
+<item>
+<title>macOS Monterey beta (21A5248p)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021e</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021e</guid>
+<description>macOS Monterey beta (21A5248p)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[macOS Monterey beta (21A5248p)]]></content:encoded>
+</item>
+<item>
+<title>iOS 15 beta (19A5261w)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021d</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021d</guid>
+<description>iOS 15 beta (19A5261w)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iOS 15 beta (19A5261w)]]></content:encoded>
+</item>
+<item>
+<title>iPadOS 15 beta (19A5261w)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021c</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021c</guid>
+<description>iPadOS 15 beta (19A5261w)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iPadOS 15 beta (19A5261w)]]></content:encoded>
+</item>
+<item>
+<title>watchOS 8 beta (19R5266q)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021b</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021b</guid>
+<description>watchOS 8 beta (19R5266q)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[watchOS 8 beta (19R5266q)]]></content:encoded>
+</item>
+<item>
+<title>tvOS 15 beta (19J5268r)</title>
+<link>https://developer.apple.com/news/releases/?id=06072021a</link>
+<guid>https://developer.apple.com/news/releases/?id=06072021a</guid>
+<description>tvOS 15 beta (19J5268r)</description>
+<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
+<content:encoded><![CDATA[tvOS 15 beta (19J5268r)]]></content:encoded>
+</item>
+<item>
+<title>Transporter 1.2.2</title>
+<link>https://developer.apple.com/news/releases/?id=06032021a</link>
+<guid>https://developer.apple.com/news/releases/?id=06032021a</guid>
+<description>Transporter 1.2.2 is now available on the Mac App Store. This update includes stability improvements and bug fixes.</description>
+<pubDate>Thu, 03 Jun 2021 11:00:00 PDT</pubDate>
+<content:encoded><![CDATA[<p>Transporter 1.2.2 is now available on the Mac App Store. This update includes stability improvements and bug fixes.</p>]]></content:encoded>
+</item>
+<item>
+<title>macOS Big Sur 11.4 (20F71)</title>
+<link>https://developer.apple.com/news/releases/?id=05242021e</link>
+<guid>https://developer.apple.com/news/releases/?id=05242021e</guid>
+<description>macOS Big Sur 11.4 (20F71)</description>
+<pubDate>Mon, 24 May 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[macOS Big Sur 11.4 (20F71)]]></content:encoded>
+</item>
+<item>
+<title>watchOS 7.5 (18T567)</title>
+<link>https://developer.apple.com/news/releases/?id=05242021b</link>
+<guid>https://developer.apple.com/news/releases/?id=05242021b</guid>
+<description>watchOS 7.5 (18T567)</description>
+<pubDate>Mon, 24 May 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[watchOS 7.5 (18T567)]]></content:encoded>
+</item>
+<item>
+<title>tvOS 14.6 (18L569)</title>
+<link>https://developer.apple.com/news/releases/?id=05242021a</link>
+<guid>https://developer.apple.com/news/releases/?id=05242021a</guid>
+<description>tvOS 14.6 (18L569)</description>
+<pubDate>Mon, 24 May 2021 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[tvOS 14.6 (18L569)]]></content:encoded>
+</item>
+<item>
+<title>App Store Connect Update</title>
+<link>https://developer.apple.com/news/releases/?id=03162021</link>
+<guid>https://developer.apple.com/news/releases/?id=03162021</guid>
+<description>App Analytics now provides usage metrics for Mac apps, including data on installations, sessions, active devices, crashes, and deletions. And now you can measure user retention to see how often users return to your app after downloading it. Data is only available from users who have agreed to share their diagnostics and usage information with app developers.</description>
+<pubDate>Tue, 16 Mar 2021 16:00:00 PDT</pubDate>
+<content:encoded><![CDATA[<p>App Analytics now provides usage metrics for Mac apps, including data on installations, sessions, active devices, crashes, and deletions. And now you can measure user retention to see how often users return to your app after downloading it. Data is only available from users who have agreed to share their diagnostics and usage information with app developers.</p>]]></content:encoded>
+</item>
+<item>
+<title>TestFlight Update</title>
+<link>https://developer.apple.com/news/releases/?id=03042021b</link>
+<guid>https://developer.apple.com/news/releases/?id=03042021b</guid>
+<description>You can now submit apps built with Xcode 12.5 beta 3 using the SDK for iOS 14.5 beta 3, tvOS 14.5 beta 3, watchOS 7.4 beta 3 for internal and external testing.</description>
+<pubDate>Thu, 04 Mar 2021 12:00:00 PST</pubDate>
+<content:encoded><![CDATA[<p>You can now submit apps built with Xcode 12.5 beta 3 using the SDK for iOS 14.5 beta 3, tvOS 14.5 beta 3, watchOS 7.4 beta 3 for internal and external testing.</p>]]></content:encoded>
+</item>
+
+</channel>
+</rss>

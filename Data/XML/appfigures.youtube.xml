@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCfvk5lomVsbHBYWciRVNHlg"/>
+ <id>yt:channel:UCfvk5lomVsbHBYWciRVNHlg</id>
+ <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+ <title>Appfigures</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg"/>
+ <author>
+  <name>Appfigures</name>
+  <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+ </author>
+ <published>2009-06-20T20:08:07+00:00</published>
+ <entry>
+  <id>yt:video:Eb6EeOqdTw8</id>
+  <yt:videoId>Eb6EeOqdTw8</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>What are Custom Product Pages in iOS 15 - The Basics</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Eb6EeOqdTw8"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:40:31+00:00</published>
+  <updated>2021-06-19T22:53:01+00:00</updated>
+  <media:group>
+   <media:title>What are Custom Product Pages in iOS 15 - The Basics</media:title>
+   <media:content url="https://www.youtube.com/v/Eb6EeOqdTw8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/Eb6EeOqdTw8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss impact A/B testing will have on improving marketing in the new App Store in iOS 15
+
+Watch the full Live Appfigures Chat to hear the full recap:  https://www.youtube.com/watch?v=CtoD1ZZkRxY</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="245"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:nqoxX09Tnmo</id>
+  <yt:videoId>nqoxX09Tnmo</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>What's new for Subscription Apps in iOS 15?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=nqoxX09Tnmo"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:36:34+00:00</published>
+  <updated>2021-06-19T22:29:14+00:00</updated>
+  <media:group>
+   <media:title>What's new for Subscription Apps in iOS 15?</media:title>
+   <media:content url="https://www.youtube.com/v/nqoxX09Tnmo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/nqoxX09Tnmo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss changes to the tools developers access to in iOS 15 for subscription apps. These include tools for testing, no longer needing a custom back-end, and new APIs that will enable users to cancel subscriptions in-app.
+
+Watch the full Live Appfigures Chat to hear the full recap: https://www.youtube.com/watch?v=CtoD1ZZkRxY</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="10"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:1WvLV3LuGHQ</id>
+  <yt:videoId>1WvLV3LuGHQ</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>These New App Store Guidelines are Interesting...</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=1WvLV3LuGHQ"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:33:33+00:00</published>
+  <updated>2021-06-19T21:59:15+00:00</updated>
+  <media:group>
+   <media:title>These New App Store Guidelines are Interesting...</media:title>
+   <media:content url="https://www.youtube.com/v/1WvLV3LuGHQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/1WvLV3LuGHQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss the changes Apple announced to app submission guidelines at WWDC. Security, privacy, scams, and more. It just has Kosta's name all over it!
+
+Watch the full Live Appfigures Chat to hear the full recap: https://www.youtube.com/watch?v=CtoD1ZZkRxY
+
+Don't know who Kosta the &quot;App Hunter&quot; is? Check out this video: https://www.youtube.com/watch?v=M4SB2Ei94cI&amp;t=6s</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="7"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:BpwokwdeKQw</id>
+  <yt:videoId>BpwokwdeKQw</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>A/B Testing in the App Store is a BIG DEAL for App Makers!!!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=BpwokwdeKQw"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:31:33+00:00</published>
+  <updated>2021-06-19T22:03:53+00:00</updated>
+  <media:group>
+   <media:title>A/B Testing in the App Store is a BIG DEAL for App Makers!!!</media:title>
+   <media:content url="https://www.youtube.com/v/BpwokwdeKQw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/BpwokwdeKQw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss impact A/B testing will have on improving marketing in the new App Store in iOS 15
+
+Watch the full Live Appfigures Chat to hear the full recap: https://www.youtube.com/watch?v=CtoD1ZZkRxY</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="9"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Er_wPp7LVGo</id>
+  <yt:videoId>Er_wPp7LVGo</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>What  Can You Do with Custom Product Pages in the New App Store?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Er_wPp7LVGo"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:26:39+00:00</published>
+  <updated>2021-06-19T22:16:04+00:00</updated>
+  <media:group>
+   <media:title>What  Can You Do with Custom Product Pages in the New App Store?</media:title>
+   <media:content url="https://www.youtube.com/v/Er_wPp7LVGo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/Er_wPp7LVGo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss Custom Product Pages in the new App Store in iOS 15. How they work and what developers can do with them. 
+
+FYI - They're not for A/B testing.
+
+Watch the full Live Appfigures Chat to hear the full recap: https://www.youtube.com/watch?v=CtoD1ZZkRxY</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="3"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:nHUmqDxVTEc</id>
+  <yt:videoId>nHUmqDxVTEc</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>StoreKit 2 Will Forever Change How Apps Monetize</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=nHUmqDxVTEc"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-19T02:16:25+00:00</published>
+  <updated>2021-06-19T22:01:58+00:00</updated>
+  <media:group>
+   <media:title>StoreKit 2 Will Forever Change How Apps Monetize</media:title>
+   <media:content url="https://www.youtube.com/v/nHUmqDxVTEc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/nHUmqDxVTEc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Clipped from our WWDC 2021 Recap session, Ariel and Joe discuss the importance of easy tooling for app developers to switch to subscriptions.
+
+Watch the full Live Appfigures Chat to hear the full recap: https://www.youtube.com/watch?v=CtoD1ZZkRxY</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="10"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:CtoD1ZZkRxY</id>
+  <yt:videoId>CtoD1ZZkRxY</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>AF Chats - WWDC 2021 Recap with Joe Cieplinski</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=CtoD1ZZkRxY"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-17T15:54:19+00:00</published>
+  <updated>2021-06-20T06:27:30+00:00</updated>
+  <media:group>
+   <media:title>AF Chats - WWDC 2021 Recap with Joe Cieplinski</media:title>
+   <media:content url="https://www.youtube.com/v/CtoD1ZZkRxY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/CtoD1ZZkRxY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Apple's second virtual World Wide Developer Conference was one of the most interesting events so far! There's a lot of new things to help app businesses grow their downloads, from improvements to subscriptions in StoreKit to A/B tests in App Store Connect and much more.
+
+Join returning guest Joe Cieplinski and our CEO Ariel for a casual chat about everything that's new.</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="122"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:M4SB2Ei94cI</id>
+  <yt:videoId>M4SB2Ei94cI</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>AF Chats - Anatomy of an App Store Scam with Kosta Eleftheriou</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=M4SB2Ei94cI"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-07T10:45:01+00:00</published>
+  <updated>2021-06-09T18:33:55+00:00</updated>
+  <media:group>
+   <media:title>AF Chats - Anatomy of an App Store Scam with Kosta Eleftheriou</media:title>
+   <media:content url="https://www.youtube.com/v/M4SB2Ei94cI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/M4SB2Ei94cI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Apps that don't do what they're supposed to and force you to pay a hefty subscription, which app hunter Kosta Eleftheriou calls scams, are more prevalent than many app makers and users think.
+
+This month we've invited Kosta, who's been very vocal about identifying those scams and pointing them out to Apple, to talk about his process and motivation.</media:description>
+   <media:community>
+    <media:starRating count="7" average="4.43" min="1" max="5"/>
+    <media:statistics views="124"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:HHXn70jc-qU</id>
+  <yt:videoId>HHXn70jc-qU</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #64 - TikTok the King Maker</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=HHXn70jc-qU"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-05T14:05:31+00:00</published>
+  <updated>2021-06-05T14:51:41+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #64 - TikTok the King Maker</media:title>
+   <media:content url="https://www.youtube.com/v/HHXn70jc-qU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/HHXn70jc-qU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps I looked at Paste Keyboard, a niche app that climbed to the top of the App Store, VSCO, which followed suit. I also looked ay the reunion of Friends on HBO Max vs Disney+'s Cruella, Clubhouse for Android, and Etsy's acquisition of Depop.
+
+Like the podcast? Please give us a rating so we feel the ❤️
+
+Links:
+
+* Read online: https://appfigures.com/resources/this-week-in-apps/20210604
+* Get App Intelligence: https://appfigures.com/intelligence
+* The One Where Friends Beats Cruella: https://appfigures.com/resources/insights/hbo-max-friends-disney-cruella</media:description>
+   <media:community>
+    <media:starRating count="9" average="4.11" min="1" max="5"/>
+    <media:statistics views="2175"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:sG5Hm-h3NgE</id>
+  <yt:videoId>sG5Hm-h3NgE</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #63 - The Streaming Wars Continue</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=sG5Hm-h3NgE"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-06-05T14:05:15+00:00</published>
+  <updated>2021-06-07T00:42:22+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #63 - The Streaming Wars Continue</media:title>
+   <media:content url="https://www.youtube.com/v/sG5Hm-h3NgE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/sG5Hm-h3NgE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps I looked at Poparazzi which took over the App Store, Amazon's purchase of MGM (and also another possible acquisition), Sony's anime game, and lastly, the rise of electric scooters 
+
+Links:
+
+* Read online: https://appfigures.com/resources/this-week-in-apps/20210528
+* Get App Intelligence: https://appfigures.com/app-intelligence
+* The Mobile Download Index: https://appfigures.com/alpha/mobile-download-index
+* Amazon Slips, Lets Fast Fashion SHEIN Take Download Lead: https://appfigures.com/resources/insights/shein-overtakes-amazon</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="14"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:x2ZdYZ5HGnI</id>
+  <yt:videoId>x2ZdYZ5HGnI</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #62 - The Money's Still Good</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=x2ZdYZ5HGnI"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-05-22T01:06:34+00:00</published>
+  <updated>2021-05-22T01:06:35+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #62 - The Money's Still Good</media:title>
+   <media:content url="https://www.youtube.com/v/x2ZdYZ5HGnI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/x2ZdYZ5HGnI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps
+
+🎨 TikTok disrupts a new vertical
+💬 The only logical direction for Discord
+👀  Citizen's first million 💸 
+🙊 Parler isn't on 🔥
+🤷🏻‍♂️ New York gets a vaccine passport (app)
+
+Read it instead 👉 https://appfigures.com/resources/this-week-in-apps/20210521</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="23"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:LAZWoCvsN-w</id>
+  <yt:videoId>LAZWoCvsN-w</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #61 - ATT Continues to Wreak Havoc, Peacock Grows Up, and more.</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=LAZWoCvsN-w"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-05-22T01:05:45+00:00</published>
+  <updated>2021-05-22T01:05:46+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #61 - ATT Continues to Wreak Havoc, Peacock Grows Up, and more.</media:title>
+   <media:content url="https://www.youtube.com/v/LAZWoCvsN-w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/LAZWoCvsN-w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps I look at Zynga's acquisition of Chartboost, the fall of Facebook, price of gas, Peacock's revenue, and Coinbase's continuing success.
+
+Links:
+
+* Read online: https://appfigures.com/resources/this-week-in-apps/20210514
+* Get App Intelligence: https://appfigures.com/app-intelligence
+The Mobile Download Index: https://appfigures.com/alpha/mobile-download-index
+* The most downloaded apps in April: https://appfigures.com/resources/insights/most-downloaded-apps-april-2021
+* The most downloaded games in April: https://appfigures.com/resources/insights/most-downloaded-games-apr-2021</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="7"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:tPKTYwitA5Q</id>
+  <yt:videoId>tPKTYwitA5Q</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>Live App Teardown (May. 2021) - Sunbasket and Color Defense</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=tPKTYwitA5Q"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-05-13T14:13:11+00:00</published>
+  <updated>2021-05-16T05:24:29+00:00</updated>
+  <media:group>
+   <media:title>Live App Teardown (May. 2021) - Sunbasket and Color Defense</media:title>
+   <media:content url="https://www.youtube.com/v/tPKTYwitA5Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/tPKTYwitA5Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>App Store Optimization is an iterative process, but with the right process and tools it doesn't have to be a slow one.
+
+Here's Ariel's method for analyzing competitors to find keyword opportunities.
+
+In this sessions we looked at:
+
+* Sunbasket (App Store)
+* Color Defense (Google Play)
+
+🎓 Resources:
+* App Teardowns: https://appfigures.com/resources/teardowns
+* ASO Guides: https://appfigures.com/resources/aso
+
+👉 Subscribe to the weekly newsletter: https://appfigures.com/newsletter</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="75"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Hhz9iZrI1oQ</id>
+  <yt:videoId>Hhz9iZrI1oQ</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #60 - They're At It Again</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Hhz9iZrI1oQ"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-05-10T17:33:13+00:00</published>
+  <updated>2021-05-10T18:10:52+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #60 - They're At It Again</media:title>
+   <media:content url="https://www.youtube.com/v/Hhz9iZrI1oQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Hhz9iZrI1oQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps:
+
+00:16 The most downloaded games in April, and the top earners (they're no the same)
+01:30 The fall of Clubhouse...
+04:30 Dogecoin is pushing Robinhood and Coinbase, again.
+05:50 Turo hit a new high, beating pre-pandemic record
+06:45 McDonald's has a sweet way to get downloads
+
+Links:
+
+* Read online: https://appfigures.com/resources/this-week-in-apps/20210507
+* Get App Intelligence: https://appfigures.com/app-intelligence</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="24"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:H2dh8KoYG8A</id>
+  <yt:videoId>H2dh8KoYG8A</yt:videoId>
+  <yt:channelId>UCfvk5lomVsbHBYWciRVNHlg</yt:channelId>
+  <title>This Week in Apps #59 - Do They Even Care?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=H2dh8KoYG8A"/>
+  <author>
+   <name>Appfigures</name>
+   <uri>https://www.youtube.com/channel/UCfvk5lomVsbHBYWciRVNHlg</uri>
+  </author>
+  <published>2021-05-01T14:00:03+00:00</published>
+  <updated>2021-05-03T14:15:42+00:00</updated>
+  <media:group>
+   <media:title>This Week in Apps #59 - Do They Even Care?</media:title>
+   <media:content url="https://www.youtube.com/v/H2dh8KoYG8A?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/H2dh8KoYG8A/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Week in Apps:
+
+🙈 ATT (App Tracking Transparency) is here, and developers are confused
+⛔️ Apple takes down another (scam?) app
+💰 Audible's best month of revenue ever!
+🗺 IPO of the week: Mapbox
+🏝 Vrbo is giving Airbnb a run of its money
+
+Links:
+
+* Read online: https://appfigures.com/resources/this-week-in-apps/20210430
+* Get App Intelligence: https://appfigures.com/app-intelligence
+* My ATT survey: https://twitter.com/appfigures/status/1387750958244016131
+* ATT Prompts: https://attprompts.com
+* Sylvain on Twitter: https://twitter.com/sylvainww</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="1254"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

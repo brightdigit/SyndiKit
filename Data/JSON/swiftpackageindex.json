@@ -1,0 +1,808 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Swift Package Index – Recent Releases",
+  "home_page_url": "https://swiftpackageindex.com/releases.rss",
+  "description": "List of recent Swift packages releases",
+  "items": [
+    {
+      "guid": "https://swiftpackageindex.com/GraphQLSwift/Graphiti",
+      "url": "https://swiftpackageindex.com/GraphQLSwift/Graphiti",
+      "title": "Graphiti - 0.26.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">Graphiti</a><small> – <a href=\"https://github.com/GraphQLSwift/Graphiti/releases/tag/0.26.0\">Version 0.26.0 release notes. </a></small></p><div><p>Merge pull request <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"923041202\" data-permission-text=\"Title is private\" data-url=\"https://github.com/GraphQLSwift/Graphiti/issues/64\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/GraphQLSwift/Graphiti/pull/64/hovercard\" href=\"https://github.com/GraphQLSwift/Graphiti/pull/64\">#64</a> from NeedleInAJayStack/preserveResultOrder</p>\n<ul>\n<li>Preserves result order: The returned object has field results in the same order as the query</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">GraphQLSwift/Graphiti</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">Graphiti</a><small> – <a href=\"https://github.com/GraphQLSwift/Graphiti/releases/tag/0.26.0\">Version 0.26.0 release notes. </a></small></p><p>The Swift GraphQL Schema framework for macOS and Linux</p><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/Graphiti\">GraphQLSwift/Graphiti</a></small></div>",
+      "date_published": "2021-06-21T16:20:28.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/swiftyfinch/Rugby",
+      "url": "https://swiftpackageindex.com/swiftyfinch/Rugby",
+      "title": "Rugby - 1.8.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/swiftyfinch/Rugby\">Rugby</a><small> – <a href=\"https://github.com/swiftyfinch/Rugby/releases/tag/1.8.3\">Version 1.8.3 release notes. </a></small></p><div><p><g-emoji class=\"g-emoji\" alias=\"bug\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png\">🐛</g-emoji> Fixed beautify log when an error occurs <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"925155468\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swiftyfinch/Rugby/issues/28\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swiftyfinch/Rugby/pull/28/hovercard\" href=\"https://github.com/swiftyfinch/Rugby/pull/28\">#28</a><br>\n<g-emoji class=\"g-emoji\" alias=\"football\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3c8.png\">🏈</g-emoji> Added showing Xcode build beautified errors in terminal <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"925155468\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swiftyfinch/Rugby/issues/28\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swiftyfinch/Rugby/pull/28/hovercard\" href=\"https://github.com/swiftyfinch/Rugby/pull/28\">#28</a></p></div><small><a href=\"https://swiftpackageindex.com/swiftyfinch/Rugby\">swiftyfinch/Rugby</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/swiftyfinch/Rugby\">Rugby</a><small> – <a href=\"https://github.com/swiftyfinch/Rugby/releases/tag/1.8.3\">Version 1.8.3 release notes. </a></small></p><p>🏈 Cache CocoaPods for faster rebuild and indexing Xcode project.</p><small><a href=\"https://swiftpackageindex.com/swiftyfinch/Rugby\">swiftyfinch/Rugby</a></small></div>",
+      "date_published": "2021-06-21T15:19:20.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/JARMourato/Kodable",
+      "url": "https://swiftpackageindex.com/JARMourato/Kodable",
+      "title": "Kodable - 1.1.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/JARMourato/Kodable\">Kodable</a><small> – <a href=\"https://github.com/jarmourato/Kodable/releases/tag/1.1.1\">Version 1.1.1 release notes. </a></small></p><p>A supercharged extension of Codable</p><small><a href=\"https://swiftpackageindex.com/JARMourato/Kodable\">JARMourato/Kodable</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/JARMourato/Kodable\">Kodable</a><small> – <a href=\"https://github.com/jarmourato/Kodable/releases/tag/1.1.1\">Version 1.1.1 release notes. </a></small></p><p>A supercharged extension of Codable</p><small><a href=\"https://swiftpackageindex.com/JARMourato/Kodable\">JARMourato/Kodable</a></small></div>",
+      "date_published": "2021-06-21T12:58:32.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Instabug/Instabug-SP",
+      "url": "https://swiftpackageindex.com/Instabug/Instabug-SP",
+      "title": "Instabug - 10.7.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Instabug/Instabug-SP\">Instabug</a><small> – <a href=\"https://github.com/Instabug/Instabug-SP/releases/tag/10.7.2\">Version 10.7.2 release notes. </a></small></p><div><ul>\n<li>Bug fixes</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/Instabug/Instabug-SP\">Instabug/Instabug-SP</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Instabug/Instabug-SP\">Instabug</a><small> – <a href=\"https://github.com/Instabug/Instabug-SP/releases/tag/10.7.2\">Version 10.7.2 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/Instabug/Instabug-SP\">Instabug/Instabug-SP</a></small></div>",
+      "date_published": "2021-06-21T11:49:38.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/getsentry/sentry-cocoa",
+      "url": "https://swiftpackageindex.com/getsentry/sentry-cocoa",
+      "title": "Sentry - 7.2.0-beta.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/getsentry/sentry-cocoa\">Sentry</a><small> – <a href=\"https://github.com/getsentry/sentry-cocoa/releases/tag/7.2.0-beta.2\">Version 7.2.0-beta.2 release notes. </a></small></p><div><ul>\n<li>feat: Add flag stichAsyncCode (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922307020\" data-permission-text=\"Title is private\" data-url=\"https://github.com/getsentry/sentry-cocoa/issues/1172\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/getsentry/sentry-cocoa/pull/1172/hovercard\" href=\"https://github.com/getsentry/sentry-cocoa/pull/1172\">#1172</a>)</li>\n<li>feat: Support XCFramework for Carthage (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922397855\" data-permission-text=\"Title is private\" data-url=\"https://github.com/getsentry/sentry-cocoa/issues/1175\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/getsentry/sentry-cocoa/pull/1175/hovercard\" href=\"https://github.com/getsentry/sentry-cocoa/pull/1175\">#1175</a>)</li>\n<li>fix: Remove invalid excludes from <code>Package.swift</code> (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"920477941\" data-permission-text=\"Title is private\" data-url=\"https://github.com/getsentry/sentry-cocoa/issues/1169\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/getsentry/sentry-cocoa/pull/1169/hovercard\" href=\"https://github.com/getsentry/sentry-cocoa/pull/1169\">#1169</a>)</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/getsentry/sentry-cocoa\">getsentry/sentry-cocoa</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/getsentry/sentry-cocoa\">Sentry</a><small> – <a href=\"https://github.com/getsentry/sentry-cocoa/releases/tag/7.2.0-beta.2\">Version 7.2.0-beta.2 release notes. </a></small></p><p>The official Sentry SDK for iOS, tvOS, macOS, watchOS.</p><small><a href=\"https://swiftpackageindex.com/getsentry/sentry-cocoa\">getsentry/sentry-cocoa</a></small></div>",
+      "date_published": "2021-06-21T09:26:04.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/KeyboardKit/KeyboardKit",
+      "url": "https://swiftpackageindex.com/KeyboardKit/KeyboardKit",
+      "title": "KeyboardKit - 4.5.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/KeyboardKit/KeyboardKit\">KeyboardKit</a><small> – <a href=\"https://github.com/KeyboardKit/KeyboardKit/releases/tag/4.5.3\">Version 4.5.3 release notes. </a></small></p><div><h3><g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> New features</h3>\n<ul>\n<li><code>StandardKeyboardActionHandler</code> <code>canHandle</code> is now <code>open</code> instead of <code>public</code>.</li>\n</ul>\n<h3><g-emoji class=\"g-emoji\" alias=\"bulb\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png\">💡</g-emoji> Behavior changes</h3>\n<ul>\n<li><code>KeyboardGestures</code> now only applies a double tap gesture if a double tap action is provided.</li>\n</ul>\n<h3><g-emoji class=\"g-emoji\" alias=\"bug\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png\">🐛</g-emoji> Bug fixes</h3>\n<ul>\n<li>This version fixes compile errors in Xcode 12.4.</li>\n</ul>\n<h3><g-emoji class=\"g-emoji\" alias=\"wastebasket\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f5d1.png\">🗑</g-emoji> Deprecations (removed in 5.0)</h3>\n<ul>\n<li><code>Image.settings</code> has been renamed to <code>keyboardSettings</code>.</li>\n<li><code>Image.moveCursorLeft/Right</code> have been renamed to <code>keyboardLeft/Right</code>.</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/KeyboardKit/KeyboardKit\">KeyboardKit/KeyboardKit</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/KeyboardKit/KeyboardKit\">KeyboardKit</a><small> – <a href=\"https://github.com/KeyboardKit/KeyboardKit/releases/tag/4.5.3\">Version 4.5.3 release notes. </a></small></p><p>KeyboardKit is a Swift library that helps you create custom keyboard extensions for iOS and ipadOS.</p><small><a href=\"https://swiftpackageindex.com/KeyboardKit/KeyboardKit\">KeyboardKit/KeyboardKit</a></small></div>",
+      "date_published": "2021-06-21T09:08:09.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/RedMadRobot/apexy-ios",
+      "url": "https://swiftpackageindex.com/RedMadRobot/apexy-ios",
+      "title": "Apexy - 1.4.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/RedMadRobot/apexy-ios\">Apexy</a><small> – <a href=\"https://github.com/RedMadRobot/apexy-ios/releases/tag/1.4.0\">Version 1.4.0 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/RedMadRobot/apexy-ios\">RedMadRobot/apexy-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/RedMadRobot/apexy-ios\">Apexy</a><small> – <a href=\"https://github.com/RedMadRobot/apexy-ios/releases/tag/1.4.0\">Version 1.4.0 release notes. </a></small></p><p>The library for organizing a network layer in your awesome project.</p><small><a href=\"https://swiftpackageindex.com/RedMadRobot/apexy-ios\">RedMadRobot/apexy-ios</a></small></div>",
+      "date_published": "2021-06-21T06:54:56.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kasei/swift-sparql-syntax",
+      "url": "https://swiftpackageindex.com/kasei/swift-sparql-syntax",
+      "title": "SPARQLSyntax - 0.1.9",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kasei/swift-sparql-syntax\">SPARQLSyntax</a><small> – <a href=\"https://github.com/kasei/swift-sparql-syntax/releases/tag/0.1.9\">Version 0.1.9 release notes. </a></small></p><p>SPARQL 1.1 Parser and Abstract Syntax</p><small><a href=\"https://swiftpackageindex.com/kasei/swift-sparql-syntax\">kasei/swift-sparql-syntax</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kasei/swift-sparql-syntax\">SPARQLSyntax</a><small> – <a href=\"https://github.com/kasei/swift-sparql-syntax/releases/tag/0.1.9\">Version 0.1.9 release notes. </a></small></p><p>SPARQL 1.1 Parser and Abstract Syntax</p><small><a href=\"https://swiftpackageindex.com/kasei/swift-sparql-syntax\">kasei/swift-sparql-syntax</a></small></div>",
+      "date_published": "2021-06-21T03:24:48.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/dankinsoid/VDKit",
+      "url": "https://swiftpackageindex.com/dankinsoid/VDKit",
+      "title": "VDKit - 1.67.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/dankinsoid/VDKit\">VDKit</a><small> – <a href=\"https://github.com/dankinsoid/VDKit/releases/tag/1.67.0\">Version 1.67.0 release notes. </a></small></p><p>This repository contains useful extensions on Foundation, UIKit and SwiftUI</p><small><a href=\"https://swiftpackageindex.com/dankinsoid/VDKit\">dankinsoid/VDKit</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/dankinsoid/VDKit\">VDKit</a><small> – <a href=\"https://github.com/dankinsoid/VDKit/releases/tag/1.67.0\">Version 1.67.0 release notes. </a></small></p><p>This repository contains useful extensions on Foundation, UIKit and SwiftUI</p><small><a href=\"https://swiftpackageindex.com/dankinsoid/VDKit\">dankinsoid/VDKit</a></small></div>",
+      "date_published": "2021-06-20T21:47:10.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/hmlongco/Resolver",
+      "url": "https://swiftpackageindex.com/hmlongco/Resolver",
+      "title": "Resolver - 1.4.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/hmlongco/Resolver\">Resolver</a><small> – <a href=\"https://github.com/hmlongco/Resolver/releases/tag/1.4.3\">Version 1.4.3 release notes. </a></small></p><div><ul>\n<li>Adds support for child containers</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/hmlongco/Resolver\">hmlongco/Resolver</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/hmlongco/Resolver\">Resolver</a><small> – <a href=\"https://github.com/hmlongco/Resolver/releases/tag/1.4.3\">Version 1.4.3 release notes. </a></small></p><p>Swift Ultralight Dependency Injection / Service Locator framework</p><small><a href=\"https://swiftpackageindex.com/hmlongco/Resolver\">hmlongco/Resolver</a></small></div>",
+      "date_published": "2021-06-20T16:47:57.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kean/NukeUI",
+      "url": "https://swiftpackageindex.com/kean/NukeUI",
+      "title": "NukeUI - 0.6.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kean/NukeUI\">NukeUI</a><small> – <a href=\"https://github.com/kean/NukeUI/releases/tag/0.6.2\">Version 0.6.2 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/kean/NukeUI\">kean/NukeUI</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kean/NukeUI\">NukeUI</a><small> – <a href=\"https://github.com/kean/NukeUI/releases/tag/0.6.2\">Version 0.6.2 release notes. </a></small></p><p>Lazy image loading for SwiftUI</p><small><a href=\"https://swiftpackageindex.com/kean/NukeUI\">kean/NukeUI</a></small></div>",
+      "date_published": "2021-06-20T16:06:59.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/muukii/MondrianLayout",
+      "url": "https://swiftpackageindex.com/muukii/MondrianLayout",
+      "title": "MondrianLayout - 0.0.4",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/muukii/MondrianLayout\">MondrianLayout</a><small> – <a href=\"https://github.com/muukii/MondrianLayout/releases/tag/0.0.4\">Version 0.0.4 release notes. </a></small></p><div><p>Number of PRs : 2</p>\n<table>\n<thead>\n<tr>\n<th>tag</th>\n<th align=\"right\">number of PRs</th>\n</tr>\n</thead>\n</table>\n<h3>Group: Enhancements (1)</h3>\n<ul>\n<li>Introduce LayoutContainer - to support safeArea more flexible. <a href=\"https://github.com/muukii/MondrianLayout/pull/12\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/muukii/MondrianLayout/pull/12/hovercard\">#12</a> by <a class=\"user-mention\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/muukii/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/muukii\">@muukii</a></li>\n</ul>\n<h2>Other (1)</h2>\n<ul>\n<li>Use https to describes packages <a href=\"https://github.com/muukii/MondrianLayout/pull/11\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/muukii/MondrianLayout/pull/11/hovercard\">#11</a> by <a class=\"user-mention\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/muukii/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/muukii\">@muukii</a></li>\n</ul>\n<hr>\n<sub>\n  Generated by <a href=\"https://github.com/muukii/chglog\">chglog</a>\n</sub></div><small><a href=\"https://swiftpackageindex.com/muukii/MondrianLayout\">muukii/MondrianLayout</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/muukii/MondrianLayout\">MondrianLayout</a><small> – <a href=\"https://github.com/muukii/MondrianLayout/releases/tag/0.0.4\">Version 0.0.4 release notes. </a></small></p><p>🏗 A DSL based layout builder for AutoLayout</p><small><a href=\"https://swiftpackageindex.com/muukii/MondrianLayout\">muukii/MondrianLayout</a></small></div>",
+      "date_published": "2021-06-20T12:49:46.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/maxxfrazer/MultipeerHelper",
+      "url": "https://swiftpackageindex.com/maxxfrazer/MultipeerHelper",
+      "title": "MultipeerHelper - v1.4.0-rc1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/maxxfrazer/MultipeerHelper\">MultipeerHelper</a><small> – <a href=\"https://github.com/maxxfrazer/MultipeerHelper/releases/tag/v1.4.0-rc1\">Version v1.4.0-rc1 release notes. </a></small></p><div><p>Added MultipeerHelper to delegate methods, SwiftUI reasons</p></div><small><a href=\"https://swiftpackageindex.com/maxxfrazer/MultipeerHelper\">maxxfrazer/MultipeerHelper</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/maxxfrazer/MultipeerHelper\">MultipeerHelper</a><small> – <a href=\"https://github.com/maxxfrazer/MultipeerHelper/releases/tag/v1.4.0-rc1\">Version v1.4.0-rc1 release notes. </a></small></p><p>A light swift wrapper around the iOS MultipeerConnectivity framework. Including an example project using RealityKit's MultipeerConnectivityService.</p><small><a href=\"https://swiftpackageindex.com/maxxfrazer/MultipeerHelper\">maxxfrazer/MultipeerHelper</a></small></div>",
+      "date_published": "2021-06-20T10:30:00.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/dunesailer/Greebler",
+      "url": "https://swiftpackageindex.com/dunesailer/Greebler",
+      "title": "Greebler - 0.6.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/dunesailer/Greebler\">Greebler</a><small> – <a href=\"https://github.com/dunesailer/Greebler/releases/tag/0.6.0\">Version 0.6.0 release notes. </a></small></p><p>A Swift Package from Dunesailer Research for working with greebles</p><small><a href=\"https://swiftpackageindex.com/dunesailer/Greebler\">dunesailer/Greebler</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/dunesailer/Greebler\">Greebler</a><small> – <a href=\"https://github.com/dunesailer/Greebler/releases/tag/0.6.0\">Version 0.6.0 release notes. </a></small></p><p>A Swift Package from Dunesailer Research for working with greebles</p><small><a href=\"https://swiftpackageindex.com/dunesailer/Greebler\">dunesailer/Greebler</a></small></div>",
+      "date_published": "2021-06-20T05:40:13.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kewlbear/TensorFlowLiteC",
+      "url": "https://swiftpackageindex.com/kewlbear/TensorFlowLiteC",
+      "title": "TensorFlowLiteC - 0.0.20210620",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteC\">TensorFlowLiteC</a><small> – <a href=\"https://github.com/kewlbear/TensorFlowLiteC/releases/tag/0.0.20210620\">Version 0.0.20210620 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteC\">kewlbear/TensorFlowLiteC</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteC\">TensorFlowLiteC</a><small> – <a href=\"https://github.com/kewlbear/TensorFlowLiteC/releases/tag/0.0.20210620\">Version 0.0.20210620 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteC\">kewlbear/TensorFlowLiteC</a></small></div>",
+      "date_published": "2021-06-20T02:28:55.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox",
+      "url": "https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox",
+      "title": "RVS_Generic_Swift_Toolbox - 1.6.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox\">RVS_Generic_Swift_Toolbox</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox/releases/tag/1.6.0\">Version 1.6.0 release notes. </a></small></p><p>A Collection Of Various Swift Tools, Like Extensions and Utilities</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox\">RiftValleySoftware/RVS_Generic_Swift_Toolbox</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox\">RVS_Generic_Swift_Toolbox</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox/releases/tag/1.6.0\">Version 1.6.0 release notes. </a></small></p><p>A Collection Of Various Swift Tools, Like Extensions and Utilities</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox\">RiftValleySoftware/RVS_Generic_Swift_Toolbox</a></small></div>",
+      "date_published": "2021-06-20T01:25:13.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/nsagora/peppermint",
+      "url": "https://swiftpackageindex.com/nsagora/peppermint",
+      "title": "Peppermint - 1.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/nsagora/peppermint\">Peppermint</a><small> – <a href=\"https://github.com/nsagora/peppermint/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><div><p>Added:</p>\n<ul>\n<li>Support for <a href=\"https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md\">result builders</a></li>\n<li><code>BlockConstraint</code> constraint</li>\n<li><code>OptionalConstraint</code> constraint</li>\n</ul>\n<p>Removed:</p>\n<ul>\n<li><code>PairMatchingPredicate</code> predicate</li>\n<li><code>ConditionedConstraint</code> constraint</li>\n</ul>\n<p>Enhanced:</p>\n<ul>\n<li><code>CompoundConstraint</code> into <code>GroupConstraint</code></li>\n<li>Consistency between APIs</li>\n<li>Documentation and usage examples</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/nsagora/peppermint\">nsagora/peppermint</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/nsagora/peppermint\">Peppermint</a><small> – <a href=\"https://github.com/nsagora/peppermint/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><p>Declarative data validation framework, written in Swift</p><small><a href=\"https://swiftpackageindex.com/nsagora/peppermint\">nsagora/peppermint</a></small></div>",
+      "date_published": "2021-06-19T20:54:42.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/MihaelIsaev/UIKitPlus",
+      "url": "https://swiftpackageindex.com/MihaelIsaev/UIKitPlus",
+      "title": "UIKitPlus - 2.0.0-alpha.1.10.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/MihaelIsaev/UIKitPlus\">UIKitPlus</a><small> – <a href=\"https://github.com/mihaelisaev/UIKitPlus/releases/tag/2.0.0-alpha.1.10.1\">Version 2.0.0-alpha.1.10.1 release notes. </a></small></p><p>🏰 Declarative UIKit with LivePreview for iOS9+ (best alternative to SwiftUI)</p><small><a href=\"https://swiftpackageindex.com/MihaelIsaev/UIKitPlus\">MihaelIsaev/UIKitPlus</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/MihaelIsaev/UIKitPlus\">UIKitPlus</a><small> – <a href=\"https://github.com/mihaelisaev/UIKitPlus/releases/tag/2.0.0-alpha.1.10.1\">Version 2.0.0-alpha.1.10.1 release notes. </a></small></p><p>🏰 Declarative UIKit with LivePreview for iOS9+ (best alternative to SwiftUI)</p><small><a href=\"https://swiftpackageindex.com/MihaelIsaev/UIKitPlus\">MihaelIsaev/UIKitPlus</a></small></div>",
+      "date_published": "2021-06-19T20:18:45.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Clipy/KeyHolder",
+      "url": "https://swiftpackageindex.com/Clipy/KeyHolder",
+      "title": "KeyHolder - v4.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Clipy/KeyHolder\">KeyHolder</a><small> – <a href=\"https://github.com/Clipy/KeyHolder/releases/tag/v4.1.0\">Version v4.1.0 release notes. </a></small></p><div><h3>Breaking Changes</h3>\n<ul>\n<li>Update Magnet.framework v3.3.0. ( <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"892632078\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Clipy/KeyHolder/issues/57\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Clipy/KeyHolder/pull/57/hovercard\" href=\"https://github.com/Clipy/KeyHolder/pull/57\">#57</a>  )\n<ul>\n<li>See <a href=\"https://github.com/Clipy/Magnet/releases/tag/v3.3.0\">v3.3.0 release page</a> for more information.</li>\n</ul>\n</li>\n</ul>\n<h3>Enhancements</h3>\n<ul>\n<li>Improve default colors accessibility. ( <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"851312586\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Clipy/KeyHolder/issues/55\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Clipy/KeyHolder/pull/55/hovercard\" href=\"https://github.com/Clipy/KeyHolder/pull/55\">#55</a> )</li>\n</ul>\n<h3>Bugfixes</h3>\n<ul>\n<li>None.</li>\n</ul>\n<p>Thanks <a class=\"user-mention\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/DivineDominion/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/DivineDominion\">@DivineDominion</a> for contributing!</p></div><small><a href=\"https://swiftpackageindex.com/Clipy/KeyHolder\">Clipy/KeyHolder</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Clipy/KeyHolder\">KeyHolder</a><small> – <a href=\"https://github.com/Clipy/KeyHolder/releases/tag/v4.1.0\">Version v4.1.0 release notes. </a></small></p><p>Record shortcuts in macOS, like Alfred.app.</p><small><a href=\"https://swiftpackageindex.com/Clipy/KeyHolder\">Clipy/KeyHolder</a></small></div>",
+      "date_published": "2021-06-19T17:11:32.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/simonsalomons/BPFormatted",
+      "url": "https://swiftpackageindex.com/simonsalomons/BPFormatted",
+      "title": "BPFormatted - 0.0.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/simonsalomons/BPFormatted\">BPFormatted</a><small> – <a href=\"https://github.com/simonsalomons/BPFormatted/releases/tag/0.0.3\">Version 0.0.3 release notes. </a></small></p><div><p>Relative date formatting</p></div><small><a href=\"https://swiftpackageindex.com/simonsalomons/BPFormatted\">simonsalomons/BPFormatted</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/simonsalomons/BPFormatted\">BPFormatted</a><small> – <a href=\"https://github.com/simonsalomons/BPFormatted/releases/tag/0.0.3\">Version 0.0.3 release notes. </a></small></p><p>Backport of iOS 15 formatting api</p><small><a href=\"https://swiftpackageindex.com/simonsalomons/BPFormatted\">simonsalomons/BPFormatted</a></small></div>",
+      "date_published": "2021-06-19T16:23:15.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/xxlabaza/SshConfig",
+      "url": "https://swiftpackageindex.com/xxlabaza/SshConfig",
+      "title": "SshConfig - 1.0.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/xxlabaza/SshConfig\">SshConfig</a><small> – <a href=\"https://github.com/xxlabaza/SshConfig/releases/tag/1.0.1\">Version 1.0.1 release notes. </a></small></p><p>An SSH config parser library with a fancy API</p><small><a href=\"https://swiftpackageindex.com/xxlabaza/SshConfig\">xxlabaza/SshConfig</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/xxlabaza/SshConfig\">SshConfig</a><small> – <a href=\"https://github.com/xxlabaza/SshConfig/releases/tag/1.0.1\">Version 1.0.1 release notes. </a></small></p><p>An SSH config parser library with a fancy API</p><small><a href=\"https://swiftpackageindex.com/xxlabaza/SshConfig\">xxlabaza/SshConfig</a></small></div>",
+      "date_published": "2021-06-19T15:25:54.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/swhitty/SwiftDraw",
+      "url": "https://swiftpackageindex.com/swhitty/SwiftDraw",
+      "title": "SwiftDraw - 0.8.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/swhitty/SwiftDraw\">SwiftDraw</a><small> – <a href=\"https://github.com/swhitty/SwiftDraw/releases/tag/0.8.0\">Version 0.8.0 release notes. </a></small></p><div><p>Adds swift code generation to command line tool.</p></div><small><a href=\"https://swiftpackageindex.com/swhitty/SwiftDraw\">swhitty/SwiftDraw</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/swhitty/SwiftDraw\">SwiftDraw</a><small> – <a href=\"https://github.com/swhitty/SwiftDraw/releases/tag/0.8.0\">Version 0.8.0 release notes. </a></small></p><p>A Swift library for parsing and drawing SVG images to CoreGraphics contexts.</p><small><a href=\"https://swiftpackageindex.com/swhitty/SwiftDraw\">swhitty/SwiftDraw</a></small></div>",
+      "date_published": "2021-06-19T11:59:26.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/rb-de0/yubatake",
+      "url": "https://swiftpackageindex.com/rb-de0/yubatake",
+      "title": "yubatake - 4.0.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/rb-de0/yubatake\">yubatake</a><small> – <a href=\"https://github.com/rb-de0/yubatake/releases/tag/4.0.1\">Version 4.0.1 release notes. </a></small></p><p>yubatake is simple blogging engine for Swift.</p><small><a href=\"https://swiftpackageindex.com/rb-de0/yubatake\">rb-de0/yubatake</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/rb-de0/yubatake\">yubatake</a><small> – <a href=\"https://github.com/rb-de0/yubatake/releases/tag/4.0.1\">Version 4.0.1 release notes. </a></small></p><p>yubatake is simple blogging engine for Swift.</p><small><a href=\"https://swiftpackageindex.com/rb-de0/yubatake\">rb-de0/yubatake</a></small></div>",
+      "date_published": "2021-06-19T07:02:26.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/aws-amplify/amplify-ios",
+      "url": "https://swiftpackageindex.com/aws-amplify/amplify-ios",
+      "title": "Amplify - v1.10.1-unstable.10",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/aws-amplify/amplify-ios\">Amplify</a><small> – <a href=\"https://github.com/aws-amplify/amplify-ios/releases/tag/v1.10.1-unstable.10\">Version v1.10.1-unstable.10 release notes. </a></small></p><p>A declarative library for application development using cloud services.</p><small><a href=\"https://swiftpackageindex.com/aws-amplify/amplify-ios\">aws-amplify/amplify-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/aws-amplify/amplify-ios\">Amplify</a><small> – <a href=\"https://github.com/aws-amplify/amplify-ios/releases/tag/v1.10.1-unstable.10\">Version v1.10.1-unstable.10 release notes. </a></small></p><p>A declarative library for application development using cloud services.</p><small><a href=\"https://swiftpackageindex.com/aws-amplify/amplify-ios\">aws-amplify/amplify-ios</a></small></div>",
+      "date_published": "2021-06-19T03:12:07.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/parse-community/Parse-Swift",
+      "url": "https://swiftpackageindex.com/parse-community/Parse-Swift",
+      "title": "ParseSwift - 1.8.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/parse-community/Parse-Swift\">ParseSwift</a><small> – <a href=\"https://github.com/parse-community/Parse-Swift/releases/tag/1.8.3\">Version 1.8.3 release notes. </a></small></p><div><p><a href=\"https://github.com/parse-community/Parse-Swift/compare/1.8.2...1.8.3\">Full Changelog</a></p>\n<p><strong>Fixes</strong></p>\n<ul>\n<li>Fixed a bug that prevented saving ParseObjects that had Pointers as properties (<a href=\"https://github.com/parse-community/Parse-Swift/pull/169\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/parse-community/Parse-Swift/pull/169/hovercard\">#169</a>), thanks to <a href=\"https://github.com/cbaker6\">Corey Baker</a>.</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/parse-community/Parse-Swift\">parse-community/Parse-Swift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/parse-community/Parse-Swift\">ParseSwift</a><small> – <a href=\"https://github.com/parse-community/Parse-Swift/releases/tag/1.8.3\">Version 1.8.3 release notes. </a></small></p><p>The Swift iOS | macOS | watchOS | tvOS | Linux | Android SDK for the Parse Platform</p><small><a href=\"https://swiftpackageindex.com/parse-community/Parse-Swift\">parse-community/Parse-Swift</a></small></div>",
+      "date_published": "2021-06-19T00:26:53.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/shareup/combine-extensions",
+      "url": "https://swiftpackageindex.com/shareup/combine-extensions",
+      "title": "CombineExtensions - v4.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/shareup/combine-extensions\">CombineExtensions</a><small> – <a href=\"https://github.com/shareup/combine-extensions/releases/tag/v4.1.0\">Version v4.1.0 release notes. </a></small></p><div><ul>\n<li>Fix a bug in which subscribers who always request some demand after receiving a value would cause <code>ReduceLatest</code> to republish values constantly</li>\n<li>Add <code>Publisher.retry(after:tolerance:scheduler:options:)</code> powered by <code>RetryIf</code> that retries for any error with a dynamic retry delay</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/shareup/combine-extensions\">shareup/combine-extensions</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/shareup/combine-extensions\">CombineExtensions</a><small> – <a href=\"https://github.com/shareup/combine-extensions/releases/tag/v4.1.0\">Version v4.1.0 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/shareup/combine-extensions\">shareup/combine-extensions</a></small></div>",
+      "date_published": "2021-06-18T22:16:52.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori",
+      "url": "https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori",
+      "title": "FioriSwiftUI - 1.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori\">FioriSwiftUI</a><small> – <a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><div><p><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> Introducing <code>FioriThemeManager</code>: This module provides a <a href=\"https://experience.sap.com/fiori-design-ios/article/colors/\" rel=\"nofollow\">color palette</a> conforming to <a href=\"https://experience.sap.com/fiori-design-ios/\" rel=\"nofollow\">Fiori Design Language</a>. It is adopted by all the Fiori components in both this package and SAPFiori.</p>\n<p><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> Introducing  <code>FioriSwiftUICore</code>: This module contains SwiftUI implementation for those UIKit-based components existing in <a href=\"https://help.sap.com/doc/978e4f6c968c4cc5a30f9d324aa4b1d7/Latest/en-US/Documents/Frameworks/SAPFiori/index.html\" rel=\"nofollow\">SAPFiori</a>. It provides you with an easy way to migrate your UIKit project to SwiftUI while delivering the same experience as before.</p>\n<p>We plan to progressively bring more Fiori UI components into this module in the future releases.</p>\n<table>\n<thead>\n<tr>\n<th>FioriSwiftUICore</th>\n<th>Available</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>ObjectItem</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>ObjectHeader</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>KPIItem</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>FioriButton</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>ListPickerItem</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>DimensionSelector</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>SideBar</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>DataTable</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>WelcomeScreen</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>ActivationScreen</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n<tr>\n<td>InfoView</td>\n<td><g-emoji class=\"g-emoji\" alias=\"white_check_mark\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2705.png\">✅</g-emoji></td>\n</tr>\n</tbody>\n</table>\n<h3>Other Features</h3>\n<ul>\n<li><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> integration cards: support ContentType.List.maxItems &amp; GET parameters (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/b9a1fe158a8eb71548d2cd98b8cce58255fd44f0\">b9a1fe1</a>)</li>\n<li><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> integration cards: support list with icons (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/issues/179\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SAP/cloud-sdk-ios-fiori/pull/179/hovercard\">#179</a>) (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/9b6756bc1f9761bfe9d4cb8f4adf24954c526a11\">9b6756b</a>)</li>\n<li><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> integration cards: support list with numeric header (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/issues/180\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SAP/cloud-sdk-ios-fiori/pull/180/hovercard\">#180</a>) (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/7d7c82c8e0fca6fc27e596673c76b60ec30a029c\">7d7c82c</a>)</li>\n<li><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> integration cards: support owner/ownerImage in timeline (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/1deca96252606b01d6eeaf1ad46af4be230daea7\">1deca96</a>)</li>\n<li><g-emoji class=\"g-emoji\" alias=\"guitar\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3b8.png\">🎸</g-emoji> support manifest parameters for integration cards (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/c615a29c65e17c51f9c07d13124d98668a8a95e2\">c615a29</a>)</li>\n</ul>\n<h3>Bug Fixes</h3>\n<ul>\n<li><g-emoji class=\"g-emoji\" alias=\"bug\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png\">🐛</g-emoji> eliminate dependency on TinyNetworking package (<a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/commit/926625e6271c58b35ed8cb0dc861c595a13cfe89\">926625e</a>)</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori\">SAP/cloud-sdk-ios-fiori</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori\">FioriSwiftUI</a><small> – <a href=\"https://github.com/SAP/cloud-sdk-ios-fiori/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><p>SwiftUI implementation of the SAP Fiori for iOS Design Language.</p><small><a href=\"https://swiftpackageindex.com/SAP/cloud-sdk-ios-fiori\">SAP/cloud-sdk-ios-fiori</a></small></div>",
+      "date_published": "2021-06-18T20:25:52.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/marcosgriselli/ViewAnimator",
+      "url": "https://swiftpackageindex.com/marcosgriselli/ViewAnimator",
+      "title": "ViewAnimator - 3.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/marcosgriselli/ViewAnimator\">ViewAnimator</a><small> – <a href=\"https://github.com/marcosgriselli/ViewAnimator/releases/tag/3.1.0\">Version 3.1.0 release notes. </a></small></p><p>ViewAnimator brings your UI to life with just one line</p><small><a href=\"https://swiftpackageindex.com/marcosgriselli/ViewAnimator\">marcosgriselli/ViewAnimator</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/marcosgriselli/ViewAnimator\">ViewAnimator</a><small> – <a href=\"https://github.com/marcosgriselli/ViewAnimator/releases/tag/3.1.0\">Version 3.1.0 release notes. </a></small></p><p>ViewAnimator brings your UI to life with just one line</p><small><a href=\"https://swiftpackageindex.com/marcosgriselli/ViewAnimator\">marcosgriselli/ViewAnimator</a></small></div>",
+      "date_published": "2021-06-18T16:01:57.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/uhooi/swift-string-transform",
+      "url": "https://swiftpackageindex.com/uhooi/swift-string-transform",
+      "title": "StringTransform - 0.4.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/uhooi/swift-string-transform\">StringTransform</a><small> – <a href=\"https://github.com/uhooi/swift-string-transform/releases/tag/0.4.0\">Version 0.4.0 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/uhooi/swift-string-transform\">uhooi/swift-string-transform</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/uhooi/swift-string-transform\">StringTransform</a><small> – <a href=\"https://github.com/uhooi/swift-string-transform/releases/tag/0.4.0\">Version 0.4.0 release notes. </a></small></p><p>Transform strings easily in Swift.</p><small><a href=\"https://swiftpackageindex.com/uhooi/swift-string-transform\">uhooi/swift-string-transform</a></small></div>",
+      "date_published": "2021-06-18T13:15:27.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/swift-server/async-http-client",
+      "url": "https://swiftpackageindex.com/swift-server/async-http-client",
+      "title": "async-http-client - 1.4.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/swift-server/async-http-client\">async-http-client</a><small> – <a href=\"https://github.com/swift-server/async-http-client/releases/tag/1.4.0\">Version 1.4.0 release notes. </a></small></p><div><h3>SemVer Minor</h3>\n<ul>\n<li>Implement SOCKS proxy functionality (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922612817\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swift-server/async-http-client/issues/375\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swift-server/async-http-client/pull/375/hovercard\" href=\"https://github.com/swift-server/async-http-client/pull/375\">#375</a>)</li>\n</ul>\n<h3>SemVer Patch</h3>\n<ul>\n<li>Fix Swift Package Index build (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"891353473\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swift-server/async-http-client/issues/369\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swift-server/async-http-client/pull/369/hovercard\" href=\"https://github.com/swift-server/async-http-client/pull/369\">#369</a>)</li>\n</ul>\n<h3>Other Changes</h3>\n<ul>\n<li>Publish security process (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"903692574\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swift-server/async-http-client/issues/370\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swift-server/async-http-client/pull/370/hovercard\" href=\"https://github.com/swift-server/async-http-client/pull/370\">#370</a>)</li>\n<li>Make DelayOnHeadDelegate resilient (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922362342\" data-permission-text=\"Title is private\" data-url=\"https://github.com/swift-server/async-http-client/issues/374\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/swift-server/async-http-client/pull/374/hovercard\" href=\"https://github.com/swift-server/async-http-client/pull/374\">#374</a>)</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/swift-server/async-http-client\">swift-server/async-http-client</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/swift-server/async-http-client\">async-http-client</a><small> – <a href=\"https://github.com/swift-server/async-http-client/releases/tag/1.4.0\">Version 1.4.0 release notes. </a></small></p><p>HTTP client library built on SwiftNIO</p><small><a href=\"https://swiftpackageindex.com/swift-server/async-http-client\">swift-server/async-http-client</a></small></div>",
+      "date_published": "2021-06-18T12:02:58.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/apple/swift-nio-extras",
+      "url": "https://swiftpackageindex.com/apple/swift-nio-extras",
+      "title": "swift-nio-extras - 1.9.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/apple/swift-nio-extras\">swift-nio-extras</a><small> – <a href=\"https://github.com/apple/swift-nio-extras/releases/tag/1.9.1\">Version 1.9.1 release notes. </a></small></p><div><h3>SemVer Patch</h3>\n<ul>\n<li>Fix writing SOCKSv5 addresses to the network when using FQDNs (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"924780171\" data-permission-text=\"Title is private\" data-url=\"https://github.com/apple/swift-nio-extras/issues/135\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/apple/swift-nio-extras/pull/135/hovercard\" href=\"https://github.com/apple/swift-nio-extras/pull/135\">#135</a>)</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/apple/swift-nio-extras\">apple/swift-nio-extras</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/apple/swift-nio-extras\">swift-nio-extras</a><small> – <a href=\"https://github.com/apple/swift-nio-extras/releases/tag/1.9.1\">Version 1.9.1 release notes. </a></small></p><p>Useful code around SwiftNIO.</p><small><a href=\"https://swiftpackageindex.com/apple/swift-nio-extras\">apple/swift-nio-extras</a></small></div>",
+      "date_published": "2021-06-18T10:58:57.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/e-sites/Natrium",
+      "url": "https://swiftpackageindex.com/e-sites/Natrium",
+      "title": "Natrium - 8.0.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/e-sites/Natrium\">Natrium</a><small> – <a href=\"https://github.com/e-sites/Natrium/releases/tag/8.0.5\">Version 8.0.5 release notes. </a></small></p><p>A pre-build (Swift) script to alter your Xcode project at pre-build-time per environment, build configuration and target.</p><small><a href=\"https://swiftpackageindex.com/e-sites/Natrium\">e-sites/Natrium</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/e-sites/Natrium\">Natrium</a><small> – <a href=\"https://github.com/e-sites/Natrium/releases/tag/8.0.5\">Version 8.0.5 release notes. </a></small></p><p>A pre-build (Swift) script to alter your Xcode project at pre-build-time per environment, build configuration and target.</p><small><a href=\"https://swiftpackageindex.com/e-sites/Natrium\">e-sites/Natrium</a></small></div>",
+      "date_published": "2021-06-18T08:21:55.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card",
+      "url": "https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card",
+      "title": "ActionSheetCard - 0.3.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card\">ActionSheetCard</a><small> – <a href=\"https://github.com/mahmudahsan/SwiftUI-Action-Sheet-Card/releases/tag/0.3.0\">Version 0.3.0 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card\">mahmudahsan/SwiftUI-Action-Sheet-Card</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card\">ActionSheetCard</a><small> – <a href=\"https://github.com/mahmudahsan/SwiftUI-Action-Sheet-Card/releases/tag/0.3.0\">Version 0.3.0 release notes. </a></small></p><p>A SwiftUI based custom sheet card to reuse in iOS application.</p><small><a href=\"https://swiftpackageindex.com/mahmudahsan/SwiftUI-Action-Sheet-Card\">mahmudahsan/SwiftUI-Action-Sheet-Card</a></small></div>",
+      "date_published": "2021-06-18T02:52:42.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/piemonte/Position",
+      "url": "https://swiftpackageindex.com/piemonte/Position",
+      "title": "Position - 0.9.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/piemonte/Position\">Position</a><small> – <a href=\"https://github.com/piemonte/Position/releases/tag/0.9.2\">Version 0.9.2 release notes. </a></small></p><p>🛰 Lightweight and efficient location positioning in Swift</p><small><a href=\"https://swiftpackageindex.com/piemonte/Position\">piemonte/Position</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/piemonte/Position\">Position</a><small> – <a href=\"https://github.com/piemonte/Position/releases/tag/0.9.2\">Version 0.9.2 release notes. </a></small></p><p>🛰 Lightweight and efficient location positioning in Swift</p><small><a href=\"https://swiftpackageindex.com/piemonte/Position\">piemonte/Position</a></small></div>",
+      "date_published": "2021-06-18T01:26:22.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios",
+      "url": "https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios",
+      "title": "MapboxNavigationNative - 53.0.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios\">MapboxNavigationNative</a><small> – <a href=\"https://github.com/mapbox/mapbox-navigation-native-ios/releases/tag/53.0.1\">Version 53.0.1 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios\">mapbox/mapbox-navigation-native-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios\">MapboxNavigationNative</a><small> – <a href=\"https://github.com/mapbox/mapbox-navigation-native-ios/releases/tag/53.0.1\">Version 53.0.1 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-native-ios\">mapbox/mapbox-navigation-native-ios</a></small></div>",
+      "date_published": "2021-06-17T17:44:44.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/LebJe/TOMLKit",
+      "url": "https://swiftpackageindex.com/LebJe/TOMLKit",
+      "title": "TOMLKit - 0.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/LebJe/TOMLKit\">TOMLKit</a><small> – <a href=\"https://github.com/LebJe/TOMLKit/releases/tag/0.1.0\">Version 0.1.0 release notes. </a></small></p><div><h1>Changelog</h1>\n<h2><a href=\"https://github.com/LebJe/TOMLKit/releases/tag/0.1.0\">0.1.0</a> - 2021-06-17</h2>\n<h3>Added</h3>\n<ul>\n<li>\n<p>Add support for tvOS and watchOS.</p>\n</li>\n<li>\n<p><code>TOMLArray</code> conforms to:</p>\n<ul>\n<li><code>Collection</code>,</li>\n<li><code>RandomAccessCollection</code>,</li>\n<li><code>BidirectionalCollection</code>,</li>\n<li><code>RangeReplaceableCollection</code>,</li>\n<li><code>MutableCollection</code></li>\n</ul>\n</li>\n<li>\n<p><code>TOMLArray</code>'s and <code>TOMLTable</code>'s two subscripts have been merged: only one subscript is used for insert and retrieving values.</p>\n</li>\n<li>\n<p><code>structs</code> conforming to <code>TOMLValueConvertible</code> don't insert themselves into a <code>TOMLArray</code> or a <code>TOMLTables</code> anymore.<br>\nNow they have a <code>tomlValue</code> property, which converts them into <code>TOMLValue</code>s. The <code>TOMLValue</code> then inserts itself into a <code>TOMLTable</code> or a <code>TOMLArray</code>.</p>\n</li>\n<li>\n<p><code>TOMLTable.remove(at:)</code> now returns a copy of the removed <code>TOMLValueConvertible</code>.</p>\n</li>\n<li>\n<p>Added functions to check if a key is in a <code>TOMLTable</code>.</p>\n</li>\n<li>\n<p>Tried to improve the code in <code>Sources/CTOML</code>.</p>\n</li>\n</ul>\n<h3>Removed</h3>\n<ul>\n<li>Removed the <code>inline</code> parameter from <code>TOMLTable.init(string:)</code>.</li>\n</ul>\n<h3>Fixed</h3>\n<ul>\n<li>Retrieving a value from a <code>TOMLArray</code> no longer returns an <code>Optional</code> value.</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/LebJe/TOMLKit\">LebJe/TOMLKit</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/LebJe/TOMLKit\">TOMLKit</a><small> – <a href=\"https://github.com/LebJe/TOMLKit/releases/tag/0.1.0\">Version 0.1.0 release notes. </a></small></p><p>A small, simple TOML parser for Swift. Powered by toml++.</p><small><a href=\"https://swiftpackageindex.com/LebJe/TOMLKit\">LebJe/TOMLKit</a></small></div>",
+      "date_published": "2021-06-17T17:07:26.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/GraphQLSwift/GraphQL",
+      "url": "https://swiftpackageindex.com/GraphQLSwift/GraphQL",
+      "title": "GraphQL - 2.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/GraphQL\">GraphQL</a><small> – <a href=\"https://github.com/GraphQLSwift/GraphQL/releases/tag/2.0.0\">Version 2.0.0 release notes. </a></small></p><div><p>Fields in GraphQL responses now match the order in which they were listed in the query. This fixes <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"650216728\" data-permission-text=\"Title is private\" data-url=\"https://github.com/GraphQLSwift/GraphQL/issues/60\" data-hovercard-type=\"issue\" data-hovercard-url=\"/GraphQLSwift/GraphQL/issues/60/hovercard\" href=\"https://github.com/GraphQLSwift/GraphQL/issues/60\">#60</a>. A dependency on <a href=\"https://github.com/apple/swift-collections\">Swift Collections</a> was added.</p>\n<p>While the changes are modest, it is marked as a major release because it changes the return type of the public <code>executeFields</code> method and public <code>Map</code> enum to be OrderedDictionary instead of Dictionary.</p></div><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/GraphQL\">GraphQLSwift/GraphQL</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/GraphQLSwift/GraphQL\">GraphQL</a><small> – <a href=\"https://github.com/GraphQLSwift/GraphQL/releases/tag/2.0.0\">Version 2.0.0 release notes. </a></small></p><p>The Swift GraphQL implementation for macOS and Linux</p><small><a href=\"https://swiftpackageindex.com/GraphQLSwift/GraphQL\">GraphQLSwift/GraphQL</a></small></div>",
+      "date_published": "2021-06-17T16:02:29.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mxcl/Path.swift",
+      "url": "https://swiftpackageindex.com/mxcl/Path.swift",
+      "title": "Path.swift - 1.3.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mxcl/Path.swift\">Path.swift</a><small> – <a href=\"https://github.com/mxcl/Path.swift/releases/tag/1.3.1\">Version 1.3.1 release notes. </a></small></p><div></div><small><a href=\"https://swiftpackageindex.com/mxcl/Path.swift\">mxcl/Path.swift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mxcl/Path.swift\">Path.swift</a><small> – <a href=\"https://github.com/mxcl/Path.swift/releases/tag/1.3.1\">Version 1.3.1 release notes. </a></small></p><p>Delightful, robust, cross-platform and chainable file-pathing functions.</p><small><a href=\"https://swiftpackageindex.com/mxcl/Path.swift\">mxcl/Path.swift</a></small></div>",
+      "date_published": "2021-06-17T16:00:29.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/highmobility/auto-api-swift",
+      "url": "https://swiftpackageindex.com/highmobility/auto-api-swift",
+      "title": "AutoAPI - 7.3.10",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/highmobility/auto-api-swift\">AutoAPI</a><small> – <a href=\"https://github.com/highmobility/auto-api-swift/releases/tag/7.3.10\">Version 7.3.10 release notes. </a></small></p><div><p>This is a minor <em>additive update</em>, to upgrade <em>YearTime</em> slightly.</p>\n<ul>\n<li>Add <code>.date: Date?</code> property to <code>YearTime</code></li>\n<li>Make <code>YearTime</code> conform to <code>Comparable</code></li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/highmobility/auto-api-swift\">highmobility/auto-api-swift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/highmobility/auto-api-swift\">AutoAPI</a><small> – <a href=\"https://github.com/highmobility/auto-api-swift/releases/tag/7.3.10\">Version 7.3.10 release notes. </a></small></p><p>📱 AutoAPI Swift lib - the parsing library for the Auto API vehicle data model</p><small><a href=\"https://swiftpackageindex.com/highmobility/auto-api-swift\">highmobility/auto-api-swift</a></small></div>",
+      "date_published": "2021-06-17T14:44:14.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mapbox/mapbox-navigation-ios",
+      "url": "https://swiftpackageindex.com/mapbox/mapbox-navigation-ios",
+      "title": "MapboxNavigation - v2.0.0-beta.14",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-ios\">MapboxNavigation</a><small> – <a href=\"https://github.com/mapbox/mapbox-navigation-ios/releases/tag/v2.0.0-beta.14\">Version v2.0.0-beta.14 release notes. </a></small></p><div><p><a href=\"https://github.com/mapbox/mapbox-navigation-ios/compare/v2.0.0-beta.13...v2.0.0-beta.14\">Changes</a> since <a href=\"https://github.com/mapbox/mapbox-navigation-ios/releases/tag/v2.0.0-beta.13\">v2.0.0-beta.13</a>:</p>\n<ul>\n<li>Fixed the moment of custom feedback event creation. (<a href=\"https://github.com/mapbox/mapbox-navigation-ios/pull/2495\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mapbox/mapbox-navigation-ios/pull/2495/hovercard\">#2495</a>)</li>\n<li>Disabled default navigation history recording. (<a href=\"https://github.com/mapbox/mapbox-navigation-ios/pull/3081\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mapbox/mapbox-navigation-ios/pull/3081/hovercard\">#3081</a>)</li>\n<li>Increased stability of unit tests by addressing sporadic failures. (<a href=\"https://github.com/mapbox/mapbox-navigation-ios/pull/3089\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mapbox/mapbox-navigation-ios/pull/3089/hovercard\">#3089</a>)(<a href=\"https://github.com/mapbox/mapbox-navigation-ios/pull/3072\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mapbox/mapbox-navigation-ios/pull/3072/hovercard\">#3072</a>)</li>\n<li>Renamed <code>CarPlayNavigationDelegate</code> to <code>CarPlayNavigationViewControllerDelegate</code> and <code>CarPlayNavigationViewController.carPlayNavigationDelegate</code> to <code>CarPlayNavigationViewController.delegate</code>. (<a href=\"https://github.com/mapbox/mapbox-navigation-ios/pull/3036\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mapbox/mapbox-navigation-ios/pull/3036/hovercard\">#3036</a>)</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-ios\">mapbox/mapbox-navigation-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-ios\">MapboxNavigation</a><small> – <a href=\"https://github.com/mapbox/mapbox-navigation-ios/releases/tag/v2.0.0-beta.14\">Version v2.0.0-beta.14 release notes. </a></small></p><p>Turn-by-turn navigation logic and UI in Swift on iOS</p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-navigation-ios\">mapbox/mapbox-navigation-ios</a></small></div>",
+      "date_published": "2021-06-17T13:40:03.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF",
+      "url": "https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF",
+      "title": "SwiftUI-UDF - 1.0.7",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF\">SwiftUI-UDF</a><small> – <a href=\"https://github.com/Maks-Jago/SwiftUI-UDF/releases/tag/1.0.7\">Version 1.0.7 release notes. </a></small></p><p>UDF (Unidirectional Data Flow) architecture on SwiftUI/Combine</p><small><a href=\"https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF\">Maks-Jago/SwiftUI-UDF</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF\">SwiftUI-UDF</a><small> – <a href=\"https://github.com/Maks-Jago/SwiftUI-UDF/releases/tag/1.0.7\">Version 1.0.7 release notes. </a></small></p><p>UDF (Unidirectional Data Flow) architecture on SwiftUI/Combine</p><small><a href=\"https://swiftpackageindex.com/Maks-Jago/SwiftUI-UDF\">Maks-Jago/SwiftUI-UDF</a></small></div>",
+      "date_published": "2021-06-17T11:38:29.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox",
+      "url": "https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox",
+      "title": "RVS_Checkbox - 1.1.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox\">RVS_Checkbox</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_Checkbox/releases/tag/1.1.5\">Version 1.1.5 release notes. </a></small></p><p>This is a simple, programmatically-generated Swift UIKit \"three-state\" checkbox, to use as a UI element.</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox\">RiftValleySoftware/RVS_Checkbox</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox\">RVS_Checkbox</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_Checkbox/releases/tag/1.1.5\">Version 1.1.5 release notes. </a></small></p><p>This is a simple, programmatically-generated Swift UIKit \"three-state\" checkbox, to use as a UI element.</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_Checkbox\">RiftValleySoftware/RVS_Checkbox</a></small></div>",
+      "date_published": "2021-06-17T10:46:37.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/tuist/XcodeProj",
+      "url": "https://swiftpackageindex.com/tuist/XcodeProj",
+      "title": "XcodeProj - 8.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/tuist/XcodeProj\">XcodeProj</a><small> – <a href=\"https://github.com/tuist/XcodeProj/releases/tag/8.0.0\">Version 8.0.0 release notes. </a></small></p><div><h3>Fixed</h3>\n<ul>\n<li>Adding group set incorrect parent in case of complex path <a href=\"https://github.com/tuist/XcodeProj/pull/614\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/tuist/XcodeProj/pull/614/hovercard\">#614</a> by <a href=\"https://github.com/avdyushin\">@avdyushin</a></li>\n<li><strong>Breaking</strong> Fixed issue where some schemes could not be deserialized because a buildable reference did not contain a blueprint identifier <a href=\"https://github.com/tuist/XcodeProj/pull/612\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/tuist/XcodeProj/pull/612/hovercard\">#612</a> by <a href=\"https://github.com/daltonclaybrook\">@daltonclaybrook</a></li>\n<li>Added the <code>com.apple.product-type.driver-extension</code> and <code>com.apple.product-type.system-extension</code> PBXProductType <a href=\"https://github.com/tuist/XcodeProj/pull/618\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/tuist/XcodeProj/pull/618/hovercard\">#618</a> by <a href=\"https://github.com/vgorloff\">@vgorloff</a>.</li>\n</ul>\n<h3>Changed</h3>\n<ul>\n<li><strong>Breaking</strong> Make <code>runPostActionsOnFailure</code> optional <a href=\"https://github.com/tuist/XcodeProj/pull/619\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/tuist/XcodeProj/pull/619/hovercard\">#619</a> by <a href=\"https://github.com/kwridan\">@kwridan</a></li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/tuist/XcodeProj\">tuist/XcodeProj</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/tuist/XcodeProj\">XcodeProj</a><small> – <a href=\"https://github.com/tuist/XcodeProj/releases/tag/8.0.0\">Version 8.0.0 release notes. </a></small></p><p> 📝 Read, update and write your Xcode projects</p><small><a href=\"https://swiftpackageindex.com/tuist/XcodeProj\">tuist/XcodeProj</a></small></div>",
+      "date_published": "2021-06-17T10:13:43.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/gonzalezreal/NetworkImage",
+      "url": "https://swiftpackageindex.com/gonzalezreal/NetworkImage",
+      "title": "NetworkImage - 3.0.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/gonzalezreal/NetworkImage\">NetworkImage</a><small> – <a href=\"https://github.com/gonzalezreal/NetworkImage/releases/tag/3.0.1\">Version 3.0.1 release notes. </a></small></p><div><p>Update cached images immediately <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"923736963\" data-permission-text=\"Title is private\" data-url=\"https://github.com/gonzalezreal/NetworkImage/issues/17\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/gonzalezreal/NetworkImage/pull/17/hovercard\" href=\"https://github.com/gonzalezreal/NetworkImage/pull/17\">#17</a>:</p>\n<ul>\n<li>If the image is already in the cache, we update the state immediately, avoiding a thread hop and an unnecessary animation.</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/gonzalezreal/NetworkImage\">gonzalezreal/NetworkImage</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/gonzalezreal/NetworkImage\">NetworkImage</a><small> – <a href=\"https://github.com/gonzalezreal/NetworkImage/releases/tag/3.0.1\">Version 3.0.1 release notes. </a></small></p><p>Asynchronous image loading in SwiftUI</p><small><a href=\"https://swiftpackageindex.com/gonzalezreal/NetworkImage\">gonzalezreal/NetworkImage</a></small></div>",
+      "date_published": "2021-06-17T10:09:46.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/nalexn/ViewInspector",
+      "url": "https://swiftpackageindex.com/nalexn/ViewInspector",
+      "title": "ViewInspector - 0.8.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/nalexn/ViewInspector\">ViewInspector</a><small> – <a href=\"https://github.com/nalexn/ViewInspector/releases/tag/0.8.1\">Version 0.8.1 release notes. </a></small></p><div><p>Released on 2021-06-17.</p>\n<ul>\n<li>Fixed compilation issues on Xcode 12.4 (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922610617\" data-permission-text=\"Title is private\" data-url=\"https://github.com/nalexn/ViewInspector/issues/116\" data-hovercard-type=\"issue\" data-hovercard-url=\"/nalexn/ViewInspector/issues/116/hovercard\" href=\"https://github.com/nalexn/ViewInspector/issues/116\">#116</a>)</li>\n<li>Fixed some tests not passing for iOS 13</li>\n<li>Merged PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"922981180\" data-permission-text=\"Title is private\" data-url=\"https://github.com/nalexn/ViewInspector/issues/118\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/nalexn/ViewInspector/pull/118/hovercard\" href=\"https://github.com/nalexn/ViewInspector/pull/118\">#118</a>: Fixed a link in the guide</li>\n</ul></div><small><a href=\"https://swiftpackageindex.com/nalexn/ViewInspector\">nalexn/ViewInspector</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/nalexn/ViewInspector\">ViewInspector</a><small> – <a href=\"https://github.com/nalexn/ViewInspector/releases/tag/0.8.1\">Version 0.8.1 release notes. </a></small></p><p>Runtime introspection and unit testing of SwiftUI views</p><small><a href=\"https://swiftpackageindex.com/nalexn/ViewInspector\">nalexn/ViewInspector</a></small></div>",
+      "date_published": "2021-06-17T10:08:49.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Kitura/BlueSocket",
+      "url": "https://swiftpackageindex.com/Kitura/BlueSocket",
+      "title": "Socket - 2.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Kitura/BlueSocket\">Socket</a><small> – <a href=\"https://github.com/Kitura/BlueSocket/releases/tag/2.0.0\">Version 2.0.0 release notes. </a></small></p><div><p>This release no longer supports Swift 4.x. The minimum supported Swift version is 5.0, while the minimum recommended version is 5.2.</p></div><small><a href=\"https://swiftpackageindex.com/Kitura/BlueSocket\">Kitura/BlueSocket</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Kitura/BlueSocket\">Socket</a><small> – <a href=\"https://github.com/Kitura/BlueSocket/releases/tag/2.0.0\">Version 2.0.0 release notes. </a></small></p><p>Socket framework for Swift using the Swift Package Manager. Works on iOS, macOS, and Linux.</p><small><a href=\"https://swiftpackageindex.com/Kitura/BlueSocket\">Kitura/BlueSocket</a></small></div>",
+      "date_published": "2021-06-17T05:18:24.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mapbox/mapbox-common-ios",
+      "url": "https://swiftpackageindex.com/mapbox/mapbox-common-ios",
+      "title": "MapboxCommon - v14.2.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-common-ios\">MapboxCommon</a><small> – <a href=\"https://github.com/mapbox/mapbox-common-ios/releases/tag/v14.2.0\">Version v14.2.0 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-common-ios\">mapbox/mapbox-common-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-common-ios\">MapboxCommon</a><small> – <a href=\"https://github.com/mapbox/mapbox-common-ios/releases/tag/v14.2.0\">Version v14.2.0 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-common-ios\">mapbox/mapbox-common-ios</a></small></div>",
+      "date_published": "2021-06-16T22:14:55.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/rwapp/A11yUITests",
+      "url": "https://swiftpackageindex.com/rwapp/A11yUITests",
+      "title": "A11yUITests - 0.5.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/rwapp/A11yUITests\">A11yUITests</a><small> – <a href=\"https://github.com/rwapp/A11yUITests/releases/tag/0.5.1\">Version 0.5.1 release notes. </a></small></p><p>Accessibility tests for XCUI Testing.</p><small><a href=\"https://swiftpackageindex.com/rwapp/A11yUITests\">rwapp/A11yUITests</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/rwapp/A11yUITests\">A11yUITests</a><small> – <a href=\"https://github.com/rwapp/A11yUITests/releases/tag/0.5.1\">Version 0.5.1 release notes. </a></small></p><p>Accessibility tests for XCUI Testing.</p><small><a href=\"https://swiftpackageindex.com/rwapp/A11yUITests\">rwapp/A11yUITests</a></small></div>",
+      "date_published": "2021-06-16T21:36:57.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/apollographql/apollo-ios",
+      "url": "https://swiftpackageindex.com/apollographql/apollo-ios",
+      "title": "Apollo - 0.44.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/apollographql/apollo-ios\">Apollo</a><small> – <a href=\"https://github.com/apollographql/apollo-ios/releases/tag/0.44.0\">Version 0.44.0 release notes. </a></small></p><p>📱  A strongly-typed, caching GraphQL client for iOS, written in Swift.</p><small><a href=\"https://swiftpackageindex.com/apollographql/apollo-ios\">apollographql/apollo-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/apollographql/apollo-ios\">Apollo</a><small> – <a href=\"https://github.com/apollographql/apollo-ios/releases/tag/0.44.0\">Version 0.44.0 release notes. </a></small></p><p>📱  A strongly-typed, caching GraphQL client for iOS, written in Swift.</p><small><a href=\"https://swiftpackageindex.com/apollographql/apollo-ios\">apollographql/apollo-ios</a></small></div>",
+      "date_published": "2021-06-16T21:06:21.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer",
+      "url": "https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer",
+      "title": "RVS_BasicGCDTimer - 1.3.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer\">RVS_BasicGCDTimer</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_BasicGCDTimer/releases/tag/1.3.2\">Version 1.3.2 release notes. </a></small></p><p>Basic GCD Timer Class</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer\">RiftValleySoftware/RVS_BasicGCDTimer</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer\">RVS_BasicGCDTimer</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_BasicGCDTimer/releases/tag/1.3.2\">Version 1.3.2 release notes. </a></small></p><p>Basic GCD Timer Class</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_BasicGCDTimer\">RiftValleySoftware/RVS_BasicGCDTimer</a></small></div>",
+      "date_published": "2021-06-16T20:50:36.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs",
+      "url": "https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs",
+      "title": "RVS_Persistent_Prefs - 1.2.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs\">RVS_Persistent_Prefs</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_PersistentPrefs/releases/tag/1.2.2\">Version 1.2.2 release notes. </a></small></p><p>A Simple Class For Basic Persistent Storage</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs\">RiftValleySoftware/RVS_PersistentPrefs</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs\">RVS_Persistent_Prefs</a><small> – <a href=\"https://github.com/RiftValleySoftware/RVS_PersistentPrefs/releases/tag/1.2.2\">Version 1.2.2 release notes. </a></small></p><p>A Simple Class For Basic Persistent Storage</p><small><a href=\"https://swiftpackageindex.com/RiftValleySoftware/RVS_PersistentPrefs\">RiftValleySoftware/RVS_PersistentPrefs</a></small></div>",
+      "date_published": "2021-06-16T18:47:03.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/denniscm190/StockCharts",
+      "url": "https://swiftpackageindex.com/denniscm190/StockCharts",
+      "title": "StockCharts - 1.2.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/denniscm190/StockCharts\">StockCharts</a><small> – <a href=\"https://github.com/denniscm190/StockCharts/releases/tag/1.2.3\">Version 1.2.3 release notes. </a></small></p><p>🎉 SwiftUI stock charts for iOS</p><small><a href=\"https://swiftpackageindex.com/denniscm190/StockCharts\">denniscm190/StockCharts</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/denniscm190/StockCharts\">StockCharts</a><small> – <a href=\"https://github.com/denniscm190/StockCharts/releases/tag/1.2.3\">Version 1.2.3 release notes. </a></small></p><p>🎉 SwiftUI stock charts for iOS</p><small><a href=\"https://swiftpackageindex.com/denniscm190/StockCharts\">denniscm190/StockCharts</a></small></div>",
+      "date_published": "2021-06-16T14:07:02.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kaandedeoglu/Shark",
+      "url": "https://swiftpackageindex.com/kaandedeoglu/Shark",
+      "title": "Shark - 1.3.7",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kaandedeoglu/Shark\">Shark</a><small> – <a href=\"https://github.com/kaandedeoglu/Shark/releases/tag/1.3.7\">Version 1.3.7 release notes. </a></small></p><p>Swift CLI for strong-typing images, colors, storyboards, fonts and localizations</p><small><a href=\"https://swiftpackageindex.com/kaandedeoglu/Shark\">kaandedeoglu/Shark</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kaandedeoglu/Shark\">Shark</a><small> – <a href=\"https://github.com/kaandedeoglu/Shark/releases/tag/1.3.7\">Version 1.3.7 release notes. </a></small></p><p>Swift CLI for strong-typing images, colors, storyboards, fonts and localizations</p><small><a href=\"https://swiftpackageindex.com/kaandedeoglu/Shark\">kaandedeoglu/Shark</a></small></div>",
+      "date_published": "2021-06-16T14:00:01.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mapbox/mapbox-directions-swift",
+      "url": "https://swiftpackageindex.com/mapbox/mapbox-directions-swift",
+      "title": "MapboxDirections - v2.0.0-beta.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-directions-swift\">MapboxDirections</a><small> – <a href=\"https://github.com/mapbox/mapbox-directions-swift/releases/tag/v2.0.0-beta.5\">Version v2.0.0-beta.5 release notes. </a></small></p><p>Traffic-aware directions and map matching in Swift on iOS, macOS, tvOS, watchOS, and Linux</p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-directions-swift\">mapbox/mapbox-directions-swift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-directions-swift\">MapboxDirections</a><small> – <a href=\"https://github.com/mapbox/mapbox-directions-swift/releases/tag/v2.0.0-beta.5\">Version v2.0.0-beta.5 release notes. </a></small></p><p>Traffic-aware directions and map matching in Swift on iOS, macOS, tvOS, watchOS, and Linux</p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-directions-swift\">mapbox/mapbox-directions-swift</a></small></div>",
+      "date_published": "2021-06-16T06:50:27.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/chris-araman/CombineCloudKit",
+      "url": "https://swiftpackageindex.com/chris-araman/CombineCloudKit",
+      "title": "CombineCloudKit - 0.5.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/chris-araman/CombineCloudKit\">CombineCloudKit</a><small> – <a href=\"https://github.com/chris-araman/CombineCloudKit/releases/tag/0.5.1\">Version 0.5.1 release notes. </a></small></p><p>🌤 Swift Combine extensions for asynchronous CloudKit record processing</p><small><a href=\"https://swiftpackageindex.com/chris-araman/CombineCloudKit\">chris-araman/CombineCloudKit</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/chris-araman/CombineCloudKit\">CombineCloudKit</a><small> – <a href=\"https://github.com/chris-araman/CombineCloudKit/releases/tag/0.5.1\">Version 0.5.1 release notes. </a></small></p><p>🌤 Swift Combine extensions for asynchronous CloudKit record processing</p><small><a href=\"https://swiftpackageindex.com/chris-araman/CombineCloudKit\">chris-araman/CombineCloudKit</a></small></div>",
+      "date_published": "2021-06-16T06:14:46.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/cbpowell/MarqueeLabel",
+      "url": "https://swiftpackageindex.com/cbpowell/MarqueeLabel",
+      "title": "MarqueeLabel - 4.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/cbpowell/MarqueeLabel\">MarqueeLabel</a><small> – <a href=\"https://github.com/cbpowell/MarqueeLabel/releases/tag/4.1.0\">Version 4.1.0 release notes. </a></small></p><p>A drop-in replacement for UILabel, which automatically adds a scrolling marquee effect when the label's text does not fit inside the specified frame</p><small><a href=\"https://swiftpackageindex.com/cbpowell/MarqueeLabel\">cbpowell/MarqueeLabel</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/cbpowell/MarqueeLabel\">MarqueeLabel</a><small> – <a href=\"https://github.com/cbpowell/MarqueeLabel/releases/tag/4.1.0\">Version 4.1.0 release notes. </a></small></p><p>A drop-in replacement for UILabel, which automatically adds a scrolling marquee effect when the label's text does not fit inside the specified frame</p><small><a href=\"https://swiftpackageindex.com/cbpowell/MarqueeLabel\">cbpowell/MarqueeLabel</a></small></div>",
+      "date_published": "2021-06-16T01:13:38.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/nicklockwood/SwiftFormat",
+      "url": "https://swiftpackageindex.com/nicklockwood/SwiftFormat",
+      "title": "SwiftFormat - 0.48.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/nicklockwood/SwiftFormat\">SwiftFormat</a><small> – <a href=\"https://github.com/nicklockwood/SwiftFormat/releases/tag/0.48.5\">Version 0.48.5 release notes. </a></small></p><p>A command-line tool and Xcode Extension for formatting Swift code</p><small><a href=\"https://swiftpackageindex.com/nicklockwood/SwiftFormat\">nicklockwood/SwiftFormat</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/nicklockwood/SwiftFormat\">SwiftFormat</a><small> – <a href=\"https://github.com/nicklockwood/SwiftFormat/releases/tag/0.48.5\">Version 0.48.5 release notes. </a></small></p><p>A command-line tool and Xcode Extension for formatting Swift code</p><small><a href=\"https://swiftpackageindex.com/nicklockwood/SwiftFormat\">nicklockwood/SwiftFormat</a></small></div>",
+      "date_published": "2021-06-15T23:07:32.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kasei/diomede",
+      "url": "https://swiftpackageindex.com/kasei/diomede",
+      "title": "Diomede - 0.0.62",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kasei/diomede\">Diomede</a><small> – <a href=\"https://github.com/kasei/diomede/releases/tag/0.0.62\">Version 0.0.62 release notes. </a></small></p><p>LMDB-based RDF Quadstore implemented in Swift</p><small><a href=\"https://swiftpackageindex.com/kasei/diomede\">kasei/diomede</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kasei/diomede\">Diomede</a><small> – <a href=\"https://github.com/kasei/diomede/releases/tag/0.0.62\">Version 0.0.62 release notes. </a></small></p><p>LMDB-based RDF Quadstore implemented in Swift</p><small><a href=\"https://swiftpackageindex.com/kasei/diomede\">kasei/diomede</a></small></div>",
+      "date_published": "2021-06-15T21:37:45.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/johnno1962/Remote",
+      "url": "https://swiftpackageindex.com/johnno1962/Remote",
+      "title": "RemotePlugin - 2.3.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/Remote\">RemotePlugin</a><small> – <a href=\"https://github.com/johnno1962/Remote/releases/tag/2.3.1\">Version 2.3.1 release notes. </a></small></p><p>Control your iPhone from inside Xcode for end-to-end testing.</p><small><a href=\"https://swiftpackageindex.com/johnno1962/Remote\">johnno1962/Remote</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/Remote\">RemotePlugin</a><small> – <a href=\"https://github.com/johnno1962/Remote/releases/tag/2.3.1\">Version 2.3.1 release notes. </a></small></p><p>Control your iPhone from inside Xcode for end-to-end testing.</p><small><a href=\"https://swiftpackageindex.com/johnno1962/Remote\">johnno1962/Remote</a></small></div>",
+      "date_published": "2021-06-15T21:21:41.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/johnno1962/HotReloading",
+      "url": "https://swiftpackageindex.com/johnno1962/HotReloading",
+      "title": "HotReloading - 1.8.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/HotReloading\">HotReloading</a><small> – <a href=\"https://github.com/johnno1962/HotReloading/releases/tag/1.8.5\">Version 1.8.5 release notes. </a></small></p><p>Hot reloading as a Swift Package</p><small><a href=\"https://swiftpackageindex.com/johnno1962/HotReloading\">johnno1962/HotReloading</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/HotReloading\">HotReloading</a><small> – <a href=\"https://github.com/johnno1962/HotReloading/releases/tag/1.8.5\">Version 1.8.5 release notes. </a></small></p><p>Hot reloading as a Swift Package</p><small><a href=\"https://swiftpackageindex.com/johnno1962/HotReloading\">johnno1962/HotReloading</a></small></div>",
+      "date_published": "2021-06-15T20:19:02.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/johnno1962/XprobePlugin",
+      "url": "https://swiftpackageindex.com/johnno1962/XprobePlugin",
+      "title": "XprobePlugin - 2.4.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/XprobePlugin\">XprobePlugin</a><small> – <a href=\"https://github.com/johnno1962/XprobePlugin/releases/tag/2.4.1\">Version 2.4.1 release notes. </a></small></p><p>Live Memory Browser for Apps &amp; Xcode</p><small><a href=\"https://swiftpackageindex.com/johnno1962/XprobePlugin\">johnno1962/XprobePlugin</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/XprobePlugin\">XprobePlugin</a><small> – <a href=\"https://github.com/johnno1962/XprobePlugin/releases/tag/2.4.1\">Version 2.4.1 release notes. </a></small></p><p>Live Memory Browser for Apps &amp; Xcode</p><small><a href=\"https://swiftpackageindex.com/johnno1962/XprobePlugin\">johnno1962/XprobePlugin</a></small></div>",
+      "date_published": "2021-06-15T19:41:08.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/johnno1962/SwiftTrace",
+      "url": "https://swiftpackageindex.com/johnno1962/SwiftTrace",
+      "title": "SwiftTrace - 7.4.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/SwiftTrace\">SwiftTrace</a><small> – <a href=\"https://github.com/johnno1962/SwiftTrace/releases/tag/7.4.3\">Version 7.4.3 release notes. </a></small></p><p>Trace Swift and Objective-C method invocations</p><small><a href=\"https://swiftpackageindex.com/johnno1962/SwiftTrace\">johnno1962/SwiftTrace</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/johnno1962/SwiftTrace\">SwiftTrace</a><small> – <a href=\"https://github.com/johnno1962/SwiftTrace/releases/tag/7.4.3\">Version 7.4.3 release notes. </a></small></p><p>Trace Swift and Objective-C method invocations</p><small><a href=\"https://swiftpackageindex.com/johnno1962/SwiftTrace\">johnno1962/SwiftTrace</a></small></div>",
+      "date_published": "2021-06-15T19:39:22.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/BranchMetrics/ios-spm",
+      "url": "https://swiftpackageindex.com/BranchMetrics/ios-spm",
+      "title": "Branch - 1.39.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/BranchMetrics/ios-spm\">Branch</a><small> – <a href=\"https://github.com/BranchMetrics/ios-spm/releases/tag/1.39.3\">Version 1.39.3 release notes. </a></small></p><p>Branch iOS SDK Swift Package Manager distribution</p><small><a href=\"https://swiftpackageindex.com/BranchMetrics/ios-spm\">BranchMetrics/ios-spm</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/BranchMetrics/ios-spm\">Branch</a><small> – <a href=\"https://github.com/BranchMetrics/ios-spm/releases/tag/1.39.3\">Version 1.39.3 release notes. </a></small></p><p>Branch iOS SDK Swift Package Manager distribution</p><small><a href=\"https://swiftpackageindex.com/BranchMetrics/ios-spm\">BranchMetrics/ios-spm</a></small></div>",
+      "date_published": "2021-06-15T16:39:51.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/taketo1024/swm-topology",
+      "url": "https://swiftpackageindex.com/taketo1024/swm-topology",
+      "title": "SwiftyTopology - 1.0.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-topology\">SwiftyTopology</a><small> – <a href=\"https://github.com/taketo1024/swm-topology/releases/tag/1.0.3\">Version 1.0.3 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-topology\">taketo1024/swm-topology</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-topology\">SwiftyTopology</a><small> – <a href=\"https://github.com/taketo1024/swm-topology/releases/tag/1.0.3\">Version 1.0.3 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-topology\">taketo1024/swm-topology</a></small></div>",
+      "date_published": "2021-06-15T15:18:52.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/taketo1024/swm-homology",
+      "url": "https://swiftpackageindex.com/taketo1024/swm-homology",
+      "title": "swm-homology - 1.3.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-homology\">swm-homology</a><small> – <a href=\"https://github.com/taketo1024/swm-homology/releases/tag/1.3.0\">Version 1.3.0 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-homology\">taketo1024/swm-homology</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-homology\">swm-homology</a><small> – <a href=\"https://github.com/taketo1024/swm-homology/releases/tag/1.3.0\">Version 1.3.0 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-homology\">taketo1024/swm-homology</a></small></div>",
+      "date_published": "2021-06-15T15:16:47.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/taketo1024/swm-core",
+      "url": "https://swiftpackageindex.com/taketo1024/swm-core",
+      "title": "swm-core - 1.2.6",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-core\">swm-core</a><small> – <a href=\"https://github.com/taketo1024/swm-core/releases/tag/1.2.6\">Version 1.2.6 release notes. </a></small></p><p>Pure Math in Pure Swift.</p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-core\">taketo1024/swm-core</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/taketo1024/swm-core\">swm-core</a><small> – <a href=\"https://github.com/taketo1024/swm-core/releases/tag/1.2.6\">Version 1.2.6 release notes. </a></small></p><p>Pure Math in Pure Swift.</p><small><a href=\"https://swiftpackageindex.com/taketo1024/swm-core\">taketo1024/swm-core</a></small></div>",
+      "date_published": "2021-06-15T14:31:03.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources",
+      "url": "https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources",
+      "title": "DataDrivenRxDatasources - 3.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources\">DataDrivenRxDatasources</a><small> – <a href=\"https://github.com/bigMOTOR/DataDrivenRxDatasources/releases/tag/3.0.0\">Version 3.0.0 release notes. </a></small></p><p>DataDrivenRxDatasources - MVVM abstraction boilerplate code over RxDataSources.</p><small><a href=\"https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources\">bigMOTOR/DataDrivenRxDatasources</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources\">DataDrivenRxDatasources</a><small> – <a href=\"https://github.com/bigMOTOR/DataDrivenRxDatasources/releases/tag/3.0.0\">Version 3.0.0 release notes. </a></small></p><p>DataDrivenRxDatasources - MVVM abstraction boilerplate code over RxDataSources.</p><small><a href=\"https://swiftpackageindex.com/bigMOTOR/DataDrivenRxDatasources\">bigMOTOR/DataDrivenRxDatasources</a></small></div>",
+      "date_published": "2021-06-15T14:05:13.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/ivlevAstef/DITranquillity",
+      "url": "https://swiftpackageindex.com/ivlevAstef/DITranquillity",
+      "title": "DITranquillity - v4.3.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/ivlevAstef/DITranquillity\">DITranquillity</a><small> – <a href=\"https://github.com/ivlevAstef/DITranquillity/releases/tag/v4.3.2\">Version v4.3.2 release notes. </a></small></p><p>Dependency injection for iOS (Swift)</p><small><a href=\"https://swiftpackageindex.com/ivlevAstef/DITranquillity\">ivlevAstef/DITranquillity</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/ivlevAstef/DITranquillity\">DITranquillity</a><small> – <a href=\"https://github.com/ivlevAstef/DITranquillity/releases/tag/v4.3.2\">Version v4.3.2 release notes. </a></small></p><p>Dependency injection for iOS (Swift)</p><small><a href=\"https://swiftpackageindex.com/ivlevAstef/DITranquillity\">ivlevAstef/DITranquillity</a></small></div>",
+      "date_published": "2021-06-15T07:58:45.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift",
+      "url": "https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift",
+      "title": "TensorFlowLiteSwift - 0.0.20210615",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift\">TensorFlowLiteSwift</a><small> – <a href=\"https://github.com/kewlbear/TensorflowLiteSwift/releases/tag/0.0.20210615\">Version 0.0.20210615 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift\">kewlbear/TensorFlowLiteSwift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift\">TensorFlowLiteSwift</a><small> – <a href=\"https://github.com/kewlbear/TensorflowLiteSwift/releases/tag/0.0.20210615\">Version 0.0.20210615 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/kewlbear/TensorFlowLiteSwift\">kewlbear/TensorFlowLiteSwift</a></small></div>",
+      "date_published": "2021-06-15T03:48:19.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/realm/realm-cocoa",
+      "url": "https://swiftpackageindex.com/realm/realm-cocoa",
+      "title": "Realm - v10.8.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/realm/realm-cocoa\">Realm</a><small> – <a href=\"https://github.com/realm/realm-cocoa/releases/tag/v10.8.0\">Version v10.8.0 release notes. </a></small></p><p>Realm is a mobile database: a replacement for Core Data &amp; SQLite</p><small><a href=\"https://swiftpackageindex.com/realm/realm-cocoa\">realm/realm-cocoa</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/realm/realm-cocoa\">Realm</a><small> – <a href=\"https://github.com/realm/realm-cocoa/releases/tag/v10.8.0\">Version v10.8.0 release notes. </a></small></p><p>Realm is a mobile database: a replacement for Core Data &amp; SQLite</p><small><a href=\"https://swiftpackageindex.com/realm/realm-cocoa\">realm/realm-cocoa</a></small></div>",
+      "date_published": "2021-06-14T23:18:16.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/sloik/OptionalAPI",
+      "url": "https://swiftpackageindex.com/sloik/OptionalAPI",
+      "title": "OptionalAPI - 2.3.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/sloik/OptionalAPI\">OptionalAPI</a><small> – <a href=\"https://github.com/sloik/OptionalAPI/releases/tag/2.3.5\">Version 2.3.5 release notes. </a></small></p><p>Optional extensions for Swift Optional Monad... use it or not... it's optional.</p><small><a href=\"https://swiftpackageindex.com/sloik/OptionalAPI\">sloik/OptionalAPI</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/sloik/OptionalAPI\">OptionalAPI</a><small> – <a href=\"https://github.com/sloik/OptionalAPI/releases/tag/2.3.5\">Version 2.3.5 release notes. </a></small></p><p>Optional extensions for Swift Optional Monad... use it or not... it's optional.</p><small><a href=\"https://swiftpackageindex.com/sloik/OptionalAPI\">sloik/OptionalAPI</a></small></div>",
+      "date_published": "2021-06-14T20:28:33.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/sebj/swiftui-matched-inline-title",
+      "url": "https://swiftpackageindex.com/sebj/swiftui-matched-inline-title",
+      "title": "swiftui-matched-inline-title - 0.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/sebj/swiftui-matched-inline-title\">swiftui-matched-inline-title</a><small> – <a href=\"https://github.com/sebj/swiftui-matched-inline-title/releases/tag/0.1.0\">Version 0.1.0 release notes. </a></small></p><div><p><g-emoji class=\"g-emoji\" alias=\"rocket\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f680.png\">🚀</g-emoji></p></div><small><a href=\"https://swiftpackageindex.com/sebj/swiftui-matched-inline-title\">sebj/swiftui-matched-inline-title</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/sebj/swiftui-matched-inline-title\">swiftui-matched-inline-title</a><small> – <a href=\"https://github.com/sebj/swiftui-matched-inline-title/releases/tag/0.1.0\">Version 0.1.0 release notes. </a></small></p><p>Transition from any SwiftUI Text view into an inline navigation bar title when the view is scrolled off-screen, as seen in Apple's TV &amp; TestFlight iOS apps.</p><small><a href=\"https://swiftpackageindex.com/sebj/swiftui-matched-inline-title\">sebj/swiftui-matched-inline-title</a></small></div>",
+      "date_published": "2021-06-14T19:29:28.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/danramteke/swish",
+      "url": "https://swiftpackageindex.com/danramteke/swish",
+      "title": "Swish - 0.9.8",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/danramteke/swish\">Swish</a><small> – <a href=\"https://github.com/danramteke/swish/releases/tag/0.9.8\">Version 0.9.8 release notes. </a></small></p><p> Who wants to use a Ruby script to upload your iOS project? Not me. Let's use Swift.</p><small><a href=\"https://swiftpackageindex.com/danramteke/swish\">danramteke/swish</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/danramteke/swish\">Swish</a><small> – <a href=\"https://github.com/danramteke/swish/releases/tag/0.9.8\">Version 0.9.8 release notes. </a></small></p><p> Who wants to use a Ruby script to upload your iOS project? Not me. Let's use Swift.</p><small><a href=\"https://swiftpackageindex.com/danramteke/swish\">danramteke/swish</a></small></div>",
+      "date_published": "2021-06-14T18:03:06.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/danramteke/MPath",
+      "url": "https://swiftpackageindex.com/danramteke/MPath",
+      "title": "MPath - 0.9.10",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/danramteke/MPath\">MPath</a><small> – <a href=\"https://github.com/danramteke/MPath/releases/tag/0.9.10\">Version 0.9.10 release notes. </a></small></p><p>Another Path library in Swift</p><small><a href=\"https://swiftpackageindex.com/danramteke/MPath\">danramteke/MPath</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/danramteke/MPath\">MPath</a><small> – <a href=\"https://github.com/danramteke/MPath/releases/tag/0.9.10\">Version 0.9.10 release notes. </a></small></p><p>Another Path library in Swift</p><small><a href=\"https://swiftpackageindex.com/danramteke/MPath\">danramteke/MPath</a></small></div>",
+      "date_published": "2021-06-14T17:39:37.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/tannerdsilva/SwiftSlash",
+      "url": "https://swiftpackageindex.com/tannerdsilva/SwiftSlash",
+      "title": "SwiftSlash - 2.1.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/tannerdsilva/SwiftSlash\">SwiftSlash</a><small> – <a href=\"https://github.com/tannerdsilva/SwiftSlash/releases/tag/2.1.1\">Version 2.1.1 release notes. </a></small></p><p>Concurrent shell scripting framework for Swift on Linux.</p><small><a href=\"https://swiftpackageindex.com/tannerdsilva/SwiftSlash\">tannerdsilva/SwiftSlash</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/tannerdsilva/SwiftSlash\">SwiftSlash</a><small> – <a href=\"https://github.com/tannerdsilva/SwiftSlash/releases/tag/2.1.1\">Version 2.1.1 release notes. </a></small></p><p>Concurrent shell scripting framework for Swift on Linux.</p><small><a href=\"https://swiftpackageindex.com/tannerdsilva/SwiftSlash\">tannerdsilva/SwiftSlash</a></small></div>",
+      "date_published": "2021-06-14T15:44:15.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess",
+      "url": "https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess",
+      "title": "SwiftySandboxFileAccess - 2.0.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess\">SwiftySandboxFileAccess</a><small> – <a href=\"https://github.com/ConfusedVorlon/SwiftySandboxFileAccess/releases/tag/2.0.2\">Version 2.0.2 release notes. </a></small></p><p>A class that wraps up writing and accessing files outside a Mac apps App Sandbox files into a simple interface. The class will request permission from the user with a simple to understand dialog consistent with Apple's documentation and persist permissions across application runs.</p><small><a href=\"https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess\">ConfusedVorlon/SwiftySandboxFileAccess</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess\">SwiftySandboxFileAccess</a><small> – <a href=\"https://github.com/ConfusedVorlon/SwiftySandboxFileAccess/releases/tag/2.0.2\">Version 2.0.2 release notes. </a></small></p><p>A class that wraps up writing and accessing files outside a Mac apps App Sandbox files into a simple interface. The class will request permission from the user with a simple to understand dialog consistent with Apple's documentation and persist permissions across application runs.</p><small><a href=\"https://swiftpackageindex.com/ConfusedVorlon/SwiftySandboxFileAccess\">ConfusedVorlon/SwiftySandboxFileAccess</a></small></div>",
+      "date_published": "2021-06-14T15:43:26.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/pointfreeco/swift-composable-architecture",
+      "url": "https://swiftpackageindex.com/pointfreeco/swift-composable-architecture",
+      "title": "swift-composable-architecture - 0.19.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/pointfreeco/swift-composable-architecture\">swift-composable-architecture</a><small> – <a href=\"https://github.com/pointfreeco/swift-composable-architecture/releases/tag/0.19.0\">Version 0.19.0 release notes. </a></small></p><p>A library for building applications in a consistent and understandable way, with composition, testing, and ergonomics in mind.</p><small><a href=\"https://swiftpackageindex.com/pointfreeco/swift-composable-architecture\">pointfreeco/swift-composable-architecture</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/pointfreeco/swift-composable-architecture\">swift-composable-architecture</a><small> – <a href=\"https://github.com/pointfreeco/swift-composable-architecture/releases/tag/0.19.0\">Version 0.19.0 release notes. </a></small></p><p>A library for building applications in a consistent and understandable way, with composition, testing, and ergonomics in mind.</p><small><a href=\"https://swiftpackageindex.com/pointfreeco/swift-composable-architecture\">pointfreeco/swift-composable-architecture</a></small></div>",
+      "date_published": "2021-06-14T14:53:01.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Flight-School/AnyCodable",
+      "url": "https://swiftpackageindex.com/Flight-School/AnyCodable",
+      "title": "AnyCodable - 0.6.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Flight-School/AnyCodable\">AnyCodable</a><small> – <a href=\"https://github.com/flight-school/anycodable/releases/tag/0.6.1\">Version 0.6.1 release notes. </a></small></p><p>Type-erased wrappers for Encodable, Decodable, and Codable values</p><small><a href=\"https://swiftpackageindex.com/Flight-School/AnyCodable\">Flight-School/AnyCodable</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Flight-School/AnyCodable\">AnyCodable</a><small> – <a href=\"https://github.com/flight-school/anycodable/releases/tag/0.6.1\">Version 0.6.1 release notes. </a></small></p><p>Type-erased wrappers for Encodable, Decodable, and Codable values</p><small><a href=\"https://swiftpackageindex.com/Flight-School/AnyCodable\">Flight-School/AnyCodable</a></small></div>",
+      "date_published": "2021-06-14T14:32:03.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios",
+      "url": "https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios",
+      "title": "MapboxCoreMaps - v10.0.0-rc.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios\">MapboxCoreMaps</a><small> – <a href=\"https://github.com/mapbox/mapbox-core-maps-ios/releases/tag/v10.0.0-rc.2\">Version v10.0.0-rc.2 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios\">mapbox/mapbox-core-maps-ios</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios\">MapboxCoreMaps</a><small> – <a href=\"https://github.com/mapbox/mapbox-core-maps-ios/releases/tag/v10.0.0-rc.2\">Version v10.0.0-rc.2 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/mapbox/mapbox-core-maps-ios\">mapbox/mapbox-core-maps-ios</a></small></div>",
+      "date_published": "2021-06-14T14:24:41.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Ast3r10n/async-image-fetcher",
+      "url": "https://swiftpackageindex.com/Ast3r10n/async-image-fetcher",
+      "title": "AsyncImageFetcher - 0.0.5",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Ast3r10n/async-image-fetcher\">AsyncImageFetcher</a><small> – <a href=\"https://github.com/Ast3r10n/async-image-fetcher/releases/tag/0.0.5\">Version 0.0.5 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/Ast3r10n/async-image-fetcher\">Ast3r10n/async-image-fetcher</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Ast3r10n/async-image-fetcher\">AsyncImageFetcher</a><small> – <a href=\"https://github.com/Ast3r10n/async-image-fetcher/releases/tag/0.0.5\">Version 0.0.5 release notes. </a></small></p><p></p><small><a href=\"https://swiftpackageindex.com/Ast3r10n/async-image-fetcher\">Ast3r10n/async-image-fetcher</a></small></div>",
+      "date_published": "2021-06-14T14:04:10.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/realm/realm-core",
+      "url": "https://swiftpackageindex.com/realm/realm-core",
+      "title": "RealmDatabase - v11.0.3",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/realm/realm-core\">RealmDatabase</a><small> – <a href=\"https://github.com/realm/realm-core/releases/tag/v11.0.3\">Version v11.0.3 release notes. </a></small></p><p>Core database component for the Realm Mobile Database SDKs</p><small><a href=\"https://swiftpackageindex.com/realm/realm-core\">realm/realm-core</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/realm/realm-core\">RealmDatabase</a><small> – <a href=\"https://github.com/realm/realm-core/releases/tag/v11.0.3\">Version v11.0.3 release notes. </a></small></p><p>Core database component for the Realm Mobile Database SDKs</p><small><a href=\"https://swiftpackageindex.com/realm/realm-core\">realm/realm-core</a></small></div>",
+      "date_published": "2021-06-14T14:00:49.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/k-o-d-e-n/ScreenUI",
+      "url": "https://swiftpackageindex.com/k-o-d-e-n/ScreenUI",
+      "title": "ScreenUI - 1.1.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/k-o-d-e-n/ScreenUI\">ScreenUI</a><small> – <a href=\"https://github.com/k-o-d-e-n/ScreenUI/releases/tag/1.1.1\">Version 1.1.1 release notes. </a></small></p><p>A multi-platform, multi-paradigm routing framework.</p><small><a href=\"https://swiftpackageindex.com/k-o-d-e-n/ScreenUI\">k-o-d-e-n/ScreenUI</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/k-o-d-e-n/ScreenUI\">ScreenUI</a><small> – <a href=\"https://github.com/k-o-d-e-n/ScreenUI/releases/tag/1.1.1\">Version 1.1.1 release notes. </a></small></p><p>A multi-platform, multi-paradigm routing framework.</p><small><a href=\"https://swiftpackageindex.com/k-o-d-e-n/ScreenUI\">k-o-d-e-n/ScreenUI</a></small></div>",
+      "date_published": "2021-06-14T13:15:37.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/fastlane/fastlane",
+      "url": "https://swiftpackageindex.com/fastlane/fastlane",
+      "title": "Fastlane - 2.185.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/fastlane/fastlane\">Fastlane</a><small> – <a href=\"https://github.com/fastlane/fastlane/releases/tag/2.185.1\">Version 2.185.1 release notes. </a></small></p><p>🚀 The easiest way to automate building and releasing your iOS and Android apps</p><small><a href=\"https://swiftpackageindex.com/fastlane/fastlane\">fastlane/fastlane</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/fastlane/fastlane\">Fastlane</a><small> – <a href=\"https://github.com/fastlane/fastlane/releases/tag/2.185.1\">Version 2.185.1 release notes. </a></small></p><p>🚀 The easiest way to automate building and releasing your iOS and Android apps</p><small><a href=\"https://swiftpackageindex.com/fastlane/fastlane\">fastlane/fastlane</a></small></div>",
+      "date_published": "2021-06-14T12:33:19.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/unsignedapps/Vexil",
+      "url": "https://swiftpackageindex.com/unsignedapps/Vexil",
+      "title": "Vexil - v1.4.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/unsignedapps/Vexil\">Vexil</a><small> – <a href=\"https://github.com/unsignedapps/Vexil/releases/tag/v1.4.0\">Version v1.4.0 release notes. </a></small></p><p>Vexil (named for Vexillology) is a Swift package for managing feature flags (also called feature toggles) in a flexible, multi-provider way.</p><small><a href=\"https://swiftpackageindex.com/unsignedapps/Vexil\">unsignedapps/Vexil</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/unsignedapps/Vexil\">Vexil</a><small> – <a href=\"https://github.com/unsignedapps/Vexil/releases/tag/v1.4.0\">Version v1.4.0 release notes. </a></small></p><p>Vexil (named for Vexillology) is a Swift package for managing feature flags (also called feature toggles) in a flexible, multi-provider way.</p><small><a href=\"https://swiftpackageindex.com/unsignedapps/Vexil\">unsignedapps/Vexil</a></small></div>",
+      "date_published": "2021-06-14T11:36:12.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/JohnSundell/Splash",
+      "url": "https://swiftpackageindex.com/JohnSundell/Splash",
+      "title": "Splash - 0.16.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/JohnSundell/Splash\">Splash</a><small> – <a href=\"https://github.com/JohnSundell/Splash/releases/tag/0.16.0\">Version 0.16.0 release notes. </a></small></p><p>A fast, lightweight and flexible Swift syntax highlighter for blogs, tools and fun!</p><small><a href=\"https://swiftpackageindex.com/JohnSundell/Splash\">JohnSundell/Splash</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/JohnSundell/Splash\">Splash</a><small> – <a href=\"https://github.com/JohnSundell/Splash/releases/tag/0.16.0\">Version 0.16.0 release notes. </a></small></p><p>A fast, lightweight and flexible Swift syntax highlighter for blogs, tools and fun!</p><small><a href=\"https://swiftpackageindex.com/JohnSundell/Splash\">JohnSundell/Splash</a></small></div>",
+      "date_published": "2021-06-14T11:03:57.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine",
+      "url": "https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine",
+      "title": "SDGCommandLine - 1.7.4",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine\">SDGCommandLine</a><small> – <a href=\"https://github.com/SDGGiesbrecht/SDGCommandLine/releases/tag/1.7.4\">Version 1.7.4 release notes. </a></small></p><p>Tools for Implementing a Command Line Interface</p><small><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine\">SDGGiesbrecht/SDGCommandLine</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine\">SDGCommandLine</a><small> – <a href=\"https://github.com/SDGGiesbrecht/SDGCommandLine/releases/tag/1.7.4\">Version 1.7.4 release notes. </a></small></p><p>Tools for Implementing a Command Line Interface</p><small><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGCommandLine\">SDGGiesbrecht/SDGCommandLine</a></small></div>",
+      "date_published": "2021-06-13T23:34:07.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/mczachurski/Swiftgger",
+      "url": "https://swiftpackageindex.com/mczachurski/Swiftgger",
+      "title": "Swiftgger - 2.0.0-rc1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/mczachurski/Swiftgger\">Swiftgger</a><small> – <a href=\"https://github.com/mczachurski/Swiftgger/releases/tag/2.0.0-rc1\">Version 2.0.0-rc1 release notes. </a></small></p><p>OpenAPI support for server side Swift projects.</p><small><a href=\"https://swiftpackageindex.com/mczachurski/Swiftgger\">mczachurski/Swiftgger</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/mczachurski/Swiftgger\">Swiftgger</a><small> – <a href=\"https://github.com/mczachurski/Swiftgger/releases/tag/2.0.0-rc1\">Version 2.0.0-rc1 release notes. </a></small></p><p>OpenAPI support for server side Swift projects.</p><small><a href=\"https://swiftpackageindex.com/mczachurski/Swiftgger\">mczachurski/Swiftgger</a></small></div>",
+      "date_published": "2021-06-13T17:10:45.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout",
+      "url": "https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout",
+      "title": "CollectionViewPagingLayout - 1.0.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout\">CollectionViewPagingLayout</a><small> – <a href=\"https://github.com/amirdew/CollectionViewPagingLayout/releases/tag/1.0.2\">Version 1.0.2 release notes. </a></small></p><p>A simple but highly customizable UICollectionViewLayout for UICollectionView -- Simple SwiftUI views that let you make page-view effects.</p><small><a href=\"https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout\">amirdew/CollectionViewPagingLayout</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout\">CollectionViewPagingLayout</a><small> – <a href=\"https://github.com/amirdew/CollectionViewPagingLayout/releases/tag/1.0.2\">Version 1.0.2 release notes. </a></small></p><p>A simple but highly customizable UICollectionViewLayout for UICollectionView -- Simple SwiftUI views that let you make page-view effects.</p><small><a href=\"https://swiftpackageindex.com/amirdew/CollectionViewPagingLayout\">amirdew/CollectionViewPagingLayout</a></small></div>",
+      "date_published": "2021-06-13T16:04:03.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/witekbobrowski/EPUBKit",
+      "url": "https://swiftpackageindex.com/witekbobrowski/EPUBKit",
+      "title": "EPUBKit - 0.4.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/witekbobrowski/EPUBKit\">EPUBKit</a><small> – <a href=\"https://github.com/witekbobrowski/EPUBKit/releases/tag/0.4.0\">Version 0.4.0 release notes. </a></small></p><p>📚 A simple Swift library for parsing EPUB documents</p><small><a href=\"https://swiftpackageindex.com/witekbobrowski/EPUBKit\">witekbobrowski/EPUBKit</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/witekbobrowski/EPUBKit\">EPUBKit</a><small> – <a href=\"https://github.com/witekbobrowski/EPUBKit/releases/tag/0.4.0\">Version 0.4.0 release notes. </a></small></p><p>📚 A simple Swift library for parsing EPUB documents</p><small><a href=\"https://swiftpackageindex.com/witekbobrowski/EPUBKit\">witekbobrowski/EPUBKit</a></small></div>",
+      "date_published": "2021-06-13T15:58:11.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/kaishin/Gifu",
+      "url": "https://swiftpackageindex.com/kaishin/Gifu",
+      "title": "Gifu - v3.3.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/kaishin/Gifu\">Gifu</a><small> – <a href=\"https://github.com/kaishin/Gifu/releases/tag/v3.3.1\">Version v3.3.1 release notes. </a></small></p><p>High-performance animated GIF support for iOS in Swift</p><small><a href=\"https://swiftpackageindex.com/kaishin/Gifu\">kaishin/Gifu</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/kaishin/Gifu\">Gifu</a><small> – <a href=\"https://github.com/kaishin/Gifu/releases/tag/v3.3.1\">Version v3.3.1 release notes. </a></small></p><p>High-performance animated GIF support for iOS in Swift</p><small><a href=\"https://swiftpackageindex.com/kaishin/Gifu\">kaishin/Gifu</a></small></div>",
+      "date_published": "2021-06-13T10:34:59.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/dunesailer/Aesthete",
+      "url": "https://swiftpackageindex.com/dunesailer/Aesthete",
+      "title": "Aesthete - 1.2.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/dunesailer/Aesthete\">Aesthete</a><small> – <a href=\"https://github.com/dunesailer/Aesthete/releases/tag/1.2.0\">Version 1.2.0 release notes. </a></small></p><p>A Swift package from Dunesailer Research for working with aesthetic concepts</p><small><a href=\"https://swiftpackageindex.com/dunesailer/Aesthete\">dunesailer/Aesthete</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/dunesailer/Aesthete\">Aesthete</a><small> – <a href=\"https://github.com/dunesailer/Aesthete/releases/tag/1.2.0\">Version 1.2.0 release notes. </a></small></p><p>A Swift package from Dunesailer Research for working with aesthetic concepts</p><small><a href=\"https://swiftpackageindex.com/dunesailer/Aesthete\">dunesailer/Aesthete</a></small></div>",
+      "date_published": "2021-06-13T04:39:47.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/arguiot/Euler",
+      "url": "https://swiftpackageindex.com/arguiot/Euler",
+      "title": "Euler - v0.3.6",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/arguiot/Euler\">Euler</a><small> – <a href=\"https://github.com/arguiot/Euler/releases/tag/v0.3.6\">Version v0.3.6 release notes. </a></small></p><p>The open-source computational framework for the Swift language</p><small><a href=\"https://swiftpackageindex.com/arguiot/Euler\">arguiot/Euler</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/arguiot/Euler\">Euler</a><small> – <a href=\"https://github.com/arguiot/Euler/releases/tag/v0.3.6\">Version v0.3.6 release notes. </a></small></p><p>The open-source computational framework for the Swift language</p><small><a href=\"https://swiftpackageindex.com/arguiot/Euler\">arguiot/Euler</a></small></div>",
+      "date_published": "2021-06-13T00:13:11.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/rhx/SwiftGObject",
+      "url": "https://swiftpackageindex.com/rhx/SwiftGObject",
+      "title": "GLibObject - 2.68.2",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/rhx/SwiftGObject\">GLibObject</a><small> – <a href=\"https://github.com/rhx/swiftgobject/releases/tag/2.68.2\">Version 2.68.2 release notes. </a></small></p><p>A wrapper around gobject-2.x for the Swift Package Manager</p><small><a href=\"https://swiftpackageindex.com/rhx/SwiftGObject\">rhx/SwiftGObject</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/rhx/SwiftGObject\">GLibObject</a><small> – <a href=\"https://github.com/rhx/swiftgobject/releases/tag/2.68.2\">Version 2.68.2 release notes. </a></small></p><p>A wrapper around gobject-2.x for the Swift Package Manager</p><small><a href=\"https://swiftpackageindex.com/rhx/SwiftGObject\">rhx/SwiftGObject</a></small></div>",
+      "date_published": "2021-06-12T22:11:02.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/gonzalezreal/DefaultCodable",
+      "url": "https://swiftpackageindex.com/gonzalezreal/DefaultCodable",
+      "title": "DefaultCodable - 1.2.1",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/gonzalezreal/DefaultCodable\">DefaultCodable</a><small> – <a href=\"https://github.com/gonzalezreal/DefaultCodable/releases/tag/1.2.1\">Version 1.2.1 release notes. </a></small></p><p>A convenient way to handle default values with Swift Codable types</p><small><a href=\"https://swiftpackageindex.com/gonzalezreal/DefaultCodable\">gonzalezreal/DefaultCodable</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/gonzalezreal/DefaultCodable\">DefaultCodable</a><small> – <a href=\"https://github.com/gonzalezreal/DefaultCodable/releases/tag/1.2.1\">Version 1.2.1 release notes. </a></small></p><p>A convenient way to handle default values with Swift Codable types</p><small><a href=\"https://swiftpackageindex.com/gonzalezreal/DefaultCodable\">gonzalezreal/DefaultCodable</a></small></div>",
+      "date_published": "2021-06-12T17:06:29.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/tsolomko/SWCompression",
+      "url": "https://swiftpackageindex.com/tsolomko/SWCompression",
+      "title": "SWCompression - 4.5.11",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/tsolomko/SWCompression\">SWCompression</a><small> – <a href=\"https://github.com/tsolomko/SWCompression/releases/tag/4.5.11\">Version 4.5.11 release notes. </a></small></p><p>A Swift framework for working with compression, archives and containers.</p><small><a href=\"https://swiftpackageindex.com/tsolomko/SWCompression\">tsolomko/SWCompression</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/tsolomko/SWCompression\">SWCompression</a><small> – <a href=\"https://github.com/tsolomko/SWCompression/releases/tag/4.5.11\">Version 4.5.11 release notes. </a></small></p><p>A Swift framework for working with compression, archives and containers.</p><small><a href=\"https://swiftpackageindex.com/tsolomko/SWCompression\">tsolomko/SWCompression</a></small></div>",
+      "date_published": "2021-06-12T15:50:54.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/Thomvis/BrightFutures",
+      "url": "https://swiftpackageindex.com/Thomvis/BrightFutures",
+      "title": "BrightFutures - 8.1.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/Thomvis/BrightFutures\">BrightFutures</a><small> – <a href=\"https://github.com/Thomvis/BrightFutures/releases/tag/8.1.0\">Version 8.1.0 release notes. </a></small></p><p>Write great asynchronous code in Swift using futures and promises</p><small><a href=\"https://swiftpackageindex.com/Thomvis/BrightFutures\">Thomvis/BrightFutures</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/Thomvis/BrightFutures\">BrightFutures</a><small> – <a href=\"https://github.com/Thomvis/BrightFutures/releases/tag/8.1.0\">Version 8.1.0 release notes. </a></small></p><p>Write great asynchronous code in Swift using futures and promises</p><small><a href=\"https://swiftpackageindex.com/Thomvis/BrightFutures\">Thomvis/BrightFutures</a></small></div>",
+      "date_published": "2021-06-12T15:45:45.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/SwiftRex/SwiftRex",
+      "url": "https://swiftpackageindex.com/SwiftRex/SwiftRex",
+      "title": "SwiftRex - v0.8.6",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/SwiftRex/SwiftRex\">SwiftRex</a><small> – <a href=\"https://github.com/SwiftRex/SwiftRex/releases/tag/v0.8.6\">Version v0.8.6 release notes. </a></small></p><p>Swift + Redux + (Combine|RxSwift|ReactiveSwift) -&gt; SwiftRex</p><small><a href=\"https://swiftpackageindex.com/SwiftRex/SwiftRex\">SwiftRex/SwiftRex</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/SwiftRex/SwiftRex\">SwiftRex</a><small> – <a href=\"https://github.com/SwiftRex/SwiftRex/releases/tag/v0.8.6\">Version v0.8.6 release notes. </a></small></p><p>Swift + Redux + (Combine|RxSwift|ReactiveSwift) -&gt; SwiftRex</p><small><a href=\"https://swiftpackageindex.com/SwiftRex/SwiftRex\">SwiftRex/SwiftRex</a></small></div>",
+      "date_published": "2021-06-12T11:26:48.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/adam-fowler/mqtt-nio",
+      "url": "https://swiftpackageindex.com/adam-fowler/mqtt-nio",
+      "title": "mqtt-nio - 1.3.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/adam-fowler/mqtt-nio\">mqtt-nio</a><small> – <a href=\"https://github.com/adam-fowler/mqtt-nio/releases/tag/1.3.0\">Version 1.3.0 release notes. </a></small></p><p>A Swift NIO MQTT 3.1.1 Client</p><small><a href=\"https://swiftpackageindex.com/adam-fowler/mqtt-nio\">adam-fowler/mqtt-nio</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/adam-fowler/mqtt-nio\">mqtt-nio</a><small> – <a href=\"https://github.com/adam-fowler/mqtt-nio/releases/tag/1.3.0\">Version 1.3.0 release notes. </a></small></p><p>A Swift NIO MQTT 3.1.1 Client</p><small><a href=\"https://swiftpackageindex.com/adam-fowler/mqtt-nio\">adam-fowler/mqtt-nio</a></small></div>",
+      "date_published": "2021-06-12T08:49:05.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/dagronf/VIViewInvalidating",
+      "url": "https://swiftpackageindex.com/dagronf/VIViewInvalidating",
+      "title": "VIViewInvalidating - 1.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/dagronf/VIViewInvalidating\">VIViewInvalidating</a><small> – <a href=\"https://github.com/dagronf/VIViewInvalidating/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><p>A swift PropertyWrapper providing automatic NSView and UIView invalidation when the properties value changes.</p><small><a href=\"https://swiftpackageindex.com/dagronf/VIViewInvalidating\">dagronf/VIViewInvalidating</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/dagronf/VIViewInvalidating\">VIViewInvalidating</a><small> – <a href=\"https://github.com/dagronf/VIViewInvalidating/releases/tag/1.0.0\">Version 1.0.0 release notes. </a></small></p><p>A swift PropertyWrapper providing automatic NSView and UIView invalidation when the properties value changes.</p><small><a href=\"https://swiftpackageindex.com/dagronf/VIViewInvalidating\">dagronf/VIViewInvalidating</a></small></div>",
+      "date_published": "2021-06-12T02:17:12.000Z"
+    },
+    {
+      "guid": "https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift",
+      "url": "https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift",
+      "title": "SDGSwift - 7.0.0",
+      "content_html": "<div><p><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift\">SDGSwift</a><small> – <a href=\"https://github.com/SDGGiesbrecht/SDGSwift/releases/tag/7.0.0\">Version 7.0.0 release notes. </a></small></p><p>The Swift Compiler As a Package</p><small><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift\">SDGGiesbrecht/SDGSwift</a></small></div>",
+      "summary": "<div><p><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift\">SDGSwift</a><small> – <a href=\"https://github.com/SDGGiesbrecht/SDGSwift/releases/tag/7.0.0\">Version 7.0.0 release notes. </a></small></p><p>The Swift Compiler As a Package</p><small><a href=\"https://swiftpackageindex.com/SDGGiesbrecht/SDGSwift\">SDGGiesbrecht/SDGSwift</a></small></div>",
+      "date_published": "2021-06-12T02:13:57.000Z"
+    }
+  ]
+}

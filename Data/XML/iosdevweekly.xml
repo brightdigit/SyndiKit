@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iOS Dev Weekly</title>
+    <description>Subscribe to a hand-picked round-up of the best iOS development links every week. Curated by Dave Verwer and published every Friday. Free.</description>
+    <link>https://iosdevweekly.com/issues</link>
+    <lastBuildDate>Fri, 18 Jun 2021 20:26:39 +0100</lastBuildDate>
+    <atom:link href="https://iosdevweekly.com/issues.rss" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>iOS Dev Weekly - Issue 512 - Jun 18th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>I didn’t know quite how to feel as I watched <a href="https://cur.at/mjs0Kr9?m=rss">Kieran Senior</a> talk about <a href="https://cur.at/IfL4uAK?m=rss">reviewing code and dealing with pull requests inside Xcode</a> this week. At first, I was nothing but impressed when I realised Xcode now integrates with both GitHub and BitBucket pull requests natively inside Xcode. I want to review code this way! The web-based representation of a pull request on GitHub is good, but it’ll never compete with looking code in Xcode.</p>
+
+<p>So, I opened up <a href="https://cur.at/fzRszYK?m=rss">a project</a> in Xcode 13, and sure enough, my active pull requests with comments, approvals, and everything else are all available. It’s a great implementation, and I’d love to send my congratulations to everyone involved.</p>
+
+<p>Yet, I also realised I would probably never use the feature again after testing it. 😰 If you’re anything like me, source control isn’t just for files edited by Xcode. I interact with git in every project I work on, and Xcode is only the best tool for Swift projects. If I need a standalone tool to work with git, I don’t want to learn the one inside Xcode as well, no matter how good it is. I only have limited brainpower, and I’m can only master one source control tool.</p>
+
+<p>This is the dilemma of building an IDE vs a set of standalone tools, and knowing where to draw the line is tricky. Do I want my debugger as part of my IDE? Definitely. Do I want my interface layout tool in the IDE? Again, you probably do. Do I want source control? For me, it’s a no, and I’d guess I’m not alone. It’s a balancing act, and Xcode has been heading towards integrated IDE and away from being a <a href="https://cur.at/1DVKwct?m=rss">collection of standalone tools</a> for a long time.</p>
+
+<p>If Apple had made this a standalone tool that worked well with Xcode rather than as a part of it, would it have pulled me away from my <a href="https://cur.at/SHgpa8M?m=rss">source code control tool of choice</a>? Maybe!</p>
+
+<p>I think we can all agree it’s a well-implemented feature, but I can see how things happened this way. Making a whole new tool is a much bigger decision than enhancing a feature in an existing product. A new tool needs a new team, and that team has to justify its existence. They wouldn’t try and sell a tool like this, so why make it? Yes, maybe it would bring people who didn’t do native development to their developer tool, but it’s far from a straightforward decision.</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/sjIVdh3?m=rss">Mac Remote Desktops from MacStadium &amp; Teradici</a></h4>
+        <p>MacStadium, the developer cloud for Mac, has partnered with the creator of PCoIP® technology, Teradici, to enable high-performance remote access for Mac use cases, including automating CI/CD pipelines, improving testing, and bringing Mac desktops to wherever they're needed. Launching later this summer, <a href="https://cur.at/bM6JMLE?m=rss">sign up now to get release updates</a>.</p>
+          <p><a href="https://cur.at/sjIVdh3?m=rss">macstadium.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/YZxC1Tt?m=rss">The WWDC21 Developer Survey</a></h4>
+        <p>What did you think of this year's WWDC? But, more importantly, how do you think Apple should operate next year's conference? Online only? In-person? Apple is asking your opinions, so this is your chance to be heard.</p>
+
+<p><strong>Note:</strong> This survey has already been available for almost a week, so I'm unsure how long it will remain open. Fill it in quickly to make sure you get your say about the future of WWDC.</p>
+          <p><a href="https://cur.at/YZxC1Tt?m=rss">apple.com</a></p>
+      
+        <h4><a href="https://cur.at/SFn4Hz6?m=rss">The Unofficial WWDC21 Lounge Archive</a></h4>
+        <p>It's not surprising that Apple closed down the WWDC digital lounges once the conference was over, but it would have been a shame to lose the invaluable information shared in them during the week. However, thanks to <a href="https://cur.at/uM0S30V?m=rss">Paul Williamson</a> and <a href="https://cur.at/EZ4BY8q?m=rss">Emin</a>, we have an anonymised archive of conversations in the lounges.</p>
+
+<p>From everything I heard and saw, these lounges were a great success. I hope they continue next year, even if there is also an in-person event.</p>
+          <p><a href="https://cur.at/SFn4Hz6?m=rss">github.io</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/99bvcqj?m=rss">How to document your project with DocC</a></h4>
+        <p>Who was expecting a new Markdown-based documentation tool from Apple this year? 🎉 It's a great tool, and here's <a href="https://cur.at/fcrK4s7?m=rss">Paul Hudson</a> with a breakdown of the essential information you need to know about it.</p>
+          <p><a href="https://cur.at/99bvcqj?m=rss">hackingwithswift.com</a></p>
+      
+        <h4><a href="https://cur.at/bKv6oDG?m=rss">Hosting DocC Archives</a></h4>
+        <p>Talking of DocC, what do you do with the documentation for your framework or library once you've built it locally? <a href="https://cur.at/Wnb6x5o?m=rss">Joseph Duffy</a> investigates four ways to serve your documentation as a static site. 👍</p>
+          <p><a href="https://cur.at/bKv6oDG?m=rss">josephduffy.co.uk</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/f4RRwe?m=rss">The importance of cooperative cancellation</a></h4>
+        <p>I'm assuming that everyone here has read between one and ten posts on async/await or Actors this week, so I'm not going to link to any posts on that topic. Instead, I'll link to this fascinating article on cooperative cancellation of asynchronous tasks from <a href="https://cur.at/vrcOHLl?m=rss">Alejandro Martinez</a>. You really should read this one.</p>
+          <p><a href="https://cur.at/f4RRwe?m=rss">alejandromp.com</a></p>
+      
+        <h4><a href="https://cur.at/bDGd22y?m=rss">New approach to formatters in iOS 15</a></h4>
+        <p>Everyone put your hands in the air and wave them like you just don't care about creating singleton date formatter instances anymore! 😂 But the new formatters in iOS 15 don't just solve <em>that</em> problem. There are so many new formatters, so let's learn about them with <a href="https://cur.at/rBjexH1?m=rss">Filip Nemecek</a>. My personal favourite is <a href="https://cur.at/6EyFN41?m=rss"><code>ByteCountFormatter</code></a>. I've seen so many bad implementations of that over the years. 🚀</p>
+          <p><a href="https://cur.at/bDGd22y?m=rss">nemecek.be</a></p>
+      
+        <h4><a href="https://cur.at/FYfsNxg?m=rss">Behind the Scenes of SwiftUI List Bindings</a></h4>
+        <p>Here's <a href="https://cur.at/BntBHdU?m=rss">Peter Friese</a> looking at the enhancements to List in this year's release. It's not just a cursory glance at what's new, though. It's a deeper look at how it all works. I enjoyed reading this. Thanks, Peter! 👍</p>
+          <p><a href="https://cur.at/FYfsNxg?m=rss">peterfriese.dev</a></p>
+      
+        <h4><a href="https://cur.at/3XQMsMA?m=rss">Automatic conversions between Double and CGFloat values in Swift 5.5</a></h4>
+        <p>Finally!</p>
+          <p><a href="https://cur.at/3XQMsMA?m=rss">swiftbysundell.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/l6yBaYE?m=rss">Signature and Tortoise Localisation</a></h4>
+        <p>Yes, this should really be an "And finally...", but that was already taken for this week. I couldn't handle not linking to this tweet from <a href="https://cur.at/YTVZLGQ?m=rss">Morten Just</a>, though. Amazing! 😍</p>
+          <p><a href="https://cur.at/l6yBaYE?m=rss">twitter.com</a></p>
+      <h3>Business and Marketing</h3>
+      
+        <h4><a href="https://cur.at/r0tgitT?m=rss">What&#39;s New in iOS 15 for App Store Optimization</a></h4>
+        <p>A/B testing would have been a huge step forward on its own, but with Custom Product Pages, this is a massive year for your App Store listing. Here's a fantastic rundown of what changed from <a href="https://cur.at/CvwxkKE?m=rss">Ariel Michaeli</a>.</p>
+          <p><a href="https://cur.at/r0tgitT?m=rss">appfigures.com</a></p>
+      <h3>Videos</h3>
+      
+        <h4><a href="https://cur.at/NAzGQ2d?m=rss">Xcode 13 vim Mode</a></h4>
+        <p>What better way to learn about the new vim mode in Xcode than to watch an experienced user walk you through it? Here's <a href="https://cur.at/vpyHuoT?m=rss">Ben Scheirman</a>, an experienced vim user, doing exactly that!</p>
+          <p><a href="https://cur.at/NAzGQ2d?m=rss">nsscreencast.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/atU8Fj3?m=rss">iOS Engineer @ MOJO Inc.</a> – Interested in making sports more fun for kids, parents, and coaches? MOJO is seeking an iOS Engineer who is smart, curious and loves the challenge of solving problems that improve people’s lives. You’ll collaborate with a fun, experienced, and agile team to architect, implement, test and continuously deliver new features and products to customers. – <em>Los Angeles CA</em></p>
+
+<p><a href="https://cur.at/rDY5vkI?m=rss">iOS Engineer - Multiple Levels @ Turo</a> – Help us build product features that delight guests who book vehicles on our platform and enable hosts with the tools they need to manage their fleet. The iOS team is actively transitioning our iOS codebase from Objective-C to Swift, and we’re learning SwiftUI together–in labs–as we migrate our internal, watchOS, and tvOS apps. It’s really an exciting time to be an Apple-centric engineer at Turo. –  <em>San Francisco CA</em></p>
+
+<p><a href="https://cur.at/KGELUHz?m=rss">iOS Developer @ Boozt</a> – Tech is in our DNA, we strive to innovate, experiment, make data-driven decisions in our daily work, be curious and competitive and foster collaboration and personal growth, all while being nerdy and having great fun. Here you will work with one of our consumer-facing apps and you will have a great chance at shaping our future path. Come join our success! – <em>Copenhagen Denmark</em></p>
+
+<p><a href="https://cur.at/9WiKBuU?m=rss">Senior iOS Software Engineer @ TeamSnap</a> – If you’re looking to build on a product with 25+ million users and has been featured by Apple at WWDC (Worldwide Developer Conference), TeamSnap is the place for you! We’ve been remote since before remote was cool. You’ll work on a team with big ideas, tiny egos, and a love of sharing party parrot emojis in Slack. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/DS3v7OM?m=rss">Mac &amp; iOS Software Engineer @ Flexibits</a> – We make Fantastical and Cardhop, award-winning calendar and contacts apps for Mac and iOS. We were honored to win Apple's Mac App of the Year in 2020 and we're looking to make our apps even better! We are a 14 person, fully-remote company spread across the US and Europe, and welcome anyone from around the world. We prefer people in US and European time zones. – <em>Remote</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Talk to your hiring managers and get them to list your open positions over at <a href="https://cur.at/SbGD22c?m=rss">iOS Dev  Jobs</a>. Standard listings are free, so there's nothing to lose!</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/GutuZqM?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/IqWrRnD?m=rss">Gregory Sapienza</a>, <a href="https://cur.at/PX1EWKI?m=rss">Artem Loenko</a>, <a href="https://cur.at/1eiJFyR?m=rss">Jean-Élie Le Corre</a>, <a href="https://cur.at/oPwn6pN?m=rss">Beau Nouvelle</a>, and <a href="https://cur.at/pbB2bPI?m=rss">Evan Anger</a>. Thank you all so much. 😍</p>
+
+<p>This week’s insider’s call is next Monday, won’t you <a href="https://cur.at/GutuZqM?m=rss">join us</a> to chat about the week’s iOS developer news?</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p>What are you talking about? Of course <a href="https://cur.at/6vvdwLR?m=rss">async/await is available on older releases</a>! 😂</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 18 Jun 2021 20:26:39 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/512</link>
+      <guid>https://iosdevweekly.com/issues/512</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 511 - Jun 11th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>I didn’t think I’d ever get to see anything I had worked on in a WWDC session presentation. That’s a privilege even if you work inside Apple. It’s pretty much unheard of if you don’t.</p>
+
+<p>And yet, this week, it happened. 🤯</p>
+
+<p>It began when I started receiving messages and DMs from people saying, “Did you just see the mention of a package index on that slide?” during the Platforms State of the Union. I hadn’t even seen it, but a <a href="https://cur.at/LQvx1xb?m=rss">quick screenshot proved it</a>! I did wonder for a few seconds whether we might be about to be Sherlocked, but something far more exciting was on the table.</p>
+
+<p>It came in the “What’s new in Swift” session on Tuesday. 2m45s into the session, <a href="https://cur.at/psN0QRm?m=rss">Nicole Jacque</a> begins talking about Swift Packages, and suddenly, there’s a <a href="https://cur.at/8ZLLHzg?m=rss">screenshot of the package index</a>! Right there in a WWDC session! I couldn’t quite believe it.</p>
+
+<p>I want to say a heartfelt thank you to everyone who was involved in making this happen. I have to think this decision wasn’t taken lightly, and it’s so lovely to see that people inside Apple think what we’re working on is important enough to include alongside their own work. The <a href="https://cur.at/uCSUTsU?m=rss">Swift Package Index</a> remains the most exciting part of my work every week, and I can’t wait to see where we take it over the next year.</p>
+
+<p>So, that was my highlight of this week, but that was far from the only exciting thing that happened! As usual, I’m not going to try and cover every announcement or new API today. We have several months for that!</p>
+
+<p>I hope you all had a great WWDC week, and enjoy the collection of links below, as always!</p>
+        <p></p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/a8bEaA4?m=rss">Get All The Insights You Need To Build Quality Apps</a></h4>
+        <p>Whether it’s a crash, slow screen transitions, slow network calls or unresponsive UIs, Instabug grabs you all the logs you need to fix to ship quality apps. <a href="https://cur.at/6QLQpOJ?m=rss">Get started now</a>.</p>
+          <p><a href="https://cur.at/a8bEaA4?m=rss">instabug.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/1mwf0rP?m=rss">New technologies from WWDC 2021</a></h4>
+        <p>I love this! Apple has put together a page on the documentation site highlighting all the new APIs and technology that debuted this week. The page links to both specific articles/APIs like <a href="https://cur.at/ycohZpw?m=rss"><code>TimelineView</code></a> and <a href="https://cur.at/EQPEC2C?m=rss"><code>AsyncImage</code></a>, and topic pages like <a href="https://cur.at/rBoqL1v?m=rss">this one on concurrency</a> or <a href="https://cur.at/4HBfG1l?m=rss">this one covering the new DocC tool</a>. I'm so happy to see an easy way to keep up with the documentation that accompanies a new release, and I hope we see more of this!</p>
+
+<p>Also, there's now an official <a href="https://cur.at/JOvbrt4?m=rss">sample code index</a> for all WWDC 2021 sample code! 😍</p>
+          <p><a href="https://cur.at/1mwf0rP?m=rss">apple.com</a></p>
+      
+        <h4><a href="https://cur.at/UdIkgLp?m=rss">App Store Review Guidelines Updates for WWDC 2021</a></h4>
+        <p>Apple also <a href="https://cur.at/tol6uU?m=rss">summarised</a> of these changes, but I prefer this "diff" style version better. The most significant change by far this year is this addition to 5.1.1:</p>
+
+<blockquote><p>If your app supports account creation, you must also offer account deletion within the app.</p></blockquote>
+
+<p>I think that probably affects more than 50% of apps on the store! No one can argue it's a bad rule, though.</p>
+          <p><a href="https://cur.at/UdIkgLp?m=rss">appstorereviewguidelineshistory.com</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/BfzP7EE?m=rss">Package Collections on the Swift Package Index</a></h4>
+        <p>Package collections are new in Swift 5.5 and Xcode 13, and the <a href="https://cur.at/X26qYf3?m=rss">Swift Package Index</a> supports them right now! We knew they were coming in Swift 5.5, so we started implementing them. What we didn't know was that Xcode 13 would also include support for them! We've <a href="https://cur.at/icUCXWC?m=rss">updated our documentation</a> to now include instructions for both the command-line tool and Xcode 13. 🚀</p>
+          <p><a href="https://cur.at/BfzP7EE?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/Q1JGT1l?m=rss">A love letter to Xcode 13 in five short video clips</a></h4>
+        <p>Yes, <a href="https://cur.at/2vHY9cv?m=rss">Paul Hudson</a> covered this topic in much more detail <a href="https://cur.at/IReTKDz?m=rss">in a blog post</a>, but I like these short videos too. My favourite features are automatic import with automatic searching of package collections and code completion of unwrapping optional values. 🚀</p>
+          <p><a href="https://cur.at/Q1JGT1l?m=rss">twitter.com</a></p>
+      
+        <h4><a href="https://cur.at/MYLxmnS?m=rss">Vimpocalypse Now</a></h4>
+        <p>Vim bindings in Xcode 13? You read that right! It's been a very long time since I used <code>vim</code> regularly. In fact, it was so long ago it was called <code>vi</code>! Could I re-learn it and for Xcode 13? Absolutely. Will I? Probably not. It's great news for people who still use it day-to-day, and there are many of those people still around. Here's <a href="https://cur.at/zcRHjcD?m=rss">Erica Sadun</a> with the details.</p>
+          <p><a href="https://cur.at/MYLxmnS?m=rss">ericasadun.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/PJmkLiT?m=rss">SwiftUI 2021 in Numbers</a></h4>
+        <p>Here's <a href="https://cur.at/TwW90zp?m=rss">Javier Nigro</a> with a great way to get an overview of which parts of SwiftUI received the most love in the last 12 months. Things are looking up for macOS by the look of things!</p>
+          <p><a href="https://cur.at/PJmkLiT?m=rss">swiftui-lab.com</a></p>
+      
+        <h4><a href="https://cur.at/MgzrxzN?m=rss">The Future of Combine</a></h4>
+        <p>One of the biggest topics of conversation this week has been what happens to Combine now that we have <code>AsyncSequence</code> and <code>AsyncStream</code> on the way? I liked <a href="https://cur.at/1qadyTh?m=rss">Ben Scheirman</a>'s take on it. What I'd say is that even if Combine is deprecated next year, which is <em>far</em> from certain, it'll likely be a long deprecation cycle. There's no need at all to refactor any working code just yet!</p>
+          <p><a href="https://cur.at/MgzrxzN?m=rss">benscheirman.com</a></p>
+      
+        <h4><a href="https://cur.at/lG5L07v?m=rss">Big improvements to UIButton in iOS 15</a></h4>
+        <p>Who had "Huge changes to <code>UIButton</code>" on their WWDC bingo card? I know I didn't! Here's <a href="https://cur.at/yKdByfC?m=rss">Filip Němeček</a> with the low down on what's changed. I'll be happy to see some standardisation come back to button design with these changes.</p>
+          <p><a href="https://cur.at/lG5L07v?m=rss">nemecek.be</a></p>
+      
+        <h4><a href="https://cur.at/f045gDT?m=rss">Notable UIKit Additions in iOS 15</a></h4>
+        <p>Let's continue in UIKit land for one more article. Here's <a href="https://cur.at/qv0YJPS?m=rss">Jordan Morgan</a> with some of the framework changes that are <em>not</em> related to buttons! I'm very happy to see Apple finally provide a standard way to make a "bottom sheet". 🚀</p>
+          <p><a href="https://cur.at/f045gDT?m=rss">swiftjectivec.com</a></p>
+      
+        <h4><a href="https://cur.at/X2pqVEM?m=rss">AsyncImage in SwiftUI</a></h4>
+        <p>Since the earliest days of iOS development, we've been writing code to download and display remote images in our apps. It's probably about time there was a standard way to do it, and here it is in the form of a SwiftUI view. Here's <a href="https://cur.at/xCU0iim?m=rss">Gabriel Theodoropoulos</a> to tell us more. 🎉</p>
+          <p><a href="https://cur.at/X2pqVEM?m=rss">serialcoder.dev</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/YCwZeja?m=rss">Updated Human Interface Guidelines</a></h4>
+        <p>It's always worth re-reading the HIG after a new release, and this year is no different. Here's Apple's guide to what sections have been added or received significant updates to help guide you through it.</p>
+          <p><a href="https://cur.at/YCwZeja?m=rss">apple.com</a></p>
+      <h3>Videos</h3>
+      
+        <h4><a href="https://cur.at/5tGubnH?m=rss">Demystify SwiftUI</a></h4>
+        <p>I'm sure I'm not alone in only getting the chance to watch a few WWDC videos this week, but one I did want to highlight was this session from <a href="https://cur.at/OwJo3M5?m=rss">Matt Ricketson</a>, <a href="https://cur.at/dQIeglJ?m=rss">Luca Bernardi</a>, and <a href="https://cur.at/FHTrpvN?m=rss">Raj Ramamurthy</a>. If you've ever wondered how SwiftUI decides when to re-build or re-use views, this session does a great job of explaining it, and much more!</p>
+          <p><a href="https://cur.at/5tGubnH?m=rss">apple.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/6cMcBeT?m=rss">Senior iOS Software Engineer @ TeamSnap</a> – If you’re looking to build on a product with 25+ million users and has been featured by Apple at WWDC (Worldwide Developer Conference), TeamSnap is the place for you! We’ve been remote since before remote was cool. You’ll work on a team with big ideas, tiny egos, and a love of sharing party parrot emojis in Slack. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/WIf4ffg?m=rss">Mac &amp; iOS Software Engineer @ Flexibits</a> – We make Fantastical and Cardhop, award-winning calendar and contacts apps for Mac and iOS. We were honored to win Apple's Mac App of the Year in 2020 and we're looking to make our apps even better! We are a 14 person, fully-remote company spread across the US and Europe, and welcome anyone from around the world. We prefer people in US and European time zones. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/iszc98M?m=rss">iOS Developer @ Citymapper</a> – Our small team of iOS developers help to make cities usable. Cities are complicated. We use the power of open data, mobile, and payment tech to make transport sustainable and hassle-free. Our award-winning transport app is built for the real world of commuters and adventurers across the globe. Come and work on an app that you and your friends use every day! – <em>London UK or Remote</em></p>
+
+<p><a href="https://cur.at/pCb7RF5?m=rss">Senior iOS Software Engineer @ Doximity</a> – Doximity, the medical network used by over 70% of US physicians, is hiring passionate Senior iOS engineers (remote-friendly!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>San Francisco CA or Remote within the US</em></p>
+
+<p><a href="https://cur.at/jiNDixg?m=rss">Mobile Full Stack Engineer @ Expensify</a> – Join our passionate team of top-notch engineers to solve a real-world problem, and help people spend less time managing expenses and more time pursuing their real goals. As we revolutionize the way people manage their expenses, being part of the Expensify team means building the easiest, fastest, and most efficient platform to automate everything expense-related. – <em>Remote, New York City NY, Portland OR, Ironwood MI, San Francisco CA, London UK, or Melbourne Australia</em></p>
+
+<p><a href="https://cur.at/m81gMBM?m=rss">Senior iOS Software Engineer @ GoodNotes</a> – An Apple-featured top paid app that transforms your iPad into digital paper, with millions of happy users.  GoodNotes has an engineer-first culture, even their founder has been involving day to day engineering work.  Paid holidays, stock options, internal hackathon, work from home budget, gym subsidy! – <em>London, Hong Kong, or Remote</em></p>
+
+<p><a href="https://cur.at/VTDOIHi?m=rss">Engineering Director @ WillowTree</a> – As an Engineering Director, you’ll mentor a team of all levels to help them achieve their personal and professional goals. Your partnership and coaching skills will impact our teams, clients, and company! You’ll have clear oversight of how engineering runs day-to-day and you’ll influence project outcomes and team happiness. – <em>Columbus OH</em></p>
+
+<p><a href="https://cur.at/7hTUXxD?m=rss">Senior iOS Engineer @ onX</a> – Are you an iOS developer who loves the outdoors? Join onX! If you’re passionate about writing great software, love playing outside, believe in protecting access to public lands, and want to dominate the off-pavement mobile GPS market – then join our team, where we empower millions of outdoor enthusiasts to explore the unknown! – <em>Missoula MT, Bozeman MT, or Remote within the US</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Talk to your hiring managers and get them to list your open positions over at <a href="https://cur.at/AgOBYAn?m=rss">iOS Dev  Jobs</a>. Standard listings are free, so there's nothing to lose!</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/MGkEu8a?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/wdTaQN3?m=rss">Pavel Kazantsev</a>, <a href="https://cur.at/BJrxszj?m=rss">Alexandre Colucci</a>, <a href="https://cur.at/Ue2JaME?m=rss">Egor Mikhnevich</a>, <a href="https://cur.at/WyVmBDf?m=rss">Chris Downie</a>, and <a href="https://cur.at/63w0Iwf?m=rss">Saul Mora</a>. Thank you all so much. 🙏</p>
+
+<p>This week’s insider’s call is on Monday, and we’ll naturally chat about everything that happened at WWDC this week! Would you like to <a href="https://cur.at/MGkEu8a?m=rss">join us</a>?</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p>You're probably getting lots of congratulatory messages, <a href="https://cur.at/ZPJJew?m=rss">so I just wanted to remind you</a>... 😂</p>
+
+<p>Congratulations to all of the <a href="https://cur.at/YP2Eejy?m=rss">Apple design award winners</a>!</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 11 Jun 2021 19:35:23 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/511</link>
+      <guid>https://iosdevweekly.com/issues/511</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 510 - Jun 4th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>It’s almost WWDC time! 🚀😍🎉</p>
+
+<p>Looking around Twitter and the web this week, I see two very different narratives from the community about this year’s conference. On the one hand, I see the usual excitement, anticipation, and <a href="https://cur.at/tDKWDMO?m=rss">hope for Xcode to be better at understanding Swift</a>. On the other, I see more unrest and frustration in the Apple developer community than I’ve ever seen before. <a href="https://cur.at/kuTWVKR?m=rss">This post from Marco Arment</a> is a good summary of how many people feel.</p>
+
+<p>I think some of you are hoping for an App Store focused announcement at the conference. Maybe all of this pressure from lawsuits, anti-trust investigations, and the community will force Apple’s hand, and they’ll relent on some aspect of the App Store?</p>
+
+<p>I don’t think that’s going to happen. First, I don’t think now is the right time for Apple to make <em>any</em> drastic business changes to the App Store. The Apple/Epic trial may be over, but the verdict is still weeks or months away and making changes now would send all sorts of awkward messages.</p>
+
+<p>It’s more than that, though. I don’t think this is fixed by “simply” making more changes to the App Store. This level of unrest doesn’t go away with another tweak to the percentages or by enabling side-loading. As Marco says in his article, this is much more about how Apple treats third party developers generally.</p>
+
+<p>To be clear, I’m talking about Apple as an entity here, not about individual employees. In my experience, Apple employees are genuine, kind, empathetic individuals who care deeply about developers. Unfortunately, as a company, it can feel very different.</p>
+
+<p>There’s no quick fix for this and no single announcement that makes it go away. If Apple wants their relationship with developers to improve, it’ll take consistent change over time, starting close to the top. It’s not just about the App Store terms and conditions.</p>
+
+<p>It’s a shame because we’re in the midst of so much tremendously exciting technical work from the company, and it’s partly overshadowed. I’d much rather be talking about that!</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/c1kJiZ2?m=rss">Mac Remote Desktops from MacStadium &amp; Teradici</a></h4>
+        <p>MacStadium, the developer cloud for Mac, has partnered with the creator of PCoIP® technology, Teradici, to enable high-performance remote access for Mac use cases, including automating CI/CD pipelines, improving testing, and bringing Mac desktops to wherever they're needed. Launching later this summer, <a href="https://cur.at/rMJZ9S5?m=rss">sign up now to get release updates</a>.</p>
+          <p><a href="https://cur.at/c1kJiZ2?m=rss">macstadium.com</a></p>
+      <h3>WWDC</h3>
+      
+        <h4></h4>
+        <p>So what’s your plan for the conference? Over and above what we had from Apple last year, there’s also <a href="https://cur.at/UYTrpHi?m=rss">virtual lounges</a>, but that’s only covering the official side of things. The community side is just as exciting!</p>
+
+<p><a href="https://cur.at/CnneYiK?m=rss">WWDC.community</a> is back and bigger than ever this year. There’s so much going on there, you really must <a href="https://cur.at/CnneYiK?m=rss">check it out</a>. There’s also <a href="https://cur.at/W5Gj4uQ?m=rss">WWDC Together</a>, the <a href="https://cur.at/uF46bFA?m=rss">AltConf Keynote stream</a>, and the <a href="https://cur.at/wRAP1Y4?m=rss">Ray Wenderlich WWDC Livecast</a>  for live streams and chat. There are also a few networking events throughout the week. Some <a href="https://cur.at/4Yp544?m=rss">organised by the Diversity in Swift team</a>, <a href="https://cur.at/csXbcVB?m=rss">try! Swift DUB DUB</a>, and the <a href="https://cur.at/10Kf6E?m=rss">NSScreencast Remote Happy Hour</a>. Then, why not finish up the week in style at the <a href="https://cur.at/b79sxCZ?m=rss">iOS Dev Happy Hour</a>? There should be something to fit every preference and every timezone!</p>
+
+<p>But we’re all here to learn as well, right? So if you’re looking for notes, the <a href="https://cur.at/nq4tznv?m=rss">WWDC notes</a> site is back for 2021, as is the <a href="https://cur.at/9KCT0d8?m=rss">WWDC Community: Learning and sharing</a> repository where you can contribute throughout the week.</p>
+
+<p>Finally, and some might say most importantly, no WWDC would be complete without <a href="https://cur.at/6aN7avh?m=rss">James Dempsey and the Breakpoints</a>!</p>
+
+<p>Have a great conference, everyone! I’ll be back with a round-up next Friday, as usual.</p>
+        <p></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/7CWNrXT?m=rss">SimpleAnalytics</a></h4>
+        <p>The ultimate way to know what's happening to the analytics data from your app is to host it yourself, and SimpleAnalytics from <a href="https://cur.at/MzXh99p?m=rss">Dennis Birch</a> looks like a nice tool that'll help you do exactly that. It's a framework for your app, a <a href="https://cur.at/BvN1yjm?m=rss">~160 line server-side PHP file</a>, and a <a href="https://cur.at/U9DOrTI?m=rss">newly released macOS app</a> for looking at the data.</p>
+          <p><a href="https://cur.at/7CWNrXT?m=rss">swiftpackageindex.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/go8Y0r0?m=rss">CodeEditorView</a></h4>
+        <p>Maybe it's because I've been involved with a few developer tools over the years, but I often find myself needing a quick code editor. It's often not the entire point of an app you're working on, but entering code into a plain text field always feels so wrong! Here's <a href="https://cur.at/87X4lMB?m=rss">Manuel Chakravarty</a> to help with a code editor usable from both macOS and iOS (with slightly reduced functionality)! This looks great. 🚀</p>
+          <p><a href="https://cur.at/go8Y0r0?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/gWzJ7ov?m=rss">Why Should You Care about Manual Testing?</a></h4>
+        <p>Oh my gosh, yes! 😍 I loved every word of this article by <a href="https://cur.at/PLACm3N?m=rss">Tomáš Šurín</a>. Automatic testing is hugely important, but it can make you feel overly safe and protected from errors that might be blindingly obvious when you (or someone else) runs your app.</p>
+          <p><a href="https://cur.at/gWzJ7ov?m=rss">pspdfkit.com</a></p>
+      
+        <h4><a href="https://cur.at/2YbgLxr?m=rss">NukeUI and LazyImage</a></h4>
+        <p>I've <a href="https://cur.at/KV0BCSL?m=rss">linked to Nuke</a> in the past, and now <a href="https://cur.at/3BbF0am?m=rss">Alex Grebenyuk</a> is following it up <a href="https://cur.at/YnyGjZI?m=rss">with a UI library</a>. You might think that a control called <code>LazyImage</code> would be <em>only</em> about images, but it also supports videos! If you care about loading resources in a performant way, I'd check this out.</p>
+          <p><a href="https://cur.at/2YbgLxr?m=rss">kean.blog</a></p>
+      
+        <h4><a href="https://cur.at/ybs2EAL?m=rss">Real-Time Breath Tracking with AirPods</a></h4>
+        <p>Let's finish up this week's code section with a fun piece from Philipp Gehrke on using breath sounds and CoreML to detect breathing. Clever! 🤯</p>
+          <p><a href="https://cur.at/ybs2EAL?m=rss">fritz.ai</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/PdfXU96?m=rss">iOS Developer @ Citymapper</a> – Our small team of iOS developers help to make cities usable. Cities are complicated. We use the power of open data, mobile, and payment tech to make transport sustainable and hassle free. Our award-winning transport app is built for the real world of commuters and adventurers across the globe. Come and work on an app that you and your friends use every day! – <em>London UK or Remote</em></p>
+
+<p><a href="https://cur.at/2mhUpW8?m=rss">Senior iOS Software Engineer @ Doximity</a> – Doximity, the medical network used by over 70% of US physicians, is hiring passionate Senior iOS engineers (remote-friendly!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>San Francisco CA or Remote within the US</em></p>
+
+<p><a href="https://cur.at/Cjvp8pn?m=rss">Mobile Full Stack Engineer @ Expensify</a> – Join our passionate team of top-notch engineers to solve a real-world problem, and help people spend less time managing expenses and more time pursuing their real goals. As we revolutionize the way people manage their expenses, being part of the Expensify team means building the easiest, fastest, and most efficient platform to automate everything expense-related. – <em>Remote, New York City NY, Portland OR, Ironwood MI, San Francisco CA, London UK, or Melbourne Australia</em></p>
+
+<p><a href="https://cur.at/oLFHvtY?m=rss">Senior iOS Software Engineer @ GoodNotes</a> – An Apple-featured top paid app that transforms your iPad into digital paper, with millions of happy users.  GoodNotes has an engineer-first culture, even their founder has been involving day to day engineering work.  Paid holidays, stock options, internal hackathon, work from home budget, gym subsidy! – <em>London, Hong Kong, or Remote</em></p>
+
+<p><a href="https://cur.at/c0fhTJx?m=rss">Engineering Director @ WillowTree</a> – As an Engineering Director, you’ll mentor a team of all levels to help them achieve their personal and professional goals. Your partnership and coaching skills will impact our teams, clients, and company! You’ll have clear oversight of how engineering runs day-to-day and you’ll influence project outcomes and team happiness. – <em>Columbus OH</em></p>
+
+<p><a href="https://cur.at/cJ768pT?m=rss">Senior iOS Engineer @ onX</a> – Are you an iOS developer who loves the outdoors? Join onX! If you’re passionate about writing great software, love playing outside, believe in protecting access to public lands, and want to dominate the off-pavement mobile GPS market – then join our team, where we empower millions of outdoor enthusiasts to explore the unknown! – <em>Missoula MT, Bozeman MT, or Remote within the US</em></p>
+
+<p><a href="https://cur.at/W8jI6Ch?m=rss">Technical Director of Engineering @ Stream</a> – Stream is hiring for a Technical Director of Engineering managing our SDK teams for iOS, Android, Flutter, React Native, and React. Our APIs for activity feeds and chats are used by over a billion end-users. We’re one of the fastest-growing startups in Europe, and recently announced our Series B of $38 mln. – <em>Amsterdam or Remote</em></p>
+
+<p><a href="https://cur.at/wJA7JoB?m=rss">Senior Mobile Developer @ Six to Start</a> – We make Zombies, Run!, the world's most popular smartphone fitness game with over 10 million downloads. Help us make exercising fun for everyone! – <em>Remote</em></p>
+
+<p><a href="https://cur.at/HlO2Nqg?m=rss">Swift Developer @ Toggl Track</a> – Help us build and improve our Toggl Track app for iOS, iPadOS, watchOS and macOS. You will be part of a 5 people team dedicated to build the apps for Apple devices. Our code has been built from scratch in the last year, we just released the iOS app and we are starting work on our macOS app. We do 100% Swift with some small doses of SwiftUI. The salary for this position is €50,000 annually. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/LnXLwPJ?m=rss">iOS Engineer @ Karbon</a> – Join our dedicated, all-remote agency and help us build amazing iOS apps for amazing clients. We've spent the past 10 years helping companies ship apps to millions of users—join us as we focus on the next 10 years. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/OVW5mqq?m=rss">Senior iOS Engineer @ ClassPass</a> – Want to work on an app that helps people lead healthier, more fulfilling lives? Join the team at ClassPass, the world's leading fitness and wellness aggregator. You'll be defining our mobile strategy, collaborating with an incredible product team, and guiding us through a really exciting period of growth. – <em>Missoula MT, Houston TX, or New York City NY</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Talk to your hiring managers and get them to list your open positions over at <a href="https://cur.at/WVqWPXR?m=rss">iOS Dev  Jobs</a>. Standard listings are free, so there's nothing to lose!</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/cDZyUIG?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/fMd58E2?m=rss">Dave Teare</a>, <a href="https://cur.at/Ht32tWq?m=rss">Jack Spargo</a>, <a href="https://cur.at/51v0IJz?m=rss">Rob Timpone</a>, <a href="https://cur.at/z09Uebc?m=rss">Troy Gaul</a>, and <a href="https://cur.at/ZnLGVzp?m=rss">Riley Testut</a>. Thank you all so much. 🙏</p>
+
+<p>This week’s insider’s call is immediately after the keynote on Monday, and we’ll naturally chat about all the announcements! Would you like to <a href="https://cur.at/cDZyUIG?m=rss">join us</a>?</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/JrNTASy?m=rss">ducking autocorrect</a> 😂</p>
+
+<p>I've meant to link to this account for weeks now. It's so <a href="https://cur.at/aKoVwYy?m=rss">genuinely worth a follow</a>. You won't regret it.</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 04 Jun 2021 19:26:17 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/510</link>
+      <guid>https://iosdevweekly.com/issues/510</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 509 - May 28th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>I still (just about! 👴) remember the first time I came across asynchronous programming. I assumed, incorrectly, that when I called into the concurrent code, execution would continue in my calling function after it had completed. Of course, I was as wrong then as I often am now!</p>
+
+<p>I feel like programming languages are finally catching up with my naive expectations as async/await syntax becomes more standard across a wide range of languages. The great news is, that group of languages will <a href="https://cur.at/f4MUMDW?m=rss">soon include Swift</a>.</p>
+
+<p>I started thinking about this topic after reading <a href="https://cur.at/uYPNjbV?m=rss">Alejandro Martinez</a>’s <a href="https://cur.at/DJLkQ0h?m=rss">post on Swift concurrency</a> and watching the three videos that accompany it. He covers three distinct parts of the Swift concurrency story in detail, and I learned a lot from watching them. I’m sure you will too.</p>
+
+<p>Over the years, I feel like I’ve seen programming languages fight a constant battle against complexity as the hardware, operating systems, and user expectations push languages and frameworks to evolve. As the battle progresses, complexity goes through advances and retreats and for every step forward that languages make, there’s complexity lying in wait trying to gain new footholds.</p>
+
+<p>For example, manual memory management was a huge advance for the complexity army until the combined forces of reference counting, garbage collection, and eventually, automatic reference counting pushed it to retreat. It advanced again as asynchronous programming became something we all had to deal with until languages struck back with threads, queues, promises, and eventually async and await. There are more examples, of course, but those are two big ones. It happens over and over again.</p>
+
+<p>I feel like complexity has been increasing quite consistently in Swift over the last few years, so I’m pleased to see the language make a decisive strike against it with some of the language changes carried by the Swift 5.5 cavalry! 🦄</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/r2jTuvh?m=rss">Forget writing testing scripts, use Waldo.</a></h4>
+        <p>Waldo is the first fully no-code mobile testing solution. Now, anyone on your team can create reliable automated tests and help you fix bugs before your users find them. <a href="https://cur.at/HHK0x0l?m=rss">Try Waldo now, for free</a>.</p>
+          <p><a href="https://cur.at/r2jTuvh?m=rss">waldo.io</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/2SRRS4U?m=rss">New Apple Developer Forums features now available</a></h4>
+        <p>Remember when we were all wondering how WWDC labs were going to work last year, and Apple <a href="https://cur.at/YlRcrI2?m=rss">surprised us</a> the week before the conference with brand new developer forums?</p>
+
+<p>It got plenty of criticism when it launched, but I urged everyone to give Apple plenty of slack (no pun intended!) while giving the new forum a chance. Well, here we are just one short year later 🙄 with updates. I <a href="https://cur.at/hBUU6RC?m=rss">agree with everything that Michael Tsai say about the RSS feeds</a>, and while the updates are a step in the right direction, these forums aren't significantly different from what we had before, and what we had before wasn't great.</p>
+          <p><a href="https://cur.at/2SRRS4U?m=rss">apple.com</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/OKzdmMw?m=rss">Unexpectedly</a></h4>
+        <p>This new <a href="https://cur.at/YF5MMnX?m=rss">open-source</a> app from <a href="https://cur.at/7LEvoUL?m=rss">Stéphane Sudre</a> isn't related to iOS development, but I bet plenty of you will still appreciate it.</p>
+          <p><a href="https://cur.at/OKzdmMw?m=rss">free.fr</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/QNk2BXr?m=rss">What&#39;s new in Swift 5.5?</a></h4>
+        <p>Unless Apple is planning something drastic, we're just over one week away from the next version of Swift being shipped in an Xcode beta! So here's <a href="https://cur.at/o9e5KIr?m=rss">Paul Hudson</a> with his regular look at what's coming new.</p>
+          <p><a href="https://cur.at/QNk2BXr?m=rss">hackingwithswift.com</a></p>
+      
+        <h4><a href="https://cur.at/aZwVNdY?m=rss">Here is what SwiftData will be…</a></h4>
+        <p>That's a bold title from <a href="https://cur.at/JzAZLb3?m=rss">Drew McCormack</a>! A new "SwiftUI style" persistence framework is the most common prediction/wish for this year's conference that I see. I agree that it's not going to be, and shouldn't be, a <em>completely</em> new thing from the ground up. There's no need, and data persistence frameworks take years to mature. What will it be, though? Read on for Drew's take on it, including some interesting thoughts on data persistence and blockchain.</p>
+
+<p><strong>Note:</strong> That's the <a href="https://cur.at/3yp6CIp?m=rss">first mention of blockchain <em>ever</em></a> in this newsletter. I'm not sure how I feel about that. 😬</p>
+          <p><a href="https://cur.at/aZwVNdY?m=rss">medium.com</a></p>
+      
+        <h4><a href="https://cur.at/YWmjydV?m=rss">Adding a Gradient to Large Title Text in SwiftUI or UIKit</a></h4>
+        <p>Here's <a href="https://cur.at/4V5WxQW?m=rss">Becky Hansmeyer</a> with a great piece on creating beautiful gradient-masked navigation bar titles. The article is summed up perfectly by these sentences:</p>
+
+<blockquote><p>The good news is that SwiftUI makes it trivially easy to create gradients and mask them in a variety of ways. The bad news is that SwiftUI can’t do much of anything when it comes to customizing the navigation bar.</p></blockquote>
+
+<p>Large masked gradient titles might not be trivial in SwiftUI right now, but they are possible, and there's a playground attached to this post that proves it!</p>
+          <p><a href="https://cur.at/YWmjydV?m=rss">beckyhansmeyer.com</a></p>
+      
+        <h4><a href="https://cur.at/atId4zO?m=rss">Core Data In Memory Store</a></h4>
+        <p>You might be aware that Core Data supports in-memory data stores but wondered why you'd use them. If that sounds like you, <a href="https://cur.at/n5QJ0Y1?m=rss">Keith Harrison</a> has just the post for you as he covers how to create them and two interesting use cases.</p>
+          <p><a href="https://cur.at/atId4zO?m=rss">useyourloaf.com</a></p>
+      
+        <h4><a href="https://cur.at/KhZ0CcR?m=rss">AASA File Identifiers</a></h4>
+        <p>We recently struggled with AASA while trying to make the <a href="https://cur.at/PNEkuLE?m=rss">SPI Playgrounds app</a> respond to URLs. Documentation is sparse and spread over multiple WWDC videos, and we eventually decided not to implement it. So, I read this story from <a href="https://cur.at/jKWlr7I?m=rss">Michael Amundsen</a> with interest. I don't think the bug he ran across was the same problem we were having, but it might the same issue you face in the future!</p>
+          <p><a href="https://cur.at/KhZ0CcR?m=rss">lickability.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/oekllwd?m=rss">Should you use gamification techniques in your app?</a></h4>
+        <p>Getting gamification right in apps can be tricky. Go too far, and people could feel manipulated, but get it right, and it can work wonders for engagement. I liked this article from <a href="https://cur.at/QZ3xxG4?m=rss">Nick Babich</a>, especially the section where he talks about "achievements", or more accurately showing meaningful progress inside your app. Just be cautious with it!</p>
+          <p><a href="https://cur.at/oekllwd?m=rss">uxplanet.org</a></p>
+      <h3>Videos</h3>
+      
+        <h4><a href="https://cur.at/KI4vlhn?m=rss">NSSpain 2020 - Remote Edition Videos</a></h4>
+        <p>It's been a rough year for conferences, but that didn't stop <a href="https://cur.at/3tYKizm?m=rss">NSSpain</a>! As always, they've been kind enough to release the videos online. With almost 30 videos available, you're sure to find plenty to consume your weekend!</p>
+          <p><a href="https://cur.at/KI4vlhn?m=rss">vimeo.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/H3PTEfK?m=rss">Technical Director of Engineering @ Stream</a> – Stream is hiring for a Technical Director of Engineering managing our SDK teams for iOS, Android, Flutter, React Native, and React. Our APIs for activity feeds and chats are used by over a billion end-users. We’re one of the fastest-growing startups in Europe, and recently announced our Series B of $38 mln. – <em>Amsterdam or Remote</em></p>
+
+<p><a href="https://cur.at/phUHQd2?m=rss">Senior Mobile Developer @ Six to Start</a> – We make Zombies, Run!, the world's most popular smartphone fitness game with over 10 million downloads. Help us make exercising fun for everyone! – <em>Remote</em></p>
+
+<p><a href="https://cur.at/SpYEKG3?m=rss">Swift Developer @ Toggl Track</a> – Help us build and improve our Toggl Track app for iOS, iPadOS, watchOS and macOS. You will be part of a 5 people team dedicated to build the apps for Apple devices. Our code has been built from scratch in the last year, we just released the iOS app and we are starting work on our macOS app. We do 100% Swift with some small doses of SwiftUI. The salary for this position is €50,000 annually. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/5O7WPrQ?m=rss">iOS Engineer @ Karbon</a> – Join our dedicated, all-remote agency and help us build amazing iOS apps for amazing clients. We've spent the past 10 years helping companies ship apps to millions of users—join us as we focus on the next 10 years. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/B16lb8d?m=rss">iOS Software Engineer @ Slumber Group</a> – Join the Slumber Group team and help us achieve our mission of "Improving the health of every single person worldwide through sleep".  Our audio-focused sleep apps and podcasts help millions suffering from insomnia, tinnitus, anxiety, PTSD, bereavement, or colic. Our products have been featured by Apple, Google, The Washington Post, NYT, WSJ and more. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/JrYH7MM?m=rss">Senior iOS Developer @ Sunshine Health Studios Inc.</a> – We make a direct impact on people's health for the better. Our product works long-term, and our large active community shows. Join us in a stable job, alongside Y Combinator founders and top-notch engineers. Paid holidays/vacation, benefits, stock options are available for all employees, even international employees. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/Xi4KR1k?m=rss">Senior iOS Engineer @ ClassPass</a> – Want to work on an app that helps people lead healthier, more fulfilling lives? Join the team at ClassPass, the world's leading fitness and wellness aggregator. You'll be defining our mobile strategy, collaborating with an incredible product team, and guiding us through a really exciting period of growth. – <em>Missoula MT, Houston TX, or New York City NY</em></p>
+
+<p><a href="https://cur.at/SJ2MAKC?m=rss">iOS Developer @ Marks &amp; Spencer</a> – We’re looking for enthusiastic, product-focused iOS developers to join our growing mobile engineering team at M&amp;S and contribute to our App Store chart topping iOS application that’s used by millions of our loyal customers every month. Our app is a universal app, written completely in Swift, and we are always looking for ways to improve, enhance and extend its functionality. – <em>London UK</em></p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/Og9isiB?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/VSUbLDM?m=rss">Ilter Cengiz</a>, <a href="https://cur.at/GavcSEb?m=rss">Paul Jackson</a>, <a href="https://cur.at/sLlIExL?m=rss">Shawn Marston</a>, <a href="https://cur.at/AfwpbAa?m=rss">shengchalover</a>, and <a href="https://cur.at/O3it8q?m=rss">Russ Shanahan</a>. Thank you so much for your generosity. 😍</p>
+
+<p>This issue’s insider call is on Monday, and we’ll be talking about complexity in software development, as well as covering some of the other links in this issue. <a href="https://cur.at/Og9isiB?m=rss">Join us</a>?</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p>A bug in a web app that only manifested on Windows PCs and started in 1977? That sounds like a <a href="https://cur.at/Csh8UUb?m=rss">story you should read</a>, doesn't it. 🤯</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 28 May 2021 16:18:22 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/509</link>
+      <guid>https://iosdevweekly.com/issues/509</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 508 - May 21st 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>A couple of weeks ago, I <a href="https://cur.at/MmiJnON?m=rss">apologised</a> for talking about the <a href="https://cur.at/40OCWtf?m=rss">Swift Package Index</a> too much. After the newsletter went out, someone replied via email saying:</p>
+
+<blockquote><p>Keep talking about the Swift Package Index! I only visited it for the first time after this newsletter.</p></blockquote>
+
+<p>It’s a great reminder that if you’re trying to promote something, you almost certainly need to talk about it more than you think you do. I had got to the point where in my mind, I needed to apologise for mentioning it so often but still had not persuaded someone who was engaged enough to reply to my email to check it out. It blew my mind a bit! 🤯</p>
+
+<p>So, the lesson is that you need to talk more about what you’re doing, right? Promote, promote, promote! There are always chances to reach someone new, right? Well, yes, and also no. When I manage to reach someone new, it’ll likely be the final straw for someone else, and they’ll stop listening forever. It’s a balancing act.</p>
+
+<p>I used to think about this in quite a transactional way. For every tweet or link about someone else, I gave myself a partial credit for some self-promotion. I never went as far as writing it down or making it formal, but I’d keep a rough track in my head and try not to go into debt. I now think about it in a slightly less structured way, though, as I’ve got better at it.</p>
+
+<p>Part of why I permit myself to talk about my projects is that this newsletter has always highlighted other people’s work. That’s one way I try and balance it, but even with that, over saturating the message is something I think about all the time.</p>
+
+<p>Another part of it is that the index is an <a href="https://cur.at/qCbXpkP?m=rss">open-source project</a>. I’m not talking about something that will cost you any money. I’d deduct much more from my credit balance if I were selling something.</p>
+
+<p>Do you think about this in the same way? Even if you’re not promoting an app or a service, you’re probably promoting something! Maybe a side project, or perhaps just yourself!</p>
+
+<p>Oh, and would you look at that. I accidentally talked about the <a href="https://cur.at/40OCWtf?m=rss">Swift Package Index</a> again. Deduct the credit from my balance, please! 😂</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/vY6IOpX?m=rss">Leveraging Info.plist based certificate pinning on iOS and making up for its shortcomings</a></h4>
+        <p>Apple recently introduced a way to configure certificate pinning through the Info.plist file, making it easier to tighten your app’s TLS communication security. However, it is not sufficient on its own. <a href="https://cur.at/azQyeLB?m=rss">Read Guardsquare’s blog post</a> to find out how it can be bypassed and how to increase your app’s security.</p>
+          <p><a href="https://cur.at/vY6IOpX?m=rss">hubs.ly</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/auliPKN?m=rss">Software updates designed for people with disabilities</a></h4>
+        <p>It was <a href="https://cur.at/AXlidk5?m=rss">Global Accessibility Awareness Day</a> yesterday, and Apple chose the occasion to highlight some upcoming features designed to make life easier for people with disabilities. They're all impressive features, but the one that blew me away was the AssistiveTouch for Apple Watch. Just incredible. 😍</p>
+          <p><a href="https://cur.at/auliPKN?m=rss">apple.com</a></p>
+      
+        <h4><a href="https://cur.at/g5MVzwJ?m=rss">Recreating the App Gallery</a></h4>
+        <p>I'm going to do a full round-up of WWDC related links next week, but this one needs a bit of prep work, so you need to act now! <a href="https://cur.at/I5TW4gr?m=rss">Michie</a>, the organiser of the <a href="https://cur.at/oVqxwBY?m=rss">WWDC Community</a> events, had the idea to re-create the "wall of apps" from various WWDC events over the years. If you write a small or independent app, make sure you submit it!</p>
+
+<p>My favourite "wall of apps" they ever did at WWDC was the one where they lined up a hundred or so iPad 1 devices so that <a href="https://cur.at/AyEtBw?m=rss">apps scrolled from one end of this huge table to the other</a>. Touching them caused a ripple effect to spread outwards, even onto other iPads. It was great! 🚀</p>
+          <p><a href="https://cur.at/g5MVzwJ?m=rss">twitter.com</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/9K74xmO?m=rss">Permanent and Temporary Tabs in Xcode</a></h4>
+        <p>There was much grumbling about the double-decker tabs introduced with Xcode 12. While some people got on with them, a larger (or more vocal?) group <a href="https://cur.at/Eo8M2P1?m=rss">found options to disable them</a>. I always found Xcode's original tabs a little awkward to use as they also changed the inspector panels, so the new tabs fit my workflow well, and I ignore the "old" tabs. However, if you're still struggling to get to grips with them, this post from <a href="https://cur.at/Aar7G6?m=rss">Leonardo Maia Pugliese</a> is here to help.</p>
+          <p><a href="https://cur.at/9K74xmO?m=rss">holyswift.app</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/DcTLsPD?m=rss">SwiftUI Introspect</a></h4>
+        <p>I hadn't come across <a href="https://cur.at/XmPewzj?m=rss">Loïs Di Qual</a>'s <a href="https://cur.at/wcikWnZ?m=rss">Introspect</a> library before reading this post from <a href="https://cur.at/1AagyEd?m=rss">Federico Zanetello</a>, but colour me impressed by it! This might save you from needing to fall back to UIKit controls quite so often from SwiftUI.</p>
+
+<p>I also love when people use their blogs to write about things other people did. Federico should give himself some self-promotion credits to spend for doing this, and does it mean I get double for linking to someone that links to someone else? 😂</p>
+          <p><a href="https://cur.at/DcTLsPD?m=rss">fivestars.blog</a></p>
+      
+        <h4><a href="https://cur.at/m0NYIzH?m=rss">Gradient Meshes in SceneKit</a></h4>
+        <p>Drawing a gradient on iOS is easy, right? There are several built-in ways to do it, no matter which of Apple's UI frameworks you're using. Well, yes, if you want a boring old linear or maybe a radial gradient. What about a mesh gradient, though? Read on with this incredibly well put together article from <a href="https://cur.at/TGcZG6A?m=rss">Robb Böhnke</a>.</p>
+          <p><a href="https://cur.at/m0NYIzH?m=rss">movingparts.io</a></p>
+      
+        <h4><a href="https://cur.at/PBiJjiy?m=rss">Dealing with view modifier values in SwiftUI</a></h4>
+        <p>Like <a href="https://cur.at/JWFi8hL?m=rss">Daniel Tavares</a>, I've also been frustrated by the slightly messy code that comes from conditional SwiftUI view configuration. Check out <a href="https://cur.at/zfRykP3?m=rss">his gist</a> and this post, where he introduces a cleaner way of working.</p>
+          <p><a href="https://cur.at/PBiJjiy?m=rss">dev.to</a></p>
+      
+        <h4><a href="https://cur.at/cv7hNmR?m=rss">Connecting to Wi-Fi programmatically in iOS</a></h4>
+        <p>Who knew you could do this?! <a href="https://cur.at/bRQcnwI?m=rss">Filip Němeček</a> showed me something I didn't know apps could do!</p>
+          <p><a href="https://cur.at/cv7hNmR?m=rss">nemecek.be</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/TYzVdEO?m=rss">Screen Sizes</a></h4>
+        <p>Do you remember when you only had to design your app for 320px by 480px screens? 😵‍💫 Check out this great one-page app from <a href="https://cur.at/zRgGn4P?m=rss">Christopher Muller</a> and <a href="https://cur.at/E4k8PGh?m=rss">Trevor Kay</a>.</p>
+          <p><a href="https://cur.at/TYzVdEO?m=rss">screensizes.app</a></p>
+      <h3>Books</h3>
+      
+        <h4><a href="https://cur.at/aLacdwn?m=rss">Advanced Swift</a></h4>
+        <p>If you've run out of things to learn, this new book from <a href="https://cur.at/qF33X9B?m=rss">Marin Bencevic</a>, <a href="https://cur.at/gIOUdMF?m=rss">Ray Fix</a>, <a href="https://cur.at/z4fxUz2?m=rss">Shai Mishali</a> and <a href="https://cur.at/xt7ewEP?m=rss">Ehab Amer</a> might be what you're looking for. It gives all the aspects of Swift that you know and love a much deeper look.</p>
+
+<p>Oh, and if you're about to move on thinking you already read this book, it's important to note that this book is not <a href="https://cur.at/EsEzjBz?m=rss">the original Advanced Swift book</a> despite the titles being identical. Did we run out of book titles already? 😂</p>
+
+<p>For full disclosure, I was provided with a review copy of this book.</p>
+          <p><a href="https://cur.at/aLacdwn?m=rss">raywenderlich.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/DVoqW1d?m=rss">iOS Software Engineer @ Slumber Group</a> – Join the Slumber Group team and help us achieve our mission of "Improving the health of every single person worldwide through sleep".  Our audio-focused sleep apps and podcasts help millions suffering from insomnia, tinnitus, anxiety, PTSD, bereavement, or colic. Our products have been featured by Apple, Google, The Washington Post, NYT, WSJ and more. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/5j3pDv3?m=rss">Senior iOS Developer @ Sunshine Health Studios Inc.</a> – We make a direct impact on people's health for the better. Our product works long-term, and our large active community shows. Join us in a stable job, alongside Y Combinator founders and top-notch engineers. Paid holidays/vacation, benefits, stock options are available for all employees, even international employees. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/ZlVXYMu?m=rss">Senior iOS Engineer @ ClassPass</a> – Want to work on an app that helps people lead healthier, more fulfilling lives? Join the team at ClassPass, the world's leading fitness and wellness aggregator. You'll be defining our mobile strategy, collaborating with an incredible product team, and guiding us through a really exciting period of growth. – <em>Missoula MO, Houston TX, or New York City NY</em></p>
+
+<p><a href="https://cur.at/H2k97bs?m=rss">iOS Developer @ Marks &amp; Spencer</a> – We’re looking for enthusiastic, product-focused iOS developers to join our growing mobile engineering team at M&amp;S and contribute to our App Store chart topping iOS application that’s used by millions of our loyal customers every month. Our app is a universal app, written completely in Swift, and we are always looking for ways to improve, enhance and extend its functionality. – <em>London UK</em></p>
+
+<p><a href="https://cur.at/jVEuWTT?m=rss">iOS Developer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate iOS engineers (full-time remote!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/qQsvMJX?m=rss">Senior macOS Engineer @ Paw</a> – Become the Lead macOS Engineer for one of the most popular Developer Tools! Paw is an application that lets developers test REST and GraphQL APIs. We count Apple, Airbnb, GitHub, Mailchimp among our customers. – <em>Remote within Europe</em></p>
+
+<p><a href="https://cur.at/JekAKc?m=rss">Senior iOS Software Engineer @ TeamSnap</a> – If you find sharing party parrot emojis in Slack amusing, TeamSnap is the place for you. We’ve been remote since before remote was cool. You’ll work on a team with big ideas and tiny egos to develop a product that has been featured by Apple at WWDC and has 25+ million users. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/QZB6Y5v?m=rss">Flutter Developer @ MealPrepPro</a> – At Nibble Apps our mission is to make healthy eating easy. Our team is behind one of the most well-loved health apps worldwide, MealPrepPro. The app is regularly featured by Apple and serves a passionate community of thousands of users. We’re bringing MealPrepPro to Android for the first time and we’re looking for a Flutter developer to join our close-knit team of 6. – <em>Remote</em></p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/OFAsCUJ?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/zFVzoeu?m=rss">Greg Spiers</a>, <a href="https://cur.at/tOQo9px?m=rss">Cameron Cooke</a>, <a href="https://cur.at/zAMIT6P?m=rss">Jelena Djurkovic</a>, <a href="https://cur.at/eBHhZOg?m=rss">David Brittain</a>, and <a href="https://cur.at/utXWn7u?m=rss">Matthew Flint</a>. Thank you so much for your generosity. 😍</p>
+
+<p>This issue’s insider call is on Monday next week, so if the Friday dates haven’t been working for you, <a href="https://cur.at/OFAsCUJ?m=rss">now’s the perfect time to join us</a>!</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p>I opened with a link to Apple's new accessibility announcements, so let's close on the same subject!</p>
+
+<p>Presenting <a href="https://cur.at/5oiDCQF?m=rss">the delightfully baroque VoiceOver descriptions</a> provided for the built-in wallpaper images. 😍</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 21 May 2021 18:32:39 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/508</link>
+      <guid>https://iosdevweekly.com/issues/508</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 507 - May 14th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>The <a href="https://cur.at/2FcrWGx?m=rss">last time I wrote about scam subscription apps</a>, I finished by saying this:</p>
+
+<blockquote><p>Communication about what Apple is doing and how they think about these problems would be a huge step in the right direction.</p></blockquote>
+
+<p>So, when Apple published a press release this week titled “<a href="https://cur.at/Zyo1aoV?m=rss">App Store stopped more than $1.5 billion in potentially fraudulent transactions in 2020</a>” followed by 1,300 words about the measures they take to counter scam apps and fraudulent developers, I should have been thrilled.</p>
+
+<p>Yes, I wish it hadn’t taken the <a href="https://cur.at/8f9v32Y?m=rss">discovery phase of a major lawsuit</a> to prompt them to make a statement, but I <em>am</em> happy that they’re talking about it.</p>
+
+<p>The statistics they quote are impressive, too. As I suspected, there’s lots of work going on behind the scenes. $1.5B of prevented fraudulent transactions. 150,000 spam apps rejected. 470,000 developer accounts terminated. 250 <em>million</em> ratings and reviews removed. That’s a <em>lot</em>! What a great job they’ve been doing. Right?</p>
+
+<p>That’s certainly the message of this press release, but I’m afraid it did not make my wishes come true. My disappointment comes from <em>how</em> they talk about these problems. This is a press release, so it’s not a surprise that it paints a positive picture of the company, but they talk about these issues like they are completely solved and have been on top of the problem from the beginning. There’s no mention of “we have a lot of work to do” or any hint that the App Store isn’t a perfect fortress of impeccable moderation and scrutiny. The work they are doing is impressive, as I knew it would be, but the problem is a very long way from being solved. In fact, to “solve” it shouldn’t be the goal. To genuinely keep on top of it should be.</p>
+
+<p>All of the talk about “relentless steps forward to combat these risks” would sound much more authentic if the scam apps were harder to find. Take a look at <a href="https://cur.at/MURiX60?m=rss">this tweet from Kosta Eleftheriou</a>, for example. It’s a screenshot of an app he created as a solo developer without access to any internal Apple systems, and it shows a list of problematic apps. It’s clear that the problem is not solved, and Apple is not keeping up.</p>
+
+<p>I wish Apple could find a way to be more honest about some of the more negative aspects of the App Store in their developer communications. Yes, a press release isn’t the correct venue for that, especially with all the lawsuits, but it must be possible. If not, it’s time to shut us up by living up to the claims made in this press release. I think we’d all be happy with that as a solution instead. 👍</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/YmNP4jX?m=rss">Join a free training course for mid/senior iOS devs next week</a></h4>
+        <p>From May 17th to 23rd (that's this coming Monday!) you can join a FREE crash course for iOS devs who want to achieve an expert level of technical and practical skills – it's the fast track to being a proficient senior developer! <a href="https://cur.at/VigDF9D?m=rss">Get it now</a>.</p>
+          <p><a href="https://cur.at/YmNP4jX?m=rss">essentialdeveloper.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/f2PyYye?m=rss">The Swift Mentorship Program</a></h4>
+        <p>Have you ever wanted to contribute to an open-source project but didn't know where to start? It can be incredibly daunting, and without guidance, it's probably going to be challenging to land your first contributions successfully. This new programme is here to help. Apply and get matched with a mentor who will guide you through your first contributions to <em>any</em> Swift-based open-source project.</p>
+
+<p>When I first saw this, I mistakenly thought that it was only for people who wanted to contribute to the Swift compiler project itself, <a href="https://cur.at/BquZjrA?m=rss">maybe because of the wording in this tweet</a>. I only say this just in case you also saw the tweet and took away the same impression. It's <em>any</em> Swift open-source project. Give the post itself a proper read.</p>
+
+<p>Also, <a href="https://cur.at/aFCoux0?m=rss">The Swift Package Index</a> has applied to be part of this programme, so if you would like to help us make that better, please do apply! We'd love to work with you.</p>
+          <p><a href="https://cur.at/f2PyYye?m=rss">swift.org</a></p>
+      
+        <h4><a href="https://cur.at/D1hpQXt?m=rss">The internals of App Review’s testing process</a></h4>
+        <p>Here's an interesting Twitter thread from <a href="https://cur.at/mK1vHJG?m=rss">Steve Troughton-Smith</a> with some details of App Review that have come out of the ongoing Apple vs Epic trial. It has been obvious from the start that a lot of the app validation is automated, but there's plenty of detail here we didn't know.</p>
+          <p><a href="https://cur.at/D1hpQXt?m=rss">twitter.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/4rM6rhU?m=rss">Introducing Plot Components</a></h4>
+        <p>We're now in week three of the ongoing "everything must use a result builder" series here on iOS Dev Weekly, and this week's winner is none other than <a href="https://cur.at/BJud5P2?m=rss">John Sundell</a>! 🥂🍾 Seriously though, this enhancement to <a href="https://cur.at/kcDWaEM?m=rss">Plot</a> to generate HTML from SwiftUI style components is another excellent use of the language feature. I have some concerns about how this might scale when working with more complex HTML interfaces, but it's an interesting idea.</p>
+          <p><a href="https://cur.at/4rM6rhU?m=rss">swiftbysundell.com</a></p>
+      
+        <h4><a href="https://cur.at/4YZwW8F?m=rss">TerminalUI</a></h4>
+        <p>This was almost an "And finally..." link, and while it might still make you smile, it's more important than that. What would a SwiftUI layout look like in a text-only interface? <a href="https://cur.at/Ebsk6Lc?m=rss">Chris Eidhof</a> is doing some interesting experimentation. The idea is that a SwiftUI app UI should essentially "just work", but in a text-based user interface. I'm not sure this will be the next revolution in UI design, but it's certainly not a joke project.</p>
+          <p><a href="https://cur.at/4YZwW8F?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/yXSxr6n?m=rss">Swift Actors: A Practical Example</a></h4>
+        <p>One of the new features coming in Swift 5.5 is <a href="https://cur.at/PNbDB0K?m=rss">language support for Actors</a>. What are actors? I'll let <a href="https://cur.at/CDxleLn?m=rss">Marin Todorov</a> explain as he demonstrates them in this two-part (<a href="https://cur.at/H1uuNBQ?m=rss">1</a>, <a href="https://cur.at/5JpegkW?m=rss">2</a>) post. You'll need to download a nightly snapshot to follow along, but it makes for interesting reading even without!</p>
+          <p><a href="https://cur.at/yXSxr6n?m=rss">trycombine.com</a></p>
+      
+        <h4><a href="https://cur.at/teLfnmE?m=rss">Spending an Hour Removing an Rounded Corners from an Image View</a></h4>
+        <p>I enjoyed this story from <a href="https://cur.at/hKTKonI?m=rss">Lee Kah Seng</a> on debugging a "simple" problem in an app he was working on. A great reminder that Interface Builder, while very powerful, can hide things from you.</p>
+          <p><a href="https://cur.at/teLfnmE?m=rss">swiftsenpai.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/UscFaTX?m=rss">On Building a Fluid User Interface</a></h4>
+        <p>This post from <a href="https://cur.at/msnhyVw?m=rss">Rishi Mody</a> has some <a href="https://cur.at/4nY11cR?m=rss">Facebook Paper</a> vibes to it. He talks about how the Instagram app implements several pieces of custom UI design. It's rare to see apps that really sweat interaction details like this these days.</p>
+          <p><a href="https://cur.at/UscFaTX?m=rss">instagram.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/cmHP6xa?m=rss">iOS Developer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate iOS engineers (full-time remote!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/KAB1itu?m=rss">Senior macOS Engineer @ Paw</a> – Become the Lead macOS Engineer for one of the most popular Developer Tools! Paw is an application that lets developers test REST and GraphQL APIs. We count Apple, Airbnb, GitHub, Mailchimp among our customers. – <em>Remote within Europe</em></p>
+
+<p><a href="https://cur.at/VBrdhss?m=rss">Senior iOS Software Engineer @ TeamSnap</a> – If you find sharing party parrot emojis in Slack amusing, TeamSnap is the place for you. We’ve been remote since before remote was cool. You’ll work on a team with big ideas and tiny egos to develop a product that has been featured by Apple at WWDC and has 25+ million users. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/pcwRmkp?m=rss">Flutter Developer @ MealPrepPro</a> – At Nibble Apps our mission is to make healthy eating easy. Our team is behind one of the most well-loved health apps worldwide, MealPrepPro. The app is regularly featured by Apple and serves a passionate community of thousands of users. We’re bringing MealPrepPro to Android for the first time and we’re looking for a Flutter developer to join our close-knit team of 6. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/ZJSBWgQ?m=rss">Senior iOS Engineer @ Scoop</a> – Scoop is building the central platform to enable <em>any</em> company to thrive with hybrid work. Our team is experienced, collaborative, and product-minded. We've weathered the storm of COVID,  more focused than ever on the opportunity that we have to build great products. This is a special opportunity to help enable an entire generation of employees to unlock the full potential of flexible work. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/8jmeSf9?m=rss">Mobile Full Stack Engineer @ Expensify</a> – Join our passionate team of top-notch engineers to solve a real-world problem, and help people spend less time managing expenses and more time pursuing their real goals. As we revolutionize the way people manage their expenses, being part of the Expensify team means building the easiest, fastest, and most efficient platform to automate everything expense-related. – <em>Remote, San Francisco, Portland, Michigan, New York, London, or Melbourne</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Talk to your hiring managers and get them to list your open positions over at <a href="https://cur.at/Dp3U6W1?m=rss">iOS Dev  Jobs</a>. Standard listings are free, so there's nothing to lose!</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/qjRefiV?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/yfKDgFQ?m=rss">Andrew Yates</a>, <a href="https://cur.at/cFIML05?m=rss">Adam Wiggins</a>, <a href="https://cur.at/T58ELWf?m=rss">Jeff Deimund</a>, <a href="https://cur.at/dNtNjkB?m=rss">Kris Arnold</a>, and <a href="https://cur.at/ZT4tlrW?m=rss">Daniel Haight</a>. Your support means the world to me. Thank you. 😍</p>
+
+<p>This week’s insider call happens in a few hours from now, so there’s still time to <a href="https://cur.at/qjRefiV?m=rss">sign up and join us</a>! We’ll be chatting about the App Store today, as you might expect. 😬</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/9dyx3rY?m=rss">Type carefully</a> in App Store Connect! 😂</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 14 May 2021 15:15:30 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/507</link>
+      <guid>https://iosdevweekly.com/issues/507</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 506 - May 7th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>You may think I talk about the <a href="https://cur.at/7mEp9HS?m=rss">Swift Package Index</a> too much in this newsletter, and you’re probably right. After all, it’s what I spend most of my time doing. You might be happy using CocoaPods or Carthage and don’t see any value in replacing something that still works well. I don’t blame you, but hold on before you skip down to this week’s links, give me one more paragraph. 🤞</p>
+
+<p>We launched a new feature for the Swift Package Index this week, and it’s <strong>not only for people who use the Swift Package Manager</strong>! “<a href="https://cur.at/ihGd8Zg?m=rss">Try in a Playground</a>” lets you generate a Swift Playground that you can open in Xcode that has a library pre-imported and ready to use. Visit any package page on the <a href="https://cur.at/7mEp9HS?m=rss">Swift Package Index</a>, click the “Try in a Playground” link, generate the playground, and a few seconds later, you’re ready to try it out. That’s a great feature, even if you eventually import the library to your app using CocoaPods or Carthage. 🚀</p>
+
+<p>If you want more details, here’s the <a href="https://cur.at/I4hvopv?m=rss">launch announcement for the feature</a>, or if you’re convinced and want to grab the app immediately, <a href="https://cur.at/ihGd8Zg?m=rss">download it here</a>.</p>
+
+<p>Oh, and while we’re on the subject, this “Try in a Playground” button is a big part of why the Swift Package Index exists in its current form. I <a href="https://cur.at/YwM6pQQ?m=rss">wrote about that this week too</a>. I hope you enjoy the story!</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/jkpGgVQ?m=rss">Get All The Insights You Need To Build Quality Apps</a></h4>
+        <p>Whether it’s a crash, slow screen transitions, slow network calls or unresponsive UIs, Instabug grabs you all the logs you need to fix to ship quality apps. <a href="https://cur.at/QEVQjrf?m=rss">Get started now</a>.</p>
+          <p><a href="https://cur.at/jkpGgVQ?m=rss">instabug.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/WhEepUJ?m=rss">Lightweight Analytics That&#39;s Not Evil</a></h4>
+        <p>Privacy-focused analytics tools are on the rise right now. We're using <a href="https://cur.at/DDgczA2?m=rss">Plausible</a> for the <a href="https://cur.at/xzCP4d6?m=rss">Swift Package Index</a> (which I thoroughly recommend if you're looking for web analytics). If you're looking for something to put into your app, though, maybe check this new tool from <a href="https://cur.at/syKUssb?m=rss">Daniel Jilg</a> out. It certainly says all the right words on the web site!</p>
+          <p><a href="https://cur.at/WhEepUJ?m=rss">apptelemetry.io</a></p>
+      
+        <h4><a href="https://cur.at/EO4rI1C?m=rss">Reimagining Apple’s documentation</a></h4>
+        <p>What's wrong with the Apple developer documentation? Here are 3,500+ words from <a href="https://cur.at/TdD4oKy?m=rss">Paul Hudson</a> with a vision of a perfect developer documentation world.</p>
+
+<p>(and here are <a href="https://cur.at/21mIhIj?m=rss">28 words on James Dempsey's vision</a>. 😂)</p>
+          <p><a href="https://cur.at/EO4rI1C?m=rss">hackingwithswift.com</a></p>
+      
+        <h4><a href="https://cur.at/s8YIxmo?m=rss">Apple Search Ads introduces a new way to promote apps</a></h4>
+        <p>Because the problem with the App Store is that there wasn't enough advertising. 🙄</p>
+          <p><a href="https://cur.at/s8YIxmo?m=rss">apple.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/AOZQ8NK?m=rss">How OrderedSet works</a></h4>
+        <p>As you might expect, the <a href="https://cur.at/TwukgjU?m=rss">Swift collections library</a> contains some clever thinking:</p>
+
+<blockquote><p>My error was to equate “hash table” with “set or dictionary” in my head, but it turns out there are other kinds of hash tables.</p></blockquote>
+
+<p><a href="https://cur.at/Hy5RyRu?m=rss">Ole Begemann</a> explains more.</p>
+          <p><a href="https://cur.at/AOZQ8NK?m=rss">oleb.net</a></p>
+      
+        <h4><a href="https://cur.at/10tpMJr?m=rss">SwiftRegexDSL</a></h4>
+        <p>Like attributed strings, regular expressions are notoriously challenging to read. What if you could describe your expression in descriptive terms? This new library from <a href="https://cur.at/uUw6tg2?m=rss">Jérémy Marchand</a> aims to let you do just that.</p>
+
+<p>Also, my <a href="https://cur.at/O6DPbL8?m=rss">prediction on the rapid adoption of result builders</a> is coming true. I passed on about five other articles or libraries that used them this week. I think this library is <em>potentially</em> worthwhile if you do lots of regular expressions that you often need to edit. Still, the tactic of choosing dependencies carefully and cautiously is a good one.</p>
+          <p><a href="https://cur.at/10tpMJr?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/eIO9Oua?m=rss">The hidden secrets of SwiftUI&#39;s TabView</a></h4>
+        <p>One aspect of SwiftUI that I love is that it takes a fresh look at UI controls based on how developers have been implementing apps for the last ten or more years. Do we truly need separate controls for swiping between pages, displaying pages in a tab bar, and pages in a carousel?  <a href="https://cur.at/3wKdGhd?m=rss">Kristaps Grinbergs</a> takes a look at one SwiftUI control that will tackle all three tasks.</p>
+          <p><a href="https://cur.at/eIO9Oua?m=rss">kristaps.me</a></p>
+      
+        <h4><a href="https://cur.at/JonPxxR?m=rss">Abstracting Navigation in SwiftUI</a></h4>
+        <p>I agree with <a href="https://cur.at/QoAjjGC?m=rss">Omar</a> that the mechanisms we have for navigation in the current version of SwiftUI favour simpler apps and can feel a little limiting as you grow. He proposes the approach of triggering navigation with a Combine publisher. I fear this may go too far the other way, but I enjoyed the article!</p>
+          <p><a href="https://cur.at/JonPxxR?m=rss">obscuredpixels.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/FOZkeGo?m=rss">Complications Overhaul</a></h4>
+        <p>What's the difference between adding a bare-bones complication to a watchOS app and sweating the details in terms of offering what your users might want. This post is an effective illustration of just how much work can go into a complication from <a href="https://cur.at/kTZsrdg?m=rss">David Smith</a>. 😳</p>
+          <p><a href="https://cur.at/FOZkeGo?m=rss">david-smith.org</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/Ie0XmsD?m=rss">Senior iOS Engineer @ Scoop</a> – Scoop is building the central platform to enable <em>any</em> company to thrive with hybrid work. Our team is experienced, collaborative, and product-minded. We've weathered the storm of COVID,  more focused than ever on the opportunity that we have to build great products. This is a special opportunity to help enable an entire generation of employees to unlock the full potential of flexible work. – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/1NhfdFU?m=rss">Mobile Full Stack Engineer @ Expensify</a> – Join our passionate team of top-notch engineers to solve a real-world problem, and help people spend less time managing expenses and more time pursuing their real goals. As we revolutionize the way people manage their expenses, being part of the Expensify team means building the easiest, fastest, and most efficient platform to automate everything expense-related. – <em>Remote, San Francisco, Portland, Michigan, New York, London, or Melbourne</em></p>
+
+<p><a href="https://cur.at/ek5XcgR?m=rss">iOS Developer @ Atomic Robot</a> – Atomic Robot works with some of the most exciting companies and brands to help them bring their innovative projects to life! We have a highly collaborative team that is focused on high quality engineering and continuous learning. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/b4gR7bC?m=rss">Senior iOS Software Engineer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate Senior iOS engineers (remote-friendly!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/3ORGhak?m=rss">Solutions Engineer @ RevenueCat</a> – At RevenueCat, we make selling subscriptions in your app easy. We launched as part of Y Combinator's summer 2018 batch and today are handling subscriptions for more than 10 million mobile subscriptions. In this role, you'll partner with companies of all sizes to ensure they have a flawless implementation and come up with creative solutions for the needs and requirements of each app. – <em>Remote</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Talk to your hiring managers and get them to list your open positions over at <a href="https://cur.at/hDCRen8?m=rss">iOS Dev  Jobs</a>. Standard listings are free, so there's nothing to lose!</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/HrotF4k?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/yCNqxIJ?m=rss">Rob Norback</a>, <a href="https://cur.at/6dzBBwz?m=rss">Sahand Nayebaziz</a>, <a href="https://cur.at/WMfN2CP?m=rss">Dylan Lewis</a>, <a href="https://cur.at/m9O7RQO?m=rss">Joey Jarosz</a>, and <a href="https://cur.at/fH87803?m=rss">Ryan Ashcraft</a>! Your support means the world to me. Thank you. 😍</p>
+
+<p>This week’s insider call happens in just a couple of hours from now, so there’s still time to <a href="https://cur.at/HrotF4k?m=rss">sign up and join us</a>!</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/s4oVDXB?m=rss">Do you have an old, unused iPad lying around</a>?</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 07 May 2021 17:13:50 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/506</link>
+      <guid>https://iosdevweekly.com/issues/506</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 505 - Apr 30th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>I lost about two hours yesterday to <a href="https://cur.at/nQjxcuf?m=rss">this tweet from Davide Di Stefano</a>. Xcode 2 was the first version I used, but this video of Xcode 3 from <a href="https://cur.at/PC2YiGT?m=rss">Kevin Vinck</a> took me on a delightful trip down memory lane, which ended in finding <a href="https://cur.at/jSO8LMH?m=rss">this YouTube channel</a> and <a href="https://cur.at/eCdZeHl?m=rss">this video introducing Project Builder</a>. Despite being such low resolution you can’t read the text, I watched more of it than I should have for a Thursday afternoon. 😬 I loved seeing features in Project Builder that are still a part of Xcode today.</p>
+
+<p>I was late to the Mac platform and only owned my first one in 2006, but once I jumped, there was no turning back. I quickly fell in love with the platform and with writing apps with Objective-C and Cocoa. Of course, iPhone OS and then iOS followed, and the rest is history.</p>
+
+<p>It’s tempting to mock these old versions of Xcode and Interface Builder. Just look at all those windows! However, my rose-coloured spectacles are fully functional, and I don’t feel anything but fondness for that software. The Mac, its development environment, and the community of incredibly passionate Mac developers that I found when I arrived were inspiring and exciting in a way I hadn’t felt in years. My ex-colleagues mocked me gently, and I think they half expected my experiments with the Mac to be short-lived, but they were not!</p>
+
+<p>So, I’d encourage you to join me in some nostalgia this Friday and think back to the first version of Xcode you used. Or, if your first version of Xcode was more recent, explore a bit of the history of developer tools on the Mac. 🚀</p>
+
+<p>By the way, my favourite parts of <a href="https://cur.at/RiYjO5z?m=rss">the video</a> were the warning about forgetting to save the IB file before building in Xcode and being tripped up by the text field cell inside the text field. Ah, memories!</p>
+
+<p>Oh, and just before publishing, I saw <a href="https://cur.at/amkDZrd?m=rss">this tweet from Uli Kusterer</a>. What is it with the nostalgia this week?</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/8PgqOoI?m=rss">Forget writing testing scripts, use Waldo.</a></h4>
+        <p>Waldo is the first fully no-code mobile testing solution. Now, anyone on your team can create reliable automated tests and help you fix bugs before your users find them. <a href="https://cur.at/BkdHp6c?m=rss">Try Waldo now, for free</a>.</p>
+          <p><a href="https://cur.at/8PgqOoI?m=rss">waldo.io</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/XIwuK4U?m=rss">Swift 5.4 Released!</a></h4>
+        <p>Along with Xcode 12.5 comes Swift 5.4. Here's <a href="https://cur.at/MFtUP8j?m=rss">Ted Kremenek</a>  with a rundown of what's new. You might already be aware of the language enhancements, but did you know about the improvements to developer tooling that come with it? That's a welcome step towards <a href="https://cur.at/osok3BL?m=rss">what I wished for</a> recently. 😍</p>
+          <p><a href="https://cur.at/XIwuK4U?m=rss">swift.org</a></p>
+      
+        <h4><a href="https://cur.at/QSuFTLG?m=rss">Craig Federighi Explains iOS 14.5&#39;s Privacy Features</a></h4>
+        <p>The reasons that Craig Federighi is so well-loved come across so well in this interview with <a href="https://cur.at/cppDaS7?m=rss">Joanna Stern</a>. He's funny, charming, humble, and is just as comfortable doing a high-level interview like this one as talking on deeply technical topics. 😍</p>
+
+<p>I'm not linking to this video <em>only</em> to say how great Craig is, though. The video is spot-on if you need a high-level explainer for letting company stakeholders and/or clients know what ATT is all about.</p>
+          <p><a href="https://cur.at/QSuFTLG?m=rss">youtube.com</a></p>
+      
+        <h4><a href="https://cur.at/VQEp8MM?m=rss">What’s new in advertising attribution technologies</a></h4>
+        <p>There has been plenty of talk about the restrictions on what you <em>can't</em> do in iOS 14.5, but what about what you <em>can</em> do? <code>SKAdNetwork</code> is an essential part of tracking the effectiveness of your app marketing efforts in a privacy-aware way, and I think Apple wanted to remind us of that.</p>
+          <p><a href="https://cur.at/VQEp8MM?m=rss">apple.com</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/QjFrUtS?m=rss">Apply a device mask to screenshots from the iOS Simulator</a></h4>
+        <p>This is a great little tip from <a href="https://cur.at/rkPvMgL?m=rss">Roman Shevtsov</a>. Even better, once you've set the option, the setting is respected for all future screenshots saved with ⌘S. 👍</p>
+          <p><a href="https://cur.at/QjFrUtS?m=rss">twitter.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/QFQwgjl?m=rss">Core Data and SwiftUI</a></h4>
+        <p>I'm ashamed to say I've had this post from <a href="https://cur.at/jRGNV3G?m=rss">Dave DeLong</a> in my queue for a few weeks. I wanted to properly read and digest it and never managed to get there until today! He concentrates on separating Core Data away from your UI, and emitting results as structs rather than classes. Naturally, it was worth reading. 🎁</p>
+          <p><a href="https://cur.at/QFQwgjl?m=rss">davedelong.com</a></p>
+      
+        <h4><a href="https://cur.at/tNKXPxP?m=rss">AccessibilitySnapshotColorBlindness</a></h4>
+        <p>Like using multiple SwiftUI previews to simulate different execution environments, snapshot tests can be a great way to ensure that you're aware of how your changes affect how different people see your app. Yes, that could be as trivial as a light/dark mode change, which you probably test manually anyway. But what about colour blindness? Based on  <a href="https://cur.at/GEiJP5L?m=rss">SnapshotTesting</a>, this new library from <a href="https://cur.at/XMTW2vY?m=rss">James Sherlouk</a> helps keep track of how your app looks to people with a range of colour blindness conditions.</p>
+          <p><a href="https://cur.at/tNKXPxP?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/onwiwnc?m=rss">Working with web content offline in SwiftUI apps</a></h4>
+        <p>I enjoyed this article from <a href="https://cur.at/8Yd8CkQ?m=rss">Artem Novichkov</a>. I remember digging into whether it was possible to save web content from a web view <em>way</em> back when I considered writing an iOS app for this newsletter. At the time, it was full of issues, but there are many more options for doing it today. 🚀</p>
+          <p><a href="https://cur.at/onwiwnc?m=rss">artemnovichkov.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/4tIud6j?m=rss">If your app requests permission to access user data...</a></h4>
+        <p><a href="https://cur.at/LToypcY?m=rss">Mike Stern</a> highlights this recent addition to <a href="https://cur.at/4wLVddj?m=rss">the HIG</a> that adds guidance around permission priming. The guidance is good and will hopefully move apps away from the common tricks designed to delay permission prompts.</p>
+
+<p>However, the HIG is not the App Review Guidelines, so it'll be interesting to see how App Review deals with this. I didn't spot any changes in the App Review guidelines that reference this, so who knows if this will be something that will cause rejections.</p>
+          <p><a href="https://cur.at/4tIud6j?m=rss">twitter.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/d8KKVIH?m=rss">iOS Developer @ Atomic Robot</a> – Atomic Robot works with some of the most exciting companies and brands to help them bring their innovative projects to life! We have a highly collaborative team that is focused on high quality engineering and continuous learning. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/UB9TB57?m=rss">Senior iOS Software Engineer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate Senior iOS engineers (remote-friendly!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/BqokNI4?m=rss">Solutions Engineer @ RevenueCat</a> – At RevenueCat, we make selling subscriptions in your app easy. We launched as part of Y Combinator's summer 2018 batch and today are handling subscriptions for more than 10 million mobile subscriptions. In this role, you'll partner with companies of all sizes to ensure they have a flawless implementation and come up with creative solutions for the needs and requirements of each app. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/jZwevgY?m=rss">Senior iOS Developer @ komoot</a> – Komoot is an app (19M users) that lets you find, plan, and share adventures with the easy route planner. You’ll develop diverse features for navigation, routing, social interaction and content visualization that will make your work challenging and fun. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/4X70sjK?m=rss">SwiftUI Developer @ Sellable</a> – At Sellable we're building the future of commerce! Have the opportunity to experience working as part of a small team in a company at its early stages. Build out new features and grow your skills in SwiftUI. – <em>Remote</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Is your company hiring? Get your open iOS development positions listed in next week's iOS Dev Weekly by <a href="https://cur.at/bunBLLt?m=rss">posting a Featured Listing</a> over at <a href="https://cur.at/k0sC6lm?m=rss">iOS Dev  Jobs</a>.</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/tgQadVZ?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/IcPRxGY?m=rss">Peter Steinberger</a>, <a href="https://cur.at/4iuXEI6?m=rss">Kyle Van Essen</a>, <a href="https://cur.at/mriBKlW?m=rss">Josh Adams</a>, <a href="https://cur.at/cAPJtRl?m=rss">Jim Dovey</a>, and <a href="https://cur.at/cY43ZqH?m=rss">Caylan Larson</a>. I truly appreciate your support. Thank you.</p>
+
+<p>This week’s insider call will be all nostalgic, as I ask everyone about their first experiences with development on the Mac. But we’ll also discuss some of the other links. It’s happening in just over an hour from now, so there’s still time to <a href="https://cur.at/tgQadVZ?m=rss">sign up</a>!</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/2FJMV3I?m=rss">This spoke to me</a>. The deeper you go into my apps, the more rotten my code is. 😂</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 30 Apr 2021 16:28:04 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/505</link>
+      <guid>https://iosdevweekly.com/issues/505</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 504 - Apr 23rd 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>Something struck me as I watched the M1 chip appear in more hardware on Tuesday. It won’t be long until the whole Mac lineup has the same internals.</p>
+
+<p>The “low” end of the Apple silicon Mac lineup now looks complete. The smaller laptops, Mac mini, and smaller iMac all have the same chip inside them, the M1. Yes, some of them have one less GPU core, but that’s such a minor difference it’s barely worth mentioning.</p>
+
+<p>But what about the “Pro” Macs? What about more than 16Gb RAM and high-end GPUs, and all the other things “Pro” users want? I feel pretty confident that Apple will fall into the same consistent cycle for M-series chips that they have been so consistent with while producing the A-series. September will almost certainly bring us an A15 with the new iPhone, and I’d bet an M2 will accompany it with the capability for more memory and story around better or dedicated GPUs. I don’t think we’ll see the entire range of M1 upgraded to M2 chips immediately, but I think we’ll see it happen before the M3 arrives. Maybe the highest-end machines will get more cores via an M2X or similar, but wouldn’t it be great if the whole Mac lineup had their chips upgraded every year, just like the iPhone and iPad do?</p>
+
+<p>Do you know what that would mean? It would no longer be possible to buy a bad Mac! Just pick the form factor you’d like, and that’s it. Do you want a small laptop with a keyboard? MacBook Air. Want a desktop with a built-in screen? The iMac is for you. Which machine is faster for X, or Y task? That is no longer a valid question. It would also mean that there wouldn’t be a bad <em>time</em> to buy a Mac, as you’d never be more than a year behind the latest upgrades.</p>
+
+<p>Why am I talking about this? Especially when <a href="https://cur.at/aLDGoy6?m=rss">I try not to make predictions or dwell on what might be coming next</a>. 😬</p>
+
+<p>The promise of SwiftUI is the software equivalent of the Apple silicon chips. You can’t pick the wrong framework, and your code will (largely) be compatible with any Apple platform. Just choose a platform (or platforms) you’d like to target and start creating.</p>
+
+<p>We may not quite be there today, but we’re moving closer to that reality with every passing year. SwiftUI is the Apple silicon of software frameworks. 🤩</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/ulXrQKT?m=rss">Building an open-source app? MacStadium can help</a></h4>
+        <p>To support the open-source community, MacStadium is offering free cloud-hosted Mac minis for iOS or macOS developers working on open source projects. Both Intel-based and Apple silicon M1 minis are available or apply an equivalent discount to a private cloud. <a href="https://cur.at/LZ9Qiex?m=rss">Apply here to get started</a>.</p>
+          <p><a href="https://cur.at/ulXrQKT?m=rss">macstadium.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/7XoVInL?m=rss">Swift Student Challenge Submissions 2021</a></h4>
+        <p>Applications for the <a href="https://cur.at/wUZOIMV?m=rss">Swift Student Challenge</a> are now closed, and I wish everyone who applied this year good luck! If you're interested to see some of the submissions, there's a GitHub repository with links that you should certainly check out. If you entered and aren't listed here, you might like to share what you created. For the rest of us, it's a chance to be impressed by the quality of submissions for this year's challenge.</p>
+          <p><a href="https://cur.at/7XoVInL?m=rss">github.io</a></p>
+      
+        <h4><a href="https://cur.at/mZ93ZD4?m=rss">App Store submissions require the iOS 14 SDK</a></h4>
+        <p>If you've been putting off upgrading to Xcode 12, now is the time. As of Monday, you will be <em>required</em> to build with the iOS 14 SDK to submit apps to the store.</p>
+
+<p><strong>Note:</strong> As always, this doesn't mean you can't support old versions of iOS, just that you need to compile against the latest SDK.</p>
+          <p><a href="https://cur.at/mZ93ZD4?m=rss">apple.com</a></p>
+      
+        <h4><a href="https://cur.at/kQG76rG?m=rss">xCloud beta arrives this week</a></h4>
+        <p>What a <a href="https://cur.at/k7iNiYU?m=rss">sweet solution</a>. 🙄</p>
+          <p><a href="https://cur.at/kQG76rG?m=rss">theverge.com</a></p>
+      <h3>Tools</h3>
+      
+        <h4><a href="https://cur.at/h8OFe8t?m=rss">Xcode shortcuts to boost your SwiftUI productivity</a></h4>
+        <p>Three of these four shortcuts are helpful no matter what UI framework you're using, but they become essential productivity boosters when working with SwiftUI view code. Thanks to <a href="https://cur.at/D0zGzdQ?m=rss">Sarun Wongpatcharapakorn</a> for putting this together.</p>
+          <p><a href="https://cur.at/h8OFe8t?m=rss">sarunw.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/4616vcC?m=rss">TextBuilder</a></h4>
+        <p>I feel like we might see overuse of result builders when Swift 5.4 gains adoption. It’s a fancy new language feature, and my gut feeling says people will <em>try</em> and find reasons to use them! 😂 Building an attributed string <em>almost always</em> ends in ugly code, though, and that's where this package from <a href="https://cur.at/lt8ion4?m=rss">David Roman</a> will help out! It feels like a worthwhile use of a result builder too.</p>
+
+<p><strong>Note:</strong> You'll notice a full complement of failing builds on the package index for this package. That's only because we're not yet checking compatibility with Swift 5.4, but we're <a href="https://cur.at/IRTkqN9?m=rss">working on it</a>!</p>
+          <p><a href="https://cur.at/4616vcC?m=rss">swiftpackageindex.com</a></p>
+      
+        <h4><a href="https://cur.at/AG3LBdl?m=rss">SwiftUI In Production</a></h4>
+        <p>I'm not sure I know anyone who cares quite as much about getting the details of an app "just right" than <a href="https://cur.at/ARQ8ymd?m=rss">Peter Steinberger</a>. The current iteration of SwiftUI has some slightly rough edges that don't quite feel perfect, and this article covers some of the challenges he faced while building a significant feature using the technology. It's also available <a href="https://cur.at/Hu9vPzD?m=rss">in video form</a> if that's more your style.</p>
+          <p><a href="https://cur.at/AG3LBdl?m=rss">pspdfkit.com</a></p>
+      
+        <h4><a href="https://cur.at/tUS56PI?m=rss">Getting Ready for App Tracking Transparency</a></h4>
+        <p>I've linked to several Apple announcements about App Tracking Transparency, and <a href="https://cur.at/f0S8cPZ?m=rss">it's becoming mandatory as of Monday</a>! Just in time, here's a good guide from <a href="https://cur.at/D20gSkZ?m=rss">Lee Kah Seng</a> on how you can ask permission to use the IDFA with ATT enforced.</p>
+          <p><a href="https://cur.at/tUS56PI?m=rss">swiftsenpai.com</a></p>
+      
+        <h4><a href="https://cur.at/E4XOiuw?m=rss">What’s the difference between a singleton and a shared instance?</a></h4>
+        <p>This is a good reminder from <a href="https://cur.at/5JJgVBS?m=rss">Donny Wals</a> that sometimes when people say singleton, they mean a shared instance.</p>
+          <p><a href="https://cur.at/E4XOiuw?m=rss">donnywals.com</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/98SWlq4?m=rss">How to Design a Great App Icon</a></h4>
+        <p>If you read one article this week, let it be this one from <a href="https://cur.at/KUgotaW?m=rss">Michael Flarup</a>. It's a masterclass on both process and technique. I especially enjoyed <a href="https://cur.at/PVxCPBi?m=rss">this video</a> that's squeezed in half way through the article. There's so much good stuff here.</p>
+          <p><a href="https://cur.at/98SWlq4?m=rss">shopify.ie</a></p>
+      <h3>Books</h3>
+      
+        <h4><a href="https://cur.at/pkY5jwO?m=rss">iOS App Distribution &amp; Best Practices</a></h4>
+        <p>Reading about distributing an iOS makes it seem so easy. Just let Xcode manage your code signing, and you're set. Right? Things are <em>significantly</em> easier these days, and you might get away with that, but what happens when you step away from the happy path or want to start automating bits of your submission process? That's where this book from <a href="https://cur.at/HXooTvq?m=rss">Pietro Rea</a> and <a href="https://cur.at/cWD6xnN?m=rss">Keegan Rush</a> comes in.</p>
+
+<p>For full disclosure, I was sent a preview copy of this book.</p>
+          <p><a href="https://cur.at/pkY5jwO?m=rss">raywenderlich.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/Ao5FGTG?m=rss">Senior iOS Developer @ komoot</a> – Komoot is an app (19M users) that lets you find, plan, and share adventures with the easy route planner. You’ll develop diverse features for navigation, routing, social interaction and content visualization that will make your work challenging and fun. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/KaJMueq?m=rss">SwiftUI Developer @ Sellable</a> – At Sellable we're building the future of commerce! Have the opportunity to experience working as part of a small team in a company at its early stages. Build out new features and grow your skills in SwiftUI. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/obBuLtp?m=rss">iOS Developer @ Shape</a> – If you're passionate about making state-of-the-art iOS apps, why not work together with some of the best developers and designers who share this passion? Our office is in Copenhagen - one of the most liveable cities in the world. We offer relocation support and help you get a VISA. We also like to  host social events, morning runs, Friday bars, board game nights, LEGO days and much more. – <em>Copenhagen, Denmark</em></p>
+
+<p><a href="https://cur.at/Xo5b2jd?m=rss">iOS Specialist @ Darkroom</a> – Tiny team, Apple Design Award-caliber product development, big scale and impact, fully remote team, competitive LA-based salaries anywhere in the world. If you want to build high touch products at scale, in a small team, this is the job for you. – <em>Anywhere between California and Amsterdam</em></p>
+
+<p><a href="https://cur.at/OaiTDjX?m=rss">iOS Engineer @ Smile</a> – We at Smile are on a quest to take the “work” out of work. To do this we’re on the search for an iOS Engineer to help delight our customers by crafting an amazing iOS experience for our PDFpen product. What's in it for you? A high level of autonomy in your role, the opportunity to work with motivated and creative teammates, and a flexible schedule that comes with fully remote work. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/fo9DXut?m=rss">Developer Evangelist @ Semaphore</a> – You're going to love this role if you're passionate about teaching best practices (via articles, videos, presentations...) and interacting with the community. The focus is all about building, testing and deploying code. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/8DVbi9V?m=rss">iOS Developer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate iOS engineers (full-time remote!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/RXGBGqF?m=rss">iOS Software Engineer @ Strava</a> – As an iOS engineer at Strava, you will build the athlete experience in the Strava iOS app. In this role, you will build the features that make the best part of our athletes’ days even better. You will work closely with our cross-functional team to ensure our technology is addressing real athlete problems while being reliable and performant. – <em>San Francisco CA, Denver CO, or Remote within the US</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Are you hiring? Get your open iOS development positions listed in next week's issue by <a href="https://cur.at/4KUXiz1?m=rss">posting a Featured Listing</a> over at <a href="https://cur.at/gSTJBDY?m=rss">iOS Dev  Jobs</a>.</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/ZFldN7n?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/dXOYpyk?m=rss">Paul Hudson</a>, <a href="https://cur.at/DQizmZT?m=rss">David Olesch</a>, <a href="https://cur.at/tfCHg1H?m=rss">Martin Pilkington</a>, <a href="https://cur.at/Al7b7IK?m=rss">Douglas Hill</a>, and <a href="https://cur.at/y1cJcEy?m=rss">Michael Fey</a>. I really appreciate your support. ❤️</p>
+
+<p>Want to join them? This issue’s <a href="https://cur.at/ZFldN7n?m=rss">discussion call</a> is on Tuesday next week, so there’s still time to join!</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p>You gotta <a href="https://cur.at/pASI4kS?m=rss">believe</a>...</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 23 Apr 2021 16:53:41 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/504</link>
+      <guid>https://iosdevweekly.com/issues/504</guid>
+    </item>
+    <item>
+      <title>iOS Dev Weekly - Issue 503 - Apr 16th 2021</title>
+      <description>
+        <![CDATA[      <h3>Comment</h3>
+      
+        <h4></h4>
+        <p>I’m sure I’m not the only one who has a constant stream of ideas related to software I either work on now, or may work on in the future. The quality of my ideas varies wildly, and it’s often the worst ideas that shout loudest at me to drop everything and start working on them. 😅 You’ll never be perfect at knowing where to focus your attention, or at least I’ve resigned myself to the fact that <em>I’ll</em> never be perfect at it, but it’s an important thing to keep in mind.</p>
+
+<p>I’ve been thinking a lot about the maturity of ideas this week, mostly because of this week’s release of <a href="https://cur.at/tKrXgCK?m=rss">Sourcery Pro</a> by <a href="https://cur.at/3kxxIoo?m=rss">Krzysztof Zabłocki</a>. Would this app be as good as it is without the years of thought, development, and iteration that went into <a href="https://cur.at/ACLD0Z6?m=rss">Sourcery</a>? Almost certainly not. That experience drove the feature set and workflow, and the app is much better for it.</p>
+
+<p>But does every idea need to be deliberated on for years? Nope! Some ideas benefit from a quick MVP and experimentation. For example, this newsletter. I had the idea to do it, and around a week later I sent the first issue.</p>
+
+<p>It’s hard to advise on this topic, but I think choosing what to pursue often comes down to how complex/significant the task is. I made the right decision to move quickly when deciding to start iOS Dev Weekly as the opportunity cost was small, and I took things much more slowly when considering whether to build the <a href="https://cur.at/7NA1kAA?m=rss">Swift Package Index</a>.</p>
+
+<p>The original idea for building a package search engine popped into my head around two years before the launch of the index site, and a year before the <a href="https://cur.at/mGdSWYf?m=rss">SwiftPM Library</a>. I let the idea stew for a long while before starting as I knew the undertaking was significant.</p>
+
+<p>What should you take from this? I think I might just have written the most obvious advice ever, but sometimes reading obvious stuff can still be useful. I’m also saying you should check out <a href="https://cur.at/tKrXgCK?m=rss">Sourcery Pro</a>. It’s good. 👍</p>
+
+<p><strong>Note:</strong> For full disclosure, I helped beta test Sourcery Pro.</p>
+        <p>Dave Verwer</p>
+      <h3>Sponsored Link</h3>
+      
+        <h4><a href="https://cur.at/KWnZTrT?m=rss">39 Challenges of Building iOS Apps at Scale</a></h4>
+        <p>How are some of the largest iOS apps built? The book Building Mobile Apps at Scale helps you overcome the most common challenges. Written by former Uber mobile engineer Gergely Orosz, the book is free for a limited time. <a href="https://cur.at/5oHnGxg?m=rss">Grab your copy now</a>.</p>
+          <p><a href="https://cur.at/KWnZTrT?m=rss">mobileatscale.com</a></p>
+      <h3>News</h3>
+      
+        <h4><a href="https://cur.at/OMnkdAe?m=rss">SwiftWinRT</a></h4>
+        <p>I have no idea whether Swift on Windows will ever see widespread adoption, but I know that this package's release is a step towards that possibility. The fact that this work is primarily the result of one person's efforts is incredible. Thank you to <a href="https://cur.at/oP0CJ7T?m=rss">Saleem Abdulrasool</a> for all his efforts in this area.</p>
+
+<p>Also, <a href="https://cur.at/ZPO2Ode?m=rss">note how <em>all</em> builds failed</a> when the package index tried to determine this package's compatibility? 😬 Does that mean we need to add Windows build machines? 😅</p>
+          <p><a href="https://cur.at/OMnkdAe?m=rss">swiftpackageindex.com</a></p>
+      <h3>Code</h3>
+      
+        <h4><a href="https://cur.at/CAWGPIX?m=rss">JavaScriptCore and Swift</a></h4>
+        <p>Like most people, I have mixed feelings about JavaScript. 😬 Overall, there are far more positives to the language than there are negatives, but when you hit those negatives... No matter what you think of the language, there's no denying that it can be a powerful ally in your apps when used through JavaScriptCore. <a href="https://cur.at/rxN5QHQ?m=rss">Andy Ibanez</a> tells us more.</p>
+          <p><a href="https://cur.at/CAWGPIX?m=rss">andyibanez.com</a></p>
+      
+        <h4><a href="https://cur.at/GE3wjti?m=rss">Refining Accessibility: Lessons Learned</a></h4>
+        <p>I very nearly linked <a href="https://cur.at/IQTzqKd?m=rss">this article on creating a beautiful aurora background animation</a> from <a href="https://cur.at/qhqdPxY?m=rss">Matt Waller</a> last week. I'm so glad I waited because he followed it up with an even better post this week on the implications of blurring and animations on accessibility. Great article.</p>
+          <p><a href="https://cur.at/GE3wjti?m=rss">cephalopod.studio</a></p>
+      
+        <h4><a href="https://cur.at/XuErwek?m=rss">Create Combine Publishers for HealthKit</a></h4>
+        <p>Many articles that focus on Combine can be a little theoretical, but not this post from <a href="https://cur.at/yYVjiFk?m=rss">Isa Lima</a>! I like how she doesn't only concentrate on using Combine to move data around but also on using it for requesting HealthKit permissions.</p>
+          <p><a href="https://cur.at/XuErwek?m=rss">isalima.xyz</a></p>
+      
+        <h4><a href="https://cur.at/FJb6Yh2?m=rss">Hacking native ARM64 binaries to run on the iOS Simulator</a></h4>
+        <p>Let's finish up with <a href="https://cur.at/1GkPTag?m=rss">Bogo Giertler</a> teaching us more about XCFrameworks and ARM64 binaries than we'll ever need to know. How about that as a way to finish your Friday? 🎉</p>
+          <p><a href="https://cur.at/FJb6Yh2?m=rss">bogo.wtf</a></p>
+      <h3>Design</h3>
+      
+        <h4><a href="https://cur.at/G7mDrIa?m=rss">What If Your Designers Want a Baseline Grid on iOS?</a></h4>
+        <p>This long and extremely detailed article from <a href="https://cur.at/5FUGc9Z?m=rss">Tammo Freese</a> is a must-read if you want your typography-focused app design to look good, especially if you're supporting dynamic text.</p>
+          <p><a href="https://cur.at/G7mDrIa?m=rss">medium.com</a></p>
+      <h3>Business and Marketing</h3>
+      
+        <h4><a href="https://cur.at/w94NIT0?m=rss">Writing your App’s Privacy Policy</a></h4>
+        <p>Even if you've been through and [answered all of the <a href="https://cur.at/FvG4l49?m=rss">App Store privacy questions</a>, you still need a separate privacy policy. Here's <a href="https://cur.at/zpz6Zaf?m=rss">David Olesch</a> with a good set of points to consider if you're going to write your own privacy policy.</p>
+          <p><a href="https://cur.at/w94NIT0?m=rss">getonthestore.com</a></p>
+      <h3>Jobs</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/S40ROyj?m=rss">iOS Developer @ Shape</a> – If you're passionate about making state-of-the-art iOS apps, why not work together with some of the best developers and designers who share this passion? Our office is in Copenhagen - one of the most liveable cities in the world. We offer relocation support and help you get a VISA. We also like to  host social events, morning runs, Friday bars, board game nights, LEGO days and much more. – <em>Copenhagen, Denmark</em></p>
+
+<p><a href="https://cur.at/QYPR6Kw?m=rss">iOS Specialist @ Darkroom</a> – Tiny team, Apple Design Award-caliber product development, big scale and impact, fully remote team, competitive LA-based salaries anywhere in the world. If you want to build high touch products at scale, in a small team, this is the job for you. – <em>Anywhere between California and Amsterdam</em></p>
+
+<p><a href="https://cur.at/pGeu6AE?m=rss">iOS Engineer @ Smile</a> – We at Smile are on a quest to take the “work” out of work. To do this we’re on the search for an iOS Engineer to help delight our customers by crafting an amazing iOS experience for our PDFpen product. What's in it for you? A high level of autonomy in your role, the opportunity to work with motivated and creative teammates, and a flexible schedule that comes with fully remote work. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/9bs3w1J?m=rss">Developer Evangelist @ Semaphore</a> – You're going to love this role if you're passionate about teaching best practices (via articles, videos, presentations...) and interacting with the community. The focus is all about building, testing and deploying code. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/DyBv7Ys?m=rss">iOS Developer @ Doximity</a> – Doximity, the medical network used by over 70% of US clinicians, is hiring passionate iOS engineers (full-time remote!). You'll get to be part of an amazing product team and work on an app that is constantly evolving. Use your skills (Swift, MVVM, FRP) to be an integral part of our newly launched telemedicine feature. Apply today! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/2RCyyfA?m=rss">iOS Software Engineer @ Strava</a> – As an iOS engineer at Strava, you will build the athlete experience in the Strava iOS app. In this role, you will build the features that make the best part of our athletes’ days even better. You will work closely with our cross-functional team to ensure our technology is addressing real athlete problems while being reliable and performant. – <em>San Francisco CA, Denver CO, or Remote within the US</em></p>
+
+<p><a href="https://cur.at/Nlet7SC?m=rss">macOS Software Engineer @ Elgato</a> – Elgato's awesome software products require awesome engineers. We are looking for highly motivated engineers focusing on macOS desktop applications to extend our product portfolio and improve the existing products. Your future agile team is a mix of experienced and junior colleagues with various technical and cultural backgrounds. We are looking forward to meeting you. – <em>München or Mönchengladbach</em></p>
+
+<p><a href="https://cur.at/mcJgIj1?m=rss">Senior iOS Developer @ Vivino</a> – Join our incredible, multicultural, passionate and truly international work culture and empower people everywhere to enjoy wine to the fullest. – <em>Copenhagen</em></p>
+
+<p><a href="https://cur.at/139mx43?m=rss">Technical Lead, Mobile Engineering @ M1 Finance</a> – M1 Finance, The Finance Super App, is on a 🚀 of growth! We want to empower our users to take control of their financial well-being, and we would like you to help us. If you are an enthusiastic mobile engineer looking for your next product challenge and mentoring opportunity, then we would be delighted to hear from you. – <em>Chicago IL</em></p>
+
+<p><a href="https://cur.at/Vwwdpks?m=rss">Senior iOS Engineer @ DuckDuckGo</a> – We are a diverse and fully distributed team from around the world, working toward our shared vision to raise the standard of trust online. Join our team as a Senior iOS Engineer and help shape the technology that powers the DuckDuckGo search experience. As part of our growing team, you will collaborate with team members at all levels to identify and close major gaps in our products. – <em>Remote</em></p>
+
+<p><a href="https://cur.at/yxFkXq4?m=rss">Senior iOS Engineer @ onX</a> – Are you an iOS developer who loves the outdoors? Join onX! If you’re passionate about writing great software, love playing outside, believe in protecting access to public lands, and want to dominate the off-pavement mobile GPS market – then join our team, where we empower millions of outdoor enthusiasts to explore the unknown! – <em>Remote within the US</em></p>
+
+<p><a href="https://cur.at/SZvAN4H?m=rss">iOS Engineer (Multiple Levels) @ Turo</a> – Help us build product features that delight guests who book vehicles on our platform and enable hosts with the tools they need to manage their fleet. The iOS team is actively transitioning our iOS codebase from Objective-C to Swift, and we’re learning SwiftUI together–in labs–as we migrate our internal, watchOS, and tvOS apps. It’s really an exciting time to be an Apple-centric engineer at Turo. – <em>San Francisco CA</em></p>
+
+<p><a href="https://cur.at/TpUqP5O?m=rss">Mobile Full Stack Engineer @ Expensify</a> – Join our passionate team of top-notch engineers to solve a real-world problem, and help people spend less time managing expenses and more time pursuing their real goals. As we revolutionize the way people manage their expenses, being part of the Expensify team means building the easiest, fastest, and most efficient platform to automate everything expense-related. – <em>Remote, San Francisco, Portland, Michigan, New York, London, or Melbourne</em></p>
+        <p></p>
+      
+        <h4></h4>
+        <p>Are you hiring? Get your open iOS development positions listed right here by <a href="https://cur.at/I6v655K?m=rss">posting a Featured Listing</a> over at <a href="https://cur.at/XUxyq3t?m=rss">iOS Dev  Jobs</a>.</p>
+        <p></p>
+      <h3>Insiders</h3>
+      
+        <h4></h4>
+        <p>Thanks so much to this week’s <a href="https://cur.at/wDuNwzu?m=rss">iOS Dev Weekly Insiders</a>! <a href="https://cur.at/wYfAN3e?m=rss">Matt Brindley</a>, <a href="https://cur.at/IbPywDf?m=rss">Filip Němeček</a>, <a href="https://cur.at/aQBqDpf?m=rss">Matt Mayer</a>, <a href="https://cur.at/h2si1dd?m=rss">Luca Bartoletti</a>, and <a href="https://cur.at/ob9zPk5?m=rss">Francisco Cantu</a>. I really appreciate your support. ❤️</p>
+
+<p>Want to join them? This week’s <a href="https://cur.at/wDuNwzu?m=rss">discussion call</a> starts in about an hour!</p>
+        <p></p>
+      <h3>And finally...</h3>
+      
+        <h4></h4>
+        <p><a href="https://cur.at/wpr6Xmo?m=rss">dequeConfiguredReusableCell</a> 😂</p>
+
+<p>(I wish I had seen this tweet before publishing <a href="https://cur.at/Lw2B6KO?m=rss">last week's newsletter</a>)</p>
+        <p></p>
+  <hr>
+  <p>
+    This RSS feed is published on
+    <a href="https://iosdevweekly.com/">https://iosdevweekly.com/</a>.
+    You can also subscribe
+      <a href="https://iosdevweekly.com/#cta-newsletter">via email</a>
+      or
+      <a href="https://iosdevweekly.com/#cta-push">Safari push notifications</a>.
+  </p>
+]]>
+      </description>
+      <pubDate>Fri, 16 Apr 2021 16:48:18 +0100</pubDate>
+      <link>https://iosdevweekly.com/issues/503</link>
+      <guid>https://iosdevweekly.com/issues/503</guid>
+    </item>
+  </channel>
+</rss>

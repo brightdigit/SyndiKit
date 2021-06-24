@@ -1,0 +1,145 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Vincent Pradeilles",
+  "home_page_url": "https://www.youtube.com/channel/UCjkoQk5fOk6lH-shlm53vlw",
+  "author": {
+    "name": "Vincent Pradeilles"
+  },
+  "items": [
+    {
+      "guid": "yt:video:wUoDhf4tzvY",
+      "url": "https://www.youtube.com/watch?v=wUoDhf4tzvY",
+      "title": "Swift Tips #35 - reduce",
+      "date_published": "2021-06-17T15:16:45.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:p3qdi6KyzDk",
+      "url": "https://www.youtube.com/watch?v=p3qdi6KyzDk",
+      "title": "Five weird but valid Swift syntaxes 😮",
+      "date_published": "2021-06-15T14:58:05.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:rjw7Fesc1tk",
+      "url": "https://www.youtube.com/watch?v=rjw7Fesc1tk",
+      "title": "So what got the iOS community excited at WWDC 2021?",
+      "date_published": "2021-06-10T15:08:51.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:3OZ0FBOV0LQ",
+      "url": "https://www.youtube.com/watch?v=3OZ0FBOV0LQ",
+      "title": "My highlights of WWDC 2021 so far!",
+      "date_published": "2021-06-08T14:52:46.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:Oi_C7dD6ats",
+      "url": "https://www.youtube.com/watch?v=Oi_C7dD6ats",
+      "title": "How to SwiftUI #01 - Displaying images on top of each other",
+      "date_published": "2021-06-03T15:03:30.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:mzsz_Tit1HA",
+      "url": "https://www.youtube.com/watch?v=mzsz_Tit1HA",
+      "title": "Don't use this syntax! (Or you'll get a retain cycle 😱)",
+      "date_published": "2021-06-01T14:55:12.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:2vZz1v-2v1E",
+      "url": "https://www.youtube.com/watch?v=2vZz1v-2v1E",
+      "title": "Looking at some Shit Swift Code 💩, Live! 🎙 with Jérôme Alves",
+      "date_published": "2021-05-31T15:19:17.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:_VswqQqVlHo",
+      "url": "https://www.youtube.com/watch?v=_VswqQqVlHo",
+      "title": "Swift Tips #34 - defer",
+      "date_published": "2021-05-27T15:01:18.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:58IChtjCPGM",
+      "url": "https://www.youtube.com/watch?v=58IChtjCPGM",
+      "title": "Experimenting with Result Builders: it's harder than I thought 😰",
+      "date_published": "2021-05-25T14:58:45.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:6Abf8LDRRkI",
+      "url": "https://www.youtube.com/watch?v=6Abf8LDRRkI",
+      "title": "An introduction to Result Builders, Live! 🎙 with Antoine v.d. Lee",
+      "date_published": "2021-05-23T16:19:58.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:MZPeg8dqqzI",
+      "url": "https://www.youtube.com/watch?v=MZPeg8dqqzI",
+      "title": "Swift Tips #33 - CaseIterable",
+      "date_published": "2021-05-20T15:05:51.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:zhnqQCc032c",
+      "url": "https://www.youtube.com/watch?v=zhnqQCc032c",
+      "title": "Why should you use enums and associated values? 🤔",
+      "date_published": "2021-05-18T14:59:43.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:F4PJBEBVDYM",
+      "url": "https://www.youtube.com/watch?v=F4PJBEBVDYM",
+      "title": "Let's answer iOS Interview questions! (Using @Paul Hudson website)",
+      "date_published": "2021-05-16T15:58:01.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:FWjM8ESYgCA",
+      "url": "https://www.youtube.com/watch?v=FWjM8ESYgCA",
+      "title": "Swift Community #6 GraphQL (with Ellen Shapiro)",
+      "date_published": "2021-05-13T14:56:01.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    },
+    {
+      "guid": "yt:video:4TTSZZkdOs4",
+      "url": "https://www.youtube.com/watch?v=4TTSZZkdOs4",
+      "title": "Five tips to improve your Swift code 💪",
+      "date_published": "2021-05-11T15:01:06.000Z",
+      "author": {
+        "name": "Vincent Pradeilles"
+      }
+    }
+  ]
+}

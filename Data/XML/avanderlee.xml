@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SwiftLee</title>
+	<atom:link href="https://www.avanderlee.com/feed/" rel="self" type="application/rss+xml" />
+	<link>https://www.avanderlee.com</link>
+	<description>A weekly blog about Swift, iOS and Xcode Tips and Tricks</description>
+	<lastBuildDate>Tue, 15 Jun 2021 08:41:40 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.7.2</generator>
+	<item>
+		<title>Improve discoverability using Static Member Lookup in Generic Contexts</title>
+		<link>https://www.avanderlee.com/swift/static-member-lookup-generic-contexts/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 15 Jun 2021 08:41:36 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[generics]]></category>
+		<category><![CDATA[swift 5.5]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4914</guid>
+
+					<description><![CDATA[<p>Static Member Lookup is extended to Generic Contexts since the release of SE-0299. It might seem to be a minor change at first, but it allows simplifying quite some code. Especially if you&#8217;re writing your views in SwiftUI, you&#8217;re going to have fun adjusting your code for this new addition released in Swift 5.5. WWDC <a class="read-more" href="https://www.avanderlee.com/swift/static-member-lookup-generic-contexts/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/static-member-lookup-generic-contexts/">Improve discoverability using Static Member Lookup in Generic Contexts</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Presenting sheets with UIKit using a UISheetPresentationController</title>
+		<link>https://www.avanderlee.com/swift/presenting-sheets-uikit-uisheetpresentationcontroller/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 08 Jun 2021 10:11:41 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[drag]]></category>
+		<category><![CDATA[panels]]></category>
+		<category><![CDATA[sheets]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4880</guid>
+
+					<description><![CDATA[<p>WWDC 2021 introduced iOS 15 with many API changes, including improvements to presenting sheets in UIKit with the new UISheetPresentationController. iOS 14 already introduced the new sheet presentation style. Still, up until iOS 15, we didn&#8217;t have the possibility to create an Apple Maps-like implementation of the sheet with a smaller height. The new UISheetPresentationController <a class="read-more" href="https://www.avanderlee.com/swift/presenting-sheets-uikit-uisheetpresentationcontroller/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/presenting-sheets-uikit-uisheetpresentationcontroller/">Presenting sheets with UIKit using a UISheetPresentationController</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		<enclosure url="https://www.avanderlee.com/wp-content/uploads/2021/06/presenting_sheets_detents.mp4" length="762027" type="video/mp4" />
+
+			</item>
+		<item>
+		<title>WWDC 2021 Events, Parties, and Panels you don&#8217;t want to miss</title>
+		<link>https://www.avanderlee.com/wwdc/wwdc-2021-events-parties-panels/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 01 Jun 2021 09:01:41 +0000</pubDate>
+				<category><![CDATA[WWDC]]></category>
+		<category><![CDATA[community]]></category>
+		<category><![CDATA[James Dempsey]]></category>
+		<category><![CDATA[Sundell]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4870</guid>
+
+					<description><![CDATA[<p>WWDC 2021 is around the corner and will bring a ton of (home)work for all of us. A new Xcode, new APIs, SwiftUI improvements, and likely a lot more things we can&#8217;t predict. WWDC is often called &#8220;Christmas for iOS Engineers&#8221; as you can see all these new announcements as little big presents. After an <a class="read-more" href="https://www.avanderlee.com/wwdc/wwdc-2021-events-parties-panels/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/wwdc/wwdc-2021-events-parties-panels/">WWDC 2021 Events, Parties, and Panels you don&#8217;t want to miss</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Swift Jobs: How to make the right career move</title>
+		<link>https://www.avanderlee.com/swift/swift-jobs-career-move/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 25 May 2021 07:00:00 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[career]]></category>
+		<category><![CDATA[job position]]></category>
+		<category><![CDATA[move]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4858</guid>
+
+					<description><![CDATA[<p>Swift jobs are something we&#8217;re all interested in if you&#8217;re reading my articles more often. Companies are hiring remotely more than ever since everybody is working from home either way and the request for new iOS and macOS apps keeps on growing. As a Swift engineer, it&#8217;s tempting to jump on a recruiter&#8217;s message telling <a class="read-more" href="https://www.avanderlee.com/swift/swift-jobs-career-move/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/swift-jobs-career-move/">Swift Jobs: How to make the right career move</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Fileprivate vs private in Swift: The differences explained</title>
+		<link>https://www.avanderlee.com/swift/fileprivate-private-differences-explained/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 18 May 2021 07:37:52 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[Access]]></category>
+		<category><![CDATA[control]]></category>
+		<category><![CDATA[fileprivate]]></category>
+		<category><![CDATA[internal]]></category>
+		<category><![CDATA[open]]></category>
+		<category><![CDATA[private]]></category>
+		<category><![CDATA[public]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=1385</guid>
+
+					<description><![CDATA[<p>Fileprivate and private are part of the access control modifiers in Swift. These keywords, together with internal, public, and open, make it possible to restrict access to parts of your code from code in other source files and modules. The private access level is the lowest and most restrictive level whereas open access is the <a class="read-more" href="https://www.avanderlee.com/swift/fileprivate-private-differences-explained/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/fileprivate-private-differences-explained/">Fileprivate vs private in Swift: The differences explained</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Property Wrappers in Swift explained with code examples</title>
+		<link>https://www.avanderlee.com/swift/property-wrappers/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 11 May 2021 08:19:09 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[projected]]></category>
+		<category><![CDATA[projectedvalue]]></category>
+		<category><![CDATA[property wrappers]]></category>
+		<category><![CDATA[wrappedvalue]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=1926</guid>
+
+					<description><![CDATA[<p>Property Wrappers in Swift allow you to extract common logic in a distinct wrapper object. Since the introduction during WWDC 2019 and becoming available in Xcode 11 with Swift 5 there have been many examples shared across the community. It&#8217;s a neat addition to the Swift library that allows removing a lot of boilerplate code <a class="read-more" href="https://www.avanderlee.com/swift/property-wrappers/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/property-wrappers/">Property Wrappers in Swift explained with code examples</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>URLSession: Common pitfalls with background download &#038; upload tasks</title>
+		<link>https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 04 May 2021 07:39:17 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[download]]></category>
+		<category><![CDATA[requests]]></category>
+		<category><![CDATA[upload]]></category>
+		<category><![CDATA[urlsessionconfiguration]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=1797</guid>
+
+					<description><![CDATA[<p>URLSession enables you to download and upload files while the app is in the background. Basic instructions to get it working are often found online, but it&#8217;s hard to make it work as expected and debug the flows. After implementing background uploading support for Collect by WeTransfer myself, I decided to write down my learnings. <a class="read-more" href="https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/urlsession-common-pitfalls-with-background-download-upload-tasks/">URLSession: Common pitfalls with background download &#038; upload tasks</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>NSPredicate based XCTestExpectations for conditional checks</title>
+		<link>https://www.avanderlee.com/swift/nspredicate-xctestexpectations/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 27 Apr 2021 18:09:21 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<category><![CDATA[nsblockpredicate]]></category>
+		<category><![CDATA[nspredicate]]></category>
+		<category><![CDATA[testing]]></category>
+		<category><![CDATA[unit test]]></category>
+		<category><![CDATA[xctestcase]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4837</guid>
+
+					<description><![CDATA[<p>NSPredicate allows us to write predicates for validating a certain outcome. They&#8217;re often used combined with Core Data fetch requests and require a certain knowledge for writing custom formats. Besides my earlier shared Unit tests, best practices in Xcode and Swift predicates can be useful when writing unit tests. We can benefit from using predicates <a class="read-more" href="https://www.avanderlee.com/swift/nspredicate-xctestexpectations/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swift/nspredicate-xctestexpectations/">NSPredicate based XCTestExpectations for conditional checks</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>How to observe NSManagedObject changes in Core Data using Combine</title>
+		<link>https://www.avanderlee.com/combine/nsmanagedobject-observe-changes-core-data/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 20 Apr 2021 07:00:00 +0000</pubDate>
+				<category><![CDATA[Combine]]></category>
+		<category><![CDATA[Core Data]]></category>
+		<category><![CDATA[core data]]></category>
+		<category><![CDATA[ObservableObject]]></category>
+		<category><![CDATA[Publisher]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4831</guid>
+
+					<description><![CDATA[<p>Observing changes in Core Data NSManagedObject instances with Combine publishers can be a great solution to keep your user interface in sync with the latest changes. After reading through my posts in the Combine and Core Data categories, you might know more about those individual frameworks, but how do you &#8220;combine&#8221; them together? Techniques like <a class="read-more" href="https://www.avanderlee.com/combine/nsmanagedobject-observe-changes-core-data/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/combine/nsmanagedobject-observe-changes-core-data/">How to observe NSManagedObject changes in Core Data using Combine</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>How to create a Conditional View Modifier in SwiftUI</title>
+		<link>https://www.avanderlee.com/swiftui/conditional-view-modifier/</link>
+		
+		<dc:creator><![CDATA[Antoine van der Lee]]></dc:creator>
+		<pubDate>Tue, 13 Apr 2021 08:27:07 +0000</pubDate>
+				<category><![CDATA[SwiftUI]]></category>
+		<category><![CDATA[conditional]]></category>
+		<category><![CDATA[modifier]]></category>
+		<category><![CDATA[swiftui]]></category>
+		<guid isPermaLink="false">https://www.avanderlee.com/?p=4823</guid>
+
+					<description><![CDATA[<p>Conditional View Modifier creation in SwiftUI allows you only to apply modifiers if a certain condition is true. Whether it&#8217;s a simple checkbox value or an OS availability check, there are many cases in which you want to apply different configurations to your views. A View Modifier in SwiftUI modifies the View with given configurations. <a class="read-more" href="https://www.avanderlee.com/swiftui/conditional-view-modifier/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="https://www.avanderlee.com/swiftui/conditional-view-modifier/">How to create a Conditional View Modifier in SwiftUI</a> appeared first on <a rel="nofollow" href="https://www.avanderlee.com">SwiftLee</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>
