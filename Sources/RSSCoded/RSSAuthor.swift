@@ -1,3 +1,3 @@
-struct RSSAuthor: Codable {
+struct RSSAuthor: Codable, Equatable {
   let name: String
 }

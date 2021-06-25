@@ -20,3 +20,32 @@ struct FeedEntry: Codable {
     case mediaDescription = "media:description"
   }
 }
+
+
+extension FeedEntry : RSSFeedItem {
+  var guid: RSSGUID {
+    return RSSGUID(from: self.id)
+  }
+  
+  var url: URL {
+    return link.href
+  }
+  
+  var contentHtml: String? {
+    return nil
+  }
+  
+  var summary: String? {
+    return nil
+  }
+  
+  var datePublished: Date? {
+    return self.published
+  }
+  
+  var rssAuthor: RSSAuthor? {
+    return self.author
+  }
+  
+  
+}

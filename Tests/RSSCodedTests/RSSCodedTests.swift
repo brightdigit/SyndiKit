@@ -190,6 +190,9 @@ final class RSSCodedTests: XCTestCase {
       } else {
         XCTAssertEqual(json.description?.count ?? 0, 0)
       }
+      
+      
+      XCTAssertEqual(json.items, rss.rssJSONItems)
       // XCTAssertEqual( json.author, json.author)
       // XCTAssertEqual( json.items, json.items)
     }

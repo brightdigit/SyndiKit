@@ -32,3 +32,27 @@ struct RSSItem: Codable {
     case itunesImage = "itunes:image"
   }
 }
+
+extension RSSItem : RSSFeedItem {
+  var url: URL {
+    return link
+  }
+  
+  var contentHtml: String? {
+    return contentEncoded
+  }
+  
+  var summary: String? {
+    return description
+  }
+  
+  var datePublished: Date? {
+    return pubDate
+  }
+  
+  var rssAuthor: RSSAuthor? {
+    return nil
+  }
+  
+  
+}
