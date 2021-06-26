@@ -1,5 +1,5 @@
 import Foundation
-struct FeedLink: Codable {
+struct AtomLink: Codable {
   let href: URL
   let rel: String?
 }

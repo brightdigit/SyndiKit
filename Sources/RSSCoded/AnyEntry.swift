@@ -1,6 +1,6 @@
 import Foundation
 
-struct RSSJSONItem: Codable, Equatable {
+struct AnyEntry: Codable, Equatable {
   internal init(guid: RSSGUID, url: URL, title: String, contentHtml: String?, summary: String?, datePublished: Date?, author: RSSAuthor?) {
     self.guid = guid
     self.url = url
@@ -20,8 +20,8 @@ struct RSSJSONItem: Codable, Equatable {
   let author: RSSAuthor?
 }
 
-extension RSSJSONItem {
-  init(from item: RSSFeedItem) {
+extension AnyEntry {
+  init(from item: Entryable) {
     self.init(guid: item.guid, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.rssAuthor)
   }
 }

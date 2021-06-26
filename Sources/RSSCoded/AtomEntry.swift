@@ -1,11 +1,11 @@
 import Foundation
-struct FeedEntry: Codable {
+struct AtomEntry: Codable {
   let id: String
   let title: String
   let published: Date
   let content: String?
   let updated: Date
-  let link: FeedLink
+  let link: AtomLink
   let author: RSSAuthor
   let ytVideoID: String?
   let mediaDescription: String?
@@ -23,7 +23,7 @@ struct FeedEntry: Codable {
   }
 }
 
-extension FeedEntry: RSSFeedItem {
+extension AtomEntry: Entryable {
   var guid: RSSGUID {
     return RSSGUID(from: id)
   }

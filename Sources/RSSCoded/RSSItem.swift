@@ -63,7 +63,7 @@ extension String {
   }
 }
 
-extension RSSItem: RSSFeedItem {
+extension RSSItem: Entryable {
   var url: URL {
     return link
   }

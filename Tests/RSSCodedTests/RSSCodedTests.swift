@@ -1,6 +1,15 @@
 @testable import RSSCoded
 import XCTest
 import XMLCoder
+
+internal extension JSONFeed {
+  var homePageURLHttp: URL? {
+    var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
+    components?.scheme = "http"
+    return components?.url
+  }
+}
+
 extension Sequence {
   func mapPairResult<Success>(_ transform: @escaping (Element) throws -> Success) -> [(Element, Result<Success, Error>)] {
     map { element in
@@ -93,12 +102,12 @@ struct DateDecoder {
 }
 
 final class RSSCodedTests: XCTestCase {
-  func parseJSONFrom(_ sourceURL: URL) throws -> [String: Result<RSSJSON, Error>] {
+  func parseJSONFrom(_ sourceURL: URL) throws -> [String: Result<JSONFeed, Error>] {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
 
-    let decoding = Decoding(for: RSSJSON.self, using: decoder)
+    let decoding = Decoding(for: JSONFeed.self, using: decoder)
 
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
@@ -111,24 +120,24 @@ final class RSSCodedTests: XCTestCase {
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func parseXMLFrom(_ sourceURL: URL) throws -> [String: Result<RSSFeed, Error>] {
+  func parseXMLFrom(_ sourceURL: URL) throws -> [String: Result<Feed, Error>] {
     let decoder = XMLDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
     decoder.trimValueWhitespaces = false
 
     let rssDecoding = Decoding(for: RSS.self, using: decoder)
-    let feedDecoding = Decoding(for: Feed.self, using: decoder)
+    let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
 
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
     let pairs = urls.mapPairResult {
       try Data(contentsOf: $0)
-    }.flatResultMapValue { data throws -> RSSFeed in
+    }.flatResultMapValue { data throws -> Feed in
       do {
-        return RSSFeed.feed(try feedDecoding.decode(data: data))
+        return Feed.atom(try feedDecoding.decode(data: data))
       } catch {
-        return RSSFeed.rss(try rssDecoding.decode(data: data))
+        return Feed.rss(try rssDecoding.decode(data: data))
       }
     }.map {
       ($0.0.deletingPathExtension().lastPathComponent, $0.1)
@@ -153,7 +162,7 @@ final class RSSCodedTests: XCTestCase {
 
     let feed = data.flatMap { data in
       Result {
-        try decoder.decode(Feed.self, from: data)
+        try decoder.decode(AtomFeed.self, from: data)
       }
     }
   }
@@ -172,8 +181,8 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      let json: RSSJSON
-      let rss: RSSFeed
+      let json: JSONFeed
+      let rss: Feed
 
       do {
         json = try jsonResult.get()
@@ -194,7 +203,7 @@ final class RSSCodedTests: XCTestCase {
 
       let items = zip(json.items.sorted(by: {
         $0.title < $1.title
-      }), rss.rssJSONItems.sorted(by: {
+      }), rss.entries.sorted(by: {
         $0.title < $1.title
       }))
       var count = 0
