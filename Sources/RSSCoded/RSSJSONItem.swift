@@ -24,6 +24,6 @@ struct RSSJSONItem: Codable, Equatable {
 
 extension RSSJSONItem {
   init(from item: RSSFeedItem) {
-    self.init(guid: item.guid, url: item.url, title: item.title, contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.rssAuthor)
+    self.init(guid: item.guid, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.rssAuthor)
   }
 }

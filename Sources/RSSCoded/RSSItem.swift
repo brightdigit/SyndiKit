@@ -1,11 +1,35 @@
 import Foundation
+import XMLCoder
+struct RSSItemDescription : Codable {
+  
+  let value : String
+  
+  enum CodingKeys : String, CodingKey {
+    case value = "#CDATA"
+  }
+  
+  init(from decoder: Decoder) throws {
+    let value : String
+    do {
+      let container = try decoder.container(keyedBy: CodingKeys.self) 
+      value = try container.decode(String.self, forKey: .value)
+    } catch {
+    
+      let container = try decoder.singleValueContainer()
+        value = try container.decode(String.self)
+    }
+      self.value = value
+  }
+  
+}
 struct RSSItem: Codable {
   let title: String
   let link: URL
-  let description: String
+  let description: RSSItemDescription
   let guid: RSSGUID
   let pubDate: Date?
   let contentEncoded: String?
+  let content: String?
   let itunesTitle: String?
   let itunesEpisode: String?
   let itunesAuthor: String?
@@ -22,6 +46,7 @@ struct RSSItem: Codable {
     case guid
     case pubDate
     case contentEncoded = "content:encoded"
+    case content
     case itunesTitle = "itunes:title"
     case itunesEpisode = "itunes:episode"
     case itunesAuthor = "itunes:author"
@@ -33,17 +58,23 @@ struct RSSItem: Codable {
   }
 }
 
+extension String {
+  func trimAndNilIfEmpty () -> String? {
+    let text = self.trimmingCharacters(in: .whitespacesAndNewlines)
+    return text.isEmpty ? nil : text
+  }
+}
 extension RSSItem : RSSFeedItem {
   var url: URL {
     return link
   }
   
   var contentHtml: String? {
-    return contentEncoded
+    return contentEncoded?.trimAndNilIfEmpty() ?? content?.trimAndNilIfEmpty() ?? description.value.trimmingCharacters(in: .whitespacesAndNewlines)
   }
   
   var summary: String? {
-    return description
+    return description.value
   }
   
   var datePublished: Date? {
