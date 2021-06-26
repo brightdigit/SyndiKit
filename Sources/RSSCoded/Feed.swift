@@ -11,7 +11,7 @@ protocol Entryable {
   var contentHtml: String? { get }
   var summary: String? { get }
   var datePublished: Date? { get }
-  var rssAuthor: RSSAuthor? { get }
+  var author: RSSAuthor? { get }
 }
 
 extension Feed {

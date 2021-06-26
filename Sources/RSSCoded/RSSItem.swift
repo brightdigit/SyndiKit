@@ -80,7 +80,7 @@ extension RSSItem: Entryable {
     return pubDate
   }
 
-  var rssAuthor: RSSAuthor? {
+  var author: RSSAuthor? {
     return nil
   }
 }

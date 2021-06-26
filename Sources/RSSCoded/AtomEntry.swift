@@ -6,7 +6,7 @@ struct AtomEntry: Codable {
   let content: String?
   let updated: Date
   let link: AtomLink
-  let author: RSSAuthor
+  let author: RSSAuthor?
   let ytVideoID: String?
   let mediaDescription: String?
 
@@ -42,9 +42,5 @@ extension AtomEntry: Entryable {
 
   var datePublished: Date? {
     return published
-  }
-
-  var rssAuthor: RSSAuthor? {
-    return author
   }
 }

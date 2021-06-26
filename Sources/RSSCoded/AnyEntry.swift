@@ -22,6 +22,6 @@ struct AnyEntry: Codable, Equatable {
 
 extension AnyEntry {
   init(from item: Entryable) {
-    self.init(guid: item.guid, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.rssAuthor)
+    self.init(guid: item.guid, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.author)
   }
 }
