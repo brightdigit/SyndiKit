@@ -23,31 +23,28 @@ struct FeedEntry: Codable {
   }
 }
 
-
-extension FeedEntry : RSSFeedItem {
+extension FeedEntry: RSSFeedItem {
   var guid: RSSGUID {
-    return RSSGUID(from: self.id)
+    return RSSGUID(from: id)
   }
-  
+
   var url: URL {
     return link.href
   }
-  
+
   var contentHtml: String? {
     return content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
-  
+
   var summary: String? {
     return nil
   }
-  
+
   var datePublished: Date? {
-    return self.published
+    return published
   }
-  
+
   var rssAuthor: RSSAuthor? {
-    return self.author
+    return author
   }
-  
-  
 }

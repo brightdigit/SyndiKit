@@ -159,6 +159,7 @@ final class RSSCodedTests: XCTestCase {
   }
 
   func testExample() throws {
+    let itemCount = 20
     let sourceURLXML = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
 
     let xmlFeeds = try parseXMLFrom(sourceURLXML)
@@ -190,27 +191,21 @@ final class RSSCodedTests: XCTestCase {
       } else {
         XCTAssertEqual(json.description?.count ?? 0, 0)
       }
-      
-      
-      
-        
-        let items = zip(json.items.sorted(by: {
-          $0.title < $1.title
-        }), rss.rssJSONItems.sorted(by: {
-          $0.title < $1.title
-        }))
-        var notTested = true
-        for (jsonItem, rssItem) in items {
-          XCTAssertEqual(jsonItem.title, rssItem.title)
-          if notTested {
-            XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml)
-            notTested = false
-            
-          }
-          
+
+      let items = zip(json.items.sorted(by: {
+        $0.title < $1.title
+      }), rss.rssJSONItems.sorted(by: {
+        $0.title < $1.title
+      }))
+      var count = 0
+      for (jsonItem, rssItem) in items {
+        XCTAssertEqual(jsonItem.title, rssItem.title)
+        if count < itemCount {
+          XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml, jsonItem.title)
+          count += 1
         }
-      
-      
+      }
+
       // XCTAssertEqual( json.author, json.author)
       // XCTAssertEqual( json.items, json.items)
     }
@@ -224,5 +219,3 @@ extension URL {
     return path == "/" ? "" : path
   }
 }
-
-
