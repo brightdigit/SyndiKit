@@ -2,6 +2,7 @@ import Foundation
 enum Feed {
   case rss(RSS)
   case atom(AtomFeed)
+  case json(JSONFeed)
 }
 
 protocol Entryable {
@@ -21,6 +22,8 @@ extension Feed {
       return feed.title
     case let .rss(rss):
       return rss.channel.title
+    case let .json(json):
+      return json.title
     }
   }
 
@@ -30,6 +33,8 @@ extension Feed {
       return feed.link.first { $0.rel == "alternate" }?.href
     case let .rss(rss):
       return rss.channel.link
+    case let .json(json):
+      return json.homePageUrl
     }
   }
 
@@ -39,6 +44,8 @@ extension Feed {
       return feed.description ?? feed.subtitle
     case let .rss(rss):
       return rss.channel.description
+    case let .json(json):
+      return json.description
     }
   }
 
@@ -48,6 +55,8 @@ extension Feed {
       return feed.entry
     case let .rss(rss):
       return rss.channel.item
+    case let .json(json):
+      return json.items
     }
   }
 

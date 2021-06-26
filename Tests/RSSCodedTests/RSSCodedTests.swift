@@ -102,25 +102,34 @@ struct DateDecoder {
 }
 
 final class RSSCodedTests: XCTestCase {
-  func parseJSONFrom(_ sourceURL: URL) throws -> [String: Result<JSONFeed, Error>] {
+  func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
+    let sourceURL = sourceURL ?? Self.jsonDirectoryURL
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
 
     let decoding = Decoding(for: JSONFeed.self, using: decoder)
 
-    let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
-
-    let pairs = urls.mapPairResult {
-      try Data(contentsOf: $0)
-    }.flatResultMapValue { try decoding.decode(data: $0) }.map {
-      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
-    }
+    let pairs = try dataFromDirectoryURL(sourceURL).flatResultMapValue { try decoding.decode(data: $0) }
 
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func parseXMLFrom(_ sourceURL: URL) throws -> [String: Result<Feed, Error>] {
+  fileprivate func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
+    let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
+
+    return urls.mapPairResult {
+      try Data(contentsOf: $0)
+    }.map {
+      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
+    }
+  }
+
+  func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feed, Error>] {
+    let sourceURL = sourceURL ?? Self.xmlDirectoryURL
+    let datas: [(String, Result<Data, Error>)]
+    datas = try dataFromDirectoryURL(sourceURL)
+
     let decoder = XMLDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
@@ -128,54 +137,28 @@ final class RSSCodedTests: XCTestCase {
 
     let rssDecoding = Decoding(for: RSS.self, using: decoder)
     let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
-
-    let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
-
-    let pairs = urls.mapPairResult {
-      try Data(contentsOf: $0)
-    }.flatResultMapValue { data throws -> Feed in
+    let pairs = datas.flatResultMapValue { data throws -> Feed in
       do {
         return Feed.atom(try feedDecoding.decode(data: data))
       } catch {
         return Feed.rss(try rssDecoding.decode(data: data))
       }
-    }.map {
-      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
     }
 
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func testExampleMecid() throws {
-    let sourceURLXML = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
+  func testJSONXMLEquality() {}
 
-    let mecidXML = URL(fileURLWithPath: "/Users/leo/Documents/Projects/RSSCoded/Data/XML/mecid.xml")
-    // sourceURLXML.appendingPathComponent("mecid.xml")
+  static let xmlDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
 
-    let decoder = XMLDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
-
-    let data = Result {
-      try Data(contentsOf: mecidXML)
-    }
-
-    let feed = data.flatMap { data in
-      Result {
-        try decoder.decode(AtomFeed.self, from: data)
-      }
-    }
-  }
-
+  static let jsonDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
   func testExample() throws {
     let itemCount = 20
-    let sourceURLXML = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
 
-    let xmlFeeds = try parseXMLFrom(sourceURLXML)
+    let xmlFeeds = try parseXML()
+    let jsonFeeds = try parseJSON()
 
-    let sourceURLJSON = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
-
-    let jsonFeeds = try parseJSONFrom(sourceURLJSON)
     for (name, xmlResult) in xmlFeeds {
       guard let jsonResult = jsonFeeds[name] else {
         continue

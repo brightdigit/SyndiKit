@@ -7,7 +7,7 @@
     // to regenerate.
     static let __allTests__RSSCodedTests = [
       ("testExample", testExample),
-      ("testExampleMecid", testExampleMecid)
+      ("testJSONXMLEquality", testJSONXMLEquality)
     ]
   }
 
