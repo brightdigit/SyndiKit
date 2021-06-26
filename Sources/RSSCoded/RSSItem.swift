@@ -28,7 +28,7 @@ struct RSSItem: Codable {
   let description: RSSItemDescription
   let guid: RSSGUID
   let pubDate: Date?
-  let contentEncoded: String?
+  let contentEncoded: RSSItemDescription?
   let content: String?
   let itunesTitle: String?
   let itunesEpisode: String?
@@ -70,7 +70,7 @@ extension RSSItem : RSSFeedItem {
   }
   
   var contentHtml: String? {
-    return contentEncoded?.trimAndNilIfEmpty() ?? content?.trimAndNilIfEmpty() ?? description.value.trimmingCharacters(in: .whitespacesAndNewlines)
+    return contentEncoded?.value.trimAndNilIfEmpty() ?? content?.trimAndNilIfEmpty() ?? description.value.trimmingCharacters(in: .whitespacesAndNewlines)
   }
   
   var summary: String? {

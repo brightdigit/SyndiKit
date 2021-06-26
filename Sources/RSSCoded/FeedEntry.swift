@@ -3,6 +3,7 @@ struct FeedEntry: Codable {
   let id: String
   let title: String
   let published: Date
+  let content: String?
   let updated: Date
   let link: FeedLink
   let author: RSSAuthor
@@ -13,6 +14,7 @@ struct FeedEntry: Codable {
     case id
     case title
     case published
+    case content
     case updated
     case link
     case author
@@ -32,7 +34,7 @@ extension FeedEntry : RSSFeedItem {
   }
   
   var contentHtml: String? {
-    return nil
+    return content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
   
   var summary: String? {

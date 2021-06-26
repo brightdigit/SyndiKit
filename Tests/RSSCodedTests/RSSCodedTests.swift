@@ -193,7 +193,6 @@ final class RSSCodedTests: XCTestCase {
       
       
       
-      if name == "iosdevweekly" {
         
         let items = zip(json.items.sorted(by: {
           $0.title < $1.title
@@ -210,7 +209,6 @@ final class RSSCodedTests: XCTestCase {
           }
           
         }
-      }
       
       
       // XCTAssertEqual( json.author, json.author)
