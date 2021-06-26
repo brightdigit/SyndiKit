@@ -6,10 +6,50 @@
 <link>https://developer.apple.com/news/</link>
 <description>Apple Developer News and Updates feed provided by Apple, Inc.</description>
 <language>en-US</language>
-<lastBuildDate>Mon, 21 Jun 2021 10:00:00 PDT</lastBuildDate>
+<lastBuildDate>Thu, 24 Jun 2021 13:00:00 PDT</lastBuildDate>
 <generator>Custom</generator>
 <copyright>Copyright 2021, Apple Inc.</copyright>
 
+<item>
+<title>Xcode 13 beta 2 (13A5155e)</title>
+<link>https://developer.apple.com/news/releases/?id=06242021e</link>
+<guid>https://developer.apple.com/news/releases/?id=06242021e</guid>
+<description>Xcode 13 beta 2 (13A5155e)</description>
+<pubDate>Thu, 24 Jun 2021 13:00:00 PDT</pubDate>
+<content:encoded><![CDATA[Xcode 13 beta 2 (13A5155e)]]></content:encoded>
+</item>
+<item>
+<title>iOS 15 beta 2 (19A5281h)</title>
+<link>https://developer.apple.com/news/releases/?id=06242021d</link>
+<guid>https://developer.apple.com/news/releases/?id=06242021d</guid>
+<description>iOS 15 beta 2 (19A5281h)</description>
+<pubDate>Thu, 24 Jun 2021 13:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iOS 15 beta 2 (19A5281h)]]></content:encoded>
+</item>
+<item>
+<title>iPadOS 15 beta 2 (19A5281h)</title>
+<link>https://developer.apple.com/news/releases/?id=06242021c</link>
+<guid>https://developer.apple.com/news/releases/?id=06242021c</guid>
+<description>iPadOS 15 beta 2 (19A5281h)</description>
+<pubDate>Thu, 24 Jun 2021 13:00:00 PDT</pubDate>
+<content:encoded><![CDATA[iPadOS 15 beta 2 (19A5281h)]]></content:encoded>
+</item>
+<item>
+<title>watchOS 8 beta 2 (19R5286f)</title>
+<link>https://developer.apple.com/news/releases/?id=06242021b</link>
+<guid>https://developer.apple.com/news/releases/?id=06242021b</guid>
+<description>watchOS 8 beta 2 (19R5286f)</description>
+<pubDate>Thu, 24 Jun 2021 13:00:00 PDT</pubDate>
+<content:encoded><![CDATA[watchOS 8 beta 2 (19R5286f)]]></content:encoded>
+</item>
+<item>
+<title>tvOS 15 beta 2 (19J5288e)</title>
+<link>https://developer.apple.com/news/releases/?id=06242021a</link>
+<guid>https://developer.apple.com/news/releases/?id=06242021a</guid>
+<description>tvOS 15 beta 2 (19J5288e)</description>
+<pubDate>Thu, 24 Jun 2021 13:00:00 PDT</pubDate>
+<content:encoded><![CDATA[tvOS 15 beta 2 (19J5288e)]]></content:encoded>
+</item>
 <item>
 <title>Xcode 12.5.1 (12E507)</title>
 <link>https://developer.apple.com/news/releases/?id=06212021</link>
@@ -83,52 +123,12 @@
 <content:encoded><![CDATA[<p>You can now submit apps built with Xcode 13 beta using the SDK for iOS 15 beta, iPadOS 15 beta, tvOS 15 beta, and watchOS 8 beta for internal and external testing, with support for the following:<p><li>Family Controls on iOS and iPadOS</li></p><p><li>Communication Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>Time-Sensitive Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>HealthKit Estimate Recalibration on iOS and watchOS</li></p><br><p>In addition, when viewing TestFlight crash feedback in App Store Connect, you can now click “Open in Xcode 13” next to a piece of crash feedback to open the crash in the Crashes Organizer in Xcode.</p><br><p><strong>Not yet supported:</strong></p><p><li>Group Activities on iOS, iPadOS, macOS, and tvOS</p></li><br><p><strong>Known issues:</strong></p><p><li>Builds that include App Clips cannot be delivered via Xcode&nbsp;Cloud.</li></p>]]></content:encoded>
 </item>
 <item>
-<title>Xcode 13 beta (13A5154h)</title>
-<link>https://developer.apple.com/news/releases/?id=06072021f</link>
-<guid>https://developer.apple.com/news/releases/?id=06072021f</guid>
-<description>Xcode 13 beta (13A5154h)</description>
-<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
-<content:encoded><![CDATA[Xcode 13 beta (13A5154h)]]></content:encoded>
-</item>
-<item>
 <title>macOS Monterey beta (21A5248p)</title>
 <link>https://developer.apple.com/news/releases/?id=06072021e</link>
 <guid>https://developer.apple.com/news/releases/?id=06072021e</guid>
 <description>macOS Monterey beta (21A5248p)</description>
 <pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
 <content:encoded><![CDATA[macOS Monterey beta (21A5248p)]]></content:encoded>
-</item>
-<item>
-<title>iOS 15 beta (19A5261w)</title>
-<link>https://developer.apple.com/news/releases/?id=06072021d</link>
-<guid>https://developer.apple.com/news/releases/?id=06072021d</guid>
-<description>iOS 15 beta (19A5261w)</description>
-<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
-<content:encoded><![CDATA[iOS 15 beta (19A5261w)]]></content:encoded>
-</item>
-<item>
-<title>iPadOS 15 beta (19A5261w)</title>
-<link>https://developer.apple.com/news/releases/?id=06072021c</link>
-<guid>https://developer.apple.com/news/releases/?id=06072021c</guid>
-<description>iPadOS 15 beta (19A5261w)</description>
-<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
-<content:encoded><![CDATA[iPadOS 15 beta (19A5261w)]]></content:encoded>
-</item>
-<item>
-<title>watchOS 8 beta (19R5266q)</title>
-<link>https://developer.apple.com/news/releases/?id=06072021b</link>
-<guid>https://developer.apple.com/news/releases/?id=06072021b</guid>
-<description>watchOS 8 beta (19R5266q)</description>
-<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
-<content:encoded><![CDATA[watchOS 8 beta (19R5266q)]]></content:encoded>
-</item>
-<item>
-<title>tvOS 15 beta (19J5268r)</title>
-<link>https://developer.apple.com/news/releases/?id=06072021a</link>
-<guid>https://developer.apple.com/news/releases/?id=06072021a</guid>
-<description>tvOS 15 beta (19J5268r)</description>
-<pubDate>Mon, 07 Jun 2021 12:00:00 PDT</pubDate>
-<content:encoded><![CDATA[tvOS 15 beta (19J5268r)]]></content:encoded>
 </item>
 <item>
 <title>Transporter 1.2.2</title>

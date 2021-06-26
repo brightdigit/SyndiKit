@@ -4,6 +4,16 @@ enum RSSFeed {
   case feed(Feed)
 }
 
+protocol RSSFeedItem {
+  var guid: RSSGUID { get }
+  var url: URL { get }
+  var title: String { get }
+  var contentHtml: String? { get }
+  var summary: String? { get }
+  var datePublished: Date? { get }
+  var rssAuthor: RSSAuthor? { get }
+}
+
 extension RSSFeed {
   var title: String {
     switch self {
@@ -30,5 +40,18 @@ extension RSSFeed {
     case let .rss(rss):
       return rss.channel.description
     }
+  }
+
+  var items: [RSSFeedItem] {
+    switch self {
+    case let .feed(feed):
+      return feed.entry
+    case let .rss(rss):
+      return rss.channel.item
+    }
+  }
+
+  var rssJSONItems: [RSSJSONItem] {
+    return items.map(RSSJSONItem.init(from:))
   }
 }

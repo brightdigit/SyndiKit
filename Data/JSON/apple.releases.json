@@ -5,6 +5,54 @@
   "description": "Apple Developer News and Updates feed provided by Apple, Inc.",
   "items": [
     {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021e",
+      "url": "https://developer.apple.com/news/releases/?id=06242021e",
+      "title": "Xcode 13 beta 2 (13A5155e)",
+      "content_html": "Xcode 13 beta 2 (13A5155e)",
+      "summary": "Xcode 13 beta 2 (13A5155e)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021d",
+      "url": "https://developer.apple.com/news/releases/?id=06242021d",
+      "title": "iOS 15 beta 2 (19A5281h)",
+      "content_html": "iOS 15 beta 2 (19A5281h)",
+      "summary": "iOS 15 beta 2 (19A5281h)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021c",
+      "url": "https://developer.apple.com/news/releases/?id=06242021c",
+      "title": "iPadOS 15 beta 2 (19A5281h)",
+      "content_html": "iPadOS 15 beta 2 (19A5281h)",
+      "summary": "iPadOS 15 beta 2 (19A5281h)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021b",
+      "url": "https://developer.apple.com/news/releases/?id=06242021b",
+      "title": "watchOS 8 beta 2 (19R5286f)",
+      "content_html": "watchOS 8 beta 2 (19R5286f)",
+      "summary": "watchOS 8 beta 2 (19R5286f)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021a",
+      "url": "https://developer.apple.com/news/releases/?id=06242021a",
+      "title": "tvOS 15 beta 2 (19J5288e)",
+      "content_html": "tvOS 15 beta 2 (19J5288e)",
+      "summary": "tvOS 15 beta 2 (19J5288e)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06212021",
+      "url": "https://developer.apple.com/news/releases/?id=06212021",
+      "title": "Xcode 12.5.1 (12E507)",
+      "content_html": "Xcode 12.5.1 (12E507)",
+      "summary": "Xcode 12.5.1 (12E507)",
+      "date_published": "2021-06-21T17:00:00.000Z"
+    },
+    {
       "guid": "https://developer.apple.com/news/releases/?id=06142021g",
       "url": "https://developer.apple.com/news/releases/?id=06142021g",
       "title": "macOS Big Sur 11.5 beta 3 (20G5042c)",
@@ -69,51 +117,11 @@
       "date_published": "2021-06-07T19:00:00.000Z"
     },
     {
-      "guid": "https://developer.apple.com/news/releases/?id=06072021f",
-      "url": "https://developer.apple.com/news/releases/?id=06072021f",
-      "title": "Xcode 13 beta (13A5154h)",
-      "content_html": "Xcode 13 beta (13A5154h)",
-      "summary": "Xcode 13 beta (13A5154h)",
-      "date_published": "2021-06-07T19:00:00.000Z"
-    },
-    {
       "guid": "https://developer.apple.com/news/releases/?id=06072021e",
       "url": "https://developer.apple.com/news/releases/?id=06072021e",
       "title": "macOS Monterey beta (21A5248p)",
       "content_html": "macOS Monterey beta (21A5248p)",
       "summary": "macOS Monterey beta (21A5248p)",
-      "date_published": "2021-06-07T19:00:00.000Z"
-    },
-    {
-      "guid": "https://developer.apple.com/news/releases/?id=06072021d",
-      "url": "https://developer.apple.com/news/releases/?id=06072021d",
-      "title": "iOS 15 beta (19A5261w)",
-      "content_html": "iOS 15 beta (19A5261w)",
-      "summary": "iOS 15 beta (19A5261w)",
-      "date_published": "2021-06-07T19:00:00.000Z"
-    },
-    {
-      "guid": "https://developer.apple.com/news/releases/?id=06072021c",
-      "url": "https://developer.apple.com/news/releases/?id=06072021c",
-      "title": "iPadOS 15 beta (19A5261w)",
-      "content_html": "iPadOS 15 beta (19A5261w)",
-      "summary": "iPadOS 15 beta (19A5261w)",
-      "date_published": "2021-06-07T19:00:00.000Z"
-    },
-    {
-      "guid": "https://developer.apple.com/news/releases/?id=06072021b",
-      "url": "https://developer.apple.com/news/releases/?id=06072021b",
-      "title": "watchOS 8 beta (19R5266q)",
-      "content_html": "watchOS 8 beta (19R5266q)",
-      "summary": "watchOS 8 beta (19R5266q)",
-      "date_published": "2021-06-07T19:00:00.000Z"
-    },
-    {
-      "guid": "https://developer.apple.com/news/releases/?id=06072021a",
-      "url": "https://developer.apple.com/news/releases/?id=06072021a",
-      "title": "tvOS 15 beta (19J5268r)",
-      "content_html": "tvOS 15 beta (19J5268r)",
-      "summary": "tvOS 15 beta (19J5268r)",
       "date_published": "2021-06-07T19:00:00.000Z"
     },
     {
@@ -147,14 +155,6 @@
       "content_html": "tvOS 14.6 (18L569)",
       "summary": "tvOS 14.6 (18L569)",
       "date_published": "2021-05-24T17:00:00.000Z"
-    },
-    {
-      "guid": "https://developer.apple.com/news/releases/?id=04262021f",
-      "url": "https://developer.apple.com/news/releases/?id=04262021f",
-      "title": "Xcode 12.5 (12E262)",
-      "content_html": "Xcode 12.5 (12E262)",
-      "summary": "Xcode 12.5 (12E262)",
-      "date_published": "2021-04-26T17:00:00.000Z"
     },
     {
       "guid": "https://developer.apple.com/news/releases/?id=03162021",
