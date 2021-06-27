@@ -41,6 +41,10 @@ class RSSDecoder {
       return Feed.rss(rss)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
+    } catch let error as NSError {
+      guard error.domain == "NSXMLParserErrorDomain" else {
+        throw error
+      }
     }
 
     do {
@@ -48,6 +52,10 @@ class RSSDecoder {
       return Feed.atom(atom)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
+    } catch let error as NSError {
+      guard error.domain == "NSXMLParserErrorDomain" else {
+        throw error
+      }
     }
 
     do {
