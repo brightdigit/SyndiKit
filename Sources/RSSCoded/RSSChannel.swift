@@ -1,15 +1,20 @@
 import Foundation
+
 struct RSSChannel: Codable {
   let title: String
   let link: URL
   let description: String?
   let lastBuildDate: Date?
+  #warning("special type")
   let syUpdatePeriod: String?
+#warning("special type")
   let syUpdateFrequency: String?
   let item: [RSSItem]
   let itunesAuthor: String?
   let itunesImage: String?
   let itunesOwner: iTunesOwner?
+  let copyright: String?
+  let image: RSSImage?
   enum CodingKeys: String, CodingKey {
     case title
     case link
@@ -21,5 +26,10 @@ struct RSSChannel: Codable {
     case itunesAuthor = "itunes:author"
     case itunesImage = "itunes:image"
     case itunesOwner = "itunes:owner"
+    case copyright
+    case image
   }
 }
+
+
+

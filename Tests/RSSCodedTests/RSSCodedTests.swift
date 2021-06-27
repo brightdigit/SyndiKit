@@ -2,6 +2,8 @@
 import XCTest
 import XMLCoder
 
+
+
 internal extension JSONFeed {
   var homePageURLHttp: URL? {
     var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
@@ -43,71 +45,14 @@ extension Sequence {
   }
 }
 
-protocol DecodingDecoder {
-  func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
-}
 
-extension JSONDecoder: DecodingDecoder {}
-
-extension XMLDecoder: DecodingDecoder {}
-
-struct Decoding<DecoderType: DecodingDecoder, DecodingType: Decodable> {
-  let decoder: DecoderType
-
-  init(for _: DecodingType.Type, using decoder: DecoderType) {
-    self.decoder = decoder
-  }
-
-  func decode(data: Data) throws -> DecodingType {
-    return try decoder.decode(DecodingType.self, from: data)
-  }
-}
-
-struct DateDecoder {
-  let formatters: [DateFormatter]
-
-  static let RSS = DateDecoder(basedOnFormats:
-    "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
-    "yyyy-MM-dd'T'HH:mm:ssXXXXX",
-    "E, d MMM yyyy HH:mm:ss zzz")
-
-  internal init(formatters: [DateFormatter]) {
-    self.formatters = formatters
-  }
-
-  static func isoPOSIX(withFormat dateFormat: String) -> DateFormatter {
-    let formatter = DateFormatter()
-    formatter.calendar = Calendar(identifier: .iso8601)
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    formatter.dateFormat = dateFormat
-    return formatter
-  }
-
-  init(basedOnFormats formats: String...) {
-    formatters = formats.map(Self.isoPOSIX(withFormat:))
-  }
-
-  func decode(from decoder: Decoder) throws -> Date {
-    for formatter in formatters {
-      let container = try decoder.singleValueContainer()
-      let dateStr = try container.decode(String.self)
-
-      if let date = formatter.date(from: dateStr) {
-        return date
-      }
-    }
-    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
-  }
-}
 
 final class RSSCodedTests: XCTestCase {
   func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
     let sourceURL = sourceURL ?? Self.jsonDirectoryURL
-    let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
 
+let decoder = JSONDecoder()
+    Feed.decoder(decoder)
     let decoding = Decoding(for: JSONFeed.self, using: decoder)
 
     let pairs = try dataFromDirectoryURL(sourceURL).flatResultMapValue { try decoding.decode(data: $0) }
@@ -131,11 +76,9 @@ final class RSSCodedTests: XCTestCase {
     datas = try dataFromDirectoryURL(sourceURL)
 
     let decoder = XMLDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateDecoder.RSS.decode(from:))
-    decoder.trimValueWhitespaces = false
+    Feed.decoder(decoder)
 
-    let rssDecoding = Decoding(for: RSS.self, using: decoder)
+    let rssDecoding = Decoding(for: RSSFeed.self, using: decoder)
     let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
     let pairs = datas.flatResultMapValue { data throws -> Feed in
       do {
@@ -148,13 +91,71 @@ final class RSSCodedTests: XCTestCase {
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func testJSONXMLEquality() {}
+  func testJSONXMLEquality()  throws {
+    let xmlDataSet = try dataFromDirectoryURL(Self.xmlDirectoryURL)
+    let jsonDataSet = try dataFromDirectoryURL(Self.jsonDirectoryURL)
+    
+    let decoder = RSSDecoder()
+    
+    let rssDataSet = xmlDataSet.flatResultMapValue { data in
+      try decoder.decode(data)
+    }
+    
+    let jfDataSet = xmlDataSet.flatResultMapValue { data in
+      try decoder.decode(data)
+    }
+    
+    let xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
+    let jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
+    for (name, xmlResult) in xmlFeeds {
+      guard let jsonResult = jsonFeeds[name] else {
+        continue
+      }
 
+      let json: Feed
+      let rss: Feed
+
+      do {
+        json = try jsonResult.get()
+        rss = try xmlResult.get()
+      } catch {
+        XCTAssertNil(error)
+        continue
+      }
+
+      XCTAssertEqual(json.title.trimmingCharacters(in: .whitespacesAndNewlines), rss.title.trimmingCharacters(in: .whitespacesAndNewlines))
+      XCTAssertEqual(json.homePageUrl?.remainingPath.trimAndNilIfEmpty(), rss.homePageUrl?.remainingPath.trimAndNilIfEmpty())
+      if let description = rss.description {
+        XCTAssertEqual(json.description?.trimAndNilIfEmpty() ?? "", description.trimmingCharacters(in: .whitespacesAndNewlines), "Description does not match for \(name)")
+
+      } else {
+        XCTAssertEqual(json.description?.count ?? 0, 0)
+      }
+
+      let items = zip(json.items.sorted(by: {
+        $0.title < $1.title
+      }), rss.entries.sorted(by: {
+        $0.title < $1.title
+      }))
+      var count = 0
+      for (jsonItem, rssItem) in items {
+        XCTAssertEqual(jsonItem.title.trimAndNilIfEmpty(), rssItem.title.trimAndNilIfEmpty())
+        if count < RSSCodedTests.itemCount {
+          XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml, jsonItem.title)
+          count += 1
+        }
+      }
+
+      // XCTAssertEqual( json.author, json.author)
+      // XCTAssertEqual( json.items, json.items)
+    }
+  }
+  
+    static let itemCount = 20
   static let xmlDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
 
   static let jsonDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
   func testExample() throws {
-    let itemCount = 20
 
     let xmlFeeds = try parseXML()
     let jsonFeeds = try parseJSON()
@@ -192,7 +193,7 @@ final class RSSCodedTests: XCTestCase {
       var count = 0
       for (jsonItem, rssItem) in items {
         XCTAssertEqual(jsonItem.title, rssItem.title)
-        if count < itemCount {
+        if count < RSSCodedTests.itemCount {
           XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml, jsonItem.title)
           count += 1
         }

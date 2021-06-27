@@ -1,39 +1,25 @@
 import Foundation
 import XMLCoder
-struct RSSItemDescription: Codable {
-  let value: String
-
-  enum CodingKeys: String, CodingKey {
-    case value = "#CDATA"
-  }
-
-  init(from decoder: Decoder) throws {
-    let value: String
-    do {
-      let container = try decoder.container(keyedBy: CodingKeys.self)
-      value = try container.decode(String.self, forKey: .value)
-    } catch {
-      let container = try decoder.singleValueContainer()
-      value = try container.decode(String.self)
-    }
-    self.value = value
-  }
-}
+import DeveloperToolsSupport
 
 struct RSSItem: Codable {
   let title: String
   let link: URL
-  let description: RSSItemDescription
+  let description: CData
   let guid: RSSGUID
   let pubDate: Date?
-  let contentEncoded: RSSItemDescription?
+  let contentEncoded: CData?
+  let category: [CData]
   let content: String?
   let itunesTitle: String?
+  #warning("special type")
   let itunesEpisode: String?
+#warning("special type of episodeType")
   let itunesAuthor: String?
   let itunesSubtitle: String?
   let itunesSummary: String?
   let itunesExplicit: String?
+#warning("special type of duration")
   let itunesDuration: String?
   let itunesImage: iTunesImage?
 
@@ -43,6 +29,7 @@ struct RSSItem: Codable {
     case description
     case guid
     case pubDate
+    case category
     case contentEncoded = "content:encoded"
     case content
     case itunesTitle = "itunes:title"
@@ -82,5 +69,17 @@ extension RSSItem: Entryable {
 
   var author: RSSAuthor? {
     return nil
+  }
+  
+  var id: RSSGUID {
+    return self.guid
+  }
+  
+  var published: Date? {
+    return self.pubDate
+  }
+  
+  var categories: [String] {
+    return []
   }
 }

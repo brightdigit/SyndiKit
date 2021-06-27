@@ -1,11 +1,13 @@
 import Foundation
+
 struct AtomEntry: Codable {
-  let id: String
+  let id: RSSGUID
   let title: String
-  let published: Date
+  let published: Date?
   let content: String?
   let updated: Date
-  let link: AtomLink
+  let category: [AtomCategory]
+  let link: Link
   let author: RSSAuthor?
   let ytVideoID: String?
   let mediaDescription: String?
@@ -18,15 +20,14 @@ struct AtomEntry: Codable {
     case updated
     case link
     case author
+    case category
     case ytVideoID = "yt:videoId"
     case mediaDescription = "media:description"
   }
 }
 
 extension AtomEntry: Entryable {
-  var guid: RSSGUID {
-    return RSSGUID(from: id)
-  }
+
 
   var url: URL {
     return link.href
@@ -39,8 +40,9 @@ extension AtomEntry: Entryable {
   var summary: String? {
     return nil
   }
-
-  var datePublished: Date? {
-    return published
+  
+  var categories: [String] {
+    return self.category.map{ $0.term }
   }
+
 }

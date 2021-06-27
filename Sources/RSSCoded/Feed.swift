@@ -1,19 +1,25 @@
 import Foundation
+import XMLCoder
+
 enum Feed {
-  case rss(RSS)
+  case rss(RSSFeed)
   case atom(AtomFeed)
   case json(JSONFeed)
 }
 
-protocol Entryable {
-  var guid: RSSGUID { get }
-  var url: URL { get }
-  var title: String { get }
-  var contentHtml: String? { get }
-  var summary: String? { get }
-  var datePublished: Date? { get }
-  var author: RSSAuthor? { get }
+extension Feed {
+  static func decoder (_ decoder: JSONDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+  }
+  
+  static func decoder (_ decoder: XMLDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+    decoder.trimValueWhitespaces = false
+  }
 }
+
 
 extension Feed {
   var title: String {

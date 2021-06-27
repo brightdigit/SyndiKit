@@ -1,6 +1,7 @@
 import Foundation
 
-struct JSONItem: Codable, Entryable {
+struct JSONItem: Codable {
+  
   internal init(guid: RSSGUID, url: URL, title: String, contentHtml: String?, summary: String?, datePublished: Date?, author: RSSAuthor?) {
     self.guid = guid
     self.url = url
@@ -18,6 +19,21 @@ struct JSONItem: Codable, Entryable {
   let summary: String?
   let datePublished: Date?
   let author: RSSAuthor?
+}
+
+extension JSONItem : Entryable {
+  var published: Date? {
+    return self.datePublished
+  }
+  
+  var id: RSSGUID {
+    return self.guid
+  }
+  
+  var categories: [String] {
+    return []
+  }
+  
 }
 
 // extension JSONItem {
