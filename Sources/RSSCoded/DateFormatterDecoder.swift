@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Leo Dion on 6/26/21.
-//
-
 import Foundation
 
 struct DateFormatterDecoder {
@@ -13,13 +6,12 @@ struct DateFormatterDecoder {
   enum RSS {
     static let dateFormatStrings = [
       "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
-                                    "yyyy-MM-dd'T'HH:mm:ssXXXXX",
-                                    "E, d MMM yyyy HH:mm:ss zzz"
+      "yyyy-MM-dd'T'HH:mm:ssXXXXX",
+      "E, d MMM yyyy HH:mm:ss zzz"
     ]
-    
+
     static let decoder = DateFormatterDecoder(basedOnFormats: Self.dateFormatStrings)
   }
-
 
   internal init(formatters: [DateFormatter]) {
     self.formatters = formatters

@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Leo Dion on 6/26/21.
-//
-
 import Foundation
 struct Decoding<DecoderType: TypeDecoder, DecodingType: Decodable> {
   let decoder: DecoderType

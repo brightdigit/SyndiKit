@@ -1,5 +1,5 @@
 
 
 struct AtomCategory: Codable {
-  let term : String
+  let term: String
 }

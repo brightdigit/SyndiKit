@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Leo Dion on 6/26/21.
-//
-
 import Foundation
 import XMLCoder
 
@@ -15,4 +8,3 @@ protocol TypeDecoder {
 extension JSONDecoder: TypeDecoder {}
 
 extension XMLDecoder: TypeDecoder {}
-

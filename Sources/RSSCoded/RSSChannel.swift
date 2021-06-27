@@ -7,7 +7,7 @@ struct RSSChannel: Codable {
   let lastBuildDate: Date?
   #warning("special type")
   let syUpdatePeriod: String?
-#warning("special type")
+  #warning("special type")
   let syUpdateFrequency: String?
   let item: [RSSItem]
   let itunesAuthor: String?
@@ -30,6 +30,3 @@ struct RSSChannel: Codable {
     case image
   }
 }
-
-
-

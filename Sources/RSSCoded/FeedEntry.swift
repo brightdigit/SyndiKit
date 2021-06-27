@@ -24,9 +24,6 @@ struct FeedEntry: Codable {
 }
 
 extension FeedEntry: Entryable {
-
-  
-
   var url: URL {
     return link.href
   }
@@ -39,7 +36,6 @@ extension FeedEntry: Entryable {
     return nil
   }
 
-  
   var categories: [String] {
     return []
   }

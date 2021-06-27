@@ -8,8 +8,5 @@ protocol Entryable {
   var summary: String? { get }
   var published: Date? { get }
   var author: RSSAuthor? { get }
-  var categories : [String] { get }
-
-  
-
+  var categories: [String] { get }
 }

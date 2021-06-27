@@ -25,23 +25,20 @@ struct AtomFeed: Codable {
   }
 }
 
-
-extension AtomFeed : Feedable {
+extension AtomFeed: Feedable {
   var url: URL? {
-    self.link.first{ $0.rel != "self" }?.href
+    link.first { $0.rel != "self" }?.href
   }
-  
+
   var updated: Date? {
-    return self.pubDate ?? self.published
+    return pubDate ?? published
   }
-  
+
   var copyright: String? {
     return nil
   }
-  
+
   var image: URL? {
     return nil
   }
-  
-  
 }

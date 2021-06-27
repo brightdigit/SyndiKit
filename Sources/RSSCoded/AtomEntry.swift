@@ -27,8 +27,6 @@ struct AtomEntry: Codable {
 }
 
 extension AtomEntry: Entryable {
-
-
   var url: URL {
     return link.href
   }
@@ -40,9 +38,8 @@ extension AtomEntry: Entryable {
   var summary: String? {
     return nil
   }
-  
-  var categories: [String] {
-    return self.category.map{ $0.term }
-  }
 
+  var categories: [String] {
+    return category.map { $0.term }
+  }
 }

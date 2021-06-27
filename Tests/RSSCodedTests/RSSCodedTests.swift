@@ -2,8 +2,6 @@
 import XCTest
 import XMLCoder
 
-
-
 internal extension JSONFeed {
   var homePageURLHttp: URL? {
     var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
@@ -45,13 +43,11 @@ extension Sequence {
   }
 }
 
-
-
 final class RSSCodedTests: XCTestCase {
-  func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
+  static func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
     let sourceURL = sourceURL ?? Self.jsonDirectoryURL
 
-let decoder = JSONDecoder()
+    let decoder = JSONDecoder()
     Feed.decoder(decoder)
     let decoding = Decoding(for: JSONFeed.self, using: decoder)
 
@@ -60,7 +56,7 @@ let decoder = JSONDecoder()
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  fileprivate func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
+  static func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
 
     return urls.mapPairResult {
@@ -70,7 +66,7 @@ let decoder = JSONDecoder()
     }
   }
 
-  func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feed, Error>] {
+  static func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feed, Error>] {
     let sourceURL = sourceURL ?? Self.xmlDirectoryURL
     let datas: [(String, Result<Data, Error>)]
     datas = try dataFromDirectoryURL(sourceURL)
@@ -91,24 +87,30 @@ let decoder = JSONDecoder()
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  func testJSONXMLEquality()  throws {
-    let xmlDataSet = try dataFromDirectoryURL(Self.xmlDirectoryURL)
-    let jsonDataSet = try dataFromDirectoryURL(Self.jsonDirectoryURL)
-    
+  static var xmlFeeds: [String: Result<Feed, Error>]!
+  static var jsonFeeds: [String: Result<Feed, Error>]!
+
+  override class func setUp() {
+    let xmlDataSet = try! dataFromDirectoryURL(Self.xmlDirectoryURL)
+    let jsonDataSet = try! dataFromDirectoryURL(Self.jsonDirectoryURL)
+
     let decoder = RSSDecoder()
-    
+
     let rssDataSet = xmlDataSet.flatResultMapValue { data in
       try decoder.decode(data)
     }
-    
+
     let jfDataSet = xmlDataSet.flatResultMapValue { data in
       try decoder.decode(data)
     }
-    
-    let xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
-    let jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
-    for (name, xmlResult) in xmlFeeds {
-      guard let jsonResult = jsonFeeds[name] else {
+
+    xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
+    jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
+  }
+
+  func testJSONXMLEquality() throws {
+    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+      guard let jsonResult = RSSCodedTests.jsonFeeds[name] else {
         continue
       }
 
@@ -150,57 +152,39 @@ let decoder = JSONDecoder()
       // XCTAssertEqual( json.items, json.items)
     }
   }
-  
-    static let itemCount = 20
+
+  static let itemCount = 20
   static let xmlDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
 
   static let jsonDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
-  func testExample() throws {
+  func testPodcastEpisodes() {
+    let missingEpisodes = ["it-guy": [76, 56, 45]]
+    let podcasts = [
+      "empowerapps-show": 1 ... 94,
+      "radar": 1 ... 219,
+      "ideveloper": 276 ... 297
+      // "it-guy" : (1...330)
+    ].mapValues {
+      [Int]($0.map { $0 }.reversed())
+    }
 
-    let xmlFeeds = try parseXML()
-    let jsonFeeds = try parseJSON()
-
-    for (name, xmlResult) in xmlFeeds {
-      guard let jsonResult = jsonFeeds[name] else {
+    for (name, episodeNumbers) in podcasts {
+      guard let feed = try? Self.xmlFeeds[name]?.get() else {
+        XCTFail("Missing Podcast")
         continue
       }
 
-      let json: JSONFeed
-      let rss: Feed
-
-      do {
-        json = try jsonResult.get()
-        rss = try xmlResult.get()
-      } catch {
-        XCTAssertNil(error)
+      guard case let .rss(rss) = feed else {
+        XCTFail("Wrong Type")
         continue
       }
 
-      XCTAssertEqual(json.title, rss.title.trimmingCharacters(in: .whitespacesAndNewlines))
-      XCTAssertEqual(json.homePageUrl.remainingPath, rss.homePageUrl?.remainingPath.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
-      if let description = rss.description {
-        XCTAssertEqual(json.description ?? "", description.trimmingCharacters(in: .whitespacesAndNewlines), "Description does not match for \(name)")
+      var actualEps = rss.channel.item.compactMap { $0.itunesEpisode?.value }
 
-      } else {
-        XCTAssertEqual(json.description?.count ?? 0, 0)
+      if let missingEpNumbers = missingEpisodes[name] {
+        actualEps.removeAll(where: missingEpNumbers.contains(_:))
       }
-
-      let items = zip(json.items.sorted(by: {
-        $0.title < $1.title
-      }), rss.entries.sorted(by: {
-        $0.title < $1.title
-      }))
-      var count = 0
-      for (jsonItem, rssItem) in items {
-        XCTAssertEqual(jsonItem.title, rssItem.title)
-        if count < RSSCodedTests.itemCount {
-          XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml, jsonItem.title)
-          count += 1
-        }
-      }
-
-      // XCTAssertEqual( json.author, json.author)
-      // XCTAssertEqual( json.items, json.items)
+      XCTAssertEqual(episodeNumbers, actualEps)
     }
   }
 }

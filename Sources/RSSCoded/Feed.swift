@@ -8,18 +8,17 @@ enum Feed {
 }
 
 extension Feed {
-  static func decoder (_ decoder: JSONDecoder) {
+  static func decoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
   }
-  
-  static func decoder (_ decoder: XMLDecoder) {
+
+  static func decoder(_ decoder: XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
   }
 }
-
 
 extension Feed {
   var title: String {
