@@ -8,6 +8,7 @@ extension String {
     return text.isEmpty ? nil : text
   }
 }
+
 internal extension JSONFeed {
   var homePageURLHttp: URL? {
     var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)

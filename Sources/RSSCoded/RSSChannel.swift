@@ -1,8 +1,5 @@
 import Foundation
 
-
-
-
 struct RSSChannel: Codable {
   let title: String
   let link: URL

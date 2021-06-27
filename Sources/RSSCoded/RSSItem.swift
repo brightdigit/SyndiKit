@@ -2,7 +2,6 @@ import DeveloperToolsSupport
 import Foundation
 import XMLCoder
 
-
 struct RSSItem: Codable {
   let title: String
   let link: URL
@@ -40,8 +39,6 @@ struct RSSItem: Codable {
     case itunesImage = "itunes:image"
   }
 }
-
-
 
 extension RSSItem: Entryable {
   var url: URL {
