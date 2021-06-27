@@ -1,0 +1,3 @@
+
+
+typealias iTunesEpisode = IntegerCodable

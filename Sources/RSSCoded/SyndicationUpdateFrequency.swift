@@ -1,0 +1,3 @@
+
+
+typealias SyndicationUpdateFrequency = IntegerCodable

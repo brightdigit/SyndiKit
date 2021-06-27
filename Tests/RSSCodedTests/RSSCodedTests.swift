@@ -2,6 +2,12 @@
 import XCTest
 import XMLCoder
 
+extension String {
+  func trimAndNilIfEmpty() -> String? {
+    let text = trimmingCharacters(in: .whitespacesAndNewlines)
+    return text.isEmpty ? nil : text
+  }
+}
 internal extension JSONFeed {
   var homePageURLHttp: URL? {
     var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
@@ -143,7 +149,7 @@ final class RSSCodedTests: XCTestCase {
       for (jsonItem, rssItem) in items {
         XCTAssertEqual(jsonItem.title.trimAndNilIfEmpty(), rssItem.title.trimAndNilIfEmpty())
         if count < RSSCodedTests.itemCount {
-          XCTAssertEqual(jsonItem.contentHtml, rssItem.contentHtml, jsonItem.title)
+          XCTAssertEqual(jsonItem.contentHtml?.trimAndNilIfEmpty(), rssItem.contentHtml?.trimAndNilIfEmpty(), jsonItem.title)
           count += 1
         }
       }
