@@ -3,7 +3,6 @@ struct RSSFeed: Codable {
   let channel: RSSChannel
 }
 
-
 extension RSSFeed : Feedable {
   var title: String {
     return channel.title

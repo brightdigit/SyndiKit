@@ -82,4 +82,5 @@ extension RSSItem: Entryable {
   var categories: [String] {
     return []
   }
+
 }
