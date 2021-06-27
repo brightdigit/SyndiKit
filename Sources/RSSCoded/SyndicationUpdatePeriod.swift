@@ -1,5 +1,3 @@
-
-
 enum SyndicationUpdatePeriod: String, Codable {
   case hourly, daily, weekly, monthly, yearly
 

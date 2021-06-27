@@ -98,8 +98,10 @@ final class RSSCodedTests: XCTestCase {
   static var jsonFeeds: [String: Result<Feed, Error>]!
 
   override class func setUp() {
+    // swiftlint:disable force_try
     let xmlDataSet = try! dataFromDirectoryURL(Self.xmlDirectoryURL)
     let jsonDataSet = try! dataFromDirectoryURL(Self.jsonDirectoryURL)
+    // swiftlint:enable force_try
 
     let decoder = RSSDecoder()
 
@@ -154,9 +156,6 @@ final class RSSCodedTests: XCTestCase {
           count += 1
         }
       }
-
-      // XCTAssertEqual( json.author, json.author)
-      // XCTAssertEqual( json.items, json.items)
     }
   }
 

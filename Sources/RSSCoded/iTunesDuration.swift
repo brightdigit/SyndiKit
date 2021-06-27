@@ -1,5 +1,5 @@
 import Foundation
-
+// swiftlint:disable:next type_name
 struct iTunesDuration: Codable, LosslessStringConvertible {
   static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)

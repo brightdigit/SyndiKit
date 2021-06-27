@@ -1,5 +1,3 @@
-
-
 struct IntegerCodable: Codable, ExpressibleByIntegerLiteral {
   let value: Int
 
