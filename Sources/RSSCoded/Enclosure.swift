@@ -1,10 +1,10 @@
 import Foundation
 
-public struct Enclosure : Codable {
+public struct Enclosure: Codable {
   let url: URL
   let type: String
   let length: Int
-  
+
   var imageURL: URL? {
     guard type.starts(with: "image/") else {
       return nil

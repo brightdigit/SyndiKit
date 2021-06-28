@@ -168,8 +168,8 @@ final class RSSCodedTests: XCTestCase {
     let podcasts = [
       "empowerapps-show": 1 ... 94,
       "radar": 1 ... 219,
-      "ideveloper": 276 ... 297
-      // "it-guy" : (1...330)
+      "ideveloper": 276 ... 297,
+      "it-guy": 1 ... 330
     ].mapValues {
       [Int]($0.map { $0 }.reversed())
     }
@@ -185,12 +185,23 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      var actualEps = rss.channel.item.compactMap { $0.itunesEpisode?.value }
+      var episodeNumbers = episodeNumbers
+      let actualEps = rss.channel.item.compactMap { $0.itunesEpisode?.value }
 
       if let missingEpNumbers = missingEpisodes[name] {
-        actualEps.removeAll(where: missingEpNumbers.contains(_:))
+        episodeNumbers.removeAll(where: missingEpNumbers.contains(_:))
       }
-      XCTAssertEqual(episodeNumbers, actualEps)
+
+      if name == "it-guy" {
+        let value = episodeNumbers.remove(at: 330 - 110)
+        episodeNumbers.insert(value, at: 330 - 110 + 1)
+      }
+
+      let numbers = zip(episodeNumbers, actualEps)
+
+      for (expected, actual) in numbers {
+        XCTAssertEqual(expected, actual)
+      }
     }
   }
 

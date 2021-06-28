@@ -13,7 +13,7 @@ struct RSSChannel: Codable {
   let itunesOwner: iTunesOwner?
   let copyright: String?
   let image: RSSImage?
-  
+
 //  public let id: UUID
 //  public let title: String
 //  public let author: String

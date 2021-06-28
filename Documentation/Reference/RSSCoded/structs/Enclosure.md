@@ -3,5 +3,5 @@
 # `Enclosure`
 
 ```swift
-public struct Enclosure
+public struct Enclosure: Codable
 ```

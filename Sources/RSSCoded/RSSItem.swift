@@ -27,6 +27,7 @@ struct RSSItem: Codable {
     case guid
     case pubDate
     case category
+    case enclosure
     case contentEncoded = "content:encoded"
     case content
     case itunesTitle = "itunes:title"
