@@ -5,6 +5,7 @@ struct RSSChannel: Codable {
   let link: URL
   let description: String?
   let lastBuildDate: Date?
+  let pubDate: Date?
   let syUpdatePeriod: SyndicationUpdatePeriod?
   let syUpdateFrequency: SyndicationUpdateFrequency?
   let item: [RSSItem]
@@ -14,18 +15,12 @@ struct RSSChannel: Codable {
   let copyright: String?
   let image: RSSImage?
 
-//  public let id: UUID
-//  public let title: String
-//  public let author: String
-//  public let siteURL: URL
-//  public let twitterHandle: String?
-//  public let imageURL: URL?
-//  public let podcastAppleId: Int?
   enum CodingKeys: String, CodingKey {
     case title
     case link
     case description
     case lastBuildDate
+    case pubDate
     case syUpdatePeriod = "sy:updatePeriod"
     case syUpdateFrequency = "sy:updateFrequency"
     case item
