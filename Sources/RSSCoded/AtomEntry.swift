@@ -9,6 +9,7 @@ struct AtomEntry: Codable {
   let atomCategories: [AtomCategory]
   let link: Link
   let author: RSSAuthor?
+  let youtubeChannelID: String?
   let youtubeVideoID: String?
   let mediaDescription: String?
   let creator: String?
@@ -23,6 +24,7 @@ struct AtomEntry: Codable {
     case author
     case atomCategories = "category"
     case youtubeVideoID = "yt:videoId"
+    case youtubeChannelID = "yt:channelId"
     case mediaDescription = "media:description"
     case creator = "dc:creator"
   }
@@ -43,5 +45,9 @@ extension AtomEntry: Entryable {
 
   var summary: String? {
     return nil
+  }
+
+  var media: MediaContent? {
+    YouTubeID(entry: self).map(Video.youtube).map(MediaContent.video)
   }
 }
