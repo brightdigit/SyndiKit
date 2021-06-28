@@ -18,6 +18,7 @@ struct RSSItem: Codable {
   let itunesExplicit: String?
   let itunesDuration: iTunesDuration?
   let itunesImage: iTunesImage?
+  let enclosure: Enclosure?
 
   enum CodingKeys: String, CodingKey {
     case title

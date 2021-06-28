@@ -13,6 +13,14 @@ struct RSSChannel: Codable {
   let itunesOwner: iTunesOwner?
   let copyright: String?
   let image: RSSImage?
+  
+//  public let id: UUID
+//  public let title: String
+//  public let author: String
+//  public let siteURL: URL
+//  public let twitterHandle: String?
+//  public let imageURL: URL?
+//  public let podcastAppleId: Int?
   enum CodingKeys: String, CodingKey {
     case title
     case link
