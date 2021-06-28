@@ -9,6 +9,10 @@ struct JSONFeed: Codable {
 }
 
 extension JSONFeed: Feedable {
+  var youtubeChannelID: String? {
+    return nil
+  }
+
   var feedItems: [Entryable] {
     return items
   }
@@ -17,7 +21,7 @@ extension JSONFeed: Feedable {
     return description
   }
 
-  var url: URL? {
+  var siteURL: URL? {
     return homePageUrl
   }
 

@@ -21,6 +21,10 @@ struct JSONItem: Codable {
 }
 
 extension JSONItem: Entryable {
+  var creator: String? {
+    return nil
+  }
+
   var published: Date? {
     return datePublished
   }

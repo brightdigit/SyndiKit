@@ -14,6 +14,7 @@ struct RSSChannel: Codable {
   let itunesOwner: iTunesOwner?
   let copyright: String?
   let image: RSSImage?
+  let author: RSSAuthor?
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -29,6 +30,7 @@ struct RSSChannel: Codable {
     case itunesOwner = "itunes:owner"
     case copyright
     case image
+    case author
   }
 }
 
