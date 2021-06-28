@@ -1,4 +1,8 @@
-struct CData: Codable {
+struct CData: Codable, Category {
+  var term: String {
+    return value
+  }
+
   let value: String
 
   enum CodingKeys: String, CodingKey {

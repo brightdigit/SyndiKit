@@ -4,6 +4,10 @@ struct RSSFeed: Codable {
 }
 
 extension RSSFeed: Feedable {
+  var feedItems: [Entryable] {
+    return channel.item
+  }
+
   var title: String {
     return channel.title
   }
@@ -12,7 +16,7 @@ extension RSSFeed: Feedable {
     return channel.link
   }
 
-  var description: String? {
+  var summary: String? {
     return channel.description
   }
 

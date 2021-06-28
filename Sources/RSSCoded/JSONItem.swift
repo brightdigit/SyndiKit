@@ -29,7 +29,7 @@ extension JSONItem: Entryable {
     return guid
   }
 
-  var categories: [String] {
+  var categories: [Category] {
     return []
   }
 }

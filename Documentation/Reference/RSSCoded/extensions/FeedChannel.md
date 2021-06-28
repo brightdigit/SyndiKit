@@ -3,4 +3,4 @@
 # `FeedChannel`
 
 ## Methods
-### `init(language:category:site:data:)`
+### `init(language:atomCategories:site:data:)`

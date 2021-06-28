@@ -1,3 +1,3 @@
-struct AtomCategory: Codable {
+struct AtomCategory: Codable, Category {
   let term: String
 }

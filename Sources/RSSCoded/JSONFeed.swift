@@ -9,6 +9,14 @@ struct JSONFeed: Codable {
 }
 
 extension JSONFeed: Feedable {
+  var feedItems: [Entryable] {
+    return items
+  }
+
+  var summary: String? {
+    return description
+  }
+
   var url: URL? {
     return homePageUrl
   }

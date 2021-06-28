@@ -6,10 +6,10 @@ struct AtomEntry: Codable {
   let published: Date?
   let content: String?
   let updated: Date
-  let category: [AtomCategory]
+  let atomCategories: [AtomCategory]
   let link: Link
   let author: RSSAuthor?
-  let ytVideoID: String?
+  let youtubeVideoID: String?
   let mediaDescription: String?
 
   enum CodingKeys: String, CodingKey {
@@ -20,13 +20,17 @@ struct AtomEntry: Codable {
     case updated
     case link
     case author
-    case category
-    case ytVideoID = "yt:videoId"
+    case atomCategories = "category"
+    case youtubeVideoID = "yt:videoId"
     case mediaDescription = "media:description"
   }
 }
 
 extension AtomEntry: Entryable {
+  var categories: [Category] {
+    return atomCategories
+  }
+
   var url: URL {
     return link.href
   }
@@ -37,9 +41,5 @@ extension AtomEntry: Entryable {
 
   var summary: String? {
     return nil
-  }
-
-  var categories: [String] {
-    return category.map { $0.term }
   }
 }
