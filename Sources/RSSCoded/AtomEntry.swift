@@ -1,10 +1,12 @@
 import Foundation
-struct FeedEntry: Codable {
+
+struct AtomEntry: Codable {
   let id: RSSGUID
   let title: String
   let published: Date?
   let content: String?
   let updated: Date
+  let category: [AtomCategory]
   let link: Link
   let author: RSSAuthor?
   let ytVideoID: String?
@@ -18,12 +20,13 @@ struct FeedEntry: Codable {
     case updated
     case link
     case author
+    case category
     case ytVideoID = "yt:videoId"
     case mediaDescription = "media:description"
   }
 }
 
-extension FeedEntry: Entryable {
+extension AtomEntry: Entryable {
   var url: URL {
     return link.href
   }
@@ -37,6 +40,6 @@ extension FeedEntry: Entryable {
   }
 
   var categories: [String] {
-    return []
+    return category.map { $0.term }
   }
 }

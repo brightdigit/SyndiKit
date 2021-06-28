@@ -1,40 +1,22 @@
 import Foundation
 import XMLCoder
-struct RSSItemDescription: Codable {
-  let value: String
-
-  enum CodingKeys: String, CodingKey {
-    case value = "#CDATA"
-  }
-
-  init(from decoder: Decoder) throws {
-    let value: String
-    do {
-      let container = try decoder.container(keyedBy: CodingKeys.self)
-      value = try container.decode(String.self, forKey: .value)
-    } catch {
-      let container = try decoder.singleValueContainer()
-      value = try container.decode(String.self)
-    }
-    self.value = value
-  }
-}
 
 struct RSSItem: Codable {
   let title: String
   let link: URL
-  let description: RSSItemDescription
+  let description: CData
   let guid: RSSGUID
   let pubDate: Date?
-  let contentEncoded: RSSItemDescription?
+  let contentEncoded: CData?
+  let category: [CData]
   let content: String?
   let itunesTitle: String?
-  let itunesEpisode: String?
+  let itunesEpisode: iTunesEpisode?
   let itunesAuthor: String?
   let itunesSubtitle: String?
   let itunesSummary: String?
   let itunesExplicit: String?
-  let itunesDuration: String?
+  let itunesDuration: iTunesDuration?
   let itunesImage: iTunesImage?
 
   enum CodingKeys: String, CodingKey {
@@ -43,6 +25,7 @@ struct RSSItem: Codable {
     case description
     case guid
     case pubDate
+    case category
     case contentEncoded = "content:encoded"
     case content
     case itunesTitle = "itunes:title"
@@ -56,20 +39,13 @@ struct RSSItem: Codable {
   }
 }
 
-extension String {
-  func trimAndNilIfEmpty() -> String? {
-    let text = trimmingCharacters(in: .whitespacesAndNewlines)
-    return text.isEmpty ? nil : text
-  }
-}
-
-extension RSSItem: RSSFeedItem {
+extension RSSItem: Entryable {
   var url: URL {
     return link
   }
 
   var contentHtml: String? {
-    return contentEncoded?.value.trimAndNilIfEmpty() ?? content?.trimAndNilIfEmpty() ?? description.value.trimAndNilIfEmpty()
+    return contentEncoded?.value ?? content ?? description.value
   }
 
   var summary: String? {
@@ -80,7 +56,19 @@ extension RSSItem: RSSFeedItem {
     return pubDate
   }
 
-  var rssAuthor: RSSAuthor? {
+  var author: RSSAuthor? {
     return nil
+  }
+
+  var id: RSSGUID {
+    return guid
+  }
+
+  var published: Date? {
+    return pubDate
+  }
+
+  var categories: [String] {
+    return []
   }
 }

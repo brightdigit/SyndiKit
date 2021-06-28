@@ -6,8 +6,10 @@
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__RSSCodedTests = [
-      ("testExample", testExample),
-      ("testExampleMecid", testExampleMecid)
+      ("testDurations", testDurations),
+      ("testJSONXMLEquality", testJSONXMLEquality),
+      ("testPodcastEpisodes", testPodcastEpisodes),
+      ("testSyndication", testSyndication)
     ]
   }
 
