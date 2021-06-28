@@ -55,7 +55,7 @@ final class RSSCodedTests: XCTestCase {
     let sourceURL = sourceURL ?? Self.jsonDirectoryURL
 
     let decoder = JSONDecoder()
-    Feed.decoder(decoder)
+    LegacyFeed.decoder(decoder)
     let decoding = Decoding(for: JSONFeed.self, using: decoder)
 
     let pairs = try dataFromDirectoryURL(sourceURL).flatResultMapValue { try decoding.decode(data: $0) }
@@ -73,29 +73,29 @@ final class RSSCodedTests: XCTestCase {
     }
   }
 
-  static func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feed, Error>] {
+  static func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<LegacyFeed, Error>] {
     let sourceURL = sourceURL ?? Self.xmlDirectoryURL
     let datas: [(String, Result<Data, Error>)]
     datas = try dataFromDirectoryURL(sourceURL)
 
     let decoder = XMLDecoder()
-    Feed.decoder(decoder)
+    LegacyFeed.decoder(decoder)
 
     let rssDecoding = Decoding(for: RSSFeed.self, using: decoder)
     let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
-    let pairs = datas.flatResultMapValue { data throws -> Feed in
+    let pairs = datas.flatResultMapValue { data throws -> LegacyFeed in
       do {
-        return Feed.atom(try feedDecoding.decode(data: data))
+        return LegacyFeed.atom(try feedDecoding.decode(data: data))
       } catch {
-        return Feed.rss(try rssDecoding.decode(data: data))
+        return LegacyFeed.rss(try rssDecoding.decode(data: data))
       }
     }
 
     return Dictionary(uniqueKeysWithValues: pairs)
   }
 
-  static var xmlFeeds: [String: Result<Feed, Error>]!
-  static var jsonFeeds: [String: Result<Feed, Error>]!
+  static var xmlFeeds: [String: Result<LegacyFeed, Error>]!
+  static var jsonFeeds: [String: Result<LegacyFeed, Error>]!
 
   override class func setUp() {
     // swiftlint:disable force_try
@@ -123,8 +123,8 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      let json: Feed
-      let rss: Feed
+      let json: LegacyFeed
+      let rss: LegacyFeed
 
       do {
         json = try jsonResult.get()

@@ -2,7 +2,7 @@ import Foundation
 import XMLCoder
 
 class RSSDecoder {
-  internal init(jsonDecoderProvider: @escaping (JSONDecoder) -> Void = Feed.decoder(_:), xmlDecoderProvider: @escaping (XMLDecoder) -> Void = Feed.decoder(_:)) {
+  internal init(jsonDecoderProvider: @escaping (JSONDecoder) -> Void = LegacyFeed.decoder(_:), xmlDecoderProvider: @escaping (XMLDecoder) -> Void = LegacyFeed.decoder(_:)) {
     self.jsonDecoderProvider = jsonDecoderProvider
     self.xmlDecoderProvider = xmlDecoderProvider
   }
@@ -34,11 +34,11 @@ class RSSDecoder {
     Decoding(for: JSONFeed.self, using: self.jsonDecoder)
   }()
 
-  func decode(_ data: Data) throws -> Feed {
+  func decode(_ data: Data) throws -> LegacyFeed {
     var errors = [DecodingError]()
     do {
       let rss = try rssDecoding.decode(data: data)
-      return Feed.rss(rss)
+      return LegacyFeed.rss(rss)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     } catch let error as NSError {
@@ -49,7 +49,7 @@ class RSSDecoder {
 
     do {
       let atom = try atomDecoding.decode(data: data)
-      return Feed.atom(atom)
+      return LegacyFeed.atom(atom)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     } catch let error as NSError {
@@ -60,7 +60,7 @@ class RSSDecoder {
 
     do {
       let json = try jsonFeedDecoding.decode(data: data)
-      return Feed.json(json)
+      return LegacyFeed.json(json)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     }

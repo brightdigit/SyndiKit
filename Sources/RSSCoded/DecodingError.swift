@@ -6,6 +6,6 @@ extension DecodingError {
   }
 
   static func failedAttempts(_ errors: [DecodingError]) -> Self {
-    return DecodingError.typeMismatch(Feed.self, .init(codingPath: [], debugDescription: "Failed to ", underlyingError: Collection(errors: errors)))
+    return DecodingError.typeMismatch(LegacyFeed.self, .init(codingPath: [], debugDescription: "Failed to ", underlyingError: Collection(errors: errors)))
   }
 }

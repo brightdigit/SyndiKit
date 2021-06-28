@@ -1,13 +1,14 @@
 import Foundation
 import XMLCoder
 
-enum Feed {
+@available(*, deprecated)
+enum LegacyFeed {
   case rss(RSSFeed)
   case atom(AtomFeed)
   case json(JSONFeed)
 }
 
-extension Feed {
+extension LegacyFeed {
   static func decoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
@@ -20,7 +21,7 @@ extension Feed {
   }
 }
 
-extension Feed {
+extension LegacyFeed {
   var title: String {
     switch self {
     case let .atom(feed):
