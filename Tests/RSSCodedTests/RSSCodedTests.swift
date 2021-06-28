@@ -136,7 +136,7 @@ final class RSSCodedTests: XCTestCase {
       }
 
       XCTAssertEqual(json.title.trimmingCharacters(in: .whitespacesAndNewlines), rss.title.trimmingCharacters(in: .whitespacesAndNewlines))
-      XCTAssertEqual(json.url?.remainingPath.trimAndNilIfEmpty(), rss.url?.remainingPath.trimAndNilIfEmpty())
+      XCTAssertEqual(json.siteURL?.remainingPath.trimAndNilIfEmpty(), rss.siteURL?.remainingPath.trimAndNilIfEmpty())
       if let summary = rss.summary {
         XCTAssertEqual(json.summary?.trimAndNilIfEmpty() ?? "", summary.trimmingCharacters(in: .whitespacesAndNewlines), "Description does not match for \(name)")
 

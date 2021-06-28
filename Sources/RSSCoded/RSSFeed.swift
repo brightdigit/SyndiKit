@@ -4,6 +4,14 @@ struct RSSFeed: Codable {
 }
 
 extension RSSFeed: Feedable {
+  var youtubeChannelID: String? {
+    return nil
+  }
+
+  var author: RSSAuthor? {
+    return channel.author
+  }
+
   var feedItems: [Entryable] {
     return channel.item
   }
@@ -12,7 +20,7 @@ extension RSSFeed: Feedable {
     return channel.title
   }
 
-  var url: URL? {
+  var siteURL: URL? {
     return channel.link
   }
 

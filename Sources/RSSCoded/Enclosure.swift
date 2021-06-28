@@ -39,7 +39,7 @@ public struct Enclosure: Codable {
   import FeedKit
   extension Enclosure {
     init?(element: RSSFeedItemEnclosure) {
-      guard let url = element.attributes?.url.flatMap(URL.init(string:)) else {
+      guard let siteURL = element.attributes?.siteURL.flatMap(URL.init(string:)) else {
         return nil
       }
 
@@ -47,12 +47,12 @@ public struct Enclosure: Codable {
         return nil
       }
 
-      self.url = url
+      self.siteURL = siteURL
       self.type = type
     }
 
     init?(element: AtomFeedEntryLink) {
-      guard let url = element.attributes?.href.flatMap(URL.init(string:)) else {
+      guard let siteURL = element.attributes?.href.flatMap(URL.init(string:)) else {
         return nil
       }
 
@@ -60,7 +60,7 @@ public struct Enclosure: Codable {
         return nil
       }
 
-      self.url = url
+      self.siteURL = siteURL
       self.type = type
     }
   }

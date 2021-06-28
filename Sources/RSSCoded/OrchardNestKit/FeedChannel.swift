@@ -50,8 +50,8 @@ public struct FeedChannel: Codable {
 
           guard let title = item.title,
                 let summary = item.summary,
-                let url = item.externalUrl.flatMap(URL.init(string:)) ?? item.url.flatMap(URL.init(string:)),
-                let id = item.id ?? item.url ?? item.externalUrl,
+                let siteURL = item.externalUrl.flatMap(URL.init(string:)) ?? item.siteURL.flatMap(URL.init(string:)),
+                let id = item.id ?? item.siteURL ?? item.externalUrl,
                 let published = item.datePublished ?? item.dateModified
           else {
             return nil
@@ -65,7 +65,7 @@ public struct FeedChannel: Codable {
             title: title,
             summary: summary,
             content: content,
-            url: url,
+            siteURL: siteURL,
             image: image,
             ytId: nil,
             audio: nil, duration: nil,
@@ -80,7 +80,7 @@ public struct FeedChannel: Codable {
         siteUrl = rss.links.flatMap(URL.init(string:)) ?? site.site_url
         feedUrl = site.feed_url
         twitterHandle = site.twitter_url?.lastPathComponent
-        image = rss.image?.url.flatMap(URL.init(string:)) ?? rss.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:))
+        image = rss.image?.siteURL.flatMap(URL.init(string:)) ?? rss.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:))
         // self.image = atom.image
         updated = rss.pubDate ?? Date()
         self.language = language
@@ -101,13 +101,13 @@ public struct FeedChannel: Codable {
           else {
             return nil
           }
-          let url = itemUrl.ensureAbsolute(siteUrl)
+          let siteURL = itemUrl.ensureAbsolute(siteUrl)
           let enclosure = item.enclosure.flatMap(Enclosure.init)
           let content = item.content?.contentEncoded
           let image = item.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:)) ??
             enclosure?.imageURL ??
             item.media?.mediaThumbnails?.compactMap {
-              $0.attributes?.url.flatMap(URL.init(string:))
+              $0.attributes?.siteURL.flatMap(URL.init(string:))
             }.first
           // let ytId: String
           // let itId = item.media.
@@ -118,7 +118,7 @@ public struct FeedChannel: Codable {
             title: title,
             summary: summary,
             content: content,
-            url: url,
+            siteURL: siteURL,
             image: image,
             ytId: nil,
             audio: enclosure?.audioURL,
@@ -178,14 +178,14 @@ public struct FeedChannel: Codable {
           } else {
             ytId = nil
           }
-          let url = entryUrl.ensureAbsolute(siteUrl)
+          let siteURL = entryUrl.ensureAbsolute(siteUrl)
           return FeedItem(
             siteUrl: siteUrl,
             id: id,
             title: title,
             summary: summary,
             content: entries.content?.value,
-            url: url,
+            siteURL: siteURL,
             image: media?.compactMap { $0.imageURL }.first,
             ytId: ytId,
             audio: media?.compactMap { $0.audioURL }.first, duration: nil,

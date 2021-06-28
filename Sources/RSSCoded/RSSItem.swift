@@ -19,6 +19,7 @@ struct RSSItem: Codable {
   let itunesDuration: iTunesDuration?
   let itunesImage: iTunesImage?
   let enclosure: Enclosure?
+  let creator: String?
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -38,6 +39,7 @@ struct RSSItem: Codable {
     case itunesExplicit = "itunes:explicit"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
+    case creator = "dc:creator"
   }
 }
 

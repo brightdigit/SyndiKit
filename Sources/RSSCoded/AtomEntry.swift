@@ -11,6 +11,7 @@ struct AtomEntry: Codable {
   let author: RSSAuthor?
   let youtubeVideoID: String?
   let mediaDescription: String?
+  let creator: String?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -23,6 +24,7 @@ struct AtomEntry: Codable {
     case atomCategories = "category"
     case youtubeVideoID = "yt:videoId"
     case mediaDescription = "media:description"
+    case creator = "dc:creator"
   }
 }
 

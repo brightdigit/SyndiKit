@@ -13,4 +13,5 @@ protocol Entryable {
   var published: Date? { get }
   var author: RSSAuthor? { get }
   var categories: [Category] { get }
+  var creator: String? { get }
 }

@@ -8,7 +8,7 @@ struct AtomFeed: Codable {
   let pubDate: Date?
   let links: [Link]
   let entries: [AtomEntry]
-  let author: RSSAuthor
+  let author: RSSAuthor?
   let youtubeChannelID: String?
 
   enum CodingKeys: String, CodingKey {
@@ -34,7 +34,7 @@ extension AtomFeed: Feedable {
     return entries
   }
 
-  var url: URL? {
+  var siteURL: URL? {
     links.first { $0.rel != "self" }?.href
   }
 

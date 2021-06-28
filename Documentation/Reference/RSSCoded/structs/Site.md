@@ -19,33 +19,33 @@ public let title: String
 public let author: String
 ```
 
-### `site_url`
+### `siteURL`
 
 ```swift
-public let site_url: URL
+public let siteURL: URL
 ```
 
-### `feed_url`
+### `feedURL`
 
 ```swift
-public let feed_url: URL
+public let feedURL: URL
 ```
 
-### `twitter_url`
+### `twitterURL`
 
 ```swift
-public let twitter_url: URL?
+public let twitterURL: URL?
 ```
 
 ## Methods
-### `init(title:author:site_url:feed_url:twitter_url:)`
+### `init(title:author:siteURL:feedURL:twitterURL:)`
 
 ```swift
 public init(
   title: String,
   author: String,
-  site_url: URL,
-  feed_url: URL,
-  twitter_url: URL?
+  siteURL: URL,
+  feedURL: URL,
+  twitterURL: URL?
 )
 ```
