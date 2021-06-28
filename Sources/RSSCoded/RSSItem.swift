@@ -8,7 +8,7 @@ struct RSSItem: Codable {
   let guid: RSSGUID
   let pubDate: Date?
   let contentEncoded: CData?
-  let category: [CData]
+  let categoryTerms: [CData]
   let content: String?
   let itunesTitle: String?
   let itunesEpisode: iTunesEpisode?
@@ -26,7 +26,7 @@ struct RSSItem: Codable {
     case description
     case guid
     case pubDate
-    case category
+    case categoryTerms = "category"
     case enclosure
     case contentEncoded = "content:encoded"
     case content
@@ -42,6 +42,10 @@ struct RSSItem: Codable {
 }
 
 extension RSSItem: Entryable {
+  var categories: [Category] {
+    return categoryTerms
+  }
+
   var url: URL {
     return link
   }
@@ -68,9 +72,5 @@ extension RSSItem: Entryable {
 
   var published: Date? {
     return pubDate
-  }
-
-  var categories: [String] {
-    return []
   }
 }

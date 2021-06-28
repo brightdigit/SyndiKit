@@ -6,10 +6,10 @@ struct AtomFeed: Codable {
   let subtitle: String?
   let published: Date?
   let pubDate: Date?
-  let link: [Link]
-  let entry: [AtomEntry]
+  let links: [Link]
+  let entries: [AtomEntry]
   let author: RSSAuthor
-  let ytChannelID: String?
+  let youtubeChannelID: String?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -18,16 +18,24 @@ struct AtomFeed: Codable {
     case subtitle
     case published
     case pubDate
-    case link
-    case entry
+    case links = "link"
+    case entries = "entry"
     case author
-    case ytChannelID = "yt:channelId"
+    case youtubeChannelID = "yt:channelId"
   }
 }
 
 extension AtomFeed: Feedable {
+  var summary: String? {
+    return description ?? subtitle
+  }
+
+  var feedItems: [Entryable] {
+    return entries
+  }
+
   var url: URL? {
-    link.first { $0.rel != "self" }?.href
+    links.first { $0.rel != "self" }?.href
   }
 
   var updated: Date? {

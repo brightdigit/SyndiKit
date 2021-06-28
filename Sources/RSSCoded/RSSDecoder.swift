@@ -2,9 +2,20 @@ import Foundation
 import XMLCoder
 
 class RSSDecoder {
-  internal init(jsonDecoderProvider: @escaping (JSONDecoder) -> Void = LegacyFeed.decoder(_:), xmlDecoderProvider: @escaping (XMLDecoder) -> Void = LegacyFeed.decoder(_:)) {
-    self.jsonDecoderProvider = jsonDecoderProvider
-    self.xmlDecoderProvider = xmlDecoderProvider
+  static func decoder(_ decoder: JSONDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+  }
+
+  static func decoder(_ decoder: XMLDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+    decoder.trimValueWhitespaces = false
+  }
+
+  internal init(jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil, xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil) {
+    self.jsonDecoderProvider = jsonDecoderProvider ?? Self.decoder(_:)
+    self.xmlDecoderProvider = xmlDecoderProvider ?? Self.decoder(_:)
   }
 
   let jsonDecoderProvider: (JSONDecoder) -> Void
@@ -34,11 +45,11 @@ class RSSDecoder {
     Decoding(for: JSONFeed.self, using: self.jsonDecoder)
   }()
 
-  func decode(_ data: Data) throws -> LegacyFeed {
+  func decode(_ data: Data) throws -> Feedable {
     var errors = [DecodingError]()
     do {
       let rss = try rssDecoding.decode(data: data)
-      return LegacyFeed.rss(rss)
+      return rss
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     } catch let error as NSError {
@@ -48,8 +59,7 @@ class RSSDecoder {
     }
 
     do {
-      let atom = try atomDecoding.decode(data: data)
-      return LegacyFeed.atom(atom)
+      return try atomDecoding.decode(data: data)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     } catch let error as NSError {
@@ -59,8 +69,7 @@ class RSSDecoder {
     }
 
     do {
-      let json = try jsonFeedDecoding.decode(data: data)
-      return LegacyFeed.json(json)
+      return try jsonFeedDecoding.decode(data: data)
     } catch let decodingError as DecodingError {
       errors.append(decodingError)
     }

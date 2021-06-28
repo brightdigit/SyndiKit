@@ -1,5 +1,9 @@
 import Foundation
 
+protocol Category {
+  var term: String { get }
+}
+
 protocol Entryable {
   var id: RSSGUID { get }
   var url: URL { get }
@@ -8,5 +12,5 @@ protocol Entryable {
   var summary: String? { get }
   var published: Date? { get }
   var author: RSSAuthor? { get }
-  var categories: [String] { get }
+  var categories: [Category] { get }
 }
