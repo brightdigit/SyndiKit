@@ -36,6 +36,10 @@ extension JSONItem: Entryable {
   var categories: [Category] {
     return []
   }
+
+  var media: MediaContent? {
+    return nil
+  }
 }
 
 // extension JSONItem {

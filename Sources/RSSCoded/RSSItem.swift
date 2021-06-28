@@ -75,4 +75,8 @@ extension RSSItem: Entryable {
   var published: Date? {
     return pubDate
   }
+
+  var media: MediaContent? {
+    PodcastEpisode(rssItem: self).map(MediaContent.podcast)
+  }
 }
