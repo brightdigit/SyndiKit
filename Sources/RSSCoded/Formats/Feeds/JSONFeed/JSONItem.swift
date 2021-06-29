@@ -23,7 +23,7 @@ extension JSONItem: Entryable {
     return guid
   }
 
-  public var categories: [Category] {
+  public var categories: [RSSCategory] {
     return []
   }
 

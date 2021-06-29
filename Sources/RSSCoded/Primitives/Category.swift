@@ -1,3 +1,3 @@
-public protocol Category {
+public protocol RSSCategory {
   var term: String { get }
 }

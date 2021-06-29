@@ -2,10 +2,10 @@
 
 ## Protocols
 
--   [Category](protocols/Category.md)
 -   [Entryable](protocols/Entryable.md)
 -   [Feedable](protocols/Feedable.md)
 -   [PodcastEpisodeProtocol](protocols/PodcastEpisodeProtocol.md)
+-   [RSSCategory](protocols/RSSCategory.md)
 -   [YouTubeIDProtocol](protocols/YouTubeIDProtocol.md)
 
 ## Structs
@@ -13,12 +13,18 @@
 -   [AtomCategory](structs/AtomCategory.md)
 -   [AtomEntry](structs/AtomEntry.md)
 -   [AtomFeed](structs/AtomFeed.md)
+-   [BlogCollection](structs/BlogCollection.md)
+-   [BlogSite](structs/BlogSite.md)
 -   [CData](structs/CData.md)
+-   [Category](structs/Category.md)
+-   [CategoryDescriptor](structs/CategoryDescriptor.md)
+-   [CategoryLanguage](structs/CategoryLanguage.md)
 -   [DateFormatterDecoder](structs/DateFormatterDecoder.md)
 -   [Enclosure](structs/Enclosure.md)
 -   [IntegerCodable](structs/IntegerCodable.md)
 -   [JSONFeed](structs/JSONFeed.md)
 -   [JSONItem](structs/JSONItem.md)
+-   [Language](structs/Language.md)
 -   [LanguageCategory](structs/LanguageCategory.md)
 -   [LanguageContent](structs/LanguageContent.md)
 -   [Link](structs/Link.md)
@@ -57,6 +63,9 @@
 
 ## Typealiases
 
+-   [BlogArray](typealiases/BlogArray.md)
+-   [CategoryType](typealiases/CategoryType.md)
+-   [LanguageType](typealiases/LanguageType.md)
 -   [SyndicationUpdateFrequency](typealiases/SyndicationUpdateFrequency.md)
 -   [iTunesEpisode](typealiases/iTunesEpisode.md)
 -   [iTunesImage](typealiases/iTunesImage.md)

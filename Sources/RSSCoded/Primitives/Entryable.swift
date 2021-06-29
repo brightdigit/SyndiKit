@@ -8,7 +8,7 @@ public protocol Entryable {
   var summary: String? { get }
   var published: Date? { get }
   var author: RSSAuthor? { get }
-  var categories: [Category] { get }
+  var categories: [RSSCategory] { get }
   var creator: String? { get }
   var media: MediaContent? { get }
 }

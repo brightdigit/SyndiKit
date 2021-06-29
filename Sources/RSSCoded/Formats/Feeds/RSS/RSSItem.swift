@@ -44,7 +44,7 @@ public struct RSSItem: Codable {
 }
 
 extension RSSItem: Entryable {
-  public var categories: [Category] {
+  public var categories: [RSSCategory] {
     return categoryTerms
   }
 

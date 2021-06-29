@@ -31,7 +31,7 @@ public struct AtomEntry: Codable {
 }
 
 extension AtomEntry: Entryable {
-  public var categories: [Category] {
+  public var categories: [RSSCategory] {
     return atomCategories
   }
 
