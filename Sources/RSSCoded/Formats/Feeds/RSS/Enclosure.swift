@@ -11,22 +11,6 @@ public struct Enclosure: Codable {
     case length
   }
 
-//  var imageURL: URL? {
-//    guard type.starts(with: "image/") else {
-//      return nil
-//    }
-//
-//    return url
-//  }
-//
-//  var audioURL: URL? {
-//    guard type.starts(with: "audio/") else {
-//      return nil
-//    }
-//
-//    return url
-//  }
-
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Self.CodingKeys)
     url = try container.decode(URL.self, forKey: .url)
