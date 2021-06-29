@@ -1,3 +1,4 @@
+import Foundation
 protocol PodcastEpisodeProtocol {
   var title: String? { get }
   var episode: Int? { get }
@@ -5,7 +6,7 @@ protocol PodcastEpisodeProtocol {
   var subtitle: String? { get }
   var summary: String? { get }
   var explicit: String? { get }
-  var duration: iTunesDuration? { get }
+  var duration: TimeInterval? { get }
   var image: iTunesImage? { get }
   var enclosure: Enclosure { get }
 }
