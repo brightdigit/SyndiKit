@@ -16,6 +16,7 @@
     // to regenerate.
     static let __allTests__RSSCodedTests = [
       ("testDurations", testDurations),
+      ("testEntryable", testEntryable),
       ("testJSONXMLEquality", testJSONXMLEquality),
       ("testPodcastEpisodes", testPodcastEpisodes),
       ("testSyndication", testSyndication),

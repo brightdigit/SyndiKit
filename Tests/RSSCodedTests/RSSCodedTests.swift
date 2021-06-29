@@ -27,6 +27,18 @@ final class RSSCodedTests: XCTestCase {
     jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
   }
 
+  func testEntryable() {
+    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+      let feed: Feedable
+      do {
+        feed = try xmlResult.get()
+      } catch {
+        XCTAssertNil(error)
+        continue
+      }
+    }
+  }
+
   func testJSONXMLEquality() throws {
     for (name, xmlResult) in RSSCodedTests.xmlFeeds {
       guard let jsonResult = RSSCodedTests.jsonFeeds[name] else {
