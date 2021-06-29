@@ -36,4 +36,8 @@ extension JSONFeed: Feedable {
   var image: URL? {
     return nil
   }
+
+  var syndication: SyndicationUpdate? {
+    return nil
+  }
 }

@@ -41,9 +41,3 @@ extension JSONItem: Entryable {
     return nil
   }
 }
-
-// extension JSONItem {
-//  init(from item: Entryable) {
-//    self.init(guid: item.guid, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.datePublished, author: item.rssAuthor)
-//  }
-// }
