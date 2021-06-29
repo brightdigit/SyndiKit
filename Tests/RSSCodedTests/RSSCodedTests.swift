@@ -28,13 +28,46 @@ final class RSSCodedTests: XCTestCase {
   }
 
   func testEntryable() {
-    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+    for (_, xmlResult) in RSSCodedTests.xmlFeeds {
       let feed: Feedable
       do {
         feed = try xmlResult.get()
       } catch {
         XCTAssertNil(error)
         continue
+      }
+
+      if let atomFeed = feed as? AtomFeed {
+        XCTAssertEqual(feed.updated, atomFeed.pubDate ?? atomFeed.published)
+        XCTAssertNil(feed.copyright)
+        XCTAssertNil(feed.image)
+        XCTAssertNil(feed.syndication)
+        let items = zip(atomFeed.entries, feed.children)
+        for (atomEntry, entryChild) in items {
+          XCTAssertEqual(atomEntry.atomCategories.map { $0.term }, entryChild.categories.map { $0.term })
+          XCTAssertEqual(atomEntry.link.href, entryChild.url)
+          XCTAssertNil(entryChild.summary)
+        }
+      } else if let rssFeed = feed as? RSSFeed {
+        XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
+        XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
+        XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
+        XCTAssertEqual(feed.syndication, rssFeed.channel.syndication)
+
+        let items = zip(rssFeed.channel.items, feed.children)
+        for (rssItem, entryChild) in items {
+          XCTAssertEqual(rssItem.categoryTerms.map { $0.term }, entryChild.categories.map { $0.term })
+          XCTAssertEqual(rssItem.link, entryChild.url)
+          XCTAssertEqual(rssItem.description.value, entryChild.summary)
+          XCTAssertEqual(rssItem.guid, entryChild.id)
+          XCTAssertEqual(rssItem.pubDate, entryChild.published)
+          // XCTAssertNil(entryChild.summary)
+        }
+      } else {
+        guard feed is JSONFeed else {
+          XCTFail()
+          continue
+        }
       }
     }
   }
@@ -104,7 +137,7 @@ final class RSSCodedTests: XCTestCase {
       }
 
       var episodeNumbers = episodeNumbers
-      let actualEps = rss.channel.item.compactMap { $0.itunesEpisode?.value }
+      let actualEps = rss.channel.items.compactMap { $0.itunesEpisode?.value }
 
       if let missingEpNumbers = missingEpisodes[name] {
         episodeNumbers.removeAll(where: missingEpNumbers.contains(_:))
@@ -396,7 +429,7 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      let actuals = rss.channel.item.compactMap { $0.itunesDuration?.value }
+      let actuals = rss.channel.items.compactMap { $0.itunesDuration?.value }
       let durations = feed.children.map {
         $0.media.flatMap { media -> TimeInterval? in
           if case let .podcast(episode) = media {

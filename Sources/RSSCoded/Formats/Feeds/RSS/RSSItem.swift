@@ -60,10 +60,6 @@ extension RSSItem: Entryable {
     return description.value
   }
 
-  var datePublished: Date? {
-    return pubDate
-  }
-
   public var author: RSSAuthor? {
     return nil
   }

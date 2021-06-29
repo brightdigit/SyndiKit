@@ -13,7 +13,7 @@ extension RSSFeed: Feedable {
   }
 
   public var children: [Entryable] {
-    return channel.item
+    return channel.items
   }
 
   public var title: String {
