@@ -28,7 +28,6 @@
 -   [RSSFeed](structs/RSSFeed.md)
 -   [RSSImage](structs/RSSImage.md)
 -   [RSSItem](structs/RSSItem.md)
--   [RSSJSONItem](structs/RSSJSONItem.md)
 -   [Site](structs/Site.md)
 -   [SyndicationUpdate](structs/SyndicationUpdate.md)
 -   [YouTubeID](structs/YouTubeID.md)
