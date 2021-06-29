@@ -1,3 +1,3 @@
 import Foundation
 // swiftlint:disable:next type_name
-typealias iTunesImage = Link
+public typealias iTunesImage = Link

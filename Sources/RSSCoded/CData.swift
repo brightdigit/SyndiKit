@@ -1,5 +1,5 @@
-struct CData: Codable, Category {
-  var term: String {
+public struct CData: Codable, Category {
+  public var term: String {
     return value
   }
 
@@ -9,7 +9,7 @@ struct CData: Codable, Category {
     case value = "#CDATA"
   }
 
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let value: String
     do {
       let container = try decoder.container(keyedBy: CodingKeys.self)

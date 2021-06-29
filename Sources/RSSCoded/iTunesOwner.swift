@@ -1,7 +1,7 @@
 // swiftlint:disable:next type_name
-struct iTunesOwner: Codable {
-  let name: String
-  let email: String
+public struct iTunesOwner: Codable {
+  public let name: String
+  public let email: String
 
   enum CodingKeys: String, CodingKey {
     case name = "itunes:name"

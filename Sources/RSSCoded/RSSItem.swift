@@ -1,25 +1,25 @@
 import Foundation
 import XMLCoder
 
-struct RSSItem: Codable {
-  let title: String
-  let link: URL
-  let description: CData
-  let guid: RSSGUID
-  let pubDate: Date?
-  let contentEncoded: CData?
-  let categoryTerms: [CData]
-  let content: String?
-  let itunesTitle: String?
-  let itunesEpisode: iTunesEpisode?
-  let itunesAuthor: String?
-  let itunesSubtitle: String?
-  let itunesSummary: String?
-  let itunesExplicit: String?
-  let itunesDuration: iTunesDuration?
-  let itunesImage: iTunesImage?
-  let enclosure: Enclosure?
-  let creator: String?
+public struct RSSItem: Codable {
+  public let title: String
+  public let link: URL
+  public let description: CData
+  public let guid: RSSGUID
+  public let pubDate: Date?
+  public let contentEncoded: CData?
+  public let categoryTerms: [CData]
+  public let content: String?
+  public let itunesTitle: String?
+  public let itunesEpisode: iTunesEpisode?
+  public let itunesAuthor: String?
+  public let itunesSubtitle: String?
+  public let itunesSummary: String?
+  public let itunesExplicit: String?
+  public let itunesDuration: iTunesDuration?
+  public let itunesImage: iTunesImage?
+  public let enclosure: Enclosure?
+  public let creator: String?
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -44,19 +44,19 @@ struct RSSItem: Codable {
 }
 
 extension RSSItem: Entryable {
-  var categories: [Category] {
+  public var categories: [Category] {
     return categoryTerms
   }
 
-  var url: URL {
+  public var url: URL {
     return link
   }
 
-  var contentHtml: String? {
+  public var contentHtml: String? {
     return contentEncoded?.value ?? content ?? description.value
   }
 
-  var summary: String? {
+  public var summary: String? {
     return description.value
   }
 
@@ -64,19 +64,19 @@ extension RSSItem: Entryable {
     return pubDate
   }
 
-  var author: RSSAuthor? {
+  public var author: RSSAuthor? {
     return nil
   }
 
-  var id: RSSGUID {
+  public var id: RSSGUID {
     return guid
   }
 
-  var published: Date? {
+  public var published: Date? {
     return pubDate
   }
 
-  var media: MediaContent? {
+  public var media: MediaContent? {
     PodcastEpisode(rssItem: self).map(MediaContent.podcast)
   }
 }

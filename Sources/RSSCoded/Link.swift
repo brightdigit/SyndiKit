@@ -1,5 +1,5 @@
 import Foundation
-struct Link: Codable {
-  let href: URL
-  let rel: String?
+public struct Link: Codable {
+  public let href: URL
+  public let rel: String?
 }

@@ -1,5 +1,5 @@
 import Foundation
-enum RSSGUID: Codable, Equatable {
+public enum RSSGUID: Codable, Equatable {
   case url(URL)
   case uuid(UUID)
   case path([String])
@@ -20,13 +20,13 @@ enum RSSGUID: Codable, Equatable {
     }
   }
 
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     let string = try container.decode(String.self)
     self.init(from: string)
   }
 
-  func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: Encoder) throws {
     var container = encoder.singleValueContainer()
     let string: String
     switch self {

@@ -1,46 +1,46 @@
 import Foundation
-struct RSSFeed: Codable {
-  let channel: RSSChannel
+public struct RSSFeed: Codable {
+  public let channel: RSSChannel
 }
 
 extension RSSFeed: Feedable {
-  var youtubeChannelID: String? {
+  public var youtubeChannelID: String? {
     return nil
   }
 
-  var author: RSSAuthor? {
+  public var author: RSSAuthor? {
     return channel.author
   }
 
-  var feedItems: [Entryable] {
+  public var children: [Entryable] {
     return channel.item
   }
 
-  var title: String {
+  public var title: String {
     return channel.title
   }
 
-  var siteURL: URL? {
+  public var siteURL: URL? {
     return channel.link
   }
 
-  var summary: String? {
+  public var summary: String? {
     return channel.description
   }
 
-  var updated: Date? {
+  public var updated: Date? {
     return channel.lastBuildDate
   }
 
-  var copyright: String? {
+  public var copyright: String? {
     return channel.copyright
   }
 
-  var image: URL? {
+  public var image: URL? {
     return channel.image?.link
   }
 
-  var syndication: SyndicationUpdate? {
+  public var syndication: SyndicationUpdate? {
     return channel.syndication
   }
 }

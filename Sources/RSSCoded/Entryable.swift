@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Entryable {
+public protocol Entryable {
   var id: RSSGUID { get }
   var url: URL { get }
   var title: String { get }

@@ -1,7 +1,7 @@
 import Foundation
 
-struct RSSAuthor: Codable, Equatable {
-  let name: String
-  let email: String?
-  let uri: URL?
+public struct RSSAuthor: Codable, Equatable {
+  public let name: String
+  public let email: String?
+  public let uri: URL?
 }

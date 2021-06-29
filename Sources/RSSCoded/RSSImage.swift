@@ -1,9 +1,9 @@
 import Foundation
 
-struct RSSImage: Codable {
-  let url: URL
-  let title: String
-  let link: URL
-  let width: Int?
-  let height: Int?
+public struct RSSImage: Codable {
+  public let url: URL
+  public let title: String
+  public let link: URL
+  public let width: Int?
+  public let height: Int?
 }

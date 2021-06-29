@@ -1,18 +1,18 @@
 import Foundation
 
-struct AtomEntry: Codable {
-  let id: RSSGUID
-  let title: String
-  let published: Date?
-  let content: String?
-  let updated: Date
-  let atomCategories: [AtomCategory]
-  let link: Link
-  let author: RSSAuthor?
-  let youtubeChannelID: String?
-  let youtubeVideoID: String?
-  let mediaDescription: String?
-  let creator: String?
+public struct AtomEntry: Codable {
+  public let id: RSSGUID
+  public let title: String
+  public let published: Date?
+  public let content: String?
+  public let updated: Date
+  public let atomCategories: [AtomCategory]
+  public let link: Link
+  public let author: RSSAuthor?
+  public let youtubeChannelID: String?
+  public let youtubeVideoID: String?
+  public let mediaDescription: String?
+  public let creator: String?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -31,23 +31,23 @@ struct AtomEntry: Codable {
 }
 
 extension AtomEntry: Entryable {
-  var categories: [Category] {
+  public var categories: [Category] {
     return atomCategories
   }
 
-  var url: URL {
+  public var url: URL {
     return link.href
   }
 
-  var contentHtml: String? {
+  public var contentHtml: String? {
     return content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
 
-  var summary: String? {
+  public var summary: String? {
     return nil
   }
 
-  var media: MediaContent? {
+  public var media: MediaContent? {
     YouTubeID(entry: self).map(Video.youtube).map(MediaContent.video)
   }
 }

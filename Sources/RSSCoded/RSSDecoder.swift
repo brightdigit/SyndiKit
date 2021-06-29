@@ -1,7 +1,7 @@
 import Foundation
 import XMLCoder
 
-class RSSDecoder {
+public class RSSDecoder {
   static func decoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
@@ -13,7 +13,7 @@ class RSSDecoder {
     decoder.trimValueWhitespaces = false
   }
 
-  internal init(jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil, xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil) {
+  public init(jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil, xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil) {
     self.jsonDecoderProvider = jsonDecoderProvider ?? Self.decoder(_:)
     self.xmlDecoderProvider = xmlDecoderProvider ?? Self.decoder(_:)
   }
@@ -45,7 +45,7 @@ class RSSDecoder {
     Decoding(for: JSONFeed.self, using: self.jsonDecoder)
   }()
 
-  func decode(_ data: Data) throws -> Feedable {
+  public func decode(_ data: Data) throws -> Feedable {
     var errors = [DecodingError]()
     do {
       let rss = try rssDecoding.decode(data: data)

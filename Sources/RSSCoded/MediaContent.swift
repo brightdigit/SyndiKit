@@ -1,4 +1,4 @@
-enum MediaContent {
+public enum MediaContent {
   case podcast(PodcastEpisodeProtocol)
   case video(Video)
 }

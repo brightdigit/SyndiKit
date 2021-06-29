@@ -1,6 +1,6 @@
 import Foundation
 
-struct DateFormatterDecoder {
+public struct DateFormatterDecoder {
   let formatters: [DateFormatter]
 
   enum RSS {

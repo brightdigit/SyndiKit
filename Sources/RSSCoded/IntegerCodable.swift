@@ -1,11 +1,11 @@
-struct IntegerCodable: Codable, ExpressibleByIntegerLiteral {
-  let value: Int
+public struct IntegerCodable: Codable, ExpressibleByIntegerLiteral {
+  public let value: Int
 
-  init(integerLiteral value: Int) {
+  public init(integerLiteral value: Int) {
     self.value = value
   }
 
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self).trimmingCharacters(in: .whitespacesAndNewlines)
     guard let value = Int(stringValue) else {
