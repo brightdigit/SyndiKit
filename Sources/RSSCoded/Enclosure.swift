@@ -34,34 +34,3 @@ public struct Enclosure: Codable {
     length = try? container.decode(Int.self, forKey: .length)
   }
 }
-
-#if canImport(FeedKit)
-  import FeedKit
-  extension Enclosure {
-    init?(element: RSSFeedItemEnclosure) {
-      guard let siteURL = element.attributes?.siteURL.flatMap(URL.init(string:)) else {
-        return nil
-      }
-
-      guard let type = element.attributes?.type else {
-        return nil
-      }
-
-      self.siteURL = siteURL
-      self.type = type
-    }
-
-    init?(element: AtomFeedEntryLink) {
-      guard let siteURL = element.attributes?.href.flatMap(URL.init(string:)) else {
-        return nil
-      }
-
-      guard let type = element.attributes?.type else {
-        return nil
-      }
-
-      self.siteURL = siteURL
-      self.type = type
-    }
-  }
-#endif

@@ -39,4 +39,8 @@ extension RSSFeed: Feedable {
   var image: URL? {
     return channel.image?.link
   }
+
+  var syndication: SyndicationUpdate? {
+    return channel.syndication
+  }
 }
