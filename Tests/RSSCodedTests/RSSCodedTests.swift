@@ -443,7 +443,17 @@ final class RSSCodedTests: XCTestCase {
       }
 
       let actuals = rss.channel.item.compactMap { $0.itunesDuration?.value }
+      let durations = feed.feedItems.map {
+        $0.media.flatMap { media -> TimeInterval? in
+          if case let .podcast(episode) = media {
+            return episode.duration
+          } else {
+            return nil
+          }
+        }
+      }
 
+      XCTAssertEqual(actuals, durations)
       let times = zip(actuals, expecteds)
 
       for (index, (actual, expected)) in times.enumerated() {

@@ -1,3 +1,4 @@
+import Foundation
 struct PodcastEpisode: PodcastEpisodeProtocol {
   let title: String?
   let episode: Int?
@@ -5,7 +6,7 @@ struct PodcastEpisode: PodcastEpisodeProtocol {
   let subtitle: String?
   let summary: String?
   let explicit: String?
-  let duration: iTunesDuration?
+  let duration: TimeInterval?
   let image: iTunesImage?
   let enclosure: Enclosure
 
@@ -19,7 +20,7 @@ struct PodcastEpisode: PodcastEpisodeProtocol {
     subtitle = rssItem.itunesSubtitle
     summary = rssItem.itunesSummary
     explicit = rssItem.itunesExplicit
-    duration = rssItem.itunesDuration
+    duration = rssItem.itunesDuration?.value
     image = rssItem.itunesImage
     self.enclosure = enclosure
   }
