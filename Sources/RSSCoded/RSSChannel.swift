@@ -1,20 +1,20 @@
 import Foundation
 
-struct RSSChannel: Codable {
-  let title: String
-  let link: URL
-  let description: String?
-  let lastBuildDate: Date?
-  let pubDate: Date?
-  let syUpdatePeriod: SyndicationUpdatePeriod?
-  let syUpdateFrequency: SyndicationUpdateFrequency?
-  let item: [RSSItem]
-  let itunesAuthor: String?
-  let itunesImage: String?
-  let itunesOwner: iTunesOwner?
-  let copyright: String?
-  let image: RSSImage?
-  let author: RSSAuthor?
+public struct RSSChannel: Codable {
+  public let title: String
+  public let link: URL
+  public let description: String?
+  public let lastBuildDate: Date?
+  public let pubDate: Date?
+  public let syUpdatePeriod: SyndicationUpdatePeriod?
+  public let syUpdateFrequency: SyndicationUpdateFrequency?
+  public let item: [RSSItem]
+  public let itunesAuthor: String?
+  public let itunesImage: String?
+  public let itunesOwner: iTunesOwner?
+  public let copyright: String?
+  public let image: RSSImage?
+  public let author: RSSAuthor?
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -34,7 +34,7 @@ struct RSSChannel: Codable {
   }
 }
 
-extension RSSChannel {
+public extension RSSChannel {
   var syndication: SyndicationUpdate? {
     return SyndicationUpdate(period: syUpdatePeriod, frequency: syUpdateFrequency?.value)
   }

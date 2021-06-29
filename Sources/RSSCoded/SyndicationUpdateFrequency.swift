@@ -1,1 +1,1 @@
-typealias SyndicationUpdateFrequency = IntegerCodable
+public typealias SyndicationUpdateFrequency = IntegerCodable

@@ -1,43 +1,44 @@
 import Foundation
-struct JSONFeed: Codable {
-  let version: URL
-  let title: String
-  let homePageUrl: URL
-  let description: String?
-  let author: RSSAuthor?
-  let items: [JSONItem]
+
+public struct JSONFeed: Codable {
+  public let version: URL
+  public let title: String
+  public let homePageUrl: URL
+  public let description: String?
+  public let author: RSSAuthor?
+  public let items: [JSONItem]
 }
 
 extension JSONFeed: Feedable {
-  var youtubeChannelID: String? {
+  public var youtubeChannelID: String? {
     return nil
   }
 
-  var feedItems: [Entryable] {
+  public var children: [Entryable] {
     return items
   }
 
-  var summary: String? {
+  public var summary: String? {
     return description
   }
 
-  var siteURL: URL? {
+  public var siteURL: URL? {
     return homePageUrl
   }
 
-  var updated: Date? {
+  public var updated: Date? {
     return nil
   }
 
-  var copyright: String? {
+  public var copyright: String? {
     return nil
   }
 
-  var image: URL? {
+  public var image: URL? {
     return nil
   }
 
-  var syndication: SyndicationUpdate? {
+  public var syndication: SyndicationUpdate? {
     return nil
   }
 }

@@ -1,15 +1,15 @@
 import Foundation
-struct AtomFeed: Codable {
-  let id: String
-  let title: String
-  let description: String?
-  let subtitle: String?
-  let published: Date?
-  let pubDate: Date?
-  let links: [Link]
-  let entries: [AtomEntry]
-  let author: RSSAuthor?
-  let youtubeChannelID: String?
+public struct AtomFeed: Codable {
+  public let id: String
+  public let title: String
+  public let description: String?
+  public let subtitle: String?
+  public let published: Date?
+  public let pubDate: Date?
+  public let links: [Link]
+  public let entries: [AtomEntry]
+  public let author: RSSAuthor?
+  public let youtubeChannelID: String?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -26,31 +26,31 @@ struct AtomFeed: Codable {
 }
 
 extension AtomFeed: Feedable {
-  var summary: String? {
+  public var summary: String? {
     return description ?? subtitle
   }
 
-  var feedItems: [Entryable] {
+  public var children: [Entryable] {
     return entries
   }
 
-  var siteURL: URL? {
+  public var siteURL: URL? {
     links.first { $0.rel != "self" }?.href
   }
 
-  var updated: Date? {
+  public var updated: Date? {
     return pubDate ?? published
   }
 
-  var copyright: String? {
+  public var copyright: String? {
     return nil
   }
 
-  var image: URL? {
+  public var image: URL? {
     return nil
   }
 
-  var syndication: SyndicationUpdate? {
+  public var syndication: SyndicationUpdate? {
     return nil
   }
 }

@@ -1,2 +1,2 @@
 // swiftlint:disable:next type_name
-typealias iTunesEpisode = IntegerCodable
+public typealias iTunesEpisode = IntegerCodable

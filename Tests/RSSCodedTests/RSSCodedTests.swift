@@ -144,9 +144,9 @@ final class RSSCodedTests: XCTestCase {
         XCTAssertEqual(json.summary?.count ?? 0, 0, "\(json.summary)")
       }
 
-      let items = zip(json.feedItems.sorted(by: {
+      let items = zip(json.children.sorted(by: {
         $0.title < $1.title
-      }), rss.feedItems.sorted(by: {
+      }), rss.children.sorted(by: {
         $0.title < $1.title
       }))
       var count = 0
@@ -227,6 +227,43 @@ final class RSSCodedTests: XCTestCase {
       }
 
       XCTAssertEqual(rss.channel.syndication, update)
+    }
+  }
+
+  func testYoutubeVideos() {
+    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+      guard name.hasSuffix("youtube") else {
+        continue
+      }
+
+      let feed: Feedable
+      do {
+        feed = try xmlResult.get()
+      } catch {
+        XCTAssertNotNil(error)
+        continue
+      }
+
+      guard let atom = feed as? AtomFeed else {
+        XCTFail()
+        continue
+      }
+
+      let items = zip(atom.entries, feed.children)
+
+      for (entry, item) in items {
+        let youtube = item.media.flatMap { media -> YouTubeIDProtocol? in
+          guard case let .video(video) = media else {
+            return nil
+          }
+          guard case let .youtube(youtube) = video else {
+            return nil
+          }
+          return youtube
+        }
+        XCTAssertNotNil(youtube)
+        XCTAssertEqual(entry.youtubeVideoID, youtube?.videoID)
+      }
     }
   }
 
@@ -443,7 +480,7 @@ final class RSSCodedTests: XCTestCase {
       }
 
       let actuals = rss.channel.item.compactMap { $0.itunesDuration?.value }
-      let durations = feed.feedItems.map {
+      let durations = feed.children.map {
         $0.media.flatMap { media -> TimeInterval? in
           if case let .podcast(episode) = media {
             return episode.duration

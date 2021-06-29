@@ -1,27 +1,11 @@
 import Foundation
 
-struct RSSJSONItem: Codable, Equatable {
-  internal init(guid: RSSGUID, url: URL, title: String, contentHtml: String?, summary: String?, datePublished: Date?, author: RSSAuthor?) {
-    self.guid = guid
-    self.url = url
-    self.title = title
-    self.contentHtml = contentHtml
-    self.summary = summary
-    self.datePublished = datePublished
-    self.author = author
-  }
-
-  let guid: RSSGUID
-  let url: URL
-  let title: String
-  let contentHtml: String?
-  let summary: String?
-  let datePublished: Date?
-  let author: RSSAuthor?
-}
-
-extension RSSJSONItem {
-  init(from item: Entryable) {
-    self.init(guid: item.id, url: item.url, title: item.title.trimmingCharacters(in: .whitespacesAndNewlines), contentHtml: item.contentHtml, summary: item.summary, datePublished: item.published, author: item.author)
-  }
+public struct RSSJSONItem: Codable, Equatable {
+  public let guid: RSSGUID
+  public let url: URL
+  public let title: String
+  public let contentHtml: String?
+  public let summary: String?
+  public let datePublished: Date?
+  public let author: RSSAuthor?
 }

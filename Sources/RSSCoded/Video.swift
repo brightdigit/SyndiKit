@@ -1,3 +1,3 @@
-enum Video {
+public enum Video {
   case youtube(YouTubeIDProtocol)
 }

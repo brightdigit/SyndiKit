@@ -1,43 +1,33 @@
 import Foundation
 
-struct JSONItem: Codable {
-  internal init(guid: RSSGUID, url: URL, title: String, contentHtml: String?, summary: String?, datePublished: Date?, author: RSSAuthor?) {
-    self.guid = guid
-    self.url = url
-    self.title = title
-    self.contentHtml = contentHtml
-    self.summary = summary
-    self.datePublished = datePublished
-    self.author = author
-  }
-
-  let guid: RSSGUID
-  let url: URL
-  let title: String
-  let contentHtml: String?
-  let summary: String?
-  let datePublished: Date?
-  let author: RSSAuthor?
+public struct JSONItem: Codable {
+  public let guid: RSSGUID
+  public let url: URL
+  public let title: String
+  public let contentHtml: String?
+  public let summary: String?
+  public let datePublished: Date?
+  public let author: RSSAuthor?
 }
 
 extension JSONItem: Entryable {
-  var creator: String? {
+  public var creator: String? {
     return nil
   }
 
-  var published: Date? {
+  public var published: Date? {
     return datePublished
   }
 
-  var id: RSSGUID {
+  public var id: RSSGUID {
     return guid
   }
 
-  var categories: [Category] {
+  public var categories: [Category] {
     return []
   }
 
-  var media: MediaContent? {
+  public var media: MediaContent? {
     return nil
   }
 }

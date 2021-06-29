@@ -1,6 +1,6 @@
 import Foundation
 // swiftlint:disable:next type_name
-struct iTunesDuration: Codable, LosslessStringConvertible {
+public struct iTunesDuration: Codable, LosslessStringConvertible {
   static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)
     let doubles = timeStrings.compactMap(Double.init)
@@ -12,7 +12,7 @@ struct iTunesDuration: Codable, LosslessStringConvertible {
     }
   }
 
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self)
     guard let value = Self.timeInterval(stringValue) else {
@@ -21,14 +21,14 @@ struct iTunesDuration: Codable, LosslessStringConvertible {
     self.value = value
   }
 
-  init?(_ description: String) {
+  public init?(_ description: String) {
     guard let value = Self.timeInterval(description) else {
       return nil
     }
     self.value = value
   }
 
-  var description: String {
+  public var description: String {
     return .init(value)
   }
 

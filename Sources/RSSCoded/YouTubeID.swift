@@ -1,7 +1,7 @@
-struct YouTubeID: YouTubeIDProtocol {
-  let videoID: String
+public struct YouTubeID: YouTubeIDProtocol {
+  public let videoID: String
 
-  let channelID: String
+  public let channelID: String
 
   init?(entry: AtomEntry) {
     guard let channelID = entry.youtubeChannelID, let videoID = entry.youtubeVideoID else {

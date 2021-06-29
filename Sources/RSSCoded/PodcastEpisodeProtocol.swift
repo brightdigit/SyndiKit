@@ -1,5 +1,5 @@
 import Foundation
-protocol PodcastEpisodeProtocol {
+public protocol PodcastEpisodeProtocol {
   var title: String? { get }
   var episode: Int? { get }
   var author: String? { get }
