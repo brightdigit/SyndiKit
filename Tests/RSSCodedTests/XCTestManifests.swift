@@ -9,7 +9,8 @@
       ("testDurations", testDurations),
       ("testJSONXMLEquality", testJSONXMLEquality),
       ("testPodcastEpisodes", testPodcastEpisodes),
-      ("testSyndication", testSyndication)
+      ("testSyndication", testSyndication),
+      ("testYoutubeVideos", testYoutubeVideos)
     ]
   }
 
