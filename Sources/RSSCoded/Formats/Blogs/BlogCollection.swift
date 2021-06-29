@@ -43,7 +43,7 @@ public struct BlogCollection {
     }
   }
 
-  init(blogs: BlogArray) {
+  public init(blogs: BlogArray) {
     var categories = [CategoryLanguage]()
     var languages = [Language]()
     var sites = [BlogSite]()

@@ -2,72 +2,15 @@
 import XCTest
 import XMLCoder
 
-extension String {
-  func trimAndNilIfEmpty() -> String? {
-    let text = trimmingCharacters(in: .whitespacesAndNewlines)
-    return text.isEmpty ? nil : text
-  }
-}
-
-internal extension JSONFeed {
-  var homePageURLHttp: URL? {
-    var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
-    components?.scheme = "http"
-    return components?.url
-  }
-}
-
-extension Sequence {
-  func mapPairResult<Success>(_ transform: @escaping (Element) throws -> Success) -> [(Element, Result<Success, Error>)] {
-    map { element in
-      (element, Result { try transform(element) })
-    }
-  }
-
-  func mapResult<Success>(_ transform: @escaping (Element) throws -> Success) -> [Result<Success, Error>] {
-    map { element in
-      Result { try transform(element) }
-    }
-  }
-
-  func flatResultMapValue<SuccessKey, SuccessValue, NewSuccess>(_ transform: @escaping (SuccessValue) throws -> NewSuccess) -> [(SuccessKey, Result<NewSuccess, Error>)] where Element == (SuccessKey, Result<SuccessValue, Error>) {
-    map {
-      let value = $0.1.flatMap { value in
-        Result { try transform(value) }
-      }
-      return ($0.0, value)
-    }
-  }
-
-  func flatResultMap<Success, NewSuccess>(_ transform: @escaping (Success) throws -> NewSuccess) -> [Result<NewSuccess, Error>] where Element == Result<Success, Error> {
-    map {
-      $0.flatMap { success in
-        Result {
-          try transform(success)
-        }
-      }
-    }
-  }
-}
-
 final class RSSCodedTests: XCTestCase {
-  static func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
-    let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
-
-    return urls.mapPairResult {
-      try Data(contentsOf: $0)
-    }.map {
-      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
-    }
-  }
-
+  static let itemCount = 20
   static var xmlFeeds: [String: Result<Feedable, Error>]!
   static var jsonFeeds: [String: Result<Feedable, Error>]!
 
   override class func setUp() {
     // swiftlint:disable force_try
-    let xmlDataSet = try! dataFromDirectoryURL(Self.xmlDirectoryURL)
-    let jsonDataSet = try! dataFromDirectoryURL(Self.jsonDirectoryURL)
+    let xmlDataSet = try! FileManager.default.dataFromDirectory(at: Directories.XML)
+    let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
     // swiftlint:enable force_try
 
     let decoder = RSSDecoder()
@@ -126,11 +69,6 @@ final class RSSCodedTests: XCTestCase {
     }
   }
 
-  static let itemCount = 20
-  static let dataDirectoryURL = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data")
-  static let xmlDirectoryURL = dataDirectoryURL.appendingPathComponent("XML")
-
-  static let jsonDirectoryURL = dataDirectoryURL.appendingPathComponent("JSON")
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -464,32 +402,5 @@ final class RSSCodedTests: XCTestCase {
         XCTAssertEqual(actual, expected, "no equal at \(index)")
       }
     }
-  }
-
-  func testBlogs() throws {
-    let sourceURL = Self.dataDirectoryURL.appendingPathComponent("blogs.json")
-    let otherURL = URL(fileURLWithPath: "/Users/leo/Documents/Projects/RSSCoded/Data/blogs.json")
-    print(otherURL)
-    print(sourceURL)
-    let data = try Data(contentsOf: sourceURL)
-    let decoder = JSONDecoder()
-
-    let blogs = try decoder.decode(BlogArray.self, from: data)
-    let sites = BlogCollection(blogs: blogs)
-
-    for languageContent in blogs {
-      for category in languageContent.categories {
-        let expectedCount = sites.sites(withLanguage: languageContent.language, withCategory: category.slug).count
-        XCTAssertEqual(category.sites.count, expectedCount, "mismatch count for \(languageContent.language):\(category.slug)")
-      }
-    }
-  }
-}
-
-extension URL {
-  var remainingPath: String {
-    let path = self.path
-
-    return path == "/" ? "" : path
   }
 }
