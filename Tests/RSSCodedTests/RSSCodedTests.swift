@@ -51,17 +51,6 @@ extension Sequence {
 }
 
 final class RSSCodedTests: XCTestCase {
-//  static func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
-//    let sourceURL = sourceURL ?? Self.jsonDirectoryURL
-//
-//    let decoder = JSONDecoder()
-//    RSSDecoder.decoder(decoder)
-//    let decoding = Decoding(for: JSONFeed.self, using: decoder)
-//
-//    let pairs = try dataFromDirectoryURL(sourceURL).flatResultMapValue { try decoding.decode(data: $0) }
-//
-//    return Dictionary(uniqueKeysWithValues: pairs)
-//  }
 
   static func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
     let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
@@ -72,28 +61,6 @@ final class RSSCodedTests: XCTestCase {
       ($0.0.deletingPathExtension().lastPathComponent, $0.1)
     }
   }
-
-//
-//  static func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feedable, Error>] {
-//    let sourceURL = sourceURL ?? Self.xmlDirectoryURL
-//    let datas: [(String, Result<Data, Error>)]
-//    datas = try dataFromDirectoryURL(sourceURL)
-//
-//    let decoder = XMLDecoder()
-//    RSSDecoder.decoder(decoder)
-//
-//    let rssDecoding = Decoding(for: RSSFeed.self, using: decoder)
-//    let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
-//    let pairs = datas.flatResultMapValue { data throws -> LegacyFeed in
-//      do {
-//        return LegacyFeed.atom(try feedDecoding.decode(data: data))
-//      } catch {
-//        return LegacyFeed.rss(try rssDecoding.decode(data: data))
-//      }
-//    }
-//
-//    return Dictionary(uniqueKeysWithValues: pairs)
-//  }
 
   static var xmlFeeds: [String: Result<Feedable, Error>]!
   static var jsonFeeds: [String: Result<Feedable, Error>]!
@@ -161,9 +128,10 @@ final class RSSCodedTests: XCTestCase {
   }
 
   static let itemCount = 20
-  static let xmlDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
+  static let dataDirectoryURL = URL(fileURLWithPath:  #file).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data")
+  static let xmlDirectoryURL = dataDirectoryURL.appendingPathComponent("XML")
 
-  static let jsonDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
+  static let jsonDirectoryURL = dataDirectoryURL.appendingPathComponent("JSON")
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -497,6 +465,17 @@ final class RSSCodedTests: XCTestCase {
         XCTAssertEqual(actual, expected, "no equal at \(index)")
       }
     }
+  }
+  
+  func testBlogs() throws {
+    let sourceURL = Self.dataDirectoryURL.appendingPathComponent("blogs.json")
+    let otherURL = URL(fileURLWithPath: "/Users/leo/Documents/Projects/RSSCoded/Data/blogs.json")
+    print(otherURL)
+    print(sourceURL)
+    let data = try Data(contentsOf: sourceURL)
+    let decoder = JSONDecoder()
+    
+    _ = try decoder.decode(BlogArray.self, from: data)
   }
 }
 
