@@ -32,19 +32,19 @@ public struct AtomEntry: Codable {
 
 extension AtomEntry: Entryable {
   public var categories: [RSSCategory] {
-    return atomCategories
+    atomCategories
   }
 
   public var url: URL {
-    return link.href
+    link.href
   }
 
   public var contentHtml: String? {
-    return content?.trimmingCharacters(in: .whitespacesAndNewlines)
+    content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
 
   public var summary: String? {
-    return nil
+    nil
   }
 
   public var media: MediaContent? {

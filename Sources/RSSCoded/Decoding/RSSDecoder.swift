@@ -13,7 +13,10 @@ public class RSSDecoder {
     decoder.trimValueWhitespaces = false
   }
 
-  public init(jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil, xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil) {
+  public init(
+    jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil,
+    xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil
+  ) {
     self.jsonDecoderProvider = jsonDecoderProvider ?? Self.decoder(_:)
     self.xmlDecoderProvider = xmlDecoderProvider ?? Self.decoder(_:)
   }

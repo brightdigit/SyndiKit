@@ -38,10 +38,13 @@ public enum RSSGUID: Codable, Equatable {
     switch self {
     case let .url(url):
       string = url.absoluteString
+
     case let .uuid(uuid):
       string = uuid.uuidString.lowercased()
+
     case let .path(components, separatedBy: separator):
       string = components.joined(separator: separator)
+
     case let .string(value):
       string = value
     }

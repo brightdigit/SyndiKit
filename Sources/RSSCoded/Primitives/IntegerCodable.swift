@@ -3,9 +3,13 @@ public struct IntegerCodable: Codable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
-    let stringValue = try container.decode(String.self).trimmingCharacters(in: .whitespacesAndNewlines)
+    let stringValue = try container.decode(String.self)
+      .trimmingCharacters(in: .whitespacesAndNewlines)
     guard let value = Int(stringValue) else {
-      throw DecodingError.typeMismatch(Int.self, .init(codingPath: decoder.codingPath, debugDescription: "Not Able to Parse String", underlyingError: nil))
+      let context = DecodingError.Context(codingPath: decoder.codingPath,
+                                          debugDescription: "Not Able to Parse String",
+                                          underlyingError: nil)
+      throw DecodingError.typeMismatch(Int.self, context)
     }
     self.value = value
   }

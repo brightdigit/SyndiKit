@@ -3,9 +3,16 @@ public enum SyndicationUpdatePeriod: String, Codable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
-    let stringValue = try container.decode(String.self).trimmingCharacters(in: .whitespacesAndNewlines)
+    let stringValue = try container
+      .decode(String.self)
+      .trimmingCharacters(in: .whitespacesAndNewlines)
     guard let value = Self(rawValue: stringValue) else {
-      throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Enum", underlyingError: nil))
+      let context = DecodingError.Context(
+        codingPath: decoder.codingPath,
+        debugDescription: "Invalid Enum",
+        underlyingError: nil
+      )
+      throw DecodingError.dataCorrupted(context)
     }
     self = value
   }

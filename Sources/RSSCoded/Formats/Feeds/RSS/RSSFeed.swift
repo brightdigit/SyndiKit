@@ -5,42 +5,42 @@ public struct RSSFeed: Codable {
 
 extension RSSFeed: Feedable {
   public var youtubeChannelID: String? {
-    return nil
+    nil
   }
 
   public var author: RSSAuthor? {
-    return channel.author
+    channel.author
   }
 
   public var children: [Entryable] {
-    return channel.items
+    channel.items
   }
 
   public var title: String {
-    return channel.title
+    channel.title
   }
 
   public var siteURL: URL? {
-    return channel.link
+    channel.link
   }
 
   public var summary: String? {
-    return channel.description
+    channel.description
   }
 
   public var updated: Date? {
-    return channel.lastBuildDate
+    channel.lastBuildDate
   }
 
   public var copyright: String? {
-    return channel.copyright
+    channel.copyright
   }
 
   public var image: URL? {
-    return channel.image?.link
+    channel.image?.link
   }
 
   public var syndication: SyndicationUpdate? {
-    return channel.syndication
+    channel.syndication
   }
 }

@@ -10,7 +10,10 @@ public struct BlogCollection
 ### `sites(withLanguage:withCategory:)`
 
 ```swift
-public func sites(withLanguage language: LanguageType? = nil, withCategory category: CategoryType? = nil) -> [BlogSite]
+public func sites(
+  withLanguage language: LanguageType? = nil,
+  withCategory category: CategoryType? = nil
+) -> [BlogSite]
 ```
 
 ### `init(blogs:)`

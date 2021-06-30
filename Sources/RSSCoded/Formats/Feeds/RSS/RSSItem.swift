@@ -45,31 +45,31 @@ public struct RSSItem: Codable {
 
 extension RSSItem: Entryable {
   public var categories: [RSSCategory] {
-    return categoryTerms
+    categoryTerms
   }
 
   public var url: URL {
-    return link
+    link
   }
 
   public var contentHtml: String? {
-    return contentEncoded?.value ?? content ?? description.value
+    contentEncoded?.value ?? content ?? description.value
   }
 
   public var summary: String? {
-    return description.value
+    description.value
   }
 
   public var author: RSSAuthor? {
-    return creator.map(RSSAuthor.init) ?? itunesAuthor.map(RSSAuthor.init)
+    creator.map(RSSAuthor.init) ?? itunesAuthor.map(RSSAuthor.init)
   }
 
   public var id: RSSGUID {
-    return guid
+    guid
   }
 
   public var published: Date? {
-    return pubDate
+    pubDate
   }
 
   public var media: MediaContent? {

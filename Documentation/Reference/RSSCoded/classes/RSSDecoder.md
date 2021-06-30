@@ -10,7 +10,10 @@ public class RSSDecoder
 ### `init(jsonDecoderProvider:xmlDecoderProvider:)`
 
 ```swift
-public init(jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil, xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil)
+public init(
+  jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil,
+  xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil
+)
 ```
 
 ### `decode(_:)`

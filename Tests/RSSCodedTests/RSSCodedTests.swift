@@ -2,12 +2,15 @@ import RSSCoded
 import XCTest
 import XMLCoder
 
-final class RSSCodedTests: XCTestCase {
+public final class RSSCodedTests: XCTestCase {
   static let itemCount = 20
+
+  // swiftlint:disable implicitly_unwrapped_optional
   static var xmlFeeds: [String: Result<Feedable, Error>]!
   static var jsonFeeds: [String: Result<Feedable, Error>]!
+  // swiftlint:enable implicitly_unwrapped_optional
 
-  override class func setUp() {
+  override public class func setUp() {
     // swiftlint:disable force_try
     let xmlDataSet = try! FileManager.default.dataFromDirectory(at: Directories.XML)
     let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
@@ -29,12 +32,62 @@ final class RSSCodedTests: XCTestCase {
 
   func testCategories() {
     guard let feeds = try? RSSCodedTests.xmlFeeds["advancedswift"]?.get() else {
-      XCTFail()
+      XCTFail("No Feeds")
       return
     }
 
     for item in feeds.children {
       XCTAssert(item.categories.contains(where: { $0.term == "iOS" }))
+    }
+  }
+
+  fileprivate func assertAtomEntry(_ atomEntry: AtomEntry, _ entryChild: Entryable) {
+    XCTAssertEqual(
+      atomEntry.atomCategories.map { $0.term },
+      entryChild.categories.map { $0.term }
+    )
+    XCTAssertEqual(atomEntry.link.href, entryChild.url)
+    XCTAssertNil(entryChild.summary)
+  }
+
+  fileprivate func assertFeed(_ feed: Feedable, atomFeed: AtomFeed) {
+    XCTAssertEqual(feed.updated, atomFeed.pubDate ?? atomFeed.published)
+    XCTAssertNil(feed.copyright)
+    XCTAssertNil(feed.image)
+    XCTAssertNil(feed.syndication)
+    let items = zip(atomFeed.entries, feed.children)
+    for (atomEntry, entryChild) in items {
+      assertAtomEntry(atomEntry, entryChild)
+    }
+  }
+
+  fileprivate func assertRSSItem(_ rssItem: RSSItem, child: Entryable) {
+    XCTAssertEqual(
+      rssItem.categoryTerms.map { $0.term },
+      child.categories.map { $0.term }
+    )
+    XCTAssertEqual(rssItem.link, child.url)
+    XCTAssertEqual(rssItem.description.value, child.summary)
+    XCTAssertEqual(rssItem.guid, child.id)
+    XCTAssertEqual(rssItem.pubDate, child.published)
+    XCTAssert(
+      rssItem.creator == child.author?.name ||
+        rssItem.itunesAuthor == child.author?.name
+    )
+  }
+
+  fileprivate func assertFeed(_ feed: Feedable, rssFeed: RSSFeed) {
+    XCTAssertNil(feed.youtubeChannelID)
+    XCTAssertEqual(feed.author, rssFeed.channel.author)
+    XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
+    XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
+    XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
+    XCTAssertEqual(feed.syndication, rssFeed.channel.syndication)
+
+    let items = zip(rssFeed.channel.items, feed.children)
+    for (rssItem, entryChild) in items {
+      assertRSSItem(rssItem, child: entryChild)
+      // XCTAssertNil(entryChild.summary)
     }
   }
 
@@ -49,40 +102,39 @@ final class RSSCodedTests: XCTestCase {
       }
 
       if let atomFeed = feed as? AtomFeed {
-        XCTAssertEqual(feed.updated, atomFeed.pubDate ?? atomFeed.published)
-        XCTAssertNil(feed.copyright)
-        XCTAssertNil(feed.image)
-        XCTAssertNil(feed.syndication)
-        let items = zip(atomFeed.entries, feed.children)
-        for (atomEntry, entryChild) in items {
-          XCTAssertEqual(atomEntry.atomCategories.map { $0.term }, entryChild.categories.map { $0.term })
-          XCTAssertEqual(atomEntry.link.href, entryChild.url)
-          XCTAssertNil(entryChild.summary)
-        }
+        assertFeed(feed, atomFeed: atomFeed)
       } else if let rssFeed = feed as? RSSFeed {
-        XCTAssertNil(feed.youtubeChannelID)
-        XCTAssertEqual(feed.author, rssFeed.channel.author)
-        XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
-        XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
-        XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
-        XCTAssertEqual(feed.syndication, rssFeed.channel.syndication)
-
-        let items = zip(rssFeed.channel.items, feed.children)
-        for (rssItem, entryChild) in items {
-          XCTAssertEqual(rssItem.categoryTerms.map { $0.term }, entryChild.categories.map { $0.term })
-          XCTAssertEqual(rssItem.link, entryChild.url)
-          XCTAssertEqual(rssItem.description.value, entryChild.summary)
-          XCTAssertEqual(rssItem.guid, entryChild.id)
-          XCTAssertEqual(rssItem.pubDate, entryChild.published)
-          XCTAssert(rssItem.creator == entryChild.author?.name || rssItem.itunesAuthor == entryChild.author?.name)
-          // XCTAssertNil(entryChild.summary)
-        }
+        assertFeed(feed, rssFeed: rssFeed)
       } else {
         guard feed is JSONFeed else {
           XCTFail()
           continue
         }
       }
+    }
+  }
+
+  fileprivate func assertFeedableEqual(
+    _ json: Feedable,
+    _ rss: Feedable,
+    _ name: String
+  ) {
+    XCTAssertEqual(
+      json.title.trimmingCharacters(in: .whitespacesAndNewlines),
+      rss.title.trimmingCharacters(in: .whitespacesAndNewlines)
+    )
+    XCTAssertEqual(
+      json.siteURL?.remainingPath.trimAndNilIfEmpty(),
+      rss.siteURL?.remainingPath.trimAndNilIfEmpty()
+    )
+    if let summary = rss.summary {
+      XCTAssertEqual(
+        json.summary?.trimAndNilIfEmpty() ?? "",
+        summary.trimmingCharacters(in: .whitespacesAndNewlines),
+        "Description does not match for \(name)"
+      )
+    } else {
+      XCTAssertEqual(json.summary?.count ?? 0, 0, "\(json.summary ?? "")")
     }
   }
 
@@ -103,27 +155,27 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      XCTAssertEqual(json.title.trimmingCharacters(in: .whitespacesAndNewlines), rss.title.trimmingCharacters(in: .whitespacesAndNewlines))
-      XCTAssertEqual(json.siteURL?.remainingPath.trimAndNilIfEmpty(), rss.siteURL?.remainingPath.trimAndNilIfEmpty())
-      if let summary = rss.summary {
-        XCTAssertEqual(json.summary?.trimAndNilIfEmpty() ?? "", summary.trimmingCharacters(in: .whitespacesAndNewlines), "Description does not match for \(name)")
-
-      } else {
-        XCTAssertEqual(json.summary?.count ?? 0, 0, "\(json.summary)")
-      }
+      assertFeedableEqual(json, rss, name)
 
       let items = zip(json.children.sorted(by: {
         $0.title < $1.title
       }), rss.children.sorted(by: {
         $0.title < $1.title
       }))
-      var count = 0
+      // var count = 0
       for (jsonItem, rssItem) in items {
-        XCTAssertEqual(jsonItem.title.trimAndNilIfEmpty(), rssItem.title.trimAndNilIfEmpty())
-        if count < RSSCodedTests.itemCount {
-          XCTAssertEqual(jsonItem.contentHtml?.trimAndNilIfEmpty(), rssItem.contentHtml?.trimAndNilIfEmpty(), jsonItem.title)
-          count += 1
-        }
+        XCTAssertEqual(
+          jsonItem.title.trimAndNilIfEmpty(),
+          rssItem.title.trimAndNilIfEmpty()
+        )
+        // if count < RSSCodedTests.itemCount {
+        XCTAssertEqual(
+          jsonItem.contentHtml?.trimAndNilIfEmpty(),
+          rssItem.contentHtml?.trimAndNilIfEmpty(),
+          jsonItem.title
+        )
+        // count += 1
+        // }
       }
     }
   }
@@ -232,207 +284,7 @@ final class RSSCodedTests: XCTestCase {
   }
 
   func testDurations() {
-    let durationSets: [String: [TimeInterval]] = [
-      "empowerapps-show": [
-        2746,
-        3500,
-        5145,
-        2589,
-        1796,
-        2401,
-        2052,
-        2323,
-        2631,
-        1971,
-        1877,
-        2080,
-        2240,
-        2656,
-        1843,
-        2237,
-        3421,
-        2788,
-        3041,
-        2138,
-        1460,
-        2768,
-        2372,
-        2309,
-        1804,
-        1916,
-        3022,
-        2541,
-        2729,
-        3386,
-        2281,
-        2962,
-        3307,
-        2648,
-        2667,
-        2783,
-        2693,
-        2290,
-        1741,
-        3341,
-        1607,
-        889,
-        2535,
-        1762,
-        2799,
-        2956,
-        2976,
-        5011,
-        2140,
-        2535,
-        2497,
-        3405,
-        1210,
-        2405,
-        2991,
-        3540,
-        1868,
-        2248,
-        4199,
-        1289,
-        3155,
-        2787,
-        2222,
-        2555,
-        479,
-        2607,
-        1985,
-        2565,
-        2761,
-        2026,
-        2452,
-        3163,
-        1127,
-        3195,
-        3890,
-        1358,
-        2489,
-        2465,
-        2083,
-        2824,
-        2137,
-        2452,
-        2242,
-        1622,
-        1081,
-        1979,
-        2080,
-        1225,
-        2204,
-        1703,
-        2495,
-        922,
-        1433,
-        1776
-      ],
-      "raywenderlich": [
-        96.0,
-        2893.0,
-        2735.0,
-        2653.0,
-        2497.0,
-        2592.0,
-        2542.0,
-        2577.0,
-        2455.0,
-        1935.0,
-        2689.0,
-        2819.0,
-        2871.0,
-        653.0,
-        2454.0,
-        2696.0,
-        2849.0,
-        2778.0,
-        2742.0,
-        2705.0,
-        2750.0,
-        2734.0,
-        2684.0,
-        2676.0,
-        2698.0,
-        2696.0,
-        2698.0,
-        600.0,
-        2549.0,
-        2398.0,
-        2344.0,
-        2401.0,
-        2419.0,
-        2391.0,
-        3576.0,
-        2402.0,
-        2422.0,
-        2385.0,
-        2374.0,
-        2378.0,
-        2494.0,
-        698.0,
-        2798.0,
-        2456.0,
-        2402.0,
-        2417.0,
-        2407.0,
-        3597.0,
-        2481.0,
-        2481.0,
-        3725.0,
-        2395.0,
-        2380.0,
-        2398.0,
-        316.0,
-        1949.0,
-        2572.0,
-        2472.0,
-        2412.0,
-        2415.0,
-        2378.0,
-        2361.0,
-        2423.0,
-        2389.0,
-        917.0,
-        2578.0,
-        2622.0,
-        2585.0,
-        2462.0,
-        1087.0,
-        2697.0,
-        2584.0,
-        3005.0,
-        2431.0,
-        2547.0,
-        2547.0,
-        2510.0,
-        2471.0,
-        2476.0,
-        2424.0,
-        2516.0,
-        2408.0,
-        2281.0,
-        2502.0,
-        2483.0,
-        2521.0,
-        2436.0,
-        2456.0,
-        2364.0,
-        2550.0,
-        2411.0,
-        2419.0,
-        2556.0,
-        2282.0,
-        2312.0,
-        2243.0,
-        2376.0,
-        2373.0,
-        2153.0,
-        2305.0
-      ]
-    ]
-    for (name, expecteds) in durationSets {
+    for (name, expecteds) in Self.durationSets {
       guard let feed = try? Self.xmlFeeds[name]?.get() else {
         XCTFail("Missing Podcast: \(name), \(Self.xmlFeeds[name])")
         continue

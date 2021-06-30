@@ -16,7 +16,12 @@ public struct iTunesDuration: Codable {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self)
     guard let value = Self.timeInterval(stringValue) else {
-      throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid time value", underlyingError: nil))
+      let context = DecodingError.Context(
+        codingPath: decoder.codingPath,
+        debugDescription: "Invalid time value",
+        underlyingError: nil
+      )
+      throw DecodingError.dataCorrupted(context)
     }
     self.value = value
   }

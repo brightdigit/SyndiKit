@@ -39,6 +39,10 @@ public struct DateFormatterDecoder {
         return date
       }
     }
-    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Invalid Date"))
+    let context = DecodingError.Context(
+      codingPath: decoder.codingPath,
+      debugDescription: "Invalid Date"
+    )
+    throw DecodingError.dataCorrupted(context)
   }
 }

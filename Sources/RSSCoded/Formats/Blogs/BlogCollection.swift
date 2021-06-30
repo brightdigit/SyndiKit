@@ -7,7 +7,10 @@ public struct BlogCollection {
   let languageIndicies: [LanguageType: Set<Int>]
   let categoryIndicies: [CategoryType: Set<Int>]
 
-  public func sites(withLanguage language: LanguageType? = nil, withCategory category: CategoryType? = nil) -> [BlogSite] {
+  public func sites(
+    withLanguage language: LanguageType? = nil,
+    withCategory category: CategoryType? = nil
+  ) -> [BlogSite] {
     let languageIndicies: Set<Int>?
     if let language = language {
       languageIndicies = self.languageIndicies[language] ?? .init()
@@ -43,6 +46,7 @@ public struct BlogCollection {
     }
   }
 
+  // swiftlint:disable function_body_length
   public init(blogs: BlogArray) {
     var categories = [CategoryLanguage]()
     var languages = [Language]()
@@ -55,10 +59,18 @@ public struct BlogCollection {
       var thisLanguageIndicies = [Int]()
       for languageCategory in languageContent.categories {
         var thisCategoryIndicies = [Int]()
-        let category = CategoryLanguage(languageCategory: languageCategory, language: language.type)
+        let category = CategoryLanguage(
+          languageCategory: languageCategory,
+          language: language.type
+        )
         for site in languageCategory.sites {
           let index = sites.count
-          sites.append(BlogSite(site: site, categoryType: category.type, languageType: language.type))
+          let site = BlogSite(
+            site: site,
+            categoryType: category.type,
+            languageType: language.type
+          )
+          sites.append(site)
           thisCategoryIndicies.append(index)
           thisLanguageIndicies.append(index)
         }
@@ -69,7 +81,10 @@ public struct BlogCollection {
       languages.append(language)
     }
 
-    self.categories = Dictionary(grouping: categories, by: { $0.type }).mapValues(Category.init)
+    self.categories = Dictionary(
+      grouping: categories,
+      by: { $0.type }
+    ).compactMapValues(Category.init)
     self.languages = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
     self.languageIndicies = languageIndicies
     self.categoryIndicies = categoryIndicies

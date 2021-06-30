@@ -12,22 +12,22 @@ public struct JSONItem: Codable {
 
 extension JSONItem: Entryable {
   public var creator: String? {
-    return nil
+    nil
   }
 
   public var published: Date? {
-    return datePublished
+    datePublished
   }
 
   public var id: RSSGUID {
-    return guid
+    guid
   }
 
   public var categories: [RSSCategory] {
-    return []
+    []
   }
 
   public var media: MediaContent? {
-    return nil
+    nil
   }
 }

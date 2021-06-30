@@ -11,34 +11,34 @@ public struct JSONFeed: Codable {
 
 extension JSONFeed: Feedable {
   public var youtubeChannelID: String? {
-    return nil
+    nil
   }
 
   public var children: [Entryable] {
-    return items
+    items
   }
 
   public var summary: String? {
-    return description
+    description
   }
 
   public var siteURL: URL? {
-    return homePageUrl
+    homePageUrl
   }
 
   public var updated: Date? {
-    return nil
+    nil
   }
 
   public var copyright: String? {
-    return nil
+    nil
   }
 
   public var image: URL? {
-    return nil
+    nil
   }
 
   public var syndication: SyndicationUpdate? {
-    return nil
+    nil
   }
 }

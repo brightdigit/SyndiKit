@@ -1,6 +1,6 @@
 public struct CData: Codable, RSSCategory {
   public var term: String {
-    return value
+    value
   }
 
   public let value: String

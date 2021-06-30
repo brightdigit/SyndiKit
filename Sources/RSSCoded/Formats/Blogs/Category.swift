@@ -1,7 +1,11 @@
 public struct Category {
-  internal init(languages: [CategoryLanguage]) {
-    type = languages.first!.type
-    descriptors = Dictionary(grouping: languages, by: { $0.language }).mapValues { $0.first!.descriptor }
+  internal init?(languages: [CategoryLanguage]) {
+    guard let type = languages.first?.type else {
+      return nil
+    }
+    self.type = type
+    descriptors = Dictionary(grouping: languages, by: { $0.language })
+      .compactMapValues { $0.first?.descriptor }
   }
 
   public let type: CategoryType

@@ -7,6 +7,6 @@ struct Decoding<DecoderType: TypeDecoder, DecodingType: Decodable> {
   }
 
   func decode(data: Data) throws -> DecodingType {
-    return try decoder.decode(DecodingType.self, from: data)
+    try decoder.decode(DecodingType.self, from: data)
   }
 }

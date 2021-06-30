@@ -27,11 +27,11 @@ public struct AtomFeed: Codable {
 
 extension AtomFeed: Feedable {
   public var summary: String? {
-    return description ?? subtitle
+    description ?? subtitle
   }
 
   public var children: [Entryable] {
-    return entries
+    entries
   }
 
   public var siteURL: URL? {
@@ -39,18 +39,18 @@ extension AtomFeed: Feedable {
   }
 
   public var updated: Date? {
-    return pubDate ?? published
+    pubDate ?? published
   }
 
   public var copyright: String? {
-    return nil
+    nil
   }
 
   public var image: URL? {
-    return nil
+    nil
   }
 
   public var syndication: SyndicationUpdate? {
-    return nil
+    nil
   }
 }

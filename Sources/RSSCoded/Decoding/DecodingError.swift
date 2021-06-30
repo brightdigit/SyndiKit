@@ -6,6 +6,11 @@ extension DecodingError {
   }
 
   static func failedAttempts(_ errors: [DecodingError]) -> Self {
-    return DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Failed to ", underlyingError: Collection(errors: errors)))
+    let context = DecodingError.Context(
+      codingPath: [],
+      debugDescription: "Failed to ",
+      underlyingError: Collection(errors: errors)
+    )
+    return DecodingError.dataCorrupted(context)
   }
 }

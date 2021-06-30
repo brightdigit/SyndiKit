@@ -36,6 +36,6 @@ public struct RSSChannel: Codable {
 
 public extension RSSChannel {
   var syndication: SyndicationUpdate? {
-    return SyndicationUpdate(period: syUpdatePeriod, frequency: syUpdateFrequency?.value)
+    SyndicationUpdate(period: syUpdatePeriod, frequency: syUpdateFrequency?.value)
   }
 }

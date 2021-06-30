@@ -5,7 +5,11 @@ public struct SyndicationUpdate: Codable, Equatable {
   public let frequency: Int
   public let base: Date?
 
-  public init?(period: SyndicationUpdatePeriod? = nil, frequency: Int? = nil, base: Date? = nil) {
+  public init?(
+    period: SyndicationUpdatePeriod? = nil,
+    frequency: Int? = nil,
+    base: Date? = nil
+  ) {
     guard period != nil || frequency != nil else {
       return nil
     }

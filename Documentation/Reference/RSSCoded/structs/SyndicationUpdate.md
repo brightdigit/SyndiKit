@@ -29,5 +29,9 @@ public let base: Date?
 ### `init(period:frequency:base:)`
 
 ```swift
-public init?(period: SyndicationUpdatePeriod? = nil, frequency: Int? = nil, base: Date? = nil)
+public init?(
+  period: SyndicationUpdatePeriod? = nil,
+  frequency: Int? = nil,
+  base: Date? = nil
+)
 ```
