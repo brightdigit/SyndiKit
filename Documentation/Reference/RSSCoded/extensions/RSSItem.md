@@ -9,7 +9,7 @@ extension RSSItem: Entryable
 ### `categories`
 
 ```swift
-public var categories: [Category]
+public var categories: [RSSCategory]
 ```
 
 ### `url`

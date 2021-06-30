@@ -8,7 +8,7 @@ public struct RSSChannel: Codable {
   public let pubDate: Date?
   public let syUpdatePeriod: SyndicationUpdatePeriod?
   public let syUpdateFrequency: SyndicationUpdateFrequency?
-  public let item: [RSSItem]
+  public let items: [RSSItem]
   public let itunesAuthor: String?
   public let itunesImage: String?
   public let itunesOwner: iTunesOwner?
@@ -24,7 +24,7 @@ public struct RSSChannel: Codable {
     case pubDate
     case syUpdatePeriod = "sy:updatePeriod"
     case syUpdateFrequency = "sy:updateFrequency"
-    case item
+    case items = "item"
     case itunesAuthor = "itunes:author"
     case itunesImage = "itunes:image"
     case itunesOwner = "itunes:owner"

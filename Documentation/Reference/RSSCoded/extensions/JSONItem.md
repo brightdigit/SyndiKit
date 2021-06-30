@@ -27,7 +27,7 @@ public var id: RSSGUID
 ### `categories`
 
 ```swift
-public var categories: [Category]
+public var categories: [RSSCategory]
 ```
 
 ### `media`

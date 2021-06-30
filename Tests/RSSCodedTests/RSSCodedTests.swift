@@ -1,107 +1,16 @@
-@testable import RSSCoded
+import RSSCoded
 import XCTest
 import XMLCoder
 
-extension String {
-  func trimAndNilIfEmpty() -> String? {
-    let text = trimmingCharacters(in: .whitespacesAndNewlines)
-    return text.isEmpty ? nil : text
-  }
-}
-
-internal extension JSONFeed {
-  var homePageURLHttp: URL? {
-    var components = URLComponents(url: homePageUrl, resolvingAgainstBaseURL: false)
-    components?.scheme = "http"
-    return components?.url
-  }
-}
-
-extension Sequence {
-  func mapPairResult<Success>(_ transform: @escaping (Element) throws -> Success) -> [(Element, Result<Success, Error>)] {
-    map { element in
-      (element, Result { try transform(element) })
-    }
-  }
-
-  func mapResult<Success>(_ transform: @escaping (Element) throws -> Success) -> [Result<Success, Error>] {
-    map { element in
-      Result { try transform(element) }
-    }
-  }
-
-  func flatResultMapValue<SuccessKey, SuccessValue, NewSuccess>(_ transform: @escaping (SuccessValue) throws -> NewSuccess) -> [(SuccessKey, Result<NewSuccess, Error>)] where Element == (SuccessKey, Result<SuccessValue, Error>) {
-    map {
-      let value = $0.1.flatMap { value in
-        Result { try transform(value) }
-      }
-      return ($0.0, value)
-    }
-  }
-
-  func flatResultMap<Success, NewSuccess>(_ transform: @escaping (Success) throws -> NewSuccess) -> [Result<NewSuccess, Error>] where Element == Result<Success, Error> {
-    map {
-      $0.flatMap { success in
-        Result {
-          try transform(success)
-        }
-      }
-    }
-  }
-}
-
 final class RSSCodedTests: XCTestCase {
-//  static func parseJSON(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<JSONFeed, Error>] {
-//    let sourceURL = sourceURL ?? Self.jsonDirectoryURL
-//
-//    let decoder = JSONDecoder()
-//    RSSDecoder.decoder(decoder)
-//    let decoding = Decoding(for: JSONFeed.self, using: decoder)
-//
-//    let pairs = try dataFromDirectoryURL(sourceURL).flatResultMapValue { try decoding.decode(data: $0) }
-//
-//    return Dictionary(uniqueKeysWithValues: pairs)
-//  }
-
-  static func dataFromDirectoryURL(_ sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
-    let urls = try FileManager.default.contentsOfDirectory(at: sourceURL, includingPropertiesForKeys: nil, options: [])
-
-    return urls.mapPairResult {
-      try Data(contentsOf: $0)
-    }.map {
-      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
-    }
-  }
-
-//
-//  static func parseXML(fromDirectoryURL sourceURL: URL? = nil) throws -> [String: Result<Feedable, Error>] {
-//    let sourceURL = sourceURL ?? Self.xmlDirectoryURL
-//    let datas: [(String, Result<Data, Error>)]
-//    datas = try dataFromDirectoryURL(sourceURL)
-//
-//    let decoder = XMLDecoder()
-//    RSSDecoder.decoder(decoder)
-//
-//    let rssDecoding = Decoding(for: RSSFeed.self, using: decoder)
-//    let feedDecoding = Decoding(for: AtomFeed.self, using: decoder)
-//    let pairs = datas.flatResultMapValue { data throws -> LegacyFeed in
-//      do {
-//        return LegacyFeed.atom(try feedDecoding.decode(data: data))
-//      } catch {
-//        return LegacyFeed.rss(try rssDecoding.decode(data: data))
-//      }
-//    }
-//
-//    return Dictionary(uniqueKeysWithValues: pairs)
-//  }
-
+  static let itemCount = 20
   static var xmlFeeds: [String: Result<Feedable, Error>]!
   static var jsonFeeds: [String: Result<Feedable, Error>]!
 
   override class func setUp() {
     // swiftlint:disable force_try
-    let xmlDataSet = try! dataFromDirectoryURL(Self.xmlDirectoryURL)
-    let jsonDataSet = try! dataFromDirectoryURL(Self.jsonDirectoryURL)
+    let xmlDataSet = try! FileManager.default.dataFromDirectory(at: Directories.XML)
+    let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
     // swiftlint:enable force_try
 
     let decoder = RSSDecoder()
@@ -116,6 +25,65 @@ final class RSSCodedTests: XCTestCase {
 
     xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
     jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
+  }
+
+  func testCategories() {
+    guard let feeds = try? RSSCodedTests.xmlFeeds["advancedswift"]?.get() else {
+      XCTFail()
+      return
+    }
+
+    for item in feeds.children {
+      XCTAssert(item.categories.contains(where: { $0.term == "iOS" }))
+    }
+  }
+
+  func testEntryable() {
+    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+      let feed: Feedable
+      do {
+        feed = try xmlResult.get()
+      } catch {
+        XCTAssertNil(error, "Failed to decode \(name)")
+        continue
+      }
+
+      if let atomFeed = feed as? AtomFeed {
+        XCTAssertEqual(feed.updated, atomFeed.pubDate ?? atomFeed.published)
+        XCTAssertNil(feed.copyright)
+        XCTAssertNil(feed.image)
+        XCTAssertNil(feed.syndication)
+        let items = zip(atomFeed.entries, feed.children)
+        for (atomEntry, entryChild) in items {
+          XCTAssertEqual(atomEntry.atomCategories.map { $0.term }, entryChild.categories.map { $0.term })
+          XCTAssertEqual(atomEntry.link.href, entryChild.url)
+          XCTAssertNil(entryChild.summary)
+        }
+      } else if let rssFeed = feed as? RSSFeed {
+        XCTAssertNil(feed.youtubeChannelID)
+        XCTAssertEqual(feed.author, rssFeed.channel.author)
+        XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
+        XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
+        XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
+        XCTAssertEqual(feed.syndication, rssFeed.channel.syndication)
+
+        let items = zip(rssFeed.channel.items, feed.children)
+        for (rssItem, entryChild) in items {
+          XCTAssertEqual(rssItem.categoryTerms.map { $0.term }, entryChild.categories.map { $0.term })
+          XCTAssertEqual(rssItem.link, entryChild.url)
+          XCTAssertEqual(rssItem.description.value, entryChild.summary)
+          XCTAssertEqual(rssItem.guid, entryChild.id)
+          XCTAssertEqual(rssItem.pubDate, entryChild.published)
+          XCTAssert(rssItem.creator == entryChild.author?.name || rssItem.itunesAuthor == entryChild.author?.name)
+          // XCTAssertNil(entryChild.summary)
+        }
+      } else {
+        guard feed is JSONFeed else {
+          XCTFail()
+          continue
+        }
+      }
+    }
   }
 
   func testJSONXMLEquality() throws {
@@ -160,10 +128,6 @@ final class RSSCodedTests: XCTestCase {
     }
   }
 
-  static let itemCount = 20
-  static let xmlDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("XML")
-
-  static let jsonDirectoryURL = URL(string: #file)!.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Data").appendingPathComponent("JSON")
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -177,17 +141,17 @@ final class RSSCodedTests: XCTestCase {
 
     for (name, episodeNumbers) in podcasts {
       guard let feed = try? Self.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast")
+        XCTFail("Missing Podcast \(name)")
         continue
       }
 
       guard let rss = feed as? RSSFeed else {
-        XCTFail("Wrong Type")
+        XCTFail("Wrong Type \(name)")
         continue
       }
 
       var episodeNumbers = episodeNumbers
-      let actualEps = rss.channel.item.compactMap { $0.itunesEpisode?.value }
+      let actualEps = rss.channel.items.compactMap { $0.itunesEpisode?.value }
 
       if let missingEpNumbers = missingEpisodes[name] {
         episodeNumbers.removeAll(where: missingEpNumbers.contains(_:))
@@ -479,7 +443,7 @@ final class RSSCodedTests: XCTestCase {
         continue
       }
 
-      let actuals = rss.channel.item.compactMap { $0.itunesDuration?.value }
+      let actuals = rss.channel.items.compactMap { $0.itunesDuration?.value }
       let durations = feed.children.map {
         $0.media.flatMap { media -> TimeInterval? in
           if case let .podcast(episode) = media {
@@ -497,13 +461,5 @@ final class RSSCodedTests: XCTestCase {
         XCTAssertEqual(actual, expected, "no equal at \(index)")
       }
     }
-  }
-}
-
-extension URL {
-  var remainingPath: String {
-    let path = self.path
-
-    return path == "/" ? "" : path
   }
 }

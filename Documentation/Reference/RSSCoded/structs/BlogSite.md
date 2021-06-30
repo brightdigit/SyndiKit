@@ -1,9 +1,9 @@
 **STRUCT**
 
-# `Site`
+# `BlogSite`
 
 ```swift
-public struct Site: Codable
+public struct BlogSite
 ```
 
 ## Properties
@@ -35,4 +35,16 @@ public let feedURL: URL
 
 ```swift
 public let twitterURL: URL?
+```
+
+### `category`
+
+```swift
+public let category: CategoryType
+```
+
+### `language`
+
+```swift
+public let language: LanguageType
 ```

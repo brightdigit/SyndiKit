@@ -49,10 +49,10 @@ public let syUpdatePeriod: SyndicationUpdatePeriod?
 public let syUpdateFrequency: SyndicationUpdateFrequency?
 ```
 
-### `item`
+### `items`
 
 ```swift
-public let item: [RSSItem]
+public let items: [RSSItem]
 ```
 
 ### `itunesAuthor`

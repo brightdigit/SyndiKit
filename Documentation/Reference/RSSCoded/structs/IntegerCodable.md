@@ -3,7 +3,7 @@
 # `IntegerCodable`
 
 ```swift
-public struct IntegerCodable: Codable, ExpressibleByIntegerLiteral
+public struct IntegerCodable: Codable
 ```
 
 ## Properties
@@ -14,18 +14,6 @@ public let value: Int
 ```
 
 ## Methods
-### `init(integerLiteral:)`
-
-```swift
-public init(integerLiteral value: Int)
-```
-
-#### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| value | The value to create. |
-
 ### `init(from:)`
 
 ```swift

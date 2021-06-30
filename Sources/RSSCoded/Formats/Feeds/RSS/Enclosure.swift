@@ -15,6 +15,21 @@ public struct Enclosure: Codable {
     let container = try decoder.container(keyedBy: Self.CodingKeys)
     url = try container.decode(URL.self, forKey: .url)
     type = try container.decode(String.self, forKey: .type)
-    length = try? container.decode(Int.self, forKey: .length)
+    if container.contains(.length) {
+      do {
+        length = try container.decode(Int.self, forKey: .length)
+      } catch {
+        let lengthString = try container.decode(String.self, forKey: .length)
+        if lengthString.isEmpty {
+          length = nil
+        } else if let length = Int(lengthString) {
+          self.length = length
+        } else {
+          throw error
+        }
+      }
+    } else {
+      length = nil
+    }
   }
 }

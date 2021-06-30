@@ -52,7 +52,7 @@ var author: RSSAuthor?
 ### `categories`
 
 ```swift
-var categories: [Category]
+var categories: [RSSCategory]
 ```
 
 ### `creator`

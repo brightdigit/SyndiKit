@@ -1,21 +1,27 @@
 import Foundation
+
 public enum RSSGUID: Codable, Equatable {
   case url(URL)
   case uuid(UUID)
-  case path([String])
+  case path([String], separatedBy: String)
   case string(String)
 
-  init(from string: String) {
-    if let url = URL(string: string) {
+  public init(from string: String) {
+    if let url = URL(strict: string) {
       self = .url(url)
     } else if let uuid = UUID(uuidString: string) {
       self = .uuid(uuid)
     } else {
       let components = string.components(separatedBy: ":")
       if components.count > 1 {
-        self = .path(components)
+        self = .path(components, separatedBy: ":")
       } else {
-        self = .string(string)
+        let components = string.components(separatedBy: "/")
+        if components.count > 1 {
+          self = .path(components, separatedBy: "/")
+        } else {
+          self = .string(string)
+        }
       }
     }
   }
@@ -34,8 +40,8 @@ public enum RSSGUID: Codable, Equatable {
       string = url.absoluteString
     case let .uuid(uuid):
       string = uuid.uuidString.lowercased()
-    case let .path(components):
-      string = components.joined(separator: ":")
+    case let .path(components, separatedBy: separator):
+      string = components.joined(separator: separator)
     case let .string(value):
       string = value
     }

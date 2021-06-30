@@ -1,9 +1,9 @@
 **PROTOCOL**
 
-# `Category`
+# `RSSCategory`
 
 ```swift
-public protocol Category
+public protocol RSSCategory
 ```
 
 ## Properties

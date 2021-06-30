@@ -1,9 +1,9 @@
-public struct CData: Codable, Category {
+public struct CData: Codable, RSSCategory {
   public var term: String {
     return value
   }
 
-  let value: String
+  public let value: String
 
   enum CodingKeys: String, CodingKey {
     case value = "#CDATA"

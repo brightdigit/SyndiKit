@@ -3,7 +3,7 @@
 # `CData`
 
 ```swift
-public struct CData: Codable, Category
+public struct CData: Codable, RSSCategory
 ```
 
 ## Properties
@@ -11,6 +11,12 @@ public struct CData: Codable, Category
 
 ```swift
 public var term: String
+```
+
+### `value`
+
+```swift
+public let value: String
 ```
 
 ## Methods

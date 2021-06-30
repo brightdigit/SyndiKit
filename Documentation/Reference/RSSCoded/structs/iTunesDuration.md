@@ -3,14 +3,14 @@
 # `iTunesDuration`
 
 ```swift
-public struct iTunesDuration: Codable, LosslessStringConvertible
+public struct iTunesDuration: Codable
 ```
 
 ## Properties
-### `description`
+### `value`
 
 ```swift
-public var description: String
+public let value: TimeInterval
 ```
 
 ## Methods
