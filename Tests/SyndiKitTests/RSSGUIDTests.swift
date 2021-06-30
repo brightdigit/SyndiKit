@@ -1,5 +1,5 @@
 import Foundation
-import RSSCoded
+import SyndiKit
 import XCTest
 
 final class RSSGUIDTests: XCTestCase {

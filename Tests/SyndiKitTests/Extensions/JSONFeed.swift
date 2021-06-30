@@ -1,5 +1,5 @@
 import Foundation
-import RSSCoded
+import SyndiKit
 
 internal extension JSONFeed {
   var homePageURLHttp: URL? {

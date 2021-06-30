@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     env:
-      PACKAGE_NAME: RSSCoded
+      PACKAGE_NAME: SyndiKit
       SWIFT_VER: ${{ matrix.swift-version }}
 
     runs-on: ${{ matrix.runs-on }}

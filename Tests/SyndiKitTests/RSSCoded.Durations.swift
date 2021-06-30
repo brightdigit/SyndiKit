@@ -1,6 +1,6 @@
 import Foundation
 
-extension RSSCodedTests {
+extension SyndiKitTests {
   static let durationSets: [String: [TimeInterval]] = [
     "empowerapps-show": [
       2_746,

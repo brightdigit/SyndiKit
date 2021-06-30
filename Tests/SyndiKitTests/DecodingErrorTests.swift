@@ -1,5 +1,5 @@
 import Foundation
-@testable import RSSCoded
+@testable import SyndiKit
 import XCTest
 
 public final class DecodingErrorTests: XCTestCase {
