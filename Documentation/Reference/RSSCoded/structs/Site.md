@@ -36,16 +36,3 @@ public let feedURL: URL
 ```swift
 public let twitterURL: URL?
 ```
-
-## Methods
-### `init(title:author:siteURL:feedURL:twitterURL:)`
-
-```swift
-public init(
-  title: String,
-  author: String,
-  siteURL: URL,
-  feedURL: URL,
-  twitterURL: URL?
-)
-```

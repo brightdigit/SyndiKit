@@ -20,7 +20,6 @@ public struct Enclosure: Codable {
         length = try container.decode(Int.self, forKey: .length)
       } catch {
         let lengthString = try container.decode(String.self, forKey: .length)
-        print("length", lengthString, url)
         if lengthString.isEmpty {
           length = nil
         } else if let length = Int(lengthString) {

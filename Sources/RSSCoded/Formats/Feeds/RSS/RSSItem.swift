@@ -61,7 +61,7 @@ extension RSSItem: Entryable {
   }
 
   public var author: RSSAuthor? {
-    return nil
+    return creator.map(RSSAuthor.init) ?? itunesAuthor.map(RSSAuthor.init)
   }
 
   public var id: RSSGUID {

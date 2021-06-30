@@ -1,6 +1,6 @@
 import Foundation
 // swiftlint:disable:next type_name
-public struct iTunesDuration: Codable, LosslessStringConvertible {
+public struct iTunesDuration: Codable {
   static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)
     let doubles = timeStrings.compactMap(Double.init)
@@ -26,10 +26,6 @@ public struct iTunesDuration: Codable, LosslessStringConvertible {
       return nil
     }
     self.value = value
-  }
-
-  public var description: String {
-    return .init(value)
   }
 
   public let value: TimeInterval

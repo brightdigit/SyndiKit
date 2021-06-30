@@ -60,6 +60,8 @@ final class RSSCodedTests: XCTestCase {
           XCTAssertNil(entryChild.summary)
         }
       } else if let rssFeed = feed as? RSSFeed {
+        XCTAssertNil(feed.youtubeChannelID)
+        XCTAssertEqual(feed.author, rssFeed.channel.author)
         XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
         XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
         XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
@@ -72,6 +74,7 @@ final class RSSCodedTests: XCTestCase {
           XCTAssertEqual(rssItem.description.value, entryChild.summary)
           XCTAssertEqual(rssItem.guid, entryChild.id)
           XCTAssertEqual(rssItem.pubDate, entryChild.published)
+          XCTAssert(rssItem.creator == entryChild.author?.name || rssItem.itunesAuthor == entryChild.author?.name)
           // XCTAssertNil(entryChild.summary)
         }
       } else {

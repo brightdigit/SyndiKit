@@ -3,16 +3,10 @@
 # `iTunesDuration`
 
 ```swift
-public struct iTunesDuration: Codable, LosslessStringConvertible
+public struct iTunesDuration: Codable
 ```
 
 ## Properties
-### `description`
-
-```swift
-public var description: String
-```
-
 ### `value`
 
 ```swift

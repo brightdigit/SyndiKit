@@ -1,9 +1,5 @@
-public struct IntegerCodable: Codable, ExpressibleByIntegerLiteral {
+public struct IntegerCodable: Codable {
   public let value: Int
-
-  public init(integerLiteral value: Int) {
-    self.value = value
-  }
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
