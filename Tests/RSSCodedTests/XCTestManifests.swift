@@ -15,6 +15,7 @@
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__RSSCodedTests = [
+      ("testCategories", testCategories),
       ("testDurations", testDurations),
       ("testEntryable", testEntryable),
       ("testJSONXMLEquality", testJSONXMLEquality),

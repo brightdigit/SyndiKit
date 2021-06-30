@@ -24,7 +24,7 @@ public struct RSSChannel: Codable {
     case pubDate
     case syUpdatePeriod = "sy:updatePeriod"
     case syUpdateFrequency = "sy:updateFrequency"
-    case items
+    case items = "item"
     case itunesAuthor = "itunes:author"
     case itunesImage = "itunes:image"
     case itunesOwner = "itunes:owner"

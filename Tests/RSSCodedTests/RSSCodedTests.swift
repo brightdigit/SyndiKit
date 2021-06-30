@@ -27,13 +27,24 @@ final class RSSCodedTests: XCTestCase {
     jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
   }
 
+  func testCategories() {
+    guard let feeds = try? RSSCodedTests.xmlFeeds["advancedswift"]?.get() else {
+      XCTFail()
+      return
+    }
+
+    for item in feeds.children {
+      XCTAssert(item.categories.contains(where: { $0.term == "iOS" }))
+    }
+  }
+
   func testEntryable() {
-    for (_, xmlResult) in RSSCodedTests.xmlFeeds {
+    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
       let feed: Feedable
       do {
         feed = try xmlResult.get()
       } catch {
-        XCTAssertNil(error)
+        XCTAssertNil(error, "Failed to decode \(name)")
         continue
       }
 
@@ -127,12 +138,12 @@ final class RSSCodedTests: XCTestCase {
 
     for (name, episodeNumbers) in podcasts {
       guard let feed = try? Self.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast")
+        XCTFail("Missing Podcast \(name)")
         continue
       }
 
       guard let rss = feed as? RSSFeed else {
-        XCTFail("Wrong Type")
+        XCTFail("Wrong Type \(name)")
         continue
       }
 
