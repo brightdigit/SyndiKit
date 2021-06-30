@@ -41,4 +41,6 @@ extension JSONFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     nil
   }
+
+  static let source: DecoderSetup = DecoderSource.json
 }

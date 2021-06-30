@@ -53,4 +53,6 @@ extension AtomFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     nil
   }
+
+  static let source: DecoderSetup = DecoderSource.xml
 }

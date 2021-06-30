@@ -43,4 +43,6 @@ extension RSSFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     channel.syndication
   }
+
+  static let source: DecoderSetup = DecoderSource.xml
 }

@@ -9,18 +9,26 @@ protocol DecoderSetup {
   var source: DecoderSource { get }
 }
 
-enum DecoderSource {
+enum DecoderSource: DecoderSetup {
   case json
   case xml
+
+  var source: DecoderSource {
+    self
+  }
 }
 
 protocol DecodableFeed: Decodable, Feedable {
-  // static var source : DecoderSetup { get }
+  static var source: DecoderSetup { get }
 }
 
 extension DecodableFeed {
-  static func decoding<DecoderType: TypeDecoder>(using decoder: DecoderType) -> AnyDecoding {
-    Decoding(for: self, using: decoder)
+  static func decoding(using decoder: TypeDecoder) -> Decoding<Self> {
+    Decoding(for: Self.self, using: decoder)
+  }
+
+  static func anyDecoding(using decoder: TypeDecoder) -> AnyDecoding {
+    Self.decoding(using: decoder)
   }
 }
 
@@ -47,7 +55,7 @@ public class RSSDecoder {
   let defaultJSONDecoderSetup: (JSONDecoder) -> Void
   let defaultXMLDecoderSetup: (XMLDecoder) -> Void
 
-  let xmlFeedTypes: [DecodableFeed.Type] = [RSSFeed.self, AtomFeed.self]
+  let deedTypes: [DecodableFeed.Type] = [RSSFeed.self, AtomFeed.self]
 
   lazy var xmlDecoder: XMLDecoder = {
     let decoder = XMLDecoder()
@@ -62,13 +70,29 @@ public class RSSDecoder {
   }()
 
   lazy var xmlDecodings: [AnyDecoding] = {
-    xmlFeedTypes.map {
-      $0.decoding(using: self.xmlDecoder)
+    deedTypes.map { type in
+      let source = type.source
+      let setup = type.source as? CustomDecoderSetup
+      let decoder: TypeDecoder
+
+      switch (source.source, setup?.setup(decoder:)) {
+      case let (.xml, .some(setup)):
+        decoder = XMLDecoder()
+        setup(decoder)
+
+      case let (.json, .some(setup)):
+        decoder = JSONDecoder()
+        setup(decoder)
+
+      case (.xml, .none):
+        decoder = self.xmlDecoder
+
+      case (.json, .none):
+        decoder = self.jsonDecoder
+      }
+
+      return type.anyDecoding(using: decoder)
     }
-//    return [
-//      Decoding(for: RSSFeed.self, using: self.xmlDecoder) as AnyDecoding,
-//      Decoding(for: AtomFeed.self, using: self.xmlDecoder) as AnyDecoding
-//    ]
   }()
 
   lazy var jsonDecodings: [AnyDecoding] = {

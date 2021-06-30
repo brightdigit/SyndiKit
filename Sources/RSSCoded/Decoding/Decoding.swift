@@ -4,14 +4,14 @@ protocol AnyDecoding {
   func decodeFeed(data: Data) throws -> Feedable
 }
 
-struct Decoding<DecoderType: TypeDecoder, DecodingType: Decodable & Feedable>: AnyDecoding {
+struct Decoding<DecodingType: DecodableFeed>: AnyDecoding {
   func decodeFeed(data: Data) throws -> Feedable {
     try decode(data: data)
   }
 
-  let decoder: DecoderType
+  let decoder: TypeDecoder
 
-  init(for _: DecodingType.Type, using decoder: DecoderType) {
+  init(for _: DecodingType.Type, using decoder: TypeDecoder) {
     self.decoder = decoder
   }
 
