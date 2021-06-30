@@ -54,5 +54,5 @@ extension AtomFeed: DecodableFeed {
     nil
   }
 
-  static let source: DecoderSetup = DecoderSource.xml
+  public static let source: DecoderSetup = DecoderSource.xml
 }

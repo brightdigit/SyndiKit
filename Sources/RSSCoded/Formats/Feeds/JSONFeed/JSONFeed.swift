@@ -42,5 +42,5 @@ extension JSONFeed: DecodableFeed {
     nil
   }
 
-  static let source: DecoderSetup = DecoderSource.json
+  public static let source: DecoderSetup = DecoderSource.json
 }

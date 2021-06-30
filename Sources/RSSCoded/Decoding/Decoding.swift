@@ -1,10 +1,6 @@
 import Foundation
 
-protocol AnyDecoding {
-  func decodeFeed(data: Data) throws -> Feedable
-}
-
-struct Decoding<DecodingType: DecodableFeed>: AnyDecoding {
+public struct Decoding<DecodingType: DecodableFeed>: AnyDecoding {
   func decodeFeed(data: Data) throws -> Feedable {
     try decode(data: data)
   }

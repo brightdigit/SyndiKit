@@ -76,6 +76,15 @@ public final class RSSCodedTests: XCTestCase {
     )
   }
 
+  fileprivate func assertJSONItem(_ jsonItem: JSONItem, child: Entryable) {
+    XCTAssertNil(jsonItem.creator)
+    XCTAssertNil(jsonItem.media)
+    XCTAssertEqual(jsonItem.categories.count, 0)
+
+    XCTAssertEqual(jsonItem.datePublished, child.published)
+    XCTAssertEqual(jsonItem.guid, child.id)
+  }
+
   fileprivate func assertFeed(_ feed: Feedable, rssFeed: RSSFeed) {
     XCTAssertNil(feed.youtubeChannelID)
     XCTAssertEqual(feed.author, rssFeed.channel.author)
@@ -91,8 +100,23 @@ public final class RSSCodedTests: XCTestCase {
     }
   }
 
+  fileprivate func assert(jsonFeed: JSONFeed, feed: Feedable) {
+    XCTAssertNil(jsonFeed.updated)
+    XCTAssertNil(jsonFeed.copyright)
+    XCTAssertNil(jsonFeed.image)
+    XCTAssertNil(jsonFeed.syndication)
+    let items = zip(jsonFeed.items, feed.children)
+    for (rssItem, entryChild) in items {
+      assertJSONItem(rssItem, child: entryChild)
+    }
+  }
+
   func testEntryable() {
-    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+    let allFeeds = [
+      RSSCodedTests.xmlFeeds.values, RSSCodedTests.jsonFeeds.values
+    ].flatMap { $0 }
+
+    for xmlResult in allFeeds {
       let feed: Feedable
       do {
         feed = try xmlResult.get()
@@ -105,11 +129,10 @@ public final class RSSCodedTests: XCTestCase {
         assertFeed(feed, atomFeed: atomFeed)
       } else if let rssFeed = feed as? RSSFeed {
         assertFeed(feed, rssFeed: rssFeed)
+      } else if let jsonFeed = feed as? JSONFeed {
+        assert(jsonFeed: jsonFeed, feed: feed)
       } else {
-        guard feed is JSONFeed else {
-          XCTFail()
-          continue
-        }
+        continue
       }
     }
   }
@@ -311,6 +334,7 @@ public final class RSSCodedTests: XCTestCase {
 
       for (index, (actual, expected)) in times.enumerated() {
         XCTAssertEqual(actual, expected, "no equal at \(index)")
+        XCTAssertEqual(iTunesDuration(String(actual))?.value, actual)
       }
     }
   }

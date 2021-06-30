@@ -7,12 +7,13 @@ public class RSSDecoder
 ```
 
 ## Methods
-### `init(jsonDecoderProvider:xmlDecoderProvider:)`
+### `init(types:defaultJSONDecoderSetup:defaultXMLDecoderSetup:)`
 
 ```swift
 public init(
-  jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil,
-  xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil
+  types: [DecodableFeed.Type]? = nil,
+  defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
+  defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
 )
 ```
 

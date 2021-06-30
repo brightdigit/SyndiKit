@@ -40,7 +40,7 @@ let package = Package(
 #if canImport(PackageConfig)
   import PackageConfig
 
-  let requiredCoverage: Int = 80
+  let requiredCoverage: Int = 85
 
   let config = PackageConfiguration([
     "komondor": [

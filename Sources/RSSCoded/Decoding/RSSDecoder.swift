@@ -1,37 +1,6 @@
 import Foundation
 import XMLCoder
 
-protocol CustomDecoderSetup {
-  func setup(decoder: TypeDecoder)
-}
-
-protocol DecoderSetup {
-  var source: DecoderSource { get }
-}
-
-enum DecoderSource: DecoderSetup {
-  case json
-  case xml
-
-  var source: DecoderSource {
-    self
-  }
-}
-
-protocol DecodableFeed: Decodable, Feedable {
-  static var source: DecoderSetup { get }
-}
-
-extension DecodableFeed {
-  static func decoding(using decoder: TypeDecoder) -> Decoding<Self> {
-    Decoding(for: Self.self, using: decoder)
-  }
-
-  static func anyDecoding(using decoder: TypeDecoder) -> AnyDecoding {
-    Self.decoding(using: decoder)
-  }
-}
-
 public class RSSDecoder {
   static func decoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -45,32 +14,39 @@ public class RSSDecoder {
   }
 
   public init(
-    jsonDecoderProvider: ((JSONDecoder) -> Void)? = nil,
-    xmlDecoderProvider: ((XMLDecoder) -> Void)? = nil
+    types: [DecodableFeed.Type]? = nil,
+    defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
+    defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
   ) {
-    defaultJSONDecoderSetup = jsonDecoderProvider ?? Self.decoder(_:)
-    defaultXMLDecoderSetup = xmlDecoderProvider ?? Self.decoder(_:)
+    self.types = types ?? Self.defaultTypes
+    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.decoder(_:)
+    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.decoder(_:)
   }
 
   let defaultJSONDecoderSetup: (JSONDecoder) -> Void
   let defaultXMLDecoderSetup: (XMLDecoder) -> Void
+  let types: [DecodableFeed.Type]
 
-  let deedTypes: [DecodableFeed.Type] = [RSSFeed.self, AtomFeed.self]
+  static let defaultTypes: [DecodableFeed.Type] = [
+    RSSFeed.self,
+    AtomFeed.self,
+    JSONFeed.self
+  ]
 
-  lazy var xmlDecoder: XMLDecoder = {
+  lazy var defaultXMLDecoder: XMLDecoder = {
     let decoder = XMLDecoder()
     self.defaultXMLDecoderSetup(decoder)
     return decoder
   }()
 
-  lazy var jsonDecoder: JSONDecoder = {
+  lazy var defaultJSONDecoder: JSONDecoder = {
     let decoder = JSONDecoder()
     self.defaultJSONDecoderSetup(decoder)
     return decoder
   }()
 
-  lazy var xmlDecodings: [AnyDecoding] = {
-    deedTypes.map { type in
+  lazy var decodings: [DecoderSource: [AnyDecoding]] = {
+    let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let setup = type.source as? CustomDecoderSetup
       let decoder: TypeDecoder
@@ -85,41 +61,34 @@ public class RSSDecoder {
         setup(decoder)
 
       case (.xml, .none):
-        decoder = self.xmlDecoder
+        decoder = self.defaultXMLDecoder
 
       case (.json, .none):
-        decoder = self.jsonDecoder
+        decoder = self.defaultJSONDecoder
       }
 
-      return type.anyDecoding(using: decoder)
+      return (source.source, type.anyDecoding(using: decoder))
     }
-  }()
-
-  lazy var jsonDecodings: [AnyDecoding] = {
-    [Decoding(for: JSONFeed.self, using: self.jsonDecoder) as AnyDecoding]
+    return Dictionary(grouping: decodings, by: { $0.0 }).mapValues { $0.map { $0.1 } }
   }()
 
   public func decode(_ data: Data) throws -> Feedable {
     var errors = [DecodingError]()
 
-    var isXML = true
-    for decoding in xmlDecodings {
-      guard isXML else {
-        break
-      }
-      do {
-        return try decoding.decodeFeed(data: data)
-      } catch let decodingError as DecodingError {
-        errors.append(decodingError)
-      } catch let error as NSError {
-        guard error.domain == "NSXMLParserErrorDomain" else {
-          throw error
-        }
-        isXML = false
-      }
+    guard let firstByte = data.first else {
+      throw DecodingError.dataCorrupted(
+        .init(codingPath: [], debugDescription: "Empty Data.")
+      )
     }
-
-    for decoding in jsonDecodings {
+    guard let source = DecoderSource(rawValue: firstByte) else {
+      throw DecodingError.dataCorrupted(
+        .init(codingPath: [], debugDescription: "Unmatched First Byte: \(firstByte)")
+      )
+    }
+    guard let decodings = self.decodings[source] else {
+      throw DecodingError.failedAttempts(errors)
+    }
+    for decoding in decodings {
       do {
         return try decoding.decodeFeed(data: data)
       } catch let decodingError as DecodingError {

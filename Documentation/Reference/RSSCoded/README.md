@@ -2,10 +2,14 @@
 
 ## Protocols
 
+-   [CustomDecoderSetup](protocols/CustomDecoderSetup.md)
+-   [DecodableFeed](protocols/DecodableFeed.md)
+-   [DecoderSetup](protocols/DecoderSetup.md)
 -   [Entryable](protocols/Entryable.md)
 -   [Feedable](protocols/Feedable.md)
 -   [PodcastEpisodeProtocol](protocols/PodcastEpisodeProtocol.md)
 -   [RSSCategory](protocols/RSSCategory.md)
+-   [TypeDecoder](protocols/TypeDecoder.md)
 -   [YouTubeIDProtocol](protocols/YouTubeIDProtocol.md)
 
 ## Structs
@@ -20,6 +24,7 @@
 -   [CategoryDescriptor](structs/CategoryDescriptor.md)
 -   [CategoryLanguage](structs/CategoryLanguage.md)
 -   [DateFormatterDecoder](structs/DateFormatterDecoder.md)
+-   [Decoding](structs/Decoding.md)
 -   [Enclosure](structs/Enclosure.md)
 -   [IntegerCodable](structs/IntegerCodable.md)
 -   [JSONFeed](structs/JSONFeed.md)
@@ -46,6 +51,7 @@
 
 ## Enums
 
+-   [DecoderSource](enums/DecoderSource.md)
 -   [MediaContent](enums/MediaContent.md)
 -   [RSSGUID](enums/RSSGUID.md)
 -   [SyndicationUpdatePeriod](enums/SyndicationUpdatePeriod.md)
