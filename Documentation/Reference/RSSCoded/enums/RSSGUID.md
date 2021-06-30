@@ -19,10 +19,10 @@ case url(URL)
 case uuid(UUID)
 ```
 
-### `path(_:)`
+### `path(_:separatedBy:)`
 
 ```swift
-case path([String])
+case path([String], separatedBy: String)
 ```
 
 ### `string(_:)`
@@ -32,6 +32,12 @@ case string(String)
 ```
 
 ## Methods
+### `init(from:)`
+
+```swift
+public init(from string: String)
+```
+
 ### `init(from:)`
 
 ```swift

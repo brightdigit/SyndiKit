@@ -13,6 +13,12 @@ public struct CData: Codable, RSSCategory
 public var term: String
 ```
 
+### `value`
+
+```swift
+public let value: String
+```
+
 ## Methods
 ### `init(from:)`
 

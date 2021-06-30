@@ -32,5 +32,5 @@ public struct iTunesDuration: Codable, LosslessStringConvertible {
     return .init(value)
   }
 
-  let value: TimeInterval
+  public let value: TimeInterval
 }

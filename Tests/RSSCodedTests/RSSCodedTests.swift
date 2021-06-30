@@ -1,4 +1,4 @@
-@testable import RSSCoded
+import RSSCoded
 import XCTest
 import XMLCoder
 

@@ -3,7 +3,7 @@ public struct CData: Codable, RSSCategory {
     return value
   }
 
-  let value: String
+  public let value: String
 
   enum CodingKeys: String, CodingKey {
     case value = "#CDATA"

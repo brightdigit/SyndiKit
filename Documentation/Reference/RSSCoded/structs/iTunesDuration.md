@@ -13,6 +13,12 @@ public struct iTunesDuration: Codable, LosslessStringConvertible
 public var description: String
 ```
 
+### `value`
+
+```swift
+public let value: TimeInterval
+```
+
 ## Methods
 ### `init(from:)`
 
