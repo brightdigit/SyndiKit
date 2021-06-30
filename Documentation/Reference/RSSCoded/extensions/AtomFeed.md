@@ -2,7 +2,7 @@
 
 # `AtomFeed`
 ```swift
-extension AtomFeed: Feedable
+extension AtomFeed: DecodableFeed
 ```
 
 ## Properties

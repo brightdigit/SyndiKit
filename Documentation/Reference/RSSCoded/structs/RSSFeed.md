@@ -3,7 +3,7 @@
 # `RSSFeed`
 
 ```swift
-public struct RSSFeed: Codable
+public struct RSSFeed
 ```
 
 ## Properties

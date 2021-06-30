@@ -2,7 +2,7 @@
 
 # `RSSFeed`
 ```swift
-extension RSSFeed: Feedable
+extension RSSFeed: DecodableFeed
 ```
 
 ## Properties

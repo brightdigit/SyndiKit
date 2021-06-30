@@ -3,7 +3,7 @@
 # `AtomFeed`
 
 ```swift
-public struct AtomFeed: Codable
+public struct AtomFeed
 ```
 
 ## Properties

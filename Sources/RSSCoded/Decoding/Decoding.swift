@@ -1,5 +1,14 @@
 import Foundation
-struct Decoding<DecoderType: TypeDecoder, DecodingType: Decodable> {
+
+protocol AnyDecoding {
+  func decodeFeed(data: Data) throws -> Feedable
+}
+
+struct Decoding<DecoderType: TypeDecoder, DecodingType: Decodable & Feedable>: AnyDecoding {
+  func decodeFeed(data: Data) throws -> Feedable {
+    try decode(data: data)
+  }
+
   let decoder: DecoderType
 
   init(for _: DecodingType.Type, using decoder: DecoderType) {

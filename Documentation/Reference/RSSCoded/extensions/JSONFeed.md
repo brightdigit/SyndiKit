@@ -2,7 +2,7 @@
 
 # `JSONFeed`
 ```swift
-extension JSONFeed: Feedable
+extension JSONFeed: DecodableFeed
 ```
 
 ## Properties

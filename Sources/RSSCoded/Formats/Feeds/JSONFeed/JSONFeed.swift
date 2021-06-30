@@ -1,6 +1,6 @@
 import Foundation
 
-public struct JSONFeed: Codable {
+public struct JSONFeed {
   public let version: URL
   public let title: String
   public let homePageUrl: URL
@@ -9,7 +9,7 @@ public struct JSONFeed: Codable {
   public let items: [JSONItem]
 }
 
-extension JSONFeed: Feedable {
+extension JSONFeed: DecodableFeed {
   public var youtubeChannelID: String? {
     nil
   }

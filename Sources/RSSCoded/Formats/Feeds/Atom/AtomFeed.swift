@@ -1,5 +1,5 @@
 import Foundation
-public struct AtomFeed: Codable {
+public struct AtomFeed {
   public let id: String
   public let title: String
   public let description: String?
@@ -25,7 +25,7 @@ public struct AtomFeed: Codable {
   }
 }
 
-extension AtomFeed: Feedable {
+extension AtomFeed: DecodableFeed {
   public var summary: String? {
     description ?? subtitle
   }

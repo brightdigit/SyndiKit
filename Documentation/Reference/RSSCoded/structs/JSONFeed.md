@@ -3,7 +3,7 @@
 # `JSONFeed`
 
 ```swift
-public struct JSONFeed: Codable
+public struct JSONFeed
 ```
 
 ## Properties

@@ -1,9 +1,9 @@
 import Foundation
-public struct RSSFeed: Codable {
+public struct RSSFeed {
   public let channel: RSSChannel
 }
 
-extension RSSFeed: Feedable {
+extension RSSFeed: DecodableFeed {
   public var youtubeChannelID: String? {
     nil
   }
