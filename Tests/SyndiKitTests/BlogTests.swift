@@ -1,4 +1,4 @@
-import RSSCoded
+import SyndiKit
 import XCTest
 import XMLCoder
 

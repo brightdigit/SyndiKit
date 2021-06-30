@@ -1,8 +1,8 @@
-import RSSCoded
+import SyndiKit
 import XCTest
 import XMLCoder
 
-public final class RSSCodedTests: XCTestCase {
+public final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
   // swiftlint:disable implicitly_unwrapped_optional
@@ -31,7 +31,7 @@ public final class RSSCodedTests: XCTestCase {
   }
 
   func testCategories() {
-    guard let feeds = try? RSSCodedTests.xmlFeeds["advancedswift"]?.get() else {
+    guard let feeds = try? SyndiKitTests.xmlFeeds["advancedswift"]?.get() else {
       XCTFail("No Feeds")
       return
     }
@@ -113,7 +113,7 @@ public final class RSSCodedTests: XCTestCase {
 
   func testEntryable() {
     let allFeeds = [
-      RSSCodedTests.xmlFeeds.values, RSSCodedTests.jsonFeeds.values
+      SyndiKitTests.xmlFeeds.values, SyndiKitTests.jsonFeeds.values
     ].flatMap { $0 }
 
     for xmlResult in allFeeds {
@@ -162,8 +162,8 @@ public final class RSSCodedTests: XCTestCase {
   }
 
   func testJSONXMLEquality() throws {
-    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
-      guard let jsonResult = RSSCodedTests.jsonFeeds[name] else {
+    for (name, xmlResult) in SyndiKitTests.xmlFeeds {
+      guard let jsonResult = SyndiKitTests.jsonFeeds[name] else {
         continue
       }
 
@@ -191,7 +191,7 @@ public final class RSSCodedTests: XCTestCase {
           jsonItem.title.trimAndNilIfEmpty(),
           rssItem.title.trimAndNilIfEmpty()
         )
-        // if count < RSSCodedTests.itemCount {
+        // if count < SyndiKitTests.itemCount {
         XCTAssertEqual(
           jsonItem.contentHtml?.trimAndNilIfEmpty(),
           rssItem.contentHtml?.trimAndNilIfEmpty(),
@@ -270,7 +270,7 @@ public final class RSSCodedTests: XCTestCase {
   }
 
   func testYoutubeVideos() {
-    for (name, xmlResult) in RSSCodedTests.xmlFeeds {
+    for (name, xmlResult) in SyndiKitTests.xmlFeeds {
       guard name.hasSuffix("youtube") else {
         continue
       }

@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-  name: "RSSCoded",
+  name: "SyndiKit",
   products: [
     .library(
-      name: "RSSCoded",
-      targets: ["RSSCoded"]
+      name: "SyndiKit",
+      targets: ["SyndiKit"]
     )
   ],
   dependencies: [
@@ -27,12 +27,12 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "RSSCoded",
+      name: "SyndiKit",
       dependencies: ["XMLCoder"]
     ),
     .testTarget(
-      name: "RSSCodedTests",
-      dependencies: ["RSSCoded"]
+      name: "SyndiKitTests",
+      dependencies: ["SyndiKit"]
     )
   ]
 )
@@ -47,7 +47,7 @@ let package = Package(
       "pre-push": [
         "swift test --enable-code-coverage --enable-test-discovery",
         // swiftlint:disable:next line_length
-        "swift run swift-test-codecov .build/debug/codecov/RSSCoded.json --minimum \(requiredCoverage)"
+        "swift run swift-test-codecov .build/debug/codecov/SyndiKit.json --minimum \(requiredCoverage)"
       ],
       "pre-commit": [
         "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",

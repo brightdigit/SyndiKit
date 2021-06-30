@@ -8,4 +8,4 @@ mkdir -p Data/JSON
     curl $url -Lo Data/XML/$file.xml
     curl https://feed2json.org/convert?url=$url -o Data/JSON/$file.json
   done
-} < ./Tests/RSSCodedTests/urls.tsv
+} < ./Tests/SyndiKitTests/urls.tsv

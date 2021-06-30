@@ -1,8 +1,8 @@
 import XCTest
 
-import RSSCodedTests
+import SyndiKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += RSSCodedTests.__allTests()
+tests += SyndiKitTests.__allTests()
 
 XCTMain(tests)
