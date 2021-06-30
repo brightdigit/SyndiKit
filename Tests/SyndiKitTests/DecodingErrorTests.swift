@@ -20,22 +20,22 @@ public final class DecodingErrorTests: XCTestCase {
       .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
     ])
 
-    guard case let DecodingError.dataCorrupted(context) = error else {
+    guard case let DecodingError.dataCorrupted(parentContext) = error else {
       XCTFail()
       return
     }
 
-    guard let decodingError = context.underlyingError as? DecodingError else {
+    guard let decodingError = parentContext.underlyingError as? DecodingError else {
       XCTFail()
       return
     }
 
-    guard case let DecodingError.dataCorrupted(context) = decodingError else {
+    guard case let DecodingError.dataCorrupted(childContext) = decodingError else {
       XCTFail()
       return
     }
 
-    XCTAssertEqual(context.debugDescription, debugDescription)
+    XCTAssertEqual(childContext.debugDescription, debugDescription)
   }
 
   func testErrorsMany() {
