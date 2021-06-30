@@ -6,11 +6,8 @@ public enum RSSGUID: Codable, Equatable {
   case path([String], separatedBy: String)
   case string(String)
 
-  // swiftlint:disable:next force_try
-  static let urlDetector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-
   public init(from string: String) {
-    if let url = URL(strict: string, withDetector: Self.urlDetector) {
+    if let url = URL(strict: string) {
       self = .url(url)
     } else if let uuid = UUID(uuidString: string) {
       self = .uuid(uuid)
