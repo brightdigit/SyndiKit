@@ -1,15 +1,13 @@
 // swift-tools-version:5.2.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swiftlint:disable explicit_top_level_acl
 import PackageDescription
 
 let package = Package(
-  name: "RSSCoded",
+  name: "SyndiKit",
   products: [
-    // Products define the executables and libraries a package produces, and make them visible to other packages.
     .library(
-      name: "RSSCoded",
-      targets: ["RSSCoded"]
+      name: "SyndiKit",
+      targets: ["SyndiKit"]
     )
   ],
   dependencies: [
@@ -18,19 +16,23 @@ let package = Package(
     .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"), // dev
     .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.47.0"), // dev
     .package(url: "https://github.com/realm/SwiftLint", from: "0.43.0"), // dev
-    .package(url: "https://github.com/brightdigit/Rocket", .branch("feature/yams-4.0.0")), // dev
-    .package(url: "https://github.com/mattpolzin/swift-test-codecov", .branch("master")) // dev
+    .package(
+      url: "https://github.com/brightdigit/Rocket",
+      .branch("feature/yams-4.0.0")
+    ), // dev
+    .package(
+      url: "https://github.com/mattpolzin/swift-test-codecov",
+      .branch("master")
+    ) // dev
   ],
   targets: [
-    // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-    // Targets can depend on other targets in this package, and on products in packages this package depends on.
     .target(
-      name: "RSSCoded",
+      name: "SyndiKit",
       dependencies: ["XMLCoder"]
     ),
     .testTarget(
-      name: "RSSCodedTests",
-      dependencies: ["RSSCoded"]
+      name: "SyndiKitTests",
+      dependencies: ["SyndiKit"]
     )
   ]
 )
@@ -38,13 +40,14 @@ let package = Package(
 #if canImport(PackageConfig)
   import PackageConfig
 
-  let requiredCoverage: Int = 80
+  let requiredCoverage: Int = 85
 
   let config = PackageConfiguration([
     "komondor": [
       "pre-push": [
         "swift test --enable-code-coverage --enable-test-discovery",
-        "swift run swift-test-codecov .build/debug/codecov/RSSCoded.json --minimum \(requiredCoverage)"
+        // swiftlint:disable:next line_length
+        "swift run swift-test-codecov .build/debug/codecov/SyndiKit.json --minimum \(requiredCoverage)"
       ],
       "pre-commit": [
         "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",

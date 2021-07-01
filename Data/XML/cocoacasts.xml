@@ -39,9 +39,7 @@
     </item>
     <item>
       <title>Image Caching with Kingfisher</title>
-      <description>In the previous episodes, we implemented a service to fetch and cache remote images. Even though the service we built is pretty flexible, some applications require a more powerful solution and more options to fit their needs.
-
-This episode focuses on [Kingfisher](https://github.com/onevcat/Kingfisher), a popular, open source library to fetch and cache remote images. You learn how to integrate **Kingfisher** in a project using **CocoaPods**. I show you how **Kingfisher** differs from the service we created earlier in this series and we take a peek under the hood to learn how **Kingfisher** does its magic.</description>
+      <description>In the previous episodes, we implemented a service to fetch and cache remote images. Even though the service we built is pretty flexible, some applications require a more powerful solution and more options to fit their needs. This episode focuses on [Kingfisher](https://github.com/onevcat/Kingfisher), a popular, open source library to fetch and cache remote images. You learn how to integrate **Kingfisher** in a project using **CocoaPods**. I show you how **Kingfisher** differs from the service we created earlier in this series and we take a peek under the hood to learn how **Kingfisher** does its magic.</description>
       <pubDate>Wed, 19 May 2021 08:57:39 +0000</pubDate>
       <guid>https://cocoacasts.com/image-caching-in-swift-image-caching-with-kingfisher</guid>
       <link>https://cocoacasts.com/image-caching-in-swift-image-caching-with-kingfisher</link>
