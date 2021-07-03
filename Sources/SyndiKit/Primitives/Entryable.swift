@@ -11,5 +11,5 @@ public protocol Entryable {
   var categories: [RSSCategory] { get }
   var creator: String? { get }
   var media: MediaContent? { get }
-  var imageURL : URL? { get }
+  var imageURL: URL? { get }
 }

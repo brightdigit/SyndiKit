@@ -54,8 +54,8 @@ extension AtomEntry: Entryable {
   public var media: MediaContent? {
     YouTubeID(entry: self).map(Video.youtube).map(MediaContent.video)
   }
-  
+
   public var imageURL: URL? {
-    return self.mediaThumbnail?.url
+    mediaThumbnail?.url
   }
 }

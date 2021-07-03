@@ -8,11 +8,13 @@ public struct BlogCollection {
   let categoryIndicies: [CategoryType: Set<Int>]
 
   public func languages() -> Dictionary<LanguageType, Language>.Values {
-    return languageDictionary.values
+    languageDictionary.values
   }
+
   public func categories() -> Dictionary<CategoryType, Category>.Values {
-    return categoryDictionary.values
+    categoryDictionary.values
   }
+
   public func sites(
     withLanguage language: LanguageType? = nil,
     withCategory category: CategoryType? = nil
@@ -87,11 +89,11 @@ public struct BlogCollection {
       languages.append(language)
     }
 
-    self.categoryDictionary = Dictionary(
+    categoryDictionary = Dictionary(
       grouping: categories,
       by: { $0.type }
     ).compactMapValues(Category.init)
-    self.languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
+    languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
     self.languageIndicies = languageIndicies
     self.categoryIndicies = categoryIndicies
     allSites = sites

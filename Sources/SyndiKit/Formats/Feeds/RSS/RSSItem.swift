@@ -1,8 +1,8 @@
 import Foundation
 import XMLCoder
 
-public struct RSSMedia : Codable {
-  let url : URL
+public struct RSSMedia: Codable {
+  let url: URL
   let medium: String?
 }
 
@@ -84,11 +84,11 @@ extension RSSItem: Entryable {
   public var media: MediaContent? {
     PodcastEpisode(rssItem: self).map(MediaContent.podcast)
   }
-  
+
   public var imageURL: URL? {
-    return self.itunesImage?.href ??
-      self.mediaThumbnail?.url ??
-      self.mediaContent?.url
+    itunesImage?.href ??
+      mediaThumbnail?.url ??
+      mediaContent?.url
 //    item.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:)) ??
 //              enclosure?.imageURL ??
 //              item.media?.mediaThumbnails?.compactMap {

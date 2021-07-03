@@ -18,13 +18,11 @@ public enum RSSGUID: Codable, Equatable, CustomStringConvertible {
     }
     return string
   }
-  
+
   case url(URL)
   case uuid(UUID)
   case path([String], separatedBy: String)
   case string(String)
-  
-  
 
   public init(from string: String) {
     if let url = URL(strict: string) {
@@ -54,6 +52,6 @@ public enum RSSGUID: Codable, Equatable, CustomStringConvertible {
 
   public func encode(to encoder: Encoder) throws {
     var container = encoder.singleValueContainer()
-    try container.encode(self.description)
+    try container.encode(description)
   }
 }
