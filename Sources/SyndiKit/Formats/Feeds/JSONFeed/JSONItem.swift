@@ -11,6 +11,10 @@ public struct JSONItem: Codable {
 }
 
 extension JSONItem: Entryable {
+  public var imageURL: URL? {
+    return nil
+  }
+  
   public var creator: String? {
     nil
   }

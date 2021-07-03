@@ -1,6 +1,11 @@
 import Foundation
 import XMLCoder
 
+public struct RSSMedia : Codable {
+  let url : URL
+  let medium: String?
+}
+
 public struct RSSItem: Codable {
   public let title: String
   public let link: URL
@@ -20,6 +25,8 @@ public struct RSSItem: Codable {
   public let itunesImage: iTunesImage?
   public let enclosure: Enclosure?
   public let creator: String?
+  public let mediaContent: RSSMedia?
+  public let mediaThumbnail: RSSMedia?
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -40,6 +47,8 @@ public struct RSSItem: Codable {
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
     case creator = "dc:creator"
+    case mediaContent = "media:content"
+    case mediaThumbnail = "media:thumbnail"
   }
 }
 
@@ -74,5 +83,16 @@ extension RSSItem: Entryable {
 
   public var media: MediaContent? {
     PodcastEpisode(rssItem: self).map(MediaContent.podcast)
+  }
+  
+  public var imageURL: URL? {
+    return self.itunesImage?.href ??
+      self.mediaThumbnail?.url ??
+      self.mediaContent?.url
+//    item.iTunes?.iTunesImage?.attributes?.href.flatMap(URL.init(string:)) ??
+//              enclosure?.imageURL ??
+//              item.media?.mediaThumbnails?.compactMap {
+//                $0.attributes?.url.flatMap(URL.init(string:))
+//              }.first
   }
 }
