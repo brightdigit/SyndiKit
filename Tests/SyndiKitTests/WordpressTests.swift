@@ -50,12 +50,11 @@ final class WordpressTests: XCTestCase {
         $0.wpPostID == nil
       })
       
-      XCTAssertEqual(notPostIndex, feed.channel.items.count - 1)
-//      XCTAssertNil(notPostIndex)
-//      
-//      if let index = notPostIndex {
-//        dump(feed.channel.items[index])
-//      }
+      XCTAssertNil(notPostIndex)
+      
+      if let index = notPostIndex {
+        dump(feed.channel.items[index])
+      }
     }
   }
 }
