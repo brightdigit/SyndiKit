@@ -58,7 +58,7 @@
   }
 
   public func __allTests() -> [XCTestCaseEntry] {
-    [
+    return [
       testCase(BlogTests.__allTests__BlogTests),
       testCase(DecodingErrorTests.__allTests__DecodingErrorTests),
       testCase(RSSGUIDTests.__allTests__RSSGUIDTests),

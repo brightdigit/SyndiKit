@@ -205,6 +205,18 @@ public let wpPostType: CData?
 public let wpPostMeta: [WPPostMeta]?
 ```
 
+### `mediaContent`
+
+```swift
+public let mediaContent: RSSMedia?
+```
+
+### `mediaThumbnail`
+
+```swift
+public let mediaThumbnail: RSSMedia?
+```
+
 ## Methods
 ### `init(from:)`
 

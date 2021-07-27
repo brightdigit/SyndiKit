@@ -1,7 +1,6 @@
 import Foundation
 import XMLCoder
 
-
 extension KeyedDecodingContainerProtocol {
   func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
     if let pubDateString =
@@ -80,10 +79,10 @@ public struct RSSItem: Codable {
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
     creator = try container.decodeIfPresent(String.self, forKey: .creator)
-    
+
     mediaContent = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaContent)
     mediaThumbnail = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaThumbnail)
-    
+
     wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
     wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
     let wpPostDateGMT = try container.decodeIfPresent(
