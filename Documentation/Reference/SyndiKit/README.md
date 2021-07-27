@@ -39,8 +39,13 @@
 -   [RSSFeed](structs/RSSFeed.md)
 -   [RSSImage](structs/RSSImage.md)
 -   [RSSItem](structs/RSSItem.md)
+-   [RSSItemCategory](structs/RSSItemCategory.md)
+-   [RSSMedia](structs/RSSMedia.md)
 -   [Site](structs/Site.md)
 -   [SyndicationUpdate](structs/SyndicationUpdate.md)
+-   [WPCategory](structs/WPCategory.md)
+-   [WPPostMeta](structs/WPPostMeta.md)
+-   [WPTag](structs/WPTag.md)
 -   [YouTubeID](structs/YouTubeID.md)
 -   [iTunesDuration](structs/iTunesDuration.md)
 -   [iTunesOwner](structs/iTunesOwner.md)
@@ -51,6 +56,7 @@
 
 ## Enums
 
+-   [DateFormatterDecoder.RSS](enums/DateFormatterDecoder.RSS.md)
 -   [DecoderSource](enums/DecoderSource.md)
 -   [MediaContent](enums/MediaContent.md)
 -   [RSSGUID](enums/RSSGUID.md)
