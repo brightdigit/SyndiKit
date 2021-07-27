@@ -46,7 +46,7 @@ public let contentEncoded: CData?
 ### `categoryTerms`
 
 ```swift
-public let categoryTerms: [CData]
+public let categoryTerms: [RSSItemCategory]
 ```
 
 ### `content`
@@ -114,3 +114,106 @@ public let enclosure: Enclosure?
 ```swift
 public let creator: String?
 ```
+
+### `wpCommentStatus`
+
+```swift
+public let wpCommentStatus: CData?
+```
+
+### `wpPingStatus`
+
+```swift
+public let wpPingStatus: CData?
+```
+
+### `wpStatus`
+
+```swift
+public let wpStatus: CData?
+```
+
+### `wpPostParent`
+
+```swift
+public let wpPostParent: Int?
+```
+
+### `wpMenuOrder`
+
+```swift
+public let wpMenuOrder: Int?
+```
+
+### `wpIsSticky`
+
+```swift
+public let wpIsSticky: Int?
+```
+
+### `wpPostPassword`
+
+```swift
+public let wpPostPassword: CData?
+```
+
+### `wpPostID`
+
+```swift
+public let wpPostID: Int?
+```
+
+### `wpPostDate`
+
+```swift
+public let wpPostDate: Date?
+```
+
+### `wpPostDateGMT`
+
+```swift
+public let wpPostDateGMT: Date?
+```
+
+### `wpModifiedDate`
+
+```swift
+public let wpModifiedDate: Date?
+```
+
+### `wpModifiedDateGMT`
+
+```swift
+public let wpModifiedDateGMT: Date?
+```
+
+### `wpPostName`
+
+```swift
+public let wpPostName: CData?
+```
+
+### `wpPostType`
+
+```swift
+public let wpPostType: CData?
+```
+
+### `wpPostMeta`
+
+```swift
+public let wpPostMeta: [WPPostMeta]?
+```
+
+## Methods
+### `init(from:)`
+
+```swift
+public init(from decoder: Decoder) throws
+```
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| decoder | The decoder to read data from. |

@@ -11,7 +11,9 @@ public struct DateFormatterDecoder {
       "yyyy-MM-dd HH:mm:ss"
     ]
 
-    public static let decoder = DateFormatterDecoder(basedOnFormats: Self.dateFormatStrings)
+    public static let decoder = DateFormatterDecoder(
+      basedOnFormats: Self.dateFormatStrings
+    )
   }
 
   internal init(formatters: [DateFormatter]) {
@@ -33,22 +35,21 @@ public struct DateFormatterDecoder {
 
   public func decodeString(_ dateStr: String) -> Date? {
     for formatter in formatters {
-      
       if let date = formatter.date(from: dateStr) {
         return date
       }
     }
     return nil
   }
-  
+
   func decode(from decoder: Decoder) throws -> Date {
     let container = try decoder.singleValueContainer()
     let dateStr = try container.decode(String.self)
-    
+
     if let date = decodeString(dateStr) {
       return date
     }
-    
+
     let context = DecodingError.Context(
       codingPath: decoder.codingPath,
       debugDescription: "Invalid Date from '\(dateStr)'"

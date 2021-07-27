@@ -1,9 +1,9 @@
 **STRUCT**
 
-# `CData`
+# `RSSItemCategory`
 
 ```swift
-public struct CData: Codable
+public struct RSSItemCategory: Codable, RSSCategory
 ```
 
 ## Properties
@@ -17,6 +17,18 @@ public var term: String
 
 ```swift
 public let value: String
+```
+
+### `domain`
+
+```swift
+public let domain: String?
+```
+
+### `nicename`
+
+```swift
+public let nicename: String?
 ```
 
 ## Methods

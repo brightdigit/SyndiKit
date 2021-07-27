@@ -1,7 +1,16 @@
 import Foundation
 import XMLCoder
 
-
+extension KeyedDecodingContainerProtocol {
+  func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
+    if let pubDateString =
+      try decodeIfPresent(String.self, forKey: key),
+      !pubDateString.isEmpty {
+      return DateFormatterDecoder.RSS.decoder.decodeString(pubDateString)
+    }
+    return nil
+  }
+}
 
 public struct RSSItem: Codable {
   public let title: String
@@ -37,38 +46,38 @@ public struct RSSItem: Codable {
   public let wpPostName: CData?
   public let wpPostType: CData?
   public let wpPostMeta: [WPPostMeta]?
-  
+
+  // swiftlint:disable:next function_body_length
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.title = try container.decode(String.self, forKey: .title)
-    self.link = try container.decode(URL.self, forKey: .link)
-    self.description = try container.decode(CData.self, forKey: .description)
-    self.guid = try container.decode(RSSGUID.self, forKey: .guid)
-    let pubDate : Date?
-    if let pubDateString = try container.decodeIfPresent(String.self, forKey: .pubDate), !pubDateString.isEmpty {
-      pubDate = DateFormatterDecoder.RSS.decoder.decodeString(pubDateString)
-    } else {
-      pubDate = nil
-    }
-    
-    self.pubDate = pubDate
-    self.contentEncoded = try container.decodeIfPresent(CData.self, forKey: .contentEncoded)
-    self.categoryTerms = try container.decode([RSSItemCategory].self, forKey: .categoryTerms)
-    self.content = try container.decodeIfPresent(String.self, forKey: .content)
-    self.itunesTitle = try container.decodeIfPresent(String.self, forKey: .itunesTitle)
-    self.itunesEpisode = try container.decodeIfPresent(iTunesEpisode.self, forKey: .itunesEpisode)
-    self.itunesAuthor = try container.decodeIfPresent(String.self, forKey: .itunesAuthor)
-    self.itunesSubtitle = try container.decodeIfPresent(String.self, forKey: .itunesSubtitle)
-    self.itunesSummary = try container.decodeIfPresent(String.self, forKey: .itunesSummary)
-    self.itunesExplicit = try container.decodeIfPresent(String.self, forKey: .itunesExplicit)
-    self.itunesDuration = try container.decodeIfPresent(iTunesDuration.self, forKey: .itunesDuration)
-    self.itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
-    self.enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
-    self.creator = try container.decodeIfPresent(String.self, forKey: .creator)
-    self.wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
-    self.wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
-    let wpPostDateGMT = try container.decodeIfPresent(String.self, forKey: .wpPostDateGMT)
-    if let wpPostDateGMT = wpPostDateGMT  {
+    title = try container.decode(String.self, forKey: .title)
+    link = try container.decode(URL.self, forKey: .link)
+    description = try container.decode(CData.self, forKey: .description)
+    guid = try container.decode(RSSGUID.self, forKey: .guid)
+    pubDate = try container.decodeDateIfPresentAndValid(forKey: .pubDate)
+    contentEncoded = try container.decodeIfPresent(CData.self, forKey: .contentEncoded)
+    categoryTerms = try container.decode([RSSItemCategory].self, forKey: .categoryTerms)
+    content = try container.decodeIfPresent(String.self, forKey: .content)
+    itunesTitle = try container.decodeIfPresent(String.self, forKey: .itunesTitle)
+    itunesEpisode = try container.decodeIfPresent(
+      iTunesEpisode.self, forKey: .itunesEpisode
+    )
+    itunesAuthor = try container.decodeIfPresent(String.self, forKey: .itunesAuthor)
+    itunesSubtitle = try container.decodeIfPresent(String.self, forKey: .itunesSubtitle)
+    itunesSummary = try container.decodeIfPresent(String.self, forKey: .itunesSummary)
+    itunesExplicit = try container.decodeIfPresent(String.self, forKey: .itunesExplicit)
+    itunesDuration = try container.decodeIfPresent(
+      iTunesDuration.self, forKey: .itunesDuration
+    )
+    itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
+    enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
+    creator = try container.decodeIfPresent(String.self, forKey: .creator)
+    wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
+    wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
+    let wpPostDateGMT = try container.decodeIfPresent(
+      String.self, forKey: .wpPostDateGMT
+    )
+    if let wpPostDateGMT = wpPostDateGMT {
       if wpPostDateGMT == "0000-00-00 00:00:00" {
         self.wpPostDateGMT = nil
       } else {
@@ -77,22 +86,24 @@ public struct RSSItem: Codable {
     } else {
       self.wpPostDateGMT = nil
     }
-    
-    self.wpModifiedDate = try container.decodeIfPresent(Date.self, forKey: .wpModifiedDate)
-    self.wpModifiedDateGMT = try container.decodeIfPresent(Date.self, forKey: .wpModifiedDateGMT)
-    self.wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
-    self.wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
-    self.wpPostMeta = try container.decodeIfPresent([WPPostMeta].self, forKey: .wpPostMeta)
-    self.wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
-    self.wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
-    self.wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)
-    self.wpPostParent = try container.decodeIfPresent(Int.self, forKey: .wpPostParent)
-    self.wpMenuOrder = try container.decodeIfPresent(Int.self, forKey: .wpMenuOrder)
-    self.wpIsSticky = try container.decodeIfPresent(Int.self, forKey: .wpIsSticky)
-    self.wpPostPassword = try container.decodeIfPresent(CData.self, forKey: .wpPostPassword)
-    
+
+    wpModifiedDate = try container.decodeIfPresent(Date.self, forKey: .wpModifiedDate)
+    wpModifiedDateGMT = try container.decodeIfPresent(
+      Date.self, forKey: .wpModifiedDateGMT
+    )
+    wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
+    wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
+    wpPostMeta = try container.decodeIfPresent([WPPostMeta].self, forKey: .wpPostMeta)
+    wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
+    wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
+    wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)
+    wpPostParent = try container.decodeIfPresent(Int.self, forKey: .wpPostParent)
+    wpMenuOrder = try container.decodeIfPresent(Int.self, forKey: .wpMenuOrder)
+    wpIsSticky = try container.decodeIfPresent(Int.self, forKey: .wpIsSticky)
+    wpPostPassword = try container.decodeIfPresent(
+      CData.self, forKey: .wpPostPassword
+    )
   }
-  
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -123,7 +134,7 @@ public struct RSSItem: Codable {
     case wpPostMeta = "wp:postMeta"
     case wpCommentStatus = "wp:wpCommentStatus"
     case wpPingStatus = "wp:wpPingStatus"
-    
+
     case wpStatus = "wp:wpStatus"
     case wpPostParent = "wp:wpPostParent"
     case wpMenuOrder = "wp:wpMenuOrder"

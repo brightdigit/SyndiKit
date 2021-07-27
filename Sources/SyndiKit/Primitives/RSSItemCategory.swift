@@ -15,20 +15,18 @@ public struct RSSItemCategory: Codable, RSSCategory {
 
   public init(from decoder: Decoder) throws {
     let value: String
-    let container : KeyedDecodingContainer<CodingKeys>?
+    let container: KeyedDecodingContainer<CodingKeys>?
     do {
-      let _container = try decoder.container(keyedBy: CodingKeys.self)
-      
-      value = try _container.decode(String.self, forKey: .value)
-      container = _container
+      let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+      value = try keyedContainer.decode(String.self, forKey: .value)
+      container = keyedContainer
     } catch {
-      let _container = try decoder.singleValueContainer()
-      
-      value = try _container.decode(String.self)
+      let singleValueContainer = try decoder.singleValueContainer()
+      value = try singleValueContainer.decode(String.self)
       container = nil
     }
     self.value = value
-    self.domain = try container?.decodeIfPresent(String.self, forKey: .domain)
-    self.nicename = try container?.decodeIfPresent(String.self, forKey: .nicename)
+    domain = try container?.decodeIfPresent(String.self, forKey: .domain)
+    nicename = try container?.decodeIfPresent(String.self, forKey: .nicename)
   }
 }
