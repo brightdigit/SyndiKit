@@ -13,6 +13,8 @@ public struct AtomEntry: Codable {
   public let youtubeVideoID: String?
   public let mediaDescription: String?
   public let creator: String?
+  public let mediaContent: RSSMedia?
+  public let mediaThumbnail: RSSMedia?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -27,6 +29,8 @@ public struct AtomEntry: Codable {
     case youtubeChannelID = "yt:channelId"
     case mediaDescription = "media:description"
     case creator = "dc:creator"
+    case mediaContent = "media:content"
+    case mediaThumbnail = "media:thumbnail"
   }
 }
 
@@ -49,5 +53,9 @@ extension AtomEntry: Entryable {
 
   public var media: MediaContent? {
     YouTubeID(entry: self).map(Video.youtube).map(MediaContent.video)
+  }
+
+  public var imageURL: URL? {
+    mediaThumbnail?.url
   }
 }
