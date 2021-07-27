@@ -2,10 +2,18 @@ import Foundation
 
 public struct BlogCollection {
   let allSites: [BlogSite]
-  let languages: [LanguageType: Language]
-  let categories: [CategoryType: Category]
+  let languageDictionary: [LanguageType: Language]
+  let categoryDictionary: [CategoryType: Category]
   let languageIndicies: [LanguageType: Set<Int>]
   let categoryIndicies: [CategoryType: Set<Int>]
+
+  public func languages() -> Dictionary<LanguageType, Language>.Values {
+    languageDictionary.values
+  }
+
+  public func categories() -> Dictionary<CategoryType, Category>.Values {
+    categoryDictionary.values
+  }
 
   public func sites(
     withLanguage language: LanguageType? = nil,
@@ -81,11 +89,11 @@ public struct BlogCollection {
       languages.append(language)
     }
 
-    self.categories = Dictionary(
+    categoryDictionary = Dictionary(
       grouping: categories,
       by: { $0.type }
     ).compactMapValues(Category.init)
-    self.languages = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
+    languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
     self.languageIndicies = languageIndicies
     self.categoryIndicies = categoryIndicies
     allSites = sites
