@@ -81,16 +81,33 @@ public struct RSSItem: Codable {
       if wpPostDateGMT == "0000-00-00 00:00:00" {
         self.wpPostDateGMT = nil
       } else {
-        self.wpPostDateGMT = try container.decode(Date.self, forKey: .wpPostDateGMT)
+        self.wpPostDateGMT = try container.decode(
+          Date.self, forKey: .wpPostDateGMT
+        )
       }
     } else {
       self.wpPostDateGMT = nil
     }
 
-    wpModifiedDate = try container.decodeIfPresent(Date.self, forKey: .wpModifiedDate)
-    wpModifiedDateGMT = try container.decodeIfPresent(
-      Date.self, forKey: .wpModifiedDateGMT
+    wpModifiedDate = try container.decodeIfPresent(
+      Date.self, forKey: .wpModifiedDate
     )
+
+    let wpModifiedDateGMT = try container.decodeIfPresent(
+      String.self, forKey: .wpModifiedDateGMT
+    )
+    if let wpModifiedDateGMT = wpModifiedDateGMT {
+      if wpModifiedDateGMT == "0000-00-00 00:00:00" {
+        self.wpModifiedDateGMT = nil
+      } else {
+        self.wpModifiedDateGMT = try container.decode(
+          Date.self, forKey: .wpModifiedDateGMT
+        )
+      }
+    } else {
+      self.wpModifiedDateGMT = nil
+    }
+
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
     wpPostMeta = try container.decodeIfPresent([WPPostMeta].self, forKey: .wpPostMeta)
@@ -127,19 +144,19 @@ public struct RSSItem: Codable {
     case wpPostID = "wp:postId"
     case wpPostDate = "wp:postDate"
     case wpPostDateGMT = "wp:postDateGmt"
-    case wpModifiedDate = "wp:modifiedDate"
-    case wpModifiedDateGMT = "wp:modifiedDateGmt"
+    case wpModifiedDate = "wp:postModified"
+    case wpModifiedDateGMT = "wp:postModifiedGmt"
     case wpPostName = "wp:postName"
     case wpPostType = "wp:postType"
-    case wpPostMeta = "wp:postMeta"
-    case wpCommentStatus = "wp:wpCommentStatus"
-    case wpPingStatus = "wp:wpPingStatus"
+    case wpPostMeta = "wp:postmeta"
+    case wpCommentStatus = "wp:commentStatus"
+    case wpPingStatus = "wp:pingStatus"
 
-    case wpStatus = "wp:wpStatus"
-    case wpPostParent = "wp:wpPostParent"
-    case wpMenuOrder = "wp:wpMenuOrder"
-    case wpIsSticky = "wp:wpIsSticky"
-    case wpPostPassword = "wp:wpPostPassword"
+    case wpStatus = "wp:status"
+    case wpPostParent = "wp:postParent"
+    case wpMenuOrder = "wp:menuOrder"
+    case wpIsSticky = "wp:isSticky"
+    case wpPostPassword = "wp:postPassword"
   }
 }
 

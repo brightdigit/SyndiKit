@@ -1,6 +1,11 @@
 import Foundation
 
 public struct WPPostMeta: Codable {
-  let key: CData
-  let value: CData
+  public let key: CData
+  public let value: CData
+
+  enum CodingKeys: String, CodingKey {
+    case key = "wp:metaKey"
+    case value = "wp:metaValue"
+  }
 }
