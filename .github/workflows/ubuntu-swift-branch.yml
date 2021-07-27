@@ -24,7 +24,7 @@ jobs:
     - name: Set Ubuntu Codename
       run: echo "RELEASE_NAME=$(lsb_release -sc)"  >> $GITHUB_ENV
     - name: Download Swift
-      run: curl -O https://swift.org/builds/swift-5.5-branch/ubuntu${RELEASE_NUM}/swift-DEVELOPMENT-SNAPSHOT-2021-07-23-a/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}.tar.gz
+      run: curl -O https://swift.org/builds/swift-5.5-branch/ubuntu${RELEASE_NUM}/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}.tar.gz
     - name: Extract Swift
       run: tar xzf swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}.tar.gz
     - name: Add Path
