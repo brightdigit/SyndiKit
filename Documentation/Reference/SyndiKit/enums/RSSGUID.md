@@ -3,7 +3,7 @@
 # `RSSGUID`
 
 ```swift
-public enum RSSGUID: Codable, Equatable
+public enum RSSGUID: Codable, Equatable, CustomStringConvertible
 ```
 
 ## Cases
@@ -29,6 +29,13 @@ case path([String], separatedBy: String)
 
 ```swift
 case string(String)
+```
+
+## Properties
+### `description`
+
+```swift
+public var description: String
 ```
 
 ## Methods

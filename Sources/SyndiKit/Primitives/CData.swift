@@ -1,4 +1,4 @@
-public struct CData: Codable, RSSCategory {
+public struct CData: Codable {
   public var term: String {
     value
   }

@@ -6,6 +6,12 @@ extension JSONItem: Entryable
 ```
 
 ## Properties
+### `imageURL`
+
+```swift
+public var imageURL: URL?
+```
+
 ### `creator`
 
 ```swift

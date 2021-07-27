@@ -1,5 +1,31 @@
 import Foundation
 
+public struct WPCategory: Codable {
+  let termID: Int
+  let niceName: CData
+  let parent: CData
+  let name: String
+
+  enum CodingKeys: String, CodingKey {
+    case termID = "wp:termId"
+    case niceName = "wp:categoryNicename"
+    case parent = "wp:categoryParent"
+    case name = "wp:catName"
+  }
+}
+
+public struct WPTag: Codable {
+  let termID: Int
+  let slug: CData
+  let name: CData
+
+  enum CodingKeys: String, CodingKey {
+    case termID = "wp:termId"
+    case slug = "wp:tagSlug"
+    case name = "wp:tagName"
+  }
+}
+
 public struct RSSChannel: Codable {
   public let title: String
   public let link: URL
@@ -15,6 +41,8 @@ public struct RSSChannel: Codable {
   public let copyright: String?
   public let image: RSSImage?
   public let author: RSSAuthor?
+  public let wpCategories: [WPCategory]
+  public let wpTags: [WPTag]
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -31,6 +59,8 @@ public struct RSSChannel: Codable {
     case copyright
     case image
     case author
+    case wpCategories = "wp:category"
+    case wpTags = "wp:tag"
   }
 }
 

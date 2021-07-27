@@ -90,3 +90,15 @@ public let image: RSSImage?
 ```swift
 public let author: RSSAuthor?
 ```
+
+### `wpCategories`
+
+```swift
+public let wpCategories: [WPCategory]
+```
+
+### `wpTags`
+
+```swift
+public let wpTags: [WPTag]
+```
