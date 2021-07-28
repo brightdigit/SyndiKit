@@ -73,7 +73,6 @@ public class RSSDecoder {
     return Dictionary(grouping: decodings, by: { $0.0 }).mapValues { $0.map { $0.1 } }
   }()
 
-  
   /// Returns a `Feedable` object of the type you specify, decoded from a JSON object.
   /// - Parameter data: The JSON or XML object to decode.
   /// - Returns: A `Feedable` object
