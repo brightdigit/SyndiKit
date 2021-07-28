@@ -19,7 +19,11 @@ jobs:
 
     strategy:
       matrix:
-        xcode: ["/Applications/Xcode_13.0.app"]
+        runs-on: [macos-11]
+        xcode: ["/Applications/Xcode_12.5.1.app", "/Applications/Xcode_13.0.app"]
+        include:
+          - os: macos-10.5
+            xcode: "/Applications/Xcode_12.4.app"
 
     steps:
     - uses: actions/checkout@v2
