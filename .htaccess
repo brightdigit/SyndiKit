@@ -1,0 +1,16 @@
+# Enable custom routing.
+RewriteEngine On
+
+# Route documentation and tutorial pages.
+RewriteRule ^(documentation|tutorials)\/.*$ SyndiKit.doccarchive/index.html [L]
+
+RewriteRule /data/documentation.json SyndiKit.doccarchive/data/documentation/syndikit.json [L]
+
+# Route files and data for the documentation archive.
+#
+# If the file path doesn't exist in the website's root ...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# ... route the request to that file path with the documentation archive.
+RewriteRule .* SyndiKit.doccarchive/$0 [L]
