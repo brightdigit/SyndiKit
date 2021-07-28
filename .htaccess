@@ -1,6 +1,8 @@
 # Enable custom routing.
 RewriteEngine On
 
+RedirectMatch ^/$ /documentation/
+
 # Route documentation and tutorial pages.
 RewriteRule ^(documentation|tutorials)\/.*$ SyndiKit.doccarchive/index.html [L]
 
