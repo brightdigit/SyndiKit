@@ -3,12 +3,12 @@ import XMLCoder
 
 /// An object that decodes instances of Feedable from JSON objects.
 public class RSSDecoder {
-  static func decoder(_ decoder: JSONDecoder) {
+  public static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
   }
 
-  static func decoder(_ decoder: XMLDecoder) {
+  public static func setupXMLDecoder(_ decoder: XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
@@ -20,15 +20,15 @@ public class RSSDecoder {
     defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
   ) {
     self.types = types ?? Self.defaultTypes
-    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.decoder(_:)
-    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.decoder(_:)
+    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
+    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
   }
 
   let defaultJSONDecoderSetup: (JSONDecoder) -> Void
   let defaultXMLDecoderSetup: (XMLDecoder) -> Void
   let types: [DecodableFeed.Type]
 
-  static let defaultTypes: [DecodableFeed.Type] = [
+  public static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self
@@ -73,6 +73,13 @@ public class RSSDecoder {
     return Dictionary(grouping: decodings, by: { $0.0 }).mapValues { $0.map { $0.1 } }
   }()
 
+  
+  /// Returns a `Feedable` object of the type you specify, decoded from a JSON object.
+  /// - Parameter data: The JSON or XML object to decode.
+  /// - Returns: A `Feedable` object
+  /// 
+  /// If the data is not valid RSS, this method throws the `DecodingError.dataCorrupted(_:)` error.
+  /// If a value within the RSS fails to decode, this method throws the corresponding error.
   public func decode(_ data: Data) throws -> Feedable {
     var errors = [DecodingError]()
 
