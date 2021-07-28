@@ -2,6 +2,17 @@ import Foundation
 import XMLCoder
 
 /// An object that decodes instances of Feedable from JSON objects.
+///
+/// ## Topics
+///
+/// ### Creating a Decoder
+///
+/// - ``init()``
+/// - ``init(types:defaultJSONDecoderSetup:defaultXMLDecoderSetup:)``
+///
+/// ### Decoding
+///
+/// - ``decode(_:)``
 public class RSSDecoder {
   public static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -22,6 +33,10 @@ public class RSSDecoder {
     self.types = types ?? Self.defaultTypes
     self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
     self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+  }
+  
+  public convenience init() {
+    self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
   }
 
   let defaultJSONDecoderSetup: (JSONDecoder) -> Void
@@ -77,8 +92,18 @@ public class RSSDecoder {
   /// - Parameter data: The JSON or XML object to decode.
   /// - Returns: A `Feedable` object
   /// 
-  /// If the data is not valid RSS, this method throws the `DecodingError.dataCorrupted(_:)` error.
-  /// If a value within the RSS fails to decode, this method throws the corresponding error.
+  /// If the data is not valid RSS, this method throws the
+  /// `DecodingError.dataCorrupted(_:)` error.
+  /// If a value within the RSS fails to decode,
+  /// this method throws the corresponding error.
+  ///
+  /// ```swift
+  /// let data = Data(contentsOf: "empowerapps-show.xml")!
+  /// let decoder = RSSDecoder()
+  /// let feed = try decoder.decode(data)
+  ///
+  /// print(feed.title) // Prints "Empower Apps"
+  /// ```
   public func decode(_ data: Data) throws -> Feedable {
     var errors = [DecodingError]()
 
