@@ -1,7 +1,7 @@
 import Foundation
 import XMLCoder
 
-/// An object that decodes instances of Feedable from JSON objects.
+/// An object that decodes instances of Feedable from JSON or XML objects.
 /// ## Topics
 ///
 /// ### Creating a Decoder
@@ -11,7 +11,7 @@ import XMLCoder
 /// ### Decoding
 ///
 /// - ``decode(_:)``
-public class RSSDecoder {
+public class SynDecoder {
   static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
@@ -98,7 +98,7 @@ public class RSSDecoder {
   ///
   /// ```swift
   /// let data = Data(contentsOf: "empowerapps-show.xml")!
-  /// let decoder = RSSDecoder()
+  /// let decoder = SynDecoder()
   /// let feed = try decoder.decode(data)
   ///
   /// print(feed.title) // Prints "Empower Apps"

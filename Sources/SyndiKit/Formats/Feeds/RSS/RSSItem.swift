@@ -1,21 +1,7 @@
 import Foundation
 import XMLCoder
 
-extension KeyedDecodingContainerProtocol {
-  func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
-    if let pubDateString =
-      try decodeIfPresent(String.self, forKey: key),
-      !pubDateString.isEmpty {
-      return DateFormatterDecoder.RSS.decoder.decodeString(pubDateString)
-    }
-    return nil
-  }
-}
 
-public struct RSSMedia: Codable {
-  let url: URL
-  let medium: String?
-}
 
 public struct RSSItem: Codable {
   public let title: String
@@ -51,8 +37,8 @@ public struct RSSItem: Codable {
   public let wpPostName: CData?
   public let wpPostType: CData?
   public let wpPostMeta: [WPPostMeta]?
-  public let mediaContent: RSSMedia?
-  public let mediaThumbnail: RSSMedia?
+  public let mediaContent: Media?
+  public let mediaThumbnail: Media?
 
   // swiftlint:disable:next function_body_length
   public init(from decoder: Decoder) throws {
@@ -80,8 +66,8 @@ public struct RSSItem: Codable {
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
     creator = try container.decodeIfPresent(String.self, forKey: .creator)
 
-    mediaContent = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaContent)
-    mediaThumbnail = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaThumbnail)
+    mediaContent = try container.decodeIfPresent(Media.self, forKey: .mediaContent)
+    mediaThumbnail = try container.decodeIfPresent(Media.self, forKey: .mediaThumbnail)
 
     wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
     wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
@@ -205,7 +191,7 @@ extension RSSItem: Entryable {
   }
 
   public var media: MediaContent? {
-    PodcastEpisode(rssItem: self).map(MediaContent.podcast)
+    PodcastEpisodeProperties(rssItem: self).map(MediaContent.podcast)
   }
 
   public var imageURL: URL? {

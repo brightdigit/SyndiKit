@@ -1,6 +1,6 @@
 import Foundation
 public extension SiteLanguageCategory {
-public struct Site: Codable {
+  struct Site: Codable {
   public let title: String
   public let author: String
   public let siteURL: URL

@@ -16,7 +16,7 @@ public final class SyndiKitTests: XCTestCase {
     let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
     // swiftlint:enable force_try
 
-    let decoder = RSSDecoder()
+    let decoder = SynDecoder()
 
     let rssDataSet = xmlDataSet.flatResultMapValue { data in
       try decoder.decode(data)
@@ -291,7 +291,7 @@ public final class SyndiKitTests: XCTestCase {
       let items = zip(atom.entries, feed.children)
 
       for (entry, item) in items {
-        let youtube = item.media.flatMap { media -> YouTubeIDProtocol? in
+        let youtube = item.media.flatMap { media -> YouTubeID? in
           guard case let .video(video) = media else {
             return nil
           }

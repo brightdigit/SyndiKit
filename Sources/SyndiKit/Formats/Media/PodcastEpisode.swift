@@ -1,5 +1,17 @@
 import Foundation
-struct PodcastEpisode: PodcastEpisodeProtocol {
+public protocol PodcastEpisode {
+  var title: String? { get }
+  var episode: Int? { get }
+  var author: String? { get }
+  var subtitle: String? { get }
+  var summary: String? { get }
+  var explicit: String? { get }
+  var duration: TimeInterval? { get }
+  var image: iTunesImage? { get }
+  var enclosure: Enclosure { get }
+}
+
+struct PodcastEpisodeProperties: PodcastEpisode {
   public let title: String?
   public let episode: Int?
   public let author: String?

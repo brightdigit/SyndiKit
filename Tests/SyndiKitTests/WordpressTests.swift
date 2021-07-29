@@ -22,7 +22,7 @@ final class WordpressTests: XCTestCase {
       return
     }
 
-    let decoder = RSSDecoder()
+    let decoder = SynDecoder()
 
     let exports = Dictionary(uniqueKeysWithValues: xmlDataSet).mapValues { result in
       result.flatMap { data in
