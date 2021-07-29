@@ -1,5 +1,5 @@
 import Foundation
-import SyndiKit
+@testable import SyndiKit
 import XCTest
 
 final class WordpressTests: XCTestCase {

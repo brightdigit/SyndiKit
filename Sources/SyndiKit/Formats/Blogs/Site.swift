@@ -1,17 +1,21 @@
 import Foundation
 
-public struct Site: Codable {
+public struct Site {
+  internal init(site: SiteLanguageCategory.Site, categoryType: SiteCategoryType, languageType: SiteLanguageType) {
+    title = site.title
+    author = site.author
+    siteURL = site.siteURL
+    feedURL = site.feedURL
+    twitterURL = site.twitterURL
+    category = categoryType
+    language = languageType
+  }
+
   public let title: String
   public let author: String
   public let siteURL: URL
   public let feedURL: URL
   public let twitterURL: URL?
-
-  enum CodingKeys: String, CodingKey {
-    case title
-    case author
-    case siteURL = "site_url"
-    case feedURL = "feed_url"
-    case twitterURL = "twitter_url"
-  }
+  public let category: SiteCategoryType
+  public let language: SiteLanguageType
 }

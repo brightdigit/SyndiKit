@@ -1,24 +1,52 @@
 import Foundation
 
-public struct BlogCollection {
-  let allSites: [BlogSite]
-  let languageDictionary: [LanguageType: Language]
-  let categoryDictionary: [CategoryType: Category]
-  let languageIndicies: [LanguageType: Set<Int>]
-  let categoryIndicies: [CategoryType: Set<Int>]
+public protocol SiteDirectory {
+  associatedtype SiteSequence: Sequence where SiteSequence.Element == Site
+  associatedtype LanguageSequence: Sequence where LanguageSequence.Element == SiteLanguage
+  associatedtype CategorySequence: Sequence where CategorySequence.Element == SiteCategory
+   func sites(
+    withLanguage language: SiteLanguageType?,
+    withCategory category: SiteCategoryType?
+  ) -> SiteSequence
 
-  public func languages() -> Dictionary<LanguageType, Language>.Values {
+  var languages: LanguageSequence { get }
+  var categories: CategorySequence { get }
+}
+
+public extension SiteDirectory {
+  func sites(
+   withLanguage language: SiteLanguageType? = nil,
+   withCategory category: SiteCategoryType? = nil
+  ) -> SiteSequence {
+    self.sites(withLanguage: language, withCategory: category)
+  }
+}
+
+struct SiteCollectionDirectory: SiteDirectory {
+  public typealias SiteSequence = [Site]
+
+  public typealias LanguageSequence = Dictionary<SiteLanguageType, SiteLanguage>.Values
+
+  public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
+
+  let allSites: [Site]
+  let languageDictionary: [SiteLanguageType: SiteLanguage]
+  let categoryDictionary: [SiteCategoryType: SiteCategory]
+  let languageIndicies: [SiteLanguageType: Set<Int>]
+  let categoryIndicies: [SiteCategoryType: Set<Int>]
+
+  public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
     languageDictionary.values
   }
 
-  public func categories() -> Dictionary<CategoryType, Category>.Values {
+  public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
     categoryDictionary.values
   }
 
   public func sites(
-    withLanguage language: LanguageType? = nil,
-    withCategory category: CategoryType? = nil
-  ) -> [BlogSite] {
+    withLanguage language: SiteLanguageType?,
+    withCategory category: SiteCategoryType?
+  ) -> [Site] {
     let languageIndicies: Set<Int>?
     if let language = language {
       languageIndicies = self.languageIndicies[language] ?? .init()
@@ -55,15 +83,15 @@ public struct BlogCollection {
   }
 
   // swiftlint:disable function_body_length
-  public init(blogs: BlogArray) {
+  public init(blogs: SiteCollection) {
     var categories = [CategoryLanguage]()
-    var languages = [Language]()
-    var sites = [BlogSite]()
-    var languageIndicies = [LanguageType: Set<Int>]()
-    var categoryIndicies = [CategoryType: Set<Int>]()
+    var languages = [SiteLanguage]()
+    var sites = [Site]()
+    var languageIndicies = [SiteLanguageType: Set<Int>]()
+    var categoryIndicies = [SiteCategoryType: Set<Int>]()
 
     for languageContent in blogs {
-      let language = Language(content: languageContent)
+      let language = SiteLanguage(content: languageContent)
       var thisLanguageIndicies = [Int]()
       for languageCategory in languageContent.categories {
         var thisCategoryIndicies = [Int]()
@@ -73,7 +101,7 @@ public struct BlogCollection {
         )
         for site in languageCategory.sites {
           let index = sites.count
-          let site = BlogSite(
+          let site = Site(
             site: site,
             categoryType: category.type,
             languageType: language.type
@@ -92,7 +120,7 @@ public struct BlogCollection {
     categoryDictionary = Dictionary(
       grouping: categories,
       by: { $0.type }
-    ).compactMapValues(Category.init)
+    ).compactMapValues(SiteCategory.init)
     languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
     self.languageIndicies = languageIndicies
     self.categoryIndicies = categoryIndicies

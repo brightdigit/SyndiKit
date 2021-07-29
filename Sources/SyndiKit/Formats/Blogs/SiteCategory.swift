@@ -1,4 +1,4 @@
-public struct Category {
+public struct SiteCategory {
   internal init?(languages: [CategoryLanguage]) {
     guard let type = languages.first?.type else {
       return nil
@@ -8,6 +8,6 @@ public struct Category {
       .compactMapValues { $0.first?.descriptor }
   }
 
-  public let type: CategoryType
-  public let descriptors: [LanguageType: CategoryDescriptor]
+  public let type: SiteCategoryType
+  public let descriptors: [SiteLanguageType: CategoryDescriptor]
 }

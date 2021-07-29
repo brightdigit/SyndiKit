@@ -1,5 +1,5 @@
 import Foundation
-public struct PodcastEpisode: PodcastEpisodeProtocol {
+struct PodcastEpisode: PodcastEpisodeProtocol {
   public let title: String?
   public let episode: Int?
   public let author: String?

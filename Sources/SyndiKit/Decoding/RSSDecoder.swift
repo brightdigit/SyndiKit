@@ -8,24 +8,23 @@ import XMLCoder
 /// ### Creating a Decoder
 ///
 /// - ``init()``
-/// - ``init(types:defaultJSONDecoderSetup:defaultXMLDecoderSetup:)``
 ///
 /// ### Decoding
 ///
 /// - ``decode(_:)``
 public class RSSDecoder {
-  public static func setupJSONDecoder(_ decoder: JSONDecoder) {
+  static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
   }
 
-  public static func setupXMLDecoder(_ decoder: XMLDecoder) {
+  static func setupXMLDecoder(_ decoder: XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
   }
 
-  public init(
+  init(
     types: [DecodableFeed.Type]? = nil,
     defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
     defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
@@ -34,7 +33,8 @@ public class RSSDecoder {
     self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
     self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
   }
-  
+
+  /// Creates an instance of `RSSDecoder`
   public convenience init() {
     self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
   }
@@ -43,7 +43,7 @@ public class RSSDecoder {
   let defaultXMLDecoderSetup: (XMLDecoder) -> Void
   let types: [DecodableFeed.Type]
 
-  public static let defaultTypes: [DecodableFeed.Type] = [
+  static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self

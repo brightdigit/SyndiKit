@@ -1,4 +1,4 @@
-public struct YouTubeID: YouTubeIDProtocol {
+struct YouTubeID: YouTubeIDProtocol {
   public let videoID: String
 
   public let channelID: String

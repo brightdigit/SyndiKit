@@ -10,27 +10,66 @@ SyndiKit provides models and utilities for decoding RSS feeds of various formats
 
 ## Topics
 
-### Essentials
+### Decoding an RSS Feed
 
-- <doc:/tutorials/SlothCreator>
-- <doc:GettingStarted>
-- ``Sloth``
+- ``RSSDecoder``
 
-### Creating Sloths
+### Basic Feeds
 
-- ``SlothGenerator``
-- ``NameGenerator``
-- ``Habitat``
+- ``Feedable``
+- ``Entryable``
+- ``RSSAuthor``
+- ``RSSCategory``
+- ``SyndicationUpdate``
+- ``SyndicationUpdatePeriod``
+- ``SyndicationUpdateFrequency``
+- ``RSSGUID``
+- ``CData``
+- ``XMLStringInt``
 
-### Caring for Sloths
+### Specific Feed Formats
 
-- ``Activity``
-- ``CareSchedule``
-- ``FoodGenerator``
-- ``Sloth/Food``
+- ``AtomFeed``
+- ``AtomEntry``
+- ``AtomCategory``
+- ``Link``
+- ``RSSMedia``
+- ``JSONFeed``
+- ``JSONItem``
+- ``RSSFeed``
+- ``RSSChannel``
+- ``RSSImage``
+- ``RSSItem``
+- ``RSSItemCategory``
+- ``Enclosure``
 
-### Viewing Sloths
+### RSS Extensions
 
-- ``SlothView``
-- ``HabitatView``
-- ``PowerPicker``
+- ``WPTag``
+- ``WPCategory``
+- ``WPPostMeta``
+- ``YouTubeIDProtocol``
+- ``iTunesImage``
+- ``iTunesOwner``
+- ``iTunesEpisode``
+- ``iTunesDuration``
+- ``PodcastEpisodeProtocol``
+- ``MediaContent``
+- ``Video``
+
+### Site Directories
+
+- ``SiteDirectory``
+- ``SiteDirectoryBuilder``
+- ``CategoryDescriptor``
+- ``CategoryLanguage``
+- ``Site``
+- ``SiteCategory``
+- ``SiteCollectionDirectoryBuilder``
+- ``SiteLanguage``
+- ``SiteLanguageCategory``
+- ``SiteLanguageContent``
+- ``SiteCategoryType``
+- ``SiteCollection``
+- ``SiteLanguageType``
+- ``SiteStub``
