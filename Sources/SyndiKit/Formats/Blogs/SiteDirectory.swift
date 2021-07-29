@@ -22,108 +22,130 @@ public extension SiteDirectory {
   }
 }
 
-struct SiteCollectionDirectory: SiteDirectory {
+public struct SiteCollectionDirectory : SiteDirectory{
   public typealias SiteSequence = [Site]
 
   public typealias LanguageSequence = Dictionary<SiteLanguageType, SiteLanguage>.Values
 
   public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
-
-  let allSites: [Site]
-  let languageDictionary: [SiteLanguageType: SiteLanguage]
-  let categoryDictionary: [SiteCategoryType: SiteCategory]
-  let languageIndicies: [SiteLanguageType: Set<Int>]
-  let categoryIndicies: [SiteCategoryType: Set<Int>]
-
+  
+  let instance : Instance
+  
   public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
-    languageDictionary.values
+    return self.instance.languages
   }
-
+  
   public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
-    categoryDictionary.values
+    return self.instance.categories
   }
+  
+  public func sites(withLanguage language: SiteLanguageType?, withCategory category: SiteCategoryType?) -> [Site] {
+    return instance.sites(withLanguage: language, withCategory: category)
+  }
+  
+  init(blogs: SiteCollection) {
+    self.instance = .init(blogs: blogs)
+  }
+  
+  struct Instance {
 
-  public func sites(
-    withLanguage language: SiteLanguageType?,
-    withCategory category: SiteCategoryType?
-  ) -> [Site] {
-    let languageIndicies: Set<Int>?
-    if let language = language {
-      languageIndicies = self.languageIndicies[language] ?? .init()
-    } else {
-      languageIndicies = nil
+    let allSites: [Site]
+    let languageDictionary: [SiteLanguageType: SiteLanguage]
+    let categoryDictionary: [SiteCategoryType: SiteCategory]
+    let languageIndicies: [SiteLanguageType: Set<Int>]
+    let categoryIndicies: [SiteCategoryType: Set<Int>]
+
+    public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
+      languageDictionary.values
     }
 
-    let categoryIndicies: Set<Int>?
-    if let category = category {
-      categoryIndicies = self.categoryIndicies[category] ?? .init()
-    } else {
-      categoryIndicies = nil
+    public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
+      categoryDictionary.values
     }
 
-    var indicies: Set<Int>?
-
-    if let languageIndicies = languageIndicies {
-      indicies = languageIndicies
-    }
-
-    if let categoryIndicies = categoryIndicies {
-      if let current = indicies {
-        indicies = current.intersection(categoryIndicies)
+    public func sites(
+      withLanguage language: SiteLanguageType?,
+      withCategory category: SiteCategoryType?
+    ) -> [Site] {
+      let languageIndicies: Set<Int>?
+      if let language = language {
+        languageIndicies = self.languageIndicies[language] ?? .init()
       } else {
-        indicies = categoryIndicies
+        languageIndicies = nil
       }
-    }
 
-    if let current = indicies {
-      return current.map { self.allSites[$0] }
-    } else {
-      return allSites
-    }
-  }
+      let categoryIndicies: Set<Int>?
+      if let category = category {
+        categoryIndicies = self.categoryIndicies[category] ?? .init()
+      } else {
+        categoryIndicies = nil
+      }
 
-  // swiftlint:disable function_body_length
-  public init(blogs: SiteCollection) {
-    var categories = [CategoryLanguage]()
-    var languages = [SiteLanguage]()
-    var sites = [Site]()
-    var languageIndicies = [SiteLanguageType: Set<Int>]()
-    var categoryIndicies = [SiteCategoryType: Set<Int>]()
+      var indicies: Set<Int>?
 
-    for languageContent in blogs {
-      let language = SiteLanguage(content: languageContent)
-      var thisLanguageIndicies = [Int]()
-      for languageCategory in languageContent.categories {
-        var thisCategoryIndicies = [Int]()
-        let category = CategoryLanguage(
-          languageCategory: languageCategory,
-          language: language.type
-        )
-        for site in languageCategory.sites {
-          let index = sites.count
-          let site = Site(
-            site: site,
-            categoryType: category.type,
-            languageType: language.type
-          )
-          sites.append(site)
-          thisCategoryIndicies.append(index)
-          thisLanguageIndicies.append(index)
+      if let languageIndicies = languageIndicies {
+        indicies = languageIndicies
+      }
+
+      if let categoryIndicies = categoryIndicies {
+        if let current = indicies {
+          indicies = current.intersection(categoryIndicies)
+        } else {
+          indicies = categoryIndicies
         }
-        categoryIndicies.formUnion(thisCategoryIndicies, key: category.type)
-        categories.append(category)
       }
-      languageIndicies.formUnion(thisLanguageIndicies, key: language.type)
-      languages.append(language)
+
+      if let current = indicies {
+        return current.map { self.allSites[$0] }
+      } else {
+        return allSites
+      }
     }
 
-    categoryDictionary = Dictionary(
-      grouping: categories,
-      by: { $0.type }
-    ).compactMapValues(SiteCategory.init)
-    languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
-    self.languageIndicies = languageIndicies
-    self.categoryIndicies = categoryIndicies
-    allSites = sites
+    // swiftlint:disable function_body_length
+    init(blogs: SiteCollection) {
+      var categories = [CategoryLanguage]()
+      var languages = [SiteLanguage]()
+      var sites = [Site]()
+      var languageIndicies = [SiteLanguageType: Set<Int>]()
+      var categoryIndicies = [SiteCategoryType: Set<Int>]()
+
+      for languageContent in blogs {
+        let language = SiteLanguage(content: languageContent)
+        var thisLanguageIndicies = [Int]()
+        for languageCategory in languageContent.categories {
+          var thisCategoryIndicies = [Int]()
+          let category = CategoryLanguage(
+            languageCategory: languageCategory,
+            language: language.type
+          )
+          for site in languageCategory.sites {
+            let index = sites.count
+            let site = Site(
+              site: site,
+              categoryType: category.type,
+              languageType: language.type
+            )
+            sites.append(site)
+            thisCategoryIndicies.append(index)
+            thisLanguageIndicies.append(index)
+          }
+          categoryIndicies.formUnion(thisCategoryIndicies, key: category.type)
+          categories.append(category)
+        }
+        languageIndicies.formUnion(thisLanguageIndicies, key: language.type)
+        languages.append(language)
+      }
+
+      categoryDictionary = Dictionary(
+        grouping: categories,
+        by: { $0.type }
+      ).compactMapValues(SiteCategory.init)
+      languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
+      self.languageIndicies = languageIndicies
+      self.categoryIndicies = categoryIndicies
+      allSites = sites
+    }
   }
+
 }
