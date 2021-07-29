@@ -21,7 +21,7 @@ public struct RSSItem: Codable {
   public let title: String
   public let link: URL
   public let description: CData
-  public let guid: RSSGUID
+  public let guid: EntryID
   public let pubDate: Date?
   public let contentEncoded: CData?
   public let categoryTerms: [RSSItemCategory]
@@ -60,7 +60,7 @@ public struct RSSItem: Codable {
     title = try container.decode(String.self, forKey: .title)
     link = try container.decode(URL.self, forKey: .link)
     description = try container.decode(CData.self, forKey: .description)
-    guid = try container.decode(RSSGUID.self, forKey: .guid)
+    guid = try container.decode(EntryID.self, forKey: .guid)
     pubDate = try container.decodeDateIfPresentAndValid(forKey: .pubDate)
     contentEncoded = try container.decodeIfPresent(CData.self, forKey: .contentEncoded)
     categoryTerms = try container.decode([RSSItemCategory].self, forKey: .categoryTerms)
@@ -176,7 +176,7 @@ public struct RSSItem: Codable {
 }
 
 extension RSSItem: Entryable {
-  public var categories: [RSSCategory] {
+  public var categories: [EntryCategory] {
     categoryTerms
   }
 
@@ -192,11 +192,11 @@ extension RSSItem: Entryable {
     description.value
   }
 
-  public var author: RSSAuthor? {
-    creator.map(RSSAuthor.init) ?? itunesAuthor.map(RSSAuthor.init)
+  public var author: Author? {
+    creator.map(Author.init) ?? itunesAuthor.map(Author.init)
   }
 
-  public var id: RSSGUID {
+  public var id: EntryID {
     guid
   }
 

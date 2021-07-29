@@ -8,7 +8,7 @@ public struct AtomFeed {
   public let pubDate: Date?
   public let links: [Link]
   public let entries: [AtomEntry]
-  public let author: RSSAuthor?
+  public let author: Author?
   public let youtubeChannelID: String?
 
   enum CodingKeys: String, CodingKey {

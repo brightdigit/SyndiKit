@@ -1,13 +1,13 @@
 import Foundation
 
 public struct JSONItem: Codable {
-  public let guid: RSSGUID
+  public let guid: EntryID
   public let url: URL
   public let title: String
   public let contentHtml: String?
   public let summary: String?
   public let datePublished: Date?
-  public let author: RSSAuthor?
+  public let author: Author?
 }
 
 extension JSONItem: Entryable {
@@ -23,11 +23,11 @@ extension JSONItem: Entryable {
     datePublished
   }
 
-  public var id: RSSGUID {
+  public var id: EntryID {
     guid
   }
 
-  public var categories: [RSSCategory] {
+  public var categories: [EntryCategory] {
     []
   }
 

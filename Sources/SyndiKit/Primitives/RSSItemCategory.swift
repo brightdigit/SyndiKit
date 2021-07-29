@@ -1,4 +1,4 @@
-public struct RSSItemCategory: Codable, RSSCategory {
+public struct RSSItemCategory: Codable, EntryCategory {
   public var term: String {
     value
   }

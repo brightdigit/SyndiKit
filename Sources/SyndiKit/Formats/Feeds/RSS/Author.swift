@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RSSAuthor: Codable, Equatable {
+public struct Author: Codable, Equatable {
   internal init(name: String) {
     self.name = name
     email = nil

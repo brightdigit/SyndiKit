@@ -1,30 +1,35 @@
 import Foundation
 
-public enum RSSGUID: Codable, Equatable, CustomStringConvertible {
-  public var description: String {
-    let string: String
-    switch self {
-    case let .url(url):
-      string = url.absoluteString
 
-    case let .uuid(uuid):
-      string = uuid.uuidString.lowercased()
-
-    case let .path(components, separatedBy: separator):
-      string = components.joined(separator: separator)
-
-    case let .string(value):
-      string = value
-    }
-    return string
-  }
-
+/// Entry identifier based on the RSS guid.
+/// ## Topics
+///
+/// ### Enumeration Cases
+///
+/// - ``url(_:)``
+/// - ``uuid(_:)``
+/// - ``path(_:separatedBy:)``
+/// - ``string(_:)``
+///
+/// ### String Conversion
+///
+/// - ``init(string:)``
+/// - ``description``
+///
+///  ### Codable Overrides
+///
+/// - ``init(from:)``
+/// - ``encode(to:)``
+public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   case url(URL)
   case uuid(UUID)
   case path([String], separatedBy: String)
   case string(String)
 
-  public init(from string: String) {
+  public init?(_ description: String) {
+    self.init(string: description)
+  }
+  public init(string: String) {
     if let url = URL(strict: string) {
       self = .url(url)
     } else if let uuid = UUID(uuidString: string) {
@@ -42,6 +47,24 @@ public enum RSSGUID: Codable, Equatable, CustomStringConvertible {
         }
       }
     }
+  }
+  
+  public var description: String {
+    let string: String
+    switch self {
+    case let .url(url):
+      string = url.absoluteString
+
+    case let .uuid(uuid):
+      string = uuid.uuidString.lowercased()
+
+    case let .path(components, separatedBy: separator):
+      string = components.joined(separator: separator)
+
+    case let .string(value):
+      string = value
+    }
+    return string
   }
 
   public init(from decoder: Decoder) throws {

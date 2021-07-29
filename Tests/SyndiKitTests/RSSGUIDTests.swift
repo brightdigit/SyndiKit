@@ -6,7 +6,7 @@ final class RSSGUIDTests: XCTestCase {
   func testGUIDURL() {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
 
-    let urlGUID = RSSGUID(from: urlString)
+    let urlGUID = EntryID(from: urlString)
 
     guard case let .url(url) = urlGUID else {
       XCTFail()
@@ -19,7 +19,7 @@ final class RSSGUIDTests: XCTestCase {
     let expectedUUID = UUID()
 
     let expectedUUIDString = expectedUUID.uuidString
-    let uuidGUID = RSSGUID(from: expectedUUIDString)
+    let uuidGUID = EntryID(from: expectedUUIDString)
 
     guard case let .uuid(actualUUID) = uuidGUID else {
       XCTFail()
@@ -31,7 +31,7 @@ final class RSSGUIDTests: XCTestCase {
   func testGUIDYouTube() {
     let expectedPath = ["yt", "video", "3hccNoPE59U"]
 
-    let pathGUID = RSSGUID(from: expectedPath.joined(separator: ":"))
+    let pathGUID = EntryID(from: expectedPath.joined(separator: ":"))
 
     guard case let .path(actualPath, ":") = pathGUID else {
       XCTFail()

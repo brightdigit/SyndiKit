@@ -8,7 +8,7 @@ extension RSSFeed: DecodableFeed {
     nil
   }
 
-  public var author: RSSAuthor? {
+  public var author: Author? {
     channel.author
   }
 

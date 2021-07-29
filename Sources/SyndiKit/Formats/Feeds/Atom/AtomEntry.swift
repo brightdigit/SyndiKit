@@ -1,14 +1,14 @@
 import Foundation
 
 public struct AtomEntry: Codable {
-  public let id: RSSGUID
+  public let id: EntryID
   public let title: String
   public let published: Date?
   public let content: String?
   public let updated: Date
   public let atomCategories: [AtomCategory]
   public let link: Link
-  public let author: RSSAuthor?
+  public let author: Author?
   public let youtubeChannelID: String?
   public let youtubeVideoID: String?
   public let mediaDescription: String?
@@ -35,7 +35,7 @@ public struct AtomEntry: Codable {
 }
 
 extension AtomEntry: Entryable {
-  public var categories: [RSSCategory] {
+  public var categories: [EntryCategory] {
     atomCategories
   }
 
