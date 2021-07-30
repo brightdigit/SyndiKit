@@ -47,7 +47,7 @@ jobs:
       run: bash <(curl https://codecov.io/bash) -F github -F ${RELEASE_NAME} -F ${SWIFT_VER}
       env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  build-ubuntu-5.5-dev:
+  build-ubuntu-5_5-dev:
     name: Build on Ubuntu - Swift 5.5 Dev Branch
     env:
       PACKAGE_NAME: SyndiKit
