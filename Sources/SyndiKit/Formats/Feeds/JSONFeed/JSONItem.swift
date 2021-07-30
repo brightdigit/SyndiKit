@@ -7,6 +7,8 @@ public struct JSONItem: Codable {
   public let contentHtml: String?
   public let summary: String?
   public let datePublished: Date?
+
+  /// The author of the item.
   public let author: Author?
 }
 

@@ -22,33 +22,32 @@ public extension SiteDirectory {
   }
 }
 
-public struct SiteCollectionDirectory : SiteDirectory{
+public struct SiteCollectionDirectory: SiteDirectory {
   public typealias SiteSequence = [Site]
 
   public typealias LanguageSequence = Dictionary<SiteLanguageType, SiteLanguage>.Values
 
   public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
-  
-  let instance : Instance
-  
+
+  let instance: Instance
+
   public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
-    return self.instance.languages
+    self.instance.languages
   }
-  
+
   public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
-    return self.instance.categories
+    self.instance.categories
   }
-  
+
   public func sites(withLanguage language: SiteLanguageType?, withCategory category: SiteCategoryType?) -> [Site] {
-    return instance.sites(withLanguage: language, withCategory: category)
+    instance.sites(withLanguage: language, withCategory: category)
   }
-  
+
   init(blogs: SiteCollection) {
     self.instance = .init(blogs: blogs)
   }
-  
-  struct Instance {
 
+  struct Instance {
     let allSites: [Site]
     let languageDictionary: [SiteLanguageType: SiteLanguage]
     let categoryDictionary: [SiteCategoryType: SiteCategory]
@@ -147,5 +146,4 @@ public struct SiteCollectionDirectory : SiteDirectory{
       allSites = sites
     }
   }
-
 }

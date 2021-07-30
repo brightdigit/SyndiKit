@@ -1,8 +1,6 @@
 import Foundation
 import XMLCoder
 
-
-
 public struct RSSItem: Codable {
   public let title: String
   public let link: URL
@@ -37,8 +35,8 @@ public struct RSSItem: Codable {
   public let wpPostName: CData?
   public let wpPostType: CData?
   public let wpPostMeta: [WPPostMeta]?
-  public let mediaContent: Media?
-  public let mediaThumbnail: Media?
+  public let mediaContent: AtomMedia?
+  public let mediaThumbnail: AtomMedia?
 
   // swiftlint:disable:next function_body_length
   public init(from decoder: Decoder) throws {
@@ -66,8 +64,8 @@ public struct RSSItem: Codable {
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
     creator = try container.decodeIfPresent(String.self, forKey: .creator)
 
-    mediaContent = try container.decodeIfPresent(Media.self, forKey: .mediaContent)
-    mediaThumbnail = try container.decodeIfPresent(Media.self, forKey: .mediaThumbnail)
+    mediaContent = try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent)
+    mediaThumbnail = try container.decodeIfPresent(AtomMedia.self, forKey: .mediaThumbnail)
 
     wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
     wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)

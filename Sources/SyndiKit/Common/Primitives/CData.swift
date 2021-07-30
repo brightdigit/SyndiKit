@@ -1,8 +1,6 @@
+/// #CDATA XML element.
 public struct CData: Codable {
-  public var term: String {
-    value
-  }
-
+  /// String value of the #CDATA element.
   public let value: String
 
   enum CodingKeys: String, CodingKey {

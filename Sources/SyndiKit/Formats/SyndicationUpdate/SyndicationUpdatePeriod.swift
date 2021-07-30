@@ -1,3 +1,4 @@
+/// Describes the period over which the channel format is updated.
 public enum SyndicationUpdatePeriod: String, Codable {
   case hourly, daily, weekly, monthly, yearly
 

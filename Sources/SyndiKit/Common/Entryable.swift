@@ -1,6 +1,5 @@
 import Foundation
 
-
 /// Basic Feed type with abstract properties.
 public protocol Entryable {
   /// Unique Identifier of the Item.

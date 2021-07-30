@@ -4,10 +4,9 @@
 /// <yt:channelId>UCv75sKQFFIenWHrprnrR9aA</yt:channelId>
 /// ```
 public protocol YouTubeID {
-  
   /// YouTube video ID.
   var videoID: String { get }
-  
+
   /// YouTube channel ID.
   var channelID: String { get }
 }

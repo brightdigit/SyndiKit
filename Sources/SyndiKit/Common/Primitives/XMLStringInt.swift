@@ -1,4 +1,6 @@
+/// XML Element which contains a `String` parsable into a `Integer`.
 public struct XMLStringInt: Codable {
+  /// The underlying `Int` value.
   public let value: Int
 
   public init(from decoder: Decoder) throws {

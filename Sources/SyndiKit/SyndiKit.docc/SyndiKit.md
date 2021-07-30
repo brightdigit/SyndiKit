@@ -23,7 +23,6 @@ The basic types used by **SyndiKit** for traversing the feed in abstract manner 
 - ``Author``
 - ``EntryCategory``
 - ``EntryID``
-- ``Media``
 
 ### Abstract Media Types
 
@@ -43,7 +42,7 @@ In many cases, types are encoded in non-matching types but are intended to stron
 
 ### Syndication Updates
 
-Properties from [the RDF Site Summary Syndication Module](https://web.resource.org/rss/1.0/modules/syndication/) concerning how often it is updated a feed is updated. 
+Properties from the RDF Site Summary Syndication Module concerning how often it is updated a feed is updated. 
 
 - ``SyndicationUpdate``
 - ``SyndicationUpdatePeriod``
@@ -56,6 +55,7 @@ Specific properties related to the Atom format.
 - ``AtomFeed``
 - ``AtomEntry``
 - ``AtomCategory``
+- ``AtomMedia``
 - ``Link``
 
 ### JSON Feed Format

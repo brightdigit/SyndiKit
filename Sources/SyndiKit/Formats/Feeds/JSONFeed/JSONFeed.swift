@@ -5,6 +5,8 @@ public struct JSONFeed {
   public let title: String
   public let homePageUrl: URL
   public let description: String?
+
+  /// The author of the feed.
   public let author: Author?
   public let items: [JSONItem]
 }

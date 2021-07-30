@@ -8,13 +8,14 @@ public struct AtomEntry: Codable {
   public let updated: Date
   public let atomCategories: [AtomCategory]
   public let link: Link
+  /// The author of the entry.
   public let author: Author?
   public let youtubeChannelID: String?
   public let youtubeVideoID: String?
   public let mediaDescription: String?
   public let creator: String?
-  public let mediaContent: Media?
-  public let mediaThumbnail: Media?
+  public let mediaContent: AtomMedia?
+  public let mediaThumbnail: AtomMedia?
 
   enum CodingKeys: String, CodingKey {
     case id

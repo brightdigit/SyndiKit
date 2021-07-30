@@ -1,4 +1,4 @@
-import SyndiKit
+@testable import SyndiKit
 import XCTest
 import XMLCoder
 

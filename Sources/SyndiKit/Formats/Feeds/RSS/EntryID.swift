@@ -1,6 +1,5 @@
 import Foundation
 
-
 /// Entry identifier based on the RSS guid.
 /// ## Topics
 ///
@@ -24,10 +23,10 @@ import Foundation
 public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   /// URL format.
   case url(URL)
-  
+
   /// UUID format.
   case uuid(UUID)
-  
+
   /// String path separated by a character string.
   ///
   /// This is generally used by YouTube's RSS feed. in the format of:
@@ -35,17 +34,16 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   /// yt:video:(YouTube Video ID)
   /// ```
   case path([String], separatedBy: String)
-  
+
   /// Plain un-parsable String.
   case string(String)
-  
+
   /// Implementation of ``LosslessStringConvertible`` initializer.
   /// This will never return a nil instance. Therefore you should use ``init(string:)``in most cases to avoid the `Optional` result.
   public init?(_ description: String) {
     self.init(string: description)
   }
 
-  
   /// Parses the String into a ``EntryID``
   /// - Parameter string: The String to parse.
   /// You should use this rather than ``init(_:)``  to avoid the `Optional` result.
@@ -68,7 +66,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
       }
     }
   }
-  
+
   public var description: String {
     let string: String
     switch self {

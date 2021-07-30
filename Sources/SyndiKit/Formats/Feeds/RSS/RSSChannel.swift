@@ -1,14 +1,12 @@
 import Foundation
 
-
-
 public struct RSSChannel: Codable {
   public let title: String
   public let link: URL
   public let description: String?
   public let lastBuildDate: Date?
   public let pubDate: Date?
-  public let ttl : Int?
+  public let ttl: Int?
   public let syUpdatePeriod: SyndicationUpdatePeriod?
   public let syUpdateFrequency: SyndicationUpdateFrequency?
   public let items: [RSSItem]

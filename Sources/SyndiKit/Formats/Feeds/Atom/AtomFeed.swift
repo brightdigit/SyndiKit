@@ -8,6 +8,7 @@ public struct AtomFeed {
   public let pubDate: Date?
   public let links: [Link]
   public let entries: [AtomEntry]
+  /// The author of the feed.
   public let author: Author?
   public let youtubeChannelID: String?
 
