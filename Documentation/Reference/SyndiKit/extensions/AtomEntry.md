@@ -35,3 +35,9 @@ public var summary: String?
 ```swift
 public var media: MediaContent?
 ```
+
+### `imageURL`
+
+```swift
+public var imageURL: URL?
+```

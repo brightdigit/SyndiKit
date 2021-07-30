@@ -53,3 +53,9 @@ public var published: Date?
 ```swift
 public var media: MediaContent?
 ```
+
+### `imageURL`
+
+```swift
+public var imageURL: URL?
+```

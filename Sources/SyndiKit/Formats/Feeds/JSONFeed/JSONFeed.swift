@@ -5,7 +5,9 @@ public struct JSONFeed {
   public let title: String
   public let homePageUrl: URL
   public let description: String?
-  public let author: RSSAuthor?
+
+  /// The author of the feed.
+  public let author: Author?
   public let items: [JSONItem]
 }
 
@@ -42,5 +44,5 @@ extension JSONFeed: DecodableFeed {
     nil
   }
 
-  public static let source: DecoderSetup = DecoderSource.json
+  static let source: DecoderSetup = DecoderSource.json
 }

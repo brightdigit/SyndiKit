@@ -8,7 +8,8 @@ public struct AtomFeed {
   public let pubDate: Date?
   public let links: [Link]
   public let entries: [AtomEntry]
-  public let author: RSSAuthor?
+  /// The author of the feed.
+  public let author: Author?
   public let youtubeChannelID: String?
 
   enum CodingKeys: String, CodingKey {
@@ -54,5 +55,5 @@ extension AtomFeed: DecodableFeed {
     nil
   }
 
-  public static let source: DecoderSetup = DecoderSource.xml
+  static let source: DecoderSetup = DecoderSource.xml
 }

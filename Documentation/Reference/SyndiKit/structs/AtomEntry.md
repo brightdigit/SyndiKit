@@ -78,3 +78,15 @@ public let mediaDescription: String?
 ```swift
 public let creator: String?
 ```
+
+### `mediaContent`
+
+```swift
+public let mediaContent: RSSMedia?
+```
+
+### `mediaThumbnail`
+
+```swift
+public let mediaThumbnail: RSSMedia?
+```

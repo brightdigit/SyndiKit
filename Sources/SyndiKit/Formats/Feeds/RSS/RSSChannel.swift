@@ -6,6 +6,7 @@ public struct RSSChannel: Codable {
   public let description: String?
   public let lastBuildDate: Date?
   public let pubDate: Date?
+  public let ttl: Int?
   public let syUpdatePeriod: SyndicationUpdatePeriod?
   public let syUpdateFrequency: SyndicationUpdateFrequency?
   public let items: [RSSItem]
@@ -14,7 +15,9 @@ public struct RSSChannel: Codable {
   public let itunesOwner: iTunesOwner?
   public let copyright: String?
   public let image: RSSImage?
-  public let author: RSSAuthor?
+  public let author: Author?
+  public let wpCategories: [WPCategory]
+  public let wpTags: [WPTag]
 
   enum CodingKeys: String, CodingKey {
     case title
@@ -22,6 +25,7 @@ public struct RSSChannel: Codable {
     case description
     case lastBuildDate
     case pubDate
+    case ttl
     case syUpdatePeriod = "sy:updatePeriod"
     case syUpdateFrequency = "sy:updateFrequency"
     case items = "item"
@@ -31,6 +35,8 @@ public struct RSSChannel: Codable {
     case copyright
     case image
     case author
+    case wpCategories = "wp:category"
+    case wpTags = "wp:tag"
   }
 }
 

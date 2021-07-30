@@ -66,3 +66,9 @@ var creator: String?
 ```swift
 var media: MediaContent?
 ```
+
+### `imageURL`
+
+```swift
+var imageURL: URL?
+```

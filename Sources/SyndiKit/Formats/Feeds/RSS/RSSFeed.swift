@@ -8,7 +8,7 @@ extension RSSFeed: DecodableFeed {
     nil
   }
 
-  public var author: RSSAuthor? {
+  public var author: Author? {
     channel.author
   }
 
@@ -44,5 +44,5 @@ extension RSSFeed: DecodableFeed {
     channel.syndication
   }
 
-  public static let source: DecoderSetup = DecoderSource.xml
+  static let source: DecoderSetup = DecoderSource.xml
 }
