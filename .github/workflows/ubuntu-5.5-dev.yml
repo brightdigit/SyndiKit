@@ -1,4 +1,4 @@
-name: ubuntu
+name: ubuntu-5.5-dev
 
 on: [push]
 
