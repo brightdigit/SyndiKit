@@ -132,7 +132,7 @@ jobs:
         
   deploy:
     name: Deploy to Netlify
-    needs: [build-macos,  build-ubuntu, build-ubuntu-5.5-dev]
+    needs: [build-macos,  build-ubuntu, build-ubuntu-5_5-dev]
     env:
       PACKAGE_NAME: SyndiKit
 
