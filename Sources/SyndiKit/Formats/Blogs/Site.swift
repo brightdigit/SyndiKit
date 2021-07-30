@@ -1,7 +1,11 @@
 import Foundation
 
 public struct Site {
-  internal init(site: SiteLanguageCategory.Site, categoryType: SiteCategoryType, languageType: SiteLanguageType) {
+  internal init(
+    site: SiteLanguageCategory.Site,
+    categoryType: SiteCategoryType,
+    languageType: SiteLanguageType
+  ) {
     title = site.title
     author = site.author
     siteURL = site.siteURL

@@ -39,7 +39,8 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   case string(String)
 
   /// Implementation of ``LosslessStringConvertible`` initializer.
-  /// This will never return a nil instance. Therefore you should use ``init(string:)``in most cases to avoid the `Optional` result.
+  /// This will never return a nil instance.
+  /// Therefore you should use ``init(string:)``to  avoid the `Optional` result.
   public init?(_ description: String) {
     self.init(string: description)
   }
