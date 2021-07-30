@@ -1,4 +1,4 @@
-name: macOS
+name: SyndiKit
 
 on:
   push:
@@ -146,10 +146,5 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_13.0.app/Contents/Developer
       - name: Build DocC Documentation
         run: xcodebuild docbuild -scheme ${{ env.PACKAGE_NAME }} -destination 'platform=macOS' -derivedDataPath DerivedData
-      - name: Setup Directory
-        run: |
-          mkdir Output
-          cp -rf DerivedData/Build/Products/Debug/SyndiKit.doccarchive Output
-          cp netlify.toml Output
       - name: Deploy Files
-        run: netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod

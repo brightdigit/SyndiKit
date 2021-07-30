@@ -1,5 +1,5 @@
 [build]
-publish = "SyndiKit.doccarchive/"
+publish = "DerivedData/Build/Products/Debug/SyndiKit.doccarchive/"
 
 [[redirects]]
 from = "/documentation/*"
