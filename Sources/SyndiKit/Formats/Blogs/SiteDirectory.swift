@@ -1,9 +1,13 @@
 import Foundation
 
 public protocol SiteDirectory {
-  associatedtype SiteSequence: Sequence where SiteSequence.Element == Site
-  associatedtype LanguageSequence: Sequence where LanguageSequence.Element == SiteLanguage
-  associatedtype CategorySequence: Sequence where CategorySequence.Element == SiteCategory
+  associatedtype SiteSequence: Sequence
+    where SiteSequence.Element == Site
+  associatedtype LanguageSequence: Sequence
+    where LanguageSequence.Element == SiteLanguage
+  associatedtype CategorySequence: Sequence
+    where CategorySequence.Element == SiteCategory
+
   func sites(
     withLanguage language: SiteLanguageType?,
     withCategory category: SiteCategoryType?
@@ -25,21 +29,30 @@ public extension SiteDirectory {
 public struct SiteCollectionDirectory: SiteDirectory {
   public typealias SiteSequence = [Site]
 
-  public typealias LanguageSequence = Dictionary<SiteLanguageType, SiteLanguage>.Values
+  public typealias LanguageSequence =
+    Dictionary<SiteLanguageType, SiteLanguage>.Values
 
-  public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
+  public typealias CategorySequence =
+    Dictionary<SiteCategoryType, SiteCategory>.Values
 
   let instance: Instance
 
-  public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
-    instance.languages
+  public var languages: Dictionary<
+    SiteLanguageType, SiteLanguage
+  >.Values {
+    instance.languageDictionary.values
   }
 
-  public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
-    instance.categories
+  public var categories: Dictionary<
+    SiteCategoryType, SiteCategory
+  >.Values {
+    instance.categoryDictionary.values
   }
 
-  public func sites(withLanguage language: SiteLanguageType?, withCategory category: SiteCategoryType?) -> [Site] {
+  public func sites(
+    withLanguage language: SiteLanguageType?,
+    withCategory category: SiteCategoryType?
+  ) -> [Site] {
     instance.sites(withLanguage: language, withCategory: category)
   }
 
@@ -53,14 +66,6 @@ public struct SiteCollectionDirectory: SiteDirectory {
     let categoryDictionary: [SiteCategoryType: SiteCategory]
     let languageIndicies: [SiteLanguageType: Set<Int>]
     let categoryIndicies: [SiteCategoryType: Set<Int>]
-
-    public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
-      languageDictionary.values
-    }
-
-    public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
-      categoryDictionary.values
-    }
 
     public func sites(
       withLanguage language: SiteLanguageType?,
@@ -140,7 +145,9 @@ public struct SiteCollectionDirectory: SiteDirectory {
         grouping: categories,
         by: { $0.type }
       ).compactMapValues(SiteCategory.init)
-      languageDictionary = Dictionary(uniqueKeysWithValues: languages.map { ($0.type, $0) })
+      languageDictionary = Dictionary(
+        uniqueKeysWithValues: languages.map { ($0.type, $0) }
+      )
       self.languageIndicies = languageIndicies
       self.categoryIndicies = categoryIndicies
       allSites = sites

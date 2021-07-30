@@ -64,8 +64,10 @@ public struct RSSItem: Codable {
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
     creator = try container.decodeIfPresent(String.self, forKey: .creator)
 
-    mediaContent = try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent)
-    mediaThumbnail = try container.decodeIfPresent(AtomMedia.self, forKey: .mediaThumbnail)
+    mediaContent =
+      try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent)
+    mediaThumbnail =
+      try container.decodeIfPresent(AtomMedia.self, forKey: .mediaThumbnail)
 
     wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
     wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
