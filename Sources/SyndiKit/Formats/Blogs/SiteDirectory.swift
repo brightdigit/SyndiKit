@@ -4,7 +4,7 @@ public protocol SiteDirectory {
   associatedtype SiteSequence: Sequence where SiteSequence.Element == Site
   associatedtype LanguageSequence: Sequence where LanguageSequence.Element == SiteLanguage
   associatedtype CategorySequence: Sequence where CategorySequence.Element == SiteCategory
-   func sites(
+  func sites(
     withLanguage language: SiteLanguageType?,
     withCategory category: SiteCategoryType?
   ) -> SiteSequence
@@ -15,10 +15,10 @@ public protocol SiteDirectory {
 
 public extension SiteDirectory {
   func sites(
-   withLanguage language: SiteLanguageType? = nil,
-   withCategory category: SiteCategoryType? = nil
+    withLanguage language: SiteLanguageType? = nil,
+    withCategory category: SiteCategoryType? = nil
   ) -> SiteSequence {
-    self.sites(withLanguage: language, withCategory: category)
+    sites(withLanguage: language, withCategory: category)
   }
 }
 
@@ -32,11 +32,11 @@ public struct SiteCollectionDirectory: SiteDirectory {
   let instance: Instance
 
   public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
-    self.instance.languages
+    instance.languages
   }
 
   public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
-    self.instance.categories
+    instance.categories
   }
 
   public func sites(withLanguage language: SiteLanguageType?, withCategory category: SiteCategoryType?) -> [Site] {
@@ -44,7 +44,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
   }
 
   init(blogs: SiteCollection) {
-    self.instance = .init(blogs: blogs)
+    instance = .init(blogs: blogs)
   }
 
   struct Instance {

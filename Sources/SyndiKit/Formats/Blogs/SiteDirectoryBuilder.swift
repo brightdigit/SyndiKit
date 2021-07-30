@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  File
-//
-//  Created by Leo Dion on 7/28/21.
-//
-
 import Foundation
 
 public protocol SiteDirectoryBuilder {

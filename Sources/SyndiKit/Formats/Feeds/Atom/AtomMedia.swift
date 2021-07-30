@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  File
-//
-//  Created by Leo Dion on 7/29/21.
-//
-
 import Foundation
 
 /// Media structure which enables content publishers and bloggers to syndicate multimedia content such as TV and video clips, movies, images and audio.

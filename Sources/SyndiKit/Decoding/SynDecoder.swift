@@ -90,7 +90,7 @@ public class SynDecoder {
   /// Returns a `Feedable` object of the type you specify, decoded from a JSON object.
   /// - Parameter data: The JSON or XML object to decode.
   /// - Returns: A `Feedable` object
-  /// 
+  ///
   /// If the data is not valid RSS, this method throws the
   /// `DecodingError.dataCorrupted(_:)` error.
   /// If a value within the RSS fails to decode,
