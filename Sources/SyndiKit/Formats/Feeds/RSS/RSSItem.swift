@@ -34,7 +34,7 @@ public struct RSSItem: Codable {
   public let wpModifiedDateGMT: Date?
   public let wpPostName: CData?
   public let wpPostType: CData?
-  public let wpPostMeta: [WPPostMeta]?
+  public let wpPostMeta: [WordPressElements.PostMeta]?
   public let mediaContent: AtomMedia?
   public let mediaThumbnail: AtomMedia?
 
@@ -107,7 +107,7 @@ public struct RSSItem: Codable {
 
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
-    wpPostMeta = try container.decodeIfPresent([WPPostMeta].self, forKey: .wpPostMeta)
+    wpPostMeta = try container.decodeIfPresent([WordPressElements.PostMeta].self, forKey: .wpPostMeta)
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)

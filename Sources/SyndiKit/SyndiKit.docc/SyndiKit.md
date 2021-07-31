@@ -107,7 +107,7 @@ switch kiloLocoAtomFeed.children.last?.media {
 ## Topics
 
 ### Decoding an RSS Feed
-`
+
 - ``SynDecoder``
 
 ### Basic Feeds
@@ -172,13 +172,12 @@ Specific properties related to the RSS Feed format.
 - ``RSSItemCategory``
 - ``Enclosure``
 
-### Wordpress Extensions
+### WordPress Extensions
 
-Specific extension properties provided by Wordpress.
+Specific extension properties provided by WordPress.
 
-- ``WPTag``
-- ``WPCategory``
-- ``WPPostMeta``
+- ``WordPressElements``
+- ``WordPressPost``
 
 ### YouTube Extensions
 

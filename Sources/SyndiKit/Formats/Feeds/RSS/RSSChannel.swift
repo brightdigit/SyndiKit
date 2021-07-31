@@ -16,8 +16,8 @@ public struct RSSChannel: Codable {
   public let copyright: String?
   public let image: RSSImage?
   public let author: Author?
-  public let wpCategories: [WPCategory]
-  public let wpTags: [WPTag]
+  public let wpCategories: [WordPressElements.Category]
+  public let wpTags: [WordPressElements.Tag]
 
   enum CodingKeys: String, CodingKey {
     case title
