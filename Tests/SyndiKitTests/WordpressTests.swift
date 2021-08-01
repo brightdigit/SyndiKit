@@ -16,7 +16,7 @@ final class WordpressTests: XCTestCase {
   func testWordpressPosts() {
     let xmlDataSet: [(String, Result<Data, Error>)]
     do {
-      xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.Wordpress)
+      xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.WordPress)
     } catch {
       XCTAssertNil(error)
       return
