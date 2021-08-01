@@ -7,7 +7,18 @@ public struct WordPressPost {
   public typealias CommentStatus = String
   public typealias PingStatus = String
   public typealias Status = String
-  init(name: String, title: String, type: PostType, link: URL, pubDate: Date?, creator: String, body: String, tags: [String], categories: [String], meta: [String: String], status: Status, commentStatus: CommentStatus, pingStatus: PingStatus, parentID: Int?, menuOrder: Int?, ID: Int, isSticky: Bool, postDate: Date, postDateGMT: Date?, modifiedDate: Date, modifiedDateGMT: Date?) {
+  init(
+    name: String,
+    title: String,
+    type: PostType,
+    link: URL,
+    pubDate: Date?,
+    creator: String,
+    body: String,
+    tags: [String],
+    categories: [String],
+    meta: [String: String],
+    status: Status, commentStatus: CommentStatus, pingStatus: PingStatus, parentID: Int?, menuOrder: Int?, ID: Int, isSticky: Bool, postDate: Date, postDateGMT: Date?, modifiedDate: Date, modifiedDateGMT: Date?) {
     self.name = name
     self.title = title
     self.type = type
@@ -83,6 +94,8 @@ enum WordPressError: Error {
 }
 
 public extension WordPressPost {
+  
+  //swiftlint:disable:next cyclomatic_complexity function_body_length
   init(item: RSSItem) throws {
     let title = item.title
     let link = item.link
