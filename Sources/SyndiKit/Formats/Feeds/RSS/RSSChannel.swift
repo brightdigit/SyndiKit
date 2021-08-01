@@ -13,6 +13,8 @@ public struct RSSChannel: Codable {
 
   /// The last time the content of the channel changed.
   public let lastBuildDate: Date?
+
+  /// indicates the publication date and time of the feed's content
   public let pubDate: Date?
 
   /// ttl stands for time to live. It's a number of minutes that indicates how long a channel can be cached before refreshing from the source.

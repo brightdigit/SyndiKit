@@ -24,8 +24,8 @@ extension JSONItem: Entryable {
     nil
   }
 
-  public var creator: String? {
-    nil
+  public var creators: [String] {
+    []
   }
 
   public var published: Date? {

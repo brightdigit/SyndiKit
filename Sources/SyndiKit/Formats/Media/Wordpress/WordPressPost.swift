@@ -93,7 +93,7 @@ public extension WordPressPost {
       throw WordPressError.missingField(.type)
     }
     let pubDate = item.pubDate
-    guard let creator = item.creator else {
+    guard let creator = item.creators.first else {
       throw WordPressError.missingField(.creator)
     }
     guard let body = item.contentEncoded else {

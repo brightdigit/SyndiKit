@@ -19,7 +19,7 @@ public protocol Entryable {
   /// Includes the item in one or more categories.
   var categories: [EntryCategory] { get }
   /// Creator of the item.
-  var creator: String? { get }
+  var creators: [String] { get }
   /// Abstraction of Podcast episode or Youtube video info.
   var media: MediaContent? { get }
   /// Image URL of the Item.

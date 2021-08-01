@@ -19,7 +19,7 @@ public struct RSSItem: Codable {
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
   public let enclosure: Enclosure?
-  public let creator: String?
+  public let creators: [String]
   public let wpCommentStatus: CData?
   public let wpPingStatus: CData?
   public let wpStatus: CData?
@@ -62,7 +62,7 @@ public struct RSSItem: Codable {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
-    creator = try container.decodeIfPresent(String.self, forKey: .creator)
+    creators = try container.decode([String].self, forKey: .creators)
 
     mediaContent =
       try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent)
@@ -137,7 +137,7 @@ public struct RSSItem: Codable {
     case itunesExplicit = "itunes:explicit"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
-    case creator = "dc:creator"
+    case creators = "dc:creator"
 
     case wpPostID = "wp:postId"
     case wpPostDate = "wp:postDate"
@@ -179,7 +179,11 @@ extension RSSItem: Entryable {
   }
 
   public var authors: [Author] {
-    guard let author = creator.map(Author.init) ?? itunesAuthor.map(Author.init) else {
+    let authors = creators.map(Author.init)
+    guard authors.isEmpty else {
+      return authors
+    }
+    guard let author = itunesAuthor.map(Author.init) else {
       return []
     }
     return [author]

@@ -71,13 +71,13 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(
-      rssItem.creator == child.authors.first?.name ||
+      rssItem.creators.first == child.authors.first?.name ||
         rssItem.itunesAuthor == child.authors.first?.name
     )
   }
 
   fileprivate func assertJSONItem(_ jsonItem: JSONItem, child: Entryable) {
-    XCTAssertNil(jsonItem.creator)
+    XCTAssertNil(jsonItem.creators.first)
     XCTAssertNil(jsonItem.media)
     XCTAssertEqual(jsonItem.categories.count, 0)
 
