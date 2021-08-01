@@ -1,15 +1,17 @@
 import Foundation
 
 public struct AtomEntry: Codable {
+  public static let defaultURL = URL(string: "/")!
+
   public let id: EntryID
   public let title: String
   public let published: Date?
   public let content: String?
   public let updated: Date
   public let atomCategories: [AtomCategory]
-  public let link: Link
+  public let links: [Link]
   /// The author of the entry.
-  public let author: Author?
+  public let authors: [Author]
   public let youtubeChannelID: String?
   public let youtubeVideoID: String?
   public let mediaDescription: String?
@@ -23,8 +25,8 @@ public struct AtomEntry: Codable {
     case published
     case content
     case updated
-    case link
-    case author
+    case links = "link"
+    case authors = "author"
     case atomCategories = "category"
     case youtubeVideoID = "yt:videoId"
     case youtubeChannelID = "yt:channelId"
@@ -41,7 +43,7 @@ extension AtomEntry: Entryable {
   }
 
   public var url: URL {
-    link.href
+    links.first?.href ?? Self.defaultURL
   }
 
   public var contentHtml: String? {

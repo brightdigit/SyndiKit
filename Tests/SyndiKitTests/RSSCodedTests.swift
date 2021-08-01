@@ -46,7 +46,7 @@ public final class SyndiKitTests: XCTestCase {
       atomEntry.atomCategories.map { $0.term },
       entryChild.categories.map { $0.term }
     )
-    XCTAssertEqual(atomEntry.link.href, entryChild.url)
+    XCTAssertEqual(atomEntry.links.first?.href, entryChild.url)
     XCTAssertNil(entryChild.summary)
   }
 
@@ -71,8 +71,8 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(
-      rssItem.creator == child.author?.name ||
-        rssItem.itunesAuthor == child.author?.name
+      rssItem.creator == child.authors.first?.name ||
+        rssItem.itunesAuthor == child.authors.first?.name
     )
   }
 
@@ -87,7 +87,7 @@ public final class SyndiKitTests: XCTestCase {
 
   fileprivate func assertFeed(_ feed: Feedable, rssFeed: RSSFeed) {
     XCTAssertNil(feed.youtubeChannelID)
-    XCTAssertEqual(feed.author, rssFeed.channel.author)
+    XCTAssertEqual(feed.authors.first, rssFeed.channel.author)
     XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
     XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
     XCTAssertEqual(feed.image, rssFeed.channel.image?.link)

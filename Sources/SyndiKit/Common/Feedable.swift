@@ -30,7 +30,7 @@ public protocol Feedable {
   var updated: Date? { get }
 
   /// The author of the channel.
-  var author: Author? { get }
+  var authors: [Author] { get }
 
   /// Copyright notice for content in the channel.
   var copyright: String? { get }

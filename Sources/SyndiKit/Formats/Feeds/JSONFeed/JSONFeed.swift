@@ -44,5 +44,12 @@ extension JSONFeed: DecodableFeed {
     nil
   }
 
+  public var authors: [Author] {
+    guard let author = self.author else {
+      return []
+    }
+    return [author]
+  }
+
   static let source: DecoderSetup = DecoderSource.json
 }

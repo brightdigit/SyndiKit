@@ -15,7 +15,7 @@ public protocol Entryable {
   /// Indicates when the item was published.
   var published: Date? { get }
   /// The author of the item.
-  var author: Author? { get }
+  var authors: [Author] { get }
   /// Includes the item in one or more categories.
   var categories: [EntryCategory] { get }
   /// Creator of the item.

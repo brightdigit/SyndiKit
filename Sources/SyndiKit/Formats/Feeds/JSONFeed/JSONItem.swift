@@ -13,6 +13,13 @@ public struct JSONItem: Codable {
 }
 
 extension JSONItem: Entryable {
+  public var authors: [Author] {
+    guard let author = self.author else {
+      return []
+    }
+    return [author]
+  }
+
   public var imageURL: URL? {
     nil
   }

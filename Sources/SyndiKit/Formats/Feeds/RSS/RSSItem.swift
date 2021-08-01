@@ -178,8 +178,11 @@ extension RSSItem: Entryable {
     description.value
   }
 
-  public var author: Author? {
-    creator.map(Author.init) ?? itunesAuthor.map(Author.init)
+  public var authors: [Author] {
+    guard let author = creator.map(Author.init) ?? itunesAuthor.map(Author.init) else {
+      return []
+    }
+    return [author]
   }
 
   public var id: EntryID {
