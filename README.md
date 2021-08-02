@@ -17,8 +17,8 @@ Swift Package for Decoding RSS Feeds
 
 
 [![Codecov](https://img.shields.io/codecov/c/github/brightdigit/SyndiKit)](https://codecov.io/gh/brightdigit/SyndiKit)
-[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/brightdigit/SyndiKit)](https://www.codefactor.io/repository/github/brightdigit/SyndiKit)
-[![codebeat badge](https://codebeat.co/badges/1ccde9e1-6901-4d35-9b5c-b07367dcd620)](https://codebeat.co/projects/github-com-brightdigit-syndikit-main)
+[![CodeFactor](https://www.codefactor.io/repository/github/brightdigit/syndikit/badge)](https://www.codefactor.io/repository/github/brightdigit/syndikit)
+[![codebeat badge](https://codebeat.co/badges/4990904e-9513-451f-a842-fb52c7ae0971)](https://codebeat.co/projects/github-com-brightdigit-syndikit-main)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/brightdigit/SyndiKit)](https://codeclimate.com/github/brightdigit/SyndiKit)
 [![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/brightdigit/SyndiKit?label=debt)](https://codeclimate.com/github/brightdigit/SyndiKit)
 [![Code Climate issues](https://img.shields.io/codeclimate/issues/brightdigit/SyndiKit)](https://codeclimate.com/github/brightdigit/SyndiKit)
