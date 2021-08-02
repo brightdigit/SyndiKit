@@ -9,7 +9,7 @@ extension AtomEntry: Entryable
 ### `categories`
 
 ```swift
-public var categories: [RSSCategory]
+public var categories: [EntryCategory]
 ```
 
 ### `url`

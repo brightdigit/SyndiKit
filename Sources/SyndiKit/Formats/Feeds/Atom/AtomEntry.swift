@@ -33,7 +33,8 @@ public struct AtomEntry: Codable {
   /// YouTube video ID, if from a YouTube channel.
   public let youtubeVideoID: String?
 
-  /// Short description describing the media object typically a sentence in length. It has one optional attribute.
+  /// Short description describing the media object typically a sentence in length.
+  /// It has one optional attribute.
   public let mediaDescriptions: [String]
 
   ///  the person or entity who wrote an item

@@ -17,7 +17,10 @@ public struct RSSChannel: Codable {
   /// indicates the publication date and time of the feed's content
   public let pubDate: Date?
 
-  /// ttl stands for time to live. It's a number of minutes that indicates how long a channel can be cached before refreshing from the source.
+  /// ttl stands for time to live.
+  /// It's a number of minutes
+  /// that indicates how long a channel can be cached
+  /// before refreshing from the source.
   public let ttl: Int?
   /// Describes the period over which the channel format is updated.
   public let syUpdatePeriod: SyndicationUpdatePeriod?
@@ -63,6 +66,9 @@ public struct RSSChannel: Codable {
 
 public extension RSSChannel {
   var syndication: SyndicationUpdate? {
-    SyndicationUpdate(period: syUpdatePeriod, frequency: syUpdateFrequency?.value)
+    SyndicationUpdate(
+      period: syUpdatePeriod,
+      frequency: syUpdateFrequency?.value
+    )
   }
 }

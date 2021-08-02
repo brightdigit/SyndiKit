@@ -3,7 +3,7 @@
 # `RSSItemCategory`
 
 ```swift
-public struct RSSItemCategory: Codable, RSSCategory
+public struct RSSItemCategory: Codable, EntryCategory
 ```
 
 ## Properties

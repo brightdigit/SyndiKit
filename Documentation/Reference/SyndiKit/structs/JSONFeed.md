@@ -34,8 +34,10 @@ public let description: String?
 ### `author`
 
 ```swift
-public let author: RSSAuthor?
+public let author: Author?
 ```
+
+The author of the feed.
 
 ### `items`
 

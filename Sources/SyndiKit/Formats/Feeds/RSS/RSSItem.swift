@@ -107,7 +107,10 @@ public struct RSSItem: Codable {
 
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
-    wpPostMeta = try container.decodeIfPresent([WordPressElements.PostMeta].self, forKey: .wpPostMeta)
+    wpPostMeta = try container.decodeIfPresent(
+      [WordPressElements.PostMeta].self,
+      forKey: .wpPostMeta
+    )
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)

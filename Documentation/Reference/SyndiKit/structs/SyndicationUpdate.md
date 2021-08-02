@@ -6,6 +6,11 @@
 public struct SyndicationUpdate: Codable, Equatable
 ```
 
+Properties concerning how often it is updated a feed is updated.
+
+These properties come from
+ [the RDF Site Summary Syndication Module](https://web.resource.org/rss/1.0/modules/syndication/).
+
 ## Properties
 ### `period`
 
@@ -13,11 +18,21 @@ public struct SyndicationUpdate: Codable, Equatable
 public let period: SyndicationUpdatePeriod
 ```
 
+Describes the period over which the channel format is updated.
+The default value is ``SyndicationUpdatePeriod/daily``.
+
 ### `frequency`
 
 ```swift
 public let frequency: Int
 ```
+
+Used to describe the frequency of updates in relation to the update period.
+The default value is 1.
+
+A positive integer indicates how many times in that period the channel is updated.
+For example, an updatePeriod of daily, and an updateFrequency of 2
+indicates the channel format is updated twice daily.
 
 ### `base`
 
@@ -25,13 +40,7 @@ public let frequency: Int
 public let base: Date?
 ```
 
-## Methods
-### `init(period:frequency:base:)`
-
-```swift
-public init?(
-  period: SyndicationUpdatePeriod? = nil,
-  frequency: Int? = nil,
-  base: Date? = nil
-)
-```
+Defines a base date
+to be used in concert with
+``SyndicationUpdate/period``  and ``SyndicationUpdate/frequency``
+ to calculate the publishing schedule.

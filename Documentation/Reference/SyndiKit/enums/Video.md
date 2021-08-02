@@ -10,5 +10,5 @@ public enum Video
 ### `youtube(_:)`
 
 ```swift
-case youtube(YouTubeIDProtocol)
+case youtube(YouTubeID)
 ```

@@ -6,18 +6,16 @@
 public struct CData: Codable
 ```
 
+#CDATA XML element.
+
 ## Properties
-### `term`
-
-```swift
-public var term: String
-```
-
 ### `value`
 
 ```swift
 public let value: String
 ```
+
+String value of the #CDATA element.
 
 ## Methods
 ### `init(from:)`

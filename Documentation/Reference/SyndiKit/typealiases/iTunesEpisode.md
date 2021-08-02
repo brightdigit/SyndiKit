@@ -3,5 +3,5 @@
 # `iTunesEpisode`
 
 ```swift
-public typealias iTunesEpisode = IntegerCodable
+public typealias iTunesEpisode = XMLStringInt
 ```

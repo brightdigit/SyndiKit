@@ -6,16 +6,22 @@ extension JSONItem: Entryable
 ```
 
 ## Properties
+### `authors`
+
+```swift
+public var authors: [Author]
+```
+
 ### `imageURL`
 
 ```swift
 public var imageURL: URL?
 ```
 
-### `creator`
+### `creators`
 
 ```swift
-public var creator: String?
+public var creators: [String]
 ```
 
 ### `published`
@@ -27,13 +33,13 @@ public var published: Date?
 ### `id`
 
 ```swift
-public var id: RSSGUID
+public var id: EntryID
 ```
 
 ### `categories`
 
 ```swift
-public var categories: [RSSCategory]
+public var categories: [EntryCategory]
 ```
 
 ### `media`

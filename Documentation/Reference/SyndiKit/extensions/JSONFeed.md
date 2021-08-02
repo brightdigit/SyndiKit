@@ -53,3 +53,9 @@ public var image: URL?
 ```swift
 public var syndication: SyndicationUpdate?
 ```
+
+### `authors`
+
+```swift
+public var authors: [Author]
+```

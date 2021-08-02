@@ -10,8 +10,10 @@ public struct AtomEntry: Codable
 ### `id`
 
 ```swift
-public let id: RSSGUID
+public let id: EntryID
 ```
+
+A permanent, universally unique identifier for an entry.
 
 ### `title`
 
@@ -19,11 +21,15 @@ public let id: RSSGUID
 public let title: String
 ```
 
+a Text construct that conveys a human-readable title
+
 ### `published`
 
 ```swift
 public let published: Date?
 ```
+
+The most recent instant in time when the entry was published
 
 ### `content`
 
@@ -31,11 +37,16 @@ public let published: Date?
 public let content: String?
 ```
 
+Content of the trny.
+
 ### `updated`
 
 ```swift
 public let updated: Date
 ```
+
+The most recent instant in time when the entry was modified in a way
+the publisher considers significant.
 
 ### `atomCategories`
 
@@ -43,17 +54,23 @@ public let updated: Date
 public let atomCategories: [AtomCategory]
 ```
 
-### `link`
+Cateogires of the entry.
+
+### `links`
 
 ```swift
-public let link: Link
+public let links: [Link]
 ```
 
-### `author`
+a reference to a Web resource.
+
+### `authors`
 
 ```swift
-public let author: RSSAuthor?
+public let authors: [Author]
 ```
+
+The author of the entry.
 
 ### `youtubeChannelID`
 
@@ -61,32 +78,45 @@ public let author: RSSAuthor?
 public let youtubeChannelID: String?
 ```
 
+YouTube channel ID, if from a YouTube channel.
+
 ### `youtubeVideoID`
 
 ```swift
 public let youtubeVideoID: String?
 ```
 
-### `mediaDescription`
+YouTube video ID, if from a YouTube channel.
+
+### `mediaDescriptions`
 
 ```swift
-public let mediaDescription: String?
+public let mediaDescriptions: [String]
 ```
 
-### `creator`
+Short description describing the media object typically a sentence in length.
+It has one optional attribute.
+
+### `creators`
 
 ```swift
-public let creator: String?
+public let creators: [String]
 ```
 
-### `mediaContent`
+the person or entity who wrote an item
+
+### `mediaContents`
 
 ```swift
-public let mediaContent: RSSMedia?
+public let mediaContents: [AtomMedia]
 ```
 
-### `mediaThumbnail`
+Syndicate media content of the entry.
+
+### `mediaThumbnails`
 
 ```swift
-public let mediaThumbnail: RSSMedia?
+public let mediaThumbnails: [AtomMedia]
 ```
+
+Representative image for the media object.

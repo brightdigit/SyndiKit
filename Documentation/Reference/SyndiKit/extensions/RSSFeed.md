@@ -12,10 +12,10 @@ extension RSSFeed: DecodableFeed
 public var youtubeChannelID: String?
 ```
 
-### `author`
+### `authors`
 
 ```swift
-public var author: RSSAuthor?
+public var authors: [Author]
 ```
 
 ### `children`

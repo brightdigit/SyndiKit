@@ -10,7 +10,7 @@ public enum MediaContent
 ### `podcast(_:)`
 
 ```swift
-case podcast(PodcastEpisodeProtocol)
+case podcast(PodcastEpisode)
 ```
 
 ### `video(_:)`

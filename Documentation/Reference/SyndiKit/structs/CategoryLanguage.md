@@ -10,7 +10,7 @@ public struct CategoryLanguage
 ### `type`
 
 ```swift
-public let type: CategoryType
+public let type: SiteCategoryType
 ```
 
 ### `descriptor`
@@ -22,5 +22,5 @@ public let descriptor: CategoryDescriptor
 ### `language`
 
 ```swift
-public let language: LanguageType
+public let language: SiteLanguageType
 ```
