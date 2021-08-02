@@ -1,6 +1,5 @@
 # For a detailed guide to building and testing on iOS, read the docs:
 # https://circleci.com/docs/2.0/testing-ios/
-
 version: 2.1
 parameters:
   package-name:
@@ -15,7 +14,7 @@ parameters:
 orbs:
   codecov: codecov/codecov@1.0.5
 jobs:
-  build-xenial:  
+  build-xenial:
     machine:
       image: ubuntu-1604:201903-01
     environment:
@@ -31,14 +30,14 @@ jobs:
             echo 'export RELEASE_NUM=${RELEASE_DOT//[-._]/}' >> $BASH_ENV
             source $BASH_ENV
       - run:
-         name: Download Swift 5.2
-         command: wget -q https://swift.org/builds/swift-${SWIFT_VER}-release/ubuntu${RELEASE_NUM}/swift-${SWIFT_VER}-RELEASE/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
+          name: Download Swift 5.2
+          command: wget -q https://swift.org/builds/swift-${SWIFT_VER}-release/ubuntu${RELEASE_NUM}/swift-${SWIFT_VER}-RELEASE/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
       - run:
-         name: Extract Swift 5.2
-         command: tar xzf swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
+          name: Extract Swift 5.2
+          command: tar xzf swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
       - run:
-         name: Add Path
-         command: echo 'export PATH=${PWD}/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}/usr/bin:$PATH' >> $BASH_ENV
+          name: Add Path
+          command: echo 'export PATH=${PWD}/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}/usr/bin:$PATH' >> $BASH_ENV
       - run:
           name: Resolve
           command: swift package resolve
@@ -64,7 +63,7 @@ jobs:
       PACKAGE_NAME: << pipeline.parameters.package-name >>
     steps:
       - checkout
-      - run: 
+      - run:
           name: Build
           command: swift build
       - run:
