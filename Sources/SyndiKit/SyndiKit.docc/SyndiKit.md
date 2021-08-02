@@ -8,6 +8,18 @@ Swift Package for Decoding RSS Feeds.
 
 SyndiKit provides models and utilities for decoding RSS feeds of various formats and extensions.
 
+### Introduction
+
+// TODO:
+
+### Features
+
+// TODO:
+
+### Installation
+
+// TODO:
+
 ### Decoding Your First Feed
 
 You can get started decoding your feed by creating your first ``SynDecoder``. Once you've created you decoder you can decode using ``SynDecoder/decode(_:)``:
