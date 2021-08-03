@@ -6,6 +6,7 @@ public protocol SiteDirectoryBuilder {
 }
 
 public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder {
+  public init () {}
   public func directory(fromCollection blogs: SiteCollection) -> SiteCollectionDirectory {
     SiteCollectionDirectory(blogs: blogs)
   }
