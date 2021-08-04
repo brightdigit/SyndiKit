@@ -45,7 +45,7 @@ let package = Package(
   let config = PackageConfiguration([
     "komondor": [
       "pre-push": [
-        "swift test --enable-code-coverage --enable-test-discovery",
+        "swift test --enable-code-coverage",
         // swiftlint:disable:next line_length
         "swift run swift-test-codecov .build/debug/codecov/SyndiKit.json --minimum \(requiredCoverage)"
       ],

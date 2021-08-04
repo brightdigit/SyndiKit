@@ -50,7 +50,7 @@ let package = Package(
         "swift run swift-test-codecov .build/debug/codecov/SyndiKit.json --minimum \(requiredCoverage)"
       ],
       "pre-commit": [
-        "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",
+        "swift test --enable-code-coverage ",
         "swift run swiftformat .",
         "swift run swiftlint autocorrect",
         "swift run sourcedocs generate build --clean --reproducible-docs --all-modules",
