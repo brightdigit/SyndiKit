@@ -8,10 +8,6 @@ Swift Package for Decoding RSS Feeds.
 
 SyndiKit provides models and utilities for decoding RSS feeds of various formats and extensions.
 
-### Introduction
-
-// TODO:
-
 ### Features
 
 // TODO:
