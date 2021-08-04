@@ -2,15 +2,16 @@
 <p align="center">
     <img alt="SyndiKit" title="SyndiKit" src="Assets/logo.svg" height="200">
 </p>
-<h1 align="center"> SyndiKit </h1>
+<h1 align="center"> <a href="https://syndikit.dev/">SyndiKit</a> </h1>
 
-Swift Package for Decoding RSS Feeds
+Swift Package for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
 
 [![SwiftPM](https://img.shields.io/badge/SPM-Linux%20%7C%20iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-success?logo=swift)](https://swift.org)
 [![Twitter](https://img.shields.io/badge/twitter-@brightdigit-blue.svg?style=flat)](http://twitter.com/brightdigit)
 ![GitHub](https://img.shields.io/github/license/brightdigit/SyndiKit)
 ![GitHub issues](https://img.shields.io/github/issues/brightdigit/SyndiKit)
 [![SyndiKit](https://github.com/brightdigit/SyndiKit/actions/workflows/syndikit.yml/badge.svg)](https://github.com/brightdigit/SyndiKit/actions/workflows/syndikit.yml)
+[![DocC](https://img.shields.io/badge/DocC-read-success?logo=apple)](https://syndikit.dev/)
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/brightdigit/SyndiKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/brightdigit/SyndiKit)
