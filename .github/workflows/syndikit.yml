@@ -91,7 +91,6 @@ jobs:
         include:
           - os: macos-10.5
             xcode: "/Applications/Xcode_12.4.app"
-        include:
           - os: macos-10.5
             xcode: "/Applications/Xcode_11.5.app"
     steps:
