@@ -150,6 +150,26 @@ switch kiloLocoAtomFeed.children.last?.media {
 }
 ```
 
-## Further Code Documentation
+## Documentation
 
-[Documentation Here](/Documentation/Reference/README.md)
+There are two formats for the source documentation:
+
+### [DocC](https://syndikit.dev)
+
+[The **DocC** official web site is at syndikit.dev.](https://syndikit.dev) This includes tutorials, articles, code documentation and more.  
+
+### [GitHub SourceDocs](/Documentation/Reference/SyndiKit/README.md)
+
+For just markdown formatted documentation on GitHub using [SourceDocs](https://github.com/eneko/SourceDocs), you can read see [the list of types here.](/Documentation/Reference/SyndiKit/README.md)
+
+## Roadmap
+
+## 1.0.0 
+
+- [ ] OPML Support
+- [ ] WordPress DocC Tutorial
+- [ ] RSS Import Tutorial (i.e. [OrchardNest](https://orchardnest.com)))
+
+## License 
+
+This code is distributed under the MIT license. See the [LICENSE](LICENSE) file for more info.

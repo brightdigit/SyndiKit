@@ -7,6 +7,12 @@ public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder
 ```
 
 ## Methods
+### `init()`
+
+```swift
+public init()
+```
+
 ### `directory(fromCollection:)`
 
 ```swift
