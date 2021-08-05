@@ -1,0 +1,480 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Timac",
+  "home_page_url": "https://blog.timac.org/",
+  "description": "Recent content on Timac",
+  "items": [
+    {
+      "guid": "https://blog.timac.org/2021/0516-mac-app-store-embedding-a-command-line-tool-using-paths-as-arguments/",
+      "url": "https://blog.timac.org/2021/0516-mac-app-store-embedding-a-command-line-tool-using-paths-as-arguments/",
+      "title": "Mac App Store: Embedding a Command Line tool using paths as arguments",
+      "content_html": "<p>A couple of months ago, I released a new app called <a href=\"https://apps.apple.com/app/dependencies/id1538972026\">Dependencies</a> on the Mac App Store. You can download and try it for free at <a href=\"https://apps.apple.com/app/dependencies/id1538972026\">https://apps.apple.com/app/dependencies/id1538972026</a>.</p>\n<p>In this article, I explain how I built the command line support and released it in the Mac App Store. Implementing this feature turned out to be tricky, mostly due to the lack of documentation on this specific subject. This post might be of interest if you are planning to add a Command Line tool to your app distributed on the Mac App Store.</p>",
+      "summary": "<p>A couple of months ago, I released a new app called <a href=\"https://apps.apple.com/app/dependencies/id1538972026\">Dependencies</a> on the Mac App Store. You can download and try it for free at <a href=\"https://apps.apple.com/app/dependencies/id1538972026\">https://apps.apple.com/app/dependencies/id1538972026</a>.</p>\n<p>In this article, I explain how I built the command line support and released it in the Mac App Store. Implementing this feature turned out to be tricky, mostly due to the lack of documentation on this specific subject. This post might be of interest if you are planning to add a Command Line tool to your app distributed on the Mac App Store.</p>",
+      "date_published": "2021-05-16T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2020/1122-comparing-iphone-os-with-ios-14-using-tree-maps/",
+      "url": "https://blog.timac.org/2020/1122-comparing-iphone-os-with-ios-14-using-tree-maps/",
+      "title": "Comparing iPhone OS 1.0 with iOS 14 using tree maps",
+      "content_html": "<p>If you followed the recent Apple events, you probably saw a picture of the A14 and M1 dies… that got me thinking about what you would see if you could pass iOS under X-Rays…</p>\n<p>In my previous article about the <a href=\"https://blog.timac.org/2020/1019-evolution-of-the-programming-languages-from-iphone-os-to-ios-14/\">evolution of the programming languages from iPhone OS 1.0 to iOS 14</a>, I analyzed iOS based on the number of binaries and their programming languages. As I pointed out in this past post, the size of the binaries were not taken in account. In this new article, I look at iPhone OS 1.0 and iOS 14 from a size perspective using tree maps.</p>",
+      "summary": "<p>If you followed the recent Apple events, you probably saw a picture of the A14 and M1 dies… that got me thinking about what you would see if you could pass iOS under X-Rays…</p>\n<p>In my previous article about the <a href=\"https://blog.timac.org/2020/1019-evolution-of-the-programming-languages-from-iphone-os-to-ios-14/\">evolution of the programming languages from iPhone OS 1.0 to iOS 14</a>, I analyzed iOS based on the number of binaries and their programming languages. As I pointed out in this past post, the size of the binaries were not taken in account. In this new article, I look at iPhone OS 1.0 and iOS 14 from a size perspective using tree maps.</p>",
+      "date_published": "2020-11-22T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2020/1019-evolution-of-the-programming-languages-from-iphone-os-to-ios-14/",
+      "url": "https://blog.timac.org/2020/1019-evolution-of-the-programming-languages-from-iphone-os-to-ios-14/",
+      "title": "Evolution of the programming languages from iPhone OS 1.0 to iOS 14",
+      "content_html": "<p>In my previous article about <a href=\"https://blog.timac.org/2020/0927-state-of-swift-ios14/\">Apple’s use of Swift and SwiftUI in iOS 14</a>, I counted the number of built-in apps in iOS using Swift and SwiftUI. Several readers asked if I could provide a percentage rather than an absolute number.</p>\n<p>In this new article, I will answer this question by measuring the total number of binaries in iOS. I will go one step further and also count the number of binaries using other programming languages: Objective-C, C++ and C.</p>\n<p>Finally to be as complete as possible, I ran this analysis on all major iOS releases, from iPhone OS 1.0 to iOS 14. This will provide a detailed overview of the evolution of the different programming languages over more than a decade of iOS development.</p>",
+      "summary": "<p>In my previous article about <a href=\"https://blog.timac.org/2020/0927-state-of-swift-ios14/\">Apple’s use of Swift and SwiftUI in iOS 14</a>, I counted the number of built-in apps in iOS using Swift and SwiftUI. Several readers asked if I could provide a percentage rather than an absolute number.</p>\n<p>In this new article, I will answer this question by measuring the total number of binaries in iOS. I will go one step further and also count the number of binaries using other programming languages: Objective-C, C++ and C.</p>\n<p>Finally to be as complete as possible, I ran this analysis on all major iOS releases, from iPhone OS 1.0 to iOS 14. This will provide a detailed overview of the evolution of the different programming languages over more than a decade of iOS development.</p>",
+      "date_published": "2020-10-19T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2020/0927-state-of-swift-ios14/",
+      "url": "https://blog.timac.org/2020/0927-state-of-swift-ios14/",
+      "title": "Apple’s use of Swift and SwiftUI in iOS 14",
+      "content_html": "<p>Swift was introduced a couple of years ago at Apple&rsquo;s 2014 WWDC. Over the years I analyzed iOS to measure how many built-in applications were using Swift. iOS 9 released in 2015 included a single application written with Swift: Calculator. Since then this number has grown with each iOS release: <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">iOS 10.1</a>, <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">iOS 11.1</a>, <a href=\"https://blog.timac.org/2018/0924-state-of-swift-ios12/\">iOS 12.0</a> and finally <a href=\"https://blog.timac.org/2019/0926-state-of-swift-ios13/\">iOS 13.1</a>.</p>\n<p>iOS 14 is now available so let&rsquo;s check how this number evolved since iOS 13. Apple announced SwiftUI during WWDC 2019, a year ago. In this article I will also try to measure which built-in apps are using this new UI framework.</p>",
+      "summary": "<p>Swift was introduced a couple of years ago at Apple&rsquo;s 2014 WWDC. Over the years I analyzed iOS to measure how many built-in applications were using Swift. iOS 9 released in 2015 included a single application written with Swift: Calculator. Since then this number has grown with each iOS release: <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">iOS 10.1</a>, <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">iOS 11.1</a>, <a href=\"https://blog.timac.org/2018/0924-state-of-swift-ios12/\">iOS 12.0</a> and finally <a href=\"https://blog.timac.org/2019/0926-state-of-swift-ios13/\">iOS 13.1</a>.</p>\n<p>iOS 14 is now available so let&rsquo;s check how this number evolved since iOS 13. Apple announced SwiftUI during WWDC 2019, a year ago. In this article I will also try to measure which built-in apps are using this new UI framework.</p>",
+      "date_published": "2020-09-27T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2020/0204-introducing-clatters-for-ios/",
+      "url": "https://blog.timac.org/2020/0204-introducing-clatters-for-ios/",
+      "title": "Introducing Clatters for iOS",
+      "content_html": "<p><img style=\"margin-left:auto; margin-right:auto;\" src=\"clatters.png\" /></p>\n<p>Assiduous readers of this blog might have noticed a significant drop in the number of articles last year. Couldn&rsquo;t I find any interesting subject? Was I getting lazy? Hell no!</p>\n<p>Today I am pleased to release <a href=\"https://clatters.app\">Clatters for iOS and iPadOS</a>. Clatters is an app to easily monitor in one place your brand, product or any other keyword on your favorite social networks - Twitter, Reddit, HackerNews and even comments on the iOS App Store.</p>",
+      "summary": "<p><img style=\"margin-left:auto; margin-right:auto;\" src=\"clatters.png\" /></p>\n<p>Assiduous readers of this blog might have noticed a significant drop in the number of articles last year. Couldn&rsquo;t I find any interesting subject? Was I getting lazy? Hell no!</p>\n<p>Today I am pleased to release <a href=\"https://clatters.app\">Clatters for iOS and iPadOS</a>. Clatters is an app to easily monitor in one place your brand, product or any other keyword on your favorite social networks - Twitter, Reddit, HackerNews and even comments on the iOS App Store.</p>",
+      "date_published": "2020-02-06T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2019/0926-state-of-swift-ios13/",
+      "url": "https://blog.timac.org/2019/0926-state-of-swift-ios13/",
+      "title": "Apple’s use of Swift in iOS 13",
+      "content_html": "<p>Swift was introduced at Apple&rsquo;s 2014 WWDC and it is interesting to measure Apple’s own use of Swift in iOS over the years. iOS 9 released in 2015 included a single application written with Swift: Calculator. Since then the number of applications using Swift in iOS has grown each year with <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">iOS 10.1</a>, <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">iOS 11.1</a> and <a href=\"https://blog.timac.org/2018/0924-state-of-swift-ios12/\">iOS 12.0</a>.</p>\n<p>Now that iOS 13.1 is available, let&rsquo;s measure how many applications are using Swift this year.</p>",
+      "summary": "<p>Swift was introduced at Apple&rsquo;s 2014 WWDC and it is interesting to measure Apple’s own use of Swift in iOS over the years. iOS 9 released in 2015 included a single application written with Swift: Calculator. Since then the number of applications using Swift in iOS has grown each year with <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">iOS 10.1</a>, <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">iOS 11.1</a> and <a href=\"https://blog.timac.org/2018/0924-state-of-swift-ios12/\">iOS 12.0</a>.</p>\n<p>Now that iOS 13.1 is available, let&rsquo;s measure how many applications are using Swift this year.</p>",
+      "date_published": "2019-09-26T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2019/0428-your-own-vpn-server/",
+      "url": "https://blog.timac.org/2019/0428-your-own-vpn-server/",
+      "title": "Your own VPN server for 3€/month with built-in iOS and macOS support",
+      "content_html": "<p>Using a VPN is an obvious solution when you are connected to internet on an untrusted network. Instead of paying a subscription to a VPN service, I decided to create my own VPN server. It turns out that this is much simpler than I expected.</p>\n<p>In this article, I briefly explain what is a VPN and its advantages. I then explain how I built my own VPN server.</p>",
+      "summary": "<p>Using a VPN is an obvious solution when you are connected to internet on an untrusted network. Instead of paying a subscription to a VPN service, I decided to create my own VPN server. It turns out that this is much simpler than I expected.</p>\n<p>In this article, I briefly explain what is a VPN and its advantages. I then explain how I built my own VPN server.</p>",
+      "date_published": "2019-04-28T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/1211-analysis-of-the-nest-app-for-ios/",
+      "url": "https://blog.timac.org/2018/1211-analysis-of-the-nest-app-for-ios/",
+      "title": "Analysis of the Nest app for iOS",
+      "content_html": "<p>Lately, many people have wondered why some iOS apps were so huge. I asked myself this question and analyzed the Facebook application for iOS <a href=\"https://blog.timac.org/2016/1018-analysis-of-the-facebook-app-for-ios/\">v. 66.0 in 2016</a> and <a href=\"https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0/\">v. 87.0 in 2017</a>.</p>\n<p>In this article, I dissect the <a href=\"https://itunes.apple.com/app/nest/id464988855\">Nest app (5.30.5) for iOS</a> released on 29.11.2018. There has been quite some speculations about this app in <a href=\"https://twitter.com/gruber/status/1052577280864735233\">a thread started by John Gruber on Twitter</a>:</p>\n<p><img src=\"Gruber.png\" alt=\"\"></p>\n<p>This post will answer some simple questions about this specific app:</p>\n<ul>\n<li>Which technologies are used?</li>\n<li>Why is the app so big?</li>\n<li>Would it be possible to reduce the app size?</li>\n</ul>",
+      "summary": "<p>Lately, many people have wondered why some iOS apps were so huge. I asked myself this question and analyzed the Facebook application for iOS <a href=\"https://blog.timac.org/2016/1018-analysis-of-the-facebook-app-for-ios/\">v. 66.0 in 2016</a> and <a href=\"https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0/\">v. 87.0 in 2017</a>.</p>\n<p>In this article, I dissect the <a href=\"https://itunes.apple.com/app/nest/id464988855\">Nest app (5.30.5) for iOS</a> released on 29.11.2018. There has been quite some speculations about this app in <a href=\"https://twitter.com/gruber/status/1052577280864735233\">a thread started by John Gruber on Twitter</a>:</p>\n<p><img src=\"Gruber.png\" alt=\"\"></p>\n<p>This post will answer some simple questions about this specific app:</p>\n<ul>\n<li>Which technologies are used?</li>\n<li>Why is the app so big?</li>\n<li>Would it be possible to reduce the app size?</li>\n</ul>",
+      "date_published": "2018-12-11T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/1126-deobfuscated-libmobilegestalt-keys-ios-12/",
+      "url": "https://blog.timac.org/2018/1126-deobfuscated-libmobilegestalt-keys-ios-12/",
+      "title": "Deobfuscated libMobileGestalt keys (iOS 12)",
+      "content_html": "<p><code>libMobileGestalt</code> is a private library in iOS that describes the capabilities of the device: system version, build version, device type, device features, status of the airplane mode, &hellip;</p>\n<p>Apple obfuscates this information which makes it hard to know the capabilities of the device. In January 2017, I presented a method for <a href=\"https://blog.timac.org/2017/0124-deobfuscating-libmobilegestalt-keys/\">Deobfuscating libMobileGestalt keys</a>. At that time there were 673 known obfuscated keys and I managed to recover 564 out of the 673 keys (83%).</p>\n<p>Since this previous article, Apple has released 2 major iOS versions, and new obfuscated keys have been added. In this post I quickly recap what is <code>libMobileGestalt</code> and provide the updated list of recovered keys.</p>",
+      "summary": "<p><code>libMobileGestalt</code> is a private library in iOS that describes the capabilities of the device: system version, build version, device type, device features, status of the airplane mode, &hellip;</p>\n<p>Apple obfuscates this information which makes it hard to know the capabilities of the device. In January 2017, I presented a method for <a href=\"https://blog.timac.org/2017/0124-deobfuscating-libmobilegestalt-keys/\">Deobfuscating libMobileGestalt keys</a>. At that time there were 673 known obfuscated keys and I managed to recover 564 out of the 673 keys (83%).</p>\n<p>Since this previous article, Apple has released 2 major iOS versions, and new obfuscated keys have been added. In this post I quickly recap what is <code>libMobileGestalt</code> and provide the updated list of recovered keys.</p>",
+      "date_published": "2018-11-26T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/1119-constraints-on-quicklook-plugins/",
+      "url": "https://blog.timac.org/2018/1119-constraints-on-quicklook-plugins/",
+      "title": "Constraints on QuickLook plugins",
+      "content_html": "<p>A QuickLook plugin on macOS 10.14 has several constraints to satisfy. If one of the limits is exceeded, the plugin will immediately be killed and no preview will be visible. Having such restrictions makes sense but they appear to be undocumented. This article addresses the lack of information about these constraints.</p>",
+      "summary": "<p>A QuickLook plugin on macOS 10.14 has several constraints to satisfy. If one of the limits is exceeded, the plugin will immediately be killed and no preview will be visible. Having such restrictions makes sense but they appear to be undocumented. This article addresses the lack of information about these constraints.</p>",
+      "date_published": "2018-11-19T05:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/1112-quicklook-plugin-to-visualize-car-files/",
+      "url": "https://blog.timac.org/2018/1112-quicklook-plugin-to-visualize-car-files/",
+      "title": "QuickLook plugin to visualize .car files (compiled Asset Catalogs)",
+      "content_html": "<p>In a previous article, I <a href=\"https://blog.timac.org/2018/1018-reverse-engineering-the-car-file-format/\">reverse-engineered the .car file format</a> used to store the compiled assets of an Asset Catalog. I also demonstrated how to create a tool to manually parse such files. While this tool can extract a lot of information, it is cumbersome to use if you want to quickly see all the assets contained in a car file.</p>",
+      "summary": "<p>In a previous article, I <a href=\"https://blog.timac.org/2018/1018-reverse-engineering-the-car-file-format/\">reverse-engineered the .car file format</a> used to store the compiled assets of an Asset Catalog. I also demonstrated how to create a tool to manually parse such files. While this tool can extract a lot of information, it is cumbersome to use if you want to quickly see all the assets contained in a car file.</p>",
+      "date_published": "2018-11-12T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/1018-reverse-engineering-the-car-file-format/",
+      "url": "https://blog.timac.org/2018/1018-reverse-engineering-the-car-file-format/",
+      "title": "Reverse engineering the .car file format (compiled Asset Catalogs)",
+      "content_html": "<p>An <code>Asset Catalog</code> is an important piece of any iOS, tvOS, watchOS and macOS application. It lets you organize and manage the different assets used by an app, such as images, sprites, textures, ARKit resources, colors and data.</p>",
+      "summary": "<p>An <code>Asset Catalog</code> is an important piece of any iOS, tvOS, watchOS and macOS application. It lets you organize and manage the different assets used by an app, such as images, sprites, textures, ARKit resources, colors and data.</p>",
+      "date_published": "2018-10-18T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/0924-state-of-swift-ios12/",
+      "url": "https://blog.timac.org/2018/0924-state-of-swift-ios12/",
+      "title": "Apple’s use of Swift in iOS 12",
+      "content_html": "<p>Two years ago I measured <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">Apple’s use of Swift in iOS 10.1</a> and last year I counted <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">how many applications were using Swift in iOS 11.1</a>.</p>\n<p>This year I&rsquo;m analyzing iOS 12, released by Apple this month.</p>",
+      "summary": "<p>Two years ago I measured <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">Apple’s use of Swift in iOS 10.1</a> and last year I counted <a href=\"https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/\">how many applications were using Swift in iOS 11.1</a>.</p>\n<p>This year I&rsquo;m analyzing iOS 12, released by Apple this month.</p>",
+      "date_published": "2018-09-24T09:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/0719-vpnstatus/",
+      "url": "https://blog.timac.org/2018/0719-vpnstatus/",
+      "title": "VPNStatus, a replacement for macOS builtin VPN Status",
+      "content_html": "<p>In this post I present VPNStatus, an application that replicates some functionalities of macOS built-in VPN status menu:</p>",
+      "summary": "<p>In this post I present VPNStatus, an application that replicates some functionalities of macOS built-in VPN status menu:</p>",
+      "date_published": "2018-07-19T18:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2018/0717-macos-vpn-architecture/",
+      "url": "https://blog.timac.org/2018/0717-macos-vpn-architecture/",
+      "title": "macOS VPN architecture from System Preferences down to nesessionmanager",
+      "content_html": "<p>macOS 10.13 contains a built-in VPN client that natively supports <code>L2TP over IPSec</code> as well as <code>IKEv2</code>.</p>\n<p>In this post I describe some parts of the internal architecture of the macOS VPN client. This information will be used in a following article to build an application that replicates some functionalities of the VPN status in the menu bar. This application will also allow to auto connect to an IKEv2 VPN service, something that is currently not possible on macOS.</p>",
+      "summary": "<p>macOS 10.13 contains a built-in VPN client that natively supports <code>L2TP over IPSec</code> as well as <code>IKEv2</code>.</p>\n<p>In this post I describe some parts of the internal architecture of the macOS VPN client. This information will be used in a following article to build an application that replicates some functionalities of the VPN status in the menu bar. This application will also allow to auto connect to an IKEv2 VPN service, something that is currently not possible on macOS.</p>",
+      "date_published": "2018-07-17T18:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/",
+      "url": "https://blog.timac.org/2017/1115-state-of-swift-ios11-1-macos10-13/",
+      "title": "Apple’s use of Swift in iOS 11.1 and macOS 10.13.1",
+      "content_html": "<p>A year ago I analyzed how many built-in apps in iOS 10.1 and macOS 10.12 were using Swift: <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">Apple’s use of Swift in iOS 10.1 and macOS 10.12</a>.</p>\n<p>How many built-in apps are using Swift in iOS 11.1 and macOS 10.13.1? Let&rsquo;s find it out!</p>",
+      "summary": "<p>A year ago I analyzed how many built-in apps in iOS 10.1 and macOS 10.12 were using Swift: <a href=\"https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/\">Apple’s use of Swift in iOS 10.1 and macOS 10.12</a>.</p>\n<p>How many built-in apps are using Swift in iOS 11.1 and macOS 10.13.1? Let&rsquo;s find it out!</p>",
+      "date_published": "2017-11-15T07:00:00.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2017/0628-swift-banning-force-unwrapping-optionals/",
+      "url": "https://blog.timac.org/2017/0628-swift-banning-force-unwrapping-optionals/",
+      "title": "Swift: Banning force unwrapping optionals",
+      "content_html": "<p>In this article, I discuss the dangers of force unwrapping and how to avoid forced unwraps.</p>",
+      "summary": "<p>In this article, I discuss the dangers of force unwrapping and how to avoid forced unwraps.</p>",
+      "date_published": "2017-06-28T20:15:03.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2017/0415-facebook-app-for-ios-v-88-0-cleans-up-duplicates/",
+      "url": "https://blog.timac.org/2017/0415-facebook-app-for-ios-v-88-0-cleans-up-duplicates/",
+      "title": "Facebook.app for iOS [v. 88.0] cleans up duplicates",
+      "content_html": "<p>This post follows up the <a href=\"https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0\">Analysis of the Facebook.app for iOS [v. 87.0]</a>.</p>",
+      "summary": "<p>This post follows up the <a href=\"https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0\">Analysis of the Facebook.app for iOS [v. 87.0]</a>.</p>",
+      "date_published": "2017-04-15T06:37:08.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0/",
+      "url": "https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0/",
+      "title": "Analysis of the Facebook.app for iOS [v. 87.0]",
+      "content_html": "<p>In this article, I analyze the version 87.0 of the Facebook.app for iOS.</p>",
+      "summary": "<p>In this article, I analyze the version 87.0 of the Facebook.app for iOS.</p>",
+      "date_published": "2017-04-10T05:56:24.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2017/0124-deobfuscating-libmobilegestalt-keys/",
+      "url": "https://blog.timac.org/2017/0124-deobfuscating-libmobilegestalt-keys/",
+      "title": "Deobfuscating libMobileGestalt keys",
+      "content_html": "<p><code>/usr/lib/libMobileGestalt.dylib</code> is a private library which provides an API to retrieve the capabilities of the iOS device, as well as some runtime information: system version, build version, device type, current status of the airplane mode, &hellip;</p>",
+      "summary": "<p><code>/usr/lib/libMobileGestalt.dylib</code> is a private library which provides an API to retrieve the capabilities of the iOS device, as well as some runtime information: system version, build version, device type, current status of the airplane mode, &hellip;</p>",
+      "date_published": "2017-01-24T19:36:48.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/1221-mach_portal-improve-amfid-patch-to-support-fat-binaries/",
+      "url": "https://blog.timac.org/2016/1221-mach_portal-improve-amfid-patch-to-support-fat-binaries/",
+      "title": "mach_portal: Improve amfid patch to support fat binaries",
+      "content_html": "<p>Ian Beer did an incredible work with his iOS 10.1.1 exploit. The <code>mach_portal</code> proof of concept gives you a root shell on iOS 10.1.1. You can read more about it here:</p>\n<p><a href=\"https://bugs.chromium.org/p/project-zero/issues/detail?id=965\">https://bugs.chromium.org/p/project-zero/issues/detail?id=965</a></p>\n<p>While playing with it, I discovered that the amfid patch was only supporting thin arm64 binaries. I did not find a fix online so here is my solution.</p>",
+      "summary": "<p>Ian Beer did an incredible work with his iOS 10.1.1 exploit. The <code>mach_portal</code> proof of concept gives you a root shell on iOS 10.1.1. You can read more about it here:</p>\n<p><a href=\"https://bugs.chromium.org/p/project-zero/issues/detail?id=965\">https://bugs.chromium.org/p/project-zero/issues/detail?id=965</a></p>\n<p>While playing with it, I discovered that the amfid patch was only supporting thin arm64 binaries. I did not find a fix online so here is my solution.</p>",
+      "date_published": "2016-12-21T19:27:01.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/1124-testing-if-an-arbitrary-pointer-is-a-valid-objective-c-object/",
+      "url": "https://blog.timac.org/2016/1124-testing-if-an-arbitrary-pointer-is-a-valid-objective-c-object/",
+      "title": "Testing if an arbitrary pointer is a valid Objective-C object",
+      "content_html": "<p>Let&rsquo;s say you pick a random pointer. Can we know if it points to a valid Objective-C object? Of course without crashing&hellip; Well there is no simple solution. In this post I give a solution for 64-bit architectures. The code provided has only been tested on macOS 10.12.1 and iOS 10.1.1 with the modern Objective-C runtime.</p>",
+      "summary": "<p>Let&rsquo;s say you pick a random pointer. Can we know if it points to a valid Objective-C object? Of course without crashing&hellip; Well there is no simple solution. In this post I give a solution for 64-bit architectures. The code provided has only been tested on macOS 10.12.1 and iOS 10.1.1 with the modern Objective-C runtime.</p>",
+      "date_published": "2016-11-24T19:48:38.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/",
+      "url": "https://blog.timac.org/2016/1101-apples-use-of-swift-in-ios-10-1-and-macos-10-12/",
+      "title": "Apple’s use of Swift in iOS 10.1 and macOS 10.12",
+      "content_html": "<p>Swift has been announced at the WWDC 2014, more than 2 years ago. Most of the sample code projects from Apple are now written in Swift. But does Apple use Swift in iOS 10.1 and macOS 10.12.1?</p>",
+      "summary": "<p>Swift has been announced at the WWDC 2014, more than 2 years ago. Most of the sample code projects from Apple are now written in Swift. But does Apple use Swift in iOS 10.1 and macOS 10.12.1?</p>",
+      "date_published": "2016-11-01T19:07:41.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/1018-analysis-of-the-facebook-app-for-ios/",
+      "url": "https://blog.timac.org/2016/1018-analysis-of-the-facebook-app-for-ios/",
+      "title": "Analysis of the Facebook.app for iOS",
+      "content_html": "<p>Did you ever wonder why the Facebook.app for iOS is such a big download? This post tries to give some answers. The version 66.0 (released on 7 October 2016) was analyzed on an iPad Air 2 (64-bit).</p>",
+      "summary": "<p>Did you ever wonder why the Facebook.app for iOS is such a big download? This post tries to give some answers. The version 66.0 (released on 7 October 2016) was analyzed on an iPad Air 2 (64-bit).</p>",
+      "date_published": "2016-10-18T19:27:50.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0926-accessing-temperature-unit-setting-in-ios-10/",
+      "url": "https://blog.timac.org/2016/0926-accessing-temperature-unit-setting-in-ios-10/",
+      "title": "Accessing the Temperature Unit setting in iOS 10",
+      "content_html": "<p>In iOS 10 Apple added a new dedicated setting for Temperature Unit in the Settings.app under <code>General &gt; Language &amp; Region &gt; Temperature Unit</code> . It lets you switch your preferred unit between Fahrenheit and Celsius:</p>",
+      "summary": "<p>In iOS 10 Apple added a new dedicated setting for Temperature Unit in the Settings.app under <code>General &gt; Language &amp; Region &gt; Temperature Unit</code> . It lets you switch your preferred unit between Fahrenheit and Celsius:</p>",
+      "date_published": "2016-09-26T18:28:04.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0804-dump-decrypted-mach-o-files/",
+      "url": "https://blog.timac.org/2016/0804-dump-decrypted-mach-o-files/",
+      "title": "Dump decrypted mach-o apps",
+      "content_html": "<p>In a previous post <a href=\"https://blog.timac.org/2016/0723-cryptedhelloworld-app-with-encrypted-mach-o-sections\">CryptedHelloWorld: App with encrypted mach-o sections</a>, I created a simple macOS app <code>CryptedHelloWorld</code> with its <code>(__TEXT, __text)</code> section encrypted. The section is decrypted by a <a href=\"https://blog.timac.org/2016/0716-constructor-and-destructor-attributes\">constructor function</a>.</p>\n<p>This post explains how to dump the decrypted app. A common way is to attach the app with a debugger (GDB, LLDB) and manually dump the decrypted memory to disk.</p>",
+      "summary": "<p>In a previous post <a href=\"https://blog.timac.org/2016/0723-cryptedhelloworld-app-with-encrypted-mach-o-sections\">CryptedHelloWorld: App with encrypted mach-o sections</a>, I created a simple macOS app <code>CryptedHelloWorld</code> with its <code>(__TEXT, __text)</code> section encrypted. The section is decrypted by a <a href=\"https://blog.timac.org/2016/0716-constructor-and-destructor-attributes\">constructor function</a>.</p>\n<p>This post explains how to dump the decrypted app. A common way is to attach the app with a debugger (GDB, LLDB) and manually dump the decrypted memory to disk.</p>",
+      "date_published": "2016-08-04T20:22:04.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0727-mail-app-plugin-compatibility-for-macos-sierra-10-12/",
+      "url": "https://blog.timac.org/2016/0727-mail-app-plugin-compatibility-for-macos-sierra-10-12/",
+      "title": "Mail.app plugin compatibility for macOS Sierra (10.12)",
+      "content_html": "<p>Mail.app in macOS 10.11 and earlier used to check the plugins compatibility using the <code>SupportedPluginCompatibilityUUIDs</code> key in the plugin&rsquo;s Info.plist. For example a Mail plugin would only be compatible with macOS 10.11.6 if its Info.plist contained the following:</p>",
+      "summary": "<p>Mail.app in macOS 10.11 and earlier used to check the plugins compatibility using the <code>SupportedPluginCompatibilityUUIDs</code> key in the plugin&rsquo;s Info.plist. For example a Mail plugin would only be compatible with macOS 10.11.6 if its Info.plist contained the following:</p>",
+      "date_published": "2016-07-27T20:05:14.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0723-cryptedhelloworld-app-with-encrypted-mach-o-sections/",
+      "url": "https://blog.timac.org/2016/0723-cryptedhelloworld-app-with-encrypted-mach-o-sections/",
+      "title": "CryptedHelloWorld: App with encrypted mach-o sections",
+      "content_html": "<p>In a previous post ( <a href=\"https://blog.timac.org/2016/0716-constructor-and-destructor-attributes\">constructor and destructor attributes</a> ), I described the constructor attribute and mentioned software protection as a possible use case:</p>\n<blockquote>\n<p>A constructor attribute could be used to implement a software protection. You could encrypt your executable with a custom encryption and use a constructor function to decrypt the binary just before it is loaded.</p>\n</blockquote>\n<p>In this post I describe such a protection with an example.</p>",
+      "summary": "<p>In a previous post ( <a href=\"https://blog.timac.org/2016/0716-constructor-and-destructor-attributes\">constructor and destructor attributes</a> ), I described the constructor attribute and mentioned software protection as a possible use case:</p>\n<blockquote>\n<p>A constructor attribute could be used to implement a software protection. You could encrypt your executable with a custom encryption and use a constructor function to decrypt the binary just before it is loaded.</p>\n</blockquote>\n<p>In this post I describe such a protection with an example.</p>",
+      "date_published": "2016-07-23T11:09:03.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0716-constructor-and-destructor-attributes/",
+      "url": "https://blog.timac.org/2016/0716-constructor-and-destructor-attributes/",
+      "title": "constructor and destructor attributes",
+      "content_html": "<p>GCC (and Clang) supports constructor and destructor attributes:</p>\n<pre><code>__attribute__((constructor))\n__attribute__((destructor))\n</code></pre>",
+      "summary": "<p>GCC (and Clang) supports constructor and destructor attributes:</p>\n<pre><code>__attribute__((constructor))\n__attribute__((destructor))\n</code></pre>",
+      "date_published": "2016-07-16T18:55:40.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0710-blowfish-operations-with-key-size-longer-than-448-bits-in-macos-10-11-5-ios-9-3-2/",
+      "url": "https://blog.timac.org/2016/0710-blowfish-operations-with-key-size-longer-than-448-bits-in-macos-10-11-5-ios-9-3-2/",
+      "title": "Blowfish operations with key size longer than 448 bits in macOS 10.11.5 / iOS 9.3.2",
+      "content_html": "<p>Until macOS 10.11.4 and iOS 9.3.1 CommonCrypto/corecrypto supported Blowfish operations with key sizes longer than 448 bits. Starting with macOS 10.11.5 and iOS 9.3.2 this is no longer the case: the minimum and maximum key sizes are now enforced (respectively <code>kCCKeySizeMinBlowfish</code> 8 bytes and <code>kCCKeySizeMaxBlowfish</code> 56 bytes).</p>",
+      "summary": "<p>Until macOS 10.11.4 and iOS 9.3.1 CommonCrypto/corecrypto supported Blowfish operations with key sizes longer than 448 bits. Starting with macOS 10.11.5 and iOS 9.3.2 this is no longer the case: the minimum and maximum key sizes are now enforced (respectively <code>kCCKeySizeMinBlowfish</code> 8 bytes and <code>kCCKeySizeMaxBlowfish</code> 56 bytes).</p>",
+      "date_published": "2016-07-10T11:10:15.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0708-state-preservation-and-restoration-debug-logs/",
+      "url": "https://blog.timac.org/2016/0708-state-preservation-and-restoration-debug-logs/",
+      "title": "State Preservation and Restoration Debug Logs",
+      "content_html": "<p>The State Preservation and Restoration system is well documented here: <a href=\"https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html#//apple_ref/doc/uid/TP40007072-CH5-SW2\">Preserving Your App’s Visual Appearance Across Launches</a>.</p>\n<p>But what is not well known is that there is a secret preference to enable debug logs.</p>",
+      "summary": "<p>The State Preservation and Restoration system is well documented here: <a href=\"https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html#//apple_ref/doc/uid/TP40007072-CH5-SW2\">Preserving Your App’s Visual Appearance Across Launches</a>.</p>\n<p>But what is not well known is that there is a secret preference to enable debug logs.</p>",
+      "date_published": "2016-07-08T20:08:34.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0623-identifying-the-type-of-build-build-archive-at-compile-time-in-xcode/",
+      "url": "https://blog.timac.org/2016/0623-identifying-the-type-of-build-build-archive-at-compile-time-in-xcode/",
+      "title": "Identifying the type of build (Build, Archive) at compile time in Xcode",
+      "content_html": "<p>Let&rsquo;s say you want to have a different behavior in your app depending on whether you build it in Xcode or you perform an Archive. And you want this behavior to be done at compile time. Note that the use of different configurations is not what is wanted.</p>",
+      "summary": "<p>Let&rsquo;s say you want to have a different behavior in your app depending on whether you build it in Xcode or you perform an Archive. And you want this behavior to be done at compile time. Note that the use of different configurations is not what is wanted.</p>",
+      "date_published": "2016-06-23T19:23:31.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0605-programmatically-lock-the-screen/",
+      "url": "https://blog.timac.org/2016/0605-programmatically-lock-the-screen/",
+      "title": "Programmatically lock the screen",
+      "content_html": "<p>This article proposes a technic to programmatically lock the screen.</p>",
+      "summary": "<p>This article proposes a technic to programmatically lock the screen.</p>",
+      "date_published": "2016-06-05T20:09:25.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2016/0510-disable-swipe-to-delete-in-mail-app-on-os-x-10-11/",
+      "url": "https://blog.timac.org/2016/0510-disable-swipe-to-delete-in-mail-app-on-os-x-10-11/",
+      "title": "Disable swipe to delete in Mail.app on OS X 10.11",
+      "content_html": "<p>OS X 10.11 &lsquo;El Capitan&rsquo; added a new feature to Mail.app <code>Swipe to manage your inbox</code>:</p>\n<blockquote>\n<p><strong>Swipe to manage your inbox.</strong></p>\n</blockquote>\n<blockquote>\n<p>Now you can take care of your email with a swipe, just like on your iOS devices. Need to triage your inbox? Swipe right to mark an email as read or unread, or swipe left to delete. You’ll be focused on what’s important in no time.</p>\n</blockquote>\n<p><img src=\"MailSwipeToDelete.png\" alt=\"Swipe To Delete\"></p>\n<p>I find this new feature extremely annoying as I keep triggering it by accident. Sadly it seems that there is no preference (even secret preference) to disable this feature. But the good news is that Mail.app supports plugins.</p>",
+      "summary": "<p>OS X 10.11 &lsquo;El Capitan&rsquo; added a new feature to Mail.app <code>Swipe to manage your inbox</code>:</p>\n<blockquote>\n<p><strong>Swipe to manage your inbox.</strong></p>\n</blockquote>\n<blockquote>\n<p>Now you can take care of your email with a swipe, just like on your iOS devices. Need to triage your inbox? Swipe right to mark an email as read or unread, or swipe left to delete. You’ll be focused on what’s important in no time.</p>\n</blockquote>\n<p><img src=\"MailSwipeToDelete.png\" alt=\"Swipe To Delete\"></p>\n<p>I find this new feature extremely annoying as I keep triggering it by accident. Sadly it seems that there is no preference (even secret preference) to disable this feature. But the good news is that Mail.app supports plugins.</p>",
+      "date_published": "2016-05-10T19:04:34.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2014/0520-checking-if-reduced-motion-is-enabled-on-ios-7/",
+      "url": "https://blog.timac.org/2014/0520-checking-if-reduced-motion-is-enabled-on-ios-7/",
+      "title": "Checking if Reduced Motion is enabled on iOS 7",
+      "content_html": "<p>Apple introduced in iOS 7.0.3 a setting to reduce motion ( <a href=\"http://support.apple.com/kb/HT5595\">http://support.apple.com/kb/HT5595</a> ) : Settings -&gt; General -&gt; Accessibility -&gt; Reduce Motion</p>\n<p><img src=\"ReducedMotion.png\" alt=\"Reduced Motion Setting\"></p>\n<p>Sadly there is no public API to know if the user enabled &ldquo;Reduce motion&rdquo;.</p>",
+      "summary": "<p>Apple introduced in iOS 7.0.3 a setting to reduce motion ( <a href=\"http://support.apple.com/kb/HT5595\">http://support.apple.com/kb/HT5595</a> ) : Settings -&gt; General -&gt; Accessibility -&gt; Reduce Motion</p>\n<p><img src=\"ReducedMotion.png\" alt=\"Reduced Motion Setting\"></p>\n<p>Sadly there is no public API to know if the user enabled &ldquo;Reduce motion&rdquo;.</p>",
+      "date_published": "2014-05-20T20:04:05.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2014/0325-quicklook-plugin-to-preview-strings-files/",
+      "url": "https://blog.timac.org/2014/0325-quicklook-plugin-to-preview-strings-files/",
+      "title": "QuickLook plugin to preview .strings files",
+      "content_html": "<p>OS X and iOS use .strings files for localized text strings as described in the  <a href=\"https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/LoadingResources/Strings/Strings.html#//apple_ref/doc/uid/10000051i-CH6%22\">String Resources Documentation</a>:</p>",
+      "summary": "<p>OS X and iOS use .strings files for localized text strings as described in the  <a href=\"https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/LoadingResources/Strings/Strings.html#//apple_ref/doc/uid/10000051i-CH6%22\">String Resources Documentation</a>:</p>",
+      "date_published": "2014-03-25T20:51:38.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2013/1009-detecting-the-ios-device-hardware-architecture-32-bit64-bit/",
+      "url": "https://blog.timac.org/2013/1009-detecting-the-ios-device-hardware-architecture-32-bit64-bit/",
+      "title": "Detecting the iOS device hardware architecture (32-bit/64-bit)",
+      "content_html": "<p>In a previous post I explained <a href=\"https://blog.timac.org/2013/1001-detecting-if-an-app-runs-in-a-32-bit-or-64-bit-ios-simulator\">how to detect if an app runs in a 32-bit or 64-bit iOS Simulator</a>. It was not explaining how to detect if an iOS app runs on a 32-bit or 64-bit iOS device. This post aims at giving a generic method that can detect all cases:</p>",
+      "summary": "<p>In a previous post I explained <a href=\"https://blog.timac.org/2013/1001-detecting-if-an-app-runs-in-a-32-bit-or-64-bit-ios-simulator\">how to detect if an app runs in a 32-bit or 64-bit iOS Simulator</a>. It was not explaining how to detect if an iOS app runs on a 32-bit or 64-bit iOS device. This post aims at giving a generic method that can detect all cases:</p>",
+      "date_published": "2013-10-09T19:03:30.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2013/1001-detecting-if-an-app-runs-in-a-32-bit-or-64-bit-ios-simulator/",
+      "url": "https://blog.timac.org/2013/1001-detecting-if-an-app-runs-in-a-32-bit-or-64-bit-ios-simulator/",
+      "title": "Detecting if an app runs in a 32-bit or 64-bit iOS Simulator",
+      "content_html": "<p>With Xcode 5, it is now possible to compile an application for armv7 and/or arm64.</p>\n<p>You can compile an application as 32-bit and/or as 64-bit and you can run this application in a 32-bit or 64-bit iOS Simulator:</p>",
+      "summary": "<p>With Xcode 5, it is now possible to compile an application for armv7 and/or arm64.</p>\n<p>You can compile an application as 32-bit and/or as 64-bit and you can run this application in a 32-bit or 64-bit iOS Simulator:</p>",
+      "date_published": "2013-10-01T18:52:23.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2013/0410-using-addresssanitizer-with-xcode-4-6-1/",
+      "url": "https://blog.timac.org/2013/0410-using-addresssanitizer-with-xcode-4-6-1/",
+      "title": "Using AddressSanitizer with Xcode 4.6.1",
+      "content_html": "<p>Clang 3.3 now supports AddressSanitizer. Here is the description from the <a href=\"http://clang.llvm.org/docs/AddressSanitizer.html\">Clang 3.3 documentation</a>:</p>",
+      "summary": "<p>Clang 3.3 now supports AddressSanitizer. Here is the description from the <a href=\"http://clang.llvm.org/docs/AddressSanitizer.html\">Clang 3.3 documentation</a>:</p>",
+      "date_published": "2013-04-10T18:51:12.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2012/1218-simple-code-injection-using-dyld_insert_libraries/",
+      "url": "https://blog.timac.org/2012/1218-simple-code-injection-using-dyld_insert_libraries/",
+      "title": "Simple code injection using DYLD_INSERT_LIBRARIES",
+      "content_html": "<p>In the following article I will describe a simple method to inject code into executables on Mac OS X 10.8 using the DYLD_INSERT_LIBRARIES environment variable.</p>",
+      "summary": "<p>In the following article I will describe a simple method to inject code into executables on Mac OS X 10.8 using the DYLD_INSERT_LIBRARIES environment variable.</p>",
+      "date_published": "2012-12-18T17:25:28.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2012/0330-marre-detre-inscrit-aux-newsletters-car-sur-les-listes-electorales-consulaires/",
+      "url": "https://blog.timac.org/2012/0330-marre-detre-inscrit-aux-newsletters-car-sur-les-listes-electorales-consulaires/",
+      "title": "Marre d’être inscrit aux newsletters car sur les listes électorales consulaires ?",
+      "content_html": "<p>Vous aussi vous êtes inscrit sur les listes électorales consulaires et vous en avez marre d&rsquo;être inscrit, sans votre accord, aux newsletters de tous les candidats et partis ?</p>",
+      "summary": "<p>Vous aussi vous êtes inscrit sur les listes électorales consulaires et vous en avez marre d&rsquo;être inscrit, sans votre accord, aux newsletters de tous les candidats et partis ?</p>",
+      "date_published": "2012-03-30T10:34:34.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0921-stuffit-contextualmenu-for-macosx-10-6/",
+      "url": "https://blog.timac.org/2010/0921-stuffit-contextualmenu-for-macosx-10-6/",
+      "title": "StuffIt ContextualMenu for MacOSX 10.6",
+      "content_html": "<p><a href=\"http://www.smithmicro.com/\">Smith Micro Software</a> released <a href=\"http://www.stuffit.com/mac-deluxe.html\">StuffIt Deluxe® 2011</a> this week. If you don&rsquo;t know StuffIt Deluxe®, it is described like this:</p>\n<blockquote>\n<p>The StuffIt Deluxe® package gives you all the features you need to backup, share, archive, encrypt and shrink your photos, music, and other documents without compromising quality. StuffIt&rsquo;s advanced technology specializes in the compression of MP3, PDF and graphics files with no quality loss. Shrink documents up to 98% of their original size. Use StuffIt to free-up space on your computer and to fit more compressed files onto CD/DVDs or other drives.</p>\n</blockquote>",
+      "summary": "<p><a href=\"http://www.smithmicro.com/\">Smith Micro Software</a> released <a href=\"http://www.stuffit.com/mac-deluxe.html\">StuffIt Deluxe® 2011</a> this week. If you don&rsquo;t know StuffIt Deluxe®, it is described like this:</p>\n<blockquote>\n<p>The StuffIt Deluxe® package gives you all the features you need to backup, share, archive, encrypt and shrink your photos, music, and other documents without compromising quality. StuffIt&rsquo;s advanced technology specializes in the compression of MP3, PDF and graphics files with no quality loss. Shrink documents up to 98% of their original size. Use StuffIt to free-up space on your computer and to fit more compressed files onto CD/DVDs or other drives.</p>\n</blockquote>",
+      "date_published": "2010-09-21T07:21:59.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0727-implementing-a-service-on-10-6/",
+      "url": "https://blog.timac.org/2010/0727-implementing-a-service-on-10-6/",
+      "title": "Implementing a Service on 10.6",
+      "content_html": "<p>In this post I talk on how to write a Service for MacOS X 10.6. If you don&rsquo;t know what is a Service, Apple describes it here <a href=\"http://www.apple.com/macosx/refinements/\">http://www.apple.com/macosx/refinements/</a>:</p>",
+      "summary": "<p>In this post I talk on how to write a Service for MacOS X 10.6. If you don&rsquo;t know what is a Service, Apple describes it here <a href=\"http://www.apple.com/macosx/refinements/\">http://www.apple.com/macosx/refinements/</a>:</p>",
+      "date_published": "2010-07-27T08:11:03.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0317-cornichon/",
+      "url": "https://blog.timac.org/2010/0317-cornichon/",
+      "title": "Cornichon",
+      "content_html": "<p>Cornichon is a powerful tool you can use to dynamically profile Mac OS X applications on the system and track the process' performance over time.</p>",
+      "summary": "<p>Cornichon is a powerful tool you can use to dynamically profile Mac OS X applications on the system and track the process' performance over time.</p>",
+      "date_published": "2010-03-17T06:26:59.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0306-determining-the-running-kernel-mode-on-10-6/",
+      "url": "https://blog.timac.org/2010/0306-determining-the-running-kernel-mode-on-10-6/",
+      "title": "Determining the running kernel mode on 10.6",
+      "content_html": "<p>It might be useful in some cases to know if the MacOS kernel is running in the 32-bit or 64-bit (K64) mode. This is useful for example if you write an application like &lsquo;System Profiler&rsquo; that displays the details of the currently running system:</p>",
+      "summary": "<p>It might be useful in some cases to know if the MacOS kernel is running in the 32-bit or 64-bit (K64) mode. This is useful for example if you write an application like &lsquo;System Profiler&rsquo; that displays the details of the currently running system:</p>",
+      "date_published": "2010-03-06T10:21:25.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0130-open-in-32-bit-mode-open-using-rosetta/",
+      "url": "https://blog.timac.org/2010/0130-open-in-32-bit-mode-open-using-rosetta/",
+      "title": "‘Open in 32-bit mode’ – ‘Open using Rosetta’",
+      "content_html": "<p>As you know, it is possible to force an <a href=\"http://developer.apple.com/legacy/mac/library/documentation/MacOSX/Conceptual/universal_binary/\">Universal Binary</a> (ppc, i386, x86_64) to run in 32-bit mode (i386) even if the machine could run x86_64 binaries.</p>",
+      "summary": "<p>As you know, it is possible to force an <a href=\"http://developer.apple.com/legacy/mac/library/documentation/MacOSX/Conceptual/universal_binary/\">Universal Binary</a> (ppc, i386, x86_64) to run in 32-bit mode (i386) even if the machine could run x86_64 binaries.</p>",
+      "date_published": "2010-01-30T15:03:18.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0120-pict-support-in-64-bit-app/",
+      "url": "https://blog.timac.org/2010/0120-pict-support-in-64-bit-app/",
+      "title": "PICT support in 64-bit app",
+      "content_html": "<p><a href=\"http://developer.apple.com/legacy/mac/library/documentation/Carbon/Reference/QuickDraw_Ref/\">QuickDraw</a> <em>is the legacy 2D drawing engine for Macintosh computers</em> and was deprecated in Tiger (10.4) but is still available for 32-bit applications on 10.4, 10.5 and 10.6. 64-bit applications can&rsquo;t use QuickDraw yet and Apple recommends to switch to other technologies like Quartz 2D.</p>",
+      "summary": "<p><a href=\"http://developer.apple.com/legacy/mac/library/documentation/Carbon/Reference/QuickDraw_Ref/\">QuickDraw</a> <em>is the legacy 2D drawing engine for Macintosh computers</em> and was deprecated in Tiger (10.4) but is still available for 32-bit applications on 10.4, 10.5 and 10.6. 64-bit applications can&rsquo;t use QuickDraw yet and Apple recommends to switch to other technologies like Quartz 2D.</p>",
+      "date_published": "2010-01-20T08:16:04.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0108-intel-64-bit-summary/",
+      "url": "https://blog.timac.org/2010/0108-intel-64-bit-summary/",
+      "title": "Intel 64-bit summary",
+      "content_html": "<p>Since people are confused regarding Intel 64-bit, here is a brief summary of what can run on which Intel processor.</p>",
+      "summary": "<p>Since people are confused regarding Intel 64-bit, here is a brief summary of what can run on which Intel processor.</p>",
+      "date_published": "2010-01-08T21:03:46.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2010/0103-enigme-deinstein-et-erreur-de-traduction/",
+      "url": "https://blog.timac.org/2010/0103-enigme-deinstein-et-erreur-de-traduction/",
+      "title": "Enigme d’Einstein et erreur de traduction",
+      "content_html": "<p><em>This post is written in french and talks about a bad translation in the &ldquo;Einstein&rsquo;s Puzzle&rdquo;.</em></p>\n<p>L&rsquo;énigme d&rsquo;Einstein (aussi connue sous le nom de &ldquo;l&rsquo;énigme des 5 x 5&rdquo;) est un jeu de logique. Son nom vient du fait qu&rsquo;il aurait été inventé par Albert Einstein alors qu&rsquo;il était enfant. Cependant ce jeu est aussi parfois attribué à Charles Lutwidge Dodgson.</p>",
+      "summary": "<p><em>This post is written in french and talks about a bad translation in the &ldquo;Einstein&rsquo;s Puzzle&rdquo;.</em></p>\n<p>L&rsquo;énigme d&rsquo;Einstein (aussi connue sous le nom de &ldquo;l&rsquo;énigme des 5 x 5&rdquo;) est un jeu de logique. Son nom vient du fait qu&rsquo;il aurait été inventé par Albert Einstein alors qu&rsquo;il était enfant. Cependant ce jeu est aussi parfois attribué à Charles Lutwidge Dodgson.</p>",
+      "date_published": "2010-01-03T11:12:58.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2009/0927-embedded-computers-in-aircrafts/",
+      "url": "https://blog.timac.org/2009/0927-embedded-computers-in-aircrafts/",
+      "title": "Embedded computers in aircrafts",
+      "content_html": "<p>I am back from vacations and had a 11 hours flight with <a href=\"http://www.air-austral.com/\">AirAustral</a>. On board each seat has an embedded computer. With this computer, you can watch movies, play games, &hellip;</p>",
+      "summary": "<p>I am back from vacations and had a 11 hours flight with <a href=\"http://www.air-austral.com/\">AirAustral</a>. On board each seat has an embedded computer. With this computer, you can watch movies, play games, &hellip;</p>",
+      "date_published": "2009-09-27T16:24:40.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2009/0906-automatic-backtraces/",
+      "url": "https://blog.timac.org/2009/0906-automatic-backtraces/",
+      "title": "Automatic Backtraces",
+      "content_html": "<p>Here are different solutions to display automatically a backtrace when entering a specific function in your application. As an example we will take the following program. It&rsquo;s a really simple program: the main function calls the function <code>function1</code> which prints a string.</p>",
+      "summary": "<p>Here are different solutions to display automatically a backtrace when entering a specific function in your application. As an example we will take the following program. It&rsquo;s a really simple program: the main function calls the function <code>function1</code> which prints a string.</p>",
+      "date_published": "2009-09-06T16:21:06.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2009/0806-getrlimit-and-randomness/",
+      "url": "https://blog.timac.org/2009/0806-getrlimit-and-randomness/",
+      "title": "getrlimit and randomness",
+      "content_html": "<p>To determine the maximum number of files your application can open, there is a function getrlimit() available.</p>",
+      "summary": "<p>To determine the maximum number of files your application can open, there is a function getrlimit() available.</p>",
+      "date_published": "2009-08-06T19:50:56.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2009/0527-finder-no-comment/",
+      "url": "https://blog.timac.org/2009/0527-finder-no-comment/",
+      "title": "Finder – No Comment",
+      "content_html": "Really?",
+      "summary": "Really?",
+      "date_published": "2009-05-27T13:27:17.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2009/0214-newmoviedontinteractwithuser-flag/",
+      "url": "https://blog.timac.org/2009/0214-newmoviedontinteractwithuser-flag/",
+      "title": "‘newMovieDontInteractWithUser’ flag",
+      "content_html": "<p>Some QuickTime functions take a &lsquo;short flags&rsquo; as parameter, for example <code>NewMovieFromHandle</code> or <code>NewMovieFromDataRef</code>:</p>",
+      "summary": "<p>Some QuickTime functions take a &lsquo;short flags&rsquo; as parameter, for example <code>NewMovieFromHandle</code> or <code>NewMovieFromDataRef</code>:</p>",
+      "date_published": "2009-02-14T10:52:20.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2008/1120-major-issue-in-simpleping/",
+      "url": "https://blog.timac.org/2008/1120-major-issue-in-simpleping/",
+      "title": "Major issue in SimplePing",
+      "content_html": "<p>The <a href=\"http://beta.devworld.apple.com/samplecode/SimplePing/listing3.html\">SimplePing sample</a> from Apple can fail to perform a ping request (ICMP).</p>",
+      "summary": "<p>The <a href=\"http://beta.devworld.apple.com/samplecode/SimplePing/listing3.html\">SimplePing sample</a> from Apple can fail to perform a ping request (ICMP).</p>",
+      "date_published": "2008-11-20T08:25:20.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2008/0824-programmatically-break-into-gdb/",
+      "url": "https://blog.timac.org/2008/0824-programmatically-break-into-gdb/",
+      "title": "Programmatically break into GDB",
+      "content_html": "<p>You may want to stop into the debugger if something bad happened while executing your program. The easier way to do that is to have a breakpoint always set and to run your program in the debugger.</p>\n<p>But sometimes you want to break even if there are no breakpoint. For example you know that something is wrong now and your program will crash later.</p>",
+      "summary": "<p>You may want to stop into the debugger if something bad happened while executing your program. The easier way to do that is to have a breakpoint always set and to run your program in the debugger.</p>\n<p>But sometimes you want to break even if there are no breakpoint. For example you know that something is wrong now and your program will crash later.</p>",
+      "date_published": "2008-08-24T20:42:41.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2008/0808-breakpoint-conditions-with-gdb/",
+      "url": "https://blog.timac.org/2008/0808-breakpoint-conditions-with-gdb/",
+      "title": "Breakpoint conditions with GDB",
+      "content_html": "<p>When debugging your application, you use breakpoints. The program will return control to GDB every time it reaches a breakpoint you set. This may not be desirable if you have breakpoint on a method that is called many times and you want to break only with certain values passed to that method. GDB provides several ways to do conditional breakpoints that I&rsquo;ll try to explain.</p>",
+      "summary": "<p>When debugging your application, you use breakpoints. The program will return control to GDB every time it reaches a breakpoint you set. This may not be desirable if you have breakpoint on a method that is called many times and you want to break only with certain values passed to that method. GDB provides several ways to do conditional breakpoints that I&rsquo;ll try to explain.</p>",
+      "date_published": "2008-08-08T07:13:48.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2008/0723-ignoring-a-ssl-certificate-when-using-a-webserver/",
+      "url": "https://blog.timac.org/2008/0723-ignoring-a-ssl-certificate-when-using-a-webserver/",
+      "title": "Ignoring a SSL certificate when using a webserver",
+      "content_html": "<p>What happens when you try to connect to an HTTPS webserver which has an invalid SSL certificate? For example when the hostname of the website is not the same as the one in the SSL certificate.</p>",
+      "summary": "<p>What happens when you try to connect to an HTTPS webserver which has an invalid SSL certificate? For example when the hostname of the website is not the same as the one in the SSL certificate.</p>",
+      "date_published": "2008-07-23T19:14:07.000Z"
+    },
+    {
+      "guid": "https://blog.timac.org/2008/0719-libmallocdebug/",
+      "url": "https://blog.timac.org/2008/0719-libmallocdebug/",
+      "title": "libMallocDebug",
+      "content_html": "<p>Here is a little description on how to use libMallocDebug for developers and QA people. It seems not many people know about it.</p>",
+      "summary": "<p>Here is a little description on how to use libMallocDebug for developers and QA people. It seems not many people know about it.</p>",
+      "date_published": "2008-07-19T16:39:20.000Z"
+    }
+  ]
+}

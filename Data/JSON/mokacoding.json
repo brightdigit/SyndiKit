@@ -1,0 +1,1564 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "mokacoding",
+  "home_page_url": "https://mokacoding.com/",
+  "description": "A blog about testing, iOS development, productivity, and blabber about software in general.",
+  "items": [
+    {
+      "guid": "https://mokacoding.com/blog/wwdc21-whats-new-in-testing",
+      "url": "https://mokacoding.com/blog/wwdc21-whats-new-in-testing",
+      "title": "WWDC21: What's New in Testing",
+      "content_html": "A roundup of the testing-related new features announced at WWDC 2021. Including Xcode Cloud, how to test code using async/await, the new XCTExpectFailure and addTearDownBlock APIs, and the new Test Repetition configuration in Test Plans.",
+      "summary": "A roundup of the testing-related new features announced at WWDC 2021. Including Xcode Cloud, how to test code using async/await, the new XCTExpectFailure and addTearDownBlock APIs, and the new Test Repetition configuration in Test Plans.",
+      "date_published": "2021-06-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-test-async-await-code-in-swift",
+      "url": "https://mokacoding.com/blog/how-to-test-async-await-code-in-swift",
+      "title": "How to test Swift async/await code with XCTest",
+      "content_html": "Swift 5.5 and Xcode 13 introduce the async/await pattern for concurrent code. This tutorial post shows how to write unit tests for asynchronous code in Swift using the XCTest framework.",
+      "summary": "Swift 5.5 and Xcode 13 introduce the async/await pattern for concurrent code. This tutorial post shows how to write unit tests for asynchronous code in Swift using the XCTest framework.",
+      "date_published": "2021-06-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/better-swift-date-compare-tests",
+      "url": "https://mokacoding.com/blog/better-swift-date-compare-tests",
+      "title": "How to write better tests for Swift date comparisons",
+      "content_html": "Testing Swift date comparison code with XCTest can result in indeterministic tests because of the passage of time. To make tests robust and deterministic, decouple them from the system clock by injecting the reference date.",
+      "summary": "Testing Swift date comparison code with XCTest can result in indeterministic tests because of the passage of time. To make tests robust and deterministic, decouple them from the system clock by injecting the reference date.",
+      "date_published": "2021-06-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/distributed-working",
+      "url": "https://mokacoding.com/blog/distributed-working",
+      "title": "On the benefits of distributed work",
+      "content_html": "Working from home doesn't have to be lonely. Going from remote to distributed can bring massive benefits to employees satisfaction and company productivity.",
+      "summary": "Working from home doesn't have to be lonely. Going from remote to distributed can bring massive benefits to employees satisfaction and company productivity.",
+      "date_published": "2021-05-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/scenario-builders-in-swift",
+      "url": "https://mokacoding.com/blog/scenario-builders-in-swift",
+      "title": "How to manage complex inputs in your Swift tests with Scenario Builders",
+      "content_html": "When writing unit tests in Swift for complex objects, you may need to write a lot of setup boilerplate code in the arrange phase. Scenario Builders are a pattern that extracts and encapsulated all that logic in a single component with an English-like API. This tutorial shows how to build a Scenario Builder in Swift and looks at its pros and cons.",
+      "summary": "When writing unit tests in Swift for complex objects, you may need to write a lot of setup boilerplate code in the arrange phase. Scenario Builders are a pattern that extracts and encapsulated all that logic in a single component with an English-like API. This tutorial shows how to build a Scenario Builder in Swift and looks at its pros and cons.",
+      "date_published": "2021-04-28T20:21:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/a-world-without-slack",
+      "url": "https://mokacoding.com/blog/a-world-without-slack",
+      "title": "A World Without Slack",
+      "content_html": "How to establish a workflow that minimizes unscheduled, unstructured communication and maximizes focus and productivity.",
+      "summary": "How to establish a workflow that minimizes unscheduled, unstructured communication and maximizes focus and productivity.",
+      "date_published": "2021-04-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/distributed-app-release-process",
+      "url": "https://mokacoding.com/blog/distributed-app-release-process",
+      "title": "A distributed asynchronous release process",
+      "content_html": "My latest post on mobile.blog explores two simple conventions Automattic uses to remove the need for synchronous meetings in their app release process.",
+      "summary": "My latest post on mobile.blog explores two simple conventions Automattic uses to remove the need for synchronous meetings in their app release process.",
+      "date_published": "2021-03-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/working-backwards",
+      "url": "https://mokacoding.com/blog/working-backwards",
+      "title": "Working Backwards",
+      "content_html": "How working your way backwards from your desired outcome can make you more productive, focused, and motivated.",
+      "summary": "How working your way backwards from your desired outcome can make you more productive, focused, and motivated.",
+      "date_published": "2021-03-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-waiting-in-line-can-improve-your-focus",
+      "url": "https://mokacoding.com/blog/how-waiting-in-line-can-improve-your-focus",
+      "title": "How waiting in line can improve your focus",
+      "content_html": "Embrace boredom to train your brain to sustain focus when working on demanding tasks",
+      "summary": "Embrace boredom to train your brain to sustain focus when working on demanding tasks",
+      "date_published": "2021-02-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/testing-combine-publisher-cheatsheet",
+      "url": "https://mokacoding.com/blog/testing-combine-publisher-cheatsheet",
+      "title": "Unit Testing Combine Publisher Cheatsheet",
+      "content_html": "Snippets to test the behavior of Combine Publishers in XCTest ready to copy and paste into Xcode",
+      "summary": "Snippets to test the behavior of Combine Publishers in XCTest ready to copy and paste into Xcode",
+      "date_published": "2021-02-11T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/boring-iterations-interesting-steps",
+      "url": "https://mokacoding.com/blog/boring-iterations-interesting-steps",
+      "title": "Boring Iterations. Interesting Steps.",
+      "content_html": "Camille Fournier encourages us to \"Make Boring Plans\" and move in small iterations.",
+      "summary": "Camille Fournier encourages us to \"Make Boring Plans\" and move in small iterations.",
+      "date_published": "2021-01-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-migrate-from-swiftui-to-uikit-life-cycle",
+      "url": "https://mokacoding.com/blog/how-to-migrate-from-swiftui-to-uikit-life-cycle",
+      "title": "How to migrate from SwiftUI to UIKit App Delegate Life Cycle in Xcode",
+      "content_html": "This free tutorial shows how to migrate an existing app with SwiftUI life cycle to use UIKit App Delegate instead",
+      "summary": "This free tutorial shows how to migrate an existing app with SwiftUI life cycle to use UIKit App Delegate instead",
+      "date_published": "2021-01-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-stick-with-your-new-year-resolutions",
+      "url": "https://mokacoding.com/blog/how-to-stick-with-your-new-year-resolutions",
+      "title": "How to stick with your New Year resolutions",
+      "content_html": "The start of a new year is a great time to work on self-improvement, but unless you take the right steps, your New Year resolutions might not stick.",
+      "summary": "The start of a new year is a great time to work on self-improvement, but unless you take the right steps, your New Year resolutions might not stick.",
+      "date_published": "2021-01-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-set-default-values-in-swift-compiler-generate-init",
+      "url": "https://mokacoding.com/blog/how-to-set-default-values-in-swift-compiler-generate-init",
+      "title": "How to set default values in Swift compiler-generated initializers",
+      "content_html": "You can get the Swift compiler to generate an initializer with default values for your structs, if you're willing to put up with a bit of mutability.",
+      "summary": "You can get the Swift compiler to generate an initializer with default values for your structs, if you're willing to put up with a bit of mutability.",
+      "date_published": "2020-12-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/tdd-and-ydniy",
+      "url": "https://mokacoding.com/blog/tdd-and-ydniy",
+      "title": "How to improve your Test-Driven Development workflow by asking \"Do I need this yet?\"",
+      "content_html": "The \"You Don't Need It Yet\" technique to ship software on a schedule results in fast real-world feeback. The same mindset can be applied with Test-Driven Development to move between the Red, Green, and Refactor stages faster.",
+      "summary": "The \"You Don't Need It Yet\" technique to ship software on a schedule results in fast real-world feeback. The same mindset can be applied with Test-Driven Development to move between the Red, Green, and Refactor stages faster.",
+      "date_published": "2020-12-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/write-better-swift-tests-with-xctest-assertions",
+      "url": "https://mokacoding.com/blog/write-better-swift-tests-with-xctest-assertions",
+      "title": "Write better Swift unit tests with custom XCTest assertions",
+      "content_html": "The XCTest Swift testing framework has a limited offer of assertions. There's only so much you can do with XCTAssertTrue and XCTAssertEqual. This XCTest tutorial shows how to create custom assertions to make your unit tests and UI tests shorter and clearer.",
+      "summary": "The XCTest Swift testing framework has a limited offer of assertions. There's only so much you can do with XCTAssertTrue and XCTAssertEqual. This XCTest tutorial shows how to create custom assertions to make your unit tests and UI tests shorter and clearer.",
+      "date_published": "2020-12-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-write-tests-for-swift-result",
+      "url": "https://mokacoding.com/blog/how-to-write-tests-for-swift-result",
+      "title": "How to write unit test assertions for Swift Result values",
+      "content_html": "Result is one of the most useful types in the Swift language. Learn how to write better unit tests using Result in this XCTest tutorial.",
+      "summary": "Result is one of the most useful types in the Swift language. Learn how to write better unit tests using Result in this XCTest tutorial.",
+      "date_published": "2020-12-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/when-experiments-go-wrong",
+      "url": "https://mokacoding.com/blog/when-experiments-go-wrong",
+      "title": "When experiments go wrong",
+      "content_html": "Scientist can learn a lot from failed experiments. To do so, they must be methodical and collect all sorts of information. Softwar developers can learn a lot from failures, too. What are the practicies that can make learning easier?",
+      "summary": "Scientist can learn a lot from failed experiments. To do so, they must be methodical and collect all sorts of information. Softwar developers can learn a lot from failures, too. What are the practicies that can make learning easier?",
+      "date_published": "2020-11-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/better-merging-for-github-pull-requests",
+      "url": "https://mokacoding.com/blog/better-merging-for-github-pull-requests",
+      "title": "How to merge pull requests with a commit that improves your Git history",
+      "content_html": "When merging a pull request on GitHub, it helps to replace the default merge commit title with the PR title or an equally descriptive one. This will make your Git history more informative, and developers will understand the changes in the Git log faster.",
+      "summary": "When merging a pull request on GitHub, it helps to replace the default merge commit title with the PR title or an equally descriptive one. This will make your Git history more informative, and developers will understand the changes in the Git log faster.",
+      "date_published": "2020-11-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/prevent-swiftui-app-loading-in-unit-tests",
+      "url": "https://mokacoding.com/blog/prevent-swiftui-app-loading-in-unit-tests",
+      "title": "How to bypass the SwiftUI App when running unit tests",
+      "content_html": "How to make the unit tests of your SwiftUI app safer and faster by preventing them from running the program startup flow. This will avoid all of the launch operations like network requests or reads from the local storage that would affect the global state.",
+      "summary": "How to make the unit tests of your SwiftUI app safer and faster by preventing them from running the program startup flow. This will avoid all of the launch operations like network requests or reads from the local storage that would affect the global state.",
+      "date_published": "2020-11-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/vim-rename-file",
+      "url": "https://mokacoding.com/blog/vim-rename-file",
+      "title": "How to rename a file in Vim",
+      "content_html": "There are many ways to rename a file in Vim. Here's three.",
+      "summary": "There are many ways to rename a file in Vim. Here's three.",
+      "date_published": "2020-11-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/remove-trailing-whitespaces-in-folder-files",
+      "url": "https://mokacoding.com/blog/remove-trailing-whitespaces-in-folder-files",
+      "title": "How to remove trailing whitespaces from all files in a folder",
+      "content_html": "Here's a shell command to trim all the trailing whitespaces in all the files of the current folder.",
+      "summary": "Here's a shell command to trim all the trailing whitespaces in all the files of the current folder.",
+      "date_published": "2020-11-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/nested-type-view-models",
+      "url": "https://mokacoding.com/blog/nested-type-view-models",
+      "title": "How to make the View to ViewModel relationship clear",
+      "content_html": "Using Swift's nested types helps making it clear that a view model belongs to a view.",
+      "summary": "Using Swift's nested types helps making it clear that a view model belongs to a view.",
+      "date_published": "2020-11-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/swiftui-dependency-injection",
+      "url": "https://mokacoding.com/blog/swiftui-dependency-injection",
+      "title": "Dependency Injection in SwiftUI",
+      "content_html": "This post shows two ways of achieving dependency injection in SwiftUI: using @EnvironmentObject or a View Model Factory.",
+      "summary": "This post shows two ways of achieving dependency injection in SwiftUI: using @EnvironmentObject or a View Model Factory.",
+      "date_published": "2020-10-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/pipe-wrench",
+      "url": "https://mokacoding.com/blog/pipe-wrench",
+      "title": "What can a pipe wrench teach us about software engineering?",
+      "content_html": "With his famous pipe wrench lecture, Vannevar Bush taught young MIT engineers the value of precision. The same teaching holds true for software developers.",
+      "summary": "With his famous pipe wrench lecture, Vannevar Bush taught young MIT engineers the value of precision. The same teaching holds true for software developers.",
+      "date_published": "2020-10-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/hyperfocus-review",
+      "url": "https://mokacoding.com/blog/hyperfocus-review",
+      "title": "Hyperfocus by Chris Bailey",
+      "content_html": "Hyperfocus will teach you how to concentrate effectively and let your mind wander to reach creative insights.",
+      "summary": "Hyperfocus will teach you how to concentrate effectively and let your mind wander to reach creative insights.",
+      "date_published": "2020-10-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/you-dont-need-it-yet",
+      "url": "https://mokacoding.com/blog/you-dont-need-it-yet",
+      "title": "You Don't Need It Yet",
+      "content_html": "YDNIY is a purposeful restraint of what you decide to build in the interest of delivering value to the users as soon as possible and consistently.",
+      "summary": "YDNIY is a purposeful restraint of what you decide to build in the interest of delivering value to the users as soon as possible and consistently.",
+      "date_published": "2020-10-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/thats-funny-moments-are-learning-opportunities",
+      "url": "https://mokacoding.com/blog/thats-funny-moments-are-learning-opportunities",
+      "title": "\"That's funny…\" moments are learning opportunities",
+      "content_html": "The most exciting phrase to hear in science, and software development, the one that heralds new discoveries, is not \"Eureka!\" but \"That's funny…\"",
+      "summary": "The most exciting phrase to hear in science, and software development, the one that heralds new discoveries, is not \"Eureka!\" but \"That's funny…\"",
+      "date_published": "2020-09-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/will-ios-14-destroy-your-productivity",
+      "url": "https://mokacoding.com/blog/will-ios-14-destroy-your-productivity",
+      "title": "Will iOS 14 Destroy Your Productivity?",
+      "content_html": "iOS 14 introduces Widgets, a feature that makes it incredibly easy to get distracted.",
+      "summary": "iOS 14 introduces Widgets, a feature that makes it incredibly easy to get distracted.",
+      "date_published": "2020-09-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/replace-triple-boolean-with-enum",
+      "url": "https://mokacoding.com/blog/replace-triple-boolean-with-enum",
+      "title": "Replace Triple-state Boolean with Enumeration",
+      "content_html": "Triple-state Booleans can be ambiguous to work with. Replace them with an enum to make the code clearer.",
+      "summary": "Triple-state Booleans can be ambiguous to work with. Replace them with an enum to make the code clearer.",
+      "date_published": "2020-09-14T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-decouple-tests-from-frequently-changing-values",
+      "url": "https://mokacoding.com/blog/how-to-decouple-tests-from-frequently-changing-values",
+      "title": "How to decouple unit tests from values that change frequently",
+      "content_html": "When the output value of a function changes often but the logic to pick it doesn't, adding a separation layer will make unit tests easier to maintain.",
+      "summary": "When the output value of a function changes often but the logic to pick it doesn't, adding a separation layer will make unit tests easier to maintain.",
+      "date_published": "2020-09-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-add-coauthors-to-a-git-commit",
+      "url": "https://mokacoding.com/blog/how-to-add-coauthors-to-a-git-commit",
+      "title": "How to add co-authors to a Git commit",
+      "date_published": "2020-08-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-check-if-app-is-notarized",
+      "url": "https://mokacoding.com/blog/how-to-check-if-app-is-notarized",
+      "title": "How to check if macOS app is notarized",
+      "date_published": "2020-08-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-reverse-a-file-in-the-terminal",
+      "url": "https://mokacoding.com/blog/how-to-reverse-a-file-in-the-terminal",
+      "title": "How to reverse a file in the terminal",
+      "date_published": "2020-08-22T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-verify-ssh-key-password",
+      "url": "https://mokacoding.com/blog/how-to-verify-ssh-key-password",
+      "title": "How to verify your SSH private key password",
+      "date_published": "2020-08-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-check-if-ruby-array-contains-element",
+      "url": "https://mokacoding.com/blog/how-to-check-if-ruby-array-contains-element",
+      "title": "How to check if array contains element with block in Ruby",
+      "date_published": "2020-08-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/honesty-oriented-programming",
+      "url": "https://mokacoding.com/blog/honesty-oriented-programming",
+      "title": "Honesty-Oriented Programming",
+      "content_html": "If you focus on writing honest code, you'll end up with software that is easier to understand and work with.",
+      "summary": "If you focus on writing honest code, you'll end up with software that is easier to understand and work with.",
+      "date_published": "2020-07-12T15:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/referential-transparency-in-swift",
+      "url": "https://mokacoding.com/blog/referential-transparency-in-swift",
+      "title": "Referential Transparency in Swift",
+      "content_html": "An explanation of what referential transparency means with examples in Swift",
+      "summary": "An explanation of what referential transparency means with examples in Swift",
+      "date_published": "2020-07-12T14:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/main-vs-master-xcode-12",
+      "url": "https://mokacoding.com/blog/main-vs-master-xcode-12",
+      "title": "Should you change your branch name to \"main\"?",
+      "content_html": "In Xcode 12, the default branch name is main instead of master. This little language change has deeper implications and stirred up an hornets' nest.",
+      "summary": "In Xcode 12, the default branch name is main instead of master. This little language change has deeper implications and stirred up an hornets' nest.",
+      "date_published": "2020-06-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/the-indistractable-developer",
+      "url": "https://mokacoding.com/blog/the-indistractable-developer",
+      "title": "The Indistractable Developer",
+      "content_html": "The quality of your focus time is directly proportional to your value in the market. Become Indistractable to maximize it.",
+      "summary": "The quality of your focus time is directly proportional to your value in the market. Become Indistractable to maximize it.",
+      "date_published": "2020-05-27T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cocoapods-ci-setup",
+      "url": "https://mokacoding.com/blog/cocoapods-ci-setup",
+      "title": "How to use CocoaPods as a CLI tools manager",
+      "content_html": "CocoaPods can be configured to only resolve and download dependencies, making it a great manager for vendored CLI tools",
+      "summary": "CocoaPods can be configured to only resolve and download dependencies, making it a great manager for vendored CLI tools",
+      "date_published": "2020-03-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-manually-generate-devise-reset-password-link",
+      "url": "https://mokacoding.com/blog/how-to-manually-generate-devise-reset-password-link",
+      "title": "How to manually generate Devise reset password link",
+      "date_published": "2019-07-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/midwives-with-the-apple-watch",
+      "url": "https://mokacoding.com/blog/midwives-with-the-apple-watch",
+      "title": "Midwives with the Apple Watch",
+      "date_published": "2019-06-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/social-media-operating-procedures",
+      "url": "https://mokacoding.com/blog/social-media-operating-procedures",
+      "title": "How to use social media productively",
+      "content_html": "Social media can be a valuable source of news and interactions, or a disruption to our focus. The difference is in how we approach using these technologies.",
+      "summary": "Social media can be a valuable source of news and interactions, or a disruption to our focus. The difference is in how we approach using these technologies.",
+      "date_published": "2019-04-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/running-one-test-in-xcode",
+      "url": "https://mokacoding.com/blog/running-one-test-in-xcode",
+      "title": "How to run a single test in Xcode",
+      "content_html": "A collection of ways to run a single test or a subset of tests using Xcode.",
+      "summary": "A collection of ways to run a single test or a subset of tests using Xcode.",
+      "date_published": "2019-04-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/navigation-delegate-pattern",
+      "url": "https://mokacoding.com/blog/navigation-delegate-pattern",
+      "title": "How to test view controllers navigation",
+      "content_html": "The answer to \"How can I test that a view controller presents another view controller when something happens?\" is as simple as defining a delegate.",
+      "summary": "The answer to \"How can I test that a view controller presents another view controller when something happens?\" is as simple as defining a delegate.",
+      "date_published": "2019-04-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/take-care-of-your-tools",
+      "url": "https://mokacoding.com/blog/take-care-of-your-tools",
+      "title": "Take care of your tools",
+      "content_html": "\"You take care of your tools, your tools take care of you.\"",
+      "summary": "\"You take care of your tools, your tools take care of you.\"",
+      "date_published": "2019-04-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/code-like-a-chef",
+      "url": "https://mokacoding.com/blog/code-like-a-chef",
+      "title": "Code Like A Chef",
+      "content_html": "Professional chefs keep their benches clean because clutter will get in the way of their work. Software developers should do the same.",
+      "summary": "Professional chefs keep their benches clean because clutter will get in the way of their work. Software developers should do the same.",
+      "date_published": "2019-04-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/top-10-productivity-books",
+      "url": "https://mokacoding.com/blog/top-10-productivity-books",
+      "title": "Top 10 Productivity Books",
+      "content_html": "A running list of the top 10 most impactful books on productivity I've encountered so far",
+      "summary": "A running list of the top 10 most impactful books on productivity I've encountered so far",
+      "date_published": "2019-03-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/podcast-addiction",
+      "url": "https://mokacoding.com/blog/podcast-addiction",
+      "title": "Why I'm cutting back on podcasts and audiobooks",
+      "content_html": "I realized I was on a path to remove time for reflection from my life, mainly by filling every available moment with podcasts and audiobooks. These are the steps I'm taking to cultivate more solitude, and the benefits I'm already seeing.",
+      "summary": "I realized I was on a path to remove time for reflection from my life, mainly by filling every available moment with podcasts and audiobooks. These are the steps I'm taking to cultivate more solitude, and the benefits I'm already seeing.",
+      "date_published": "2019-03-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/better-tests-for-delegates",
+      "url": "https://mokacoding.com/blog/better-tests-for-delegates",
+      "title": "Better tests for delegates",
+      "content_html": "When testing delegates, we are asserting rigid implementation details. Here's a way to make those tests more flexible.",
+      "summary": "When testing delegates, we are asserting rigid implementation details. Here's a way to make those tests more flexible.",
+      "date_published": "2019-03-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/3-lessons-from-new-england-patriots",
+      "url": "https://mokacoding.com/blog/3-lessons-from-new-england-patriots",
+      "title": "3 Lessons on Software Development from the New England Patriots",
+      "content_html": "By looking at how the consistently successful New England Patriots operate we can learn useful lessons to apply to our job as software developers.",
+      "summary": "By looking at how the consistently successful New England Patriots operate we can learn useful lessons to apply to our job as software developers.",
+      "date_published": "2019-03-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/clutter-and-optimization",
+      "url": "https://mokacoding.com/blog/clutter-and-optimization",
+      "title": "The value of decluttering and optimizing your software",
+      "content_html": "Digital minimalists believe that clutter is costly and optimization is important. Let me show you how these ideas apply to software development as well.",
+      "summary": "Digital minimalists believe that clutter is costly and optimization is important. Let me show you how these ideas apply to software development as well.",
+      "date_published": "2019-02-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/code-coverage-is-broken",
+      "url": "https://mokacoding.com/blog/code-coverage-is-broken",
+      "title": "Code Coverage Is A Broken Metric",
+      "content_html": "But you should track it anyways.",
+      "summary": "But you should track it anyways.",
+      "date_published": "2019-02-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/wirte-less-code",
+      "url": "https://mokacoding.com/blog/wirte-less-code",
+      "title": "Write Less Code",
+      "content_html": "The best thing you can do as a software developer is not writing code, but removing it. Here's why.",
+      "summary": "The best thing you can do as a software developer is not writing code, but removing it. Here's why.",
+      "date_published": "2019-02-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/step-by-step-tdd-in-swift-part-1",
+      "url": "https://mokacoding.com/blog/step-by-step-tdd-in-swift-part-1",
+      "title": "How to TDD in Swift, a step by step guide",
+      "content_html": "With test driven development you can write high quality software in small shippable steps. Here's how to get started.",
+      "summary": "With test driven development you can write high quality software in small shippable steps. Here's how to get started.",
+      "date_published": "2019-02-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/the-productivity-project-notes",
+      "url": "https://mokacoding.com/blog/the-productivity-project-notes",
+      "title": "The Productivity Project - by Chris Bailey",
+      "content_html": "My notes and quotes from The Productivity Project by Chris Bailey",
+      "summary": "My notes and quotes from The Productivity Project by Chris Bailey",
+      "date_published": "2019-01-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/swift-test-doubles",
+      "url": "https://mokacoding.com/blog/swift-test-doubles",
+      "title": "Test doubles in Swift: dummies, fakes, stubs, and spies.",
+      "content_html": "An overview of the different kind of doubles we can use in our tests, and how to write them in Swift.",
+      "summary": "An overview of the different kind of doubles we can use in our tests, and how to write them in Swift.",
+      "date_published": "2018-11-27T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/terminal-aliases",
+      "url": "https://mokacoding.com/blog/terminal-aliases",
+      "title": "How to become drastically faster at using the terminal",
+      "content_html": "Using the terminal might seem slow and cumbersome because every command needs to be typed. Learn how to drastically reduce the amount of typing you have to do by configuring aliases for your most used commands, making them only a few keystrokes long.",
+      "summary": "Using the terminal might seem slow and cumbersome because every command needs to be typed. Learn how to drastically reduce the amount of typing you have to do by configuring aliases for your most used commands, making them only a few keystrokes long.",
+      "date_published": "2018-11-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-split-decision-and-action-logic-with-the-swift-type-system",
+      "url": "https://mokacoding.com/blog/how-to-split-decision-and-action-logic-with-the-swift-type-system",
+      "title": "How to split decision and action logic with the Swift type system",
+      "content_html": "There is a subtle way to overload software components, by making them both take decision and act on them. We can simplify these bloated components by separating the responsibility of taking decisions from the one action on them. This will result in leaner and easier to maintain software, and is made simple by the Swift type system.",
+      "summary": "There is a subtle way to overload software components, by making them both take decision and act on them. We can simplify these bloated components by separating the responsibility of taking decisions from the one action on them. This will result in leaner and easier to maintain software, and is made simple by the Swift type system.",
+      "date_published": "2018-11-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-remove-duplication-from-swift-tests-with-helper-functions",
+      "url": "https://mokacoding.com/blog/how-to-remove-duplication-from-swift-tests-with-helper-functions",
+      "title": "How to remove duplication from Swift tests with helper functions",
+      "content_html": "Some code ends up requiring a lot of duplication to be tested. You can remove it by using helper functions encapsulating the shared assertion logic.",
+      "summary": "Some code ends up requiring a lot of duplication to be tested. You can remove it by using helper functions encapsulating the shared assertion logic.",
+      "date_published": "2018-11-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/stephen-king-advice-to-software-developers",
+      "url": "https://mokacoding.com/blog/stephen-king-advice-to-software-developers",
+      "title": "Stephen King's Advice To Software Developers",
+      "content_html": "In \"On Writing\" Stephen King shares invaluable lessons for aspiring novelists which can be applied to software development too.",
+      "summary": "In \"On Writing\" Stephen King shares invaluable lessons for aspiring novelists which can be applied to software development too.",
+      "date_published": "2018-10-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/where-to-start-to-become-more-productive",
+      "url": "https://mokacoding.com/blog/where-to-start-to-become-more-productive",
+      "title": "Where to start to become more productive",
+      "content_html": "What does it take to be productive? What does it event mean? Here's a introduction to the pillars of productivity, with many resources to start from.",
+      "summary": "What does it take to be productive? What does it event mean? Here's a introduction to the pillars of productivity, with many resources to start from.",
+      "date_published": "2018-10-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-write-code-faster-using-snippets",
+      "url": "https://mokacoding.com/blog/how-to-write-code-faster-using-snippets",
+      "title": "How to write code faster using snippets",
+      "content_html": "Leveraging \"snippets\" is a way to get faster at writing code and free mental resources for problem solving. Most IDEs and text editor offer this feature, where you can write code scaffolding with a keyboard shortcut.",
+      "summary": "Leveraging \"snippets\" is a way to get faster at writing code and free mental resources for problem solving. Most IDEs and text editor offer this feature, where you can write code scaffolding with a keyboard shortcut.",
+      "date_published": "2018-10-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/streamlining-tests-setup-with-fixtures-in-swift",
+      "url": "https://mokacoding.com/blog/streamlining-tests-setup-with-fixtures-in-swift",
+      "title": "Streamlining tests setup with fixtures in Swift",
+      "content_html": "Keeping tests short and focused is important for the health of the test suite. A fixture method to generate instances with default values in the tests helps keeping the setup code short, focused, and readable",
+      "summary": "Keeping tests short and focused is important for the health of the test suite. A fixture method to generate instances with default values in the tests helps keeping the setup code short, focused, and readable",
+      "date_published": "2018-10-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/invest-in-your-terminal-to-become-a-better-developer",
+      "url": "https://mokacoding.com/blog/invest-in-your-terminal-to-become-a-better-developer",
+      "title": "Invest in your terminal to become a better developer",
+      "content_html": "One of the best things you could do to improve as a software developer is constantly investing in your terminal setup and skills.",
+      "summary": "One of the best things you could do to improve as a software developer is constantly investing in your terminal setup and skills.",
+      "date_published": "2018-10-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/what-software-developers-can-learn-from-leonardo-da-vinci",
+      "url": "https://mokacoding.com/blog/what-software-developers-can-learn-from-leonardo-da-vinci",
+      "title": "What software developers can learn from Leonardo da Vinci",
+      "content_html": "Leonardo da Vinci's life as told by Walter Isaacson in his biography is a source of inspiration for anyone working in a technical and creative field.",
+      "summary": "Leonardo da Vinci's life as told by Walter Isaacson in his biography is a source of inspiration for anyone working in a technical and creative field.",
+      "date_published": "2018-09-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/red-green-and-dont-forget-refactor",
+      "url": "https://mokacoding.com/blog/red-green-and-dont-forget-refactor",
+      "title": "Red, green, and don't forget refactor",
+      "content_html": "Test driven development works at its best when you refactor as you go. Write the failing test, write just enough code to make it pass, then and only then focus on making that code good.",
+      "summary": "Test driven development works at its best when you refactor as you go. Write the failing test, write just enough code to make it pass, then and only then focus on making that code good.",
+      "date_published": "2018-09-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/action-focused-protocols-enhance-testability",
+      "url": "https://mokacoding.com/blog/action-focused-protocols-enhance-testability",
+      "title": "Action focused protocols enhance testability",
+      "content_html": "Using protocols describing a single capability or action that can be performed is a way to enhance local reasoning and facilitate testability",
+      "summary": "Using protocols describing a single capability or action that can be performed is a way to enhance local reasoning and facilitate testability",
+      "date_published": "2018-09-11T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-choose-what-to-refactor",
+      "url": "https://mokacoding.com/blog/how-to-choose-what-to-refactor",
+      "title": "How to choose what to refactor",
+      "content_html": "A way to identify the areas of code to refactor with the highest return of investment using the \"focusing question\" technique.",
+      "summary": "A way to identify the areas of code to refactor with the highest return of investment using the \"focusing question\" technique.",
+      "date_published": "2018-09-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/the-focusing-question",
+      "url": "https://mokacoding.com/blog/the-focusing-question",
+      "title": "How to get better at setting priorities",
+      "content_html": "The focusing question, a tool devised by Gray W. Keller, is a simple yet effective way to identify work to focus on with the highest return of investment.",
+      "summary": "The focusing question, a tool devised by Gray W. Keller, is a simple yet effective way to identify work to focus on with the highest return of investment.",
+      "date_published": "2018-08-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/if-youre-not-writing-tests-first-youre-missing-out",
+      "url": "https://mokacoding.com/blog/if-youre-not-writing-tests-first-youre-missing-out",
+      "title": "If you're not writing tests first you're missing out",
+      "content_html": "A look at the benefits of writing unit tests before production code, in other words TDD.",
+      "summary": "A look at the benefits of writing unit tests before production code, in other words TDD.",
+      "date_published": "2018-08-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/does-software-understand-complexity-m-feathers",
+      "url": "https://mokacoding.com/blog/does-software-understand-complexity-m-feathers",
+      "title": "\"Does Software Understand Complexity?\" via Michael Feathers",
+      "content_html": "Thoughts on a Michael Feathers post on how the understanding of complexity in software development compares to other fields.",
+      "summary": "Thoughts on a Michael Feathers post on how the understanding of complexity in software development compares to other fields.",
+      "date_published": "2018-08-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/apps-and-tools-i-use",
+      "url": "https://mokacoding.com/blog/apps-and-tools-i-use",
+      "title": "Apps and Tools",
+      "content_html": "A list of the apps and tools I use everyday and help me getting stuff done.",
+      "summary": "A list of the apps and tools I use everyday and help me getting stuff done.",
+      "date_published": "2018-07-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/books-to-start-2018",
+      "url": "https://mokacoding.com/blog/books-to-start-2018",
+      "title": "4 books to kick start 2018",
+      "content_html": "Books suggestions to start 2018 with the right mindset and tools.",
+      "summary": "Books suggestions to start 2018 with the right mindset and tools.",
+      "date_published": "2018-01-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/symliks-in-git",
+      "url": "https://mokacoding.com/blog/symliks-in-git",
+      "title": "Symbolic links in Git",
+      "content_html": "Here's how to track symbolic liks in a Git repository, in a way suitable for teams.",
+      "summary": "Here's how to track symbolic liks in a Git repository, in a way suitable for teams.",
+      "date_published": "2017-09-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/quick-beforesuite-aftersuite-behaviour",
+      "url": "https://mokacoding.com/blog/quick-beforesuite-aftersuite-behaviour",
+      "title": "Quick beforeSuite and afterSuite behaviour",
+      "content_html": "A look at how beforeSuite and afterSuite behave in the Quick testing framework, and the dangers of using them",
+      "summary": "A look at how beforeSuite and afterSuite behave in the Quick testing framework, and the dangers of using them",
+      "date_published": "2017-05-11T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/quick-beforeeach-aftereach-behaviour",
+      "url": "https://mokacoding.com/blog/quick-beforeeach-aftereach-behaviour",
+      "title": "Quick beforeEach and afterEach behaviour",
+      "content_html": "A look at how nested beforeEach and afterEach behave in the Quick testing framework.",
+      "summary": "A look at how nested beforeEach and afterEach behave in the Quick testing framework.",
+      "date_published": "2017-05-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/waituntil-vs-toeventually",
+      "url": "https://mokacoding.com/blog/waituntil-vs-toeventually",
+      "title": "Nimble: when to use waitUntil or toEventually",
+      "content_html": "The Nimble matchers framework provides two ways assert expectations on asynchronous code, this post explores when to use one or the other.",
+      "summary": "The Nimble matchers framework provides two ways assert expectations on asynchronous code, this post explores when to use one or the other.",
+      "date_published": "2017-05-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/unless-swift",
+      "url": "https://mokacoding.com/blog/unless-swift",
+      "title": "Unless.swift",
+      "content_html": "Porting Ruby's unless operator into Swift via a function.",
+      "summary": "Porting Ruby's unless operator into Swift via a function.",
+      "date_published": "2017-04-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xctest-closure-based-expectation",
+      "url": "https://mokacoding.com/blog/xctest-closure-based-expectation",
+      "title": "XCTest closure based expectations",
+      "content_html": "Testing async code is not simple, but XCTest provides us with all the required tool. This post shows how to wait for an expectation to be fulfilled based on a Swift closure.",
+      "summary": "Testing async code is not simple, but XCTest provides us with all the required tool. This post shows how to wait for an expectation to be fulfilled based on a Swift closure.",
+      "date_published": "2017-03-22T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/dependency-injection-for-classes-in-swift",
+      "url": "https://mokacoding.com/blog/dependency-injection-for-classes-in-swift",
+      "title": "How to use dependency injection for classes in Swift",
+      "content_html": "In Swift it is possible to pass a reference to a type itself, not just to an instance of it. This post shows how to use this capability to test legacy code.",
+      "summary": "In Swift it is possible to pass a reference to a type itself, not just to an instance of it. This post shows how to use this capability to test legacy code.",
+      "date_published": "2017-03-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/lessons-learned-working-on-danger-swiftlint-selective-linting",
+      "url": "https://mokacoding.com/blog/lessons-learned-working-on-danger-swiftlint-selective-linting",
+      "title": "Lessons learned working on danger-switlint selective linting",
+      "content_html": "A little post to share some things I learnt while working on a PR for danger-swiftlint to allow selective linting.",
+      "summary": "A little post to share some things I learnt while working on a PR for danger-swiftlint to allow selective linting.",
+      "date_published": "2017-01-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/your-git-log-should-tell-a-story",
+      "url": "https://mokacoding.com/blog/your-git-log-should-tell-a-story",
+      "title": "Your Git Log Should Tell A Story",
+      "content_html": "A look at the practical benefits of writing descriptive commits",
+      "summary": "A look at the practical benefits of writing descriptive commits",
+      "date_published": "2016-12-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/better-build-phase-scripts",
+      "url": "https://mokacoding.com/blog/better-build-phase-scripts",
+      "title": "Better Xcode Run Script Build Phases",
+      "content_html": "Practical tips to write \"Run Script\" build phases in Xcode.",
+      "summary": "Practical tips to write \"Run Script\" build phases in Xcode.",
+      "date_published": "2016-11-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/setting-up-firebase-without-cocoapods",
+      "url": "https://mokacoding.com/blog/setting-up-firebase-without-cocoapods",
+      "title": "Setting Up Firebase Without Using CocoaPods",
+      "content_html": "A guide on how to configure your Xcode project to use Google Firebase without using CocoaPods.",
+      "summary": "A guide on how to configure your Xcode project to use Google Firebase without using CocoaPods.",
+      "date_published": "2016-08-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/impliticly-vs-force-unwrapping-swift-optionals",
+      "url": "https://mokacoding.com/blog/impliticly-vs-force-unwrapping-swift-optionals",
+      "title": "Implicitly vs Force Unwrapping Swift Optionals",
+      "content_html": "A look at what implicitly unwrapping and force unwrap a Swift Optional mean, and how they differ from each other.",
+      "summary": "A look at what implicitly unwrapping and force unwrap a Swift Optional mean, and how they differ from each other.",
+      "date_published": "2016-08-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cloud-66-postfix-deploy-hook",
+      "url": "https://mokacoding.com/blog/cloud-66-postfix-deploy-hook",
+      "title": "Cloud 66 Postfix Deploy Hook",
+      "content_html": "A deploy hook to configure Postfix every time a Cloud 66 stack is built",
+      "summary": "A deploy hook to configure Postfix every time a Cloud 66 stack is built",
+      "date_published": "2016-08-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/why-implicitly-unwrapping-swift-optionals-is-dangerous",
+      "url": "https://mokacoding.com/blog/why-implicitly-unwrapping-swift-optionals-is-dangerous",
+      "title": "Why Implicitly Unwrapping Swift Optionals Is Dangerous",
+      "content_html": "A look at what implicitly unwrapping an Optional value means and why it should be avoided.",
+      "summary": "A look at what implicitly unwrapping an Optional value means and why it should be avoided.",
+      "date_published": "2016-07-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/swift-either",
+      "url": "https://mokacoding.com/blog/swift-either",
+      "title": "Swift Either enum",
+      "content_html": "This post introduces the Either type and shows a practical application of it in Swift, injecting extra cells in a table view.",
+      "summary": "This post introduces the Either type and shows a practical application of it in Swift, injecting extra cells in a table view.",
+      "date_published": "2016-07-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/strong-opinions-loosely-held",
+      "url": "https://mokacoding.com/blog/strong-opinions-loosely-held",
+      "title": "Strong Opinions Loosely Held",
+      "content_html": "Strong opinions loosely held, and other cornerstones for a winning mindset",
+      "summary": "Strong opinions loosely held, and other cornerstones for a winning mindset",
+      "date_published": "2016-07-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/writing-your-own-swift-if-let",
+      "url": "https://mokacoding.com/blog/writing-your-own-swift-if-let",
+      "title": "Writing your own Swift \"if let\"",
+      "content_html": "An exercise to understand Swift's optional type: reimplementing the if let functionality",
+      "summary": "An exercise to understand Swift's optional type: reimplementing the if let functionality",
+      "date_published": "2016-07-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/what-is-an-optional-value-in-swift",
+      "url": "https://mokacoding.com/blog/what-is-an-optional-value-in-swift",
+      "title": "What is an optional value in Swift",
+      "content_html": "This post looks into one of Swift's most powerful feature: optionals",
+      "summary": "This post looks into one of Swift's most powerful feature: optionals",
+      "date_published": "2016-06-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/maintaining-sanity-with-multiple-versions-of-xcode",
+      "url": "https://mokacoding.com/blog/maintaining-sanity-with-multiple-versions-of-xcode",
+      "title": "Maintaining Sanity with Multiple Versions of Xcode",
+      "content_html": "Working with Xcode and Xcode-beta on the same machine can sometimes be confusing, this post shares some tools to help make it less so.",
+      "summary": "Working with Xcode and Xcode-beta on the same machine can sometimes be confusing, this post shares some tools to help make it less so.",
+      "date_published": "2016-06-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/swift-unavailable-how-to",
+      "url": "https://mokacoding.com/blog/swift-unavailable-how-to",
+      "title": "How to make Swift methods unavailable",
+      "content_html": "A quick post showing how to use the Swift availability attribute to mark objects and functions as unavailable.",
+      "summary": "A quick post showing how to use the Swift availability attribute to mark objects and functions as unavailable.",
+      "date_published": "2016-06-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/functional-core-reactive-shell",
+      "url": "https://mokacoding.com/blog/functional-core-reactive-shell",
+      "title": "Functional Core Reactive Shell",
+      "content_html": "This is a blogpost version of the content of my talk \"Functional Core, Reactive Shell\"",
+      "summary": "This is a blogpost version of the content of my talk \"Functional Core, Reactive Shell\"",
+      "date_published": "2016-06-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/language-agnostic-automation-setup",
+      "url": "https://mokacoding.com/blog/language-agnostic-automation-setup",
+      "title": "Language Agnostic Automation Setup",
+      "content_html": "Every project can benefit from having a set of scripts to automate tasks such as running tests or distributing to testers. When setting up automation for your projects you can use a language agnostic setup. This will make it easier for new team members to get started, and allow you to change the setup without having to change the way the scripts are invoked.",
+      "summary": "Every project can benefit from having a set of scripts to automate tasks such as running tests or distributing to testers. When setting up automation for your projects you can use a language agnostic setup. This will make it easier for new team members to get started, and allow you to change the setup without having to change the way the scripts are invoked.",
+      "date_published": "2016-05-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/nsdateformatter-json-date",
+      "url": "https://mokacoding.com/blog/nsdateformatter-json-date",
+      "title": "NSDateFormatter format for JSON dates",
+      "content_html": "How to configure NSDateFormatter to work with JSON API dates.",
+      "summary": "How to configure NSDateFormatter to work with JSON API dates.",
+      "date_published": "2016-05-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/functional-core-reactive-shell-resources",
+      "url": "https://mokacoding.com/blog/functional-core-reactive-shell-resources",
+      "title": "\"Functional Core, Reactive Shell\" Resources",
+      "content_html": "Links from my \"Functional Core, Reactive Shell\" talk",
+      "summary": "Links from my \"Functional Core, Reactive Shell\" talk",
+      "date_published": "2016-04-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/getting-started-with-automation",
+      "url": "https://mokacoding.com/blog/getting-started-with-automation",
+      "title": "Getting Started With Automation",
+      "content_html": "A collection of tips to get you started with workflow automation, increase productivity, and save time.",
+      "summary": "A collection of tips to get you started with workflow automation, increase productivity, and save time.",
+      "date_published": "2016-03-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/using-swift-protocols-to-improve-testability",
+      "url": "https://mokacoding.com/blog/using-swift-protocols-to-improve-testability",
+      "title": "Using Swift protocols to abstract third party dependencies and improve testability",
+      "content_html": "Third party code can be hard to test, but you can use Swift's protocols to abstract its details and improve testability",
+      "summary": "Third party code can be hard to test, but you can use Swift's protocols to abstract its details and improve testability",
+      "date_published": "2016-03-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/update-all-xcode-plugins-for-latest-version",
+      "url": "https://mokacoding.com/blog/update-all-xcode-plugins-for-latest-version",
+      "title": "How to update all plug-ins for the latest version of Xcode and Xcode-beta",
+      "content_html": "An handy script to update all Xcode plug-ins to be compatible with the latest version of Xcode and Xcode-beta.",
+      "summary": "An handy script to update all Xcode plug-ins to be compatible with the latest version of Xcode and Xcode-beta.",
+      "date_published": "2016-02-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ohhttpstubs",
+      "url": "https://mokacoding.com/blog/ohhttpstubs",
+      "title": "Getting Started With OHHTTPStubs",
+      "content_html": "Good unit tests are fast and deterministic. Testing code that hits the network could undermine this goal, but using OHHTTPStubs we can take back control of our tests. This post explores the advantages of stubbing the network, and provide a guide on how to do it with OHHTTPStubs.",
+      "summary": "Good unit tests are fast and deterministic. Testing code that hits the network could undermine this goal, but using OHHTTPStubs we can take back control of our tests. This post explores the advantages of stubbing the network, and provide a guide on how to do it with OHHTTPStubs.",
+      "date_published": "2016-02-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/why-hitting-the-network-is-bad-for-your-tests",
+      "url": "https://mokacoding.com/blog/why-hitting-the-network-is-bad-for-your-tests",
+      "title": "Why hitting the network is bad for your test, and what to do about it",
+      "content_html": "In this post we are going to look at why hitting the network from your unit tests is a bad thing, and introduce some way to solve the problem.",
+      "summary": "In this post we are going to look at why hitting the network from your unit tests is a bad thing, and introduce some way to solve the problem.",
+      "date_published": "2016-02-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ruby-for-ios-developers-bundler",
+      "url": "https://mokacoding.com/blog/ruby-for-ios-developers-bundler",
+      "title": "Ruby for iOS Developers - Managing Ruby Tools with Bundler",
+      "content_html": "Between CocoaPods and Fastlane, Ruby is an important part of the iOS developer toolchain. How can we reliably control the versions of the tools our project's automation is using in Ruby? Bundler is a simple way to specify Ruby dependencies and automate their setup.",
+      "summary": "Between CocoaPods and Fastlane, Ruby is an important part of the iOS developer toolchain. How can we reliably control the versions of the tools our project's automation is using in Ruby? Bundler is a simple way to specify Ruby dependencies and automate their setup.",
+      "date_published": "2016-02-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ruby-for-ios-developers",
+      "url": "https://mokacoding.com/blog/ruby-for-ios-developers",
+      "title": "Ruby for iOS Developers - Managing Ruby Versions",
+      "content_html": "Between CocoaPods and Fastlane, Ruby is an important part of the iOS developer toolchain. Managing versions and gems can be a challenge for developers outside of the Ruby community, but it doesn't have to be. In this two parts post we will see how to simply and reliably handle our Rubies.",
+      "summary": "Between CocoaPods and Fastlane, Ruby is an important part of the iOS developer toolchain. Managing versions and gems can be a challenge for developers outside of the Ruby community, but it doesn't have to be. In this two parts post we will see how to simply and reliably handle our Rubies.",
+      "date_published": "2016-02-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-fix-fabric-startup-crash",
+      "url": "https://mokacoding.com/blog/how-to-fix-fabric-startup-crash",
+      "title": "How To Fix Fabric Crashing On Startup When Installed Via CocoaPods",
+      "content_html": "If you are experiencing crashes with a version of Fabric and Crashlytics installed via CocoaPods chances are you are missing required information in the Info.plist. This post shows how to solve this issue.",
+      "summary": "If you are experiencing crashes with a version of Fabric and Crashlytics installed via CocoaPods chances are you are missing required information in the Info.plist. This post shows how to solve this issue.",
+      "date_published": "2016-01-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/async-testing-with-quick-and-nimble",
+      "url": "https://mokacoding.com/blog/async-testing-with-quick-and-nimble",
+      "title": "Async Testing with Quick and Nimble",
+      "content_html": "A look at how to write tests for async code when using the Quick and Nimble Swift frameworks. This post is part of the Practical Testing in Swift series.",
+      "summary": "A look at how to write tests for async code when using the Quick and Nimble Swift frameworks. This post is part of the Practical Testing in Swift series.",
+      "date_published": "2016-01-27T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/testing-delegates-in-swift-with-xctest",
+      "url": "https://mokacoding.com/blog/testing-delegates-in-swift-with-xctest",
+      "title": "Testing Delegates in Swift with XCTest",
+      "content_html": "In this second post of the Practical Testing in Swift we a look at strategies to test how objects call their delegate methods or set property on them.",
+      "summary": "In this second post of the Practical Testing in Swift we a look at strategies to test how objects call their delegate methods or set property on them.",
+      "date_published": "2016-01-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/testing-callbacks-in-swift-with-xctest",
+      "url": "https://mokacoding.com/blog/testing-callbacks-in-swift-with-xctest",
+      "title": "Testing callbacks in Swift with XCTest",
+      "date_published": "2016-01-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/prevent-unit-tests-from-loading-app-delegate-in-swift",
+      "url": "https://mokacoding.com/blog/prevent-unit-tests-from-loading-app-delegate-in-swift",
+      "title": "Prevent Unit Tests from Loading AppDelegate in Swift",
+      "content_html": "How to prevent the unit test target from loading the AppDelegate and have faster tests execution.",
+      "summary": "How to prevent the unit test target from loading the AppDelegate and have faster tests execution.",
+      "date_published": "2016-01-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/double-slash-xcconfig",
+      "url": "https://mokacoding.com/blog/double-slash-xcconfig",
+      "title": "How to use a double slash in xcconfig files",
+      "content_html": "A short post showing how to use a double slash in xcconfig files, for example to write URLs like https://mokacoding.com",
+      "summary": "A short post showing how to use a double slash in xcconfig files, for example to write URLs like https://mokacoding.com",
+      "date_published": "2016-01-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/2015-retrospective",
+      "url": "https://mokacoding.com/blog/2015-retrospective",
+      "title": "2015 Retrospective",
+      "content_html": "A retrospective on my consulting business in 2015. What when well, what didn't and how to act on it, how to move forward in 2016. I think my personal experience could be valuable for every iOS freelancer, I have done a couple of things right that helped my business a lot.",
+      "summary": "A retrospective on my consulting business in 2015. What when well, what didn't and how to act on it, how to move forward in 2016. I think my personal experience could be valuable for every iOS freelancer, I have done a couple of things right that helped my business a lot.",
+      "date_published": "2015-12-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/bitbucket-pr-from-command-line",
+      "url": "https://mokacoding.com/blog/bitbucket-pr-from-command-line",
+      "title": "Opening a PR to Bitbucket from the terminal",
+      "content_html": "A simple script you can run to open a PR on BitBucket for your current branch.",
+      "summary": "A simple script you can run to open a PR on BitBucket for your current branch.",
+      "date_published": "2015-11-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcode-plugins-update",
+      "url": "https://mokacoding.com/blog/xcode-plugins-update",
+      "title": "How to update an Xcode plug-in for the latest version of Xcode",
+      "content_html": "A simple command to run in your terminal to make sure you can use your favourite plugins on the latest version of Xcode",
+      "summary": "A simple command to run in your terminal to make sure you can use your favourite plugins on the latest version of Xcode",
+      "date_published": "2015-11-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/hacker-news-button",
+      "url": "https://mokacoding.com/blog/hacker-news-button",
+      "title": "Hacker News Button",
+      "content_html": "How to add an Hacker News button to your blog",
+      "summary": "How to add an Hacker News button to your blog",
+      "date_published": "2015-11-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/install-xcode-plugin-with-fastlane",
+      "url": "https://mokacoding.com/blog/install-xcode-plugin-with-fastlane",
+      "title": "Installing Xcode plugins from the terminal with Fastlane",
+      "content_html": "How to install Xcode plugins from the terminal using Fastlane, and persist them across machines.",
+      "summary": "How to install Xcode plugins from the terminal using Fastlane, and persist them across machines.",
+      "date_published": "2015-11-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/env-xargs",
+      "url": "https://mokacoding.com/blog/env-xargs",
+      "title": "Injecting environment variables from a file with xargs",
+      "content_html": "How to provide environment variables stored in a .env file as an input for a command execution without having to export then, with a deep look at the shell commands used.",
+      "summary": "How to provide environment variables stored in a .env file as an input for a command execution without having to export then, with a deep look at the shell commands used.",
+      "date_published": "2015-11-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/travis-ci-ios-testing",
+      "url": "https://mokacoding.com/blog/travis-ci-ios-testing",
+      "title": "How to configure Travis CI for iOS testing",
+      "content_html": "A practical guide on how to configure Travis CI to run iOS, and OS X, tests.",
+      "summary": "A practical guide on how to configure Travis CI to run iOS, and OS X, tests.",
+      "date_published": "2015-11-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/homebrew-in-ci-script",
+      "url": "https://mokacoding.com/blog/homebrew-in-ci-script",
+      "title": "How to use Homebrew in CI",
+      "content_html": "A quick guide on how to safely use Homebrew in CI.",
+      "summary": "A quick guide on how to safely use Homebrew in CI.",
+      "date_published": "2015-11-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/circle-ci-ios-testing",
+      "url": "https://mokacoding.com/blog/circle-ci-ios-testing",
+      "title": "How to configure CircleCI for iOS testing",
+      "content_html": "A practical guide on how to configure CircleCI for to run iOS, and OS X, tests.",
+      "summary": "A practical guide on how to configure CircleCI for to run iOS, and OS X, tests.",
+      "date_published": "2015-11-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/fixing-bugs-driven-by-tests-in-swift",
+      "url": "https://mokacoding.com/blog/fixing-bugs-driven-by-tests-in-swift",
+      "title": "Fixing Bugs Driven By Tests in Swift",
+      "content_html": "Unit and acceptance test are powerful tools that can be used to identify and fix bugs. Let's see how using a bugged Swift app as an example.",
+      "summary": "Unit and acceptance test are powerful tools that can be used to identify and fix bugs. Let's see how using a bugged Swift app as an example.",
+      "date_published": "2015-10-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/tools-sharpening",
+      "url": "https://mokacoding.com/blog/tools-sharpening",
+      "title": "How To Sharpen Your Software Developer Tools",
+      "content_html": "Practical advices on how to keep your tools sharp, master them, and become more productive.",
+      "summary": "Practical advices on how to keep your tools sharp, master them, and become more productive.",
+      "date_published": "2015-10-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcodebuild-destination-options",
+      "url": "https://mokacoding.com/blog/xcodebuild-destination-options",
+      "title": "Xcodebuild Destination Cheatsheet",
+      "content_html": "A collection of tips on how to configure the -destination option for the xcodebuild tool.",
+      "summary": "A collection of tips on how to configure the -destination option for the xcodebuild tool.",
+      "date_published": "2015-10-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ifttt-pocket-rss",
+      "url": "https://mokacoding.com/blog/ifttt-pocket-rss",
+      "title": "The best free RSS reader app ever: IFTTT + Pocket",
+      "content_html": "By using the powerful automation provided by IFTTT we can make deliver the latest posts of your favourite blogs to Pocket. This is the most powerful RSS reader ever, and it is free.",
+      "summary": "By using the powerful automation provided by IFTTT we can make deliver the latest posts of your favourite blogs to Pocket. This is the most powerful RSS reader ever, and it is free.",
+      "date_published": "2015-10-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/when-to-use-map-flatmap-for",
+      "url": "https://mokacoding.com/blog/when-to-use-map-flatmap-for",
+      "title": "When to use map, flatMap, or for loops in Swift",
+      "content_html": "Swift allows us to natively iterate over arrays using map. Map could be used to replace every for loop in your code, but that's not a great idea. Map and for have different purposes and should be used appropriately",
+      "summary": "Swift allows us to natively iterate over arrays using map. Map could be used to replace every for loop in your code, but that's not a great idea. Map and for have different purposes and should be used appropriately",
+      "date_published": "2015-10-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/NERDTree-relative-numbers",
+      "url": "https://mokacoding.com/blog/NERDTree-relative-numbers",
+      "title": "How to display relative line numbers in NERDTree",
+      "content_html": "Vim's relative line numbers are great for jumpin around files, and once you get used to them you want to enable them everywhere. Here's how to have NERDTree use relative line numbers",
+      "summary": "Vim's relative line numbers are great for jumpin around files, and once you get used to them you want to enable them everywhere. Here's how to have NERDTree use relative line numbers",
+      "date_published": "2015-10-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/automatic-xcode-versioning-with-git",
+      "url": "https://mokacoding.com/blog/automatic-xcode-versioning-with-git",
+      "title": "Automated Xcode version and build numbering via Git",
+      "content_html": "How to configure Xcode to automatically set the version and build number of your projects using Git.",
+      "summary": "How to configure Xcode to automatically set the version and build number of your projects using Git.",
+      "date_published": "2015-09-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-always-run-latest-simulator-cli",
+      "url": "https://mokacoding.com/blog/how-to-always-run-latest-simulator-cli",
+      "title": "How to always use the latest Simulator with Xcodebuild",
+      "content_html": "There is a simple keyword you can use in the destination option of an xcodebuild command to always run the most recent Simulator version.",
+      "summary": "There is a simple keyword you can use in the destination option of an xcodebuild command to always run the most recent Simulator version.",
+      "date_published": "2015-09-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/demistifying-swift-functor",
+      "url": "https://mokacoding.com/blog/demistifying-swift-functor",
+      "title": "Swift Optionals, Functional Programming, and You",
+      "content_html": "This is the post version of a talk I've been given in the past months. In this post we will demystify functional programming terms like monad and functor, and see how those concepts can be brought back to the every day Swift development, in particular how they can help to deal with optionals in a leaner way.",
+      "summary": "This is the post version of a talk I've been given in the past months. In this post we will demystify functional programming terms like monad and functor, and see how those concepts can be brought back to the every day Swift development, in particular how they can help to deal with optionals in a leaner way.",
+      "date_published": "2015-09-22T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/carthage-no-build",
+      "url": "https://mokacoding.com/blog/carthage-no-build",
+      "title": "An even lighter way to use Carthage",
+      "content_html": "Among the options Carthage, an iOS and OS X dependency manager, provides there is the --no-build one. Using this we can integrate dependencies in the form of Xcode projects rather than frameworks, keeping the repository slimmer and the CI time low. This approach is lighter than than the usual way to work with Carthage, but comes with some disadvantages too.",
+      "summary": "Among the options Carthage, an iOS and OS X dependency manager, provides there is the --no-build one. Using this we can integrate dependencies in the form of Xcode projects rather than frameworks, keeping the repository slimmer and the CI time low. This approach is lighter than than the usual way to work with Carthage, but comes with some disadvantages too.",
+      "date_published": "2015-09-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/how-to-install-xcode-cli-tools-without-gui",
+      "url": "https://mokacoding.com/blog/how-to-install-xcode-cli-tools-without-gui",
+      "title": "How to install Xcode Command Line Tools without GUI or Xcode",
+      "content_html": "Here's a little script that will allow you to install the Xcode Command Line Tools without having to install Xcode, nor having a logged GUI. This can come pretty handy in automated scripts or when provisioning virtual machines.",
+      "summary": "Here's a little script that will allow you to install the Xcode Command Line Tools without having to install Xcode, nor having a logged GUI. This can come pretty handy in automated scripts or when provisioning virtual machines.",
+      "date_published": "2015-09-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/devworld2015-notes-of-a-testing-fanboy",
+      "url": "https://mokacoding.com/blog/devworld2015-notes-of-a-testing-fanboy",
+      "title": "/dev/world/2015 notes of a testing fanboy",
+      "content_html": "I attended /dev/world/2015 in Melbourne this week. It has been a great conference, full of very friendly and smart people. Being a test and automation fanboy I attended as many talks related to that topic as I could. These are my notes.",
+      "summary": "I attended /dev/world/2015 in Melbourne this week. It has been a great conference, full of very friendly and smart people. Being a test and automation fanboy I attended as many talks related to that topic as I could. These are my notes.",
+      "date_published": "2015-09-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xctest-nimble",
+      "url": "https://mokacoding.com/blog/xctest-nimble",
+      "title": "Enhancing XCTest test cases with Nimble matchers",
+      "content_html": "Nimble is a matchers framework built for Swift that provides powerful and versatile expectations. Writing test within the standard XCTest harness but using Nimble assertions is easier and productive, and a good combination of tools to introduce testing and TDD to colleagues and teams in a frictionless way.",
+      "summary": "Nimble is a matchers framework built for Swift that provides powerful and versatile expectations. Writing test within the standard XCTest harness but using Nimble assertions is easier and productive, and a good combination of tools to introduce testing and TDD to colleagues and teams in a frictionless way.",
+      "date_published": "2015-08-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/custom-afnetworking-response-serializer-for-errors",
+      "url": "https://mokacoding.com/blog/custom-afnetworking-response-serializer-for-errors",
+      "title": "AFNetworking custom response serializer to add error information",
+      "content_html": "How to implement a custom AFNetworking response serializer to read the failure response data and populate the callback error with it.",
+      "summary": "How to implement a custom AFNetworking response serializer to read the failure response data and populate the callback error with it.",
+      "date_published": "2015-08-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/explicit-dependencies-swift",
+      "url": "https://mokacoding.com/blog/explicit-dependencies-swift",
+      "title": "Explicit Dependencies, Swift Edition",
+      "content_html": "A look at how to write classes and structs that expose their dependencies as initialization arguments in Swift.",
+      "summary": "A look at how to write classes and structs that expose their dependencies as initialization arguments in Swift.",
+      "date_published": "2015-08-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/itunes-connect-multiple-accounts",
+      "url": "https://mokacoding.com/blog/itunes-connect-multiple-accounts",
+      "title": "How to have multiple iTunes Connect accounts, and submit apps",
+      "date_published": "2015-08-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/swift-array-string-characters",
+      "url": "https://mokacoding.com/blog/swift-array-string-characters",
+      "title": "Swift array of characters from String",
+      "content_html": "How to get an array of single characters String from a multiple characters String. From foobar to [f, o, o, b, a, r].",
+      "summary": "How to get an array of single characters String from a multiple characters String. From foobar to [f, o, o, b, a, r].",
+      "date_published": "2015-08-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/explicit-dependencies",
+      "url": "https://mokacoding.com/blog/explicit-dependencies",
+      "title": "Explicit Dependencies for Code with No Surprises",
+      "content_html": "Sometimes the idea we get when reading a class interface is different from what is actually going on inside its implementation, for example there could be several hidden dependencies. Making a class dependency explicit in its interface is a useful technique to make the code simpler to understand, and easier to test.",
+      "summary": "Sometimes the idea we get when reading a class interface is different from what is actually going on inside its implementation, for example there could be several hidden dependencies. Making a class dependency explicit in its interface is a useful technique to make the code simpler to understand, and easier to test.",
+      "date_published": "2015-08-11T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/terminal-reusing-last-command-parameter",
+      "url": "https://mokacoding.com/blog/terminal-reusing-last-command-parameter",
+      "title": "How to reuse the last parameter in a terminal command",
+      "content_html": "When typing a shell command it is possible to reuse the last argument of the previous call without having to type it. Let's see how.",
+      "summary": "When typing a shell command it is possible to reuse the last argument of the previous call without having to type it. Let's see how.",
+      "date_published": "2015-08-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/keep-your-bench-clean",
+      "url": "https://mokacoding.com/blog/keep-your-bench-clean",
+      "title": "Keep Your Bench Clean",
+      "content_html": "Like good chefs keep their benches clean to make delicious dishes all day long in the restaurants' kitchens, so good developer keep their codebase clean. It all comes down to little habits, the result of which when summed up together is a tidy, clean and easy to maintain software.",
+      "summary": "Like good chefs keep their benches clean to make delicious dishes all day long in the restaurants' kitchens, so good developer keep their codebase clean. It all comes down to little habits, the result of which when summed up together is a tidy, clean and easy to maintain software.",
+      "date_published": "2015-08-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/packaging-swift-ipa",
+      "url": "https://mokacoding.com/blog/packaging-swift-ipa",
+      "title": "Packaging an ipa with Swift files from the terminal",
+      "content_html": "If you are having problems with xcodebuild failing to export your apps with either Swift or Watch Kit support here's the solution, with a handy custom script.",
+      "summary": "If you are having problems with xcodebuild failing to export your apps with either Swift or Watch Kit support here's the solution, with a handy custom script.",
+      "date_published": "2015-08-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcode-ui-test-view-changes",
+      "url": "https://mokacoding.com/blog/xcode-ui-test-view-changes",
+      "title": "How to test UI changes in Xcode 7",
+      "content_html": "One of the characteristic of the UI is that it changes, and there are scenarios in which writing UI tests to assure that the change has happened correctly can be very valuable for the reliability of our apps. Writing such a test is a bit harder than normal, let's see how to do it.",
+      "summary": "One of the characteristic of the UI is that it changes, and there are scenarios in which writing UI tests to assure that the change has happened correctly can be very valuable for the reliability of our apps. Writing such a test is a bit harder than normal, let's see how to do it.",
+      "date_published": "2015-07-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7",
+      "url": "https://mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7",
+      "title": "How to add testing dependencies using Carthage, with Swift 2 and Xcode 7",
+      "content_html": "In this little tutorial we will see how to use Cathage, an OS X and iOS depencendy manager, to install libraries written in Swift 2 and Xcode 7, with a focus on the process to get testing dependencies.",
+      "summary": "In this little tutorial we will see how to use Cathage, an OS X and iOS depencendy manager, to install libraries written in Swift 2 and Xcode 7, with a focus on the process to get testing dependencies.",
+      "date_published": "2015-07-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/functor-applicative-monads-in-pictures",
+      "url": "https://mokacoding.com/blog/functor-applicative-monads-in-pictures",
+      "title": "Swift Functors, Applicatives, and Monads in Pictures",
+      "content_html": "In this port to Swift of the great of Haskell's \"Functors, Applicatives, And Monads In Pictures\" we are going to look at these functional programming concepts aided by some very helpful pictures.",
+      "summary": "In this port to Swift of the great of Haskell's \"Functors, Applicatives, And Monads In Pictures\" we are going to look at these functional programming concepts aided by some very helpful pictures.",
+      "date_published": "2015-07-14T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xvim",
+      "url": "https://mokacoding.com/blog/xvim",
+      "title": "XVim, harnessing the king of text editor's power in Xcode",
+      "content_html": "An introduction to the XVim plugin, that adds most Vim keybindings and features to the Xcode IDE, and how this can make you more productive as a developer.",
+      "summary": "An introduction to the XVim plugin, that adds most Vim keybindings and features to the Xcode IDE, and how this can make you more productive as a developer.",
+      "date_published": "2015-07-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/testing-realm-apps",
+      "url": "https://mokacoding.com/blog/testing-realm-apps",
+      "title": "Testing Realm apps",
+      "content_html": "Realm is a mobile database that, unlike CoreData, is easy to test. In this post we will discuss some ideas on how to test an app using Realm as its database.",
+      "summary": "Realm is a mobile database that, unlike CoreData, is easy to test. In this post we will discuss some ideas on how to test an app using Realm as its database.",
+      "date_published": "2015-06-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/the-value-of-acceptance-testing",
+      "url": "https://mokacoding.com/blog/the-value-of-acceptance-testing",
+      "title": "The value of acceptance testing for mobile projects",
+      "content_html": "Companion blogpost for Gio's talk \"Talking myself into the value of acceptance testing\" at Melbourne CocoaHeads meetup",
+      "summary": "Companion blogpost for Gio's talk \"Talking myself into the value of acceptance testing\" at Melbourne CocoaHeads meetup",
+      "date_published": "2015-06-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcode-7-ui-testing",
+      "url": "https://mokacoding.com/blog/xcode-7-ui-testing",
+      "title": "Xcode 7 UI testing, a first look",
+      "content_html": "How to get started with UI testing in Xcode 7, recording tests and using the new APIs to assert the state of the application under test.",
+      "summary": "How to get started with UI testing in Xcode 7, recording tests and using the new APIs to assert the state of the application under test.",
+      "date_published": "2015-06-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/automating-mokacoding-weekly",
+      "url": "https://mokacoding.com/blog/automating-mokacoding-weekly",
+      "title": "MailChimp automated workflow for mokacoding weekly",
+      "content_html": "At mokacoding we're big on automation, and we eat our own dog's food! The workflow to write and send new issues of our newsletter, mokacoding weekly, is (partially) automated thanks to some simple Ruby scripting and Mac command line utilities.",
+      "summary": "At mokacoding we're big on automation, and we eat our own dog's food! The workflow to write and send new issues of our newsletter, mokacoding weekly, is (partially) automated thanks to some simple Ruby scripting and Mac command line utilities.",
+      "date_published": "2015-06-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/pre-commit-hooks",
+      "url": "https://mokacoding.com/blog/pre-commit-hooks",
+      "title": "Automation with pre-commit hooks",
+      "content_html": "Git provides a mechanism to run one or more scripts before a commit is actually added to the history called pre-commit hook. We can use this hook to run scripts that validate or sanitise the changes to be committed automatically, saving time and brain power, and assuring the quality of the codbase and git log.",
+      "summary": "Git provides a mechanism to run one or more scripts before a commit is actually added to the history called pre-commit hook. We can use this hook to run scripts that validate or sanitise the changes to be committed automatically, saving time and brain power, and assuring the quality of the codbase and git log.",
+      "date_published": "2015-06-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xunique",
+      "url": "https://mokacoding.com/blog/xunique",
+      "title": "xUnique: a tool to avoid Xcode project merge conflicts",
+      "content_html": "How many times when working on a Mac OSX or iOS app with a team have you had a merge conflict on the project.pbxproj file? I guess more than a few, a lot more than a few. Lucky for you there is an handy tool called xUnique that will make the chances of this happening way smaller.",
+      "summary": "How many times when working on a Mac OSX or iOS app with a team have you had a merge conflict on the project.pbxproj file? I guess more than a few, a lot more than a few. Lucky for you there is an handy tool called xUnique that will make the chances of this happening way smaller.",
+      "date_published": "2015-05-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/expecta-custom-matchers",
+      "url": "https://mokacoding.com/blog/expecta-custom-matchers",
+      "title": "Writing an Expecta custom matcher",
+      "content_html": "Not only Expecta is a simple to use library that allows us to write highly readable code, but it can also be extended by the users with custom matchers. Let's see how to write a custom matcher to gain readability and reuse code in our test suites.",
+      "summary": "Not only Expecta is a simple to use library that allows us to write highly readable code, but it can also be extended by the users with custom matchers. Let's see how to write a custom matcher to gain readability and reuse code in our test suites.",
+      "date_published": "2015-05-05T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/expecta",
+      "url": "https://mokacoding.com/blog/expecta",
+      "title": "Expecta, a matcher library that speaks English",
+      "content_html": "A test that express is intent clearly is arguably twice as effective as one that doesn't. Writing test in an xSpec style is a good first step to express behaviour clearly, and when matched with a matcher library such as Expecta the results are test that are easy to read and reason about",
+      "summary": "A test that express is intent clearly is arguably twice as effective as one that doesn't. Writing test in an xSpec style is a good first step to express behaviour clearly, and when matched with a matcher library such as Expecta the results are test that are easy to read and reason about",
+      "date_published": "2015-04-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/specta-global-before-after-each-updated",
+      "url": "https://mokacoding.com/blog/specta-global-before-after-each-updated",
+      "title": "Specta global before and after each hooks (Updated)",
+      "content_html": "An interesting and powerful, yet not at all documented feature of Spetca are global beforeEach and afterEach hooks. In this post we'll see how to configure them, and how to blacklist classes from running them. Updated for version 0.5",
+      "summary": "An interesting and powerful, yet not at all documented feature of Spetca are global beforeEach and afterEach hooks. In this post we'll see how to configure them, and how to blacklist classes from running them. Updated for version 0.5",
+      "date_published": "2015-04-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/job-stories-acceptance-tests-with-KIF-and-specta",
+      "url": "https://mokacoding.com/blog/job-stories-acceptance-tests-with-KIF-and-specta",
+      "title": "Job stories acceptance tests using KIF and Specta",
+      "content_html": "When writing tests it's very important do be declarative, aiming to have tests that explain how a class is supposed to behave as good as its documentation would do. When talking about acceptance tests we can achieve this kind of clarity by having a 1:1 relationship between the tests and the acceptance criteria for the application. A very effective way to express acceptance criteria is through _job stories_. In this post we'll see how to write acceptance tests that map job stories for our iOS apps, using KIF and Specta.",
+      "summary": "When writing tests it's very important do be declarative, aiming to have tests that explain how a class is supposed to behave as good as its documentation would do. When talking about acceptance tests we can achieve this kind of clarity by having a 1:1 relationship between the tests and the acceptance criteria for the application. A very effective way to express acceptance criteria is through _job stories_. In this post we'll see how to write acceptance tests that map job stories for our iOS apps, using KIF and Specta.",
+      "date_published": "2015-04-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/better-tests-with-specta",
+      "url": "https://mokacoding.com/blog/better-tests-with-specta",
+      "title": "Better tests with Specta",
+      "content_html": "Writing unit tests for our iOS and OS X projects not only is important, but should be always part of the development cycle. As such the way we write the tests is as important, and having the option to write tests that easily explain their purpose can drastically increase the quality of the suite. Specta and Expecta are two libraries that provide a different way to writing tests than XCTest, let's see what we can gain by using such approach.",
+      "summary": "Writing unit tests for our iOS and OS X projects not only is important, but should be always part of the development cycle. As such the way we write the tests is as important, and having the option to write tests that easily explain their purpose can drastically increase the quality of the suite. Specta and Expecta are two libraries that provide a different way to writing tests than XCTest, let's see what we can gain by using such approach.",
+      "date_published": "2015-04-14T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcode-testing-shortcuts",
+      "url": "https://mokacoding.com/blog/xcode-testing-shortcuts",
+      "title": "Xcode keyboard shortcuts for testing",
+      "content_html": "Keyboard shortcuts are easies way to start increasing your productivity. Let's look at how to run tests in Xcode without ever touching the mouse.",
+      "summary": "Keyboard shortcuts are easies way to start increasing your productivity. Let's look at how to run tests in Xcode without ever touching the mouse.",
+      "date_published": "2015-04-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/setting-up-KIF-for-ios-acceptance-testing",
+      "url": "https://mokacoding.com/blog/setting-up-KIF-for-ios-acceptance-testing",
+      "title": "Setting up KIF for iOS acceptance testing",
+      "content_html": "A guide on install and use the KIF framework for iOS acceptance testing.",
+      "summary": "A guide on install and use the KIF framework for iOS acceptance testing.",
+      "date_published": "2015-03-31T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ios-testing-in-2015",
+      "url": "https://mokacoding.com/blog/ios-testing-in-2015",
+      "title": "The state of iOS testing in 2015",
+      "content_html": "In this post we'll look at the main tools and libraries available to write unit and acceptance tests for iOS and OS X applications, as well as the solutions to host Continuous Integration for our projects.",
+      "summary": "In this post we'll look at the main tools and libraries available to write unit and acceptance tests for iOS and OS X applications, as well as the solutions to host Continuous Integration for our projects.",
+      "date_published": "2015-03-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/specta-global-before-after-each",
+      "url": "https://mokacoding.com/blog/specta-global-before-after-each",
+      "title": "Specta global before and after each hooks",
+      "content_html": "An interesting and powerful, yet not at all documented feature of Spetca are global beforeEach and afterEach hooks. In this post we'll see how to configure them, and how to blacklist classes from running them.",
+      "summary": "An interesting and powerful, yet not at all documented feature of Spetca are global beforeEach and afterEach hooks. In this post we'll see how to configure them, and how to blacklist classes from running them.",
+      "date_published": "2015-03-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/running-tests-from-the-terminal",
+      "url": "https://mokacoding.com/blog/running-tests-from-the-terminal",
+      "title": "How to run Xcode tests from the terminal",
+      "content_html": "How to invoke xcodebuild to run the tests from the command line and how to format its output using xcbeautify or xcpretty",
+      "summary": "How to invoke xcodebuild to run the tests from the command line and how to format its output using xcbeautify or xcpretty",
+      "date_published": "2015-03-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/simpler-calabash-testing-with-rake",
+      "url": "https://mokacoding.com/blog/simpler-calabash-testing-with-rake",
+      "title": "How to simplify Calabash acceptance testing with Rake",
+      "content_html": "Rake, the Ruby build utility, can lift off all the typing involved in running the Cucumber/Calabash acceptance tests, saving us a lot of typing time.",
+      "summary": "Rake, the Ruby build utility, can lift off all the typing involved in running the Cucumber/Calabash acceptance tests, saving us a lot of typing time.",
+      "date_published": "2015-02-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/gitiquette",
+      "url": "https://mokacoding.com/blog/gitiquette",
+      "title": "Git-iquette",
+      "content_html": "Every team and every project should have a Git-iquette: a set of common practices for managing the git repository.",
+      "summary": "Every team and every project should have a Git-iquette: a set of common practices for managing the git repository.",
+      "date_published": "2015-02-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/calabash-ios-with-cocoapods-and-build-configurations",
+      "url": "https://mokacoding.com/blog/calabash-ios-with-cocoapods-and-build-configurations",
+      "title": "Setting up Calabash for iOS projects with Cocoapods and Build Configurations",
+      "content_html": "A simple guide that shows the simplest way to install Calabash on an iOS project, by using Build Configurations and CocoaPods.",
+      "summary": "A simple guide that shows the simplest way to install Calabash on an iOS project, by using Build Configurations and CocoaPods.",
+      "date_published": "2015-01-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/5-habits-that-will-make-you-a-better-software-developer",
+      "url": "https://mokacoding.com/blog/5-habits-that-will-make-you-a-better-software-developer",
+      "title": "5 habits that will make you a better software developer",
+      "content_html": "By implementing these 5 small habits you'll kickstart your 2015 and become a better software developer.",
+      "summary": "By implementing these 5 small habits you'll kickstart your 2015 and become a better software developer.",
+      "date_published": "2015-01-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/security-tips-for-freelance-software-developers",
+      "url": "https://mokacoding.com/blog/security-tips-for-freelance-software-developers",
+      "title": "Security Tips for Freelance Software Developers",
+      "content_html": "Tips for freelance software developers (and non) to improve the security of laptops, smartphones and website accounts, to keep your and your clients data safe.",
+      "summary": "Tips for freelance software developers (and non) to improve the security of laptops, smartphones and website accounts, to keep your and your clients data safe.",
+      "date_published": "2014-10-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/why-i-dont-work-on-friday",
+      "url": "https://mokacoding.com/blog/why-i-dont-work-on-friday",
+      "title": "Why I don't work on Fridays",
+      "content_html": "Some time ago I learned the hard way that I shouldn't work on Fridays. I've been applying an alternative schedule to my week, and it's working out pretty well.",
+      "summary": "Some time ago I learned the hard way that I shouldn't work on Fridays. I've been applying an alternative schedule to my week, and it's working out pretty well.",
+      "date_published": "2014-08-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/in-app-purchase-debugging-lessons",
+      "url": "https://mokacoding.com/blog/in-app-purchase-debugging-lessons",
+      "title": "In-App Purchase Debugging Lessons",
+      "content_html": "A couple of tips learnt the hard way on how to develop and debug In App Purchase support in an iOS app.",
+      "summary": "A couple of tips learnt the hard way on how to develop and debug In App Purchase support in an iOS app.",
+      "date_published": "2014-08-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/why-i-shouldnt-have-stopped-blogging-with-jekyll",
+      "url": "https://mokacoding.com/blog/why-i-shouldnt-have-stopped-blogging-with-jekyll",
+      "title": "Why I (shouldn't have) stopped blogging with Jekyll",
+      "content_html": "I recently decided to move my blog from Ruby and Jekyll, to Metalsmith and Javascript. It turned out to be not as easy as I thought, and a quite stupid choice, but not because of the tech.",
+      "summary": "I recently decided to move my blog from Ruby and Jekyll, to Metalsmith and Javascript. It turned out to be not as easy as I thought, and a quite stupid choice, but not because of the tech.",
+      "date_published": "2014-08-08T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cocoapods-and-custom-build-configurations",
+      "url": "https://mokacoding.com/blog/cocoapods-and-custom-build-configurations",
+      "title": "CocoaPods and custom Build Configurations",
+      "content_html": "Some tips on how to use CocoaPods and customs build configurations without headaches.",
+      "summary": "Some tips on how to use CocoaPods and customs build configurations without headaches.",
+      "date_published": "2014-04-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/2014-resolutions-review",
+      "url": "https://mokacoding.com/blog/2014-resolutions-review",
+      "title": "2014 resolutions review",
+      "date_published": "2014-04-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/gradient-backgrounds-studio",
+      "url": "https://mokacoding.com/blog/gradient-backgrounds-studio",
+      "title": "Gradient Backgrounds Studio: Lessons Learned",
+      "date_published": "2014-04-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/upgrading-podfile",
+      "url": "https://mokacoding.com/blog/upgrading-podfile",
+      "title": "A caveat when upgrading a Podfile",
+      "date_published": "2014-03-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/sharing-assets-with-cocoapods-resource-bundle-and-dynamically-loaded-fonts",
+      "url": "https://mokacoding.com/blog/sharing-assets-with-cocoapods-resource-bundle-and-dynamically-loaded-fonts",
+      "title": "Sharing assets across iOS projects with CocoaPods, Resource Bundle, and dynamically loaded fonts",
+      "date_published": "2014-02-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/automating-ios-enterprise-deployment",
+      "url": "https://mokacoding.com/blog/automating-ios-enterprise-deployment",
+      "title": "Automating iOS Enterprise Deployment with shenzhen",
+      "content_html": "A way of automating the deployment of an iOS app for enterprise distribution using the shenzhen gem.",
+      "summary": "A way of automating the deployment of an iOS app for enterprise distribution using the shenzhen gem.",
+      "date_published": "2014-01-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/2013-retrospectives-and-2014-propositions",
+      "url": "https://mokacoding.com/blog/2013-retrospectives-and-2014-propositions",
+      "title": "2013 retrospectives... and 2014 propositions",
+      "content_html": "Taking a look back at 2013, to find good propositions for 2014",
+      "summary": "Taking a look back at 2013, to find good propositions for 2014",
+      "date_published": "2014-01-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/podcasts",
+      "url": "https://mokacoding.com/blog/podcasts",
+      "title": "Podcasts, grow your brain through soundwaves",
+      "content_html": "A list of the tech podcasts I follow",
+      "summary": "A list of the tech podcasts I follow",
+      "date_published": "2013-11-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/rails-add-has_many-association-to-existing-model",
+      "url": "https://mokacoding.com/blog/rails-add-has_many-association-to-existing-model",
+      "title": "Rails: adding a new has_many association to an existing model",
+      "content_html": "A little guide on how to edit an existing model adding a new has_many association",
+      "summary": "A little guide on how to edit an existing model adding a new has_many association",
+      "date_published": "2013-11-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/things-learned-in-october",
+      "url": "https://mokacoding.com/blog/things-learned-in-october",
+      "title": "Some things I learned in October",
+      "content_html": "A quick summary and memo of interesting things I've learned in October - iOS screen capture, HTML5 game development, ways to improve your coding.",
+      "summary": "A quick summary and memo of interesting things I've learned in October - iOS screen capture, HTML5 game development, ways to improve your coding.",
+      "date_published": "2013-11-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/Xcode-projects-and-workspaces",
+      "url": "https://mokacoding.com/blog/Xcode-projects-and-workspaces",
+      "title": "A dive into Xcode projects and workspaces",
+      "content_html": "A look at how Xcode stores information about the project and the workspace",
+      "summary": "A look at how Xcode stores information about the project and the workspace",
+      "date_published": "2013-10-31T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/october-questions",
+      "url": "https://mokacoding.com/blog/october-questions",
+      "title": "October's Questions",
+      "content_html": "Introducing mokagio's monthly questions, related to iOS, Objective-C, Xcode, xctool, AFNetworking, CocoaPods.",
+      "summary": "Introducing mokagio's monthly questions, related to iOS, Objective-C, Xcode, xctool, AFNetworking, CocoaPods.",
+      "date_published": "2013-10-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/things-learned-in-september",
+      "url": "https://mokacoding.com/blog/things-learned-in-september",
+      "title": "Some things I learned in September",
+      "content_html": "A quick summary and memo of interesting things I've learned in September",
+      "summary": "A quick summary and memo of interesting things I've learned in September",
+      "date_published": "2013-10-02T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/ios7-ux-designers-verdict",
+      "url": "https://mokacoding.com/blog/ios7-ux-designers-verdict",
+      "title": "Sharing some thoughts on iOS 7",
+      "content_html": "Sharing thoughts by some lead designers on iOS 7.",
+      "summary": "Sharing thoughts by some lead designers on iOS 7.",
+      "date_published": "2013-09-24T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/setup-a-dev-machine",
+      "url": "https://mokacoding.com/blog/setup-a-dev-machine",
+      "title": "Setting a Mac for Development",
+      "content_html": "A simple checklist of the basic tools to setup a Mac for development.",
+      "summary": "A simple checklist of the basic tools to setup a Mac for development.",
+      "date_published": "2013-09-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/mtfonticon",
+      "url": "https://mokacoding.com/blog/mtfonticon",
+      "title": "Bringing font icons in iOS with MTFontIcon",
+      "content_html": "Introducing MTFontIcon, a CocoaPod library for iOS to improve application development efficiency by using font icons.",
+      "summary": "Introducing MTFontIcon, a CocoaPod library for iOS to improve application development efficiency by using font icons.",
+      "date_published": "2013-09-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/xcode5-crash-on-submission",
+      "url": "https://mokacoding.com/blog/xcode5-crash-on-submission",
+      "title": "A workaround to Xcode 5 GM crash on app submission",
+      "content_html": "A workaround for the unusual crash of Xcode 5 GM during the App Store submission process.",
+      "summary": "A workaround for the unusual crash of Xcode 5 GM during the App Store submission process.",
+      "date_published": "2013-09-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/things-learned-in-august",
+      "url": "https://mokacoding.com/blog/things-learned-in-august",
+      "title": "Some things I learned in August",
+      "date_published": "2013-09-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/things-learned-in-july",
+      "url": "https://mokacoding.com/blog/things-learned-in-july",
+      "title": "Some things I learned in July",
+      "content_html": "A summary of the things I learned in July 2013.",
+      "summary": "A summary of the things I learned in July 2013.",
+      "date_published": "2013-08-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/what-i-did-in-a-week",
+      "url": "https://mokacoding.com/blog/what-i-did-in-a-week",
+      "title": "What I did in a week...",
+      "content_html": "A recap of what I developed during an unusual week left by myself without neither girlfriend nor friends.",
+      "summary": "A recap of what I developed during an unusual week left by myself without neither girlfriend nor friends.",
+      "date_published": "2013-07-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/a-week-of-time",
+      "url": "https://mokacoding.com/blog/a-week-of-time",
+      "title": "A week of time...",
+      "content_html": "A declaration of purposes for what I'm gonna do in the next week.",
+      "summary": "A declaration of purposes for what I'm gonna do in the next week.",
+      "date_published": "2013-07-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cocoapods-the-inherited-flag",
+      "url": "https://mokacoding.com/blog/cocoapods-the-inherited-flag",
+      "title": "CocoaPods: the $(inherited) flag",
+      "content_html": "A self memo on how to set the $(inherited) flag on a project using CocoaPods on Xcode.",
+      "summary": "A self memo on how to set the $(inherited) flag on a project using CocoaPods on Xcode.",
+      "date_published": "2013-07-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/things-learned-in-june",
+      "url": "https://mokacoding.com/blog/things-learned-in-june",
+      "title": "Some things I learned in June",
+      "content_html": "A summary of the things I learned in June 2013.",
+      "summary": "A summary of the things I learned in June 2013.",
+      "date_published": "2013-07-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/mokagios-self-memo-for-facebook-integration-on-ios-part-1",
+      "url": "https://mokacoding.com/blog/mokagios-self-memo-for-facebook-integration-on-ios-part-1",
+      "title": "mokagio's self memo for Facebook Integration on iOS - Part 1",
+      "content_html": "Step by step guide on how to integrate the Facebook SDK in an iOS app, the right way. Part 1: Facebook Login.",
+      "summary": "Step by step guide on how to integrate the Facebook SDK in an iOS app, the right way. Part 1: Facebook Login.",
+      "date_published": "2013-06-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/osx-a-scanner-and-the-drivers-drama",
+      "url": "https://mokacoding.com/blog/osx-a-scanner-and-the-drivers-drama",
+      "title": "OSX, a scanner, and the drivers drama",
+      "content_html": "The link to the Samsung Printer Drivers, enclosed in a ranting post.",
+      "summary": "The link to the Samsung Printer Drivers, enclosed in a ranting post.",
+      "date_published": "2013-06-11T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/multiple-builds-of-the-same-app-and-testflight",
+      "url": "https://mokacoding.com/blog/multiple-builds-of-the-same-app-and-testflight",
+      "title": "Multiple builds of the same app and TestFlight",
+      "content_html": "How to distribute multiple builds of your iOS app, such as stable, QA and development builds, via TestFlight.",
+      "summary": "How to distribute multiple builds of your iOS app, such as stable, QA and development builds, via TestFlight.",
+      "date_published": "2013-05-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cocoapods-how-to-create-your-own-pod",
+      "url": "https://mokacoding.com/blog/cocoapods-how-to-create-your-own-pod",
+      "title": "CocoaPods - How to create your own Pod",
+      "content_html": "A step by step guide to create a basic CocoaPod.",
+      "summary": "A step by step guide to create a basic CocoaPod.",
+      "date_published": "2013-01-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://mokacoding.com/blog/cocoapods",
+      "url": "https://mokacoding.com/blog/cocoapods",
+      "title": "CocoaPods!",
+      "content_html": "A brief introduction to CocoaPods, the Objective-C dependencies manager.",
+      "summary": "A brief introduction to CocoaPods, the Objective-C dependencies manager.",
+      "date_published": "2013-01-05T00:00:00.000Z"
+    }
+  ]
+}

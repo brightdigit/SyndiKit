@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UC7AuV86ZjR3YaEdb5USNvWQ"/>
+ <id>yt:channel:UC7AuV86ZjR3YaEdb5USNvWQ</id>
+ <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+ <title>tundsdev</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ"/>
+ <author>
+  <name>tundsdev</name>
+  <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+ </author>
+ <published>2020-11-26T18:25:22+00:00</published>
+ <entry>
+  <id>yt:video:l-iN0kY_bmg</id>
+  <yt:videoId>l-iN0kY_bmg</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Setup SwiftUI App with Firebase SPM (Swift Package Manager, SwiftUI Tutorial, Firebase Crashlytics)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=l-iN0kY_bmg"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-06-13T15:00:31+00:00</published>
+  <updated>2021-06-14T16:34:07+00:00</updated>
+  <media:group>
+   <media:title>Setup SwiftUI App with Firebase SPM (Swift Package Manager, SwiftUI Tutorial, Firebase Crashlytics)</media:title>
+   <media:content url="https://www.youtube.com/v/l-iN0kY_bmg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/l-iN0kY_bmg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll be looking at how to integrate Firebase into our SwiftUI apps. We’ll see how to install Firebase using SPM (Swift Package Manager), we’ll also discuss the Firebase Console and setting up an App in your Firebase projects. Finally we’ll see how we can test our setup using Firebase Crashlytics to send and report a crash.
+
+Timestamps
+
+00:00 Introduction
+00:23 Getting Started with Firebase SPM/Firebase Swift Package Manager
+02:03 Installing Firebase with Swift Package Manager in Xcode
+04:42 Setting up a project within the Firebase Console
+06:11 Setting up an app for your project in the Firebase Console
+11:39 Setting up Firebase Crashlytics in your Firebase project
+15:23 Testing out Firebase Crashlytics in your project
+18:47 Wrap up
+
+Firebase SPM (Swift Package Manager) Installation
+https://github.com/firebase/firebase-ios-sdk/blob/master/SwiftPackageManager.md
+
+Firebase Console
+https://console.firebase.google.com
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+Github Repo
+https://github.com/tunds/YouTubeResources
+
+#tundsdev #swiftuitutorial #swiftuifirebase #firebaseswiftui #firebasespm #firebaseswiftpackagemanager #firebasecrashlytics #howtosetupcrashlytics #swiftpackagemanager</media:description>
+   <media:community>
+    <media:starRating count="21" average="5.00" min="1" max="5"/>
+    <media:statistics views="388"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Dhfdg_6ksy8</id>
+  <yt:videoId>Dhfdg_6ksy8</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Refactoring code in SwiftUI (SwiftUI Tutorial, SwiftUI Onboarding, SwiftUI)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Dhfdg_6ksy8"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-06-04T15:17:40+00:00</published>
+  <updated>2021-06-04T15:56:58+00:00</updated>
+  <media:group>
+   <media:title>Refactoring code in SwiftUI (SwiftUI Tutorial, SwiftUI Onboarding, SwiftUI)</media:title>
+   <media:content url="https://www.youtube.com/v/Dhfdg_6ksy8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Dhfdg_6ksy8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll look at and discuss a topic in programming called refactoring. We'll discuss the benefits of refactoring and how we can apply this to our Onboarding screens video which we built using SwiftUI. We'll also talk about when it may not be worth refactoring code and other bits of advice.
+
+So let’s jump straight into this SwiftUI tutorial.
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+#swiftuitutorial #swiftuionboardingscreen #swiftuibinding #swiftuiappstorage #swiftuicombine</media:description>
+   <media:community>
+    <media:starRating count="17" average="5.00" min="1" max="5"/>
+    <media:statistics views="176"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:v-6qU-DqaZo</id>
+  <yt:videoId>v-6qU-DqaZo</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>SwiftUI Form Validation using Combine (SwiftUI Tutorial, Regular Expressions, Combine Framework)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=v-6qU-DqaZo"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-05-30T15:00:33+00:00</published>
+  <updated>2021-05-31T20:30:43+00:00</updated>
+  <media:group>
+   <media:title>SwiftUI Form Validation using Combine (SwiftUI Tutorial, Regular Expressions, Combine Framework)</media:title>
+   <media:content url="https://www.youtube.com/v/v-6qU-DqaZo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/v-6qU-DqaZo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’re going to be building a dynamic form in SwiftUI that accepts different types of inputs. We’ll then look at how we can apply some form validation in SwiftUI using regular expressions. So let’s jump straight into this SwiftUI Tutorial and see how we can apply some SwiftUI Form Validation
+
+Timestamps
+
+00:00 Introduction
+00:35 Building our UI in SwiftUI
+05:55 Breaking down our model
+08:14 Building our model
+13:09 Building our form content
+16:00 Building our dynamic form
+24:00 Getting our Regex Patterns
+25:17 Breaking down our validators
+27:05 Building our validators
+34:50 Updating our models with our validators
+38:80 Updating our form content with our validators
+40:00 Using our validators to validate our text input
+44:00 Passing objects between views with EnvironmentObject
+49:00 Using out validator to validate our date selection
+52:20 Handling button actions in our form
+55:53 Using Enums to handle our entire Form Validation
+01:03:47 Testing out our app
+01:05:34 Wrap up
+
+Regular Expression Patterns
+https://github.com/tunds/YouTubeResources/blob/master/06%20-%20Combine%20Form%20Validation%20in%20UIKit%20-%20Starter%20Project/Combine%20Form%20Validation%20SwiftUI%20%26%20UIKit/Combine%20Form%20Validation%20UIKit/Regex/Patterns/RegexPatterns.swift
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+Github Repo
+https://github.com/tunds/YouTubeResources
+
+#uikit #uikittutorial #combineframework #formvalidationcombine #UICollectionView #tundsdev #swiftuiform #swiftuiformvalidation</media:description>
+   <media:community>
+    <media:starRating count="21" average="5.00" min="1" max="5"/>
+    <media:statistics views="407"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:EWjLHRbQK4I</id>
+  <yt:videoId>EWjLHRbQK4I</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Form Validation in UIKit using Combine Framework (Combine Framework, UIKit Tutorial, UIKit Form)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=EWjLHRbQK4I"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-05-23T15:00:04+00:00</published>
+  <updated>2021-05-26T01:52:29+00:00</updated>
+  <media:group>
+   <media:title>Form Validation in UIKit using Combine Framework (Combine Framework, UIKit Tutorial, UIKit Form)</media:title>
+   <media:content url="https://www.youtube.com/v/EWjLHRbQK4I?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EWjLHRbQK4I/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this UIKit tutorial, we’re going to be building on top of our last video where we built a scalable and dynamic form in UIKit with a UICollectionView and using some of Apple’s latest frameworks UICollectionViewCompositionalLayout &amp; UICollectionViewDiffableDataSource. This time we’ll be being using the Combine Framework to capture input from our UICollectionViewCell and also validate the users input.
+
+So let’s jump straight into this UIKit tutorial.
+
+Timestamps
+
+00:00 Introduction
+01:14 Breaking down the validators &amp; model
+05:56 Working with Regular Expressions in Swift
+10:22 Building our date validator
+11:42 Updating our models with our validator
+18:32 Using Combine Framework to capture user input &amp; handle validation in our textfield cell
+27:27 Updating our single source of truth
+29:15 Using Combine Framework to capture user input &amp; handle validation in our date cell 
+31:38 Using Combine Framework to capture events in our button cell 
+34:00 Validating our form using Combine
+39:13 Testing out our form
+41:07 Fixing a bug with our form
+42:25 Wrap up
+
+YouTube Resources
+https://github.com/tunds/YouTubeResources
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+Github Repo
+https://github.com/tunds/YouTubeResources
+
+#uikit #uikittutorial #combineframework #formvalidationcombine #UICollectionView #tundsdev</media:description>
+   <media:community>
+    <media:starRating count="21" average="5.00" min="1" max="5"/>
+    <media:statistics views="551"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4YIckjckiWI</id>
+  <yt:videoId>4YIckjckiWI</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Create a Dynamic Form in UIKit (Compositional Layout, Diffable Data Source, UICollectionView)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4YIckjckiWI"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-05-16T15:00:02+00:00</published>
+  <updated>2021-05-17T22:22:28+00:00</updated>
+  <media:group>
+   <media:title>Create a Dynamic Form in UIKit (Compositional Layout, Diffable Data Source, UICollectionView)</media:title>
+   <media:content url="https://www.youtube.com/v/4YIckjckiWI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4YIckjckiWI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this UIKit tutorial, we’re going to look at how we can build a scalable dynamic form in UIKit with self sizing UICollectionViewCells in Swift, with a UICollectionView and using some of Apple’s latest frameworks UICollectionViewCompositionalLayout &amp; UICollectionViewDiffableDataSource.
+
+So let’s jump straight into this UIKit tutorial.
+
+Timestamps
+
+00:00 Introduction
+00:17 Designing our models
+02:12 Defining our protocols &amp; form components
+10:05 Building our form content builder
+12:06 Using Extensions in Swift for our UICollectionViewCell
+14:42 Building our Form CollectionViewCells
+20:04 Working with Compositional Layout in UIKit
+25:04 Setting up our ViewController
+27:01 Working with Diffable Data Source in UIKit
+35:05 Testing out our app
+36:00 Wrap up
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+Github Repo
+https://github.com/tunds/YouTubeResources
+
+#uikit #uikittutorial #compositionallayout #diffabledatasource #UICollectionView #UICollectionViewCompositionalLayout #UICollectionViewDiffableDataSource #tundsdev
+
+Keywords
+
+Compositional layout,
+Compositional layout collectionview,
+Compositional layout uikit,
+Collection view compositional layout,
+Uicollectionview swift,
+UICollectionViewCompositionalLayout,
+UICollectionview,
+Diffable data source,
+Uikit,
+Tundsdev,
+collection view diffable data source,
+Uikit tutorial,
+Ui kit tutorial,
+Uicollectionview swift 5,
+Xcode, 
+swift collection view example,
+swift collection view for beginners</media:description>
+   <media:community>
+    <media:starRating count="26" average="5.00" min="1" max="5"/>
+    <media:statistics views="641"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:F5aDfGNdsac</id>
+  <yt:videoId>F5aDfGNdsac</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Getting Started With Unit Testing in Swift (XCTest, Test Cases, Code Coverage)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=F5aDfGNdsac"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-05-09T15:00:03+00:00</published>
+  <updated>2021-05-11T08:46:34+00:00</updated>
+  <media:group>
+   <media:title>Getting Started With Unit Testing in Swift (XCTest, Test Cases, Code Coverage)</media:title>
+   <media:content url="https://www.youtube.com/v/F5aDfGNdsac?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/F5aDfGNdsac/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this Swift tutorial, we’ll be building on top of our Onboarding App that we built in our previous video and add in some unit testing. We’ll also discuss what is unit testing and how iOS unit testing works by breaking down our onboarding app’s logic. We’ll also discuss the what is included in XCTests and how to assert expressions to make sure our swift unit testing code works and validates our test cases, finally we’ll touch Xcode code coverage and see how we can use this to make sure we have applied unit testing in core areas of our app.
+
+Timestamps
+
+00:00 Introduction
+00:13 Brief introduction to Unit Testing
+01:48 How to add Unit Tests into an existing Xcode project
+02:52 Adding XCTests &amp; Unit Testing our Plist Manager
+08:29 Adding XCTests &amp; Unit Testing our Onboarding Content Manager
+09:35 Creating Mocks
+14:21 Enabling Code Coverage in Xcode
+16:44 Wrap up
+
+Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)
+https://youtu.be/HXYqU5ClIk4
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#iosdev #unittesting #iosunitesting #iosunittestingswift #codecoverage #testcases</media:description>
+   <media:community>
+    <media:starRating count="35" average="5.00" min="1" max="5"/>
+    <media:statistics views="592"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:HXYqU5ClIk4</id>
+  <yt:videoId>HXYqU5ClIk4</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=HXYqU5ClIk4"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-05-02T15:00:15+00:00</published>
+  <updated>2021-05-04T00:29:41+00:00</updated>
+  <media:group>
+   <media:title>Build Onboarding Screens in SwiftUI (TabView, PageTabViewStyle, SwiftUI Tutorial, @AppStorage)</media:title>
+   <media:content url="https://www.youtube.com/v/HXYqU5ClIk4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/HXYqU5ClIk4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll look at how we can add onboarding screens to the start of a SwiftUI app. We’ll look at how we can use SwiftUI @AppStorage, alongside SwiftUI TabView &amp; SwiftUI PageTabViewStyle to easily create an onboarding screen in SwiftUI.
+
+So let’s jump straight into this SwiftUI tutorial.
+
+Timestamps
+
+00:00 Introduction
+00:57 Creating our Onboarding Model in Swift
+02:02 Creating our Onboarding Screen in SwiftUI
+05:08 Creating our Onboarding Screen View in SwiftUI
+07:23 Refactoring our code with a Plist &amp; Manager class
+21:34 Filling up our Onboarding Screen View
+26:20 Adding in our button
+27:14 Handling presentation of our onboarding view with @AppStorage
+32:23 Presenting our Onboarding View
+35:00 How to add new screens
+36:00 Wrap up
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)
+https://youtu.be/X2m0f2NoB10
+
+#swiftuitutorial #swiftuionboardingscreen #swiftuibinding #swiftuiappstorage #swiftuicombine</media:description>
+   <media:community>
+    <media:starRating count="69" average="5.00" min="1" max="5"/>
+    <media:statistics views="1033"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:X2m0f2NoB10</id>
+  <yt:videoId>X2m0f2NoB10</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=X2m0f2NoB10"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-25T15:00:13+00:00</published>
+  <updated>2021-04-28T16:06:46+00:00</updated>
+  <media:group>
+   <media:title>Getting Started with Combine (Practical Combine Framework Examples in UIKit &amp; SwiftUI)</media:title>
+   <media:content url="https://www.youtube.com/v/X2m0f2NoB10?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/X2m0f2NoB10/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, we’re going to explore the Combine Framework. In this Combine Framework tutorial, we’ll be looking at Practical examples in SwiftUI &amp; UIKit. We’ll discuss a range of topics within the Combine Framework such as Publishers, Subscriptions, Cancellables, Memory Management and many more topics within the Combine Framework, alongside real-life examples you may come across in your project.
+
+So let’s get straight into this SwiftUI tutorial &amp; UIKit tutorial.
+
+Timestamps
+
+00:00 Introduction
+00:53 Introduction to functional programming
+06:06 Breaking down Reactive Programming
+07:51 Subscriptions &amp; Cancellables in the Swift Combine Framework
+13:22 Combining Publishers in the Swift Combine Framework
+22:44 Assigning Subscriptions in the Swift Combine Framework
+30:52 CurrentSubjectValue in the Swift Combine Framework
+40:16 PassthroughSubjects in the Swift Combine Framework
+55:36 How to handle Multithreading
+01:06:37 Memory Management in the Swift Combine Framework
+01:10:51 Publishers in SwiftUI
+01:20:13 Creating our own publishers using the Swift Combine Framework
+01:24:40 Future &amp; Deffered in the Swift Combine Framework
+01:30:48 Wrap Up
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)
+https://youtu.be/j7a4jvHz4MM
+
+SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)
+https://youtu.be/cfwEt__pnvA
+
+Swift With Majid
+https://swiftwithmajid.com
+
+Github Repo
+https://github.com/tunds/YouTubeResources
+
+#combineframework #swiftuitutorial #gettingstartedwithcombineframework #uikit #uikittutorial #combineframeworkswiftuitutorial #combineframeworkpracticalexamples
+#swiftui</media:description>
+   <media:community>
+    <media:starRating count="135" average="5.00" min="1" max="5"/>
+    <media:statistics views="2958"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:sYVXpRFmv54</id>
+  <yt:videoId>sYVXpRFmv54</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>How I Became A Lead App Developer Without A Computer Science Degree (Self Taught Programmer)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=sYVXpRFmv54"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-18T14:10:35+00:00</published>
+  <updated>2021-04-20T01:13:25+00:00</updated>
+  <media:group>
+   <media:title>How I Became A Lead App Developer Without A Computer Science Degree (Self Taught Programmer)</media:title>
+   <media:content url="https://www.youtube.com/v/sYVXpRFmv54?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/sYVXpRFmv54/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In today’s video I’ll be talking about my self as a self taught programmer, specifically self taught iOS developer. And how I became a lead app developer or app tech lead at my current company. I’ll be sharing some tips and tricks on how to become a lead app developer, and some of the advice can also apply to someone who is looking at how to become a lead iOS developer or senior iOS developer on their iOS developer roadmap. So join me in this video as I discuss my iOS developer journey as a lead dev and as I go through some of the iOS lead essentials that I think are important. And if you have any other opinions I’d love to hear them in the comments section below. 
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+How to land your next iOS role and places to find a job
+https://youtu.be/-kxqoTCgxkI
+
+#selftaughtprogrammer #iOSdevelopment  #iOSdeveloperroadmap #howtobecomealeaddeveloper #iosdevelopment #leadiosdeveloper</media:description>
+   <media:community>
+    <media:starRating count="36" average="5.00" min="1" max="5"/>
+    <media:statistics views="495"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:j7a4jvHz4MM</id>
+  <yt:videoId>j7a4jvHz4MM</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=j7a4jvHz4MM"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-11T15:00:16+00:00</published>
+  <updated>2021-04-13T17:52:40+00:00</updated>
+  <media:group>
+   <media:title>Dark Mode in SwiftUI using @Binding &amp; @AppStorage (SwiftUI Tutorial, @Binding, @AppStorage)</media:title>
+   <media:content url="https://www.youtube.com/v/j7a4jvHz4MM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/j7a4jvHz4MM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>00:00 Introduction
+00:58 Breaking down SwiftUI AppStorage - Hacking With Swift
+03:17 Using SwiftUI AppStorage &amp; SwiftUI Binding
+12:51 Handling Dark mode in SwiftUI with SwiftUI Binding
+14:50 Using Colour Assets in Xcode to manage SwiftUI dark mode
+20:32 Wrap up SwiftUI Tutorial 
+
+In this SwiftUI tutorial, we’ll look at how we can add dark mode in SwiftUI. We’ll look at how we can use the combine framework in SwiftUI to use Binding to control the theme of our app to switch between dark mode, light mode and the system theme.
+
+We’ll also look at how we can persist the settings for turning on SwiftUI dark mode, by using the AppStorage in SwiftUI which interacts with Userdefaults in Swift.
+
+We’ll also look at how we can managed our colours with the Assets folder in Xcode so we can clearly define our Colour Assets in Xcode.
+
+So let’s jump straight into this SwiftUI tutorial.
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+Swift Data Types
+https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
+
+#swiftuitutorial #swiftuidarkmode #swiftuibinding #swiftuiappstorage #Xcodecolorassets #swiftuicombine</media:description>
+   <media:community>
+    <media:starRating count="45" average="5.00" min="1" max="5"/>
+    <media:statistics views="619"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:cmaZUw7GSGs</id>
+  <yt:videoId>cmaZUw7GSGs</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>SwiftUI Link, Open links in Safari in SwiftUI (SwiftUI Tutorial, SwiftUI Link View)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=cmaZUw7GSGs"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-07T15:06:53+00:00</published>
+  <updated>2021-04-07T15:06:53+00:00</updated>
+  <media:group>
+   <media:title>SwiftUI Link, Open links in Safari in SwiftUI (SwiftUI Tutorial, SwiftUI Link View)</media:title>
+   <media:content url="https://www.youtube.com/v/cmaZUw7GSGs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/cmaZUw7GSGs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll look at how we can open up links in Safari using a SwiftUI Link View. This SwiftUI tutorial will go through how to handle different types of Links in Swift and how the device will handle them. So let’s get straight into this SwiftUI tutorial.
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#swiftuitutorial #swiftuilink #swiftuilinkview #swiftuisafari</media:description>
+   <media:community>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
+    <media:statistics views="197"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fktqZRRQgyU</id>
+  <yt:videoId>fktqZRRQgyU</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Build A Settings Screen In SwiftUI (SwiftUI Tutorial, SwiftUI Form, FormView)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=fktqZRRQgyU"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-06T15:00:13+00:00</published>
+  <updated>2021-04-06T15:00:13+00:00</updated>
+  <media:group>
+   <media:title>Build A Settings Screen In SwiftUI (SwiftUI Tutorial, SwiftUI Form, FormView)</media:title>
+   <media:content url="https://www.youtube.com/v/fktqZRRQgyU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fktqZRRQgyU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll look at how we can add a Settings Screen into our app. We’ll look at how we can use a Form in SwiftUI to create this Settings page within this SwiftUI tutorial. 
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#swiftuitutorial #swiftuisettingsscreen #swiftuisettingspage #iosdev</media:description>
+   <media:community>
+    <media:starRating count="31" average="4.87" min="1" max="5"/>
+    <media:statistics views="493"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:-kxqoTCgxkI</id>
+  <yt:videoId>-kxqoTCgxkI</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>How to land your first iOS developer job (Self Taught iOS Developer, iOS developer, SwiftUI)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=-kxqoTCgxkI"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-04-05T14:00:00+00:00</published>
+  <updated>2021-04-06T21:32:06+00:00</updated>
+  <media:group>
+   <media:title>How to land your first iOS developer job (Self Taught iOS Developer, iOS developer, SwiftUI)</media:title>
+   <media:content url="https://www.youtube.com/v/-kxqoTCgxkI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/-kxqoTCgxkI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video we’ll be looking at places to get a job in iOS development, if you're an upcoming self taught iOS developer. We’ll be looking at site that are suitable for all people, if you’re a self taught iOS developer without a computer science degree, a graduate developer with a computer science degree or you’re just someone looking for a new iOS development challenge. Come and check out my tips, tricks and favourite sites for landing a developer job in iOS.
+
+Sites
+
+https://www.linkedin.com
+https://remoteok.io
+https://iosdevjobs.com
+https://www.hackingwithswift.com/forums/jobs
+https://www.iosdevhappyhour.com
+https://ios-developers.io
+https://stackoverflow.com/jobs
+https://github.com/dkhamsing/open-source-ios-apps
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#landingyourfirstdeveloperjob #howtobecomeaniosdeveloper #iosdeveloper #iosdev</media:description>
+   <media:community>
+    <media:starRating count="18" average="5.00" min="1" max="5"/>
+    <media:statistics views="325"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:TZ3-iQ462Q8</id>
+  <yt:videoId>TZ3-iQ462Q8</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>Using UIKit in SwiftUI (SwiftUI Tutorial, SFSafariViewController, Xcode 12)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=TZ3-iQ462Q8"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-03-28T15:00:09+00:00</published>
+  <updated>2021-03-29T19:37:31+00:00</updated>
+  <media:group>
+   <media:title>Using UIKit in SwiftUI (SwiftUI Tutorial, SFSafariViewController, Xcode 12)</media:title>
+   <media:content url="https://www.youtube.com/v/TZ3-iQ462Q8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/TZ3-iQ462Q8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll carry on improving our SwiftUI News App overall UI &amp; UX, by using UIKit in SwiftUI. We’ll look at how we can open up links directly in our app rather opening up Safari.
+
+We’ll be using a UIViewController called SFSafariViewController, this UIViewController allows us to open up links in a WebView. Since this is a UIKit view. We’ll see how we can use UIKit in SwiftUI with help of the UIViewControllerRepresentable protocol.
+
+So let’s jump straight into this SwiftUI tutorial and see how to use UIKit in SwiftUI.
+
+Timestamps
+
+00:00 Intro
+01:00 Creating our SFSafariView in SwiftUI
+07:20 Presenting our SFSafariView using the sheet modifier in SwiftUI
+12:15 Wrap Up
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#swiftuitutorial #sfsafariviewcontroller #uikitinswiftui #iosdev</media:description>
+   <media:community>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
+    <media:statistics views="365"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:cfwEt__pnvA</id>
+  <yt:videoId>cfwEt__pnvA</yt:videoId>
+  <yt:channelId>UC7AuV86ZjR3YaEdb5USNvWQ</yt:channelId>
+  <title>SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=cfwEt__pnvA"/>
+  <author>
+   <name>tundsdev</name>
+   <uri>https://www.youtube.com/channel/UC7AuV86ZjR3YaEdb5USNvWQ</uri>
+  </author>
+  <published>2021-03-21T15:09:18+00:00</published>
+  <updated>2021-03-27T06:05:25+00:00</updated>
+  <media:group>
+   <media:title>SwiftUI Redacted Tutorial - Loading Skeleton View - (SwiftUI Tutorial, Xcode 12, SwiftUI 2.0)</media:title>
+   <media:content url="https://www.youtube.com/v/cfwEt__pnvA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/cfwEt__pnvA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this SwiftUI tutorial, we’ll carry on improving our SwiftUI News App overall UI &amp; UX. We'll be providing a placeholder for our article views with the SwiftUI redacted modifier, replacing our loading view from previous videos and now implementing a swiftui skeleton view similar to Facebook. We’ll see how we can refactor our existing project and add in SwiftUI redacted into our project’s MVVM architecture in SwiftUI 2.0. 
+
+Timestamps
+
+00:00 Intro
+01:00 Using the redacted modifier in SwiftUI
+04:04 Using the redacted with an API in SwiftUI
+10:28 Using placeholder data with our API
+16:00 Testing our SwiftUI app
+16:20 Wrap up
+
+Build a news app in SwiftUI tutorial series
+https://youtube.com/playlist?list=PLvUWi5tdh92zgFZ2UHvhhKrLyRyHXz8Jw
+
+Build Clubhouse in SwiftUI 2.0 and Dark Mode (SwiftUI Tutorial, SwiftUI 2.0, Clubhouse App Clone)
+https://youtu.be/FVUPe5z1YG8
+
+#swiftuitutorial #swiftuitabview #swiftuinewsapp #iosdev</media:description>
+   <media:community>
+    <media:starRating count="37" average="5.00" min="1" max="5"/>
+    <media:statistics views="988"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

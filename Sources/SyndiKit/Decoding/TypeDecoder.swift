@@ -1,0 +1,10 @@
+import Foundation
+import XMLCoder
+
+protocol TypeDecoder {
+  func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: DecodableFeed
+}
+
+extension JSONDecoder: TypeDecoder {}
+
+extension XMLDecoder: TypeDecoder {}

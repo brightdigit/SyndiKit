@@ -1,0 +1,176 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Releases - Apple Developer",
+  "home_page_url": "https://developer.apple.com/news/",
+  "description": "Apple Developer News and Updates feed provided by Apple, Inc.",
+  "items": [
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021e",
+      "url": "https://developer.apple.com/news/releases/?id=06242021e",
+      "title": "Xcode 13 beta 2 (13A5155e)",
+      "content_html": "Xcode 13 beta 2 (13A5155e)",
+      "summary": "Xcode 13 beta 2 (13A5155e)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021d",
+      "url": "https://developer.apple.com/news/releases/?id=06242021d",
+      "title": "iOS 15 beta 2 (19A5281h)",
+      "content_html": "iOS 15 beta 2 (19A5281h)",
+      "summary": "iOS 15 beta 2 (19A5281h)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021c",
+      "url": "https://developer.apple.com/news/releases/?id=06242021c",
+      "title": "iPadOS 15 beta 2 (19A5281h)",
+      "content_html": "iPadOS 15 beta 2 (19A5281h)",
+      "summary": "iPadOS 15 beta 2 (19A5281h)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021b",
+      "url": "https://developer.apple.com/news/releases/?id=06242021b",
+      "title": "watchOS 8 beta 2 (19R5286f)",
+      "content_html": "watchOS 8 beta 2 (19R5286f)",
+      "summary": "watchOS 8 beta 2 (19R5286f)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06242021a",
+      "url": "https://developer.apple.com/news/releases/?id=06242021a",
+      "title": "tvOS 15 beta 2 (19J5288e)",
+      "content_html": "tvOS 15 beta 2 (19J5288e)",
+      "summary": "tvOS 15 beta 2 (19J5288e)",
+      "date_published": "2021-06-24T20:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06212021",
+      "url": "https://developer.apple.com/news/releases/?id=06212021",
+      "title": "Xcode 12.5.1 (12E507)",
+      "content_html": "Xcode 12.5.1 (12E507)",
+      "summary": "Xcode 12.5.1 (12E507)",
+      "date_published": "2021-06-21T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021g",
+      "url": "https://developer.apple.com/news/releases/?id=06142021g",
+      "title": "macOS Big Sur 11.5 beta 3 (20G5042c)",
+      "content_html": "macOS Big Sur 11.5 beta 3 (20G5042c)",
+      "summary": "macOS Big Sur 11.5 beta 3 (20G5042c)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021f",
+      "url": "https://developer.apple.com/news/releases/?id=06142021f",
+      "title": "iOS 14.7 beta 3 (18G5042c)",
+      "content_html": "iOS 14.7 beta 3 (18G5042c)",
+      "summary": "iOS 14.7 beta 3 (18G5042c)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021e",
+      "url": "https://developer.apple.com/news/releases/?id=06142021e",
+      "title": "iPadOS 14.7 beta 3 (18G5042c)",
+      "content_html": "iPadOS 14.7 beta 3 (18G5042c)",
+      "summary": "iPadOS 14.7 beta 3 (18G5042c)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021d",
+      "url": "https://developer.apple.com/news/releases/?id=06142021d",
+      "title": "watchOS 7.6 beta 3 (18U5542b)",
+      "content_html": "watchOS 7.6 beta 3 (18U5542b)",
+      "summary": "watchOS 7.6 beta 3 (18U5542b)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021c",
+      "url": "https://developer.apple.com/news/releases/?id=06142021c",
+      "title": "tvOS 14.7 beta 3 (18M5542c)",
+      "content_html": "tvOS 14.7 beta 3 (18M5542c)",
+      "summary": "tvOS 14.7 beta 3 (18M5542c)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06142021b",
+      "url": "https://developer.apple.com/news/releases/?id=06142021b",
+      "title": "iOS 12.5.4 (16H50)",
+      "content_html": "iOS 12.5.4 (16H50)",
+      "summary": "iOS 12.5.4 (16H50)",
+      "date_published": "2021-06-14T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06072021h",
+      "url": "https://developer.apple.com/news/releases/?id=06072021h",
+      "title": "App Store Connect 1.6",
+      "content_html": "<p>App Store Connect 1.6 is now available on the App Store. This update lets you invite external users and manage TestFlight external beta testing. It also includes stability improvements and bug fixes. </p>",
+      "summary": "App Store Connect 1.6 is now available on the App Store. This update lets you invite external users and manage TestFlight external beta testing. It also includes stability improvements and bug fixes.",
+      "date_published": "2021-06-07T21:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06072021g",
+      "url": "https://developer.apple.com/news/releases/?id=06072021g",
+      "title": "TestFlight Update",
+      "content_html": "<p>You can now submit apps built with Xcode 13 beta using the SDK for iOS 15 beta, iPadOS 15 beta, tvOS 15 beta, and watchOS 8 beta for internal and external testing, with support for the following:<p><li>Family Controls on iOS and iPadOS</li></p><p><li>Communication Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>Time-Sensitive Notifications on iOS, iPadOS, macOS, and tvOS</li></p><p><li>HealthKit Estimate Recalibration on iOS and watchOS</li></p><br><p>In addition, when viewing TestFlight crash feedback in App Store Connect, you can now click “Open in Xcode 13” next to a piece of crash feedback to open the crash in the Crashes Organizer in Xcode.</p><br><p><strong>Not yet supported:</strong></p><p><li>Group Activities on iOS, iPadOS, macOS, and tvOS</p></li><br><p><strong>Known issues:</strong></p><p><li>Builds that include App Clips cannot be delivered via Xcode&nbsp;Cloud.</li></p>",
+      "summary": "You can now submit apps built with Xcode 13 beta using the SDK for iOS 15 beta, iPadOS 15 beta, tvOS 15 beta, and watchOS 8 beta for internal and external testing, with support for the following:Family Controls on iOS and iPadOSCommunication Notifications on iOS, iPadOS, macOS, and tvOSTime-Sensitive Notifications on iOS, iPadOS, macOS, and tvOSHealthKit Estimate Recalibration on iOS and watchOSIn addition, when viewing TestFlight crash feedback in App Store Connect, you can now click “Open in Xcode 13” next to a piece of crash feedback to open the crash in the Crashes Organizer in Xcode.Not yet supported:Group Activities on iOS, iPadOS, macOS, and tvOSKnown issues:Builds that include App Clips cannot be delivered via Xcode Cloud.",
+      "date_published": "2021-06-07T19:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06072021e",
+      "url": "https://developer.apple.com/news/releases/?id=06072021e",
+      "title": "macOS Monterey beta (21A5248p)",
+      "content_html": "macOS Monterey beta (21A5248p)",
+      "summary": "macOS Monterey beta (21A5248p)",
+      "date_published": "2021-06-07T19:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=06032021a",
+      "url": "https://developer.apple.com/news/releases/?id=06032021a",
+      "title": "Transporter 1.2.2",
+      "content_html": "<p>Transporter 1.2.2 is now available on the Mac App Store. This update includes stability improvements and bug fixes.</p>",
+      "summary": "Transporter 1.2.2 is now available on the Mac App Store. This update includes stability improvements and bug fixes.",
+      "date_published": "2021-06-03T18:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=05242021e",
+      "url": "https://developer.apple.com/news/releases/?id=05242021e",
+      "title": "macOS Big Sur 11.4 (20F71)",
+      "content_html": "macOS Big Sur 11.4 (20F71)",
+      "summary": "macOS Big Sur 11.4 (20F71)",
+      "date_published": "2021-05-24T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=05242021b",
+      "url": "https://developer.apple.com/news/releases/?id=05242021b",
+      "title": "watchOS 7.5 (18T567)",
+      "content_html": "watchOS 7.5 (18T567)",
+      "summary": "watchOS 7.5 (18T567)",
+      "date_published": "2021-05-24T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=05242021a",
+      "url": "https://developer.apple.com/news/releases/?id=05242021a",
+      "title": "tvOS 14.6 (18L569)",
+      "content_html": "tvOS 14.6 (18L569)",
+      "summary": "tvOS 14.6 (18L569)",
+      "date_published": "2021-05-24T17:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=03162021",
+      "url": "https://developer.apple.com/news/releases/?id=03162021",
+      "title": "App Store Connect Update",
+      "content_html": "<p>App Analytics now provides usage metrics for Mac apps, including data on installations, sessions, active devices, crashes, and deletions. And now you can measure user retention to see how often users return to your app after downloading it. Data is only available from users who have agreed to share their diagnostics and usage information with app developers.</p>",
+      "summary": "App Analytics now provides usage metrics for Mac apps, including data on installations, sessions, active devices, crashes, and deletions. And now you can measure user retention to see how often users return to your app after downloading it. Data is only available from users who have agreed to share their diagnostics and usage information with app developers.",
+      "date_published": "2021-03-16T23:00:00.000Z"
+    },
+    {
+      "guid": "https://developer.apple.com/news/releases/?id=03042021b",
+      "url": "https://developer.apple.com/news/releases/?id=03042021b",
+      "title": "TestFlight Update",
+      "content_html": "<p>You can now submit apps built with Xcode 12.5 beta 3 using the SDK for iOS 14.5 beta 3, tvOS 14.5 beta 3, watchOS 7.4 beta 3 for internal and external testing.</p>",
+      "summary": "You can now submit apps built with Xcode 12.5 beta 3 using the SDK for iOS 14.5 beta 3, tvOS 14.5 beta 3, watchOS 7.4 beta 3 for internal and external testing.",
+      "date_published": "2021-03-04T20:00:00.000Z"
+    }
+  ]
+}

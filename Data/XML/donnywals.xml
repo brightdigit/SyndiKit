@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Donny Wals</title>
+	<atom:link href="https://www.donnywals.com/feed/" rel="self" type="application/rss+xml" />
+	<link>https://www.donnywals.com</link>
+	<description>iOS developer, Speaker and Author</description>
+	<lastBuildDate>Tue, 15 Jun 2021 08:28:24 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.6</generator>
+
+<image>
+	<url>https://www.donnywals.com/wp-content/uploads/cropped-site-icon-32x32.png</url>
+	<title>Donny Wals</title>
+	<link>https://www.donnywals.com</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>An introduction to synchronizing access with Swift&#8217;s Actors</title>
+		<link>https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 14 Jun 2021 19:29:29 +0000</pubDate>
+				<category><![CDATA[Swift concurrency]]></category>
+		<category><![CDATA[WWDC 2021]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1686</guid>
+
+					<description><![CDATA[We all know that async / await was one of this year’s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>We all know that async / await was one of this year&rsquo;s big announcements WWDC. It completely changes the way we interact with concurrent code. Instead of using completion handlers, we can await results in a non-blocking way. More importantly, with the new Swift Concurrency features, our Swift code is much safer and consistent than ever before. For example, the Swift team built an all-new threading...</p>
+<p><a href="https://www.donnywals.com/an-introduction-to-synchronizing-access-with-swifts-actors/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>The iOS Developer&#8217;s guide to WWDC 2021</title>
+		<link>https://www.donnywals.com/the-ios-developers-guide-to-wwdc-2021/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 31 May 2021 12:53:39 +0000</pubDate>
+				<category><![CDATA[WWDC 2021]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1626</guid>
+
+					<description><![CDATA[WWDC is always an exciting time for iOS engineers. It's the one week a year where we're all newcomers to a whole range of features and APIs that Apple has just unleashed upon the world through their latest Xcode, macOS, iOS, tvOS, iPadOS, and watchOS betas. The entire iOS community [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>WWDC is always an exciting time for iOS engineers. It&#039;s the one week a year where we&#039;re all newcomers to a whole range of features and APIs that Apple has just unleashed upon the world through their latest Xcode, macOS, iOS, tvOS, iPadOS, and watchOS betas. The entire iOS community comes out of hiding and we all come together to share thoughts, experiences, opinions, and findings. For a whole week...</p>
+<p><a href="https://www.donnywals.com/the-ios-developers-guide-to-wwdc-2021/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>What&#8217;s the difference between a singleton and a shared instance in Swift?</title>
+		<link>https://www.donnywals.com/whats-the-difference-between-a-singleton-and-a-shared-instance-in-swift/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 19 Apr 2021 07:35:53 +0000</pubDate>
+				<category><![CDATA[Swift]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1604</guid>
+
+					<description><![CDATA[A common pattern on iOS, and in Swift, is to define an instance of an object that you can access from any place in your app. Common examples are URLSession.shared, FileManager.default, and UserDefaults.standard. These objects can all be considered shared instances, or globally available instances. Defining a shared instance is [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A common pattern on iOS, and in Swift, is to define an instance of an object that you can access from any place in your app. Common examples are , , and . These objects can all be considered shared instances, or globally available instances. Defining a shared instance is commonly done as follows: It&#039;s common for developers to call this a singleton, or a singleton instance. The singleton pattern is...</p>
+<p><a href="https://www.donnywals.com/whats-the-difference-between-a-singleton-and-a-shared-instance-in-swift/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Splitting a JSON object into an enum and an associated object with Codable</title>
+		<link>https://www.donnywals.com/splitting-a-json-object-into-an-enum-and-an-associated-object-with-codable/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 05 Apr 2021 18:33:21 +0000</pubDate>
+				<category><![CDATA[Codable]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1579</guid>
+
+					<description><![CDATA[Decoding data, like JSON, is often relatively straightforward. For a lot of use cases, you won't need to know or understand a lot more than what I explain in this post. However, sometimes you need to dive deeper into Codable, and you end up writing custom encoding or decoding logic [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Decoding data, like JSON, is often relatively straightforward. For a lot of use cases, you won&#039;t need to know or understand a lot more than what I explain in this post. However, sometimes you need to dive deeper into , and you end up writing custom encoding or decoding logic like I explain in this post. In more advanced scenarios, you might need to have an extremely flexible approach to decoding...</p>
+<p><a href="https://www.donnywals.com/splitting-a-json-object-into-an-enum-and-an-associated-object-with-codable/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Writing custom JSON encoding and decoding logic</title>
+		<link>https://www.donnywals.com/writing-custom-json-encoding-and-decoding-logic/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 05 Apr 2021 18:33:18 +0000</pubDate>
+				<category><![CDATA[Codable]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1573</guid>
+
+					<description><![CDATA[The default behavior for Codable is often good enough, especially when you combine this with custom CodingKeys, it's possible to encode and decode a wide variety of JSON data without any extra work. Unfortunately, there are a lot of situations where you'll need to have even more control. The reasons [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The default behavior for is often good enough, especially when you combine this with custom CodingKeys, it&#039;s possible to encode and decode a wide variety of JSON data without any extra work. Unfortunately, there are a lot of situations where you&#039;ll need to have even more control. The reasons for needing this control are varied. You might want to flatten a deeply nested JSON structure into a single...</p>
+<p><a href="https://www.donnywals.com/writing-custom-json-encoding-and-decoding-logic/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Customizing how Codable objects map to JSON data</title>
+		<link>https://www.donnywals.com/customizing-how-codable-objects-map-to-json-data/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 05 Apr 2021 18:33:13 +0000</pubDate>
+				<category><![CDATA[Codable]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1571</guid>
+
+					<description><![CDATA[In the introductory post for this series you learned the basics of decoding and encoding JSON to and from your Swift structs. In that post, you learned that your JSON object is essentially a dictionary, and that the JSON's dictionary key's are mapped to your Swift object's properties. When encoding, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the introductory post for this series you learned the basics of decoding and encoding JSON to and from your Swift structs. In that post, you learned that your JSON object is essentially a dictionary, and that the JSON&#039;s dictionary key&#039;s are mapped to your Swift object&#039;s properties. When encoding, your Swift properties are used as keys in the encoded JSON output dictionary. Unfortunately...</p>
+<p><a href="https://www.donnywals.com/customizing-how-codable-objects-map-to-json-data/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>An introduction to working with Codable in Swift</title>
+		<link>https://www.donnywals.com/an-introduction-to-working-with-codable-in-swift/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 05 Apr 2021 18:33:09 +0000</pubDate>
+				<category><![CDATA[Codable]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1569</guid>
+
+					<description><![CDATA[Virtually every modern application needs some way to retrieve, and use, data from a remote source. This data is commonly fetched by making a network request to a webserver that returns data in a JSON format. When you're working with Javascript, this JSON data can be easily decoded into a [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Virtually every modern application needs some way to retrieve, and use, data from a remote source. This data is commonly fetched by making a network request to a webserver that returns data in a JSON format. When you&#039;re working with Javascript, this JSON data can be easily decoded into a Javascript object. Javascript doesn&#039;t have strong typing, so a JSON object in Javascript is really just a...</p>
+<p><a href="https://www.donnywals.com/an-introduction-to-working-with-codable-in-swift/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Flattening a nested JSON response into a single struct with Codable</title>
+		<link>https://www.donnywals.com/flattening-a-nested-json-response-into-a-single-struct-with-codable/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Sun, 04 Apr 2021 14:43:44 +0000</pubDate>
+				<category><![CDATA[Codable]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1581</guid>
+
+					<description><![CDATA[Often, you'll want you Swift models to resemble JSON that's produced by an external source, like a server, as closely as possible. However, there are times when the JSON you receive is nested several levels deep and you might not consider this appropriate or needed for your application. Or maybe [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Often, you&#039;ll want you Swift models to resemble JSON that&#039;s produced by an external source, like a server, as closely as possible. However, there are times when the JSON you receive is nested several levels deep and you might not consider this appropriate or needed for your application. Or maybe you&#039;re only interested in a couple of fields from the JSON response and these fields are hidden several...</p>
+<p><a href="https://www.donnywals.com/flattening-a-nested-json-response-into-a-single-struct-with-codable/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Preventing unwanted fetches when using NSFetchedResultsController and fetchBatchSize</title>
+		<link>https://www.donnywals.com/preventing-unwanted-fetches-when-using-nsfetchedresultscontroller-and-fetchbatchsize/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 18 Jan 2021 08:45:28 +0000</pubDate>
+				<category><![CDATA[Core Data]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1530</guid>
+
+					<description><![CDATA[This article covers a topic that is extensively covered in my Practical Core Data book. This book is intended to help you learn Core Data from scratch using modern techniques and every chapter features sample apps in SwiftUI as well as UIKit whenever this is relevant. When you use Core [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>This article covers a topic that is extensively covered in my Practical Core Data book. This book is intended to help you learn Core Data from scratch using modern techniques and every chapter features sample apps in SwiftUI as well as UIKit whenever this is relevant. When you use Core Data in a UIKit or SwiftUI app, the easiest way to do this is through a fetched results controller. In SwiftUI...</p>
+<p><a href="https://www.donnywals.com/preventing-unwanted-fetches-when-using-nsfetchedresultscontroller-and-fetchbatchsize/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>10 things iOS developers should focus on in 2021</title>
+		<link>https://www.donnywals.com/10-things-ios-developers-should-focus-on-in-2021/</link>
+		
+		<dc:creator><![CDATA[donnywals]]></dc:creator>
+		<pubDate>Mon, 04 Jan 2021 08:00:12 +0000</pubDate>
+				<category><![CDATA[App Development]]></category>
+		<category><![CDATA[Swift]]></category>
+		<guid isPermaLink="false">https://www.donnywals.com/?p=1445</guid>
+
+					<description><![CDATA[I know. This is a clickbaity title. And yes, I know that this list is not relevant for everybody. I know that not every iOS developer has to learn everything on this list. That said, this list is a list of technologies and skills that I think are either already [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I know. This is a clickbaity title. And yes, I know that this list is not relevant for everybody. I know that not every iOS developer has to learn everything on this list. That said, this list is a list of technologies and skills that I think are either already important, or becoming increasingly important this year. It&#039;s a list of technologies and skills that I have learned, plan to learn...</p>
+<p><a href="https://www.donnywals.com/10-things-ios-developers-should-focus-on-in-2021/" rel="nofollow">Source</a></p>]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

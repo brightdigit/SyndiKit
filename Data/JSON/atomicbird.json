@@ -1,0 +1,416 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "The Atomic Birdhouse",
+  "home_page_url": "https://atomicbird.com/",
+  "description": "Recent content on The Atomic Birdhouse",
+  "items": [
+    {
+      "guid": "https://atomicbird.com/blog/core-data-backups-redux/",
+      "url": "https://atomicbird.com/blog/core-data-backups-redux/",
+      "title": "Core Data Backups, Redux",
+      "content_html": "This is the second of two posts following up on my earlier post about backing up and restoring Core Data.\nMy past post covered the difficulty of learning how to use mostly-undocumented framework methods, specifically about a Core Data method called replacePersistentStore(...). Arnaud Joubay recently messaged me to ask why I used a different approach when backing up and restoring persistent stores. Now that I&rsquo;ve had some time to look at that method and work out what I can about how to use it, let&rsquo;s see how it works in practice.",
+      "summary": "This is the second of two posts following up on my earlier post about backing up and restoring Core Data.\nMy past post covered the difficulty of learning how to use mostly-undocumented framework methods, specifically about a Core Data method called replacePersistentStore(...). Arnaud Joubay recently messaged me to ask why I used a different approach when backing up and restoring persistent stores. Now that I&rsquo;ve had some time to look at that method and work out what I can about how to use it, let&rsquo;s see how it works in practice.",
+      "date_published": "2021-03-29T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/mostly-undocumented/",
+      "url": "https://atomicbird.com/blog/mostly-undocumented/",
+      "title": "Mostly Undocumented",
+      "content_html": "Last year I wrote about backing up and restoring Core Data. Recently Arnaud Joubay messaged me to ask about it. I used a method called migratePersistentStore(...) to duplicate a persistent store. Arnaud asked why I had not used a similar method called replacePersistentStore(...) instead. He also sent me a link to a post on Apple&rsquo;s dev forum site, attributed to an anonymous framework engineer, which had this to say on the topic:",
+      "summary": "Last year I wrote about backing up and restoring Core Data. Recently Arnaud Joubay messaged me to ask about it. I used a method called migratePersistentStore(...) to duplicate a persistent store. Arnaud asked why I had not used a similar method called replacePersistentStore(...) instead. He also sent me a link to a post on Apple&rsquo;s dev forum site, attributed to an anonymous framework engineer, which had this to say on the topic:",
+      "date_published": "2021-03-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/core-data-back-up-store/",
+      "url": "https://atomicbird.com/blog/core-data-back-up-store/",
+      "title": "Backing up Core Data Stores",
+      "content_html": "Today we&rsquo;re going to travel back in time a little with Core Data. Or at least find out how your app can do so. What if you want to make a backup copy of your app&rsquo;s data? What if you want to restore from that backup later on? This won&rsquo;t be mainly about data safety, because your app&rsquo;s data will be getting backed up to the user&rsquo;s iCloud account and, maybe, their Mac.",
+      "summary": "Today we&rsquo;re going to travel back in time a little with Core Data. Or at least find out how your app can do so. What if you want to make a backup copy of your app&rsquo;s data? What if you want to restore from that backup later on? This won&rsquo;t be mainly about data safety, because your app&rsquo;s data will be getting backed up to the user&rsquo;s iCloud account and, maybe, their Mac.",
+      "date_published": "2020-05-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/pdfkit-thumbnails/",
+      "url": "https://atomicbird.com/blog/pdfkit-thumbnails/",
+      "title": "Adding thumbnails with PDFKit",
+      "content_html": "Today I&rsquo;m continuing with some ideas from my recent post about using PDFKit. In that post I was using a custom PDF view for an app that would work something like a basic slide presentation app.\nPart of that was adding a thumbnail view with PDFThumbnailView, which ended up looking like this.\nPDFThumbnailView works with a PDFView and generates thumbnails for pages in the current document. You can tell it how big the thumbnails should be and whether to arrange the thumbnails horiontally or vertically, but that&rsquo;s about it as far as layout goes.",
+      "summary": "Today I&rsquo;m continuing with some ideas from my recent post about using PDFKit. In that post I was using a custom PDF view for an app that would work something like a basic slide presentation app.\nPart of that was adding a thumbnail view with PDFThumbnailView, which ended up looking like this.\nPDFThumbnailView works with a PDFView and generates thumbnails for pages in the current document. You can tell it how big the thumbnails should be and whether to arrange the thumbnails horiontally or vertically, but that&rsquo;s about it as far as layout goes.",
+      "date_published": "2020-04-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/json-vs-plists-2020/",
+      "url": "https://atomicbird.com/blog/json-vs-plists-2020/",
+      "title": "JSON vs Property Lists, Revisited",
+      "content_html": "In a previous post I wrote about How JSON compares to Apple property lists and the obstacles to converting data between them. That was a while ago but the post is still accurate, as far as it goes. But Swift changes the situation in some ways, so an update is in order.\nRecap: JSON vs. Property Lists The previous post was motivated by the problems some people encountered trying to download JSON from a server and then save it as a property list.",
+      "summary": "In a previous post I wrote about How JSON compares to Apple property lists and the obstacles to converting data between them. That was a while ago but the post is still accurate, as far as it goes. But Swift changes the situation in some ways, so an update is in order.\nRecap: JSON vs. Property Lists The previous post was motivated by the problems some people encountered trying to download JSON from a server and then save it as a property list.",
+      "date_published": "2020-03-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/pdfkit-basics/",
+      "url": "https://atomicbird.com/blog/pdfkit-basics/",
+      "title": "Getting started with PDFKit",
+      "content_html": "In my post about my custom presentation slide app I mentioned that because of time constraints, I decided against doing my own slide layout. Instead I&rsquo;d do that in DeckSet, export my slides to PDF, and show the PDFs in my app.\nSo, how do you do that then?\nGetting a PDF on the screen The basics of PDFKit are actually pretty basic. If you have a PDF, you create a PDFDocument to hold it and a PDFView to display it.",
+      "summary": "In my post about my custom presentation slide app I mentioned that because of time constraints, I decided against doing my own slide layout. Instead I&rsquo;d do that in DeckSet, export my slides to PDF, and show the PDFs in my app.\nSo, how do you do that then?\nGetting a PDF on the screen The basics of PDFKit are actually pretty basic. If you have a PDF, you create a PDFDocument to hold it and a PDFView to display it.",
+      "date_published": "2020-02-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/interactive-presentation-slides-at-360idev/",
+      "url": "https://atomicbird.com/blog/interactive-presentation-slides-at-360idev/",
+      "title": "Interactive Presentation Slides at 360iDev",
+      "content_html": "This is a story of how a trip to a karaoke bar led to me writing my own app to display presentation slides. Of how a user interface that allows live smartass comments led to me being completely nerd sniped until I was able to do something I&rsquo;ve never seen in a conference session&ndash; however silly the result was.\nIn the end audience members could send Emoji and other images directly to the slides during the session, which ended up looking like this.",
+      "summary": "This is a story of how a trip to a karaoke bar led to me writing my own app to display presentation slides. Of how a user interface that allows live smartass comments led to me being completely nerd sniped until I was able to do something I&rsquo;ve never seen in a conference session&ndash; however silly the result was.\nIn the end audience members could send Emoji and other images directly to the slides during the session, which ended up looking like this.",
+      "date_published": "2020-01-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/emoji-logging/",
+      "url": "https://atomicbird.com/blog/emoji-logging/",
+      "title": "Better logging with Emoji",
+      "content_html": "Apple&rsquo;s developer tools provide a rich variety of debugging aids. Sometimes though, it&rsquo;s useful to do things the old fashioned way. With debugging, this often means just printing out data while your code runs, and then looking through the results to see what&rsquo;s going on.\nSome scenarios where printing debug data helps include:\n When you need to check on something that happens a lot. When the mental context switching between using your app and using the debugger gets to be too much.",
+      "summary": "Apple&rsquo;s developer tools provide a rich variety of debugging aids. Sometimes though, it&rsquo;s useful to do things the old fashioned way. With debugging, this often means just printing out data while your code runs, and then looking through the results to see what&rsquo;s going on.\nSome scenarios where printing debug data helps include:\n When you need to check on something that happens a lot. When the mental context switching between using your app and using the debugger gets to be too much.",
+      "date_published": "2020-01-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/return-to-independence/",
+      "url": "https://atomicbird.com/blog/return-to-independence/",
+      "title": "Return to Independence",
+      "content_html": "Aaaaand, I&rsquo;m back. It&rsquo;s been a long time since I posted anything here.\nMainly this was because I worked full time for a while. I found it hard to work all day on someone else&rsquo;s project, then come home and do even more blog-worthy code-related stuff. At the end of the work day I was done with code. So, this blog faded away. Back before that, in my glorious years of independence, I could find time to explore whatever technical areas caught my eye.",
+      "summary": "Aaaaand, I&rsquo;m back. It&rsquo;s been a long time since I posted anything here.\nMainly this was because I worked full time for a while. I found it hard to work all day on someone else&rsquo;s project, then come home and do even more blog-worthy code-related stuff. At the end of the work day I was done with code. So, this blog faded away. Back before that, in my glorious years of independence, I could find time to explore whatever technical areas caught my eye.",
+      "date_published": "2020-01-14T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/bombbomb-gazette/",
+      "url": "https://atomicbird.com/blog/bombbomb-gazette/",
+      "title": "BombBomb in the Gazette",
+      "content_html": "The Colorado Springs Gazette just did a nice feature article about BombBomb, the place where I write apps these days. The best part (for me) is that the lead photo shows Conor McCluskey (our CEO) showing off an iMessage extension I wrote for the company&rsquo;s app.",
+      "summary": "The Colorado Springs Gazette just did a nice feature article about BombBomb, the place where I write apps these days. The best part (for me) is that the lead photo shows Conor McCluskey (our CEO) showing off an iMessage extension I wrote for the company&rsquo;s app.",
+      "date_published": "2017-11-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/data-detection-in-swift/",
+      "url": "https://atomicbird.com/blog/data-detection-in-swift/",
+      "title": "Data Detection in Swift",
+      "content_html": "I have a love/hate relationship with regular expressions. I love them because they’re great for examining text to find useful information and, often, to change the text in some way. I hate them because once you get beyond basic matching, they descend into bizarre write-only code that gives me flashbacks to my days writing Perl. In extreme cases they may well endanger the universe. And so we come to one of my recent coding issues: How can I find out if a string contains a valid email address?",
+      "summary": "I have a love/hate relationship with regular expressions. I love them because they’re great for examining text to find useful information and, often, to change the text in some way. I hate them because once you get beyond basic matching, they descend into bizarre write-only code that gives me flashbacks to my days writing Perl. In extreme cases they may well endanger the universe. And so we come to one of my recent coding issues: How can I find out if a string contains a valid email address?",
+      "date_published": "2017-10-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/migrating-from-dropbox/",
+      "url": "https://atomicbird.com/blog/migrating-from-dropbox/",
+      "title": "Migrating from Dropbox",
+      "content_html": "Over the past year or so I&rsquo;ve been trying out Resilio Sync (formerly BitTorrent Sync) as a possible alternative to Dropbox. It&rsquo;s gradually improved to where I think I can rely on it. With my Dropbox subscription up for renewal in a couple of weeks, now&rsquo;s the time. In this post I&rsquo;ll describe how to set up Resilio to get a Dropbox-like experience.\nWhat I want from file syncing I&rsquo;ve used Dropbox for several years now.",
+      "summary": "Over the past year or so I&rsquo;ve been trying out Resilio Sync (formerly BitTorrent Sync) as a possible alternative to Dropbox. It&rsquo;s gradually improved to where I think I can rely on it. With my Dropbox subscription up for renewal in a couple of weeks, now&rsquo;s the time. In this post I&rsquo;ll describe how to set up Resilio to get a Dropbox-like experience.\nWhat I want from file syncing I&rsquo;ve used Dropbox for several years now.",
+      "date_published": "2016-11-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/date-math-is-hard-lets-do-it-tomorrow/",
+      "url": "https://atomicbird.com/blog/date-math-is-hard-lets-do-it-tomorrow/",
+      "title": "Date Math is Hard, Let's Do it Tomorrow",
+      "content_html": "This post is based on a lightning talk I gave at CocoaConf San Jose a couple of days ago.\nIt&rsquo;s that time of year&ndash; the time when summer time, or &ldquo;Daylight Saving Time&rdquo; as we for some reason call it in the USA&ndash; is ending. That time when a developer&rsquo;s thoughts turn to date math and what a pain in the ass it can be.\nWhy is this so hard to get right?",
+      "summary": "This post is based on a lightning talk I gave at CocoaConf San Jose a couple of days ago.\nIt&rsquo;s that time of year&ndash; the time when summer time, or &ldquo;Daylight Saving Time&rdquo; as we for some reason call it in the USA&ndash; is ending. That time when a developer&rsquo;s thoughts turn to date math and what a pain in the ass it can be.\nWhy is this so hard to get right?",
+      "date_published": "2016-11-06T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/my-other-blog/",
+      "url": "https://atomicbird.com/blog/my-other-blog/",
+      "title": "My other blog",
+      "content_html": "I try to keep this blog on topic, sticking to technical posts of interest to iOS and macOS developers. So when I wanted to write about something else I set up a different blog unrelated to my business.\nAs some of you are aware, when I&rsquo;m not working on apps I&rsquo;m also a radio DJ, at KRCC in Colorado Springs, CO. If you aren&rsquo;t, you might still have noticed how I used to win prizes at &ldquo;Stump the Experts&rdquo; at Apple WWDC by identifying song.",
+      "summary": "I try to keep this blog on topic, sticking to technical posts of interest to iOS and macOS developers. So when I wanted to write about something else I set up a different blog unrelated to my business.\nAs some of you are aware, when I&rsquo;m not working on apps I&rsquo;m also a radio DJ, at KRCC in Colorado Springs, CO. If you aren&rsquo;t, you might still have noticed how I used to win prizes at &ldquo;Stump the Experts&rdquo; at Apple WWDC by identifying song.",
+      "date_published": "2016-09-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/stump-360-iii/",
+      "url": "https://atomicbird.com/blog/stump-360-iii/",
+      "title": "Stump 360 III: The Search for Stump",
+      "content_html": "Later this month I&rsquo;m hosting Stump 360 III: The Search for Stump, the third annual Stump 360. It&rsquo;s part of 360iDev in Denver. It&rsquo;s on August 23, 4:45pm - 6:00pm.\nIn case you&rsquo;re not familiar with Stump 360, here&rsquo;s some possibly interesting information.\nStump is sort of approximately a game with two teams, the audience and the panel. It&rsquo;s a quiz/trivia style event where each team poses questions to the other in the hope of stumping them.",
+      "summary": "Later this month I&rsquo;m hosting Stump 360 III: The Search for Stump, the third annual Stump 360. It&rsquo;s part of 360iDev in Denver. It&rsquo;s on August 23, 4:45pm - 6:00pm.\nIn case you&rsquo;re not familiar with Stump 360, here&rsquo;s some possibly interesting information.\nStump is sort of approximately a game with two teams, the audience and the panel. It&rsquo;s a quiz/trivia style event where each team poses questions to the other in the hope of stumping them.",
+      "date_published": "2016-08-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/stump-360-questions-2015/",
+      "url": "https://atomicbird.com/blog/stump-360-questions-2015/",
+      "title": "Stump 360 Questions, 2015",
+      "content_html": "Here&rsquo;s the list of questions asked at Stump 360 in 2015. If you&rsquo;re not familiar with Stump 360, see my other post that describes it more fully\nIn general, Stump 360 questions can cover\n Anything iOS or Apple related Especially anything covered in a 360iDev talk.  Keep in mind the audience is allowed to use Google, etc, so questions shouldn&rsquo;t be too easy.\nThese are the questions asked of the audience at Stump 360 in 2015.",
+      "summary": "Here&rsquo;s the list of questions asked at Stump 360 in 2015. If you&rsquo;re not familiar with Stump 360, see my other post that describes it more fully\nIn general, Stump 360 questions can cover\n Anything iOS or Apple related Especially anything covered in a 360iDev talk.  Keep in mind the audience is allowed to use Google, etc, so questions shouldn&rsquo;t be too easy.\nThese are the questions asked of the audience at Stump 360 in 2015.",
+      "date_published": "2016-08-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/uistackview-table-cells/",
+      "url": "https://atomicbird.com/blog/uistackview-table-cells/",
+      "title": "Using Stack Views in Table Cells",
+      "content_html": "One of the cool things UIStackView can do for you is make it easy to dynamically update your app&rsquo;s user interface while it&rsquo;s running, with smooth animations and not a lot of code. My recent talk at iOSDevCamp DC covered some techniques. Natasha the Robot wrote a couple of great posts based on my talk, and today I&rsquo;m going to talk about another unexpected (to me?) use of stack views.",
+      "summary": "One of the cool things UIStackView can do for you is make it easy to dynamically update your app&rsquo;s user interface while it&rsquo;s running, with smooth animations and not a lot of code. My recent talk at iOSDevCamp DC covered some techniques. Natasha the Robot wrote a couple of great posts based on my talk, and today I&rsquo;m going to talk about another unexpected (to me?) use of stack views.",
+      "date_published": "2016-08-04T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/uistackview-flexible-design/",
+      "url": "https://atomicbird.com/blog/uistackview-flexible-design/",
+      "title": "Flexible UI Design with UIStackView",
+      "content_html": "As I mentioned in my last post, last week I did a talk at iOSDevCamp DC where I talked about UIStackView, a relatively new UIKit class that&rsquo;s my new favorite thing in iOS development. I&rsquo;m going to cover some of the more useful things UIStackView can do in posts here, which will fall more or less into two categories:\n Simplified and flexible UI design, making common UI patterns easier to implement and modify.",
+      "summary": "As I mentioned in my last post, last week I did a talk at iOSDevCamp DC where I talked about UIStackView, a relatively new UIKit class that&rsquo;s my new favorite thing in iOS development. I&rsquo;m going to cover some of the more useful things UIStackView can do in posts here, which will fall more or less into two categories:\n Simplified and flexible UI design, making common UI patterns easier to implement and modify.",
+      "date_published": "2016-07-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/iosdevcampdc/",
+      "url": "https://atomicbird.com/blog/iosdevcampdc/",
+      "title": "UIStackView talk at iOSDevCamp DC",
+      "content_html": "Last week I did a talk at iOSDevCamp DC, an annual event hosted by Luis de la Rosa. I talked about UIStackView, under the admittedly grandiose title of &ldquo;Mastering UIStackView&rdquo;. I&rsquo;ve used stack views for a number of things recently, as I&rsquo;ve come to realize they&rsquo;re a lot more useful than a lot of introductory material might suggest.\nI&rsquo;ll be writing about some of this in the very near future, but in the meantime the excellent Natasha the Robot has already done two blog posts based on stuff that I covered:",
+      "summary": "Last week I did a talk at iOSDevCamp DC, an annual event hosted by Luis de la Rosa. I talked about UIStackView, under the admittedly grandiose title of &ldquo;Mastering UIStackView&rdquo;. I&rsquo;ve used stack views for a number of things recently, as I&rsquo;ve come to realize they&rsquo;re a lot more useful than a lot of introductory material might suggest.\nI&rsquo;ll be writing about some of this in the very near future, but in the meantime the excellent Natasha the Robot has already done two blog posts based on stuff that I covered:",
+      "date_published": "2016-07-26T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/handling-dates/",
+      "url": "https://atomicbird.com/blog/handling-dates/",
+      "title": "Dates and Data Models",
+      "content_html": "Just use NSDate, right? The obvious choice for handling dates in iOS and OS X apps is NSDate. It&rsquo;s obvious, right? It&rsquo;s got &ldquo;date&rdquo; right in its name, doesn&rsquo;t it?\nAnd that&rsquo;s the thing about NSDate. It&rsquo;s mis-named. It almost says so right in the docs:\n NSDate objects encapsulate a single point in time, independent of any particular calendrical system or time zone.\n A single point in time? I don&rsquo;t know about you but I think of &ldquo;date&rdquo; as meaning more like",
+      "summary": "Just use NSDate, right? The obvious choice for handling dates in iOS and OS X apps is NSDate. It&rsquo;s obvious, right? It&rsquo;s got &ldquo;date&rdquo; right in its name, doesn&rsquo;t it?\nAnd that&rsquo;s the thing about NSDate. It&rsquo;s mis-named. It almost says so right in the docs:\n NSDate objects encapsulate a single point in time, independent of any particular calendrical system or time zone.\n A single point in time? I don&rsquo;t know about you but I think of &ldquo;date&rdquo; as meaning more like",
+      "date_published": "2016-02-25T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/file-coordination-fix/",
+      "url": "https://atomicbird.com/blog/file-coordination-fix/",
+      "title": "File Coordination Fixed!",
+      "content_html": "I wrote a post a few months ago about sharing data between iOS apps and app extensions in which I recommended using NSFileCoordinator and NSFilePresenter. But I had to update the post to remove that portion when some helpful people pointed me to Apple Tech Note 2408, which read in part:\n When you create a shared container for use by an app extension and its containing app in iOS 8, you are obliged to write to that container in a coordinated manner to avoid data corruption.",
+      "summary": "I wrote a post a few months ago about sharing data between iOS apps and app extensions in which I recommended using NSFileCoordinator and NSFilePresenter. But I had to update the post to remove that portion when some helpful people pointed me to Apple Tech Note 2408, which read in part:\n When you create a shared container for use by an app extension and its containing app in iOS 8, you are obliged to write to that container in a coordinated manner to avoid data corruption.",
+      "date_published": "2015-05-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/swift-generators-sequences/",
+      "url": "https://atomicbird.com/blog/swift-generators-sequences/",
+      "title": "Swift Generators and Sequences",
+      "content_html": "A large part of the Swift Standard Library is concerned with Generators, Sequences and Collections and functions that operate on them, so it’s pretty important to have a good understanding of them.\n I was going to write a blog post about how to create and use Swift generators and sequences. But while I was trying to understand them myself, I found this post over at iOSDeveloperZone.\nGo read that, and pretend that I wrote something as helpful.",
+      "summary": "A large part of the Swift Standard Library is concerned with Generators, Sequences and Collections and functions that operate on them, so it’s pretty important to have a good understanding of them.\n I was going to write a blog post about how to create and use Swift generators and sequences. But while I was trying to understand them myself, I found this post over at iOSDeveloperZone.\nGo read that, and pretend that I wrote something as helpful.",
+      "date_published": "2015-03-23T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/swift-core-data/",
+      "url": "https://atomicbird.com/blog/swift-core-data/",
+      "title": "Using Core Data with Swift",
+      "content_html": "Over the past month or so I&rsquo;ve been diving into Swift, after many years of working with Objective-C on Macs and iOS. It&rsquo;s been a change but, gradually, I&rsquo;m learning the Swift way of doing things. On the way I&rsquo;ve run into a few bumps in the road when dealing with Core Data, and I thought would be useful to share how I got past them.\nXcode Generated Subclasses Considered Harmful This is the main impetus for this post.",
+      "summary": "Over the past month or so I&rsquo;ve been diving into Swift, after many years of working with Objective-C on Macs and iOS. It&rsquo;s been a change but, gradually, I&rsquo;m learning the Swift way of doing things. On the way I&rsquo;ve run into a few bumps in the road when dealing with Core Data, and I thought would be useful to share how I got past them.\nXcode Generated Subclasses Considered Harmful This is the main impetus for this post.",
+      "date_published": "2015-03-16T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/sharing-with-app-extensions/",
+      "url": "https://atomicbird.com/blog/sharing-with-app-extensions/",
+      "title": "Sharing data between iOS apps and app extensions",
+      "content_html": "Since iOS app extensions run as part of a host application rather than as part of their containing app (i.e. your app&rsquo;s extensions run in somebody else&rsquo;s app), data sharing isn&rsquo;t automatic. Finding standard locations like the documents directory doesn&rsquo;t work for shared data. In this post I&rsquo;ll go through the details of how to make it all work.\nAlong the way I&rsquo;ll get into how to set up real-time messaging between apps and their extensions.",
+      "summary": "Since iOS app extensions run as part of a host application rather than as part of their containing app (i.e. your app&rsquo;s extensions run in somebody else&rsquo;s app), data sharing isn&rsquo;t automatic. Finding standard locations like the documents directory doesn&rsquo;t work for shared data. In this post I&rsquo;ll go through the details of how to make it all work.\nAlong the way I&rsquo;ll get into how to set up real-time messaging between apps and their extensions.",
+      "date_published": "2014-11-20T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/ios-extension-demo/",
+      "url": "https://atomicbird.com/blog/ios-extension-demo/",
+      "title": "iOS 8 App Extension Demo",
+      "content_html": "iOSDevCamp Colorado was a couple of weeks ago and I did a presentation/demo on iOS app extensions. I wanted to focus on how to actually do things, so mostly I worked in Xcode rather than present from slides. But rather than paste code in as I went or (gasp!) try to do it live, I worked from a git repository I had built while developing the demo app. Every time I made a significant change, I&rsquo;d commit it.",
+      "summary": "iOSDevCamp Colorado was a couple of weeks ago and I did a presentation/demo on iOS app extensions. I wanted to focus on how to actually do things, so mostly I worked in Xcode rather than present from slides. But rather than paste code in as I went or (gasp!) try to do it live, I worked from a git repository I had built while developing the demo app. Every time I made a significant change, I&rsquo;d commit it.",
+      "date_published": "2014-11-19T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/ios-app-extension-tips/",
+      "url": "https://atomicbird.com/blog/ios-app-extension-tips/",
+      "title": "iOS 8 App Extension Development Tips",
+      "content_html": "Recently I&rsquo;ve been working on some iOS 8 app extensions, and I&rsquo;ve run into a few non-obvious details that might come in handy for anyone else in the same situation. Some of the following relates to bugs still in the system, and so will probably only be relevant for a limited time.\nDebugging: General The intended approach is simple: when you tell Xcode to run the extension, Xcode will ask you what host app you want to use.",
+      "summary": "Recently I&rsquo;ve been working on some iOS 8 app extensions, and I&rsquo;ve run into a few non-obvious details that might come in handy for anyone else in the same situation. Some of the following relates to bugs still in the system, and so will probably only be relevant for a limited time.\nDebugging: General The intended approach is simple: when you tell Xcode to run the extension, Xcode will ask you what host app you want to use.",
+      "date_published": "2014-10-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/cloudkit-moves-like-azure/",
+      "url": "https://atomicbird.com/blog/cloudkit-moves-like-azure/",
+      "title": "CloudKit: Moves like Azure",
+      "content_html": "After my past travails using iCloud with Core Data, I was both interested and concerned when Apple announced CloudKit at WWDC 2014. In this post I&rsquo;m going to go over what Apple has planned for CloudKit from the perspective of someone wanting to sync app data via some cloud-based means. &ldquo;Planned&rdquo; is a key word here, because it&rsquo;s still to early to say how things work in practice.\nCloudKit vs. iCloud Core Data CloudKit makes a refreshing change from iCloud Core Data in that there&rsquo;s a lot less magic going on in the framework.",
+      "summary": "After my past travails using iCloud with Core Data, I was both interested and concerned when Apple announced CloudKit at WWDC 2014. In this post I&rsquo;m going to go over what Apple has planned for CloudKit from the perspective of someone wanting to sync app data via some cloud-based means. &ldquo;Planned&rdquo; is a key word here, because it&rsquo;s still to early to say how things work in practice.\nCloudKit vs. iCloud Core Data CloudKit makes a refreshing change from iCloud Core Data in that there&rsquo;s a lot less magic going on in the framework.",
+      "date_published": "2014-06-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/objc-autorelease-tee/",
+      "url": "https://atomicbird.com/blog/objc-autorelease-tee/",
+      "title": "[objC autorelease]; t-shirts",
+      "content_html": "At WWDC 2014 Apple introduced Swift, a new programming language for iOS and OS X developers. Objective-C has had a long and distinguished run with Apple, but times change and we move on. In recognition of this, and in reference to the [objC retain]; shirts of days gone by, I set up a Teespring campaign to say goodbye&ndash; gradually&ndash; to Objective-C.\n\nWhy not [objC release];? Swift is the clear way forward, but Objective-C won&rsquo;t be disappearing right away.",
+      "summary": "At WWDC 2014 Apple introduced Swift, a new programming language for iOS and OS X developers. Objective-C has had a long and distinguished run with Apple, but times change and we move on. In recognition of this, and in reference to the [objC retain]; shirts of days gone by, I set up a Teespring campaign to say goodbye&ndash; gradually&ndash; to Objective-C.\n\nWhy not [objC release];? Swift is the clear way forward, but Objective-C won&rsquo;t be disappearing right away.",
+      "date_published": "2014-06-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/passbook-card-details/",
+      "url": "https://atomicbird.com/blog/passbook-card-details/",
+      "title": "Making your own Passbook Business Card",
+      "content_html": "My Passbook and iBeacon enabled business card was something of a hit at WWDC last week. Some people wanted more detail on how it worked or how to create their own version. This post describes the process, from the perspective of a software developer. If you&rsquo;re not a developer, there are numerous web sites that will help compose Passbook passes, but I can&rsquo;t personally vouch for any.\nThe very basics: A Passbook pass is defined by a JSON file.",
+      "summary": "My Passbook and iBeacon enabled business card was something of a hit at WWDC last week. Some people wanted more detail on how it worked or how to create their own version. This post describes the process, from the perspective of a software developer. If you&rsquo;re not a developer, there are numerous web sites that will help compose Passbook passes, but I can&rsquo;t personally vouch for any.\nThe very basics: A Passbook pass is defined by a JSON file.",
+      "date_published": "2014-06-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/passbook-ibeacon-business-card/",
+      "url": "https://atomicbird.com/blog/passbook-ibeacon-business-card/",
+      "title": "Passbook and iBeacon for a 21st Century Business Card",
+      "content_html": "I&rsquo;ll be in San Francisco during WWDC next week (though without a ticket). This is the only time of year I ever think about business cards, and this year I decided that paper business cards suck and it was time to do something cooler.\nInstead I&rsquo;ll have an electronic card distributed via Passbook. Electronic cards are hardly a new idea but (on iOS) they usually depend on both people already having the business card app.",
+      "summary": "I&rsquo;ll be in San Francisco during WWDC next week (though without a ticket). This is the only time of year I ever think about business cards, and this year I decided that paper business cards suck and it was time to do something cooler.\nInstead I&rsquo;ll have an electronic card distributed via Passbook. Electronic cards are hardly a new idea but (on iOS) they usually depend on both people already having the business card app.",
+      "date_published": "2014-05-30T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/storm-icloud/",
+      "url": "https://atomicbird.com/blog/storm-icloud/",
+      "title": "Storm (i)Cloud",
+      "content_html": "Last year I did a series of posts here where I ran through problems I had encountered with Core Data&rsquo;s iCloud integration, with various solutions and workarounds I had been able to devise. Then iOS 7 and Mac OS X 10.9 came out with numerous visible (and internal) updates and people started asking me, so, is it any better now? Can we use it?\nSince then, the answer has been: I have no frickin' idea.",
+      "summary": "Last year I did a series of posts here where I ran through problems I had encountered with Core Data&rsquo;s iCloud integration, with various solutions and workarounds I had been able to devise. Then iOS 7 and Mac OS X 10.9 came out with numerous visible (and internal) updates and people started asking me, so, is it any better now? Can we use it?\nSince then, the answer has been: I have no frickin' idea.",
+      "date_published": "2014-04-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/probably-approximately-correct-location/",
+      "url": "https://atomicbird.com/blog/probably-approximately-correct-location/",
+      "title": "Probably Approximately Correct Location for iOS",
+      "content_html": "If you&rsquo;re writing an iOS app and you need to know the user&rsquo;s current location, the answer is straightforward: use Core Location. That fires up device GPS (when available). Apple&rsquo;s A-GPS combines this with things like local Wifi networks and IP addresses to work out the device&rsquo;s location. All of this, of course, assuming that the user allows your app to know their location.\nThat&rsquo;s great if you actually need nearly-exact location information.",
+      "summary": "If you&rsquo;re writing an iOS app and you need to know the user&rsquo;s current location, the answer is straightforward: use Core Location. That fires up device GPS (when available). Apple&rsquo;s A-GPS combines this with things like local Wifi networks and IP addresses to work out the device&rsquo;s location. All of this, of course, assuming that the user allows your app to know their location.\nThat&rsquo;s great if you actually need nearly-exact location information.",
+      "date_published": "2013-10-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/mark-dalrymple-objc-runtime/",
+      "url": "https://atomicbird.com/blog/mark-dalrymple-objc-runtime/",
+      "title": "Mark Dalrymple on the Objective-C Run Time",
+      "content_html": "Over at the Big Nerd Ranch blog, my friend Mark Dalrymple continues his &ldquo;Inside the Bracket&rdquo; series with an article on practical uses of Objective-C&rsquo;s run time introspection.\n Last time you saw the parts of the Objective-C runtime API that let you query a bunch of the metadata the compiler keeps around once it’s done building your project. Like most discussions of API, it was pretty abstract. “Look at all the pretty tools!",
+      "summary": "Over at the Big Nerd Ranch blog, my friend Mark Dalrymple continues his &ldquo;Inside the Bracket&rdquo; series with an article on practical uses of Objective-C&rsquo;s run time introspection.\n Last time you saw the parts of the Objective-C runtime API that let you query a bunch of the metadata the compiler keeps around once it’s done building your project. Like most discussions of API, it was pretty abstract. “Look at all the pretty tools!",
+      "date_published": "2013-07-18T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/dropbox-datastore/",
+      "url": "https://atomicbird.com/blog/dropbox-datastore/",
+      "title": "Dropbox Datastore, the iCloud Killer? (updated)",
+      "content_html": "This week was DBX, Dropbox&rsquo;s first ever developer conference. The big news as far as I&rsquo;m concerned is their new Datastore API. In a break from their file-oriented past, Dropbox now has an API for syncing structured data between devices. I&rsquo;ve long been a happy Dropbox user and I&rsquo;ve lately been a frustrated iCloud developer. So the question is, should I care? Should you?\nSome of the hype has suggested that the new API is an &ldquo;iCloud killer&rdquo;.",
+      "summary": "This week was DBX, Dropbox&rsquo;s first ever developer conference. The big news as far as I&rsquo;m concerned is their new Datastore API. In a break from their file-oriented past, Dropbox now has an API for syncing structured data between devices. I&rsquo;ve long been a happy Dropbox user and I&rsquo;ve lately been a frustrated iCloud developer. So the question is, should I care? Should you?\nSome of the hype has suggested that the new API is an &ldquo;iCloud killer&rdquo;.",
+      "date_published": "2013-07-10T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/learning-ipad-programming-2/",
+      "url": "https://atomicbird.com/blog/learning-ipad-programming-2/",
+      "title": "Learning iPad Programming, 2nd Edition",
+      "content_html": "Learning iPad Programming, 2nd edition, by the excellent Kirby Turner and myself, is finally available. This project has been in the works for a while and now it&rsquo;s finally actually shipping and in print and stuff instead of just being preorderable. If you order now you can probably have your copy before I get mine. (It&rsquo;s also available in electronic formats for Kindle and iBooks and as a PDF).",
+      "summary": "Learning iPad Programming, 2nd edition, by the excellent Kirby Turner and myself, is finally available. This project has been in the works for a while and now it&rsquo;s finally actually shipping and in print and stuff instead of just being preorderable. If you order now you can probably have your copy before I get mine. (It&rsquo;s also available in electronic formats for Kindle and iBooks and as a PDF).",
+      "date_published": "2013-05-21T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/icloud-as-she-is-spoke-spring-2013/",
+      "url": "https://atomicbird.com/blog/icloud-as-she-is-spoke-spring-2013/",
+      "title": "iCloud as She is Spoke, Spring 2013",
+      "content_html": "In this latest installment of my iCloud series I&rsquo;ll be taking a look at real world iCloud. Not in the sense of how you should write code to make effective use of iCloud, but in the sense of finding out how people are actually using it in real shipping apps. This was one of my primary purposes in writing momdec, my Core Data model decompiler, and I&rsquo;ll use it here to see what turns up.",
+      "summary": "In this latest installment of my iCloud series I&rsquo;ll be taking a look at real world iCloud. Not in the sense of how you should write code to make effective use of iCloud, but in the sense of finding out how people are actually using it in real shipping apps. This was one of my primary purposes in writing momdec, my Core Data model decompiler, and I&rsquo;ll use it here to see what turns up.",
+      "date_published": "2013-05-14T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/icloud-complications-part-3/",
+      "url": "https://atomicbird.com/blog/icloud-complications-part-3/",
+      "title": "iCloud Complications, Part 3: I'm Waiting...",
+      "content_html": "In today&rsquo;s installment of my continuing series on using iCloud with Core Data I&rsquo;m going to discuss how factors beyond your control may render iCloud unusable, even if everything is working normally. Even if everything is working correctly, the current API can still require complex workarounds to get decent app performance. Through this, keep in mind that as with my previous post, I&rsquo;m sticking to how the API is designed to work in the absence of bugs in the implementation.",
+      "summary": "In today&rsquo;s installment of my continuing series on using iCloud with Core Data I&rsquo;m going to discuss how factors beyond your control may render iCloud unusable, even if everything is working normally. Even if everything is working correctly, the current API can still require complex workarounds to get decent app performance. Through this, keep in mind that as with my previous post, I&rsquo;m sticking to how the API is designed to work in the absence of bugs in the implementation.",
+      "date_published": "2013-05-07T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/introducing-momcom/",
+      "url": "https://atomicbird.com/blog/introducing-momcom/",
+      "title": "Introducing momcom",
+      "content_html": "From the README on github:\n momcom is a command-line tool for Mac OS X that takes an uncompiled Core Data model created with Xcode and compiles it to produce a compiled .mom or .momd suitable for use at run time.\n  Please note that momcom is experimental. Although it is intended to be at least as as functional as compiling a data model using Xcode&rsquo;s built-in model compiler, it is not mature enough to recommend as a replacement.",
+      "summary": "From the README on github:\n momcom is a command-line tool for Mac OS X that takes an uncompiled Core Data model created with Xcode and compiles it to produce a compiled .mom or .momd suitable for use at run time.\n  Please note that momcom is experimental. Although it is intended to be at least as as functional as compiling a data model using Xcode&rsquo;s built-in model compiler, it is not mature enough to recommend as a replacement.",
+      "date_published": "2013-05-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/introducing-momdec/",
+      "url": "https://atomicbird.com/blog/introducing-momdec/",
+      "title": "Introducing momdec",
+      "content_html": "From the README on github:\n momdec is a command-line tool for Mac OS X that takes a compiled Core Data model and decompiles it to produce an equivalent xcdatamodel or xcdatamodeld suitable for use in Xcode. The resulting model file can also be used with mogenerator to produce source code files for Core Data entities which have custom subclasses.\n My latest open source project. A compiled managed object model contains enough information to reconstruct an equivalent editable model file.",
+      "summary": "From the README on github:\n momdec is a command-line tool for Mac OS X that takes a compiled Core Data model and decompiles it to produce an equivalent xcdatamodel or xcdatamodeld suitable for use in Xcode. The resulting model file can also be used with mogenerator to produce source code files for Core Data entities which have custom subclasses.\n My latest open source project. A compiled managed object model contains enough information to reconstruct an equivalent editable model file.",
+      "date_published": "2013-04-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/icloud-complications-part-2/",
+      "url": "https://atomicbird.com/blog/icloud-complications-part-2/",
+      "title": "iCloud Complications, Part 2: De-duplication",
+      "content_html": "Today I&rsquo;m continuing my series of iCloud/Core Data-related posts with a discussion of duplicate data, how and why it occurs, and what you can do about it in your apps. As with my (link:/icloud-complications text:previous post) in this series, today I&rsquo;m sticking to how things are supposed to work and sometimes actually do.\nThe problem of duplicate data isn&rsquo;t actually specific to iCloud. It can happen in any case where people might create data on different devices and where your app wants to sync that data between the devices.",
+      "summary": "Today I&rsquo;m continuing my series of iCloud/Core Data-related posts with a discussion of duplicate data, how and why it occurs, and what you can do about it in your apps. As with my (link:/icloud-complications text:previous post) in this series, today I&rsquo;m sticking to how things are supposed to work and sometimes actually do.\nThe problem of duplicate data isn&rsquo;t actually specific to iCloud. It can happen in any case where people might create data on different devices and where your app wants to sync that data between the devices.",
+      "date_published": "2013-04-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/iosdevcamp-colorado-2013/",
+      "url": "https://atomicbird.com/blog/iosdevcamp-colorado-2013/",
+      "title": "iOSDevCamp Colorado 2013",
+      "content_html": "It&rsquo;s almost time for iOSDevCamp Colorado!\n iOSDevCamp is an informal un-conference where anyone is welcome and encouraged to present about anything relevant to iOS development. Colorado has a fantastic iOS developer community and these events are a great place to meet people, learn things, and have fun.\n Three weeks from today! This is the fourth annual event in Colorado Springs. We held the first one on April 3, 2010, so we dubbed it iPadDevCamp since that was the day the first iPads shipped.",
+      "summary": "It&rsquo;s almost time for iOSDevCamp Colorado!\n iOSDevCamp is an informal un-conference where anyone is welcome and encouraged to present about anything relevant to iOS development. Colorado has a fantastic iOS developer community and these events are a great place to meet people, learn things, and have fun.\n Three weeks from today! This is the fourth annual event in Colorado Springs. We held the first one on April 3, 2010, so we dubbed it iPadDevCamp since that was the day the first iPads shipped.",
+      "date_published": "2013-04-12T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/icloud-complications/",
+      "url": "https://atomicbird.com/blog/icloud-complications/",
+      "title": "iCloud Complications, Part 1",
+      "content_html": "As (link:/blog/icloud-sotu text:promised), I&rsquo;m going to be doing a number posts on using iCloud with Core Data. I&rsquo;m not sure how many there will be, I&rsquo;ll keep going as long as it takes. Today I&rsquo;m starting off with some things that, while not actually bugs, may catch a developer off guard. In this post I&rsquo;m sticking to how iCloud is designed to work, and not getting into the questions of how and when it doesn&rsquo;t work.",
+      "summary": "As (link:/blog/icloud-sotu text:promised), I&rsquo;m going to be doing a number posts on using iCloud with Core Data. I&rsquo;m not sure how many there will be, I&rsquo;ll keep going as long as it takes. Today I&rsquo;m starting off with some things that, while not actually bugs, may catch a developer off guard. In this post I&rsquo;m sticking to how iCloud is designed to work, and not getting into the questions of how and when it doesn&rsquo;t work.",
+      "date_published": "2013-04-09T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/json-vs-plists/",
+      "url": "https://atomicbird.com/blog/json-vs-plists/",
+      "title": "JSON and Property Lists: Alternate Universe Siblings",
+      "content_html": "Update: This post is old but still accurate as far as comparing JSON with property lists, with examples for Objective-C code. If you&rsquo;re using Swift, see my newer post that updates this one for Codable and Swift examples.\n Mac OS X and iOS include support for JSON and property lists, two generic structured data formats, both in common use in different places. If Stack Overflow is any indication, there&rsquo;s a fair amount of confusion regarding the two.",
+      "summary": "Update: This post is old but still accurate as far as comparing JSON with property lists, with examples for Objective-C code. If you&rsquo;re using Swift, see my newer post that updates this one for Codable and Swift examples.\n Mac OS X and iOS include support for JSON and property lists, two generic structured data formats, both in common use in different places. If Stack Overflow is any indication, there&rsquo;s a fair amount of confusion regarding the two.",
+      "date_published": "2013-04-03T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/siegel-on-icloud/",
+      "url": "https://atomicbird.com/blog/siegel-on-icloud/",
+      "title": "Rich Siegel on iCloud",
+      "content_html": "“Don’t you just turn on iCloud syncing, and it all Just Works?”\n  “Just works” might be the customer experience; but developers must do more to support iCloud (or any new OS technology) than simply flipping a switch. Things can go wrong, and they often do.\n Rich gets into a lot more technical detail than most of the other iCloud coverage that&rsquo;s come out recently.\nI&rsquo;m way too familiar with the technical issues described there for comfort.",
+      "summary": "“Don’t you just turn on iCloud syncing, and it all Just Works?”\n  “Just works” might be the customer experience; but developers must do more to support iCloud (or any new OS technology) than simply flipping a switch. Things can go wrong, and they often do.\n Rich gets into a lot more technical detail than most of the other iCloud coverage that&rsquo;s come out recently.\nI&rsquo;m way too familiar with the technical issues described there for comfort.",
+      "date_published": "2013-03-28T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/icloud-sotu/",
+      "url": "https://atomicbird.com/blog/icloud-sotu/",
+      "title": "iCloud: State of the Union",
+      "content_html": "As some of you know, I&rsquo;ve spent a lot of time over the past year working with iCloud in Mac and iOS apps. Specifically, working with Core Data&rsquo;s built-in support for iCloud. I&rsquo;m going to be doing a series of blog posts covering iCloud in various ways. Today I&rsquo;m going to start off with an overview covering how iCloud is supposed to work with Core Data and a little about how it actually works in practice.",
+      "summary": "As some of you know, I&rsquo;ve spent a lot of time over the past year working with iCloud in Mac and iOS apps. Specifically, working with Core Data&rsquo;s built-in support for iCloud. I&rsquo;m going to be doing a series of blog posts covering iCloud in various ways. Today I&rsquo;m going to start off with an overview covering how iCloud is supposed to work with Core Data and a little about how it actually works in practice.",
+      "date_published": "2013-03-27T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/wwdc-notifiers/",
+      "url": "https://atomicbird.com/blog/wwdc-notifiers/",
+      "title": "Waiting for WWDC",
+      "content_html": "Once upon a time Apple would announce dates for their World-Wide Developer Conference and those of us who were interested would calmly begin planning our trip. The only urgency came from making sure to buy a ticket in time to get the earlybird price.\nThose were the days. Now, the announcement of WWDC dates triggers a mad rush to buy tickets before they&rsquo;re gone. Don&rsquo;t hesitate, don&rsquo;t think, or the decision is made for you.",
+      "summary": "Once upon a time Apple would announce dates for their World-Wide Developer Conference and those of us who were interested would calmly begin planning our trip. The only urgency came from making sure to buy a ticket in time to get the earlybird price.\nThose were the days. Now, the announcement of WWDC dates triggers a mad rush to buy tickets before they&rsquo;re gone. Don&rsquo;t hesitate, don&rsquo;t think, or the decision is made for you.",
+      "date_published": "2013-03-17T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/rebooting-blog/",
+      "url": "https://atomicbird.com/blog/rebooting-blog/",
+      "title": "Rebooting my site with Kirby",
+      "content_html": "After far too long I&rsquo;m rebooting this site to bring it up to date, in a variety of ways.\nPartly to bring the content up to something reasonably recent. For the past few years I&rsquo;ve worked as an iOS and Mac OS X contract developer for a variety of clients. Atomic Bird is not at present a Mac app developer, so there&rsquo;s no reason for the site to be designed as if it were.",
+      "summary": "After far too long I&rsquo;m rebooting this site to bring it up to date, in a variety of ways.\nPartly to bring the content up to something reasonably recent. For the past few years I&rsquo;ve worked as an iOS and Mac OS X contract developer for a variety of clients. Atomic Bird is not at present a Mac app developer, so there&rsquo;s no reason for the site to be designed as if it were.",
+      "date_published": "2013-03-15T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/blog/extending-nsdata/",
+      "url": "https://atomicbird.com/blog/extending-nsdata/",
+      "title": "Extending NSData and (not) overriding dealloc",
+      "content_html": "A couple of weeks ago Matt Long was having a problem with an app running out of memory. He had a ginormous data file he needed to load up and process, and that memory hit was more than the app could bear. It would load just fine, into an NSData, but before he could finish with it the app would run short of memory and die.\nUntil recently the obvious thing would have been to tell NSData to create a memory-mapped instance.",
+      "summary": "A couple of weeks ago Matt Long was having a problem with an app running out of memory. He had a ginormous data file he needed to load up and process, and that memory hit was more than the app could bear. It would load just fine, into an NSData, but before he could finish with it the app would run short of memory and die.\nUntil recently the obvious thing would have been to tell NSData to create a memory-mapped instance.",
+      "date_published": "2013-03-13T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/about/",
+      "url": "https://atomicbird.com/about/",
+      "title": "About Atomic Bird",
+      "content_html": "I&rsquo;m Tom Harrington, a veteran of iOS and macOS software development.\nSince 2002 I&rsquo;ve developed award-winning software for both clients and end users for Apple platforms including iPhone, iPad, and Mac. If you have an interesting project in mind, I&rsquo;d love to hear about it. Contact me to discuss how we can work together to make it a reality.\nReach out by using one of the links in the sidebar.",
+      "summary": "I&rsquo;m Tom Harrington, a veteran of iOS and macOS software development.\nSince 2002 I&rsquo;ve developed award-winning software for both clients and end users for Apple platforms including iPhone, iPad, and Mac. If you have an interesting project in mind, I&rsquo;d love to hear about it. Contact me to discuss how we can work together to make it a reality.\nReach out by using one of the links in the sidebar.",
+      "date_published": "2001-01-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/contact/",
+      "url": "https://atomicbird.com/contact/",
+      "title": "Contact",
+      "content_html": "I&rsquo;d love to hear from you! But every time I&rsquo;ve set up a contact form on my web site it&rsquo;s been heavily spammed. Rather than fight an ongoing battle against entropy, I&rsquo;ve decided to not include a form on this site.\nI can be reached through a variety of popular social and professional networks, including (but not limited to) Twitter, LinkedIn, Keybase, and others. Links to these networks can be found in the sidebar.",
+      "summary": "I&rsquo;d love to hear from you! But every time I&rsquo;ve set up a contact form on my web site it&rsquo;s been heavily spammed. Rather than fight an ongoing battle against entropy, I&rsquo;ve decided to not include a form on this site.\nI can be reached through a variety of popular social and professional networks, including (but not limited to) Twitter, LinkedIn, Keybase, and others. Links to these networks can be found in the sidebar.",
+      "date_published": "2001-01-01T00:00:00.000Z"
+    },
+    {
+      "guid": "https://atomicbird.com/mac-apps/",
+      "url": "https://atomicbird.com/mac-apps/",
+      "title": "Mac Apps",
+      "content_html": "Atomic Bird&rsquo;s Mac OS X titles have been discontinued and are now free. They may be downloaded and registered using information below. Note that this software is unsupported and may not work normally with the current version of Mac OS X.\nMacaroni Macaroni was a tool that handled regular system maintenance on Mac OS X. It ran in the background and handled various things that needed to be done on a regular schedule.",
+      "summary": "Atomic Bird&rsquo;s Mac OS X titles have been discontinued and are now free. They may be downloaded and registered using information below. Note that this software is unsupported and may not work normally with the current version of Mac OS X.\nMacaroni Macaroni was a tool that handled regular system maintenance on Mac OS X. It ran in the background and handled various things that needed to be done on a regular schedule.",
+      "date_published": "2001-01-01T00:00:00.000Z"
+    }
+  ]
+}
