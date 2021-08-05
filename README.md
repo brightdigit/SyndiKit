@@ -23,6 +23,25 @@ Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder
 [![Code Climate issues](https://img.shields.io/codeclimate/issues/brightdigit/SyndiKit)](https://codeclimate.com/github/brightdigit/SyndiKit)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
+## Table of Contents
+
+
+* [Introduction](#introduction)
+* [Features](#features)
+* [Installation](#installation)
+  * [Requirements](#requirements)
+  * [Swift Package Manager](#swift-package-manager)
+* [Usage](#usage)
+  * [Decoding Your First Feed](#decoding-your-first-feed)
+  * [Working with Abstractions](#working-with-abstractions)
+  * [Specifying Formats](#specifying-formats)
+  * [Accessing Extensions](#accessing-extensions)
+* [Documentation](#documentation)
+  * [DocC](https://syndikit.dev)
+  * [GitHub SourceDocs](/Documentation/Reference/SyndiKit/README.md)
+* [Roadmap](#roadmap)
+* [License](#license)
+
 ## Introduction
 
 Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
@@ -167,7 +186,7 @@ For just markdown formatted documentation on GitHub using [SourceDocs](https://g
 
 - [ ] OPML Support
 - [ ] WordPress DocC Tutorial
-- [ ] RSS Import Tutorial (i.e. [OrchardNest](https://orchardnest.com)))
+- [ ] RSS Import Tutorial (i.e. [OrchardNest](https://orchardnest.com))
 
 ## License 
 

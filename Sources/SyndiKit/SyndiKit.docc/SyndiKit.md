@@ -18,8 +18,6 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 * User-friendly errors 
 * Abstractions for format-agnostic parsing 
 
-### Installation
-
 ### Requirements 
 
 **Apple Platforms**
@@ -33,7 +31,7 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 - Ubuntu 18.04 or later
 - Swift 5.2.4 or later
 
-### Swift Package Manager
+### Installation
 
 Swift Package Manager is Apple's decentralized dependency manager to integrate libraries to your Swift projects. It is now fully integrated with Xcode 11.
 
@@ -96,7 +94,7 @@ Feedable | RSS 2.0 ``RSSFeed/channel`` | Atom ``AtomFeed`` | JSONFeed ``JSONFeed
 ``Feedable/siteURL`` | ``RSSChannel/link`` | ``AtomFeed/siteURL``| ``JSONFeed/title``
 ``Feedable/summary`` | ``RSSChannel/description`` | ``AtomFeed/summary`` | ``JSONFeed/homePageUrl``
 ``Feedable/updated`` | ``RSSChannel/lastBuildDate`` | ``AtomFeed/pubDate`` or ``AtomFeed/published`` | `nil`
-``Feedable/authors`` | ``RSSChannel/authors`` | ``AtomFeed/authors`` | ``JSONFeed/author``
+``Feedable/authors`` | ``RSSChannel/author`` | ``AtomFeed/authors`` | ``JSONFeed/author``
 ``Feedable/copyright`` | ``RSSChannel/copyright`` | `nil` | `nil`
 ``Feedable/image`` | ``RSSImage/url`` | ``AtomFeed/links``.`first` | `nil`
 ``Feedable/children`` | ``RSSChannel/items`` | ``AtomFeed/entries``| ``JSONFeed/items``
@@ -156,7 +154,7 @@ switch kiloLocoAtomFeed.children.last?.media {
 ``YouTubeID/videoID`` | ``AtomEntry/youtubeVideoID``
 
 
-## License 
+### License 
 
 This code is distributed under the MIT license. See the [LICENSE](https://github.com/brightdigit/SyndiKit/LICENSE) file for more info.
 
