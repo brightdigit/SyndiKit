@@ -82,7 +82,7 @@ jobs:
     name: Build on macOS
     env:
       PACKAGE_NAME: SyndiKit
-    runs-on: macos-11
+    runs-on: ${{ matrix.runs-on }}
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     strategy:
       matrix:
