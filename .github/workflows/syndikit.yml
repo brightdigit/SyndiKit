@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         runs-on: [ubuntu-18.04, ubuntu-20.04]
-        swift-version: [5.3.3, 5.4.1]
+        swift-version: [5.2.4, 5.3.3, 5.4.1]
     steps:
       - uses: actions/checkout@v2
       - name: Set Ubuntu Release DOT
@@ -91,6 +91,9 @@ jobs:
         include:
           - os: macos-10.5
             xcode: "/Applications/Xcode_12.4.app"
+        include:
+          - os: macos-10.5
+            xcode: "/Applications/Xcode_11.5.app"
     steps:
       - uses: actions/checkout@v2
       - name: Set Xcode Name
