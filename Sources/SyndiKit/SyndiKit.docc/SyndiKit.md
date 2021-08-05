@@ -20,6 +20,21 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 
 ### Installation
 
+### Requirements 
+
+**Apple Platforms**
+
+- Xcode 12.3 or later
+- Swift 5.3.2 or later
+- iOS 9.0 / watchOS 2.0 / tvOS 9.0 / macOS 10.10 or later deployment targets
+
+**Linux**
+
+- Ubuntu 18.04 or later
+- Swift 5.3.2 or later
+
+### Swift Package Manager
+
 Swift Package Manager is Apple's decentralized dependency manager to integrate libraries to your Swift projects. It is now fully integrated with Xcode 11.
 
 To integrate **SyndiKit** into your project using SPM, specify it in your Package.swift file:
