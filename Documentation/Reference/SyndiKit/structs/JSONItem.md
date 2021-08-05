@@ -10,7 +10,7 @@ public struct JSONItem: Codable
 ### `guid`
 
 ```swift
-public let guid: RSSGUID
+public let guid: EntryID
 ```
 
 ### `url`
@@ -46,5 +46,7 @@ public let datePublished: Date?
 ### `author`
 
 ```swift
-public let author: RSSAuthor?
+public let author: Author?
 ```
+
+The author of the item.

@@ -1,20 +1,50 @@
 import Foundation
 
 public struct AtomEntry: Codable {
-  public let id: RSSGUID
+  public static let defaultURL = URL(string: "/")!
+
+  /// A permanent, universally unique identifier for an entry.
+  public let id: EntryID
+
+  /// a Text construct that conveys a human-readable title
   public let title: String
+
+  /// The most recent instant in time when the entry was published
   public let published: Date?
+
+  /// Content of the trny.
   public let content: String?
+
+  /// The most recent instant in time when the entry was modified in a way
+  /// the publisher considers significant.
   public let updated: Date
+
+  /// Cateogires of the entry.
   public let atomCategories: [AtomCategory]
-  public let link: Link
-  public let author: RSSAuthor?
+
+  /// a reference to a Web resource.
+  public let links: [Link]
+  /// The author of the entry.
+  public let authors: [Author]
+
+  /// YouTube channel ID, if from a YouTube channel.
   public let youtubeChannelID: String?
+
+  /// YouTube video ID, if from a YouTube channel.
   public let youtubeVideoID: String?
-  public let mediaDescription: String?
-  public let creator: String?
-  public let mediaContent: RSSMedia?
-  public let mediaThumbnail: RSSMedia?
+
+  /// Short description describing the media object typically a sentence in length.
+  /// It has one optional attribute.
+  public let mediaDescriptions: [String]
+
+  ///  the person or entity who wrote an item
+  public let creators: [String]
+
+  /// Syndicate media content of the entry.
+  public let mediaContents: [AtomMedia]
+
+  /// Representative image for the media object.
+  public let mediaThumbnails: [AtomMedia]
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -22,25 +52,25 @@ public struct AtomEntry: Codable {
     case published
     case content
     case updated
-    case link
-    case author
+    case links = "link"
+    case authors = "author"
     case atomCategories = "category"
     case youtubeVideoID = "yt:videoId"
     case youtubeChannelID = "yt:channelId"
-    case mediaDescription = "media:description"
-    case creator = "dc:creator"
-    case mediaContent = "media:content"
-    case mediaThumbnail = "media:thumbnail"
+    case mediaDescriptions = "media:description"
+    case creators = "dc:creator"
+    case mediaContents = "media:content"
+    case mediaThumbnails = "media:thumbnail"
   }
 }
 
 extension AtomEntry: Entryable {
-  public var categories: [RSSCategory] {
+  public var categories: [EntryCategory] {
     atomCategories
   }
 
   public var url: URL {
-    link.href
+    links.first?.href ?? Self.defaultURL
   }
 
   public var contentHtml: String? {
@@ -52,10 +82,10 @@ extension AtomEntry: Entryable {
   }
 
   public var media: MediaContent? {
-    YouTubeID(entry: self).map(Video.youtube).map(MediaContent.video)
+    YouTubeIDProperties(entry: self).map(Video.youtube).map(MediaContent.video)
   }
 
   public var imageURL: URL? {
-    mediaThumbnail?.url
+    mediaThumbnails.first?.url
   }
 }

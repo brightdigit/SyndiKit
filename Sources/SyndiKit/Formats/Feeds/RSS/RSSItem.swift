@@ -1,27 +1,11 @@
 import Foundation
 import XMLCoder
 
-extension KeyedDecodingContainerProtocol {
-  func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
-    if let pubDateString =
-      try decodeIfPresent(String.self, forKey: key),
-      !pubDateString.isEmpty {
-      return DateFormatterDecoder.RSS.decoder.decodeString(pubDateString)
-    }
-    return nil
-  }
-}
-
-public struct RSSMedia: Codable {
-  let url: URL
-  let medium: String?
-}
-
 public struct RSSItem: Codable {
   public let title: String
   public let link: URL
   public let description: CData
-  public let guid: RSSGUID
+  public let guid: EntryID
   public let pubDate: Date?
   public let contentEncoded: CData?
   public let categoryTerms: [RSSItemCategory]
@@ -35,7 +19,7 @@ public struct RSSItem: Codable {
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
   public let enclosure: Enclosure?
-  public let creator: String?
+  public let creators: [String]
   public let wpCommentStatus: CData?
   public let wpPingStatus: CData?
   public let wpStatus: CData?
@@ -50,9 +34,9 @@ public struct RSSItem: Codable {
   public let wpModifiedDateGMT: Date?
   public let wpPostName: CData?
   public let wpPostType: CData?
-  public let wpPostMeta: [WPPostMeta]?
-  public let mediaContent: RSSMedia?
-  public let mediaThumbnail: RSSMedia?
+  public let wpPostMeta: [WordPressElements.PostMeta]?
+  public let mediaContent: AtomMedia?
+  public let mediaThumbnail: AtomMedia?
 
   // swiftlint:disable:next function_body_length
   public init(from decoder: Decoder) throws {
@@ -60,7 +44,7 @@ public struct RSSItem: Codable {
     title = try container.decode(String.self, forKey: .title)
     link = try container.decode(URL.self, forKey: .link)
     description = try container.decode(CData.self, forKey: .description)
-    guid = try container.decode(RSSGUID.self, forKey: .guid)
+    guid = try container.decode(EntryID.self, forKey: .guid)
     pubDate = try container.decodeDateIfPresentAndValid(forKey: .pubDate)
     contentEncoded = try container.decodeIfPresent(CData.self, forKey: .contentEncoded)
     categoryTerms = try container.decode([RSSItemCategory].self, forKey: .categoryTerms)
@@ -78,10 +62,12 @@ public struct RSSItem: Codable {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
-    creator = try container.decodeIfPresent(String.self, forKey: .creator)
+    creators = try container.decode([String].self, forKey: .creators)
 
-    mediaContent = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaContent)
-    mediaThumbnail = try container.decodeIfPresent(RSSMedia.self, forKey: .mediaThumbnail)
+    mediaContent =
+      try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent)
+    mediaThumbnail =
+      try container.decodeIfPresent(AtomMedia.self, forKey: .mediaThumbnail)
 
     wpPostID = try container.decodeIfPresent(Int.self, forKey: .wpPostID)
     wpPostDate = try container.decodeIfPresent(Date.self, forKey: .wpPostDate)
@@ -121,7 +107,10 @@ public struct RSSItem: Codable {
 
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
-    wpPostMeta = try container.decodeIfPresent([WPPostMeta].self, forKey: .wpPostMeta)
+    wpPostMeta = try container.decodeIfPresent(
+      [WordPressElements.PostMeta].self,
+      forKey: .wpPostMeta
+    )
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)
@@ -151,7 +140,7 @@ public struct RSSItem: Codable {
     case itunesExplicit = "itunes:explicit"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
-    case creator = "dc:creator"
+    case creators = "dc:creator"
 
     case wpPostID = "wp:postId"
     case wpPostDate = "wp:postDate"
@@ -176,7 +165,7 @@ public struct RSSItem: Codable {
 }
 
 extension RSSItem: Entryable {
-  public var categories: [RSSCategory] {
+  public var categories: [EntryCategory] {
     categoryTerms
   }
 
@@ -192,11 +181,18 @@ extension RSSItem: Entryable {
     description.value
   }
 
-  public var author: RSSAuthor? {
-    creator.map(RSSAuthor.init) ?? itunesAuthor.map(RSSAuthor.init)
+  public var authors: [Author] {
+    let authors = creators.map(Author.init)
+    guard authors.isEmpty else {
+      return authors
+    }
+    guard let author = itunesAuthor.map(Author.init) else {
+      return []
+    }
+    return [author]
   }
 
-  public var id: RSSGUID {
+  public var id: EntryID {
     guid
   }
 
@@ -205,7 +201,7 @@ extension RSSItem: Entryable {
   }
 
   public var media: MediaContent? {
-    PodcastEpisode(rssItem: self).map(MediaContent.podcast)
+    PodcastEpisodeProperties(rssItem: self).map(MediaContent.podcast)
   }
 
   public var imageURL: URL? {

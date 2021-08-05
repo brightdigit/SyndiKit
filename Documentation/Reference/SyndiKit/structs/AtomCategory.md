@@ -3,7 +3,7 @@
 # `AtomCategory`
 
 ```swift
-public struct AtomCategory: Codable, RSSCategory
+public struct AtomCategory: Codable, EntryCategory
 ```
 
 ## Properties

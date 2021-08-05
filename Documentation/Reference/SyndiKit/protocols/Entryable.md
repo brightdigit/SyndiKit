@@ -6,12 +6,16 @@
 public protocol Entryable
 ```
 
+Basic Feed type with abstract properties.
+
 ## Properties
 ### `id`
 
 ```swift
-var id: RSSGUID
+var id: EntryID
 ```
+
+Unique Identifier of the Item.
 
 ### `url`
 
@@ -19,11 +23,15 @@ var id: RSSGUID
 var url: URL
 ```
 
+The URL of the item.
+
 ### `title`
 
 ```swift
 var title: String
 ```
+
+The title of the item.
 
 ### `contentHtml`
 
@@ -31,11 +39,15 @@ var title: String
 var contentHtml: String?
 ```
 
+HTML content of the item.
+
 ### `summary`
 
 ```swift
 var summary: String?
 ```
+
+The item synopsis.
 
 ### `published`
 
@@ -43,23 +55,31 @@ var summary: String?
 var published: Date?
 ```
 
-### `author`
+Indicates when the item was published.
+
+### `authors`
 
 ```swift
-var author: RSSAuthor?
+var authors: [Author]
 ```
+
+The author of the item.
 
 ### `categories`
 
 ```swift
-var categories: [RSSCategory]
+var categories: [EntryCategory]
 ```
 
-### `creator`
+Includes the item in one or more categories.
+
+### `creators`
 
 ```swift
-var creator: String?
+var creators: [String]
 ```
+
+Creator of the item.
 
 ### `media`
 
@@ -67,8 +87,12 @@ var creator: String?
 var media: MediaContent?
 ```
 
+Abstraction of Podcast episode or Youtube video info.
+
 ### `imageURL`
 
 ```swift
 var imageURL: URL?
 ```
+
+Image URL of the Item.

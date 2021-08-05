@@ -1,4 +1,4 @@
-import SyndiKit
+@testable import SyndiKit
 import XCTest
 import XMLCoder
 
@@ -16,7 +16,7 @@ public final class SyndiKitTests: XCTestCase {
     let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
     // swiftlint:enable force_try
 
-    let decoder = RSSDecoder()
+    let decoder = SynDecoder()
 
     let rssDataSet = xmlDataSet.flatResultMapValue { data in
       try decoder.decode(data)
@@ -46,7 +46,7 @@ public final class SyndiKitTests: XCTestCase {
       atomEntry.atomCategories.map { $0.term },
       entryChild.categories.map { $0.term }
     )
-    XCTAssertEqual(atomEntry.link.href, entryChild.url)
+    XCTAssertEqual(atomEntry.links.first?.href, entryChild.url)
     XCTAssertNil(entryChild.summary)
   }
 
@@ -71,13 +71,13 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(
-      rssItem.creator == child.author?.name ||
-        rssItem.itunesAuthor == child.author?.name
+      rssItem.creators.first == child.authors.first?.name ||
+        rssItem.itunesAuthor == child.authors.first?.name
     )
   }
 
   fileprivate func assertJSONItem(_ jsonItem: JSONItem, child: Entryable) {
-    XCTAssertNil(jsonItem.creator)
+    XCTAssertNil(jsonItem.creators.first)
     XCTAssertNil(jsonItem.media)
     XCTAssertEqual(jsonItem.categories.count, 0)
 
@@ -87,7 +87,7 @@ public final class SyndiKitTests: XCTestCase {
 
   fileprivate func assertFeed(_ feed: Feedable, rssFeed: RSSFeed) {
     XCTAssertNil(feed.youtubeChannelID)
-    XCTAssertEqual(feed.author, rssFeed.channel.author)
+    XCTAssertEqual(feed.authors.first, rssFeed.channel.author)
     XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
     XCTAssertEqual(feed.copyright, rssFeed.channel.copyright)
     XCTAssertEqual(feed.image, rssFeed.channel.image?.link)
@@ -291,7 +291,7 @@ public final class SyndiKitTests: XCTestCase {
       let items = zip(atom.entries, feed.children)
 
       for (entry, item) in items {
-        let youtube = item.media.flatMap { media -> YouTubeIDProtocol? in
+        let youtube = item.media.flatMap { media -> YouTubeID? in
           guard case let .video(video) = media else {
             return nil
           }

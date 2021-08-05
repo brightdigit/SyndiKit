@@ -9,7 +9,7 @@ extension RSSItem: Entryable
 ### `categories`
 
 ```swift
-public var categories: [RSSCategory]
+public var categories: [EntryCategory]
 ```
 
 ### `url`
@@ -30,16 +30,16 @@ public var contentHtml: String?
 public var summary: String?
 ```
 
-### `author`
+### `authors`
 
 ```swift
-public var author: RSSAuthor?
+public var authors: [Author]
 ```
 
 ### `id`
 
 ```swift
-public var id: RSSGUID
+public var id: EntryID
 ```
 
 ### `published`

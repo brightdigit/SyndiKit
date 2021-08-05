@@ -8,5 +8,5 @@ enum Directories {
     .appendingPathComponent("Data")
   static let XML = data.appendingPathComponent("XML")
   static let JSON = data.appendingPathComponent("JSON")
-  static let Wordpress = data.appendingPathComponent("Wordpress")
+  static let WordPress = data.appendingPathComponent("WordPress")
 }

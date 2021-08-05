@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol DecodableFeed: Decodable, Feedable {
+protocol DecodableFeed: Decodable, Feedable {
   static var source: DecoderSetup { get }
 }
 

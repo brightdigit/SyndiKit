@@ -6,6 +6,8 @@
 public enum SyndicationUpdatePeriod: String, Codable
 ```
 
+Describes the period over which the channel format is updated.
+
 ## Cases
 ### `hourly`
 

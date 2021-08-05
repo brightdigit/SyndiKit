@@ -55,24 +55,27 @@
             "author": "Apple",
             "site_url": "https://github.com/apple/swift-evolution/tree/master/proposals",
             "feed_url": "https://github.com/apple/swift-evolution/commits/master.atom"
-          },
+          }
+        ]
+      },
+      {
+        "title": "Swift Packages",
+        "slug": "packages",
+        "description": "Information about new or updated Swift packages from the Swift Package Index.",
+        "sites": [
           {
             "title": "Swift Package Index - Recently Added",
             "author": "Dave Verwer and Sven A. Schmidt",
             "site_url": "https://swiftpackageindex.com",
-            "feed_url": "https://swiftpackageindex.com/packages.rss"
+            "feed_url": "https://swiftpackageindex.com/packages.rss",
+            "twitter_url": "https://twitter.com/SwiftPackages"
           },
           {
             "title": "Swift Package Index – Recent Releases",
             "author": "Dave Verwer and Sven A. Schmidt",
             "site_url": "https://swiftpackageindex.com",
-            "feed_url": "https://swiftpackageindex.com/releases.rss"
-          },
-          {
-            "title": "Unofficial Apple Developer App News Feed",
-            "author": "Apple, and Brandon Evans",
-            "site_url": "https://github.com/interstateone/AppleDeveloperDiscover",
-            "feed_url": "https://interstateone.github.io/AppleDeveloperDiscover/feed.xml"
+            "feed_url": "https://swiftpackageindex.com/releases.rss",
+            "twitter_url": "https://twitter.com/SwiftPkgUpdates"
           }
         ]
       },
@@ -445,8 +448,8 @@
           {
             "title": "Artem Novichkov’s Blog",
             "author": "Artem Novichkov",
-            "site_url": "https://blog.artemnovichkov.com/+ios",
-            "feed_url": "https://teletype.in/rss/artemnovichkov",
+            "site_url": "https://artemnovichkov.com",
+            "feed_url": "https://artemnovichkov.com/feed.xml",
             "twitter_url": "https://twitter.com/iosartem"
           },
           {
@@ -1212,6 +1215,13 @@
             "twitter_url": "https://twitter.com/plivesey453"
           },
           {
+            "title": "digital bunker",
+            "author": "Aryaman Sharda",
+            "site_url": "https://digitalbunker.dev/",
+            "feed_url": "https://digitalbunker.dev/feed/",
+            "twitter_url": "https://twitter.com/aryamansharda"
+          },
+          {
             "title": "Dim Sum Thinking",
             "author": "Daniel Steinberg",
             "site_url": "https://dimsumthinking.com",
@@ -1945,6 +1955,13 @@
             "twitter_url": "https://twitter.com/johncodeos"
           },
           {
+            "title": "John Patrick Morgan’s Blog",
+            "author": "John Patrick Morgan",
+            "site_url": "https://johnpatrickmorgan.github.io",
+            "feed_url": "https://johnpatrickmorgan.github.io/atom.xml",
+            "twitter_url": "https://twitter.com/jpmmusic"
+          },
+          {
             "title": "John Scott’s Blog",
             "author": "John Scott",
             "site_url": "https://jjrscott.com/",
@@ -2493,6 +2510,12 @@
             "twitter_url": "https://twitter.com/EiselMichael"
           },
           {
+            "title": "michael s.",
+            "author": "Michael Sprindzuikate",
+            "site_url": "https://michaelsprindzuikate.github.io",
+            "feed_url": "https://michaelsprindzuikate.github.io/index.xml"
+          },
+          {
             "title": "Michael Tsai’s Blog",
             "author": "Michael Tsai",
             "site_url": "https://mjtsai.com/blog",
@@ -2985,6 +3008,13 @@
             "twitter_url": "https://twitter.com/pepibumur"
           },
           {
+            "title": "Pete Smith on Medium",
+            "author": "Pete Smith",
+            "site_url": "https://superpeteblaze.medium.com",
+            "feed_url": "https://medium.com/feed/@superpeteblaze",
+            "twitter_url": "https://twitter.com/superpeteblaze"
+          },
+          {
             "title": "Peter Friese’s Blog",
             "author": "Peter Friese",
             "site_url": "https://peterfriese.dev",
@@ -3428,6 +3458,13 @@
             "feed_url": "https://smashswift.com/feed/"
           },
           {
+            "title": "Soheil Novinfard's Blog",
+            "author": "Soheil Novinfard",
+            "site_url": "https://novinfard.medium.com",
+            "feed_url": "https://novinfard.medium.com/feed",
+            "twitter_url": "https://twitter.com/novinfard"
+          },
+          {
             "title": "Soroush Khanlou’s Blog",
             "author": "Soroush Khanlou",
             "site_url": "http://khanlou.com/",
@@ -3729,6 +3766,13 @@
             "site_url": "https://thatthinginswift.com/",
             "feed_url": "https://thatthinginswift.com/index.xml",
             "twitter_url": "https://twitter.com/nickoneill"
+          },
+          {
+            "title": "thegoodalright.dev",
+            "author": "Egor Mihnevich",
+            "site_url": "https://thegoodalright.dev/",
+            "feed_url": "https://thegoodalright.dev/feed/ios.xml",
+            "twitter_url": "https://twitter.com/leg_of_guldan"
           },
           {
             "title": "Theocacao",
@@ -4075,6 +4119,13 @@
             "site_url": "https://zoesmith.io",
             "feed_url": "https://www.zoesmith.io/index.xml",
             "twitter_url": "https://twitter.com/zoejessica"
+          },
+          {
+            "title": "Musa Kökçen on Medium",
+            "author": "Musa Kökçen",
+            "site_url": "https://medium.com/@musakokcen",
+            "feed_url": "https://medium.com/feed/@musakokcen",
+            "twitter_url": "https://twitter.com/musakkcn"
           }
         ]
       },
@@ -4325,6 +4376,13 @@
             "site_url": "https://blog.nielsmouthaan.nl/",
             "feed_url": "https://blog.nielsmouthaan.nl/rss.xml",
             "twitter_url": "https://twitter.com/nielsmouthaan"
+          },
+          {
+            "title": "Ralf Ebert's Blog",
+            "author": "Ralf Ebert",
+            "site_url": "https://www.ralfebert.de/en/ios/",
+            "feed_url": "https://www.ralfebert.de/en/ios/index.rss",
+            "twitter_url": "https://twitter.com/RalfEbert"
           },
           {
             "title": "Vini Leal's Blog",
@@ -5239,6 +5297,13 @@
             "twitter_url": "https://twitter.com/IndieDevMonday"
           },
           {
+            "title": "iOS Code Review Tips",
+            "author": "Marina Gornostaeva",
+            "site_url": "https://newsletter.ioscodereview.com/",
+            "feed_url": "https://newsletter.ioscodereview.com/?format=rss",
+            "twitter_url": "https://twitter.com/ios_code_review"
+          },
+          {
             "title": "iOS Dev Tools",
             "author": "Max Ott",
             "site_url": "https://iosdev.tools/",
@@ -5481,6 +5546,13 @@
             "site_url": "https://www.youtube.com/channel/UCOWdR4sFkmolWkU2fg669Gg",
             "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOWdR4sFkmolWkU2fg669Gg",
             "twitter_url": "https://twitter.com/StewartLynch"
+          },
+          {
+            "title": "Swift and Tips",
+            "author": "Pitt",
+            "site_url": "https://www.youtube.com/channel/UCrLSw5I775hSQQtXOLjq0Vw",
+            "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrLSw5I775hSQQtXOLjq0Vw",
+            "twitter_url": "https://twitter.com/swiftandtips"
           },
           {
             "title": "Swift by Sundell",
@@ -5827,6 +5899,20 @@
             "twitter_url": "https://twitter.com/NSHipster"
           }
         ]
+      },
+      {
+        "title": "Podcasts sobre el desarrollo en iOS",
+        "slug": "podcasts",
+        "description": "Podcasts en español relacionados al mundo de la programacion de iOS",
+        "sites": [
+          {
+            "title": "Let Swift Podcast",
+            "author": "Angel Morales K & Pitt",
+            "site_url": "https://anchor.fm/let-swift-podcast",
+            "twitter_url": "https://twitter.com/letswiftpodcast",
+            "feed_url": "https://anchor.fm/s/138e2bb0/podcast/rss"
+          }
+        ]
       }
     ]
   },
@@ -5911,6 +5997,26 @@
             "author": "André Salla",
             "site_url": "https://andresalla.dev",
             "feed_url": "https://andresalla.dev/?feed=rss2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "language": "de",
+    "title": "German Language",
+    "categories": [
+      {
+        "title": "Blogs zur iOS-Entwicklung",
+        "slug": "development",
+        "description": "Egal, ob es um Swift oder Objective-C geht, ob der Schwerpunkt auf der App-Architektur oder der UI-Programmierung liegt. Solange es mit der iOS-Entwicklung zu tun hat, gehört es hierher.",
+        "sites": [
+          {
+            "title": "Ralf Ebert's Blog",
+            "author": "Ralf Ebert",
+            "site_url": "https://www.ralfebert.de/ios/",
+            "feed_url": "https://www.ralfebert.de/ios/index.rss",
+            "twitter_url": "https://twitter.com/RalfEbert"
           }
         ]
       }

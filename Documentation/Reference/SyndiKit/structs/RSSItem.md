@@ -28,7 +28,7 @@ public let description: CData
 ### `guid`
 
 ```swift
-public let guid: RSSGUID
+public let guid: EntryID
 ```
 
 ### `pubDate`
@@ -109,10 +109,10 @@ public let itunesImage: iTunesImage?
 public let enclosure: Enclosure?
 ```
 
-### `creator`
+### `creators`
 
 ```swift
-public let creator: String?
+public let creators: [String]
 ```
 
 ### `wpCommentStatus`
@@ -202,19 +202,19 @@ public let wpPostType: CData?
 ### `wpPostMeta`
 
 ```swift
-public let wpPostMeta: [WPPostMeta]?
+public let wpPostMeta: [WordPressElements.PostMeta]?
 ```
 
 ### `mediaContent`
 
 ```swift
-public let mediaContent: RSSMedia?
+public let mediaContent: AtomMedia?
 ```
 
 ### `mediaThumbnail`
 
 ```swift
-public let mediaThumbnail: RSSMedia?
+public let mediaThumbnail: AtomMedia?
 ```
 
 ## Methods
