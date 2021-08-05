@@ -41,14 +41,14 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 
 **Apple Platforms**
 
-- Xcode 12.3 or later
-- Swift 5.3.2 or later
+- Xcode 11.4.1 or later
+- Swift 5.2.4 or later
 - iOS 9.0 / watchOS 2.0 / tvOS 9.0 / macOS 10.10 or later deployment targets
 
 **Linux**
 
 - Ubuntu 18.04 or later
-- Swift 5.3.2 or later
+- Swift 5.2.4 or later
 
 ### Swift Package Manager
 
