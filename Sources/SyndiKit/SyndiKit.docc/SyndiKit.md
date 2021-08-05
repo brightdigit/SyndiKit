@@ -6,15 +6,44 @@ Swift Package for Decoding RSS Feeds.
 
 ![SyndiKit Logo](logo.png)
 
-SyndiKit provides models and utilities for decoding RSS feeds of various formats and extensions.
+Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCoder), **SyndiKit** provides models and utilities for decoding RSS feeds of various formats and extensions.
 
 ### Features
 
-// TODO:
+* Import of RSS 2.0, Atom, and JSONFeed formats
+* Extensions for various formats such as:
+  * iTunes-compatabile podcasts
+  * YouTube channels
+  * WordPress export data
+* User-friendly errors 
+* Abstractions for format-agnostic parsing 
 
 ### Installation
 
-// TODO:
+Swift Package Manager is Apple's decentralized dependency manager to integrate libraries to your Swift projects. It is now fully integrated with Xcode 11.
+
+To integrate **SyndiKit** into your project using SPM, specify it in your Package.swift file:
+
+```swift    
+let package = Package(
+  ...
+  dependencies: [
+    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.1.0")
+  ],
+  targets: [
+      .target(
+          name: "YourTarget",
+          dependencies: ["SyndiKit", ...]),
+      ...
+  ]
+)
+```
+
+If this is for an Xcode project simply import the [Github repository](https://github.com/brightdigit/SyndiKit) at:
+
+```
+https://github.com/brightdigit/SyndiKit
+```
 
 ### Decoding Your First Feed
 

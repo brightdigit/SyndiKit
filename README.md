@@ -1,10 +1,9 @@
-
 <p align="center">
     <img alt="SyndiKit" title="SyndiKit" src="Assets/logo.svg" height="200">
 </p>
 <h1 align="center"> <a href="https://syndikit.dev/">SyndiKit</a> </h1>
 
-Swift Package for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
+Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
 
 [![SwiftPM](https://img.shields.io/badge/SPM-Linux%20%7C%20iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-success?logo=swift)](https://swift.org)
 [![Twitter](https://img.shields.io/badge/twitter-@brightdigit-blue.svg?style=flat)](http://twitter.com/brightdigit)
@@ -27,17 +26,58 @@ Swift Package for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://s
 
 ## Introduction
 
-// TODO:
+Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
 
 ## Features
 
-// TODO:
+* Import of RSS 2.0, Atom, and JSONFeed formats
+* Extensions for iTunes-compatabile podcasts, YouTube channels, as well as WordPress export data
+* User-friendly errors 
+* Abstractions for format-agnostic parsing 
 
 ## Installation
 
-// TODO:
+### Requirements 
 
-## Getting Started
+**Apple Platforms**
+
+- Xcode 11.0 or later
+- Swift 5.2 or later
+- iOS 9.0 / watchOS 2.0 / tvOS 9.0 / macOS 10.10 or later deployment targets
+
+**Linux**
+
+- Ubuntu 18.04 or later
+- Swift 5.2 or later
+
+### Swift Package Manager
+
+Swift Package Manager is Apple's decentralized dependency manager to integrate libraries to your Swift projects. It is now fully integrated with Xcode 11.
+
+To integrate **SyndiKit** into your project using SPM, specify it in your Package.swift file:
+
+```swift    
+let package = Package(
+  ...
+  dependencies: [
+    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.1.0")
+  ],
+  targets: [
+      .target(
+          name: "YourTarget",
+          dependencies: ["SyndiKit", ...]),
+      ...
+  ]
+)
+```
+
+If this is for an Xcode project simply import the repo at:
+
+```
+https://github.com/brightdigit/SyndiKit
+```
+    
+## Usage
 
 SyndiKit provides models and utilities for decoding RSS feeds of various formats and extensions.
 
