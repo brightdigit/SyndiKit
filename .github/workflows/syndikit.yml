@@ -89,15 +89,15 @@ jobs:
         runs-on: [macos-11, macos-10.5]
         xcode: ["/Applications/Xcode_12.4.app", "/Applications/Xcode_11.7.app"]
         include:
-          - os: macos-10.5
+          - runs-on: macos-10.5
             xcode: "/Applications/Xcode_11.6.app"
-          - os: macos-10.5
+          - runs-on: macos-10.5
             xcode: "/Applications/Xcode_11.5.app"
-          - os: macos-10.5
+          - runs-on: macos-10.5
             xcode: "/Applications/Xcode_11.4.1.app"
-          - os: macos-11
+          - runs-on: macos-11
             xcode: "/Applications/Xcode_13.0.app"
-          - os: macos-11
+          - runs-on: macos-11
             xcode: "/Applications/Xcode_12.5.1.app"
     steps:
       - uses: actions/checkout@v2
