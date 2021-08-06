@@ -66,7 +66,7 @@ jobs:
       - name: Extract Swift
         run: tar xzf swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}-ubuntu${RELEASE_DOT}.tar.gz
       - name: Add Path
-        run: echo "$GITHUB_WORKSPACE/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}/usr/bin" >> $GITHUB_PATH
+        run: echo "$GITHUB_WORKSPACE/swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}-ubuntu${RELEASE_DOT}/usr/bin" >> $GITHUB_PATH
       - name: Build
         run: swift build
       - name: Run tests
