@@ -47,7 +47,7 @@ jobs:
     name: Build on Ubuntu - Swift 5.5 Dev Branch
     env:
       PACKAGE_NAME: SyndiKit
-      SWIFT_VER: ${{ matrix.swift-version }}
+      SWIFT_BUILD_DATE: 2021-08-04-a
     runs-on: ${{ matrix.runs-on }}
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     strategy:
@@ -62,11 +62,11 @@ jobs:
       - name: Set Ubuntu Codename
         run: echo "RELEASE_NAME=$(lsb_release -sc)"  >> $GITHUB_ENV
       - name: Download Swift
-        run: curl -O https://swift.org/builds/swift-5.5-branch/ubuntu${RELEASE_NUM}/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}.tar.gz
+        run: curl -O https://swift.org/builds/swift-5.5-branch/ubuntu${RELEASE_NUM}/swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}/swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}-ubuntu${RELEASE_DOT}.tar.gz
       - name: Extract Swift
-        run: tar xzf swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}.tar.gz
+        run: tar xzf swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}-ubuntu${RELEASE_DOT}.tar.gz
       - name: Add Path
-        run: echo "$GITHUB_WORKSPACE/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-07-23-a-ubuntu${RELEASE_DOT}/usr/bin" >> $GITHUB_PATH
+        run: echo "$GITHUB_WORKSPACE/swift-5.5-DEVELOPMENT-SNAPSHOT-${SWIFT_BUILD_DATE}-ubuntu${RELEASE_DOT}/usr/bin" >> $GITHUB_PATH
       - name: Build
         run: swift build
       - name: Run tests
