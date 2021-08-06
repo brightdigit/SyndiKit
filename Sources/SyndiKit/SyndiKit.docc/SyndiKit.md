@@ -111,7 +111,7 @@ if let rssFeed = empowerAppsRSSFeed as? RSSFeed {
 
 let kiloLocoAtomFeed = try decoder.decode(kiloLocoData)
 if let atomFeed = kiloLocoAtomFeed as? AtomFeed {
-  print(atomFeed.title) // Prints "Empower Apps"
+  print(atomFeed.title) // Prints "Kilo Loco"
 }
 ```
 
