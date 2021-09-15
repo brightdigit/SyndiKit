@@ -35,6 +35,7 @@ public struct RSSItem: Codable {
   public let wpPostName: CData?
   public let wpPostType: CData?
   public let wpPostMeta: [WordPressElements.PostMeta]?
+  public let wpAttachmentURL: URL?
   public let mediaContent: AtomMedia?
   public let mediaThumbnail: AtomMedia?
 
@@ -104,6 +105,12 @@ public struct RSSItem: Codable {
     } else {
       self.wpModifiedDateGMT = nil
     }
+    
+    let wpAttachmentURLCDData = try container.decodeIfPresent(
+      CData.self,
+      forKey: .wpAttachmentURL
+    )
+    self.wpAttachmentURL = wpAttachmentURLCDData.map{$0.value}.flatMap(URL.init(string:))
 
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
@@ -152,6 +159,7 @@ public struct RSSItem: Codable {
     case wpPostMeta = "wp:postmeta"
     case wpCommentStatus = "wp:commentStatus"
     case wpPingStatus = "wp:pingStatus"
+    case wpAttachmentURL = "wp:attachment_url"
 
     case wpStatus = "wp:status"
     case wpPostParent = "wp:postParent"

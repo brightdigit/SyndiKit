@@ -28,7 +28,8 @@ public struct WordPressPost {
     postDate: Date,
     postDateGMT: Date?,
     modifiedDate: Date,
-    modifiedDateGMT: Date?
+    modifiedDateGMT: Date?,
+    attachmentURL: URL?
   ) {
     self.name = name
     self.title = title
@@ -51,6 +52,7 @@ public struct WordPressPost {
     self.postDateGMT = postDateGMT
     self.modifiedDate = modifiedDate
     self.modifiedDateGMT = modifiedDateGMT
+    self.attachmentURL = attachmentURL
   }
 
   public let name: String
@@ -74,6 +76,7 @@ public struct WordPressPost {
   public let postDateGMT: Date?
   public let modifiedDate: Date
   public let modifiedDateGMT: Date?
+  public let attachmentURL: URL?
 
   enum Field {
     case name
@@ -179,6 +182,7 @@ public extension WordPressPost {
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT
     self.modifiedDate = modifiedDate
+    attachmentURL = item.wpAttachmentURL
   }
 }
 
