@@ -158,7 +158,16 @@ switch kiloLocoAtomFeed.children.last?.media {
 
 This code is distributed under the MIT license. See the [LICENSE](https://github.com/brightdigit/SyndiKit/LICENSE) file for more info.
 
+<!--- Reading an RSS Feed, Reading an Youtube Channel, Reading a podcast, Reading a Wordpress Site --->
+<!--- Organize by Topics, Sort by Advanced -->
+
 ## Topics
+
+### Parsing Multiple Web Feeds
+
+### Parsing a YouTube Channel
+
+### Parsing a Podcast Feed
 
 ### Decoding an RSS Feed
 
@@ -226,10 +235,12 @@ Specific properties related to the RSS Feed format.
 - ``RSSItemCategory``
 - ``Enclosure``
 
-### WordPress Extensions
+### Wordpress Extensions 
 
 Specific extension properties provided by WordPress.
 
+- <doc:ParsingWordPress>
+- <doc:/tutorials/WordPress>
 - ``WordPressElements``
 - ``WordPressPost``
 
