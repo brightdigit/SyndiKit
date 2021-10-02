@@ -16,9 +16,3 @@ public extension WordPressElements {
     }
   }
 }
-
-public extension WordPressElements.PostMeta {
-  init(_ pair: (String, String)) {
-    self.init(key: pair.0, value: pair.1)
-  }
-}
