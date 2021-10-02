@@ -36,9 +36,22 @@ let package = Package(
 #if canImport(PackageConfig)
   import PackageConfig
 
-  let requiredCoverage: Int = 85
+  let requiredCoverage: Int = 80
 
   let config = PackageConfiguration([
+    "rocket": [
+      "steps": [
+        ["hide_dev_dependencies": ["package_path": "Package@swift-5.5.swift"]],
+        "hide_dev_dependencies",
+        "git_add",
+        "commit",
+        "tag",
+        "unhide_dev_dependencies",
+        ["unhide_dev_dependencies": ["package_path": "Package@swift-5.5.swift"]],
+        "git_add",
+        ["commit": ["message": "Unhide dev dependencies"]]
+      ]
+    ],
     "komondor": [
       "pre-push": [
         "swift test --enable-code-coverage --enable-test-discovery",
