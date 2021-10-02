@@ -10,21 +10,17 @@ let package = Package(
       targets: ["SyndiKit"]
     )
   ],
+  // swiftlint:disable line_length
   dependencies: [
     .package(url: "https://github.com/MaxDesiatov/XMLCoder.git", from: "0.12.0"),
-    .package(url: "https://github.com/shibapm/Komondor", from: "1.0.6"), // dev
+    .package(url: "https://github.com/shibapm/Komondor", from: "1.1.1"), // dev
     .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"), // dev
     .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.47.0"), // dev
     .package(url: "https://github.com/realm/SwiftLint", from: "0.43.0"), // dev
-    .package(
-      url: "https://github.com/brightdigit/Rocket",
-      .branch("feature/yams-4.0.0")
-    ), // dev
-    .package(
-      url: "https://github.com/mattpolzin/swift-test-codecov",
-      .branch("master")
-    ) // dev
+    .package(url: "https://github.com/shibapm/Rocket", from: "1.2.1"), // dev
+    .package(url: "https://github.com/brightdigit/swift-test-codecov", from: "1.0.0") // dev
   ],
+  // swiftlint:enable line_length
   targets: [
     .target(
       name: "SyndiKit",
@@ -40,7 +36,7 @@ let package = Package(
 #if canImport(PackageConfig)
   import PackageConfig
 
-  let requiredCoverage: Int = 85
+  let requiredCoverage: Int = 90
 
   let config = PackageConfiguration([
     "komondor": [
@@ -53,7 +49,7 @@ let package = Package(
         "swift test --enable-code-coverage --enable-test-discovery --generate-linuxmain",
         "swift run swiftformat .",
         "swift run swiftlint autocorrect",
-        "swift run sourcedocs generate build --clean --reproducible-docs --all-modules",
+//      "swift run sourcedocs generate build --clean --reproducible-docs --all-modules",
         "git add .",
         "swift run swiftformat --lint .",
         "swift run swiftlint"
