@@ -53,6 +53,10 @@
     // to regenerate.
     static let __allTests__WordpressTests = [
       ("testDateDecoder", testDateDecoder),
+      ("testInitAllFields", testInitAllFields),
+      ("testInitAllFieldsMeta", testInitAllFieldsMeta),
+      ("testInitAllFieldsWMeta", testInitAllFieldsWMeta),
+      ("testInitMissingName", testInitMissingName),
       ("testWordpressPosts", testWordpressPosts)
     ]
   }

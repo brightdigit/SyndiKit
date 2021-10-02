@@ -1,6 +1,12 @@
 import Foundation
 // swiftlint:disable:next type_name
-public struct iTunesDuration: Codable {
+public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
+  public init(floatLiteral value: TimeInterval) {
+    self.value = value
+  }
+
+  public typealias FloatLiteralType = TimeInterval
+
   static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)
     let doubles = timeStrings.compactMap(Double.init)

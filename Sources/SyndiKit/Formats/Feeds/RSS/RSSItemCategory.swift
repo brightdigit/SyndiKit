@@ -13,6 +13,12 @@ public struct RSSItemCategory: Codable, EntryCategory {
     case nicename
   }
 
+  public init(value: String, domain: String? = nil, nicename: String? = nil) {
+    self.value = value
+    self.domain = domain
+    self.nicename = nicename
+  }
+
   public init(from decoder: Decoder) throws {
     let value: String
     let container: KeyedDecodingContainer<CodingKeys>?

@@ -58,4 +58,260 @@ final class WordpressTests: XCTestCase {
       }
     }
   }
+
+  func testInitMissingName() {
+    let urlString = "https://developer.apple.com/news/?id=jxky8h89"
+    let url = URL(strict: urlString)!
+    let itemMissingName = RSSItem(
+      title: UUID().uuidString,
+      link: url,
+      description: UUID().uuidString,
+      guid: .url(url)
+    )
+    var caughtError: WordPressError?
+    XCTAssertThrowsError(try WordPressPost(item: itemMissingName)) {
+      caughtError = $0 as? WordPressError
+    }
+    XCTAssertEqual(caughtError, .missingField(.name))
+  }
+
+  // swiftlint:disable:next function_body_length
+  func testInitAllFields() {
+    let urlString = "https://developer.apple.com/news/?id=jxky8h89"
+    let url = URL(strict: urlString)!
+    let title = UUID().uuidString
+    let description = UUID().uuidString
+
+    let contentEncoded = UUID().uuidString
+    let creator = UUID().uuidString
+    let wpCommentStatus = UUID().uuidString
+    let wpPingStatus = UUID().uuidString
+    let wpStatus = UUID().uuidString
+    let wpPostName = UUID().uuidString
+    let wpPostType = UUID().uuidString
+
+    let wpPostParent: Int = .random(in: 0 ... 100_000)
+    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
+    let wpIsSticky: Int = .random(in: 0 ... 100_000)
+    let wpPostID: Int = .random(in: 0 ... 100_000)
+
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+
+    let item = RSSItem(
+      title: title,
+      link: url,
+      description: description,
+      guid: .url(url),
+      contentEncoded: contentEncoded,
+      creators: [creator],
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpModifiedDate: wpModifiedDate,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType
+    )
+
+    let post: WordPressPost
+    do {
+      post = try WordPressPost(item: item)
+    } catch {
+      XCTAssertNil(error)
+      return
+    }
+
+    XCTAssertEqual(post.title, title)
+    XCTAssertEqual(post.link, url)
+    XCTAssertEqual(post.body, contentEncoded)
+    XCTAssertEqual(post.creator, creator)
+    XCTAssertEqual(post.commentStatus, wpCommentStatus)
+    XCTAssertEqual(post.pingStatus, wpPingStatus)
+    XCTAssertEqual(post.status, wpStatus)
+    XCTAssertEqual(post.parentID, wpPostParent)
+    XCTAssertEqual(post.menuOrder, wpMenuOrder)
+    XCTAssertEqual(post.isSticky, wpIsSticky != 0)
+    XCTAssertEqual(post.ID, wpPostID)
+    XCTAssertEqual(post.postDate, wpPostDate)
+    XCTAssertEqual(post.modifiedDate, wpModifiedDate)
+    XCTAssertEqual(post.name, wpPostName)
+    XCTAssertEqual(post.type, wpPostType)
+  }
+
+  // swiftlint:disable:next function_body_length
+  func testInitAllFieldsMeta() {
+    let urlString = "https://developer.apple.com/news/?id=jxky8h89"
+    let url = URL(strict: urlString)!
+    let title = UUID().uuidString
+    let description = UUID().uuidString
+
+    let contentEncoded = UUID().uuidString
+    let creator = UUID().uuidString
+    let wpCommentStatus = UUID().uuidString
+    let wpPingStatus = UUID().uuidString
+    let wpStatus = UUID().uuidString
+    let wpPostName = UUID().uuidString
+    let wpPostType = UUID().uuidString
+
+    let wpPostParent: Int = .random(in: 0 ... 100_000)
+    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
+    let wpIsSticky: Int = .random(in: 0 ... 100_000)
+    let wpPostID: Int = .random(in: 0 ... 100_000)
+
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+
+    let postMetaKeys = (1 ... Int.random(in: 3 ... 5)).map { _ in
+      UUID().uuidString
+    }
+    let postMetaValues = postMetaKeys.map { _ in
+      UUID().uuidString
+    }
+    let postMetaDictionary = Dictionary(
+      uniqueKeysWithValues: zip(postMetaKeys, postMetaValues)
+    )
+    let postMetaActual = postMetaDictionary.map(WordPressElements.PostMeta.init)
+    let postMetaNoise = (1 ... Int.random(in: 3 ... 5)).compactMap { _ in
+      postMetaKeys.randomElement().map {
+        WordPressElements.PostMeta(key: $0, value: UUID().uuidString)
+      }
+    }
+    let postMetaArray = postMetaNoise + postMetaActual
+
+    let item = RSSItem(
+      title: title,
+      link: url,
+      description: description,
+      guid: .url(url),
+      contentEncoded: contentEncoded,
+      creators: [creator],
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpModifiedDate: wpModifiedDate,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType,
+      wpPostMeta: postMetaArray
+    )
+
+    let post: WordPressPost
+    do {
+      post = try WordPressPost(item: item)
+    } catch {
+      XCTAssertNil(error)
+      return
+    }
+
+    XCTAssertEqual(post.title, title)
+    XCTAssertEqual(post.link, url)
+    XCTAssertEqual(post.body, contentEncoded)
+    XCTAssertEqual(post.creator, creator)
+    XCTAssertEqual(post.commentStatus, wpCommentStatus)
+    XCTAssertEqual(post.pingStatus, wpPingStatus)
+    XCTAssertEqual(post.status, wpStatus)
+    XCTAssertEqual(post.parentID, wpPostParent)
+    XCTAssertEqual(post.menuOrder, wpMenuOrder)
+    XCTAssertEqual(post.isSticky, wpIsSticky != 0)
+    XCTAssertEqual(post.ID, wpPostID)
+    XCTAssertEqual(post.postDate, wpPostDate)
+    XCTAssertEqual(post.modifiedDate, wpModifiedDate)
+    XCTAssertEqual(post.name, wpPostName)
+    XCTAssertEqual(post.type, wpPostType)
+    XCTAssertEqual(post.meta, postMetaDictionary)
+  }
+
+  // swiftlint:disable:next function_body_length
+  func testInitAllFieldsWMeta() {
+    let urlString = "https://developer.apple.com/news/?id=jxky8h89"
+    let url = URL(strict: urlString)!
+    let title = UUID().uuidString
+    let description = UUID().uuidString
+
+    let contentEncoded = UUID().uuidString
+    let creator = UUID().uuidString
+    let wpCommentStatus = UUID().uuidString
+    let wpPingStatus = UUID().uuidString
+    let wpStatus = UUID().uuidString
+    let wpPostName = UUID().uuidString
+    let wpPostType = UUID().uuidString
+
+    let wpPostParent: Int = .random(in: 0 ... 100_000)
+    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
+    let wpIsSticky: Int = .random(in: 0 ... 100_000)
+    let wpPostID: Int = .random(in: 0 ... 100_000)
+
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let postTags = (5 ... 10).map { _ in UUID().uuidString }
+    let categories = (5 ... 10).map { _ in UUID().uuidString }
+    let categoryTermsNoise: [RSSItemCategory] = (5 ... 10).map { _ in
+      RSSItemCategory(value: UUID().uuidString, domain: UUID().uuidString)
+    }
+
+    let categoryTerms = postTags.map {
+      RSSItemCategory(value: $0, domain: "post_tag")
+    } +
+      categories.map {
+        RSSItemCategory(value: $0, domain: "category")
+      } +
+      categoryTermsNoise
+
+    let item = RSSItem(
+      title: title,
+      link: url,
+      description: description,
+      guid: .url(url),
+      contentEncoded: contentEncoded,
+      categoryTerms: categoryTerms,
+      creators: [creator],
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpModifiedDate: wpModifiedDate,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType
+    )
+
+    let post: WordPressPost
+    do {
+      post = try WordPressPost(item: item)
+    } catch {
+      XCTAssertNil(error)
+      return
+    }
+
+    XCTAssertEqual(post.title, title)
+    XCTAssertEqual(post.link, url)
+    XCTAssertEqual(post.body, contentEncoded)
+    XCTAssertEqual(post.creator, creator)
+    XCTAssertEqual(post.commentStatus, wpCommentStatus)
+    XCTAssertEqual(post.pingStatus, wpPingStatus)
+    XCTAssertEqual(post.status, wpStatus)
+    XCTAssertEqual(post.parentID, wpPostParent)
+    XCTAssertEqual(post.menuOrder, wpMenuOrder)
+    XCTAssertEqual(post.isSticky, wpIsSticky != 0)
+    XCTAssertEqual(post.ID, wpPostID)
+    XCTAssertEqual(post.postDate, wpPostDate)
+    XCTAssertEqual(post.modifiedDate, wpModifiedDate)
+    XCTAssertEqual(post.name, wpPostName)
+    XCTAssertEqual(post.type, wpPostType)
+
+    XCTAssertEqual(post.categories, categories)
+    XCTAssertEqual(post.tags, postTags)
+  }
 }
