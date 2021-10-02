@@ -1,5 +1,15 @@
 /// #CDATA XML element.
-public struct CData: Codable {
+public struct CData: Codable, ExpressibleByStringLiteral {
+  public typealias StringLiteralType = String
+
+  public init(stringLiteral value: String) {
+    self.value = value
+  }
+
+  public var description: String {
+    value
+  }
+
   /// String value of the #CDATA element.
   public let value: String
 

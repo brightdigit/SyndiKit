@@ -78,7 +78,7 @@ public struct WordPressPost {
   public let modifiedDateGMT: Date?
   public let attachmentURL: URL?
 
-  enum Field {
+  enum Field: Equatable {
     case name
     case title
     case type
@@ -103,30 +103,25 @@ public struct WordPressPost {
   }
 }
 
-enum WordPressError: Error {
+enum WordPressError: Error, Equatable {
   case missingField(WordPressPost.Field)
 }
 
 public extension WordPressPost {
   // swiftlint:disable:next cyclomatic_complexity function_body_length
   init(item: RSSItem) throws {
-    let title = item.title
-    let link = item.link
     guard let name = item.wpPostName else {
       throw WordPressError.missingField(.name)
     }
     guard let type = item.wpPostType else {
       throw WordPressError.missingField(.type)
     }
-    let pubDate = item.pubDate
     guard let creator = item.creators.first else {
       throw WordPressError.missingField(.creator)
     }
     guard let body = item.contentEncoded else {
       throw WordPressError.missingField(.body)
     }
-    let categoryTerms = item.categoryTerms
-    let meta = item.wpPostMeta ?? []
     guard let status = item.wpStatus else {
       throw WordPressError.missingField(.status)
     }
@@ -154,6 +149,17 @@ public extension WordPressPost {
     guard let modifiedDate = item.wpModifiedDate else {
       throw WordPressError.missingField(.modifiedDate)
     }
+
+    let title = item.title
+    let link = item.link
+    let categoryTerms = item.categoryTerms
+    let meta = item.wpPostMeta ?? []
+    let pubDate = item.pubDate
+
+    let categoryDictionary = Dictionary(grouping: categoryTerms, by: {
+      $0.domain
+    })
+
     modifiedDateGMT = item.wpModifiedDateGMT
     self.name = name.value
     self.title = title
@@ -162,9 +168,6 @@ public extension WordPressPost {
     self.pubDate = pubDate
     self.creator = creator
     self.body = body.value
-    let categoryDictionary = Dictionary(grouping: categoryTerms, by: {
-      $0.domain
-    })
     tags = categoryDictionary["post_tag", default: []].map { $0.value }
     categories = categoryDictionary["category", default: []].map { $0.value }
     self.meta = Dictionary(grouping: meta, by: {
