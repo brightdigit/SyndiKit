@@ -14,7 +14,7 @@ public struct JSONItem: Codable {
 
 extension JSONItem: Entryable {
   public var authors: [Author] {
-    guard let author = self.author else {
+    guard let author = author else {
       return []
     }
     return [author]

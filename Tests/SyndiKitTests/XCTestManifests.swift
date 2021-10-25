@@ -57,7 +57,8 @@
       ("testInitAllFieldsMeta", testInitAllFieldsMeta),
       ("testInitAllFieldsWMeta", testInitAllFieldsWMeta),
       ("testInitMissingName", testInitMissingName),
-      ("testWordpressPosts", testWordpressPosts)
+      ("testWordpressPosts", testWordpressPosts),
+      ("testWpAttachmentURL", testWpAttachmentURL)
     ]
   }
 

@@ -314,4 +314,50 @@ final class WordpressTests: XCTestCase {
     XCTAssertEqual(post.categories, categories)
     XCTAssertEqual(post.tags, postTags)
   }
+
+  // swiftlint:disable:next function_body_length
+  func testWpAttachmentURL() {
+    let xmlDataSet: [(String, Result<Data, Error>)]
+    do {
+      xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.WordPress)
+    } catch {
+      XCTAssertNil(error)
+      return
+    }
+
+    let decoder = SynDecoder()
+
+    let exports = Dictionary(uniqueKeysWithValues: xmlDataSet).mapValues { result in
+      result.flatMap { data in
+        Result { try decoder.decode(data) }
+      }
+    }
+
+    for (name, result) in exports {
+      let feedable: Feedable
+      do {
+        feedable = try result.get()
+      } catch {
+        XCTAssertNil(error, name)
+
+        continue
+      }
+
+      guard let feed = feedable as? RSSFeed else {
+        XCTFail()
+        continue
+      }
+
+      let items = feed.channel.items.compactMap { item in
+        (try? WordPressPost(item: item)).map { (item, $0) }
+      }.filter {
+        $0.1.type == "attachment"
+      }
+
+      for (item, post) in items {
+        XCTAssertNotNil(item.wpAttachmentURL)
+        XCTAssertEqual(item.wpAttachmentURL, post.attachmentURL)
+      }
+    }
+  }
 }

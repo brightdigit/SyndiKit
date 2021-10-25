@@ -236,7 +236,7 @@ public struct RSSItem: Codable {
     case wpPostMeta = "wp:postmeta"
     case wpCommentStatus = "wp:commentStatus"
     case wpPingStatus = "wp:pingStatus"
-    case wpAttachmentURL = "wp:attachment_url"
+    case wpAttachmentURL = "wp:attachmentUrl"
 
     case wpStatus = "wp:status"
     case wpPostParent = "wp:postParent"
