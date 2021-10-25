@@ -116,7 +116,7 @@ public class SynDecoder {
         .init(codingPath: [], debugDescription: "Unmatched First Byte: \(firstByte)")
       )
     }
-    guard let decodings = self.decodings[source] else {
+    guard let decodings = decodings[source] else {
       throw DecodingError.failedAttempts(errors)
     }
     for decoding in decodings {
