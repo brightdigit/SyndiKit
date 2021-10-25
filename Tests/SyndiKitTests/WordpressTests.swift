@@ -314,8 +314,9 @@ final class WordpressTests: XCTestCase {
     XCTAssertEqual(post.categories, categories)
     XCTAssertEqual(post.tags, postTags)
   }
-  
-  func testWpAttachmentURL () {
+
+  // swiftlint:disable:next function_body_length
+  func testWpAttachmentURL() {
     let xmlDataSet: [(String, Result<Data, Error>)]
     do {
       xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.WordPress)
@@ -346,14 +347,13 @@ final class WordpressTests: XCTestCase {
         XCTFail()
         continue
       }
-      
-      
-      let items = feed.channel.items.compactMap{ item in
-        (try? WordPressPost(item: item)).map{(item, $0)}
-      }.filter{
+
+      let items = feed.channel.items.compactMap { item in
+        (try? WordPressPost(item: item)).map { (item, $0) }
+      }.filter {
         $0.1.type == "attachment"
       }
-      
+
       for (item, post) in items {
         XCTAssertNotNil(item.wpAttachmentURL)
         XCTAssertEqual(item.wpAttachmentURL, post.attachmentURL)
