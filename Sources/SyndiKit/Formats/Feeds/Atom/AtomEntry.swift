@@ -46,6 +46,10 @@ public struct AtomEntry: Codable {
   /// Representative image for the media object.
   public let mediaThumbnails: [AtomMedia]
 
+  /// Grouping of <media:content> elements that are effectively the same content,
+  /// yet different representations.
+  public let mediaGroup: AtomMediaGroup?
+
   enum CodingKeys: String, CodingKey {
     case id
     case title
@@ -61,6 +65,7 @@ public struct AtomEntry: Codable {
     case creators = "dc:creator"
     case mediaContents = "media:content"
     case mediaThumbnails = "media:thumbnail"
+    case mediaGroup = "media:group"
   }
 }
 

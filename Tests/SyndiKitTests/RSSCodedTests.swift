@@ -269,9 +269,9 @@ public final class SyndiKitTests: XCTestCase {
     }
   }
 
+  // swiftlint:disable:next function_body_length
   func testYoutubeVideos() {
     for (name, xmlResult) in Content.xmlFeeds {
-      print(name)
       guard name.hasSuffix("youtube") else {
         continue
       }
@@ -301,9 +301,14 @@ public final class SyndiKitTests: XCTestCase {
           }
           return youtube
         }
-        XCTAssertFalse(entry.mediaContents.isEmpty)
-        XCTAssertFalse(entry.mediaThumbnails.isEmpty)
-        XCTAssertFalse(entry.mediaDescriptions.isEmpty)
+        guard let group = entry.mediaGroup else {
+          XCTAssertNotNil(entry.mediaGroup)
+          continue
+        }
+        XCTAssertNotNil(group.title)
+        XCTAssertFalse(group.contents.isEmpty)
+        XCTAssertFalse(group.thumbnails.isEmpty)
+        XCTAssertFalse(group.descriptions.isEmpty)
         XCTAssertNotNil(youtube)
         XCTAssertEqual(entry.youtubeVideoID, youtube?.videoID)
       }
