@@ -4,11 +4,11 @@ import XMLCoder
 
 public final class BlogTests: XCTestCase {
   func testBlogs() throws {
-    let sourceURL = Directories.data.appendingPathComponent("blogs.json")
-    let data = try Data(contentsOf: sourceURL)
-    let decoder = JSONDecoder()
-
-    let blogs = try decoder.decode(SiteCollection.self, from: data)
+//    let data = try Data(contentsOf: sourceURL)
+//    let decoder = JSONDecoder()
+//
+//    let blogs = try decoder.decode(SiteCollection.self, from: data)
+    let blogs = Content.blogs
     let sites = SiteCollectionDirectory(blogs: blogs)
 
     for languageContent in blogs {

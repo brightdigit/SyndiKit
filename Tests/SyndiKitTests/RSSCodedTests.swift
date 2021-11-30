@@ -6,32 +6,32 @@ public final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
   // swiftlint:disable implicitly_unwrapped_optional
-  static var xmlFeeds: [String: Result<Feedable, Error>]!
-  static var jsonFeeds: [String: Result<Feedable, Error>]!
+  // static var xmlFeeds: [String: Result<Feedable, Error>]!
+  // static var jsonFeeds: [String: Result<Feedable, Error>]!
   // swiftlint:enable implicitly_unwrapped_optional
 
-  override public class func setUp() {
-    // swiftlint:disable force_try
-    let xmlDataSet = try! FileManager.default.dataFromDirectory(at: Directories.XML)
-    let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
-    // swiftlint:enable force_try
-
-    let decoder = SynDecoder()
-
-    let rssDataSet = xmlDataSet.flatResultMapValue { data in
-      try decoder.decode(data)
-    }
-
-    let jfDataSet = jsonDataSet.flatResultMapValue { data in
-      try decoder.decode(data)
-    }
-
-    xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
-    jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
-  }
+//  override public class func setUp() {
+//    // swiftlint:disable force_try
+//    let xmlDataSet = try! FileManager.default.dataFromDirectory(at: Directories.XML)
+//    let jsonDataSet = try! FileManager.default.dataFromDirectory(at: Directories.JSON)
+//    // swiftlint:enable force_try
+//
+//    let decoder = SynDecoder()
+//
+//    let rssDataSet = xmlDataSet.flatResultMapValue { data in
+//      try decoder.decode(data)
+//    }
+//
+//    let jfDataSet = jsonDataSet.flatResultMapValue { data in
+//      try decoder.decode(data)
+//    }
+//
+//    xmlFeeds = Dictionary(uniqueKeysWithValues: rssDataSet)
+//    jsonFeeds = Dictionary(uniqueKeysWithValues: jfDataSet)
+//  }
 
   func testCategories() {
-    guard let feeds = try? SyndiKitTests.xmlFeeds["advancedswift"]?.get() else {
+    guard let feeds = try? Content.xmlFeeds["advancedswift"]?.get() else {
       XCTFail("No Feeds")
       return
     }
@@ -113,7 +113,7 @@ public final class SyndiKitTests: XCTestCase {
 
   func testEntryable() {
     let allFeeds = [
-      SyndiKitTests.xmlFeeds.values, SyndiKitTests.jsonFeeds.values
+      Content.xmlFeeds.values, Content.jsonFeeds.values
     ].flatMap { $0 }
 
     for xmlResult in allFeeds {
@@ -162,8 +162,8 @@ public final class SyndiKitTests: XCTestCase {
   }
 
   func testJSONXMLEquality() throws {
-    for (name, xmlResult) in SyndiKitTests.xmlFeeds {
-      guard let jsonResult = SyndiKitTests.jsonFeeds[name] else {
+    for (name, xmlResult) in Content.xmlFeeds {
+      guard let jsonResult = Content.jsonFeeds[name] else {
         continue
       }
 
@@ -215,7 +215,7 @@ public final class SyndiKitTests: XCTestCase {
     }
 
     for (name, episodeNumbers) in podcasts {
-      guard let feed = try? Self.xmlFeeds[name]?.get() else {
+      guard let feed = try? Content.xmlFeeds[name]?.get() else {
         XCTFail("Missing Podcast \(name)")
         continue
       }
@@ -255,8 +255,8 @@ public final class SyndiKitTests: XCTestCase {
     ]
 
     for (name, update) in updates {
-      guard let feed = try? Self.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast: \(name), \(Self.xmlFeeds[name])")
+      guard let feed = try? Content.xmlFeeds[name]?.get() else {
+        XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name])")
         continue
       }
 
@@ -270,7 +270,8 @@ public final class SyndiKitTests: XCTestCase {
   }
 
   func testYoutubeVideos() {
-    for (name, xmlResult) in SyndiKitTests.xmlFeeds {
+    for (name, xmlResult) in Content.xmlFeeds {
+      print(name)
       guard name.hasSuffix("youtube") else {
         continue
       }
@@ -300,6 +301,9 @@ public final class SyndiKitTests: XCTestCase {
           }
           return youtube
         }
+        XCTAssertFalse(entry.mediaContents.isEmpty)
+        XCTAssertFalse(entry.mediaThumbnails.isEmpty)
+        XCTAssertFalse(entry.mediaDescriptions.isEmpty)
         XCTAssertNotNil(youtube)
         XCTAssertEqual(entry.youtubeVideoID, youtube?.videoID)
       }
@@ -308,8 +312,8 @@ public final class SyndiKitTests: XCTestCase {
 
   func testDurations() {
     for (name, expecteds) in Self.durationSets {
-      guard let feed = try? Self.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast: \(name), \(Self.xmlFeeds[name])")
+      guard let feed = try? Content.xmlFeeds[name]?.get() else {
+        XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name])")
         continue
       }
 
