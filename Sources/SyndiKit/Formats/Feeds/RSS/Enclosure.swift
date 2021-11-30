@@ -1,9 +1,9 @@
 import Foundation
 
 public struct Enclosure: Codable {
-  let url: URL
-  let type: String
-  let length: Int?
+  public let url: URL
+  public let type: String
+  public let length: Int?
 
   enum CodingKeys: String, CodingKey {
     case url
