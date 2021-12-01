@@ -14,17 +14,10 @@ final class WordpressTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   func testWordpressPosts() {
-    let xmlDataSet: [(String, Result<Data, Error>)]
-    do {
-      xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.WordPress)
-    } catch {
-      XCTAssertNil(error)
-      return
-    }
-
     let decoder = SynDecoder()
 
-    let exports = Dictionary(uniqueKeysWithValues: xmlDataSet).mapValues { result in
+    let exports = Dictionary(uniqueKeysWithValues: Content.wordpressDataSet
+    ).mapValues { result in
       result.flatMap { data in
         Result { try decoder.decode(data) }
       }
@@ -317,17 +310,11 @@ final class WordpressTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   func testWpAttachmentURL() {
-    let xmlDataSet: [(String, Result<Data, Error>)]
-    do {
-      xmlDataSet = try FileManager.default.dataFromDirectory(at: Directories.WordPress)
-    } catch {
-      XCTAssertNil(error)
-      return
-    }
-
     let decoder = SynDecoder()
 
-    let exports = Dictionary(uniqueKeysWithValues: xmlDataSet).mapValues { result in
+    let exports = Dictionary(
+      uniqueKeysWithValues: Content.wordpressDataSet
+    ).mapValues { result in
       result.flatMap { data in
         Result { try decoder.decode(data) }
       }

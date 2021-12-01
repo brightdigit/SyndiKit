@@ -33,18 +33,12 @@ public struct AtomEntry: Codable {
   /// YouTube video ID, if from a YouTube channel.
   public let youtubeVideoID: String?
 
-  /// Short description describing the media object typically a sentence in length.
-  /// It has one optional attribute.
-  public let mediaDescriptions: [String]
-
   ///  the person or entity who wrote an item
   public let creators: [String]
 
-  /// Syndicate media content of the entry.
-  public let mediaContents: [AtomMedia]
-
-  /// Representative image for the media object.
-  public let mediaThumbnails: [AtomMedia]
+  /// Grouping of <media:content> elements that are effectively the same content,
+  /// yet different representations.
+  public let mediaGroup: AtomMediaGroup?
 
   enum CodingKeys: String, CodingKey {
     case id
@@ -57,10 +51,8 @@ public struct AtomEntry: Codable {
     case atomCategories = "category"
     case youtubeVideoID = "yt:videoId"
     case youtubeChannelID = "yt:channelId"
-    case mediaDescriptions = "media:description"
     case creators = "dc:creator"
-    case mediaContents = "media:content"
-    case mediaThumbnails = "media:thumbnail"
+    case mediaGroup = "media:group"
   }
 }
 
@@ -86,6 +78,6 @@ extension AtomEntry: Entryable {
   }
 
   public var imageURL: URL? {
-    mediaThumbnails.first?.url
+    mediaGroup?.thumbnails.first?.url
   }
 }
