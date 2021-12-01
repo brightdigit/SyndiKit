@@ -12,7 +12,7 @@ let package = Package(
   ],
   // swiftlint:disable line_length
   dependencies: [
-    .package(url: "https://github.com/MaxDesiatov/XMLCoder.git", from: "0.12.0"),
+    .package(url: "https://github.com/MaxDesiatov/XMLCoder", from: "0.13.1"),
     .package(url: "https://github.com/shibapm/Komondor", from: "1.1.1"), // dev
     .package(url: "https://github.com/eneko/SourceDocs", from: "1.2.1"), // dev
     .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.47.0"), // dev
