@@ -1,10 +1,10 @@
 import Foundation
 
 public struct AtomMediaGroup: Codable {
-  let title: String?
-  let contents: [AtomMedia]
-  let thumbnails: [AtomMedia]
-  let descriptions: [String]
+  public let title: String?
+  public let contents: [AtomMedia]
+  public let thumbnails: [AtomMedia]
+  public let descriptions: [String]
 
   enum CodingKeys: String, CodingKey {
     case title = "media:title"
