@@ -1,18 +1,9 @@
 import Foundation
 @testable import SyndiKit
 
-typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
-
-extension SiteCollection {
-  init(contentsOf url: URL, using decoder: JSONDecoder = .init()) throws {
-    let data = try Data(contentsOf: url)
-    let decoder = JSONDecoder()
-
-    self = try decoder.decode(SiteCollection.self, from: data)
-  }
-}
-
 enum Content {
+  typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
+
   fileprivate static func resultDictionaryFrom<SuccessValueType>(
     directoryURL: URL,
     by closure: @escaping (Data) throws -> SuccessValueType
@@ -24,17 +15,6 @@ enum Content {
     return try xmlDataSet.map { xmlDataSet in
       xmlDataSet.flatResultMapValue(closure)
     }.map(Dictionary.init(uniqueKeysWithValues:)).get()
-  }
-
-  enum Directories {
-    static let data = URL(fileURLWithPath: #file)
-      .deletingLastPathComponent()
-      .deletingLastPathComponent()
-      .deletingLastPathComponent()
-      .appendingPathComponent("Data")
-    static let XML = data.appendingPathComponent("XML")
-    static let JSON = data.appendingPathComponent("JSON")
-    static let WordPress = data.appendingPathComponent("WordPress")
   }
 
   static let decoder = SynDecoder()
