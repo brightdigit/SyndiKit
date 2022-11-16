@@ -62,4 +62,5 @@ extension RSSFeed: DecodableFeed {
   }
 
   static let source: DecoderSetup = DecoderSource.xml
+  static var label: String = "RSS"
 }

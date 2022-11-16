@@ -4,7 +4,7 @@ import XCTest
 
 public final class DecodingErrorTests: XCTestCase {
   func testErrorsEmpty() {
-    let error = DecodingError.failedAttempts([])
+    let error = DecodingError.failedAttempts([:])
 
     guard case let DecodingError.dataCorrupted(context) = error else {
       XCTFail()
@@ -17,7 +17,7 @@ public final class DecodingErrorTests: XCTestCase {
   func testErrorsOne() {
     let debugDescription = UUID().uuidString
     let error = DecodingError.failedAttempts([
-      .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
+      "Test" :      .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
     ])
 
     guard case let DecodingError.dataCorrupted(parentContext) = error else {
@@ -40,8 +40,8 @@ public final class DecodingErrorTests: XCTestCase {
 
   func testErrorsMany() {
     let errors = [
-      DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
-      DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))
+      "Test1" : DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
+      "Test2" : DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))
     ]
     let error = DecodingError.failedAttempts(errors)
 
@@ -50,7 +50,7 @@ public final class DecodingErrorTests: XCTestCase {
       return
     }
 
-    guard let collection = context.underlyingError as? DecodingError.Collection else {
+    guard let collection = context.underlyingError as? DecodingError.Dictionary else {
       XCTFail()
       return
     }

@@ -4,7 +4,7 @@ import XMLCoder
 public struct RSSItem: Codable {
   public let title: String
   public let link: URL
-  public let description: CData
+  public let description: CData?
   public let guid: EntryID
   public let pubDate: Date?
   public let contentEncoded: CData?
@@ -43,7 +43,7 @@ public struct RSSItem: Codable {
   public init(
     title: String,
     link: URL,
-    description: String,
+    description: String?,
     guid: EntryID,
     pubDate: Date? = nil,
     contentEncoded: String? = nil,
@@ -80,7 +80,7 @@ public struct RSSItem: Codable {
   ) {
     self.title = title
     self.link = link
-    self.description = CData(stringLiteral: description)
+    self.description = description.map(CData.init)
     self.guid = guid
     self.pubDate = pubDate
     self.contentEncoded = contentEncoded.map(CData.init)
@@ -121,7 +121,7 @@ public struct RSSItem: Codable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     title = try container.decode(String.self, forKey: .title)
     link = try container.decode(URL.self, forKey: .link)
-    description = try container.decode(CData.self, forKey: .description)
+    description = try container.decodeIfPresent(CData.self, forKey: .description)
     guid = try container.decode(EntryID.self, forKey: .guid)
     pubDate = try container.decodeDateIfPresentAndValid(forKey: .pubDate)
     contentEncoded = try container.decodeIfPresent(CData.self, forKey: .contentEncoded)
@@ -259,11 +259,11 @@ extension RSSItem: Entryable {
   }
 
   public var contentHtml: String? {
-    contentEncoded?.value ?? content ?? description.value
+    contentEncoded?.value ?? content ?? description?.value
   }
 
   public var summary: String? {
-    description.value
+    description?.value
   }
 
   public var authors: [Author] {

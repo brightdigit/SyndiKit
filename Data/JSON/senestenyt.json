@@ -1,0 +1,128 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Seneste nyt | DR",
+  "home_page_url": "https://www.dr.dk/",
+  "description": "Nyheder fra sektionen Seneste nyt",
+  "items": [
+    {
+      "guid": "urn:dr:drupal:article:55e773e4-fd70-4398-944c-db88a22ff134",
+      "url": "https://www.dr.dk/nyheder/seneste/pewdiepie-er-ikke-laengere-den-youtuber-med-flest-abonnenter",
+      "title": "PewDiePie er ikke længere den YouTuber med flest abonnenter",
+      "date_published": "2022-11-16T13:32:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:7046f687-2b2e-4cd7-baaf-bff72de21bea",
+      "url": "https://www.dr.dk/nyheder/seneste/nu-er-soeren-gade-valgt-som-folketingets-formand",
+      "title": "Nu er Søren Gade valgt som Folketingets formand",
+      "date_published": "2022-11-16T13:25:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:dd56acdd-6fb9-4039-9c47-f9cf4884e95e",
+      "url": "https://www.dr.dk/nyheder/seneste/ukraine-vil-have-adgang-til-det-sted-hvor-missil-ramte-i-polen",
+      "title": "Ukraine vil have adgang til det sted, hvor missil ramte i Polen",
+      "date_published": "2022-11-16T13:21:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:3d3721ee-81f3-47e3-b693-d4e022fadce3",
+      "url": "https://www.dr.dk/nyheder/seneste/mulig-tredje-bombe-paa-als",
+      "title": "Mulig tredje bombe på Als",
+      "date_published": "2022-11-16T12:59:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:a5b1775c-19e7-4cfa-b041-25321445f8ce",
+      "url": "https://www.dr.dk/nyheder/seneste/korrespondent-missilnedslag-i-polen-aendrer-ikke-fundamentalt-paa-krigen-i-ukraine",
+      "title": "Korrespondent: Missilnedslag i Polen ændrer ikke fundamentalt på krigen i Ukraine",
+      "date_published": "2022-11-16T12:43:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:48bb3548-7c20-4c40-8c7e-581ed635ec54",
+      "url": "https://www.dr.dk/nyheder/seneste/karina-adsboel-faar-plads-i-folketingets-praesidium",
+      "title": "Karina Adsbøl får plads i Folketingets præsidium",
+      "date_published": "2022-11-16T12:23:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:63a5b5d6-4ba8-4821-bad8-5253b956dbb7",
+      "url": "https://www.dr.dk/sporten/seneste-sport/komite-i-qatar-afviser-anklager-om-falske-fans",
+      "title": "Komité i Qatar afviser anklager om falske fans",
+      "date_published": "2022-11-16T11:56:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:4192cdaf-6730-4a8a-bc17-9f21e78ddd84",
+      "url": "https://www.dr.dk/nyheder/seneste/polens-praesident-ingen-beviser-missil-er-affyret-af-rusland",
+      "title": "Polens præsident: Ingen beviser for, at missil er affyret af Rusland",
+      "date_published": "2022-11-16T11:42:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:55358e7d-76b1-4fc1-8749-a8c252f16298",
+      "url": "https://www.dr.dk/nyheder/seneste/der-var-krisemoede-i-nato-men-den-saerlige-artikel-4-blev-ikke-aktiveret",
+      "title": "Der var krisemøde i Nato, men den særlige artikel 4 blev ikke aktiveret",
+      "date_published": "2022-11-16T11:40:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:f318559a-4081-4b75-8ec0-3970ef529fe5",
+      "url": "https://www.dr.dk/nyheder/seneste/se-videoen-bomber-fra-anden-verdenskrig-er-blevet-tilintetgjort-paa-als",
+      "title": "Se - og hør - videoen: To bomber fra Anden Verdenskrig er blevet tilintetgjort på Als",
+      "date_published": "2022-11-16T10:20:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:837872b1-28fd-4b64-a17f-1ef1be04f372",
+      "url": "https://www.dr.dk/nyheder/seneste/rusland-vores-missiler-ramte-35-kilometer-fra-den-polske-graense",
+      "title": "Rusland: Vores missiler ramte 35 kilometer fra den polske grænse",
+      "date_published": "2022-11-16T09:47:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:60975afd-4648-4183-b62c-73a2440e55f0",
+      "url": "https://www.dr.dk/sporten/seneste-sport/vingegaard-og-axelsen-blandt-de-nominerede-til-aarets-sportsnavn",
+      "title": "Vingegaard og Axelsen blandt de nominerede til Årets Sportsnavn",
+      "date_published": "2022-11-16T09:17:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:4381332d-b5c8-4013-9c7d-38d26dd1f5ca",
+      "url": "https://www.dr.dk/nyheder/seneste/bomber-paa-als-spraenges-1045",
+      "title": "Bomber på Als sprænges 10.45",
+      "date_published": "2022-11-16T09:15:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:b79e5fde-cc22-4f12-b52e-d673d7b0dab5",
+      "url": "https://www.dr.dk/nyheder/seneste/polen-vi-kan-foele-os-sikre-paa-grund-af-vores-nato-medlemskab",
+      "title": "Polen: Vi kan føle os sikre på grund af vores Nato-medlemskab",
+      "date_published": "2022-11-16T09:14:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:9aade961-bea9-46e2-adb6-546baed1e931",
+      "url": "https://www.dr.dk/nyheder/seneste/vi-skal-snart-lagre-co2-i-undergrunden-nu-bliver-naboerne-spurgt-til-raads",
+      "title": "Vi skal snart lagre CO2 i undergrunden. Nu bliver naboerne spurgt til råds",
+      "date_published": "2022-11-16T08:52:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:7dfa83fb-5a1b-4007-a77f-f70915834de9",
+      "url": "https://www.dr.dk/nyheder/seneste/eu-tilbyder-sin-fulde-stoette-til-undersoegelse-af-missilnedslag-i-polen",
+      "title": "EU tilbyder sin fulde støtte til undersøgelse af missilnedslag i Polen",
+      "date_published": "2022-11-16T07:58:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:ce1595e1-45d5-45a6-8043-56894fe43f53",
+      "url": "https://www.dr.dk/nyheder/seneste/inflationen-i-storbritannien-fortsaetter-med-stige",
+      "title": "Inflationen i Storbritannien fortsætter med at stige",
+      "date_published": "2022-11-16T07:57:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:fe079419-e55c-4907-b314-e54c31b5da8f",
+      "url": "https://www.dr.dk/nyheder/seneste/11-aarig-dreng-omkommet-i-brand-paa-bornholm",
+      "title": "11-årig dreng omkommet i brand på Bornholm",
+      "date_published": "2022-11-16T07:35:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:3751adb3-5a7e-4308-8b96-6ed5cb169150",
+      "url": "https://www.dr.dk/nyheder/seneste/evakuering-er-fortsat-i-gang-forud-bombespraengninger-paa-als",
+      "title": "Evakuering er fortsat i gang forud for bombesprængninger på Als",
+      "date_published": "2022-11-16T07:11:00.000Z"
+    },
+    {
+      "guid": "urn:dr:drupal:article:28009c68-6018-4c0c-8652-ee7bafe9eb09",
+      "url": "https://www.dr.dk/nyheder/seneste/banksvindlere-lokkede-35-millioner-ud-af-danske-ofre-i-foerste-halvdel-af-aaret",
+      "title": "Banksvindlere lokkede 35 millioner ud af danske ofre i første halvdel af året",
+      "date_published": "2022-11-16T06:17:00.000Z"
+    }
+  ]
+}

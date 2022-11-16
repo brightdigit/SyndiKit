@@ -2,6 +2,7 @@ import Foundation
 
 protocol DecodableFeed: Decodable, Feedable {
   static var source: DecoderSetup { get }
+  static var label: String { get }
 }
 
 extension DecodableFeed {

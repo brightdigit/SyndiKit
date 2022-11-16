@@ -42,7 +42,7 @@ public final class SyndiKitTests: XCTestCase {
       child.categories.map { $0.term }
     )
     XCTAssertEqual(rssItem.link, child.url)
-    XCTAssertEqual(rssItem.description.value, child.summary)
+    XCTAssertEqual(rssItem.description?.value, child.summary)
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(

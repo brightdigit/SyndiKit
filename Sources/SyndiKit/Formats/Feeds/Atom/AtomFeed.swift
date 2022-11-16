@@ -82,4 +82,5 @@ extension AtomFeed: DecodableFeed {
   }
 
   static let source: DecoderSetup = DecoderSource.xml
+  static var label: String = "Atom"
 }
