@@ -88,10 +88,10 @@ public final class SyndiKitTests: XCTestCase {
 
   func testEntryable() {
     let allFeeds = [
-      Content.xmlFeeds.values, Content.jsonFeeds.values
+      Content.xmlFeeds, Content.jsonFeeds
     ].flatMap { $0 }
-
-    for xmlResult in allFeeds {
+    
+    for (name, xmlResult) in allFeeds {
       let feed: Feedable
       do {
         feed = try xmlResult.get()
@@ -149,7 +149,7 @@ public final class SyndiKitTests: XCTestCase {
         json = try jsonResult.get()
         rss = try xmlResult.get()
       } catch {
-        XCTAssertNil(error)
+        XCTAssertNil(error, "failed decoding \(name)")
         continue
       }
 

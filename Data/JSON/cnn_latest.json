@@ -1,0 +1,248 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "CNN.com - RSS Channel",
+  "home_page_url": "http://www.cnn.com/",
+  "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
+  "items": [
+    {
+      "guid": "https://www.cnn.com/2022/11/16/health/ebola-us-preparedness-cdc/index.html",
+      "url": "https://www.cnn.com/2022/11/16/health/ebola-us-preparedness-cdc/index.html",
+      "title": "As Ebola outbreak grows in Uganda, US ramps up preparedness plans",
+      "content_html": "Uganda has been struggling with an Ebola outbreak for months, and although there have been no suspected or probable Ebola cases identified in the United States, federal and local health officials are working together to prepare for the possibility that the virus will spread across the Atlantic.",
+      "summary": "Uganda has been struggling with an Ebola outbreak for months, and although there have been no suspected or probable Ebola cases identified in the United States, federal and local health officials are working together to prepare for the possibility that the virus will spread across the Atlantic.",
+      "date_published": "2022-11-16T13:13:25.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/politics/donald-trump-war-chest-presidential-campaign/index.html",
+      "url": "https://www.cnn.com/2022/11/16/politics/donald-trump-war-chest-presidential-campaign/index.html",
+      "title": "Questions about Donald Trump's campaign money, answered",
+      "content_html": "With his formal announcement of a third presidential bid, Donald Trump now will face new limits on raising and spending money ahead of the 2024 election.",
+      "summary": "With his formal announcement of a third presidential bid, Donald Trump now will face new limits on raising and spending money ahead of the 2024 election.",
+      "date_published": "2022-11-16T13:13:16.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/opinions/rsv-rates-surging-children-madad/index.html",
+      "url": "https://www.cnn.com/2022/11/16/opinions/rsv-rates-surging-children-madad/index.html",
+      "title": "Opinion: I'm an epidemiologist, and my daughter's RSV case shook me",
+      "content_html": "Epidemiologist and mother Syra Madad writes about her daughter's recent case of RSV, which sent her to an over-crowded emergency department.",
+      "summary": "Epidemiologist and mother Syra Madad writes about her daughter's recent case of RSV, which sent her to an over-crowded emergency department.",
+      "date_published": "2022-11-16T13:12:18.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/tech/elon-musk-email-ultimatum-twitter/index.html",
+      "url": "https://www.cnn.com/2022/11/16/tech/elon-musk-email-ultimatum-twitter/index.html",
+      "title": "Elon Musk gives ultimatum to Twitter employees: Do 'extremely hardcore' work or get out",
+      "content_html": "Twitter's new owner Elon Musk has given employees until Thursday evening to commit to \"extremely hardcore\" work or else leave the company, according to a copy of a late-night internal email sent by the billionaire and obtained by CNN.",
+      "summary": "Twitter's new owner Elon Musk has given employees until Thursday evening to commit to \"extremely hardcore\" work or else leave the company, according to a copy of a late-night internal email sent by the billionaire and obtained by CNN.",
+      "date_published": "2022-11-16T13:05:04.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/15/politics/trump-2024-presidential-bid/index.html",
+      "url": "https://www.cnn.com/2022/11/15/politics/trump-2024-presidential-bid/index.html",
+      "title": "Former President Donald Trump announces a White House bid for 2024",
+      "content_html": "Former President Donald Trump, aiming to become only the second commander-in-chief ever elected to two nonconsecutive terms, announced Tuesday night that he will seek the Republican presidential nomination in 2024.",
+      "summary": "Former President Donald Trump, aiming to become only the second commander-in-chief ever elected to two nonconsecutive terms, announced Tuesday night that he will seek the Republican presidential nomination in 2024.",
+      "date_published": "2022-11-16T13:03:41.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/us/university-of-virginia-shooting-wednesday/index.html",
+      "url": "https://www.cnn.com/2022/11/16/us/university-of-virginia-shooting-wednesday/index.html",
+      "title": "Prosecutor announces more charges against University of Virginia shooting suspect before his first scheduled court appearance",
+      "content_html": "Additional charges were announced Tuesday against the man accused of killing three football players and wounding two others in a weekend shooting at the University of Virginia ahead of his initial court appearance Wednesday.",
+      "summary": "Additional charges were announced Tuesday against the man accused of killing three football players and wounding two others in a weekend shooting at the University of Virginia ahead of his initial court appearance Wednesday.",
+      "date_published": "2022-11-16T13:02:58.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/politics/who-is-fani-willis-fulton-county-district-attorney/index.html",
+      "url": "https://www.cnn.com/2022/11/16/politics/who-is-fani-willis-fulton-county-district-attorney/index.html",
+      "title": "Atlanta's first female district attorney is leading investigations from Trump to Young Thug",
+      "content_html": "When former President Donald Trump phoned Georgia Secretary of State Brad Raffensperger urging him to \"find\" votes to overturn the 2020 presidential election results on January 2, 2021, Fani Willis had only been in office as Fulton County district attorney for a day.",
+      "summary": "When former President Donald Trump phoned Georgia Secretary of State Brad Raffensperger urging him to \"find\" votes to overturn the 2020 presidential election results on January 2, 2021, Fani Willis had only been in office as Fulton County district attorney for a day.",
+      "date_published": "2022-11-16T13:01:23.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/politics/sexual-misconduct-report-jrotc/index.html",
+      "url": "https://www.cnn.com/2022/11/16/politics/sexual-misconduct-report-jrotc/index.html",
+      "title": "Sexual misconduct within high school military leadership program worse than previously known, report finds",
+      "content_html": "A congressional report has found that sexual misconduct by instructors in a military leadership program operating in high schools across the United States was a bigger issue than previously known.",
+      "summary": "A congressional report has found that sexual misconduct by instructors in a military leadership program operating in high schools across the United States was a bigger issue than previously known.",
+      "date_published": "2022-11-16T13:00:31.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/uk/mi5-chief-russia-spying-iran-china-threats-intl/index.html",
+      "url": "https://www.cnn.com/2022/11/16/uk/mi5-chief-russia-spying-iran-china-threats-intl/index.html",
+      "title": "Russian spying in Europe dealt 'significant blow' since Ukraine war, MI5 chief says",
+      "content_html": "Russia's ability to spy in Europe has been dealt the \"most significant strategic blow\" in recent history after coordinated expulsions of diplomats since the invasion of Ukraine, with a hundred diplomatic visa requests refused in the UK alone in recent years, according to the head of the UK's security services, MI5.",
+      "summary": "Russia's ability to spy in Europe has been dealt the \"most significant strategic blow\" in recent history after coordinated expulsions of diplomats since the invasion of Ukraine, with a hundred diplomatic visa requests refused in the UK alone in recent years, according to the head of the UK's security services, MI5.",
+      "date_published": "2022-11-16T13:00:08.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/14/us/uva-shooting-victims/index.html",
+      "url": "https://www.cnn.com/2022/11/14/us/uva-shooting-victims/index.html",
+      "title": "A gifted football player who was always trying to make people around him happy died in the UVA shooting. These are the victims",
+      "content_html": "Three football players from the University of Virginia were killed in a shooting late Sunday as a bus returned to the school's main campus in Charlottesville, VA, from a field trip, school officials said.",
+      "summary": "Three football players from the University of Virginia were killed in a shooting late Sunday as a bus returned to the school's main campus in Charlottesville, VA, from a field trip, school officials said.",
+      "date_published": "2022-11-16T12:59:11.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/15/us/university-of-virginia-shooting-tuesday/index.html",
+      "url": "https://www.cnn.com/2022/11/15/us/university-of-virginia-shooting-tuesday/index.html",
+      "title": "Suspect in UVA shooting was on the bus with victims returning from a Washington DC trip, school spokesperson says",
+      "content_html": "The suspected gunman in the University of Virginia shooting was on a class field trip with the victims before the shooting occurred, a UVA spokesman confirmed Tuesday.",
+      "summary": "The suspected gunman in the University of Virginia shooting was on a class field trip with the victims before the shooting occurred, a UVA spokesman confirmed Tuesday.",
+      "date_published": "2022-11-16T12:57:21.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/europe/poland-missile-russia-ukraine-investigation-wednesday-intl-hnk/index.html",
+      "url": "https://www.cnn.com/2022/11/16/europe/poland-missile-russia-ukraine-investigation-wednesday-intl-hnk/index.html",
+      "title": "Poland's president says missile that killed two likely fired by Ukraine in defense against Russian attack",
+      "content_html": "Polish President Andrzej Duda said the missile that killed two people in eastern Poland on Tuesday was likely fired by Ukrainian forces defending against a wave of Russian missile strikes, and that the incident appeared to be an accident.",
+      "summary": "Polish President Andrzej Duda said the missile that killed two people in eastern Poland on Tuesday was likely fired by Ukrainian forces defending against a wave of Russian missile strikes, and that the incident appeared to be an accident.",
+      "date_published": "2022-11-16T12:54:30.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/politics/trump-presidential-bid-analysis/index.html",
+      "url": "https://www.cnn.com/2022/11/16/politics/trump-presidential-bid-analysis/index.html",
+      "title": "Trump offers a dark vision voters have already rejected as he launches his 2024 campaign",
+      "content_html": "It's American carnage, round three.",
+      "summary": "It's American carnage, round three.",
+      "date_published": "2022-11-16T12:52:15.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/business/target-earnings-holiday-sales/index.html",
+      "url": "https://www.cnn.com/2022/11/16/business/target-earnings-holiday-sales/index.html",
+      "title": "Target warns of a weak holiday season. Shares are tumbling",
+      "content_html": "Target's profit plunged 52% in the third quarter and the retailer warned of a sluggish holiday.",
+      "summary": "Target's profit plunged 52% in the third quarter and the retailer warned of a sluggish holiday.",
+      "date_published": "2022-11-16T12:47:52.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/world/us-china-climate-talks-kerry-cop27/index.html",
+      "url": "https://www.cnn.com/2022/11/16/world/us-china-climate-talks-kerry-cop27/index.html",
+      "title": "Kerry: Formal climate talks between US and China have resumed at UN summit",
+      "content_html": "US climate envoy John Kerry confirmed to CNN that formal climate talks with China have restarted at the UN's COP27 summit in Egypt, lifting a months-long freeze on negotiations",
+      "summary": "US climate envoy John Kerry confirmed to CNN that formal climate talks with China have restarted at the UN's COP27 summit in Egypt, lifting a months-long freeze on negotiations",
+      "date_published": "2022-11-16T12:42:50.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/europe/live-news/russia-ukraine-war-news-11-16-22/index.html",
+      "url": "https://www.cnn.com/europe/live-news/russia-ukraine-war-news-11-16-22/index.html",
+      "title": "Russia's war in Ukraine",
+      "content_html": "Poland said a \"Russian-made missile\" landed on a village near the Ukraine border on Tuesday, killing two people. It did not say who fired it or where it was fired from. Follow live updates here.",
+      "summary": "Poland said a \"Russian-made missile\" landed on a village near the Ukraine border on Tuesday, killing two people. It did not say who fired it or where it was fired from. Follow live updates here.",
+      "date_published": "2022-11-16T12:37:15.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/middleeast/oil-tanker-oman-projectile-intl/index.html",
+      "url": "https://www.cnn.com/2022/11/16/middleeast/oil-tanker-oman-projectile-intl/index.html",
+      "title": "Self-detonating drone attacks oil tanker in Gulf of Oman, US says",
+      "content_html": "A self-destructing drone attacked an oil tanker in the Gulf of Oman on Monday evening, according to a US military official, but did not cause major damage.",
+      "summary": "A self-destructing drone attacked an oil tanker in the Gulf of Oman on Monday evening, according to a US military official, but did not cause major damage.",
+      "date_published": "2022-11-16T12:32:48.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/entertainment/kevin-spacey-sexual-offense-charges-gbr-scli-intl/index.html",
+      "url": "https://www.cnn.com/2022/11/16/entertainment/kevin-spacey-sexual-offense-charges-gbr-scli-intl/index.html",
+      "title": "Kevin Spacey charged with seven more sexual offenses in the UK",
+      "content_html": "Oscar-winning actor Kevin Spacey has been charged with seven more sexual offenses, UK police have said.",
+      "summary": "Oscar-winning actor Kevin Spacey has been charged with seven more sexual offenses, UK police have said.",
+      "date_published": "2022-11-16T12:26:33.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/world/artemis-1-launch-nasa-scn/index.html",
+      "url": "https://www.cnn.com/2022/11/16/world/artemis-1-launch-nasa-scn/index.html",
+      "title": "Artemis I mission takes flight in historic leap forward for NASA's moon program",
+      "content_html": "The Artemis I mission took flight in the early hours of Wednesday after months of anticipation. The event kicked off a historic trip that will send an uncrewed spacecraft around the moon, paving the way for NASA to return astronauts to the lunar surface.",
+      "summary": "The Artemis I mission took flight in the early hours of Wednesday after months of anticipation. The event kicked off a historic trip that will send an uncrewed spacecraft around the moon, paving the way for NASA to return astronauts to the lunar surface.",
+      "date_published": "2022-11-16T12:21:33.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/investing/premarket-stocks-trading/index.html",
+      "url": "https://www.cnn.com/2022/11/16/investing/premarket-stocks-trading/index.html",
+      "title": "It's looking grim for Wall Street bonuses this year",
+      "content_html": "Ferragamo belt-buckles are being tightened across Wall Street as bankers prepare for a gloomy bonus season. Year-end payouts, typically an outsized part of total financial industry compensation, are expected to plunge as merger and acquisitions dry up, inflation persists and recession threats grow.",
+      "summary": "Ferragamo belt-buckles are being tightened across Wall Street as bankers prepare for a gloomy bonus season. Year-end payouts, typically an outsized part of total financial industry compensation, are expected to plunge as merger and acquisitions dry up, inflation persists and recession threats grow.",
+      "date_published": "2022-11-16T12:20:23.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/politics/live-news/midterm-election-results-updates-11-15-22/index.html",
+      "url": "https://www.cnn.com/politics/live-news/midterm-election-results-updates-11-15-22/index.html",
+      "title": "Nov. 15, 2022 US election coverage",
+      "content_html": "Find election results for the US 2022 Midterm Election here. Follow CNN's live coverage and results for key House races and the balance of power for Tuesday, Nov. 15.",
+      "summary": "Find election results for the US 2022 Midterm Election here. Follow CNN's live coverage and results for key House races and the balance of power for Tuesday, Nov. 15.",
+      "date_published": "2022-11-16T12:17:57.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/politics/live-news/midterm-election-results-updates-11-16-22/index.html",
+      "url": "https://www.cnn.com/politics/live-news/midterm-election-results-updates-11-16-22/index.html",
+      "title": "Latest on the midterm elections as House remains undecided",
+      "content_html": "Find election results for the US 2022 Midterm Election here. Follow CNN's live coverage and results of key House races for Wednesday, Nov. 16.",
+      "summary": "Find election results for the US 2022 Midterm Election here. Follow CNN's live coverage and results of key House races for Wednesday, Nov. 16.",
+      "date_published": "2022-11-16T12:16:01.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/economy/uk-budget-austerity-brexit/index.html",
+      "url": "https://www.cnn.com/2022/11/16/economy/uk-budget-austerity-brexit/index.html",
+      "title": "Britain is bringing back austerity. Here's why",
+      "content_html": "The last time a British finance minister revealed tax and spending plans, markets went haywire and the country's prime minister ultimately lost her job. The new government is not looking for a repeat performance.",
+      "summary": "The last time a British finance minister revealed tax and spending plans, markets went haywire and the country's prime minister ultimately lost her job. The new government is not looking for a repeat performance.",
+      "date_published": "2022-11-16T12:09:20.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/us/five-things-november-16-trnd/index.html",
+      "url": "https://www.cnn.com/2022/11/16/us/five-things-november-16-trnd/index.html",
+      "title": "5 things to know for November 16: Trump, NASA, Immigration, Ukraine, Cold weather",
+      "content_html": "Here's what else you need to know to Get Up to Speed and On with Your Day.",
+      "summary": "Here's what else you need to know to Get Up to Speed and On with Your Day.",
+      "date_published": "2022-11-16T12:04:41.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/15/politics/biden-bali-g20-summit-final-day/index.html",
+      "url": "https://www.cnn.com/2022/11/15/politics/biden-bali-g20-summit-final-day/index.html",
+      "title": "Biden says allies working in 'total unanimity' after Russian-made missile falls on Poland, killing 2",
+      "content_html": "US President Joe Biden emerged from an emergency meeting with top allies during his final day at the G20 in Indonesia promising to \"figure out exactly what happened\" after a Russian-made missile fell inside the borders of a NATO ally.",
+      "summary": "US President Joe Biden emerged from an emergency meeting with top allies during his final day at the G20 in Indonesia promising to \"figure out exactly what happened\" after a Russian-made missile fell inside the borders of a NATO ally.",
+      "date_published": "2022-11-16T12:03:00.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2013/10/30/world/australian-open-fast-facts/index.html",
+      "url": "https://www.cnn.com/2013/10/30/world/australian-open-fast-facts/index.html",
+      "title": "Australian Open Fast Facts",
+      "content_html": "Read CNN's Fast Facts about the Australian Open, one of four competitions that make up the \"Grand Slam\" in professional tennis.",
+      "summary": "Read CNN's Fast Facts about the Australian Open, one of four competitions that make up the \"Grand Slam\" in professional tennis.",
+      "date_published": "2022-11-16T11:57:55.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2017/09/18/health/opioid-crisis-fast-facts/index.html",
+      "url": "https://www.cnn.com/2017/09/18/health/opioid-crisis-fast-facts/index.html",
+      "title": "Opioid Crisis Fast Facts",
+      "content_html": "Read CNN's Fast Facts about the opioid crisis and learn about the epidemic of addiction to painkillers.",
+      "summary": "Read CNN's Fast Facts about the opioid crisis and learn about the epidemic of addiction to painkillers.",
+      "date_published": "2022-11-16T11:52:38.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2015/07/10/asia/nepal-fast-facts/index.html",
+      "url": "https://www.cnn.com/2015/07/10/asia/nepal-fast-facts/index.html",
+      "title": "Nepal Fast Facts",
+      "content_html": "Read CNN's Fast Facts about Nepal, a mountainous country in the Himalayas.",
+      "summary": "Read CNN's Fast Facts about Nepal, a mountainous country in the Himalayas.",
+      "date_published": "2022-11-16T11:47:56.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/politics/watch-pence-town-hall-live/index.html",
+      "url": "https://www.cnn.com/2022/11/16/politics/watch-pence-town-hall-live/index.html",
+      "title": "How to watch CNN's town hall with former Vice President Mike Pence",
+      "content_html": "Former Vice President Mike Pence is set to participate in a CNN town hall on Wednesday as questions swirl about his plans for 2024 and the direction of the Republican Party after a disappointing showing in last week's midterm elections.",
+      "summary": "Former Vice President Mike Pence is set to participate in a CNN town hall on Wednesday as questions swirl about his plans for 2024 and the direction of the Republican Party after a disappointing showing in last week's midterm elections.",
+      "date_published": "2022-11-16T10:58:30.000Z"
+    },
+    {
+      "guid": "https://www.cnn.com/2022/11/16/football/carlos-alcaraz-year-end-no-1-tennis-spt-intl/index.html",
+      "url": "https://www.cnn.com/2022/11/16/football/carlos-alcaraz-year-end-no-1-tennis-spt-intl/index.html",
+      "title": "Carlos Alcaraz becomes youngest year-end No. 1 in men's tennis as Rafael Nadal's slump continues at ATP Finals",
+      "content_html": "Carlos Alcaraz is set to become the youngest year-end No. 1 in the history of men's tennis after Rafael Nadal was knocked out of the ATP Finals.",
+      "summary": "Carlos Alcaraz is set to become the youngest year-end No. 1 in the history of men's tennis after Rafael Nadal was knocked out of the ATP Finals.",
+      "date_published": "2022-11-16T10:54:05.000Z"
+    }
+  ]
+}
