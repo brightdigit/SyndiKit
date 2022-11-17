@@ -17,7 +17,7 @@ public final class DecodingErrorTests: XCTestCase {
   func testErrorsOne() {
     let debugDescription = UUID().uuidString
     let error = DecodingError.failedAttempts([
-      "Test" :      .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
+      "Test": .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
     ])
 
     guard case let DecodingError.dataCorrupted(parentContext) = error else {
@@ -40,8 +40,8 @@ public final class DecodingErrorTests: XCTestCase {
 
   func testErrorsMany() {
     let errors = [
-      "Test1" : DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
-      "Test2" : DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))
+      "Test1": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
+      "Test2": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))
     ]
     let error = DecodingError.failedAttempts(errors)
 

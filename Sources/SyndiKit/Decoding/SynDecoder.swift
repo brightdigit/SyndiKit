@@ -60,7 +60,7 @@ public class SynDecoder {
     return decoder
   }()
 
-  lazy var decodings: [DecoderSource: [String : AnyDecoding]] = {
+  lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
     let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let setup = type.source as? CustomDecoderSetup
@@ -87,7 +87,7 @@ public class SynDecoder {
     return Dictionary(grouping: decodings, by: { $0.0 })
       .mapValues { $0
         .map { $0.1 }
-        .map{(type(of: $0).label, $0)}
+        .map { (type(of: $0).label, $0) }
       }
       .mapValues(Dictionary.init(uniqueKeysWithValues:))
   }()
@@ -109,7 +109,7 @@ public class SynDecoder {
   /// print(feed.title) // Prints "Empower Apps"
   /// ```
   public func decode(_ data: Data) throws -> Feedable {
-    var errors = [String : DecodingError]()
+    var errors = [String: DecodingError]()
 
     guard let firstByte = data.first else {
       throw DecodingError.dataCorrupted(

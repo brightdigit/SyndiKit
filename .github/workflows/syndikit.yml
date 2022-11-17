@@ -148,8 +148,8 @@ jobs:
       - name: Clean up spm build directory
         run: rm -rf .build
       - name: Lint
-        if: startsWith(github.ref, 'refs/tags/') != true
-        run: swift run swiftformat --lint . && swift run swiftlint
+        run: ./scripts/lint.sh 
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
       - name: Dump PIF
         run: |
           swift package dump-pif > /dev/null
