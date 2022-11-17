@@ -153,7 +153,12 @@ jobs:
       - name: Dump PIF
         run: |
           swift package dump-pif > /dev/null
-          xcodebuild clean -scheme SyndiKit -destination 'generic/platform=iOS' > /dev/null
+          MAX_ATTEMPT=3
+          ATTEMPT=0
+          while [ -z $SUCCESS ] && [ "$ATTEMPT" -le "$MAX_ATTEMPT" ]; do
+            xcodebuild clean -scheme FloxBxUI -destination 'generic/platform=iOS' | grep -q "CLEAN SUCCEEDED" && SUCCESS=true
+            ATTEMPT=$(($ATTEMPT+1))
+          done
         if: matrix.xcode == '/Applications/Xcode_14.1.app'
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
