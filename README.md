@@ -3,7 +3,7 @@
 </p>
 <h1 align="center"> <a href="https://syndikit.dev/">SyndiKit</a> </h1>
 
-Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
+Swift Package built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/brightdigit/SyndiKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/brightdigit/SyndiKit)
@@ -45,7 +45,7 @@ Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder
 
 ## Introduction
 
-Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
+Built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
 
 ## Features
 
@@ -60,14 +60,14 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 
 **Apple Platforms**
 
-- Xcode 11.4.1 or later
-- Swift 5.2.4 or later
-- iOS 9.0 / watchOS 2.0 / tvOS 9.0 / macOS 10.10 or later deployment targets
+- Xcode 13.3 or later
+- Swift 5.5.2 or later
+- iOS 15.4 / watchOS 8.5 / tvOS 15.4 / macOS 12.3 or later deployment targets
 
 **Linux**
 
 - Ubuntu 18.04 or later
-- Swift 5.2.4 or later
+- Swift 5.5.2 or later
 
 ### Swift Package Manager
 
@@ -79,7 +79,7 @@ To integrate **SyndiKit** into your project using SPM, specify it in your Packag
 let package = Package(
   ...
   dependencies: [
-    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.1.0")
+    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.3.0")
   ],
   targets: [
       .target(

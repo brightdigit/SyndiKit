@@ -169,7 +169,7 @@ jobs:
           fail_ci_if_error: true
           flags: iOS,iOS-${{ matrix.iOSVersion }}
           verbose: true
-          token: ${{ secrets.CODECOV_TOKEN }}       
+          token: ${{ secrets.CODECOV_TOKEN }}    
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
