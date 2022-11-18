@@ -1,22 +1,22 @@
 import Foundation
 
 extension DecodingError {
-  struct Collection: Error {
-    internal init?(errors: [DecodingError]) {
+  struct Dictionary: Error {
+    internal init?(errors: [String: DecodingError]) {
       guard errors.count > 1 else {
         return nil
       }
       self.errors = errors
     }
 
-    let errors: [DecodingError]
+    let errors: [String: DecodingError]
   }
 
-  static func failedAttempts(_ errors: [DecodingError]) -> Self {
+  static func failedAttempts(_ errors: [String: DecodingError]) -> Self {
     let context = DecodingError.Context(
       codingPath: [],
       debugDescription: "Failed to decode data with several decoders.",
-      underlyingError: Collection(errors: errors) ?? errors.first
+      underlyingError: Dictionary(errors: errors) ?? errors.first?.value
     )
     return DecodingError.dataCorrupted(context)
   }

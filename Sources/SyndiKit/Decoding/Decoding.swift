@@ -14,4 +14,8 @@ struct Decoding<DecodingType: DecodableFeed>: AnyDecoding {
   func decode(data: Data) throws -> DecodingType {
     try decoder.decode(DecodingType.self, from: data)
   }
+
+  static var label: String {
+    DecodingType.label
+  }
 }

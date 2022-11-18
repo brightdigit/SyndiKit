@@ -42,7 +42,7 @@ public final class SyndiKitTests: XCTestCase {
       child.categories.map { $0.term }
     )
     XCTAssertEqual(rssItem.link, child.url)
-    XCTAssertEqual(rssItem.description.value, child.summary)
+    XCTAssertEqual(rssItem.description?.value, child.summary)
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(
@@ -88,10 +88,10 @@ public final class SyndiKitTests: XCTestCase {
 
   func testEntryable() {
     let allFeeds = [
-      Content.xmlFeeds.values, Content.jsonFeeds.values
+      Content.xmlFeeds, Content.jsonFeeds
     ].flatMap { $0 }
 
-    for xmlResult in allFeeds {
+    for (name, xmlResult) in allFeeds {
       let feed: Feedable
       do {
         feed = try xmlResult.get()
@@ -149,7 +149,7 @@ public final class SyndiKitTests: XCTestCase {
         json = try jsonResult.get()
         rss = try xmlResult.get()
       } catch {
-        XCTAssertNil(error)
+        XCTAssertNil(error, "failed decoding \(name)")
         continue
       }
 

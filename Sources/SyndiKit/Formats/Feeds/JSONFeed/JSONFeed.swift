@@ -52,4 +52,5 @@ extension JSONFeed: DecodableFeed {
   }
 
   static let source: DecoderSetup = DecoderSource.json
+  static var label: String = "JSON"
 }
