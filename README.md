@@ -60,14 +60,14 @@ Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCod
 
 **Apple Platforms**
 
-- Xcode 11.4.1 or later
-- Swift 5.2.4 or later
-- iOS 9.0 / watchOS 2.0 / tvOS 9.0 / macOS 10.10 or later deployment targets
+- Xcode 13.3 or later
+- Swift 5.5.2 or later
+- iOS 15.4 / watchOS 8.5 / tvOS 15.4 / macOS 12.3 or later deployment targets
 
 **Linux**
 
 - Ubuntu 18.04 or later
-- Swift 5.2.4 or later
+- Swift 5.5.2 or later
 
 ### Swift Package Manager
 
@@ -79,7 +79,7 @@ To integrate **SyndiKit** into your project using SPM, specify it in your Packag
 let package = Package(
   ...
   dependencies: [
-    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.1.0")
+    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.3.0")
   ],
   targets: [
       .target(
