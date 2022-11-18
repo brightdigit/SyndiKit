@@ -90,7 +90,7 @@ public final class SyndiKitTests: XCTestCase {
     let allFeeds = [
       Content.xmlFeeds, Content.jsonFeeds
     ].flatMap { $0 }
-    
+
     for (name, xmlResult) in allFeeds {
       let feed: Feedable
       do {
