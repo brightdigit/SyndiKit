@@ -3,7 +3,7 @@
 </p>
 <h1 align="center"> <a href="https://syndikit.dev/">SyndiKit</a> </h1>
 
-Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
+Swift Package built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://syndikit.dev/)
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/brightdigit/SyndiKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/brightdigit/SyndiKit)
@@ -45,7 +45,7 @@ Swift Package built on top of [XMLCoder](https://github.com/MaxDesiatov/XMLCoder
 
 ## Introduction
 
-Built on top of [XMLCoder by Max Desiatov](https://github.com/MaxDesiatov/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
+Built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder), SyndiKit can be used to import and read site data whether from a WordPress site, RSS feeds, YouTube channel or podcast.
 
 ## Features
 
