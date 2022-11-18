@@ -85,7 +85,7 @@ jobs:
           - runs-on: macos-12
             xcode: "/Applications/Xcode_13.4.1.app"
             iOSVersion: 15.5
-            watchOSVersion: 8.5  
+            watchOSVersion: 8.5
             watchName: "Apple Watch Series 7 - 41mm"
           - runs-on: macos-12
             xcode: "/Applications/Xcode_14.0.1.app"
@@ -148,7 +148,7 @@ jobs:
       - name: Clean up spm build directory
         run: rm -rf .build
       - name: Lint
-        run: ./scripts/lint.sh 
+        run: ./scripts/lint.sh
         if: startsWith(matrix.xcode,'/Applications/Xcode_14')
       - name: Dump PIF
         run: |
@@ -164,12 +164,12 @@ jobs:
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload iOS coverage to Codecov
-        uses: codecov/codecov-action@v2        
+        uses: codecov/codecov-action@v2
         with:
           fail_ci_if_error: true
           flags: iOS,iOS-${{ matrix.iOSVersion }}
-          verbose: true        
-          token: ${{ secrets.CODECOV_TOKEN }}          
+          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}       
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
