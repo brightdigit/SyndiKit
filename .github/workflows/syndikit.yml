@@ -148,7 +148,7 @@ jobs:
       - name: Clean up spm build directory
         run: rm -rf .build
       - name: Lint
-        run: ./scripts/lint.sh 
+        run: ./scripts/lint.sh
         if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
       - name: Dump PIF
         if: startsWith(matrix.xcode,'/Applications/Xcode_14')
@@ -186,7 +186,7 @@ jobs:
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: macos-12
-    #if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup Netlify
