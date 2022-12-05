@@ -27,7 +27,7 @@ jobs:
           cache-name: cache-spm
         with:
           path: .build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resoved') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -106,12 +106,13 @@ jobs:
           cache-name: cache-spm
         with:
           path: .build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resoved') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Cache mint
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
         id: cache-mint
         uses: actions/cache@v3
         env:
@@ -123,16 +124,15 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
       - name: Set Xcode Name
         run: echo "XCODE_NAME=$(basename -- ${{ matrix.xcode }} | sed 's/\.[^.]*$//' | cut -d'_' -f2)" >> $GITHUB_ENV
       - name: Setup Xcode
         run: sudo xcode-select -s ${{ matrix.xcode }}/Contents/Developer
       - name: Install mint
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
         run: |
           brew update
           brew install mint
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
       - name: Build
         run: swift build
       - name: Run Swift Package tests
@@ -148,18 +148,18 @@ jobs:
       - name: Clean up spm build directory
         run: rm -rf .build
       - name: Lint
-        run: ./scripts/lint.sh
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
+        run: ./scripts/lint.sh 
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
       - name: Dump PIF
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
         run: |
           swift package dump-pif > /dev/null
           MAX_ATTEMPT=3
           ATTEMPT=0
           while [ -z $SUCCESS ] && [ "$ATTEMPT" -le "$MAX_ATTEMPT" ]; do
-            xcodebuild clean -scheme FloxBxUI -destination 'generic/platform=iOS' | grep -q "CLEAN SUCCEEDED" && SUCCESS=true
+            xcodebuild clean -scheme SyndiKit -destination 'generic/platform=iOS' | grep -q "CLEAN SUCCEEDED" && SUCCESS=true
             ATTEMPT=$(($ATTEMPT+1))
           done
-        if: matrix.xcode == '/Applications/Xcode_14.1.app'
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
