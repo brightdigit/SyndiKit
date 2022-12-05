@@ -185,14 +185,12 @@ jobs:
     needs: [build-macos, build-ubuntu]
     env:
       PACKAGE_NAME: SyndiKit
-    runs-on: macos-11
-    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: macos-12
+    #if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup Netlify
         run: brew install netlify-cli
-      - name: Setup Xcode
-        run: sudo xcode-select -s /Applications/Xcode_13.0.app/Contents/Developer
       - name: Resolve Package Dependencies
         run: xcodebuild -resolvePackageDependencies -scheme ${{ env.PACKAGE_NAME }} -derivedDataPath DerivedData
       - name: Build DocC Documentation
