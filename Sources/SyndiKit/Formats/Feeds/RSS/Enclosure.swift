@@ -13,7 +13,7 @@ public struct Enclosure: Codable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Self.CodingKeys)
-    url = try container.decode(URL.self, forKey: .url)
+    url = try container.decode(UTF8EncodedURL.self, forKey: .url).value
     type = try container.decode(String.self, forKey: .type)
     if container.contains(.length) {
       do {

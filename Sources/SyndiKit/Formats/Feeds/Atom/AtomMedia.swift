@@ -17,4 +17,10 @@ public struct AtomMedia: Codable {
 
   /// The direct URL to the media object.
   public let medium: String?
+
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    url = try container.decode(UTF8EncodedURL.self, forKey: .url).value
+    medium = try container.decodeIfPresent(String.self, forKey: .medium)
+  }
 }
