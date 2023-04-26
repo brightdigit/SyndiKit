@@ -97,6 +97,16 @@ jobs:
             iOSVersion: "16.1"
             watchOSVersion: "9.1"
             watchName: "Apple Watch Ultra (49mm)"
+          - runs-on: macos-12
+            xcode: "/Applications/Xcode_14.2.app"
+            iOSVersion: "16.2"
+            watchOSVersion: "9.1"
+            watchName: "Apple Watch Ultra (49mm)"
+          - runs-on: macos-13
+            xcode: "/Applications/Xcode_14.3.app"
+            iOSVersion: "16.4"
+            watchOSVersion: "9.4"
+            watchName: "Apple Watch Ultra (49mm)"
     steps:
       - uses: actions/checkout@v3
       - name: Cache swift package modules
@@ -149,7 +159,7 @@ jobs:
         run: rm -rf .build
       - name: Lint
         run: ./scripts/lint.sh
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.app' }}
       - name: Dump PIF
         if: startsWith(matrix.xcode,'/Applications/Xcode_14')
         run: |

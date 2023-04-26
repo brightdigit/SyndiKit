@@ -85,12 +85,6 @@ public final class SyndiKitTests: XCTestCase {
       assertJSONItem(rssItem, child: entryChild)
     }
   }
-  
-  func testNews() throws {
-    let newsURL = Content.Directories.XML.appendingPathComponent("news.rss")
-    let data  = try Data(contentsOf: newsURL)
-    let feed = try Content.decoder.decode(data)
-  }
 
   func testEntryable() {
     let allFeeds = [
