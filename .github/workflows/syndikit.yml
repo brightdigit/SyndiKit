@@ -3,6 +3,10 @@ on:
   push:
     branches-ignore:
       - '*WIP'
+
+env:
+  CODEQL_ENABLE_EXPERIMENTAL_FEATURES_SWIFT: true
+  
 jobs:
   build-ubuntu:
     name: Build on Ubuntu
@@ -60,8 +64,14 @@ jobs:
         run: tar xzf swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
       - name: Add Path
         run: echo "$GITHUB_WORKSPACE/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}/usr/bin" >> $GITHUB_PATH
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: swift
       - name: Build
         run: swift build
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2          
       - name: Run tests
         run: swift test --enable-test-discovery --enable-code-coverage
       - name: Prepare Code Coverage
@@ -151,8 +161,14 @@ jobs:
         run: |
           brew update
           brew install mint
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: swift    
       - name: Build
         run: swift build
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2          
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
       - uses: sersoft-gmbh/swift-coverage-action@v2
@@ -178,6 +194,10 @@ jobs:
             xcodebuild clean -scheme SyndiKit -destination 'generic/platform=iOS' | grep -q "CLEAN SUCCEEDED" && SUCCESS=true
             ATTEMPT=$(($ATTEMPT+1))
           done
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: swift          
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
@@ -188,6 +208,12 @@ jobs:
           flags: iOS,iOS-${{ matrix.iOSVersion }}
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2          
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: swift        
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
@@ -198,6 +224,8 @@ jobs:
           flags: watchOS,watchOS${{ matrix.watchOSVersion }}
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2        
   deploy:
     name: Deploy to Netlify
     needs: [build-macos, build-ubuntu]
