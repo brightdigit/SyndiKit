@@ -19,6 +19,7 @@ jobs:
       matrix:
         runs-on: [ubuntu-20.04, ubuntu-22.04]
         swift-version: [5.7.3, 5.8]
+        language: [ 'swift' ]
         include:
           - runs-on: ubuntu-20.04
             swift-version: 5.5.3
@@ -67,7 +68,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: swift
+          languages: ${{ matrix.language }}
       - name: Build
         run: swift build
       - name: Perform CodeQL Analysis
@@ -88,6 +89,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     strategy:
       matrix:
+        language: [ 'swift' ]
         include:
           - runs-on: macos-12
             xcode: "/Applications/Xcode_13.3.app"
@@ -164,7 +166,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: swift    
+          languages: ${{ matrix.language }}  
       - name: Build
         run: swift build
       - name: Perform CodeQL Analysis
@@ -197,7 +199,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: swift          
+          languages: ${{ matrix.language }}        
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
@@ -213,7 +215,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: swift        
+          languages: ${{ matrix.language }}      
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
