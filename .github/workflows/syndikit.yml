@@ -6,7 +6,7 @@ on:
 
 env:
   CODEQL_ENABLE_EXPERIMENTAL_FEATURES_SWIFT: true
-  
+
 jobs:
   build-ubuntu:
     name: Build on Ubuntu
@@ -158,11 +158,11 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: ${{ matrix.language }}  
+          languages: ${{ matrix.language }}
       - name: Build
         run: swift build
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2          
+        uses: github/codeql-action/analyze@v2
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
       - uses: sersoft-gmbh/swift-coverage-action@v2
