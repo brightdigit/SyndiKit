@@ -14,7 +14,7 @@ public struct RSSItem: Codable {
   public let itunesEpisode: iTunesEpisode?
   public let itunesAuthor: String?
   public let itunesSubtitle: String?
-  public let itunesSummary: String?
+  public let itunesSummary: CData?
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
@@ -53,7 +53,7 @@ public struct RSSItem: Codable {
     itunesEpisode: Int? = nil,
     itunesAuthor: String? = nil,
     itunesSubtitle: String? = nil,
-    itunesSummary: String? = nil,
+    itunesSummary: CData? = nil,
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
@@ -133,7 +133,7 @@ public struct RSSItem: Codable {
     )
     itunesAuthor = try container.decodeIfPresent(String.self, forKey: .itunesAuthor)
     itunesSubtitle = try container.decodeIfPresent(String.self, forKey: .itunesSubtitle)
-    itunesSummary = try container.decodeIfPresent(String.self, forKey: .itunesSummary)
+    itunesSummary = try container.decodeIfPresent(CData.self, forKey: .itunesSummary)
     itunesExplicit = try container.decodeIfPresent(String.self, forKey: .itunesExplicit)
     itunesDuration = try container.decodeIfPresent(
       iTunesDuration.self, forKey: .itunesDuration

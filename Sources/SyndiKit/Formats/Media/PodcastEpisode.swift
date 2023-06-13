@@ -30,7 +30,7 @@ struct PodcastEpisodeProperties: PodcastEpisode {
     episode = rssItem.itunesEpisode?.value
     author = rssItem.itunesAuthor
     subtitle = rssItem.itunesSubtitle
-    summary = rssItem.itunesSummary
+    summary = rssItem.itunesSummary?.value
     explicit = rssItem.itunesExplicit
     duration = rssItem.itunesDuration?.value
     image = rssItem.itunesImage
