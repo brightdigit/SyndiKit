@@ -180,6 +180,7 @@ public final class SyndiKitTests: XCTestCase {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
       "empowerapps-show": 1 ... 94,
+      "empowerapps-show-cdata_summary": 1 ... 151,
       "radar": 1 ... 219,
       "ideveloper": 276 ... 297,
       "it-guy": 1 ... 330
@@ -216,6 +217,52 @@ public final class SyndiKitTests: XCTestCase {
         XCTAssertEqual(expected, actual)
       }
     }
+  }
+
+  func testEpisodeStringSummary() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    let items = rss.channel.items
+
+    let title = "Platforms State of Union 2023 with Peter Witham"
+
+    guard let episode = items.first(where: { $0.title == title }) else {
+      XCTFail("Missing episode \(title)")
+      return
+    }
+
+    XCTAssertNotNil(episode.summary)
+  }
+
+  func testEpisodeCDataSummary() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    let items = rss.channel.items
+
+    let title = "Dynamic Island with Steve Lipton"
+
+    guard let episode = items.first(where: { $0.title == title }) else {
+      XCTFail("Missing episode \(title)")
+      return
+    }
+
+    XCTAssertNotNil(episode.summary)
   }
 
   func testSyndication() {
