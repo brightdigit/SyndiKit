@@ -4,11 +4,15 @@ import XCTest
 
 final class WordpressTests: XCTestCase {
   
-  static let baseSiteURLs : [String : URL] = [ :
+  static let baseSiteURLs : [String : URL] = [
+    "articles" : URL(string: "https://brightdigit.com/")!,
+    "tutorials" : URL(string: "https://brightdigit.com/")!
   ]
   
   
-  static let baseBlogURLs : [String : URL] = [ :
+  static let baseBlogURLs : [String : URL] = [
+    "articles" : URL(string: "https://brightdigit.com")!,
+    "tutorials" : URL(string: "https://learningswift.brightdigit.com")!
   ]
   
   func testDateDecoder() {

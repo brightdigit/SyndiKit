@@ -63,8 +63,8 @@ public struct RSSChannel: Codable {
     case author
     case wpCategories = "wp:category"
     case wpTags = "wp:tag"
-    case wpBaseSiteURL = "wp:base_site_url"
-    case wpBaseBlogURL = "wp:base_blog_url"
+    case wpBaseSiteURL = "wp:baseSiteUrl"
+    case wpBaseBlogURL = "wp:baseBlogUrl"
   }
 }
 
