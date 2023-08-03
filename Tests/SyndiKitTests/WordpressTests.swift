@@ -3,6 +3,18 @@ import Foundation
 import XCTest
 
 final class WordpressTests: XCTestCase {
+  
+  static let baseSiteURLs : [String : URL] = [
+    "articles" : URL(string: "https://brightdigit.com/")!,
+    "tutorials" : URL(string: "https://brightdigit.com/")!
+  ]
+  
+  
+  static let baseBlogURLs : [String : URL] = [
+    "articles" : URL(string: "https://brightdigit.com")!,
+    "tutorials" : URL(string: "https://learningswift.brightdigit.com")!
+  ]
+  
   func testDateDecoder() {
     let dateDecoder = DateFormatterDecoder.RSS.decoder
     let result = dateDecoder.decodeString("Fri, 06 Oct 2017 17:21:35 +0000")
@@ -38,6 +50,10 @@ final class WordpressTests: XCTestCase {
         continue
       }
 
+      XCTAssertNotNil(feed.channel.wpBaseSiteURL)
+      XCTAssertNotNil(feed.channel.wpBaseBlogURL)
+      XCTAssertEqual(feed.channel.wpBaseSiteURL, Self.baseSiteURLs[name])
+      XCTAssertEqual(feed.channel.wpBaseBlogURL, Self.baseBlogURLs[name])
       XCTAssertGreaterThan(feed.channel.wpTags.count, 0)
       XCTAssertGreaterThan(feed.channel.wpCategories.count, 0)
       let notPostIndex = feed.channel.items.firstIndex(where: {
