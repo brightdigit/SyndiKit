@@ -242,7 +242,28 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertNotNil(episode.summary)
   }
 
-  func testEpisodePodcastPerson() {
+  func testEpisodesWithNoPersons() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
+
+    guard let item = rss.channel.items.first(where: { $0.title == itemTitle } ) else {
+      XCTFail("Expected to find episode of title: \(itemTitle)")
+      return
+    }
+
+    XCTAssertNil(item.podcastPerson)
+  }
+
+  func testEpisodesWithHostAndGuestPersons() {
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
