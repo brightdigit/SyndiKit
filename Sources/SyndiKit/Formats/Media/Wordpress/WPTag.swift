@@ -11,6 +11,12 @@ public extension WordPressElements {
       case slug = "wp:tagSlug"
       case name = "wp:tagName"
     }
+
+    public init(termID: Int, slug: CData, name: CData) {
+      self.termID = termID
+      self.slug = slug
+      self.name = name
+    }
   }
 }
 

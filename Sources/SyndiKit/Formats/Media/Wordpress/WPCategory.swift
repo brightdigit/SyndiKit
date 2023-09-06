@@ -13,6 +13,13 @@ public extension WordPressElements {
       case parent = "wp:categoryParent"
       case name = "wp:catName"
     }
+    
+    public init(termID: Int, niceName: CData, parent: CData, name: String) {
+      self.termID = termID
+      self.niceName = niceName
+      self.parent = parent
+      self.name = name
+    }
   }
 }
 
