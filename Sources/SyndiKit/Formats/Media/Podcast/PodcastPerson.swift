@@ -4,7 +4,7 @@ public struct PodcastPerson: Codable {
   public let email: String?
   public let role: String
   public let href: String
-  public let img: String?
+  public let img: URL?
 
   public let name: String
 

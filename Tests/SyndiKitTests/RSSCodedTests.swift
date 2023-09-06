@@ -287,7 +287,10 @@ public final class SyndiKitTests: XCTestCase {
       XCTAssertNotNil(host)
       XCTAssertEqual(host?.name, "Leo Dion")
       XCTAssertEqual(host?.href, "https://brightdigit.com")
-      XCTAssertEqual(host?.img, "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
+      XCTAssertEqual(
+        host?.img,
+        URL(string: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
+      )
 
       // Both podcasts have the same guest
       let guest = item.podcastPerson?.first(where: { $0.role.lowercased() == "guest" })
@@ -295,7 +298,10 @@ public final class SyndiKitTests: XCTestCase {
       XCTAssertNotNil(guest)
       XCTAssertEqual(guest?.name, "CompileSwift")
       XCTAssertEqual(guest?.href, "https://compileswift.com")
-      XCTAssertEqual(guest?.img, "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")
+      XCTAssertEqual(
+        guest?.img,
+        URL(string: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")
+      )
     }
   }
 
