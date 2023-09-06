@@ -2,10 +2,10 @@ import Foundation
 
 public extension WordPressElements {
   struct Category: Codable {
-    let termID: Int
-    let niceName: CData
-    let parent: CData
-    let name: String
+    public let termID: Int
+    public let niceName: CData
+    public let parent: CData
+    public let name: String
 
     enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
@@ -13,5 +13,14 @@ public extension WordPressElements {
       case parent = "wp:categoryParent"
       case name = "wp:catName"
     }
+  }
+}
+
+extension WordPressElements.Category: Equatable {
+  public static func == (lhs: WordPressElements.Category, rhs: WordPressElements.Category) -> Bool {
+    lhs.termID == rhs.termID
+    && lhs.niceName == rhs.niceName
+    && lhs.parent == rhs.parent
+    && lhs.name == rhs.name
   }
 }

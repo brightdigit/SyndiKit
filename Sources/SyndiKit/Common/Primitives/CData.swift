@@ -1,5 +1,5 @@
 /// #CDATA XML element.
-public struct CData: Codable, ExpressibleByStringLiteral {
+public struct CData: Codable, ExpressibleByStringLiteral, Equatable {
   public typealias StringLiteralType = String
 
   public init(stringLiteral value: String) {
