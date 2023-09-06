@@ -189,6 +189,16 @@ public extension WordPressPost {
   }
 }
 
+extension WordPressPost: Hashable {
+  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
+    lhs.ID == rhs.ID
+  }
+
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(ID)
+  }
+}
+
 public extension Entryable {
   var wpPost: WordPressPost? {
     guard let rssItem = self as? RSSItem else {
