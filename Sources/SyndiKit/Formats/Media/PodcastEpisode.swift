@@ -9,6 +9,7 @@ public protocol PodcastEpisode {
   var duration: TimeInterval? { get }
   var image: iTunesImage? { get }
   var enclosure: Enclosure { get }
+  var people: [PodcastPerson] { get }
 }
 
 struct PodcastEpisodeProperties: PodcastEpisode {
@@ -21,6 +22,7 @@ struct PodcastEpisodeProperties: PodcastEpisode {
   public let duration: TimeInterval?
   public let image: iTunesImage?
   public let enclosure: Enclosure
+  public let people: [PodcastPerson]
 
   init?(rssItem: RSSItem) {
     guard let enclosure = rssItem.enclosure else {
@@ -35,5 +37,6 @@ struct PodcastEpisodeProperties: PodcastEpisode {
     duration = rssItem.itunesDuration?.value
     image = rssItem.itunesImage
     self.enclosure = enclosure
+    people = rssItem.podcastPerson ?? []
   }
 }

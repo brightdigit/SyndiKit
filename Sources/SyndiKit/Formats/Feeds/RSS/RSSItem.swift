@@ -18,6 +18,7 @@ public struct RSSItem: Codable {
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
+  public let podcastPerson: [PodcastPerson]?
   public let enclosure: Enclosure?
   public let creators: [String]
   public let wpCommentStatus: CData?
@@ -57,6 +58,7 @@ public struct RSSItem: Codable {
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
+    podcastPerson: [PodcastPerson]? = nil,
     enclosure: Enclosure? = nil,
     creators: [String] = [],
     wpCommentStatus: String? = nil,
@@ -94,6 +96,7 @@ public struct RSSItem: Codable {
     self.itunesExplicit = itunesExplicit
     self.itunesDuration = itunesDuration.map(iTunesDuration.init)
     self.itunesImage = itunesImage
+    self.podcastPerson = podcastPerson
     self.enclosure = enclosure
     self.creators = creators
     self.wpCommentStatus = wpCommentStatus.map(CData.init)
@@ -139,6 +142,12 @@ public struct RSSItem: Codable {
       iTunesDuration.self, forKey: .itunesDuration
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
+
+    podcastPerson = try container.decodeIfPresent(
+      [PodcastPerson].self,
+      forKey: .podcastPerson
+    )
+
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
     creators = try container.decode([String].self, forKey: .creators)
 
@@ -222,6 +231,7 @@ public struct RSSItem: Codable {
     case itunesSubtitle = "itunes:subtitle"
     case itunesSummary = "itunes:summary"
     case itunesExplicit = "itunes:explicit"
+    case podcastPerson = "podcast:person"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
     case creators = "dc:creator"

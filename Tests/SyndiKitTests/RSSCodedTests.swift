@@ -242,6 +242,69 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertNotNil(episode.summary)
   }
 
+  func testEpisodesWithNoPersons() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
+
+    guard let item = rss.channel.items.first(where: { $0.title == itemTitle } ) else {
+      XCTFail("Expected to find episode of title: \(itemTitle)")
+      return
+    }
+
+    XCTAssertNil(item.podcastPerson)
+  }
+
+  func testEpisodesWithHostAndGuestPersons() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    let item1Title = "WWDC Spectacular (Part 2) with Peter Witham"
+    let item2Title = "How to WWDC with Peter Witham"
+
+    let items = rss.channel.items.filter { $0.title == item1Title || $0.title == item2Title }
+
+    XCTAssertFalse(items.isEmpty)
+
+    for item in items {
+      let host = item.podcastPerson?.first(where: { $0.role.lowercased() == "host" })
+
+      XCTAssertNotNil(host)
+      XCTAssertEqual(host?.name, "Leo Dion")
+      XCTAssertEqual(host?.href, "https://brightdigit.com")
+      XCTAssertEqual(
+        host?.img,
+        URL(string: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
+      )
+
+      // Both podcasts have the same guest
+      let guest = item.podcastPerson?.first(where: { $0.role.lowercased() == "guest" })
+
+      XCTAssertNotNil(guest)
+      XCTAssertEqual(guest?.name, "CompileSwift")
+      XCTAssertEqual(guest?.href, "https://compileswift.com")
+      XCTAssertEqual(
+        guest?.img,
+        URL(string: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")
+      )
+    }
+  }
+
   func testEpisodeCDataSummary() {
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
