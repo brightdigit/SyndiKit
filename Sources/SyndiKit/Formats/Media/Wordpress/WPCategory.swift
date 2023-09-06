@@ -7,18 +7,18 @@ public extension WordPressElements {
     public let parent: CData
     public let name: String
 
-    public init(termID: Int, niceName: CData, parent: CData, name: String) {
-      self.termID = termID
-      self.niceName = niceName
-      self.parent = parent
-      self.name = name
-    }
-
     enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
       case niceName = "wp:categoryNicename"
       case parent = "wp:categoryParent"
       case name = "wp:catName"
+    }
+    
+    public init(termID: Int, niceName: CData, parent: CData, name: String) {
+      self.termID = termID
+      self.niceName = niceName
+      self.parent = parent
+      self.name = name
     }
   }
 }
