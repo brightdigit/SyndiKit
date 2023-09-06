@@ -1,10 +1,3 @@
-//
-//  WordPressElementsTests.swift
-//  
-//
-//  Created by Ahmed Shendy on 27/08/2023.
-//
-
 import XCTest
 @testable import SyndiKit
 
