@@ -13,12 +13,12 @@ internal final class OPMLTests: XCTestCase {
 
     XCTAssertEqual(firstOutline?.text, "CNET News.com")
     XCTAssertEqual(firstOutline?.description, "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.")
-    XCTAssertEqual(firstOutline?.htmlUrl, "http://news.com.com/")
+    XCTAssertEqual(firstOutline?.htmlUrl, URL(string: "http://news.com.com/")!)
     XCTAssertEqual(firstOutline?.language, "unknown")
     XCTAssertEqual(firstOutline?.title, "CNET News.com")
     XCTAssertEqual(firstOutline?.type, .rss)
     XCTAssertEqual(firstOutline?.version, "RSS2")
-    XCTAssertEqual(firstOutline?.xmlUrl, "http://news.com.com/2547-1_3-0-5.xml")
+    XCTAssertEqual(firstOutline?.xmlUrl, URL(string: "http://news.com.com/2547-1_3-0-5.xml")!)
   }
 
   internal func testStates() throws {
