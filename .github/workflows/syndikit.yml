@@ -30,14 +30,13 @@ jobs:
         id: cache-spm-linux
         uses: actions/cache@v3
         env:
-          cache-name: cache-spm
+          cache-name: SPM
         with:
           path: .build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resolved') }}
+          key: ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ hashFiles('Package.resolved') }}-${{ env.RELEASE_DOT }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ hashFiles('Package.resolved') }}
+            ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}
       - name: Set Ubuntu Release DOT
         run: echo "RELEASE_DOT=$(lsb_release -sr)" >> $GITHUB_ENV
       - name: Set Ubuntu Release NUM
@@ -48,14 +47,10 @@ jobs:
         id: cache-swift-linux
         uses: actions/cache@v3
         env:
-          cache-name: cache-swift
+          cache-name: swift
         with:
           path: swift-${{ env.SWIFT_VER }}-RELEASE-ubuntu${{ env.RELEASE_DOT }}
-          key: ${{ runner.os }}-${{ env.RELEASE_DOT }}-${{ env.cache-name }}-${{ env.SWIFT_VER }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ env.RELEASE_DOT }}
       - name: Download Swift
         if: steps.cache-swift-linux.outputs.cache-hit != 'true'
         run: curl -O https://download.swift.org/swift-${SWIFT_VER}-release/ubuntu${RELEASE_NUM}/swift-${SWIFT_VER}-RELEASE/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
