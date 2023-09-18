@@ -66,7 +66,7 @@ jobs:
       - name: Prepare Code Coverage
         run: llvm-cov export -format="lcov" .build/x86_64-unknown-linux-gnu/debug/${{ env.PACKAGE_NAME }}PackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > info.lcov
       - name: Upload watchOS coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.0-beta.2
         with:
           fail_ci_if_error: true
           flags: linux,ubuntu${{ env.RELEASE_DOT }},${{ env.SWIFT_VER }}
@@ -165,7 +165,7 @@ jobs:
         run: swift test -v --enable-code-coverage
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload SPM coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.0-beta.2
         with:
           fail_ci_if_error: true
           flags: spm
@@ -190,7 +190,7 @@ jobs:
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload iOS coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.0-beta.2
         with:
           fail_ci_if_error: true
           flags: iOS,iOS-${{ matrix.iOSVersion }}
@@ -200,7 +200,7 @@ jobs:
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload watchOS coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.0-beta.2
         with:
           fail_ci_if_error: true
           flags: watchOS,watchOS${{ matrix.watchOSVersion }}
