@@ -1,6 +1,6 @@
 import Foundation
 
-public extension OPMLSubscription {
+public extension OPML {
   struct Head: Codable, Equatable {
     public let title: String?
     public let dateCreated: String?

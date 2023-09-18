@@ -1,6 +1,6 @@
 import Foundation
 
-public struct OPMLSubscription: Equatable {
+public struct OPML: Equatable {
   let head: Head
   let body: Body
 
