@@ -5,7 +5,7 @@ public extension OPML {
     public let outlines: [Outline]
 
     enum CodingKeys: String, CodingKey {
-      case outlines
+      case outlines = "outline"
     }
   }
 }

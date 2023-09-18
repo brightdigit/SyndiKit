@@ -29,7 +29,7 @@ public extension OPML {
       case categories = "category"
       case version
 
-      case outlines = ""
+      case outlines = "outline"
     }
 
     public init(from decoder: Decoder) throws {
