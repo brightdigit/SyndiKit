@@ -65,10 +65,13 @@ jobs:
         run: swift test --enable-test-discovery --enable-code-coverage
       - name: Prepare Code Coverage
         run: llvm-cov export -format="lcov" .build/x86_64-unknown-linux-gnu/debug/${{ env.PACKAGE_NAME }}PackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > info.lcov
-      - name: Upload to CodeCov.io
-        run: bash <(curl https://codecov.io/bash) -F github,linux -F ${RELEASE_NAME} -F ${SWIFT_VER}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload watchOS coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          fail_ci_if_error: true
+          flags: linux,ubuntu${{ env.RELEASE_DOT }},${{ env.SWIFT_VER }}
+          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
   build-macos:
     name: Build on macOS
     env:
