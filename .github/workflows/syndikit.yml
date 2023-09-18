@@ -162,7 +162,7 @@ jobs:
         run: swift test -v --enable-code-coverage
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload SPM coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
           flags: spm
@@ -187,7 +187,7 @@ jobs:
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload iOS coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
           flags: iOS,iOS-${{ matrix.iOSVersion }}
@@ -197,26 +197,9 @@ jobs:
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
       - name: Upload watchOS coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
           flags: watchOS,watchOS${{ matrix.watchOSVersion }}
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
-  deploy:
-    name: Deploy to Netlify
-    needs: [build-macos, build-ubuntu]
-    env:
-      PACKAGE_NAME: SyndiKit
-    runs-on: macos-12
-    if: ${{ github.ref == 'refs/heads/main' }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Netlify
-        run: brew install netlify-cli
-      - name: Resolve Package Dependencies
-        run: xcodebuild -resolvePackageDependencies -scheme ${{ env.PACKAGE_NAME }} -derivedDataPath DerivedData
-      - name: Build DocC Documentation
-        run: xcodebuild docbuild -scheme ${{ env.PACKAGE_NAME }} -destination 'platform=macOS' -derivedDataPath DerivedData
-      - name: Deploy Files
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod
