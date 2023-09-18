@@ -7,8 +7,8 @@ public extension OPML {
     public let description: String?
     public let type: OutlineType?
     public let url: URL?
-    public let htmlUrl: String?
-    public let xmlUrl: String?
+    public let htmlUrl: URL?
+    public let xmlUrl: URL?
     public let language: String?
     public let created: String?
     public let categories: [String]?
@@ -40,8 +40,8 @@ public extension OPML {
       self.description = try container.decodeIfPresent(String.self, forKey: .description)
       self.type = try container.decodeIfPresent(OutlineType.self, forKey: .type)
       self.url = try container.decodeIfPresent(URL.self, forKey: .url)
-      self.htmlUrl = try container.decodeIfPresent(String.self, forKey: .htmlUrl)
-      self.xmlUrl = try container.decodeIfPresent(String.self, forKey: .xmlUrl)
+      self.htmlUrl = try container.decodeIfPresent(URL.self, forKey: .htmlUrl)
+      self.xmlUrl = try container.decodeIfPresent(URL.self, forKey: .xmlUrl)
       self.language = try container.decodeIfPresent(String.self, forKey: .language)
       self.created = try container.decodeIfPresent(String.self, forKey: .created)
       self.version = try container.decodeIfPresent(String.self, forKey: .version)
