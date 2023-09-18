@@ -50,7 +50,19 @@ public extension OPML {
       self.expansionStates = try container
         .decodeIfPresent(String.self, forKey: .expansionStates)?
         .components(separatedBy: ", ")
-        .compactMap { Int($0) }
+        .filter { $0.isEmpty == false }
+        .map {
+          guard let value = Int($0) else {
+            let context = DecodingError.Context(
+              codingPath: [CodingKeys.expansionStates],
+              debugDescription: "Invalid expansionState type '\($0)'"
+            )
+
+            throw DecodingError.typeMismatch(Int.self, context)
+          }
+
+          return value
+        }
     }
   }
 }

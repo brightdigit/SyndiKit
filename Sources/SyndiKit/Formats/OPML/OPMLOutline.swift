@@ -5,8 +5,8 @@ public extension OPML {
     public let text: String
     public let title: String?
     public let description: String?
-    public let type: String?
-    public let url: [String]
+    public let type: OutlineType?
+    public let url: URL?
     public let htmlUrl: String?
     public let xmlUrl: String?
     public let language: String?
@@ -38,8 +38,8 @@ public extension OPML {
       self.text = try container.decode(String.self, forKey: .text)
       self.title = try container.decodeIfPresent(String.self, forKey: .title)
       self.description = try container.decodeIfPresent(String.self, forKey: .description)
-      self.type = try container.decodeIfPresent(String.self, forKey: .type)
-      self.url = try container.decode([String].self, forKey: .url)
+      self.type = try container.decodeIfPresent(OutlineType.self, forKey: .type)
+      self.url = try container.decodeIfPresent(URL.self, forKey: .url)
       self.htmlUrl = try container.decodeIfPresent(String.self, forKey: .htmlUrl)
       self.xmlUrl = try container.decodeIfPresent(String.self, forKey: .xmlUrl)
       self.language = try container.decodeIfPresent(String.self, forKey: .language)
