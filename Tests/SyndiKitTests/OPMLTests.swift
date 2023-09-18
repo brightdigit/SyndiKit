@@ -67,6 +67,25 @@ internal final class OPMLTests: XCTestCase {
     XCTAssertEqual(opml?.head.expansionStates?[3], 10)
   }
 
+  internal func testSimpleScript() throws {
+    let opml = try Content.opml["simpleScript"]?.get()
+
+    XCTAssertEqual(opml?.head.title, "workspace.userlandsamples.doSomeUpstreaming")
+    XCTAssertEqual(opml?.head.expansionStates?.count, 3)
+    XCTAssertEqual(opml?.head.expansionStates?[0], 1)
+    XCTAssertEqual(opml?.head.expansionStates?[2], 4)
+    
+    XCTAssertEqual(opml?.body.outlines.count, 4)
+
+    let isCommentOutline = opml?.body.outlines.first
+    XCTAssertEqual(isCommentOutline?.text, "Changes")
+    XCTAssertEqual(isCommentOutline?.isComment, true)
+
+    let isBreakpointOutline = opml?.body.outlines[1].outlines?.first
+    XCTAssertEqual(isBreakpointOutline?.text, "file.surefilepath (f)")
+    XCTAssertEqual(isBreakpointOutline?.isBreakpoint, true)
+  }
+
   internal func testType() throws {
     var opml = try Content.opml["subscriptionList"]?.get()
 

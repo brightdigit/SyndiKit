@@ -12,6 +12,8 @@ public extension OPML {
     public let language: String?
     public let created: String?
     public let categories: [String]?
+    public let isComment: Bool?
+    public let isBreakpoint: Bool?
     public let version: String?
 
     public let outlines: [Outline]?
@@ -27,6 +29,8 @@ public extension OPML {
       case language
       case created
       case categories = "category"
+      case isComment
+      case isBreakpoint
       case version
 
       case outlines = "outline"
@@ -44,7 +48,10 @@ public extension OPML {
       self.xmlUrl = try container.decodeIfPresent(URL.self, forKey: .xmlUrl)
       self.language = try container.decodeIfPresent(String.self, forKey: .language)
       self.created = try container.decodeIfPresent(String.self, forKey: .created)
+      self.isComment = try container.decodeIfPresent(Bool.self, forKey: .isComment)
+      self.isBreakpoint = try container.decodeIfPresent(Bool.self, forKey: .isBreakpoint)
       self.version = try container.decodeIfPresent(String.self, forKey: .version)
+
       self.outlines = try container.decodeIfPresent([Outline].self, forKey: .outlines)
 
       self.categories = try container
