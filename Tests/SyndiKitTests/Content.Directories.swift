@@ -10,6 +10,7 @@ extension Content {
       .appendingPathComponent("Data")
     static let XML = data.appendingPathComponent("XML")
     static let JSON = data.appendingPathComponent("JSON")
+    static let OPML = data.appendingPathComponent("OPML")
     static let WordPress = data.appendingPathComponent("WordPress")
   }
 }

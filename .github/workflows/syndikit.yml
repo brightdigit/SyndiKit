@@ -30,14 +30,13 @@ jobs:
         id: cache-spm-linux
         uses: actions/cache@v3
         env:
-          cache-name: cache-spm
+          cache-name: SPM
         with:
           path: .build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resolved') }}
+          key: ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ hashFiles('Package.resolved') }}-${{ env.RELEASE_DOT }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ hashFiles('Package.resolved') }}
+            ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}
       - name: Set Ubuntu Release DOT
         run: echo "RELEASE_DOT=$(lsb_release -sr)" >> $GITHUB_ENV
       - name: Set Ubuntu Release NUM
@@ -48,14 +47,10 @@ jobs:
         id: cache-swift-linux
         uses: actions/cache@v3
         env:
-          cache-name: cache-swift
+          cache-name: swift
         with:
           path: swift-${{ env.SWIFT_VER }}-RELEASE-ubuntu${{ env.RELEASE_DOT }}
-          key: ${{ runner.os }}-${{ env.RELEASE_DOT }}-${{ env.cache-name }}-${{ env.SWIFT_VER }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: ${{ env.cache-name }}-${{ runner.os }}-${{ env.SWIFT_VER }}-${{ env.RELEASE_DOT }}
       - name: Download Swift
         if: steps.cache-swift-linux.outputs.cache-hit != 'true'
         run: curl -O https://download.swift.org/swift-${SWIFT_VER}-release/ubuntu${RELEASE_NUM}/swift-${SWIFT_VER}-RELEASE/swift-${SWIFT_VER}-RELEASE-ubuntu${RELEASE_DOT}.tar.gz
@@ -71,7 +66,7 @@ jobs:
       - name: Prepare Code Coverage
         run: llvm-cov export -format="lcov" .build/x86_64-unknown-linux-gnu/debug/${{ env.PACKAGE_NAME }}PackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > info.lcov
       - name: Upload to CodeCov.io
-        run: bash <(curl https://codecov.io/bash) -F github -F ${RELEASE_NAME} -F ${SWIFT_VER}
+        run: bash <(curl https://codecov.io/bash) -F spm -F ${RELEASE_NAME} -F ${SWIFT_VER}
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   build-macos:
@@ -114,9 +109,15 @@ jobs:
             watchName: "Apple Watch Ultra (49mm)"
             iPhoneName: "iPhone 14"
           - runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.app"
+            xcode: "/Applications/Xcode_14.3.1.app"
             iOSVersion: "16.4"
             watchOSVersion: "9.4"
+            watchName: "Apple Watch Ultra (49mm)"
+            iPhoneName: "iPhone 14 Pro Max"
+          - runs-on: macos-13
+            xcode: "/Applications/Xcode_15.0.app"
+            iOSVersion: "17.0"
+            watchOSVersion: "10.0"
             watchName: "Apple Watch Ultra (49mm)"
             iPhoneName: "iPhone 14 Pro Max"
     steps:
@@ -134,7 +135,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Cache mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         id: cache-mint
         uses: actions/cache@v3
         env:
@@ -151,28 +152,27 @@ jobs:
       - name: Setup Xcode
         run: sudo xcode-select -s ${{ matrix.xcode }}/Contents/Developer
       - name: Install mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         run: |
           brew update
           brew install mint
       - name: Initialize CodeQL
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
       - name: Build
         run: swift build
       - name: Perform CodeQL Analysis
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
         uses: github/codeql-action/analyze@v2
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
       - uses: sersoft-gmbh/swift-coverage-action@v2
-      - name: Upload SPM coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          fail_ci_if_error: true
-          flags: spm
-          verbose: true
-          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload SPM to CodeCov.io
+        run: bash <(curl https://codecov.io/bash) -F spm -F macOS -F ${XCODE_NAME}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Clean up spm build directory
         run: rm -rf .build
       - name: Lint
@@ -191,37 +191,15 @@ jobs:
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
-      - name: Upload iOS coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          fail_ci_if_error: true
-          flags: iOS,iOS-${{ matrix.iOSVersion }}
-          verbose: true
-          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload iOS Coverage to CodeCov.io
+        run: bash <(curl https://codecov.io/bash) -F iOS -F iOS${{ matrix.iOSVersion }} -F macOS -F ${XCODE_NAME}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}      
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
       - uses: sersoft-gmbh/swift-coverage-action@v2
-      - name: Upload watchOS coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          fail_ci_if_error: true
-          flags: watchOS,watchOS${{ matrix.watchOSVersion }}
-          verbose: true
+      - name: Upload watchOS Coverage to CodeCov.io
+        run: bash <(curl https://codecov.io/bash) -F watchOS -F watchOS${{ matrix.watchOSVersion }} -F macOS -F ${XCODE_NAME}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}          
           token: ${{ secrets.CODECOV_TOKEN }}
-  deploy:
-    name: Deploy to Netlify
-    needs: [build-macos, build-ubuntu]
-    env:
-      PACKAGE_NAME: SyndiKit
-    runs-on: macos-12
-    if: ${{ github.ref == 'refs/heads/main' }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Netlify
-        run: brew install netlify-cli
-      - name: Resolve Package Dependencies
-        run: xcodebuild -resolvePackageDependencies -scheme ${{ env.PACKAGE_NAME }} -derivedDataPath DerivedData
-      - name: Build DocC Documentation
-        run: xcodebuild docbuild -scheme ${{ env.PACKAGE_NAME }} -destination 'platform=macOS' -derivedDataPath DerivedData
-      - name: Deploy Files
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod

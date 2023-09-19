@@ -1,4 +1,5 @@
 import Foundation
+import XMLCoder
 @testable import SyndiKit
 
 enum Content {
@@ -17,12 +18,30 @@ enum Content {
     }.map(Dictionary.init(uniqueKeysWithValues:)).get()
   }
 
-  static let decoder = SynDecoder()
+  static let synDecoder = SynDecoder()
+  static let xmlDecoder = XMLDecoder()
 
-  // swiftlint:disable force_try line_length
-  static let xmlFeeds = try! Content.resultDictionaryFrom(directoryURL: Directories.XML, by: Self.decoder.decode(_:))
-  static let jsonFeeds = try! Content.resultDictionaryFrom(directoryURL: Directories.JSON, by: Self.decoder.decode(_:))
-  static let wordpressDataSet = try! FileManager.default.dataFromDirectory(at: Directories.WordPress)
+  static let xmlFeeds = try! Content.resultDictionaryFrom(
+    directoryURL: Directories.XML,
+    by: Self.synDecoder.decode(_:)
+  )
+  static let jsonFeeds = try! Content.resultDictionaryFrom(
+    directoryURL: Directories.JSON, 
+    by: Self.synDecoder.decode(_:)
+  )
+  static let opml = try! Content.resultDictionaryFrom(
+    directoryURL: Directories.OPML,
+    by: Self.xmlDecoder.decodeOPML(_:)
+  )
+  static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
+    at: Directories.WordPress
+  )
   static let blogs: SiteCollection = try! .init(contentsOf: Directories.data.appendingPathComponent("blogs.json"))
   // swiftlint:enable force_try line_length
+}
+
+extension XMLDecoder {
+  func decodeOPML(_ data: Data) throws -> OPML {
+    try self.decode(OPML.self, from: data)
+  }
 }
