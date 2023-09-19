@@ -109,7 +109,7 @@ jobs:
             watchName: "Apple Watch Ultra (49mm)"
             iPhoneName: "iPhone 14"
           - runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.app"
+            xcode: "/Applications/Xcode_14.3.1.app"
             iOSVersion: "16.4"
             watchOSVersion: "9.4"
             watchName: "Apple Watch Ultra (49mm)"
@@ -135,7 +135,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Cache mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         id: cache-mint
         uses: actions/cache@v3
         env:
@@ -152,17 +152,19 @@ jobs:
       - name: Setup Xcode
         run: sudo xcode-select -s ${{ matrix.xcode }}/Contents/Developer
       - name: Install mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         run: |
           brew update
           brew install mint
       - name: Initialize CodeQL
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
       - name: Build
         run: swift build
       - name: Perform CodeQL Analysis
+        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
         uses: github/codeql-action/analyze@v2
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
