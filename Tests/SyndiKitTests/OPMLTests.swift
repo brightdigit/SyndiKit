@@ -86,6 +86,24 @@ internal final class OPMLTests: XCTestCase {
     XCTAssertEqual(isBreakpointOutline?.isBreakpoint, true)
   }
 
+  internal func testInvalidExpansionStateType() throws {
+    XCTAssertThrowsError(try Content.opml["category_invalidExpansionState"]?.get()) { error in
+      guard  case .typeMismatch(let type, let context) = error as? DecodingError else {
+        XCTFail("Expected typeMismatch error.")
+        return
+      }
+
+      XCTAssertTrue(type is Int.Type)
+      XCTAssertTrue(
+        context.codingPath.contains(
+          where: {
+            $0.stringValue == OPML.Head.CodingKeys.expansionStates.stringValue
+          }
+        )
+      )
+    }
+  }
+
   internal func testType() throws {
     var opml = try Content.opml["subscriptionList"]?.get()
 
