@@ -188,21 +188,21 @@ public final class SyndiKitTests: XCTestCase {
     }
 
     XCTAssertEqual(rss.channel.podcastLocked?.owner, "leogdion@brightdigit.com")
-    XCTAssertEqual(rss.channel.podcastLocked?.value, false)
-    
-    XCTAssertEqual(rss.channel.podcastFundings?.count, 1)
+    XCTAssertEqual(rss.channel.podcastLocked?.isLocked, false)
 
-    let funding = rss.channel.podcastFundings?[0]
-    XCTAssertEqual(funding?.description, "Support this podcast on Patreon")
-    XCTAssertEqual(funding?.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
+    XCTAssertEqual(rss.channel.podcastFundings.count, 1)
 
-    XCTAssertEqual(rss.channel.podcastPersons?.count, 1)
+    let funding = rss.channel.podcastFundings[0]
+    XCTAssertEqual(funding.description, "Support this podcast on Patreon")
+    XCTAssertEqual(funding.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
 
-    let person = rss.channel.podcastPersons?[0]
-    XCTAssertEqual(person?.fullname, "Leo Dion")
-    XCTAssertEqual(person?.role, .host)
-    XCTAssertEqual(person?.href, URL(strict: "https://brightdigit.com"))
-    XCTAssertEqual(person?.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+    XCTAssertEqual(rss.channel.podcastPeople.count, 1)
+
+    let person = rss.channel.podcastPeople[0]
+    XCTAssertEqual(person.fullname, "Leo Dion")
+    XCTAssertEqual(person.role, .host)
+    XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
+    XCTAssertEqual(person.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
   }
 
   func testPodcastEpisodes() {
@@ -289,7 +289,7 @@ public final class SyndiKitTests: XCTestCase {
       return
     }
 
-    XCTAssertNil(item.podcastPersons)
+    XCTAssertNil(item.podcastPeople)
   }
 
   func testEpisodesWithHostAndGuestPersons() {
@@ -311,7 +311,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertFalse(items.isEmpty)
 
     for item in items {
-      let host = item.podcastPersons?.first(where: { $0.role == .host })
+      let host = item.podcastPeople?.first(where: { $0.role == .host })
 
       XCTAssertNotNil(host)
       XCTAssertEqual(host?.fullname, "Leo Dion")
@@ -322,7 +322,7 @@ public final class SyndiKitTests: XCTestCase {
       )
 
       // Both podcasts have the same guest
-      let guest = item.podcastPersons?.first(where: { $0.role == .guest })
+      let guest = item.podcastPeople?.first(where: { $0.role == .guest })
 
       XCTAssertNotNil(guest)
       XCTAssertEqual(guest?.fullname, "CompileSwift")

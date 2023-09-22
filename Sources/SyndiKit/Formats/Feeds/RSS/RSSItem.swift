@@ -18,7 +18,7 @@ public struct RSSItem: Codable {
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
-  public let podcastPersons: [PodcastPerson]?
+  public let podcastPeople: [PodcastPerson]?
   public let podcastTranscripts: [PodcastTranscript]?
   public let podcastChapters: PodcastChapters?
   public let podcastSoundbites: [PodcastSoundbite]?
@@ -62,7 +62,7 @@ public struct RSSItem: Codable {
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
-    podcastPersons: [PodcastPerson]? = nil,
+    podcastPeople: [PodcastPerson]? = nil,
     podcastTranscripts: [PodcastTranscript]? = nil,
     podcastChapters: PodcastChapters? = nil,
     podcastSoundbites: [PodcastSoundbite]? = nil,
@@ -104,7 +104,7 @@ public struct RSSItem: Codable {
     self.itunesExplicit = itunesExplicit
     self.itunesDuration = itunesDuration.map(iTunesDuration.init)
     self.itunesImage = itunesImage
-    self.podcastPersons = podcastPersons
+    self.podcastPeople = podcastPeople
     self.podcastTranscripts = podcastTranscripts
     self.podcastChapters = podcastChapters
     self.podcastSoundbites = podcastSoundbites
@@ -155,9 +155,9 @@ public struct RSSItem: Codable {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
 
-    podcastPersons = try container.decodeIfPresent(
+    podcastPeople = try container.decodeIfPresent(
       [PodcastPerson].self,
-      forKey: .podcastPersons
+      forKey: .podcastPeople
     )
     podcastTranscripts = try container.decodeIfPresent(
       [PodcastTranscript].self,
@@ -260,7 +260,7 @@ public struct RSSItem: Codable {
     case itunesSubtitle = "itunes:subtitle"
     case itunesSummary = "itunes:summary"
     case itunesExplicit = "itunes:explicit"
-    case podcastPersons = "podcast:person"
+    case podcastPeople = "podcast:person"
     case podcastTranscripts = "podcast:transcript"
     case podcastChapters = "podcast:chapters"
     case podcastSoundbites = "podcast:soundbite"

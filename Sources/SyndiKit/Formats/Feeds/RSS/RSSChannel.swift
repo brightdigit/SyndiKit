@@ -46,8 +46,8 @@ public struct RSSChannel: Codable {
   public let wpBaseBlogURL: URL?
 
   public let podcastLocked: PodcastLocked?
-  public let podcastFundings: [PodcastFunding]?
-  public let podcastPersons: [PodcastPerson]?
+  public let podcastFundings: [PodcastFunding]
+  public let podcastPeople: [PodcastPerson]
 
 
   enum CodingKeys: String, CodingKey {
@@ -72,7 +72,7 @@ public struct RSSChannel: Codable {
     case wpBaseBlogURL = "wp:baseBlogUrl"
     case podcastLocked = "podcast:locked"
     case podcastFundings = "podcast:funding"
-    case podcastPersons = "podcast:person"
+    case podcastPeople = "podcast:person"
   }
 }
 

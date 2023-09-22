@@ -7,7 +7,7 @@ import Foundation
 /// rel="captions"
 /// />
 public struct PodcastTranscript: Codable {
-  public enum TranscriptType: String, Codable {
+  public enum MimeType: String, Codable {
     case pain = "text/plain"
     case html = "text/html"
     case srt = "text/srt"
@@ -16,14 +16,14 @@ public struct PodcastTranscript: Codable {
     case subrip = "application/x-subrip"
   }
 
-  public enum TranscriptRel: String, Codable {
-    case rel = "captions"
+  public enum Relationship: String, Codable {
+    case captions
   }
 
   public let url: URL
-  public let type: TranscriptType
+  public let type: MimeType
   public let language: String?
-  public let rel: TranscriptRel?
+  public let rel: Relationship?
 
   enum CodingKeys: String, CodingKey {
     case url
