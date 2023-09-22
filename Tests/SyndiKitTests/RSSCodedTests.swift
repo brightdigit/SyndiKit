@@ -176,6 +176,35 @@ public final class SyndiKitTests: XCTestCase {
     }
   }
 
+  func testChannelPodcastElements() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    XCTAssertEqual(rss.channel.podcastLocked?.owner, "leogdion@brightdigit.com")
+    XCTAssertEqual(rss.channel.podcastLocked?.value, false)
+    
+    XCTAssertEqual(rss.channel.podcastFundings?.count, 1)
+
+    let funding = rss.channel.podcastFundings?[0]
+    XCTAssertEqual(funding?.description, "Support this podcast on Patreon")
+    XCTAssertEqual(funding?.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
+
+    XCTAssertEqual(rss.channel.podcastPersons?.count, 1)
+
+    let person = rss.channel.podcastPersons?[0]
+    XCTAssertEqual(person?.fullname, "Leo Dion")
+    XCTAssertEqual(person?.role, .host)
+    XCTAssertEqual(person?.href, URL(strict: "https://brightdigit.com"))
+    XCTAssertEqual(person?.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+  }
+
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -282,22 +311,22 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertFalse(items.isEmpty)
 
     for item in items {
-      let host = item.podcastPersons?.first(where: { $0.role?.lowercased() == "host" })
+      let host = item.podcastPersons?.first(where: { $0.role == .host })
 
       XCTAssertNotNil(host)
       XCTAssertEqual(host?.fullname, "Leo Dion")
-      XCTAssertEqual(host?.href, "https://brightdigit.com")
+      XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
       XCTAssertEqual(
         host?.img,
         URL(string: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
       )
 
       // Both podcasts have the same guest
-      let guest = item.podcastPersons?.first(where: { $0.role?.lowercased() == "guest" })
+      let guest = item.podcastPersons?.first(where: { $0.role == .guest })
 
       XCTAssertNotNil(guest)
       XCTAssertEqual(guest?.fullname, "CompileSwift")
-      XCTAssertEqual(guest?.href, "https://compileswift.com")
+      XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
       XCTAssertEqual(
         guest?.img,
         URL(string: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")
