@@ -289,7 +289,7 @@ public final class SyndiKitTests: XCTestCase {
       return
     }
 
-    XCTAssertNil(item.podcastPeople)
+    XCTAssertTrue(item.podcastPeople.isEmpty)
   }
 
   func testEpisodesWithHostAndGuestPersons() {
