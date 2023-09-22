@@ -18,7 +18,11 @@ public struct RSSItem: Codable {
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
-  public let podcastPerson: [PodcastPerson]?
+  public let podcastPersons: [PodcastPerson]?
+  public let podcastTranscripts: [PodcastTranscript]?
+  public let podcastChapters: PodcastChapters?
+  public let podcastSoundbites: [PodcastSoundbite]?
+  public let podcastSeason: PodcastSeason?
   public let enclosure: Enclosure?
   public let creators: [String]
   public let wpCommentStatus: CData?
@@ -58,7 +62,11 @@ public struct RSSItem: Codable {
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
-    podcastPerson: [PodcastPerson]? = nil,
+    podcastPersons: [PodcastPerson]? = nil,
+    podcastTranscripts: [PodcastTranscript]? = nil,
+    podcastChapters: PodcastChapters? = nil,
+    podcastSoundbites: [PodcastSoundbite]? = nil,
+    podcastSeason: PodcastSeason? = nil,
     enclosure: Enclosure? = nil,
     creators: [String] = [],
     wpCommentStatus: String? = nil,
@@ -96,7 +104,11 @@ public struct RSSItem: Codable {
     self.itunesExplicit = itunesExplicit
     self.itunesDuration = itunesDuration.map(iTunesDuration.init)
     self.itunesImage = itunesImage
-    self.podcastPerson = podcastPerson
+    self.podcastPersons = podcastPersons
+    self.podcastTranscripts = podcastTranscripts
+    self.podcastChapters = podcastChapters
+    self.podcastSoundbites = podcastSoundbites
+    self.podcastSeason = podcastSeason
     self.enclosure = enclosure
     self.creators = creators
     self.wpCommentStatus = wpCommentStatus.map(CData.init)
@@ -143,9 +155,26 @@ public struct RSSItem: Codable {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
 
-    podcastPerson = try container.decodeIfPresent(
+    podcastPersons = try container.decodeIfPresent(
       [PodcastPerson].self,
-      forKey: .podcastPerson
+      forKey: .podcastPersons
+    )
+    podcastTranscripts = try container.decodeIfPresent(
+      [PodcastTranscript].self,
+      forKey: .podcastTranscripts
+    )
+    podcastChapters = try container.decodeIfPresent(
+      PodcastChapters.self,
+      forKey: .podcastChapters
+    )
+    podcastSoundbites = try container.decodeIfPresent(
+      [PodcastSoundbite].self,
+      forKey: .podcastSoundbites
+    )
+
+    podcastSeason = try container.decodeIfPresent(
+      PodcastSeason.self,
+      forKey: .podcastSeason
     )
 
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
@@ -231,7 +260,11 @@ public struct RSSItem: Codable {
     case itunesSubtitle = "itunes:subtitle"
     case itunesSummary = "itunes:summary"
     case itunesExplicit = "itunes:explicit"
-    case podcastPerson = "podcast:person"
+    case podcastPersons = "podcast:person"
+    case podcastTranscripts = "podcast:transcript"
+    case podcastChapters = "podcast:chapters"
+    case podcastSoundbites = "podcast:soundbite"
+    case podcastSeason = "podcast:season"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
     case creators = "dc:creator"

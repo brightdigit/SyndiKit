@@ -260,7 +260,7 @@ public final class SyndiKitTests: XCTestCase {
       return
     }
 
-    XCTAssertNil(item.podcastPerson)
+    XCTAssertNil(item.podcastPersons)
   }
 
   func testEpisodesWithHostAndGuestPersons() {
@@ -282,10 +282,10 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertFalse(items.isEmpty)
 
     for item in items {
-      let host = item.podcastPerson?.first(where: { $0.role.lowercased() == "host" })
+      let host = item.podcastPersons?.first(where: { $0.role?.lowercased() == "host" })
 
       XCTAssertNotNil(host)
-      XCTAssertEqual(host?.name, "Leo Dion")
+      XCTAssertEqual(host?.fullname, "Leo Dion")
       XCTAssertEqual(host?.href, "https://brightdigit.com")
       XCTAssertEqual(
         host?.img,
@@ -293,10 +293,10 @@ public final class SyndiKitTests: XCTestCase {
       )
 
       // Both podcasts have the same guest
-      let guest = item.podcastPerson?.first(where: { $0.role.lowercased() == "guest" })
+      let guest = item.podcastPersons?.first(where: { $0.role?.lowercased() == "guest" })
 
       XCTAssertNotNil(guest)
-      XCTAssertEqual(guest?.name, "CompileSwift")
+      XCTAssertEqual(guest?.fullname, "CompileSwift")
       XCTAssertEqual(guest?.href, "https://compileswift.com")
       XCTAssertEqual(
         guest?.img,

@@ -1,15 +1,12 @@
 import Foundation
 
+/// <podcast:funding url="https://www.example.com/donations">Support the show!</podcast:funding>g
 public struct PodcastFunding: Codable {
-  public let startTime: TimeInterval
-  public let duration: TimeInterval
-
-  public let value: String?
+  public let url: URL
+  public let description: String?
 
   enum CodingKeys: String, CodingKey {
-    case startTime
-    case duration
-
-    case value = ""
+    case url
+    case description = ""
   }
 }
