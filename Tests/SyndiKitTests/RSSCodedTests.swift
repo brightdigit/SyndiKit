@@ -311,7 +311,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertFalse(items.isEmpty)
 
     for item in items {
-      let host = item.podcastPeople?.first(where: { $0.role == .host })
+      let host = item.podcastPeople.first(where: { $0.role == .host })
 
       XCTAssertNotNil(host)
       XCTAssertEqual(host?.fullname, "Leo Dion")
@@ -322,7 +322,7 @@ public final class SyndiKitTests: XCTestCase {
       )
 
       // Both podcasts have the same guest
-      let guest = item.podcastPeople?.first(where: { $0.role == .guest })
+      let guest = item.podcastPeople.first(where: { $0.role == .guest })
 
       XCTAssertNotNil(guest)
       XCTAssertEqual(guest?.fullname, "CompileSwift")

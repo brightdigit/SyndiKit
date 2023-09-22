@@ -37,6 +37,6 @@ struct PodcastEpisodeProperties: PodcastEpisode {
     duration = rssItem.itunesDuration?.value
     image = rssItem.itunesImage
     self.enclosure = enclosure
-    people = rssItem.podcastPeople ?? []
+    people = rssItem.podcastPeople
   }
 }

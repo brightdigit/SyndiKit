@@ -18,10 +18,10 @@ public struct RSSItem: Codable {
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
-  public let podcastPeople: [PodcastPerson]?
-  public let podcastTranscripts: [PodcastTranscript]?
+  public let podcastPeople: [PodcastPerson]
+  public let podcastTranscripts: [PodcastTranscript]
   public let podcastChapters: PodcastChapters?
-  public let podcastSoundbites: [PodcastSoundbite]?
+  public let podcastSoundbites: [PodcastSoundbite]
   public let podcastSeason: PodcastSeason?
   public let enclosure: Enclosure?
   public let creators: [String]
@@ -39,7 +39,7 @@ public struct RSSItem: Codable {
   public let wpModifiedDateGMT: Date?
   public let wpPostName: CData?
   public let wpPostType: CData?
-  public let wpPostMeta: [WordPressElements.PostMeta]?
+  public let wpPostMeta: [WordPressElements.PostMeta]
   public let wpAttachmentURL: URL?
   public let mediaContent: AtomMedia?
   public let mediaThumbnail: AtomMedia?
@@ -62,10 +62,10 @@ public struct RSSItem: Codable {
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
-    podcastPeople: [PodcastPerson]? = nil,
-    podcastTranscripts: [PodcastTranscript]? = nil,
+    podcastPeople: [PodcastPerson] = [],
+    podcastTranscripts: [PodcastTranscript] = [],
     podcastChapters: PodcastChapters? = nil,
-    podcastSoundbites: [PodcastSoundbite]? = nil,
+    podcastSoundbites: [PodcastSoundbite] = [],
     podcastSeason: PodcastSeason? = nil,
     enclosure: Enclosure? = nil,
     creators: [String] = [],
@@ -83,7 +83,7 @@ public struct RSSItem: Codable {
     wpModifiedDateGMT: Date? = nil,
     wpPostName: String? = nil,
     wpPostType: String? = nil,
-    wpPostMeta: [WordPressElements.PostMeta]? = nil,
+    wpPostMeta: [WordPressElements.PostMeta] = [],
     wpAttachmentURL: URL? = nil,
     mediaContent: AtomMedia? = nil,
     mediaThumbnail: AtomMedia? = nil
@@ -158,11 +158,11 @@ public struct RSSItem: Codable {
     podcastPeople = try container.decodeIfPresent(
       [PodcastPerson].self,
       forKey: .podcastPeople
-    )
+    ) ?? []
     podcastTranscripts = try container.decodeIfPresent(
       [PodcastTranscript].self,
       forKey: .podcastTranscripts
-    )
+    ) ?? []
     podcastChapters = try container.decodeIfPresent(
       PodcastChapters.self,
       forKey: .podcastChapters
@@ -170,7 +170,7 @@ public struct RSSItem: Codable {
     podcastSoundbites = try container.decodeIfPresent(
       [PodcastSoundbite].self,
       forKey: .podcastSoundbites
-    )
+    ) ?? []
 
     podcastSeason = try container.decodeIfPresent(
       PodcastSeason.self,
@@ -232,7 +232,7 @@ public struct RSSItem: Codable {
     wpPostMeta = try container.decodeIfPresent(
       [WordPressElements.PostMeta].self,
       forKey: .wpPostMeta
-    )
+    ) ?? []
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)
