@@ -23,27 +23,36 @@ extension PodcastPerson {
     
     init?(role: Role) {
       switch role {
-        
-      case .guest:        self = .guest
-      case .host:        self = .host
-      case .editor:        self = .editor
-      case .writer:        self = .writer
-      case .designer:        self = .designer
-      case .composer:        self = .composer
-      case .producer:        self = .producer
-      case .unknown:        return nil
+
+      case .guest:      self = .guest
+      case .host:       self = .host
+      case .editor:     self = .editor
+      case .writer:     self = .writer
+      case .designer:   self = .designer
+      case .composer:   self = .composer
+      case .producer:   self = .producer
+      case .unknown:    return nil
       }
     }
   }
   
   public enum Role: Codable, Equatable, RawRepresentable {
+    case guest
+    case host
+    case editor
+    case writer
+    case designer
+    case composer
+    case producer
+    case unknown(String)
+
     public var rawValue: String {
       if let knownRole = KnownRole(role: self) {
         return knownRole.rawValue
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError()
+        fatalError("This should never happen!")
       }
     }
     
@@ -55,10 +64,6 @@ extension PodcastPerson {
       }
     }
     
-    private init(knownRole : KnownRole) {
-      self.init(rawValue: knownRole.rawValue)!
-    }
-    
     public init?(rawValue: String) {
       if let knownRole = KnownRole(rawValue: rawValue) {
         self = .init(knownRole: knownRole)
@@ -66,15 +71,17 @@ extension PodcastPerson {
         self = .unknown(rawValue)
       }
     }
-    
-    
-    case guest
-    case host
-    case editor
-    case writer
-    case designer
-    case composer
-    case producer
-    case unknown(String)
+
+    private init(knownRole: KnownRole) {
+      switch knownRole {
+      case .guest:      self = .guest
+      case .host:       self = .host
+      case .editor:     self = .editor
+      case .writer:     self = .writer
+      case .designer:   self = .designer
+      case .composer:   self = .composer
+      case .producer:   self = .producer
+      }
+    }
   }
 }
