@@ -205,6 +205,46 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(person.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
   }
 
+  func testItemPodcastElements() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    guard let item = rss.channel.items.first else {
+      XCTFail("Missing Item \(name)")
+      return
+    }
+
+    let host = item.podcastPeople[0]
+    XCTAssertEqual(host.fullname, "Leo Dion")
+    XCTAssertEqual(host.role, .host)
+    XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
+    XCTAssertEqual(host.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+
+    let guest = item.podcastPeople[1]
+    XCTAssertEqual(guest.fullname, "CompileSwift")
+    XCTAssertEqual(guest.role, .guest)
+    XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
+    XCTAssertEqual(guest.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"))
+
+    XCTAssertEqual(item.podcastTranscripts.count, 1)
+
+    let transcript = item.podcastTranscripts[0]
+    XCTAssertEqual(transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
+    XCTAssertEqual(transcript.type, .srt)
+    XCTAssertEqual(transcript.rel, .captions)
+
+    let chapters = item.podcastChapters
+    XCTAssertEqual(chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
+    XCTAssertEqual(chapters?.type, .json)
+  }
+
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -284,7 +324,7 @@ public final class SyndiKitTests: XCTestCase {
 
     let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
 
-    guard let item = rss.channel.items.first(where: { $0.title == itemTitle } ) else {
+    guard let item = rss.channel.items.first(where: { $0.title == itemTitle }) else {
       XCTFail("Expected to find episode of title: \(itemTitle)")
       return
     }

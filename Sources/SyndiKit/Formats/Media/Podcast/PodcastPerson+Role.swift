@@ -1,14 +1,7 @@
-//
-//  File.swift
-//  
-//
-//  Created by Leo Dion on 9/23/23.
-//
-
 import Foundation
 
 extension PodcastPerson {
-  private enum KnownRole : String {
+  private enum KnownRole: String {
     case guest
     case host
     case editor
@@ -16,26 +9,25 @@ extension PodcastPerson {
     case designer
     case composer
     case producer
-    
+
     init?(caseInsensitive: String) {
       self.init(rawValue: caseInsensitive.lowercased())
     }
-    
+
     init?(role: Role) {
       switch role {
-
-      case .guest:      self = .guest
-      case .host:       self = .host
-      case .editor:     self = .editor
-      case .writer:     self = .writer
-      case .designer:   self = .designer
-      case .composer:   self = .composer
-      case .producer:   self = .producer
-      case .unknown:    return nil
+      case .guest: self = .guest
+      case .host: self = .host
+      case .editor: self = .editor
+      case .writer: self = .writer
+      case .designer: self = .designer
+      case .composer: self = .composer
+      case .producer: self = .producer
+      case .unknown: return nil
       }
     }
   }
-  
+
   public enum Role: Codable, Equatable, RawRepresentable {
     case guest
     case host
@@ -55,15 +47,7 @@ extension PodcastPerson {
         fatalError("This should never happen!")
       }
     }
-    
-    public init(caseInsensitive: String) {
-      if let knownRole = KnownRole(caseInsensitive: caseInsensitive) {
-        self = .init(knownRole: knownRole)
-      } else {
-        self = .unknown(caseInsensitive)
-      }
-    }
-    
+
     public init?(rawValue: String) {
       if let knownRole = KnownRole(rawValue: rawValue) {
         self = .init(knownRole: knownRole)
@@ -72,15 +56,23 @@ extension PodcastPerson {
       }
     }
 
+    public init(caseInsensitive: String) {
+      if let knownRole = KnownRole(caseInsensitive: caseInsensitive) {
+        self = .init(knownRole: knownRole)
+      } else {
+        self = .unknown(caseInsensitive)
+      }
+    }
+
     private init(knownRole: KnownRole) {
       switch knownRole {
-      case .guest:      self = .guest
-      case .host:       self = .host
-      case .editor:     self = .editor
-      case .writer:     self = .writer
-      case .designer:   self = .designer
-      case .composer:   self = .composer
-      case .producer:   self = .producer
+      case .guest: self = .guest
+      case .host: self = .host
+      case .editor: self = .editor
+      case .writer: self = .writer
+      case .designer: self = .designer
+      case .composer: self = .composer
+      case .producer: self = .producer
       }
     }
   }

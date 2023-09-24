@@ -7,15 +7,6 @@ import Foundation
 /// rel="captions"
 /// />
 public struct PodcastTranscript: Codable {
-  public enum MimeType: String, Codable {
-    case pain = "text/plain"
-    case html = "text/html"
-    case srt = "text/srt"
-    case vtt = "text/vtt"
-    case json = "application/json"
-    case subrip = "application/x-subrip"
-  }
-
   public enum Relationship: String, Codable {
     case captions
   }

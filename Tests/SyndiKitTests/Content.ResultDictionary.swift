@@ -1,6 +1,6 @@
 import Foundation
-import XMLCoder
 @testable import SyndiKit
+import XMLCoder
 
 enum Content {
   typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
@@ -26,7 +26,7 @@ enum Content {
     by: Self.synDecoder.decode(_:)
   )
   static let jsonFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.JSON, 
+    directoryURL: Directories.JSON,
     by: Self.synDecoder.decode(_:)
   )
   static let opml = try! Content.resultDictionaryFrom(
@@ -42,6 +42,6 @@ enum Content {
 
 extension XMLDecoder {
   func decodeOPML(_ data: Data) throws -> OPML {
-    try self.decode(OPML.self, from: data)
+    try decode(OPML.self, from: data)
   }
 }

@@ -12,7 +12,7 @@ public struct PodcastLocked: Codable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.owner = try container.decodeIfPresent(String.self, forKey: .owner)
-    self.isLocked = try container.decode(String.self, forKey: .isLocked).lowercased() == "yes"
+    owner = try container.decodeIfPresent(String.self, forKey: .owner)
+    isLocked = try container.decode(String.self, forKey: .isLocked).lowercased() == "yes"
   }
 }

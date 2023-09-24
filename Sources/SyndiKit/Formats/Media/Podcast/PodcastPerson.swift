@@ -7,7 +7,6 @@ import Foundation
 /// img="http://example.com/images/alicebrown.jpg"
 /// >Alice Brown</podcast:person>
 public struct PodcastPerson: Codable {
-
   public let role: Role?
   public let group: String?
   public let href: URL?
@@ -25,20 +24,19 @@ public struct PodcastPerson: Codable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.group = try container.decodeIfPresent(String.self, forKey: .group)
-    self.fullname = try container.decode(String.self, forKey: .fullname)
+    group = try container.decodeIfPresent(String.self, forKey: .group)
+    fullname = try container.decode(String.self, forKey: .fullname)
 
     if let roleStr = try container.decodeIfPresent(String.self, forKey: .role) {
-      self.role = Role(caseInsensitive: roleStr)
+      role = Role(caseInsensitive: roleStr)
     } else {
-      self.role = nil
+      role = nil
     }
 
-
     let hrefUrl = try container.decodeIfPresent(String.self, forKey: .href) ?? ""
-    self.href = hrefUrl.isEmpty ? nil : URL(string: hrefUrl)
+    href = hrefUrl.isEmpty ? nil : URL(string: hrefUrl)
 
     let imgUrl = try container.decodeIfPresent(String.self, forKey: .img) ?? ""
-    self.img = imgUrl.isEmpty ? nil : URL(string: imgUrl)
+    img = imgUrl.isEmpty ? nil : URL(string: imgUrl)
   }
 }

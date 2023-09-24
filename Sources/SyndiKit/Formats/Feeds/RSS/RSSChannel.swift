@@ -49,7 +49,6 @@ public struct RSSChannel: Codable {
   public let podcastFundings: [PodcastFunding]
   public let podcastPeople: [PodcastPerson]
 
-
   enum CodingKeys: String, CodingKey {
     case title
     case link
