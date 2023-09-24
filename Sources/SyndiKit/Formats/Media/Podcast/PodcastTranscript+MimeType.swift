@@ -15,11 +15,11 @@ extension PodcastTranscript {
 
     init?(mimeType: MimeType) {
       switch mimeType {
-      case .plain:   self = .plain
-      case .html:   self = .html
-      case .srt:    self = .srt
-      case .vtt:    self = .vtt
-      case .json:   self = .json
+      case .plain: self = .plain
+      case .html: self = .html
+      case .srt: self = .srt
+      case .vtt: self = .vtt
+      case .json: self = .json
       case .subrip: self = .subrip
       case .unknown: return nil
       }

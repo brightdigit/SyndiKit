@@ -1,4 +1,4 @@
-extension Sequence {
+internal extension Sequence {
   func mapPairResult<Success>(
     _ transform: @escaping (Element) throws -> Success
   ) -> [(Element, Result<Success, Error>)] {
