@@ -55,12 +55,11 @@ public struct PodcastLocation: Codable, Equatable {
         debugDescription: "Invalid coordinates for geo attribute: \(geoStr)"
       )
     }
-    let altitude = geoCoords.split(separator: ",")[safe: 2]?.asDouble()
     let height = geoCoords.split(separator: ",")[safe: 2]?.asExactInt()
     let accuracy = geoPath.split(separator: ";")[safe: 1]?
       .split(separator: "=")[safe: 1]?
       .asDouble()
-    self.geo = .init(latitude: latitude, longitude: longitude, altitude: altitude, height: height, accuracy: accuracy)
+    self.geo = .init(latitude: latitude, longitude: longitude, height: height, accuracy: accuracy)
 
     
     var osmStr = try container.decode(String.self, forKey: .osm)
@@ -72,7 +71,7 @@ public struct PodcastLocation: Codable, Equatable {
         debugDescription: "Invalid type for osm attribute: \(osmStr)"
       )
     }
-    guard let osmID = osmStr.split(separator: "#")[safe: 0]?.asInt() else {
+    guard let osmID = osmStr.split(separator: "#")[safe: 0]?.asExactInt() else {
       throw DecodingError.dataCorruptedError(
         forKey: .osm,
         in: container,

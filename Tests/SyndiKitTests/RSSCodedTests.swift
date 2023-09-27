@@ -245,6 +245,220 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(chapters?.type, .json)
   }
 
+  func testPodcastPeopleUnknownRole() throws {
+    let expectedRole = "worker"
+    let xmlStr = """
+    <podcast:person
+      group="writing"
+      role="\(expectedRole)"
+      href="https://www.wikipedia/alicebrown"
+      img="http://example.com/images/alicebrown.jpg"
+    >  Alice Brown
+    </podcast:person>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastPerson.self, from: data)
+
+    XCTAssertEqual(sut.role, .unknown(expectedRole))
+  }
+
+  func testPodcastPeopleMissingRole() throws {
+    let xmlStr = """
+    <podcast:person
+      group="writing"
+      href="https://www.wikipedia/alicebrown"
+      img="http://example.com/images/alicebrown.jpg"
+    >  Alice Brown
+    </podcast:person>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastPerson.self, from: data)
+
+    XCTAssertNil(sut.role)
+  }
+
+  func testPodcastChaptersUnknownMimeType() throws {
+    let expectedType = "yaml"
+    let xmlStr = """
+    <podcast:chapters
+      url="https://example.com/episode1/chapters.json"
+      type="\(expectedType)"
+    />
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastChapters.self, from: data)
+
+    XCTAssertEqual(sut.type, .unknown(expectedType))
+  }
+
+  func testPodcastLocationOfTypeRelation() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
+    let expectedOsmType = "R"
+    let expectedOsmID = 113314
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude)"
+      osm="\(expectedOsmType)\(expectedOsmID)"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
+    XCTAssertEqual(sut.osm.id, expectedOsmID)
+    XCTAssertEqual(sut.osm.type, .relation)
+    XCTAssertNil(sut.osm.revision)
+  }
+
+  func testPodcastLocationWithAccuracy() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
+    let expectedAccuracy = 350.0
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)"
+      osm="R00000"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo.accuracy, expectedAccuracy)
+    XCTAssertNil(sut.geo.height)
+  }
+
+  func testPodcastLocationWithHeight() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
+    let expectedHeight = 250
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedHeight)"
+      osm="R00000"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo.height, expectedHeight)
+    XCTAssertNil(sut.geo.accuracy)
+  }
+
+  func testPodcastLocationWithInvalidGeoData() throws {
+    let missingGeoScheme = """
+    <podcast:location geo="30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidGeoData(from: missingGeoScheme)
+
+    let missingCoords = """
+    <podcast:location geo="geo:" osm="R113314">Austin, TX</podcast:location>
+    """
+    try assertInvalidGeoData(from: missingCoords)
+
+    let invalidCoords = """
+    <podcast:location geo="geo:cairo" osm="R113314">Austin, TX</podcast:location>
+    """
+    try assertInvalidGeoData(from: invalidCoords)
+  }
+
+  private func assertInvalidGeoData(from xmlStr: String) throws {
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    XCTAssertThrowsError(
+      try XMLDecoder().decode(PodcastLocation.self, from: data)
+    ) { error in
+      assertPodcastLocationDecodingError(error, codingKey: .geo)
+    }
+  }
+
+  func testPodcastLocationWithInvalidOsmData() throws {
+    let invalidOsmType = """
+    <podcast:location geo="geo:30.2672,97.7431" osm="X113314">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidOsmData(from: invalidOsmType)
+
+    let invalidOsmID = """
+    <podcast:location geo="geo:30.2672,97.7431" osm="R">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidOsmData(from: invalidOsmID)
+  }
+
+  private func assertInvalidOsmData(from xmlStr: String) throws {
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    XCTAssertThrowsError(
+      try XMLDecoder().decode(PodcastLocation.self, from: data)
+    ) { error in
+      assertPodcastLocationDecodingError(error, codingKey: .osm)
+    }
+  }
+
+  private func assertPodcastLocationDecodingError(_ error: Error, codingKey: PodcastLocation.CodingKeys) {
+    guard
+      let decodingError = error as? DecodingError,
+      case let DecodingError.dataCorrupted(context) = decodingError else {
+      XCTFail()
+      return
+    }
+
+    XCTAssertTrue(
+      context.codingPath.contains(
+        where: { $0.stringValue == codingKey.rawValue }
+      )
+    )
+  }
+
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [

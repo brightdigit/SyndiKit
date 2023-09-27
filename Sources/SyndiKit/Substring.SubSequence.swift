@@ -6,7 +6,9 @@ extension Substring.SubSequence {
   }
 
   func asInt() -> Int? {
-    return Int(self)
+    guard let double = Double(self) else { return nil }
+
+    return Int(double)
   }
 
   func asExactInt() -> Int? {
