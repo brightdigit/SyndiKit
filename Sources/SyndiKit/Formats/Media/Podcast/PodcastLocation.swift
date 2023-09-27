@@ -1,8 +1,8 @@
 import Foundation
 
 public struct PodcastLocation: Codable, Equatable {
-  public let geo: GeoURI
-  public let osmQuery: OsmQuery
+  public let geo: GeoURI?
+  public let osmQuery: OsmQuery?
 
   public let name: String
 
@@ -15,8 +15,8 @@ public struct PodcastLocation: Codable, Equatable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.geo = try container.decode(GeoURI.self, forKey: .geo)
-    self.osmQuery = try container.decode(OsmQuery.self, forKey: .osmQuery)
+    self.geo = try container.decodeIfPresent(GeoURI.self, forKey: .geo)
+    self.osmQuery = try container.decodeIfPresent(OsmQuery.self, forKey: .osmQuery)
     self.name = try container.decode(String.self, forKey: .name)
   }
 }

@@ -327,11 +327,11 @@ public final class SyndiKitTests: XCTestCase {
 
     let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
 
-    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
-    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
-    XCTAssertEqual(sut.osmQuery.id, expectedOsmID)
-    XCTAssertEqual(sut.osmQuery.type, .relation)
-    XCTAssertNil(sut.osmQuery.revision)
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.osmQuery?.id, expectedOsmID)
+    XCTAssertEqual(sut.osmQuery?.type, .relation)
+    XCTAssertNil(sut.osmQuery?.revision)
   }
 
   func testPodcastLocationWithAccuracy() throws {
@@ -354,10 +354,10 @@ public final class SyndiKitTests: XCTestCase {
 
     let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
 
-    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
-    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
-    XCTAssertEqual(sut.geo.accuracy, expectedAccuracy)
-    XCTAssertNil(sut.geo.height)
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
+    XCTAssertNil(sut.geo?.height)
   }
 
   func testPodcastLocationWithHeight() throws {
@@ -380,10 +380,10 @@ public final class SyndiKitTests: XCTestCase {
 
     let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
 
-    XCTAssertEqual(sut.geo.latitude, expectedLatitude)
-    XCTAssertEqual(sut.geo.longitude, expectedLongitude)
-    XCTAssertEqual(sut.geo.height, expectedHeight)
-    XCTAssertNil(sut.geo.accuracy)
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo?.height, expectedHeight)
+    XCTAssertNil(sut.geo?.accuracy)
   }
 
   func testPodcastLocationWithInvalidGeoData() throws {
