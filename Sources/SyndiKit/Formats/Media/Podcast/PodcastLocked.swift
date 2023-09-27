@@ -1,12 +1,5 @@
 import Foundation
 
-/// ```xml
-/// <podcast:locked
-///   owner="leogdion@brightdigit.com"
-/// >
-///   no
-/// </podcast:locked>
-/// ```
 public struct PodcastLocked: Codable, Equatable {
   public let owner: String?
   public let isLocked: Bool

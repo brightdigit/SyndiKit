@@ -1,10 +1,6 @@
 import Foundation
 
 extension PodcastLocation {
-  /// Examples:
-  ///   - The United States of America: `R148838`
-  ///   - The Eiffel Tower in Paris: `W5013364`
-  ///   - Paris, but - optionally - the revision made on 8 Jan 2021: `R7444#188`
   public struct OsmQuery: Codable, Equatable {
     enum OsmType: String, Codable, CaseIterable {
       case node = "N"
@@ -28,7 +24,7 @@ extension PodcastLocation {
       guard let osmType = osmStr.removeFirst().asOsmType() else {
         throw DecodingError.dataCorrupted(
           .init(
-            codingPath: [PodcastLocation.CodingKeys.osm],
+            codingPath: [PodcastLocation.CodingKeys.osmQuery],
             debugDescription: "Invalid type for osm attribute: \(osmStr)"
           )
         )
@@ -36,7 +32,7 @@ extension PodcastLocation {
       guard let osmID = osmStr.split(separator: "#")[safe: 0]?.asExactInt() else {
         throw DecodingError.dataCorrupted(
           .init(
-            codingPath: [PodcastLocation.CodingKeys.osm],
+            codingPath: [PodcastLocation.CodingKeys.osmQuery],
             debugDescription: "Invalid id of type Int for osm attribute: \(osmStr)"
           )
         )

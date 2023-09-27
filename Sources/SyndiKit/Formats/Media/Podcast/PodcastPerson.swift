@@ -1,14 +1,5 @@
 import Foundation
 
-/// ```xml
-/// <podcast:person
-///   group="writing"
-///   role="guest"
-///   href="https://www.wikipedia/alicebrown"
-///   img="http://example.com/images/alicebrown.jpg"
-/// >
-///   Alice Brown
-/// </podcast:person>
 public struct PodcastPerson: Codable, Equatable {
   public let role: Role?
   public let group: String?

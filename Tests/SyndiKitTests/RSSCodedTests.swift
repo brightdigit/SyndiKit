@@ -329,9 +329,9 @@ public final class SyndiKitTests: XCTestCase {
 
     XCTAssertEqual(sut.geo.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo.longitude, expectedLongitude)
-    XCTAssertEqual(sut.osm.id, expectedOsmID)
-    XCTAssertEqual(sut.osm.type, .relation)
-    XCTAssertNil(sut.osm.revision)
+    XCTAssertEqual(sut.osmQuery.id, expectedOsmID)
+    XCTAssertEqual(sut.osmQuery.type, .relation)
+    XCTAssertNil(sut.osmQuery.revision)
   }
 
   func testPodcastLocationWithAccuracy() throws {
@@ -440,7 +440,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertThrowsError(
       try XMLDecoder().decode(PodcastLocation.self, from: data)
     ) { error in
-      assertPodcastLocationDecodingError(error, codingKey: .osm)
+      assertPodcastLocationDecodingError(error, codingKey: .osmQuery)
     }
   }
 
