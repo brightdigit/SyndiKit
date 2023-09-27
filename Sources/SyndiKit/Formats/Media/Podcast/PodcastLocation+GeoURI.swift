@@ -4,13 +4,13 @@ extension PodcastLocation {
   public struct GeoURI: Codable, Equatable {
     let latitude: Double
     let longitude: Double
-    let height: Int?
+    let altitude: Double?
     let accuracy: Double?
 
-    public init(latitude: Double, longitude: Double, height: Int? = nil, accuracy: Double? = nil) {
+    public init(latitude: Double, longitude: Double, altitude: Double? = nil, accuracy: Double? = nil) {
       self.latitude = latitude
       self.longitude = longitude
-      self.height = height
+      self.altitude = altitude
       self.accuracy = accuracy
     }
 
@@ -48,14 +48,14 @@ extension PodcastLocation {
           )
         )
       }
-      let height = geoCoords.split(separator: ",")[safe: 2]?.asExactInt()
+      let altitude = geoCoords.split(separator: ",")[safe: 2]?.asDouble()
       let accuracy = geoPath.split(separator: ";")[safe: 1]?
         .split(separator: "=")[safe: 1]?
         .asDouble()
 
       self.latitude = latitude
       self.longitude = longitude
-      self.height = height
+      self.altitude = altitude
       self.accuracy = accuracy
     }
   }

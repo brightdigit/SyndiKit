@@ -357,16 +357,16 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
-    XCTAssertNil(sut.geo?.height)
+    XCTAssertNil(sut.geo?.altitude)
   }
 
-  func testPodcastLocationWithHeight() throws {
+  func testPodcastLocationWithAltitude() throws {
     let expectedLatitude = 30.2672
     let expectedLongitude = 97.7431
-    let expectedHeight = 250
+    let expectedAltitude = 250.0
     let xmlStr = """
     <podcast:location
-      geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedHeight)"
+      geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)"
       osm="R00000"
     >
       Austin, TX
@@ -382,7 +382,7 @@ public final class SyndiKitTests: XCTestCase {
 
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
-    XCTAssertEqual(sut.geo?.height, expectedHeight)
+    XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
     XCTAssertNil(sut.geo?.accuracy)
   }
 
