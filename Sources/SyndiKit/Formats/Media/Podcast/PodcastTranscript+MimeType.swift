@@ -41,7 +41,7 @@ extension PodcastTranscript {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("This should never happen!")
+        fatalError("Type attribute of <podcast:transcript> should either be a `KnownMimeType`, or unknown!")
       }
     }
 

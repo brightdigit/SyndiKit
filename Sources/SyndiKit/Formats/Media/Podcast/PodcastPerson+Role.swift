@@ -44,7 +44,7 @@ extension PodcastPerson {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("This should never happen!")
+        fatalError("Role attribute of <podcast:person> should either be a `KnownRole`, or unknown!")
       }
     }
 

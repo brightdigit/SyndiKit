@@ -1,4 +1,6 @@
 import Foundation
+
+
 public protocol PodcastEpisode {
   var title: String? { get }
   var episode: Int? { get }

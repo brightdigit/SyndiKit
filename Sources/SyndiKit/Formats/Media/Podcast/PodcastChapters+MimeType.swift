@@ -26,7 +26,7 @@ extension PodcastChapters {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("This should never happen!")
+        fatalError("Type attribute of <podcast:chapters> should either be `KnownMimeType`, or unknown!")
       }
     }
 

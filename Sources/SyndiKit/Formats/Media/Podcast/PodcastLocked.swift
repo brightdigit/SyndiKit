@@ -1,6 +1,12 @@
 import Foundation
 
-/// <podcast:locked owner="leogdion@brightdigit.com">no</podcast:locked>
+/// ```xml
+/// <podcast:locked
+///   owner="leogdion@brightdigit.com"
+/// >
+///   no
+/// </podcast:locked>
+/// ```
 public struct PodcastLocked: Codable {
   public let owner: String?
   public let isLocked: Bool

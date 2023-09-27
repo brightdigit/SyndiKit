@@ -1,6 +1,12 @@
 import Foundation
 
-/// <podcast:funding url="https://www.example.com/donations">Support the show!</podcast:funding>g
+/// ```xml
+/// <podcast:funding
+///   url="https://www.example.com/donations"
+/// >
+///   Support the show!
+/// </podcast:funding>
+/// ```
 public struct PodcastFunding: Codable {
   public let url: URL
   public let description: String?
