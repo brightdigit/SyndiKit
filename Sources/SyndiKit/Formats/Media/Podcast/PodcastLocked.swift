@@ -7,7 +7,7 @@ import Foundation
 ///   no
 /// </podcast:locked>
 /// ```
-public struct PodcastLocked: Codable {
+public struct PodcastLocked: Codable, Equatable {
   public let owner: String?
   public let isLocked: Bool
 

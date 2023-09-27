@@ -7,7 +7,7 @@ import Foundation
 ///   Support the show!
 /// </podcast:funding>
 /// ```
-public struct PodcastFunding: Codable {
+public struct PodcastFunding: Codable, Equatable {
   public let url: URL
   public let description: String?
 

@@ -9,7 +9,7 @@ import Foundation
 /// >
 ///   Alice Brown
 /// </podcast:person>
-public struct PodcastPerson: Codable {
+public struct PodcastPerson: Codable, Equatable {
   public let role: Role?
   public let group: String?
   public let href: URL?

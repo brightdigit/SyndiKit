@@ -10,7 +10,7 @@ import Foundation
 ///   3
 /// </podcast:season>
 /// ```
-public struct PodcastSeason: Codable {
+public struct PodcastSeason: Codable, Equatable {
   public let name: String?
   public let number: Int
 

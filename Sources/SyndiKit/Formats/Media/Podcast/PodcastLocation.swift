@@ -8,47 +8,7 @@ import Foundation
 ///   Austin, TX
 ///  </podcast:location>
 /// ```
-public struct PodcastLocation: Codable {
-  /// Examples:
-  ///   - `geo:37.786971,-122.399677`, a simple latlon description.
-  ///   - `geo:37.786971,-122.399677,250`, a latlon including a height of 250 meters above ground level.
-  ///   - `geo:37.786971,-122.399677;u=350`, a latlon with an accuracy ('uncertainty') of 350 meters.
-  public struct GeoURI: Codable {
-    let latitude: Double
-    let longitude: Double
-    let altitude: Double?
-    let height: Int?
-    let accuracy: Double?
-
-    public init(latitude: Double, longitude: Double, altitude: Double? = nil, height: Int? = nil, accuracy: Double? = nil) {
-      self.latitude = latitude
-      self.longitude = longitude
-      self.altitude = altitude
-      self.height = height
-      self.accuracy = accuracy
-    }
-  }
-
-  /// Examples:
-  ///   - The United States of America: `R148838`
-  ///   - The Eiffel Tower in Paris: `W5013364`
-  ///   - Paris, but - optionally - the revision made on 8 Jan 2021: `R7444#188`
-  public struct OsmQuery: Codable {
-    enum OsmType: String, Codable, CaseIterable {
-      case node = "N"
-      case way = "W"
-      case relation = "R"
-
-      static func isValid(_ rawValue: String) -> Bool {
-        OsmType(rawValue: rawValue) != nil
-      }
-    }
-
-    let id: Int
-    let type: OsmType
-    let revision: Int?
-  }
-
+public struct PodcastLocation: Codable, Equatable {
   public let geo: GeoURI
   public let osm: OsmQuery
 

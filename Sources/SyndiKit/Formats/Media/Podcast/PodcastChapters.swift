@@ -6,7 +6,7 @@ import Foundation
 ///   type="application/json+chapters"
 /// />
 /// ```
-public struct PodcastChapters: Codable {
+public struct PodcastChapters: Codable, Equatable {
   public let url: URL
   public let type: MimeType
 

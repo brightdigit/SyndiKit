@@ -7,7 +7,7 @@ import Foundation
 ///   language="es"
 ///   rel="captions"
 /// />
-public struct PodcastTranscript: Codable {
+public struct PodcastTranscript: Codable, Equatable {
   public enum Relationship: String, Codable {
     case captions
   }

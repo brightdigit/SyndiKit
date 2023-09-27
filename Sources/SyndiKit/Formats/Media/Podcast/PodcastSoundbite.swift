@@ -14,7 +14,7 @@ import Foundation
 ///   duration="60.0"
 /// />
 /// ```
-public struct PodcastSoundbite: Codable {
+public struct PodcastSoundbite: Codable, Equatable {
   public let startTime: TimeInterval
   public let duration: TimeInterval
 
