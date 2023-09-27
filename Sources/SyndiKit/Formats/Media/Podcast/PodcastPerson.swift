@@ -18,14 +18,9 @@ public struct PodcastPerson: Codable, Equatable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
+    self.role = try container.decodeIfPresent(Role.self, forKey: .role)
     self.group = try container.decodeIfPresent(String.self, forKey: .group)
     self.fullname = try container.decode(String.self, forKey: .fullname)
-
-    if let roleStr = try container.decodeIfPresent(String.self, forKey: .role) {
-      self.role = Role(caseInsensitive: roleStr)
-    } else {
-      self.role = nil
-    }
 
     let hrefUrl = try container.decodeIfPresent(String.self, forKey: .href) ?? ""
     self.href = hrefUrl.isEmpty ? nil : URL(string: hrefUrl)

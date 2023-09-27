@@ -49,11 +49,7 @@ extension PodcastPerson {
     }
 
     public init?(rawValue: String) {
-      if let knownRole = KnownRole(rawValue: rawValue) {
-        self = .init(knownRole: knownRole)
-      } else {
-        self = .unknown(rawValue)
-      }
+      self.init(caseInsensitive: rawValue)
     }
 
     public init(caseInsensitive: String) {

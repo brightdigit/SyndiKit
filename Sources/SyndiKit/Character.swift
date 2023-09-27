@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Ahmed Shendy on 27/09/2023.
-//
-
 import Foundation
 
 extension Character {

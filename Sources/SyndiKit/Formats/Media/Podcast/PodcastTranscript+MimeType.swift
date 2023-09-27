@@ -46,11 +46,7 @@ extension PodcastTranscript {
     }
 
     public init?(rawValue: String) {
-      if let knownMimeType = KnownMimeType(rawValue: rawValue) {
-        self = .init(knownMimeType: knownMimeType)
-      } else {
-        self = .unknown(rawValue)
-      }
+      self.init(caseInsensitive: rawValue)
     }
 
     public init(caseInsensitive: String) {
