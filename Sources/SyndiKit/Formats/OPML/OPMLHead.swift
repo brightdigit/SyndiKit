@@ -34,20 +34,20 @@ public extension OPML {
 
     public init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: CodingKeys.self)
-      self.title = try container.decodeIfPresent(String.self, forKey: .title)
-      self.dateCreated = try container.decodeIfPresent(String.self, forKey: .dateCreated)
-      self.dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
-      self.ownerName = try container.decodeIfPresent(String.self, forKey: .ownerName)
-      self.ownerEmail = try container.decodeIfPresent(String.self, forKey: .ownerEmail)
-      self.ownerId = try container.decodeIfPresent(String.self, forKey: .ownerId)
-      self.docs = try container.decodeIfPresent(String.self, forKey: .docs)
-      self.vertScrollState = try container.decodeIfPresent(Int.self, forKey: .vertScrollState)
-      self.windowTop = try container.decodeIfPresent(Int.self, forKey: .windowTop)
-      self.windowLeft = try container.decodeIfPresent(Int.self, forKey: .windowLeft)
-      self.windowBottom = try container.decodeIfPresent(Int.self, forKey: .windowBottom)
-      self.windowRight = try container.decodeIfPresent(Int.self, forKey: .windowRight)
+      title = try container.decodeIfPresent(String.self, forKey: .title)
+      dateCreated = try container.decodeIfPresent(String.self, forKey: .dateCreated)
+      dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
+      ownerName = try container.decodeIfPresent(String.self, forKey: .ownerName)
+      ownerEmail = try container.decodeIfPresent(String.self, forKey: .ownerEmail)
+      ownerId = try container.decodeIfPresent(String.self, forKey: .ownerId)
+      docs = try container.decodeIfPresent(String.self, forKey: .docs)
+      vertScrollState = try container.decodeIfPresent(Int.self, forKey: .vertScrollState)
+      windowTop = try container.decodeIfPresent(Int.self, forKey: .windowTop)
+      windowLeft = try container.decodeIfPresent(Int.self, forKey: .windowLeft)
+      windowBottom = try container.decodeIfPresent(Int.self, forKey: .windowBottom)
+      windowRight = try container.decodeIfPresent(Int.self, forKey: .windowRight)
 
-      self.expansionStates = try container
+      expansionStates = try container
         .decodeIfPresent(String.self, forKey: .expansionStates)?
         .components(separatedBy: ", ")
         .filter { $0.isEmpty == false }

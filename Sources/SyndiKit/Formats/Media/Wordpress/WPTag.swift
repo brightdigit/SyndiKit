@@ -23,8 +23,7 @@ public extension WordPressElements {
 extension WordPressElements.Tag: Equatable {
   public static func == (lhs: WordPressElements.Tag, rhs: WordPressElements.Tag) -> Bool {
     lhs.termID == rhs.termID
-    && lhs.slug == rhs.slug
-    && lhs.name == rhs.name
+      && lhs.slug == rhs.slug
+      && lhs.name == rhs.name
   }
 }
-

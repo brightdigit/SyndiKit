@@ -1,8 +1,7 @@
-import XCTest
 @testable import SyndiKit
+import XCTest
 
 final class RSSItemCategoryTests: XCTestCase {
-
   func testTwoEqualCategories() {
     let c1 = RSSItemCategory(
       value: "Top Menu",

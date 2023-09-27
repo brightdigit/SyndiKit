@@ -13,7 +13,7 @@ public extension WordPressElements {
       case parent = "wp:categoryParent"
       case name = "wp:catName"
     }
-    
+
     public init(termID: Int, niceName: CData, parent: CData, name: String) {
       self.termID = termID
       self.niceName = niceName
@@ -26,8 +26,8 @@ public extension WordPressElements {
 extension WordPressElements.Category: Equatable {
   public static func == (lhs: WordPressElements.Category, rhs: WordPressElements.Category) -> Bool {
     lhs.termID == rhs.termID
-    && lhs.niceName == rhs.niceName
-    && lhs.parent == rhs.parent
-    && lhs.name == rhs.name
+      && lhs.niceName == rhs.niceName
+      && lhs.parent == rhs.parent
+      && lhs.name == rhs.name
   }
 }

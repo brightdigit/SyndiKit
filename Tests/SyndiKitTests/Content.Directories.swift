@@ -1,7 +1,7 @@
 import Foundation
 @testable import SyndiKit
 
-extension Content {
+internal extension Content {
   enum Directories {
     static let data = URL(fileURLWithPath: #file)
       .deletingLastPathComponent()

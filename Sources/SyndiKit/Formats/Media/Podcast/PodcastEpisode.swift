@@ -1,4 +1,5 @@
 import Foundation
+
 public protocol PodcastEpisode {
   var title: String? { get }
   var episode: Int? { get }
@@ -37,6 +38,6 @@ struct PodcastEpisodeProperties: PodcastEpisode {
     duration = rssItem.itunesDuration?.value
     image = rssItem.itunesImage
     self.enclosure = enclosure
-    people = rssItem.podcastPerson ?? []
+    people = rssItem.podcastPeople
   }
 }

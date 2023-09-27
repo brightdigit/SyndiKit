@@ -31,14 +31,14 @@ internal final class OPMLTests: XCTestCase {
     let usOutline = opml?.body.outlines.first
 
     XCTAssertEqual(usOutline?.text, "United States")
-    
+
     XCTAssertEqual(usOutline?.outlines?.count, 8)
-    
+
     let farWestOutline = usOutline?.outlines?.first
 
     XCTAssertEqual(farWestOutline?.text, "Far West")
     XCTAssertEqual(farWestOutline?.outlines?.count, 6)
-    
+
     let nevadaOutline = farWestOutline?.outlines?[3]
     XCTAssertEqual(nevadaOutline?.outlines?.count, 4)
   }
@@ -74,7 +74,7 @@ internal final class OPMLTests: XCTestCase {
     XCTAssertEqual(opml?.head.expansionStates?.count, 3)
     XCTAssertEqual(opml?.head.expansionStates?[0], 1)
     XCTAssertEqual(opml?.head.expansionStates?[2], 4)
-    
+
     XCTAssertEqual(opml?.body.outlines.count, 4)
 
     let isCommentOutline = opml?.body.outlines.first
@@ -84,6 +84,24 @@ internal final class OPMLTests: XCTestCase {
     let isBreakpointOutline = opml?.body.outlines[1].outlines?.first
     XCTAssertEqual(isBreakpointOutline?.text, "file.surefilepath (f)")
     XCTAssertEqual(isBreakpointOutline?.isBreakpoint, true)
+  }
+
+  internal func testInvalidExpansionStateType() throws {
+    XCTAssertThrowsError(try Content.opml["category_invalidExpansionState"]?.get()) { error in
+      guard case let .typeMismatch(type, context) = error as? DecodingError else {
+        XCTFail("Expected typeMismatch error.")
+        return
+      }
+
+      XCTAssertTrue(type is Int.Type)
+      XCTAssertTrue(
+        context.codingPath.contains(
+          where: {
+            $0.stringValue == OPML.Head.CodingKeys.expansionStates.stringValue
+          }
+        )
+      )
+    }
   }
 
   internal func testType() throws {
@@ -104,7 +122,7 @@ internal final class OPMLTests: XCTestCase {
         where: { $0.text == "Florida" }
       )
 
-    XCTAssertEqual(floridaOutline?.type,.include)
+    XCTAssertEqual(floridaOutline?.type, .include)
     XCTAssertNotNil(floridaOutline?.url)
   }
 }

@@ -3,18 +3,16 @@ import Foundation
 import XCTest
 
 final class WordpressTests: XCTestCase {
-  
-  static let baseSiteURLs : [String : URL] = [
-    "articles" : URL(string: "https://brightdigit.com/")!,
-    "tutorials" : URL(string: "https://brightdigit.com/")!
+  static let baseSiteURLs: [String: URL] = [
+    "articles": URL(string: "https://brightdigit.com/")!,
+    "tutorials": URL(string: "https://brightdigit.com/")!
   ]
-  
-  
-  static let baseBlogURLs : [String : URL] = [
-    "articles" : URL(string: "https://brightdigit.com")!,
-    "tutorials" : URL(string: "https://learningswift.brightdigit.com")!
+
+  static let baseBlogURLs: [String: URL] = [
+    "articles": URL(string: "https://brightdigit.com")!,
+    "tutorials": URL(string: "https://learningswift.brightdigit.com")!
   ]
-  
+
   func testDateDecoder() {
     let dateDecoder = DateFormatterDecoder.RSS.decoder
     let result = dateDecoder.decodeString("Fri, 06 Oct 2017 17:21:35 +0000")
