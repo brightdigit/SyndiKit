@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         runs-on: [ubuntu-20.04, ubuntu-22.04]
-        swift-version: [5.7.3, 5.8]
+        swift-version: [5.7.3, 5.8.1, 5.9]
         include:
           - runs-on: ubuntu-20.04
             swift-version: 5.5.3
@@ -177,7 +177,7 @@ jobs:
         run: rm -rf .build
       - name: Lint
         run: ./scripts/lint.sh
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.app' }}
+        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
       - name: Dump PIF
         if: startsWith(matrix.xcode,'/Applications/Xcode_14')
         run: |
