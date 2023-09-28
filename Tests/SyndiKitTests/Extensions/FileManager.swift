@@ -1,6 +1,6 @@
 import Foundation
 
-extension FileManager {
+internal extension FileManager {
   func dataFromDirectory(at sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
     let urls = try contentsOfDirectory(
       at: sourceURL,
@@ -8,10 +8,7 @@ extension FileManager {
       options: []
     )
 
-    return urls.mapPairResult {
-      try Data(contentsOf: $0)
-    }.map {
-      ($0.0.deletingPathExtension().lastPathComponent, $0.1)
-    }
+    return urls.mapPairResult { try Data(contentsOf: $0) }
+      .map { ($0.0.deletingPathExtension().lastPathComponent, $0.1) }
   }
 }

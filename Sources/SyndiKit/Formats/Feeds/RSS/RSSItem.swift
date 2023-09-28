@@ -18,7 +18,11 @@ public struct RSSItem: Codable {
   public let itunesExplicit: String?
   public let itunesDuration: iTunesDuration?
   public let itunesImage: iTunesImage?
-  public let podcastPerson: [PodcastPerson]?
+  public let podcastPeople: [PodcastPerson]
+  public let podcastTranscripts: [PodcastTranscript]
+  public let podcastChapters: PodcastChapters?
+  public let podcastSoundbites: [PodcastSoundbite]
+  public let podcastSeason: PodcastSeason?
   public let enclosure: Enclosure?
   public let creators: [String]
   public let wpCommentStatus: CData?
@@ -35,7 +39,7 @@ public struct RSSItem: Codable {
   public let wpModifiedDateGMT: Date?
   public let wpPostName: CData?
   public let wpPostType: CData?
-  public let wpPostMeta: [WordPressElements.PostMeta]?
+  public let wpPostMeta: [WordPressElements.PostMeta]
   public let wpAttachmentURL: URL?
   public let mediaContent: AtomMedia?
   public let mediaThumbnail: AtomMedia?
@@ -58,7 +62,11 @@ public struct RSSItem: Codable {
     itunesExplicit: String? = nil,
     itunesDuration: TimeInterval? = nil,
     itunesImage: iTunesImage? = nil,
-    podcastPerson: [PodcastPerson]? = nil,
+    podcastPeople: [PodcastPerson] = [],
+    podcastTranscripts: [PodcastTranscript] = [],
+    podcastChapters: PodcastChapters? = nil,
+    podcastSoundbites: [PodcastSoundbite] = [],
+    podcastSeason: PodcastSeason? = nil,
     enclosure: Enclosure? = nil,
     creators: [String] = [],
     wpCommentStatus: String? = nil,
@@ -75,7 +83,7 @@ public struct RSSItem: Codable {
     wpModifiedDateGMT: Date? = nil,
     wpPostName: String? = nil,
     wpPostType: String? = nil,
-    wpPostMeta: [WordPressElements.PostMeta]? = nil,
+    wpPostMeta: [WordPressElements.PostMeta] = [],
     wpAttachmentURL: URL? = nil,
     mediaContent: AtomMedia? = nil,
     mediaThumbnail: AtomMedia? = nil
@@ -96,7 +104,11 @@ public struct RSSItem: Codable {
     self.itunesExplicit = itunesExplicit
     self.itunesDuration = itunesDuration.map(iTunesDuration.init)
     self.itunesImage = itunesImage
-    self.podcastPerson = podcastPerson
+    self.podcastPeople = podcastPeople
+    self.podcastTranscripts = podcastTranscripts
+    self.podcastChapters = podcastChapters
+    self.podcastSoundbites = podcastSoundbites
+    self.podcastSeason = podcastSeason
     self.enclosure = enclosure
     self.creators = creators
     self.wpCommentStatus = wpCommentStatus.map(CData.init)
@@ -143,9 +155,26 @@ public struct RSSItem: Codable {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
 
-    podcastPerson = try container.decodeIfPresent(
+    podcastPeople = try container.decodeIfPresent(
       [PodcastPerson].self,
-      forKey: .podcastPerson
+      forKey: .podcastPeople
+    ) ?? []
+    podcastTranscripts = try container.decodeIfPresent(
+      [PodcastTranscript].self,
+      forKey: .podcastTranscripts
+    ) ?? []
+    podcastChapters = try container.decodeIfPresent(
+      PodcastChapters.self,
+      forKey: .podcastChapters
+    )
+    podcastSoundbites = try container.decodeIfPresent(
+      [PodcastSoundbite].self,
+      forKey: .podcastSoundbites
+    ) ?? []
+
+    podcastSeason = try container.decodeIfPresent(
+      PodcastSeason.self,
+      forKey: .podcastSeason
     )
 
     enclosure = try container.decodeIfPresent(Enclosure.self, forKey: .enclosure)
@@ -203,7 +232,7 @@ public struct RSSItem: Codable {
     wpPostMeta = try container.decodeIfPresent(
       [WordPressElements.PostMeta].self,
       forKey: .wpPostMeta
-    )
+    ) ?? []
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)
@@ -231,7 +260,11 @@ public struct RSSItem: Codable {
     case itunesSubtitle = "itunes:subtitle"
     case itunesSummary = "itunes:summary"
     case itunesExplicit = "itunes:explicit"
-    case podcastPerson = "podcast:person"
+    case podcastPeople = "podcast:person"
+    case podcastTranscripts = "podcast:transcript"
+    case podcastChapters = "podcast:chapters"
+    case podcastSoundbites = "podcast:soundbite"
+    case podcastSeason = "podcast:season"
     case itunesDuration = "itunes:duration"
     case itunesImage = "itunes:image"
     case creators = "dc:creator"

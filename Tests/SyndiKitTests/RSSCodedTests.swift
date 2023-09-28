@@ -176,6 +176,291 @@ public final class SyndiKitTests: XCTestCase {
     }
   }
 
+  func testChannelPodcastElements() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    XCTAssertEqual(rss.channel.podcastLocked?.owner, "leogdion@brightdigit.com")
+    XCTAssertEqual(rss.channel.podcastLocked?.isLocked, false)
+
+    XCTAssertEqual(rss.channel.podcastFundings.count, 1)
+
+    let funding = rss.channel.podcastFundings[0]
+    XCTAssertEqual(funding.description, "Support this podcast on Patreon")
+    XCTAssertEqual(funding.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
+
+    XCTAssertEqual(rss.channel.podcastPeople.count, 1)
+
+    let person = rss.channel.podcastPeople[0]
+    XCTAssertEqual(person.fullname, "Leo Dion")
+    XCTAssertEqual(person.role, .host)
+    XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
+    XCTAssertEqual(person.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+  }
+
+  func testItemPodcastElements() {
+    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    guard let item = rss.channel.items.first else {
+      XCTFail("Missing Item \(name)")
+      return
+    }
+
+    let host = item.podcastPeople[0]
+    XCTAssertEqual(host.fullname, "Leo Dion")
+    XCTAssertEqual(host.role, .host)
+    XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
+    XCTAssertEqual(host.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+
+    let guest = item.podcastPeople[1]
+    XCTAssertEqual(guest.fullname, "CompileSwift")
+    XCTAssertEqual(guest.role, .guest)
+    XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
+    XCTAssertEqual(guest.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"))
+
+    XCTAssertEqual(item.podcastTranscripts.count, 1)
+
+    let transcript = item.podcastTranscripts[0]
+    XCTAssertEqual(transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
+    XCTAssertEqual(transcript.type, .srt)
+    XCTAssertEqual(transcript.rel, .captions)
+
+    let chapters = item.podcastChapters
+    XCTAssertEqual(chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
+    XCTAssertEqual(chapters?.type, .json)
+  }
+
+  func testPodcastPeopleUnknownRole() throws {
+    let expectedRole = "worker"
+    let xmlStr = """
+    <podcast:person
+      group="writing"
+      role="\(expectedRole)"
+      href="https://www.wikipedia/alicebrown"
+      img="http://example.com/images/alicebrown.jpg"
+    >  Alice Brown
+    </podcast:person>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastPerson.self, from: data)
+
+    XCTAssertEqual(sut.role, .unknown(expectedRole))
+  }
+
+  func testPodcastPeopleMissingRole() throws {
+    let xmlStr = """
+    <podcast:person
+      group="writing"
+      href="https://www.wikipedia/alicebrown"
+      img="http://example.com/images/alicebrown.jpg"
+    >  Alice Brown
+    </podcast:person>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastPerson.self, from: data)
+
+    XCTAssertNil(sut.role)
+  }
+
+  func testPodcastChaptersUnknownMimeType() throws {
+    let expectedType = "yaml"
+    let xmlStr = """
+    <podcast:chapters
+      url="https://example.com/episode1/chapters.json"
+      type="\(expectedType)"
+    />
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastChapters.self, from: data)
+
+    XCTAssertEqual(sut.type, .unknown(expectedType))
+  }
+
+  func testPodcastLocationOfTypeRelation() throws {
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
+    let expectedOsmType = "R"
+    let expectedOsmID = 113_314
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude)"
+      osm="\(expectedOsmType)\(expectedOsmID)"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.osmQuery?.id, expectedOsmID)
+    XCTAssertEqual(sut.osmQuery?.type, .relation)
+    XCTAssertNil(sut.osmQuery?.revision)
+  }
+
+  func testPodcastLocationWithAccuracy() throws {
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
+    let expectedAccuracy = 350.0
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)"
+      osm="R00000"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
+    XCTAssertNil(sut.geo?.altitude)
+  }
+
+  func testPodcastLocationWithAltitude() throws {
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
+    let expectedAltitude = 250.0
+    let xmlStr = """
+    <podcast:location
+      geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)"
+      osm="R00000"
+    >
+      Austin, TX
+     </podcast:location>
+    """
+
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    let sut = try XMLDecoder().decode(PodcastLocation.self, from: data)
+
+    XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
+    XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
+    XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
+    XCTAssertNil(sut.geo?.accuracy)
+  }
+
+  func testPodcastLocationWithInvalidGeoData() throws {
+    let missingGeoScheme = """
+    <podcast:location geo="30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidGeoData(from: missingGeoScheme)
+
+    let missingCoords = """
+    <podcast:location geo="geo:" osm="R113314">Austin, TX</podcast:location>
+    """
+    try assertInvalidGeoData(from: missingCoords)
+
+    let invalidCoords = """
+    <podcast:location geo="geo:cairo" osm="R113314">Austin, TX</podcast:location>
+    """
+    try assertInvalidGeoData(from: invalidCoords)
+  }
+
+  private func assertInvalidGeoData(from xmlStr: String) throws {
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    XCTAssertThrowsError(
+      try XMLDecoder().decode(PodcastLocation.self, from: data)
+    ) { error in
+      assertPodcastLocationDecodingError(error, codingKey: .geo)
+    }
+  }
+
+  func testPodcastLocationWithInvalidOsmData() throws {
+    let invalidOsmType = """
+    <podcast:location geo="geo:30.2672,97.7431" osm="X113314">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidOsmData(from: invalidOsmType)
+
+    let invalidOsmID = """
+    <podcast:location geo="geo:30.2672,97.7431" osm="R">Austin, TX</podcast:location>
+    """
+
+    try assertInvalidOsmData(from: invalidOsmID)
+  }
+
+  private func assertInvalidOsmData(from xmlStr: String) throws {
+    guard let data = xmlStr.data(using: .utf8) else {
+      XCTFail("Expected data out of \(xmlStr)")
+      return
+    }
+
+    XCTAssertThrowsError(
+      try XMLDecoder().decode(PodcastLocation.self, from: data)
+    ) { error in
+      assertPodcastLocationDecodingError(error, codingKey: .osmQuery)
+    }
+  }
+
+  private func assertPodcastLocationDecodingError(_ error: Error, codingKey: PodcastLocation.CodingKeys) {
+    guard
+      let decodingError = error as? DecodingError,
+      case let DecodingError.dataCorrupted(context) = decodingError else {
+      XCTFail()
+      return
+    }
+
+    XCTAssertTrue(
+      context.codingPath.contains(
+        where: { $0.stringValue == codingKey.rawValue }
+      )
+    )
+  }
+
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
@@ -255,12 +540,12 @@ public final class SyndiKitTests: XCTestCase {
 
     let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
 
-    guard let item = rss.channel.items.first(where: { $0.title == itemTitle } ) else {
+    guard let item = rss.channel.items.first(where: { $0.title == itemTitle }) else {
       XCTFail("Expected to find episode of title: \(itemTitle)")
       return
     }
 
-    XCTAssertNil(item.podcastPerson)
+    XCTAssertTrue(item.podcastPeople.isEmpty)
   }
 
   func testEpisodesWithHostAndGuestPersons() {
@@ -282,22 +567,22 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertFalse(items.isEmpty)
 
     for item in items {
-      let host = item.podcastPerson?.first(where: { $0.role.lowercased() == "host" })
+      let host = item.podcastPeople.first(where: { $0.role == .host })
 
       XCTAssertNotNil(host)
-      XCTAssertEqual(host?.name, "Leo Dion")
-      XCTAssertEqual(host?.href, "https://brightdigit.com")
+      XCTAssertEqual(host?.fullname, "Leo Dion")
+      XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
       XCTAssertEqual(
         host?.img,
         URL(string: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
       )
 
       // Both podcasts have the same guest
-      let guest = item.podcastPerson?.first(where: { $0.role.lowercased() == "guest" })
+      let guest = item.podcastPeople.first(where: { $0.role == .guest })
 
       XCTAssertNotNil(guest)
-      XCTAssertEqual(guest?.name, "CompileSwift")
-      XCTAssertEqual(guest?.href, "https://compileswift.com")
+      XCTAssertEqual(guest?.fullname, "CompileSwift")
+      XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
       XCTAssertEqual(
         guest?.img,
         URL(string: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")

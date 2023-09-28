@@ -1,8 +1,7 @@
-import XCTest
 @testable import SyndiKit
+import XCTest
 
 final class WordPressElementsTests: XCTestCase {
-
   func testCategoryEquatable() {
     let c1 = WordPressElements.Category(
       termID: 1,
@@ -50,5 +49,4 @@ final class WordPressElementsTests: XCTestCase {
 
     XCTAssertNotEqual(pm1, pm2)
   }
-
 }

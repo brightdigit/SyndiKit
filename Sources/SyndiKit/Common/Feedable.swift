@@ -9,7 +9,7 @@ import Foundation
 /// - ``siteURL``
 /// - ``summary``
 /// - ``updated``
-/// - ``author``
+/// - ``authors``
 /// - ``copyright``
 /// - ``image``
 /// - ``children``

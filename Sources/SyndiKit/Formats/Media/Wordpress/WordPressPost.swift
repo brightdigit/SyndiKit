@@ -153,7 +153,7 @@ public extension WordPressPost {
     let title = item.title
     let link = item.link
     let categoryTerms = item.categoryTerms
-    let meta = item.wpPostMeta ?? []
+    let meta = item.wpPostMeta
     let pubDate = item.pubDate
 
     let categoryDictionary = Dictionary(grouping: categoryTerms, by: {

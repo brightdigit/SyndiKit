@@ -1,6 +1,6 @@
 import Foundation
 
-extension SyndiKitTests {
+internal extension SyndiKitTests {
   static let durationSets: [String: [TimeInterval]] = [
     "empowerapps-show": [
       2_746,
