@@ -10,11 +10,11 @@ public extension PodcastLocation {
     public var description: String {
       var description = "geo:\(latitude),\(longitude)"
 
-      if let altitude {
+      if let altitude = altitude {
         description += ",\(altitude)"
       }
 
-      if let accuracy {
+      if let accuracy = accuracy {
         description += ";u=\(accuracy)"
       }
 
