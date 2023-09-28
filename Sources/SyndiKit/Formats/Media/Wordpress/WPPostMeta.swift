@@ -18,7 +18,10 @@ public extension WordPressElements {
 }
 
 extension WordPressElements.PostMeta: Equatable {
-  public static func == (lhs: WordPressElements.PostMeta, rhs: WordPressElements.PostMeta) -> Bool {
+  public static func == (
+    lhs: WordPressElements.PostMeta,
+    rhs: WordPressElements.PostMeta
+  ) -> Bool {
     lhs.key == rhs.key
       && lhs.value == rhs.value
   }

@@ -24,7 +24,10 @@ public extension WordPressElements {
 }
 
 extension WordPressElements.Category: Equatable {
-  public static func == (lhs: WordPressElements.Category, rhs: WordPressElements.Category) -> Bool {
+  public static func == (
+    lhs: WordPressElements.Category,
+    rhs: WordPressElements.Category
+  ) -> Bool {
     lhs.termID == rhs.termID
       && lhs.niceName == rhs.niceName
       && lhs.parent == rhs.parent

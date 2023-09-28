@@ -1,6 +1,6 @@
 @testable import SyndiKit
-import XMLCoder
 import XCTest
+import XMLCoder
 
 internal final class XMLStringIntTests: XCTestCase {
   internal func testDecodeValidXMLValue() throws {

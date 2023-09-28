@@ -1,6 +1,6 @@
 @testable import SyndiKit
-import XMLCoder
 import XCTest
+import XMLCoder
 
 internal final class UTF8EncodedURLTests: XCTestCase {
   internal func testDecode() throws {

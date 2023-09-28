@@ -18,14 +18,14 @@ public struct PodcastPerson: Codable, Equatable {
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.role = try container.decodeIfPresent(Role.self, forKey: .role)
-    self.group = try container.decodeIfPresent(String.self, forKey: .group)
-    self.fullname = try container.decode(String.self, forKey: .fullname)
+    role = try container.decodeIfPresent(Role.self, forKey: .role)
+    group = try container.decodeIfPresent(String.self, forKey: .group)
+    fullname = try container.decode(String.self, forKey: .fullname)
 
     let hrefUrl = try container.decodeIfPresent(String.self, forKey: .href) ?? ""
-    self.href = hrefUrl.isEmpty ? nil : URL(string: hrefUrl)
+    href = hrefUrl.isEmpty ? nil : URL(string: hrefUrl)
 
     let imgUrl = try container.decodeIfPresent(String.self, forKey: .img) ?? ""
-    self.img = imgUrl.isEmpty ? nil : URL(string: imgUrl)
+    img = imgUrl.isEmpty ? nil : URL(string: imgUrl)
   }
 }

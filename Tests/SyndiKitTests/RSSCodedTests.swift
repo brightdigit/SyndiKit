@@ -307,10 +307,10 @@ public final class SyndiKitTests: XCTestCase {
   }
 
   func testPodcastLocationOfTypeRelation() throws {
-    let expectedLatitude = 30.2672
-    let expectedLongitude = 97.7431
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
     let expectedOsmType = "R"
-    let expectedOsmID = 113314
+    let expectedOsmID = 113_314
     let xmlStr = """
     <podcast:location
       geo="geo:\(expectedLatitude),\(expectedLongitude)"
@@ -335,8 +335,8 @@ public final class SyndiKitTests: XCTestCase {
   }
 
   func testPodcastLocationWithAccuracy() throws {
-    let expectedLatitude = 30.2672
-    let expectedLongitude = 97.7431
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
     let expectedAccuracy = 350.0
     let xmlStr = """
     <podcast:location
@@ -357,12 +357,13 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
     XCTAssertNil(sut.geo?.altitude)
   }
 
   func testPodcastLocationWithAltitude() throws {
-    let expectedLatitude = 30.2672
-    let expectedLongitude = 97.7431
+    let expectedLatitude = 30.267_2
+    let expectedLongitude = 97.743_1
     let expectedAltitude = 250.0
     let xmlStr = """
     <podcast:location
@@ -383,6 +384,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
     XCTAssertNil(sut.geo?.accuracy)
   }
 

@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         runs-on: [ubuntu-20.04, ubuntu-22.04]
-        swift-version: [5.7.3, 5.8]
+        swift-version: [5.7.3, 5.8.1, 5.9]
         include:
           - runs-on: ubuntu-20.04
             swift-version: 5.5.3
@@ -135,7 +135,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Cache mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         id: cache-mint
         uses: actions/cache@v3
         env:
@@ -152,7 +152,7 @@ jobs:
       - name: Setup Xcode
         run: sudo xcode-select -s ${{ matrix.xcode }}/Contents/Developer
       - name: Install mint
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
         run: |
           brew update
           brew install mint
@@ -168,7 +168,7 @@ jobs:
         uses: github/codeql-action/analyze@v2
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload SPM to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F spm -F macOS -F ${XCODE_NAME}
         env:
@@ -177,7 +177,7 @@ jobs:
         run: rm -rf .build
       - name: Lint
         run: ./scripts/lint.sh
-        if: ${{ github.event_name == 'pull_request' && github.base_ref == 'main' && matrix.xcode == '/Applications/Xcode_14.3.app' }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
       - name: Dump PIF
         if: startsWith(matrix.xcode,'/Applications/Xcode_14')
         run: |
@@ -190,14 +190,14 @@ jobs:
           done
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload iOS Coverage to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F iOS -F iOS${{ matrix.iOSVersion }} -F macOS -F ${XCODE_NAME}
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}      
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload watchOS Coverage to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F watchOS -F watchOS${{ matrix.watchOSVersion }} -F macOS -F ${XCODE_NAME}
         env:

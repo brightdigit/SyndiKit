@@ -41,7 +41,10 @@ extension PodcastTranscript {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("Type attribute of <podcast:transcript> should either be a `KnownMimeType`, or unknown!")
+        fatalError(
+          // swiftlint:disable:next line_length
+          "Type attribute of <podcast:transcript> with value: \(self) should either be a `KnownMimeType`, or unknown!"
+        )
       }
     }
 

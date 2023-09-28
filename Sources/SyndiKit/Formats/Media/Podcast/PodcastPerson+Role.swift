@@ -44,7 +44,10 @@ extension PodcastPerson {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("Role attribute of <podcast:person> should either be a `KnownRole`, or unknown!")
+        fatalError(
+          // swiftlint:disable:next line_length
+          "Role attribute of <podcast:person> with value: \(self) should either be a `KnownRole`, or unknown!"
+        )
       }
     }
 
