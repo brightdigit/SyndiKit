@@ -168,7 +168,7 @@ jobs:
         uses: github/codeql-action/analyze@v2
       - name: Run Swift Package tests
         run: swift test -v --enable-code-coverage
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload SPM to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F spm -F macOS -F ${XCODE_NAME}
         env:
@@ -190,14 +190,14 @@ jobs:
           done
       - name: Run iOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload iOS Coverage to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F iOS -F iOS${{ matrix.iOSVersion }} -F macOS -F ${XCODE_NAME}
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}      
       - name: Run watchOS target tests
         run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v2
+      - uses: sersoft-gmbh/swift-coverage-action@v4
       - name: Upload watchOS Coverage to CodeCov.io
         run: bash <(curl https://codecov.io/bash) -F watchOS -F watchOS${{ matrix.watchOSVersion }} -F macOS -F ${XCODE_NAME}
         env:
