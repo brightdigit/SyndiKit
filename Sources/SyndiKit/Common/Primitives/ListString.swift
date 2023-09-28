@@ -1,6 +1,8 @@
 import Foundation
 
-public struct ListString<Value: LosslessStringConvertible & Equatable>: Codable, Equatable {
+public struct ListString<
+  Value: LosslessStringConvertible & Equatable
+>: Codable, Equatable {
   public let values: [Value]
 
   internal init(values: [Value]) {
@@ -18,7 +20,7 @@ public struct ListString<Value: LosslessStringConvertible & Equatable>: Codable,
     self.init(values: values)
   }
 
-  static func createValueFrom(_ string: String) throws -> Value {
+  private static func createValueFrom(_ string: String) throws -> Value {
     guard let value: Value = .init(string) else {
       throw DecodingError.typeMismatch(
         Value.self,
@@ -28,7 +30,10 @@ public struct ListString<Value: LosslessStringConvertible & Equatable>: Codable,
     return value
   }
 
-  public func encode(to _: Encoder) throws {
-    fatalError()
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    let strings = values.map(String.init)
+    let listString = strings.joined(separator: ",")
+    try container.encode(listString)
   }
 }

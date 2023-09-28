@@ -182,13 +182,13 @@ Abstract media types which can be pulled for the various ``Entryable`` objects.
 - ``MediaContent``
 - ``Video``
 
-
 ### XML Primitive Types
 
 In many cases, types are encoded in non-matching types but are intended to strong-typed for various formats. These primitives are setup to make XML decoding easier while retaining their intended strong-type.
 
 - ``CData``
 - ``XMLStringInt``
+- ``ListString``
 
 ### Syndication Updates
 
@@ -206,6 +206,7 @@ Specific properties related to the Atom format.
 - ``AtomEntry``
 - ``AtomCategory``
 - ``AtomMedia``
+- ``AtomMediaGroup``
 - ``Link``
 
 ### JSON Feed Format
@@ -214,6 +215,11 @@ Specific properties related to the JSON Feed format.
 
 - ``JSONFeed``
 - ``JSONItem``
+
+### OPML Feed Formate 
+
+- ``OPML``
+- ``OutlineType``
 
 ### RSS Feed Format
 
@@ -225,6 +231,19 @@ Specific properties related to the RSS Feed format.
 - ``RSSItem``
 - ``RSSItemCategory``
 - ``Enclosure``
+
+### Podcast Extensions
+
+Specific properties related to [podcasts](https://github.com/Podcastindex-org/podcast-namespace).
+
+- ``PodcastPerson``
+- ``PodcastSeason``
+- ``PodcastChapters``
+- ``PodcastLocation``
+- ``PodcastSoundbite``
+- ``PodcastTranscript``
+- ``PodcastFunding``
+- ``PodcastLocked``
 
 ### WordPress Extensions
 

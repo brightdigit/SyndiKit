@@ -26,7 +26,10 @@ extension PodcastChapters {
       } else if case let .unknown(string) = self {
         return string
       } else {
-        fatalError("Type attribute of <podcast:chapters> should either be `KnownMimeType`, or unknown!")
+        fatalError(
+          // swiftlint:disable:next line_length
+          "Type attribute of <podcast:chapters> with value: \(self) should either be `KnownMimeType`, or unknown!"
+        )
       }
     }
 
