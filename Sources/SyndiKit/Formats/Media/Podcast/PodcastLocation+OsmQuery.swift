@@ -1,7 +1,7 @@
 import Foundation
 
-extension PodcastLocation {
-  public struct OsmQuery: Codable, Equatable {
+public extension PodcastLocation {
+  struct OsmQuery: Codable, Equatable {
     enum OsmType: String, Codable, CaseIterable {
       case node = "N"
       case way = "W"
@@ -39,9 +39,9 @@ extension PodcastLocation {
       }
       let osmRevision = osmStr.split(separator: "#")[safe: 1]?.asInt()
 
-      self.id = osmID
-      self.type = osmType
-      self.revision = osmRevision
+      id = osmID
+      type = osmType
+      revision = osmRevision
     }
   }
 }

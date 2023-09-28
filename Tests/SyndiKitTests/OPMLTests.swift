@@ -52,9 +52,9 @@ internal final class OPMLTests: XCTestCase {
     let outline = opml?.body.outlines.first
 
     XCTAssertEqual(outline?.text, "The Mets are the best team in baseball.")
-    XCTAssertEqual(outline?.categories?.count, 2)
-    XCTAssertEqual(outline?.categories?[0], "/Philosophy/Baseball/Mets")
-    XCTAssertEqual(outline?.categories?[1], "/Tourism/New York")
+    XCTAssertEqual(outline?.categories?.values.count, 2)
+    XCTAssertEqual(outline?.categories?.values[0], "/Philosophy/Baseball/Mets")
+    XCTAssertEqual(outline?.categories?.values[1], "/Tourism/New York")
   }
 
   internal func testPlacesLived() throws {
@@ -62,18 +62,18 @@ internal final class OPMLTests: XCTestCase {
 
     XCTAssertEqual(opml?.head.title, "placesLived.opml")
     XCTAssertEqual(opml?.head.ownerId, "http://www.opml.org/profiles/sendMail?usernum=1")
-    XCTAssertEqual(opml?.head.expansionStates?.count, 6)
-    XCTAssertEqual(opml?.head.expansionStates?[0], 1)
-    XCTAssertEqual(opml?.head.expansionStates?[3], 10)
+    XCTAssertEqual(opml?.head.expansionStates?.values.count, 6)
+    XCTAssertEqual(opml?.head.expansionStates?.values[0], 1)
+    XCTAssertEqual(opml?.head.expansionStates?.values[3], 10)
   }
 
   internal func testSimpleScript() throws {
     let opml = try Content.opml["simpleScript"]?.get()
 
     XCTAssertEqual(opml?.head.title, "workspace.userlandsamples.doSomeUpstreaming")
-    XCTAssertEqual(opml?.head.expansionStates?.count, 3)
-    XCTAssertEqual(opml?.head.expansionStates?[0], 1)
-    XCTAssertEqual(opml?.head.expansionStates?[2], 4)
+    XCTAssertEqual(opml?.head.expansionStates?.values.count, 3)
+    XCTAssertEqual(opml?.head.expansionStates?.values[0], 1)
+    XCTAssertEqual(opml?.head.expansionStates?.values[2], 4)
 
     XCTAssertEqual(opml?.body.outlines.count, 4)
 
@@ -94,12 +94,9 @@ internal final class OPMLTests: XCTestCase {
       }
 
       XCTAssertTrue(type is Int.Type)
-      XCTAssertTrue(
-        context.codingPath.contains(
-          where: {
-            $0.stringValue == OPML.Head.CodingKeys.expansionStates.stringValue
-          }
-        )
+      XCTAssertEqual(
+        context.debugDescription,
+        "Invalid value: one"
       )
     }
   }

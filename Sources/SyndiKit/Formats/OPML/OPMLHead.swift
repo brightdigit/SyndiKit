@@ -9,7 +9,7 @@ public extension OPML {
     public let ownerEmail: String?
     public let ownerId: String?
     public let docs: String?
-    public let expansionStates: [Int]?
+    public let expansionStates: ListString<Int>?
     public let vertScrollState: Int?
     public let windowTop: Int?
     public let windowLeft: Int?
@@ -30,39 +30,6 @@ public extension OPML {
       case windowLeft
       case windowBottom
       case windowRight
-    }
-
-    public init(from decoder: Decoder) throws {
-      let container = try decoder.container(keyedBy: CodingKeys.self)
-      title = try container.decodeIfPresent(String.self, forKey: .title)
-      dateCreated = try container.decodeIfPresent(String.self, forKey: .dateCreated)
-      dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
-      ownerName = try container.decodeIfPresent(String.self, forKey: .ownerName)
-      ownerEmail = try container.decodeIfPresent(String.self, forKey: .ownerEmail)
-      ownerId = try container.decodeIfPresent(String.self, forKey: .ownerId)
-      docs = try container.decodeIfPresent(String.self, forKey: .docs)
-      vertScrollState = try container.decodeIfPresent(Int.self, forKey: .vertScrollState)
-      windowTop = try container.decodeIfPresent(Int.self, forKey: .windowTop)
-      windowLeft = try container.decodeIfPresent(Int.self, forKey: .windowLeft)
-      windowBottom = try container.decodeIfPresent(Int.self, forKey: .windowBottom)
-      windowRight = try container.decodeIfPresent(Int.self, forKey: .windowRight)
-
-      expansionStates = try container
-        .decodeIfPresent(String.self, forKey: .expansionStates)?
-        .components(separatedBy: ", ")
-        .filter { $0.isEmpty == false }
-        .map {
-          guard let value = Int($0) else {
-            let context = DecodingError.Context(
-              codingPath: [CodingKeys.expansionStates],
-              debugDescription: "Invalid expansionState type '\($0)'"
-            )
-
-            throw DecodingError.typeMismatch(Int.self, context)
-          }
-
-          return value
-        }
     }
   }
 }
