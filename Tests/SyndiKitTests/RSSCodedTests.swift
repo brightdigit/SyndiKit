@@ -357,6 +357,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
     XCTAssertNil(sut.geo?.altitude)
   }
 
@@ -383,6 +384,7 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
+    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
     XCTAssertNil(sut.geo?.accuracy)
   }
 
