@@ -5,7 +5,7 @@ public protocol Entryable {
   /// Unique Identifier of the Item.
   var id: EntryID { get }
   /// The URL of the item.
-  var url: URL { get }
+  var url: URL? { get }
   /// The title of the item.
   var title: String { get }
   /// HTML content of the item.

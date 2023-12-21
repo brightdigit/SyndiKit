@@ -406,6 +406,27 @@ public final class SyndiKitTests: XCTestCase {
     try assertInvalidGeoData(from: invalidCoords)
   }
 
+  func testPodcastMissingLink() throws {
+    guard let feed = try? Content.xmlFeeds["wait-wait-dont-tell-me"]?.get() else {
+      XCTFail("Missing Podcast \(name)")
+      return
+    }
+
+    guard let rss = feed as? RSSFeed else {
+      XCTFail("Wrong Type \(name)")
+      return
+    }
+
+    guard rss.channel.items.count > 193 else {
+      XCTFail("Missing Item \(name)")
+      return
+    }
+
+    let item = rss.channel.items[193]
+
+    XCTAssertNil(item.link)
+  }
+
   private func assertInvalidGeoData(from xmlStr: String) throws {
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")

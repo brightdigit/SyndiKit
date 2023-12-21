@@ -1,8 +1,6 @@
 import Foundation
 
 public struct AtomEntry: Codable {
-  public static let defaultURL = URL(string: "/")!
-
   /// A permanent, universally unique identifier for an entry.
   public let id: EntryID
 
@@ -61,8 +59,8 @@ extension AtomEntry: Entryable {
     atomCategories
   }
 
-  public var url: URL {
-    links.first?.href ?? Self.defaultURL
+  public var url: URL? {
+    links.first?.href
   }
 
   public var contentHtml: String? {

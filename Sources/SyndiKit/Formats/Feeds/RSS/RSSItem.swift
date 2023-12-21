@@ -3,7 +3,7 @@ import XMLCoder
 
 public struct RSSItem: Codable {
   public let title: String
-  public let link: URL
+  public let link: URL?
   public let description: CData?
   public let guid: EntryID
   public let pubDate: Date?
@@ -135,7 +135,7 @@ public struct RSSItem: Codable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     title = try container.decode(String.self, forKey: .title)
-    link = try container.decode(URL.self, forKey: .link)
+    link = try container.decodeIfPresent(URL.self, forKey: .link)
     description = try container.decodeIfPresent(CData.self, forKey: .description)
     guid = try container.decode(EntryID.self, forKey: .guid)
     pubDate = try container.decodeDateIfPresentAndValid(forKey: .pubDate)
@@ -297,7 +297,7 @@ extension RSSItem: Entryable {
     categoryTerms
   }
 
-  public var url: URL {
+  public var url: URL? {
     link
   }
 

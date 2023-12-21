@@ -2,7 +2,7 @@ import Foundation
 
 public struct JSONItem: Codable {
   public let guid: EntryID
-  public let url: URL
+  public let url: URL?
   public let title: String
   public let contentHtml: String?
   public let summary: String?
