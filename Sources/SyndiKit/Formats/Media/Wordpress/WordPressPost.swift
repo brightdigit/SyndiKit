@@ -149,9 +149,11 @@ public extension WordPressPost {
     guard let modifiedDate = item.wpModifiedDate else {
       throw WordPressError.missingField(.modifiedDate)
     }
+    guard let link = item.link else {
+      throw WordPressError.missingField(.link)
+    }
 
     let title = item.title
-    let link = item.link
     let categoryTerms = item.categoryTerms
     let meta = item.wpPostMeta
     let pubDate = item.pubDate
