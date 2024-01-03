@@ -1,20 +1,20 @@
 import Foundation
 
-public extension PodcastLocation {
-  struct OsmQuery: Codable, Equatable {
-    enum OsmType: String, Codable, CaseIterable {
+extension PodcastLocation {
+  public struct OsmQuery: Codable, Equatable {
+    public enum OsmType: String, Codable, CaseIterable {
       case node = "N"
       case way = "W"
       case relation = "R"
 
-      static func isValid(_ rawValue: String) -> Bool {
+      internal static func isValid(_ rawValue: String) -> Bool {
         OsmType(rawValue: rawValue) != nil
       }
     }
 
-    let id: Int
-    let type: OsmType
-    let revision: Int?
+    public let id: Int
+    public let type: OsmType
+    public let revision: Int?
 
     public init(from decoder: Decoder) throws {
       let container = try decoder.singleValueContainer()

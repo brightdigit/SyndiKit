@@ -17,8 +17,8 @@ public protocol SiteDirectory {
   var categories: CategorySequence { get }
 }
 
-public extension SiteDirectory {
-  func sites(
+extension SiteDirectory {
+  public func sites(
     withLanguage language: SiteLanguageType? = nil,
     withCategory category: SiteCategoryType? = nil
   ) -> SiteSequence {
@@ -35,7 +35,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
   public typealias CategorySequence =
     Dictionary<SiteCategoryType, SiteCategory>.Values
 
-  let instance: Instance
+  private let instance: Instance
 
   public var languages: Dictionary<
     SiteLanguageType, SiteLanguage
@@ -56,16 +56,16 @@ public struct SiteCollectionDirectory: SiteDirectory {
     instance.sites(withLanguage: language, withCategory: category)
   }
 
-  init(blogs: SiteCollection) {
+  internal init(blogs: SiteCollection) {
     instance = .init(blogs: blogs)
   }
 
-  struct Instance {
-    let allSites: [Site]
-    let languageDictionary: [SiteLanguageType: SiteLanguage]
-    let categoryDictionary: [SiteCategoryType: SiteCategory]
-    let languageIndicies: [SiteLanguageType: Set<Int>]
-    let categoryIndicies: [SiteCategoryType: Set<Int>]
+  private struct Instance {
+    internal let allSites: [Site]
+    internal let languageDictionary: [SiteLanguageType: SiteLanguage]
+    internal let categoryDictionary: [SiteCategoryType: SiteCategory]
+    internal let languageIndicies: [SiteLanguageType: Set<Int>]
+    internal let categoryIndicies: [SiteCategoryType: Set<Int>]
 
     public func sites(
       withLanguage language: SiteLanguageType?,
@@ -107,7 +107,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     }
 
     // swiftlint:disable function_body_length
-    init(blogs: SiteCollection) {
+    internal init(blogs: SiteCollection) {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()
       var sites = [Site]()

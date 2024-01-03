@@ -1,7 +1,7 @@
 import Foundation
 
-public extension OPML {
-  struct Head: Codable, Equatable {
+extension OPML {
+  public struct Head: Codable, Equatable {
     public let title: String?
     public let dateCreated: String?
     public let dateModified: String?
@@ -16,7 +16,8 @@ public extension OPML {
     public let windowBottom: Int?
     public let windowRight: Int?
 
-    enum CodingKeys: String, CodingKey {
+    // swiftlint:disable:next nesting
+    internal enum CodingKeys: String, CodingKey {
       case title
       case dateCreated
       case dateModified

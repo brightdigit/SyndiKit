@@ -18,6 +18,9 @@ public struct RSSFeed {
 }
 
 extension RSSFeed: DecodableFeed {
+  internal static let source: DecoderSetup = DecoderSource.xml
+  public static let label: String = "RSS"
+
   public var youtubeChannelID: String? {
     nil
   }
@@ -60,7 +63,4 @@ extension RSSFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     channel.syndication
   }
-
-  static let source: DecoderSetup = DecoderSource.xml
-  static var label: String = "RSS"
 }

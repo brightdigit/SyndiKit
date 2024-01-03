@@ -1,5 +1,5 @@
 extension Dictionary {
-  mutating func formUnion<SequenceType: Sequence, ElementType>(
+  internal mutating func formUnion<SequenceType: Sequence, ElementType>(
     _ collection: SequenceType,
     key: Key
   ) where Value == Set<ElementType>, SequenceType.Element == ElementType {

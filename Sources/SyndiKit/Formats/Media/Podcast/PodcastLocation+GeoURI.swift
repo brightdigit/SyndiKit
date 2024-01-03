@@ -1,7 +1,7 @@
 import Foundation
 
-public extension PodcastLocation {
-  struct GeoURI: Codable, Equatable, LosslessStringConvertible {
+extension PodcastLocation {
+  public struct GeoURI: Codable, Equatable, LosslessStringConvertible {
     public let latitude: Double
     public let longitude: Double
     public let altitude: Double?

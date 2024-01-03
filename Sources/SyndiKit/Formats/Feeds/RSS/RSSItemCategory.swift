@@ -1,4 +1,10 @@
 public struct RSSItemCategory: Codable, EntryCategory {
+  internal enum CodingKeys: String, CodingKey {
+    case value = "#CDATA"
+    case domain
+    case nicename
+  }
+
   public var term: String {
     value
   }
@@ -6,12 +12,6 @@ public struct RSSItemCategory: Codable, EntryCategory {
   public let value: String
   public let domain: String?
   public let nicename: String?
-
-  enum CodingKeys: String, CodingKey {
-    case value = "#CDATA"
-    case domain
-    case nicename
-  }
 
   public init(value: String, domain: String? = nil, nicename: String? = nil) {
     self.value = value

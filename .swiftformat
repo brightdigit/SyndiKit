@@ -2,6 +2,6 @@
 --header strip
 --commas inline
 --disable wrapMultilineStatementBraces
---extensionacl on-extension
+--extensionacl on-declarations
 --decimalgrouping 3,4
 --exclude .build, DerivedData

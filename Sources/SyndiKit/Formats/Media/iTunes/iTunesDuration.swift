@@ -1,13 +1,9 @@
 import Foundation
 // swiftlint:disable:next type_name
 public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
-  public init(floatLiteral value: TimeInterval) {
-    self.value = value
-  }
-
   public typealias FloatLiteralType = TimeInterval
 
-  static func timeInterval(_ timeString: String) -> TimeInterval? {
+  internal static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)
     let doubles = timeStrings.compactMap(Double.init)
     guard doubles.count == timeStrings.count else {
@@ -16,6 +12,10 @@ public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
     return doubles.reduce(0) { partialResult, value in
       partialResult * 60.0 + value
     }
+  }
+
+  public init(floatLiteral value: TimeInterval) {
+    self.value = value
   }
 
   public init(from decoder: Decoder) throws {

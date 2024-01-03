@@ -49,7 +49,7 @@ public struct RSSChannel: Codable {
   public let podcastFundings: [PodcastFunding]
   public let podcastPeople: [PodcastPerson]
 
-  enum CodingKeys: String, CodingKey {
+  internal enum CodingKeys: String, CodingKey {
     case title
     case link
     case description
@@ -75,8 +75,8 @@ public struct RSSChannel: Codable {
   }
 }
 
-public extension RSSChannel {
-  var syndication: SyndicationUpdate? {
+extension RSSChannel {
+  public var syndication: SyndicationUpdate? {
     SyndicationUpdate(
       period: syUpdatePeriod,
       frequency: syUpdateFrequency?.value

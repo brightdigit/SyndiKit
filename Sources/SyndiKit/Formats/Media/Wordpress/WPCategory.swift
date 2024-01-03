@@ -1,19 +1,21 @@
 import Foundation
 
-public extension WordPressElements {
-  struct Category: Codable {
-    public let termID: Int
-    public let niceName: CData
-    public let parent: CData
-    public let name: String
+public typealias WPCategory = WordPressElements.Category
 
-    enum CodingKeys: String, CodingKey {
+// swiftlint:disable nesting
+extension WordPressElements {
+  public struct Category: Codable {
+    internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
       case niceName = "wp:categoryNicename"
       case parent = "wp:categoryParent"
       case name = "wp:catName"
     }
 
+    public let termID: Int
+    public let niceName: CData
+    public let parent: CData
+    public let name: String
     public init(termID: Int, niceName: CData, parent: CData, name: String) {
       self.termID = termID
       self.niceName = niceName

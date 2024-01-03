@@ -1,13 +1,13 @@
 import Foundation
 
 public struct PodcastLocked: Codable, Equatable {
-  public let owner: String?
-  public let isLocked: Bool
-
-  enum CodingKeys: String, CodingKey {
+  public enum CodingKeys: String, CodingKey {
     case owner
     case isLocked = ""
   }
+
+  public let owner: String?
+  public let isLocked: Bool
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)

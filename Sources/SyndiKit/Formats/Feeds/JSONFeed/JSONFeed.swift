@@ -12,6 +12,9 @@ public struct JSONFeed {
 }
 
 extension JSONFeed: DecodableFeed {
+  internal static let source: DecoderSetup = DecoderSource.json
+  internal static let label: String = "JSON"
+
   public var youtubeChannelID: String? {
     nil
   }
@@ -50,7 +53,4 @@ extension JSONFeed: DecodableFeed {
     }
     return [author]
   }
-
-  static let source: DecoderSetup = DecoderSource.json
-  static var label: String = "JSON"
 }

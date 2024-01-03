@@ -1,6 +1,21 @@
 import Foundation
 
 public struct AtomEntry: Codable {
+  public enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case published
+    case content
+    case updated
+    case links = "link"
+    case authors = "author"
+    case atomCategories = "category"
+    case youtubeVideoID = "yt:videoId"
+    case youtubeChannelID = "yt:channelId"
+    case creators = "dc:creator"
+    case mediaGroup = "media:group"
+  }
+
   /// A permanent, universally unique identifier for an entry.
   public let id: EntryID
 
@@ -37,21 +52,6 @@ public struct AtomEntry: Codable {
   /// Grouping of <media:content> elements that are effectively the same content,
   /// yet different representations.
   public let mediaGroup: AtomMediaGroup?
-
-  enum CodingKeys: String, CodingKey {
-    case id
-    case title
-    case published
-    case content
-    case updated
-    case links = "link"
-    case authors = "author"
-    case atomCategories = "category"
-    case youtubeVideoID = "yt:videoId"
-    case youtubeChannelID = "yt:channelId"
-    case creators = "dc:creator"
-    case mediaGroup = "media:group"
-  }
 }
 
 extension AtomEntry: Entryable {

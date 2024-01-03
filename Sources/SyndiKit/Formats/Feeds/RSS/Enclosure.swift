@@ -1,15 +1,15 @@
 import Foundation
 
 public struct Enclosure: Codable {
-  public let url: URL
-  public let type: String
-  public let length: Int?
-
-  enum CodingKeys: String, CodingKey {
+  internal enum CodingKeys: String, CodingKey {
     case url
     case type
     case length
   }
+
+  public let url: URL
+  public let type: String
+  public let length: Int?
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Self.CodingKeys.self)

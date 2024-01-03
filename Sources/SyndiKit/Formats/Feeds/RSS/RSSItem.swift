@@ -2,6 +2,53 @@ import Foundation
 import XMLCoder
 
 public struct RSSItem: Codable {
+  public enum CodingKeys: String, CodingKey {
+    case title
+    case link
+    case description
+    case guid
+    case pubDate
+    case categoryTerms = "category"
+    case enclosure
+    case contentEncoded = "content:encoded"
+    case content
+    case itunesTitle = "itunes:title"
+    case itunesEpisode = "itunes:episode"
+    case itunesAuthor = "itunes:author"
+    case itunesSubtitle = "itunes:subtitle"
+    case itunesSummary = "itunes:summary"
+    case itunesExplicit = "itunes:explicit"
+    case podcastPeople = "podcast:person"
+    case podcastTranscripts = "podcast:transcript"
+    case podcastChapters = "podcast:chapters"
+    case podcastSoundbites = "podcast:soundbite"
+    case podcastSeason = "podcast:season"
+    case itunesDuration = "itunes:duration"
+    case itunesImage = "itunes:image"
+    case creators = "dc:creator"
+
+    case wpPostID = "wp:postId"
+    case wpPostDate = "wp:postDate"
+    case wpPostDateGMT = "wp:postDateGmt"
+    case wpModifiedDate = "wp:postModified"
+    case wpModifiedDateGMT = "wp:postModifiedGmt"
+    case wpPostName = "wp:postName"
+    case wpPostType = "wp:postType"
+    case wpPostMeta = "wp:postmeta"
+    case wpCommentStatus = "wp:commentStatus"
+    case wpPingStatus = "wp:pingStatus"
+    case wpAttachmentURL = "wp:attachmentUrl"
+
+    case wpStatus = "wp:status"
+    case wpPostParent = "wp:postParent"
+    case wpMenuOrder = "wp:menuOrder"
+    case wpIsSticky = "wp:isSticky"
+    case wpPostPassword = "wp:postPassword"
+
+    case mediaContent = "media:content"
+    case mediaThumbnail = "media:thumbnail"
+  }
+
   public let title: String
   public let link: URL?
   public let description: CData?
@@ -242,53 +289,6 @@ public struct RSSItem: Codable {
     wpPostPassword = try container.decodeIfPresent(
       CData.self, forKey: .wpPostPassword
     )
-  }
-
-  enum CodingKeys: String, CodingKey {
-    case title
-    case link
-    case description
-    case guid
-    case pubDate
-    case categoryTerms = "category"
-    case enclosure
-    case contentEncoded = "content:encoded"
-    case content
-    case itunesTitle = "itunes:title"
-    case itunesEpisode = "itunes:episode"
-    case itunesAuthor = "itunes:author"
-    case itunesSubtitle = "itunes:subtitle"
-    case itunesSummary = "itunes:summary"
-    case itunesExplicit = "itunes:explicit"
-    case podcastPeople = "podcast:person"
-    case podcastTranscripts = "podcast:transcript"
-    case podcastChapters = "podcast:chapters"
-    case podcastSoundbites = "podcast:soundbite"
-    case podcastSeason = "podcast:season"
-    case itunesDuration = "itunes:duration"
-    case itunesImage = "itunes:image"
-    case creators = "dc:creator"
-
-    case wpPostID = "wp:postId"
-    case wpPostDate = "wp:postDate"
-    case wpPostDateGMT = "wp:postDateGmt"
-    case wpModifiedDate = "wp:postModified"
-    case wpModifiedDateGMT = "wp:postModifiedGmt"
-    case wpPostName = "wp:postName"
-    case wpPostType = "wp:postType"
-    case wpPostMeta = "wp:postmeta"
-    case wpCommentStatus = "wp:commentStatus"
-    case wpPingStatus = "wp:pingStatus"
-    case wpAttachmentURL = "wp:attachmentUrl"
-
-    case wpStatus = "wp:status"
-    case wpPostParent = "wp:postParent"
-    case wpMenuOrder = "wp:menuOrder"
-    case wpIsSticky = "wp:isSticky"
-    case wpPostPassword = "wp:postPassword"
-
-    case mediaContent = "media:content"
-    case mediaThumbnail = "media:thumbnail"
   }
 }
 

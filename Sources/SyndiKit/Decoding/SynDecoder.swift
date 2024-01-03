@@ -12,18 +12,18 @@ import XMLCoder
 ///
 /// - ``decode(_:)``
 public class SynDecoder {
-  static func setupJSONDecoder(_ decoder: JSONDecoder) {
+  internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
   }
 
-  static func setupXMLDecoder(_ decoder: XMLDecoder) {
+  internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
   }
 
-  init(
+  internal init(
     types: [DecodableFeed.Type]? = nil,
     defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
     defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
@@ -38,29 +38,29 @@ public class SynDecoder {
     self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
   }
 
-  let defaultJSONDecoderSetup: (JSONDecoder) -> Void
-  let defaultXMLDecoderSetup: (XMLDecoder) -> Void
-  let types: [DecodableFeed.Type]
+  private let defaultJSONDecoderSetup: (JSONDecoder) -> Void
+  private let defaultXMLDecoderSetup: (XMLDecoder) -> Void
+  private let types: [DecodableFeed.Type]
 
-  static let defaultTypes: [DecodableFeed.Type] = [
+  private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self
   ]
 
-  lazy var defaultXMLDecoder: XMLDecoder = {
+  private lazy var defaultXMLDecoder: XMLDecoder = {
     let decoder = XMLDecoder()
     self.defaultXMLDecoderSetup(decoder)
     return decoder
   }()
 
-  lazy var defaultJSONDecoder: JSONDecoder = {
+  private lazy var defaultJSONDecoder: JSONDecoder = {
     let decoder = JSONDecoder()
     self.defaultJSONDecoderSetup(decoder)
     return decoder
   }()
 
-  lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
+  private lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
     let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let setup = type.source as? CustomDecoderSetup

@@ -5,6 +5,19 @@ import Foundation
 /// Based on the
 /// [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
 public struct AtomFeed {
+  public enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case description
+    case subtitle
+    case published
+    case pubDate
+    case links = "link"
+    case entries = "entry"
+    case authors = "author"
+    case youtubeChannelID = "yt:channelId"
+  }
+
   /// Identifies the feed using a universally unique and permanent URI.
   /// If you have a long-term, renewable lease on your Internet domain name,
   /// then you can feel free to use your website's address.
@@ -37,22 +50,13 @@ public struct AtomFeed {
 
   /// YouTube channel ID, if from a YouTube channel.
   public let youtubeChannelID: String?
-
-  enum CodingKeys: String, CodingKey {
-    case id
-    case title
-    case description
-    case subtitle
-    case published
-    case pubDate
-    case links = "link"
-    case entries = "entry"
-    case authors = "author"
-    case youtubeChannelID = "yt:channelId"
-  }
 }
 
 extension AtomFeed: DecodableFeed {
+  internal static let source: DecoderSetup = DecoderSource.xml
+
+  internal static let label: String = "Atom"
+
   public var summary: String? {
     description ?? subtitle
   }
@@ -80,7 +84,4 @@ extension AtomFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     nil
   }
-
-  static let source: DecoderSetup = DecoderSource.xml
-  static var label: String = "Atom"
 }
