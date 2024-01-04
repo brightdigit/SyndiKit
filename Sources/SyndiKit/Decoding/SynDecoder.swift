@@ -12,41 +12,15 @@ import XMLCoder
 ///
 /// - ``decode(_:)``
 public class SynDecoder {
-  internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
-  }
-
-  internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
-    decoder.trimValueWhitespaces = false
-  }
-
-  internal init(
-    types: [DecodableFeed.Type]? = nil,
-    defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
-    defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
-  ) {
-    self.types = types ?? Self.defaultTypes
-    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
-    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
-  }
-
-  /// Creates an instance of `RSSDecoder`
-  public convenience init() {
-    self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
-  }
-
-  private let defaultJSONDecoderSetup: (JSONDecoder) -> Void
-  private let defaultXMLDecoderSetup: (XMLDecoder) -> Void
-  private let types: [DecodableFeed.Type]
-
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self
   ]
+
+  private let defaultJSONDecoderSetup: (JSONDecoder) -> Void
+  private let defaultXMLDecoderSetup: (XMLDecoder) -> Void
+  private let types: [DecodableFeed.Type]
 
   private lazy var defaultXMLDecoder: XMLDecoder = {
     let decoder = XMLDecoder()
@@ -91,6 +65,32 @@ public class SynDecoder {
       }
       .mapValues(Dictionary.init(uniqueKeysWithValues:))
   }()
+
+  internal init(
+    types: [DecodableFeed.Type]? = nil,
+    defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
+    defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
+  ) {
+    self.types = types ?? Self.defaultTypes
+    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
+    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+  }
+
+  /// Creates an instance of `RSSDecoder`
+  public convenience init() {
+    self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
+  }
+
+  internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+  }
+
+  internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
+    decoder.trimValueWhitespaces = false
+  }
 
   /// Returns a `Feedable` object of the type you specify, decoded from a JSON object.
   /// - Parameter data: The JSON or XML object to decode.

@@ -20,6 +20,10 @@ internal struct DateFormatterDecoder {
     self.formatters = formatters
   }
 
+  internal init(basedOnFormats formats: [String]) {
+    formatters = formats.map(Self.isoPOSIX(withFormat:))
+  }
+
   private static func isoPOSIX(withFormat dateFormat: String) -> DateFormatter {
     let formatter = DateFormatter()
     formatter.calendar = Calendar(identifier: .iso8601)
@@ -27,10 +31,6 @@ internal struct DateFormatterDecoder {
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
     formatter.dateFormat = dateFormat
     return formatter
-  }
-
-  internal init(basedOnFormats formats: [String]) {
-    formatters = formats.map(Self.isoPOSIX(withFormat:))
   }
 
   internal func decodeString(_ dateStr: String) -> Date? {

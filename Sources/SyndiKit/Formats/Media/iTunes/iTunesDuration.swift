@@ -3,16 +3,7 @@ import Foundation
 public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = TimeInterval
 
-  internal static func timeInterval(_ timeString: String) -> TimeInterval? {
-    let timeStrings = timeString.components(separatedBy: ":").prefix(3)
-    let doubles = timeStrings.compactMap(Double.init)
-    guard doubles.count == timeStrings.count else {
-      return nil
-    }
-    return doubles.reduce(0) { partialResult, value in
-      partialResult * 60.0 + value
-    }
-  }
+  public let value: TimeInterval
 
   public init(floatLiteral value: TimeInterval) {
     self.value = value
@@ -39,5 +30,14 @@ public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
     self.value = value
   }
 
-  public let value: TimeInterval
+  internal static func timeInterval(_ timeString: String) -> TimeInterval? {
+    let timeStrings = timeString.components(separatedBy: ":").prefix(3)
+    let doubles = timeStrings.compactMap(Double.init)
+    guard doubles.count == timeStrings.count else {
+      return nil
+    }
+    return doubles.reduce(0) { partialResult, value in
+      partialResult * 60.0 + value
+    }
+  }
 }

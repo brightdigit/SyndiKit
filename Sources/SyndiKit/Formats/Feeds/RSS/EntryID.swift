@@ -38,6 +38,24 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   /// Plain un-parsable String.
   case string(String)
 
+  public var description: String {
+    let string: String
+    switch self {
+    case let .url(url):
+      string = url.absoluteString
+
+    case let .uuid(uuid):
+      string = uuid.uuidString.lowercased()
+
+    case let .path(components, separatedBy: separator):
+      string = components.joined(separator: separator)
+
+    case let .string(value):
+      string = value
+    }
+    return string
+  }
+
   /// Implementation of ``LosslessStringConvertible`` initializer.
   /// This will never return a nil instance.
   /// Therefore you should use ``init(string:)``to  avoid the `Optional` result.
@@ -66,24 +84,6 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
         }
       }
     }
-  }
-
-  public var description: String {
-    let string: String
-    switch self {
-    case let .url(url):
-      string = url.absoluteString
-
-    case let .uuid(uuid):
-      string = uuid.uuidString.lowercased()
-
-    case let .path(components, separatedBy: separator):
-      string = components.joined(separator: separator)
-
-    case let .string(value):
-      string = value
-    }
-    return string
   }
 
   public init(from decoder: Decoder) throws {

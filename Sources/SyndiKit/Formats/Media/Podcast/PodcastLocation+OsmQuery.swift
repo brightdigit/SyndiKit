@@ -2,6 +2,7 @@ import Foundation
 
 extension PodcastLocation {
   public struct OsmQuery: Codable, Equatable {
+    // swiftlint:disable:next nesting
     public enum OsmType: String, Codable, CaseIterable {
       case node = "N"
       case way = "W"

@@ -1,18 +1,5 @@
 import Foundation
 
-public protocol PodcastEpisode {
-  var title: String? { get }
-  var episode: Int? { get }
-  var author: String? { get }
-  var subtitle: String? { get }
-  var summary: String? { get }
-  var explicit: String? { get }
-  var duration: TimeInterval? { get }
-  var image: iTunesImage? { get }
-  var enclosure: Enclosure { get }
-  var people: [PodcastPerson] { get }
-}
-
 internal struct PodcastEpisodeProperties: PodcastEpisode {
   internal let title: String?
   internal let episode: Int?
@@ -40,4 +27,17 @@ internal struct PodcastEpisodeProperties: PodcastEpisode {
     self.enclosure = enclosure
     people = rssItem.podcastPeople
   }
+}
+
+public protocol PodcastEpisode {
+  var title: String? { get }
+  var episode: Int? { get }
+  var author: String? { get }
+  var subtitle: String? { get }
+  var summary: String? { get }
+  var explicit: String? { get }
+  var duration: TimeInterval? { get }
+  var image: iTunesImage? { get }
+  var enclosure: Enclosure { get }
+  var people: [PodcastPerson] { get }
 }

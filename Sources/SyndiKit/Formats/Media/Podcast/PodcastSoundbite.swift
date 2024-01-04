@@ -7,10 +7,9 @@ public struct PodcastSoundbite: Codable, Equatable {
 
     case title = ""
   }
-  
+
   public let startTime: TimeInterval
   public let duration: TimeInterval
 
   public let title: String?
-
 }

@@ -2,6 +2,20 @@ import Foundation
 
 public enum WordPressElements {}
 
+public enum WordPressError: Error, Equatable {
+  case missingField(WordPressPost.Field)
+}
+
+extension Entryable {
+  public var wpPost: WordPressPost? {
+    guard let rssItem = self as? RSSItem else {
+      return nil
+    }
+
+    return try? WordPressPost(item: rssItem)
+  }
+}
+
 public struct WordPressPost {
   public typealias PostType = String
   public typealias CommentStatus = String
@@ -104,10 +118,6 @@ public struct WordPressPost {
   }
 }
 
-public enum WordPressError: Error, Equatable {
-  case missingField(WordPressPost.Field)
-}
-
 extension WordPressPost {
   // swiftlint:disable:next cyclomatic_complexity function_body_length
   public init(item: RSSItem) throws {
@@ -160,11 +170,9 @@ extension WordPressPost {
     let pubDate = item.pubDate
 
     let categoryDictionary = Dictionary(
-      grouping: categoryTerms,
-      by: {
-        $0.domain
-      }
-    )
+      grouping: categoryTerms) {
+      $0.domain
+    }
 
     modifiedDateGMT = item.wpModifiedDateGMT
     self.name = name.value
@@ -202,15 +210,5 @@ extension WordPressPost: Hashable {
 
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
-  }
-}
-
-extension Entryable {
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
   }
 }

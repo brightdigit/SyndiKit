@@ -1,31 +1,5 @@
 import Foundation
 
-public protocol SiteDirectory {
-  associatedtype SiteSequence: Sequence
-    where SiteSequence.Element == Site
-  associatedtype LanguageSequence: Sequence
-    where LanguageSequence.Element == SiteLanguage
-  associatedtype CategorySequence: Sequence
-    where CategorySequence.Element == SiteCategory
-
-  func sites(
-    withLanguage language: SiteLanguageType?,
-    withCategory category: SiteCategoryType?
-  ) -> SiteSequence
-
-  var languages: LanguageSequence { get }
-  var categories: CategorySequence { get }
-}
-
-extension SiteDirectory {
-  public func sites(
-    withLanguage language: SiteLanguageType? = nil,
-    withCategory category: SiteCategoryType? = nil
-  ) -> SiteSequence {
-    sites(withLanguage: language, withCategory: category)
-  }
-}
-
 public struct SiteCollectionDirectory: SiteDirectory {
   public typealias SiteSequence = [Site]
 
@@ -35,39 +9,14 @@ public struct SiteCollectionDirectory: SiteDirectory {
   public typealias CategorySequence =
     Dictionary<SiteCategoryType, SiteCategory>.Values
 
-  private let instance: Instance
-
-  public var languages: Dictionary<
-    SiteLanguageType, SiteLanguage
-  >.Values {
-    instance.languageDictionary.values
-  }
-
-  public var categories: Dictionary<
-    SiteCategoryType, SiteCategory
-  >.Values {
-    instance.categoryDictionary.values
-  }
-
-  public func sites(
-    withLanguage language: SiteLanguageType?,
-    withCategory category: SiteCategoryType?
-  ) -> [Site] {
-    instance.sites(withLanguage: language, withCategory: category)
-  }
-
-  internal init(blogs: SiteCollection) {
-    instance = .init(blogs: blogs)
-  }
-
   private struct Instance {
-    internal let allSites: [Site]
-    internal let languageDictionary: [SiteLanguageType: SiteLanguage]
-    internal let categoryDictionary: [SiteCategoryType: SiteCategory]
-    internal let languageIndicies: [SiteLanguageType: Set<Int>]
-    internal let categoryIndicies: [SiteCategoryType: Set<Int>]
+    fileprivate let allSites: [Site]
+    fileprivate let languageDictionary: [SiteLanguageType: SiteLanguage]
+    fileprivate let categoryDictionary: [SiteCategoryType: SiteCategory]
+    fileprivate let languageIndicies: [SiteLanguageType: Set<Int>]
+    fileprivate let categoryIndicies: [SiteCategoryType: Set<Int>]
 
-    public func sites(
+    fileprivate func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
     ) -> [Site] {
@@ -107,7 +56,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     }
 
     // swiftlint:disable function_body_length
-    internal init(blogs: SiteCollection) {
+    fileprivate init(blogs: SiteCollection) {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()
       var sites = [Site]()
@@ -152,5 +101,56 @@ public struct SiteCollectionDirectory: SiteDirectory {
       self.categoryIndicies = categoryIndicies
       allSites = sites
     }
+  }
+
+  private let instance: Instance
+
+  public var languages: Dictionary<
+    SiteLanguageType, SiteLanguage
+  >.Values {
+    instance.languageDictionary.values
+  }
+
+  public var categories: Dictionary<
+    SiteCategoryType, SiteCategory
+  >.Values {
+    instance.categoryDictionary.values
+  }
+
+  internal init(blogs: SiteCollection) {
+    instance = .init(blogs: blogs)
+  }
+
+  public func sites(
+    withLanguage language: SiteLanguageType?,
+    withCategory category: SiteCategoryType?
+  ) -> [Site] {
+    instance.sites(withLanguage: language, withCategory: category)
+  }
+}
+
+public protocol SiteDirectory {
+  associatedtype SiteSequence: Sequence
+    where SiteSequence.Element == Site
+  associatedtype LanguageSequence: Sequence
+    where LanguageSequence.Element == SiteLanguage
+  associatedtype CategorySequence: Sequence
+    where CategorySequence.Element == SiteCategory
+
+  var languages: LanguageSequence { get }
+  var categories: CategorySequence { get }
+
+  func sites(
+    withLanguage language: SiteLanguageType?,
+    withCategory category: SiteCategoryType?
+  ) -> SiteSequence
+}
+
+extension SiteDirectory {
+  public func sites(
+    withLanguage language: SiteLanguageType? = nil,
+    withCategory category: SiteCategoryType? = nil
+  ) -> SiteSequence {
+    sites(withLanguage: language, withCategory: category)
   }
 }

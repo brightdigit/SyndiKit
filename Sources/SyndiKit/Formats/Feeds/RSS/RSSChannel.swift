@@ -2,6 +2,31 @@ import Foundation
 
 /// information about the channel (metadata) and its contents.
 public struct RSSChannel: Codable {
+  internal enum CodingKeys: String, CodingKey {
+    case title
+    case link
+    case description
+    case lastBuildDate
+    case pubDate
+    case ttl
+    case syUpdatePeriod = "sy:updatePeriod"
+    case syUpdateFrequency = "sy:updateFrequency"
+    case items = "item"
+    case itunesAuthor = "itunes:author"
+    case itunesImage = "itunes:image"
+    case itunesOwner = "itunes:owner"
+    case copyright
+    case image
+    case author
+    case wpCategories = "wp:category"
+    case wpTags = "wp:tag"
+    case wpBaseSiteURL = "wp:baseSiteUrl"
+    case wpBaseBlogURL = "wp:baseBlogUrl"
+    case podcastLocked = "podcast:locked"
+    case podcastFundings = "podcast:funding"
+    case podcastPeople = "podcast:person"
+  }
+
   /// The name of the channel.
   public let title: String
 
@@ -48,31 +73,6 @@ public struct RSSChannel: Codable {
   public let podcastLocked: PodcastLocked?
   public let podcastFundings: [PodcastFunding]
   public let podcastPeople: [PodcastPerson]
-
-  internal enum CodingKeys: String, CodingKey {
-    case title
-    case link
-    case description
-    case lastBuildDate
-    case pubDate
-    case ttl
-    case syUpdatePeriod = "sy:updatePeriod"
-    case syUpdateFrequency = "sy:updateFrequency"
-    case items = "item"
-    case itunesAuthor = "itunes:author"
-    case itunesImage = "itunes:image"
-    case itunesOwner = "itunes:owner"
-    case copyright
-    case image
-    case author
-    case wpCategories = "wp:category"
-    case wpTags = "wp:tag"
-    case wpBaseSiteURL = "wp:baseSiteUrl"
-    case wpBaseBlogURL = "wp:baseBlogUrl"
-    case podcastLocked = "podcast:locked"
-    case podcastFundings = "podcast:funding"
-    case podcastPeople = "podcast:person"
-  }
 }
 
 extension RSSChannel {
