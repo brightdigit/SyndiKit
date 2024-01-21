@@ -9,14 +9,14 @@ public struct SiteCollectionDirectory: SiteDirectory {
   public typealias CategorySequence =
     Dictionary<SiteCategoryType, SiteCategory>.Values
 
-  private struct Instance {
-    private let allSites: [Site]
-    private let languageDictionary: [SiteLanguageType: SiteLanguage]
-    private let categoryDictionary: [SiteCategoryType: SiteCategory]
-    private let languageIndicies: [SiteLanguageType: Set<Int>]
-    private let categoryIndicies: [SiteCategoryType: Set<Int>]
+  internal struct Instance {
+    internal let allSites: [Site]
+    internal let languageDictionary: [SiteLanguageType: SiteLanguage]
+    internal let categoryDictionary: [SiteCategoryType: SiteCategory]
+    internal let languageIndicies: [SiteLanguageType: Set<Int>]
+    internal let categoryIndicies: [SiteCategoryType: Set<Int>]
 
-    private func sites(
+    internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
     ) -> [Site] {
@@ -56,7 +56,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     }
 
     // swiftlint:disable function_body_length
-    private init(blogs: SiteCollection) {
+    internal init(blogs: SiteCollection) {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()
       var sites = [Site]()
