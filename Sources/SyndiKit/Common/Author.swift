@@ -11,7 +11,7 @@ public struct Author: Codable, Equatable {
   /// Contains a home page for the person.
   public let uri: URL?
 
-  internal init(name: String) {
+  public init(name: String) {
     self.name = name
     email = nil
     uri = nil

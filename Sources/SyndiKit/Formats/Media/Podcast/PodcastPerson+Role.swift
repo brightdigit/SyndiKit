@@ -14,6 +14,7 @@ extension PodcastPerson {
       self.init(rawValue: caseInsensitive.lowercased())
     }
 
+    // swiftlint:disable:next function_body_length cyclomatic_complexity
     init?(role: Role) {
       switch role {
       case .guest:
@@ -78,6 +79,7 @@ extension PodcastPerson {
       }
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     private init(knownRole: KnownRole) {
       switch knownRole {
       case .guest:

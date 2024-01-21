@@ -16,10 +16,6 @@ internal struct DateFormatterDecoder {
 
   private let formatters: [DateFormatter]
 
-  internal init(formatters: [DateFormatter]) {
-    self.formatters = formatters
-  }
-
   internal init(basedOnFormats formats: [String]) {
     formatters = formats.map(Self.isoPOSIX(withFormat:))
   }
