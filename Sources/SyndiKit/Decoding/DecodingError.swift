@@ -1,7 +1,7 @@
 import Foundation
 
 extension DecodingError {
-  struct Dictionary: Error {
+  internal struct Dictionary: Error {
     internal init?(errors: [String: DecodingError]) {
       guard errors.count > 1 else {
         return nil
@@ -9,7 +9,7 @@ extension DecodingError {
       self.errors = errors
     }
 
-    let errors: [String: DecodingError]
+    internal let errors: [String: DecodingError]
   }
 
   internal static func failedAttempts(_ errors: [String: DecodingError]) -> Self {

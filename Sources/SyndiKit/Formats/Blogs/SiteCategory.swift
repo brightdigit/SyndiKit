@@ -7,7 +7,7 @@ public struct SiteCategory {
       return nil
     }
     self.type = type
-    descriptors = Dictionary(grouping: languages, by: { $0.language })
+    descriptors = Dictionary(grouping: languages) { $0.language }
       .compactMapValues { $0.first?.descriptor }
   }
 }

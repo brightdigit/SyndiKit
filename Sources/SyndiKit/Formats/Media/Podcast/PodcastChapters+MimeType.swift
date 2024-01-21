@@ -10,8 +10,11 @@ extension PodcastChapters {
 
     init?(mimeType: MimeType) {
       switch mimeType {
-      case .json: self = .json
-      case .unknown: return nil
+      case .json:
+        self = .json
+
+      case .unknown:
+        return nil
       }
     }
   }
@@ -47,7 +50,8 @@ extension PodcastChapters {
 
     private init(knownMimeType: KnownMimeType) {
       switch knownMimeType {
-      case .json: self = .json
+      case .json:
+        self = .json
       }
     }
   }

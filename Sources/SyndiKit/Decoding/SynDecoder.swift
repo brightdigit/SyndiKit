@@ -58,7 +58,7 @@ public class SynDecoder {
 
       return (source.source, type.anyDecoding(using: decoder))
     }
-    return Dictionary(grouping: decodings, by: { $0.0 })
+    return Dictionary(grouping: decodings) { $0.0 }
       .mapValues { $0
         .map { $0.1 }
         .map { (type(of: $0).label, $0) }

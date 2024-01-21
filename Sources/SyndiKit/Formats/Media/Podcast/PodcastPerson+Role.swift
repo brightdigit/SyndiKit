@@ -16,14 +16,29 @@ extension PodcastPerson {
 
     init?(role: Role) {
       switch role {
-      case .guest: self = .guest
-      case .host: self = .host
-      case .editor: self = .editor
-      case .writer: self = .writer
-      case .designer: self = .designer
-      case .composer: self = .composer
-      case .producer: self = .producer
-      case .unknown: return nil
+      case .guest:
+        self = .guest
+
+      case .host:
+        self = .host
+
+      case .editor:
+        self = .editor
+
+      case .writer:
+        self = .writer
+
+      case .designer:
+        self = .designer
+
+      case .composer:
+        self = .composer
+
+      case .producer:
+        self = .producer
+
+      case .unknown:
+        return nil
       }
     }
   }
@@ -65,13 +80,26 @@ extension PodcastPerson {
 
     private init(knownRole: KnownRole) {
       switch knownRole {
-      case .guest: self = .guest
-      case .host: self = .host
-      case .editor: self = .editor
-      case .writer: self = .writer
-      case .designer: self = .designer
-      case .composer: self = .composer
-      case .producer: self = .producer
+      case .guest:
+        self = .guest
+
+      case .host:
+        self = .host
+
+      case .editor:
+        self = .editor
+
+      case .writer:
+        self = .writer
+
+      case .designer:
+        self = .designer
+
+      case .composer:
+        self = .composer
+
+      case .producer:
+        self = .producer
       }
     }
   }

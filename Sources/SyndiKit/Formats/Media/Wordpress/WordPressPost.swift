@@ -6,16 +6,6 @@ public enum WordPressError: Error, Equatable {
   case missingField(WordPressPost.Field)
 }
 
-extension Entryable {
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
-  }
-}
-
 public struct WordPressPost {
   public typealias PostType = String
   public typealias CommentStatus = String
@@ -184,11 +174,8 @@ extension WordPressPost {
     self.body = body.value
     tags = categoryDictionary["post_tag", default: []].map { $0.value }
     categories = categoryDictionary["category", default: []].map { $0.value }
-    self.meta = Dictionary(grouping: meta, by: {
-      $0.key.value
-    }).compactMapValues {
-      $0.last?.value.value
-    }
+    self.meta = Dictionary(grouping: meta) { $0.key.value }
+      .compactMapValues { $0.last?.value.value }
     self.status = status.value
     self.commentStatus = commentStatus.value
     self.pingStatus = pingStatus.value
@@ -210,5 +197,15 @@ extension WordPressPost: Hashable {
 
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
+  }
+}
+
+extension Entryable {
+  public var wpPost: WordPressPost? {
+    guard let rssItem = self as? RSSItem else {
+      return nil
+    }
+
+    return try? WordPressPost(item: rssItem)
   }
 }
