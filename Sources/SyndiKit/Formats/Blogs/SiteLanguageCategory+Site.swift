@@ -1,4 +1,6 @@
 import Foundation
+
+// swiftlint:disable nesting
 extension SiteLanguageCategory {
   public struct Site: Codable {
     public let title: String

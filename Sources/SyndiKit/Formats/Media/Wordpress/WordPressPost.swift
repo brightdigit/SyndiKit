@@ -6,16 +6,6 @@ public enum WordPressError: Error, Equatable {
   case missingField(WordPressPost.Field)
 }
 
-extension Entryable {
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
-  }
-}
-
 public struct WordPressPost {
   public typealias PostType = String
   public typealias CommentStatus = String
@@ -61,7 +51,7 @@ public struct WordPressPost {
   public let pingStatus: PingStatus
   public let parentID: Int?
   public let menuOrder: Int?
-  public let id: Int
+  public let ID: Int
   public let isSticky: Bool
   public let postDate: Date
   public let postDateGMT: Date?
@@ -108,7 +98,7 @@ public struct WordPressPost {
     self.pingStatus = pingStatus
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.id = id
+    self.ID = id
     self.isSticky = isSticky
     self.postDate = postDate
     self.postDateGMT = postDateGMT
@@ -184,17 +174,14 @@ extension WordPressPost {
     self.body = body.value
     tags = categoryDictionary["post_tag", default: []].map { $0.value }
     categories = categoryDictionary["category", default: []].map { $0.value }
-    self.meta = Dictionary(grouping: meta, by: {
-      $0.key.value
-    }).compactMapValues {
-      $0.last?.value.value
-    }
+    self.meta = Dictionary(grouping: meta) { $0.key.value }
+      .compactMapValues { $0.last?.value.value }
     self.status = status.value
     self.commentStatus = commentStatus.value
     self.pingStatus = pingStatus.value
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.id = id
+    self.ID = id
     self.isSticky = (isSticky != 0)
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT
@@ -205,10 +192,20 @@ extension WordPressPost {
 
 extension WordPressPost: Hashable {
   public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.id == rhs.id
+    lhs.ID == rhs.ID
   }
 
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
+    hasher.combine(ID)
+  }
+}
+
+extension Entryable {
+  public var wpPost: WordPressPost? {
+    guard let rssItem = self as? RSSItem else {
+      return nil
+    }
+
+    return try? WordPressPost(item: rssItem)
   }
 }

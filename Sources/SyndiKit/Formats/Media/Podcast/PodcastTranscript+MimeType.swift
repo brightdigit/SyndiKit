@@ -15,13 +15,26 @@ extension PodcastTranscript {
 
     init?(mimeType: MimeType) {
       switch mimeType {
-      case .plain: self = .plain
-      case .html: self = .html
-      case .srt: self = .srt
-      case .vtt: self = .vtt
-      case .json: self = .json
-      case .subrip: self = .subrip
-      case .unknown: return nil
+      case .plain:
+        self = .plain
+
+      case .html:
+        self = .html
+
+      case .srt:
+        self = .srt
+
+      case .vtt:
+        self = .vtt
+
+      case .json:
+        self = .json
+
+      case .subrip:
+        self = .subrip
+
+      case .unknown:
+        return nil
       }
     }
   }
@@ -62,12 +75,23 @@ extension PodcastTranscript {
 
     private init(knownMimeType: KnownMimeType) {
       switch knownMimeType {
-      case .plain: self = .plain
-      case .html: self = .html
-      case .srt: self = .srt
-      case .vtt: self = .vtt
-      case .json: self = .json
-      case .subrip: self = .subrip
+      case .plain:
+        self = .plain
+
+      case .html:
+        self = .html
+
+      case .srt:
+        self = .srt
+
+      case .vtt:
+        self = .vtt
+
+      case .json:
+        self = .json
+
+      case .subrip:
+        self = .subrip
       }
     }
   }

@@ -9,14 +9,14 @@ public struct SiteCollectionDirectory: SiteDirectory {
   public typealias CategorySequence =
     Dictionary<SiteCategoryType, SiteCategory>.Values
 
-  private struct Instance {
-    fileprivate let allSites: [Site]
-    fileprivate let languageDictionary: [SiteLanguageType: SiteLanguage]
-    fileprivate let categoryDictionary: [SiteCategoryType: SiteCategory]
-    fileprivate let languageIndicies: [SiteLanguageType: Set<Int>]
-    fileprivate let categoryIndicies: [SiteCategoryType: Set<Int>]
+  internal struct Instance {
+    internal let allSites: [Site]
+    internal let languageDictionary: [SiteLanguageType: SiteLanguage]
+    internal let categoryDictionary: [SiteCategoryType: SiteCategory]
+    internal let languageIndicies: [SiteLanguageType: Set<Int>]
+    internal let categoryIndicies: [SiteCategoryType: Set<Int>]
 
-    fileprivate func sites(
+    internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
     ) -> [Site] {
@@ -56,7 +56,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     }
 
     // swiftlint:disable function_body_length
-    fileprivate init(blogs: SiteCollection) {
+    internal init(blogs: SiteCollection) {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()
       var sites = [Site]()
@@ -90,10 +90,8 @@ public struct SiteCollectionDirectory: SiteDirectory {
         languages.append(language)
       }
 
-      categoryDictionary = Dictionary(
-        grouping: categories,
-        by: { $0.type }
-      ).compactMapValues(SiteCategory.init)
+      categoryDictionary = Dictionary(grouping: categories) { $0.type }
+        .compactMapValues(SiteCategory.init)
       languageDictionary = Dictionary(
         uniqueKeysWithValues: languages.map { ($0.type, $0) }
       )
