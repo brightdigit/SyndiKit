@@ -51,7 +51,7 @@ public struct WordPressPost {
   public let pingStatus: PingStatus
   public let parentID: Int?
   public let menuOrder: Int?
-  public let id: Int
+  public let ID: Int
   public let isSticky: Bool
   public let postDate: Date
   public let postDateGMT: Date?
@@ -98,7 +98,7 @@ public struct WordPressPost {
     self.pingStatus = pingStatus
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.id = id
+    self.ID = id
     self.isSticky = isSticky
     self.postDate = postDate
     self.postDateGMT = postDateGMT
@@ -181,7 +181,7 @@ extension WordPressPost {
     self.pingStatus = pingStatus.value
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.id = id
+    self.ID = id
     self.isSticky = (isSticky != 0)
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT
@@ -192,11 +192,11 @@ extension WordPressPost {
 
 extension WordPressPost: Hashable {
   public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.id == rhs.id
+    lhs.ID == rhs.ID
   }
 
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
+    hasher.combine(ID)
   }
 }
 
