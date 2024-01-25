@@ -68,14 +68,14 @@ public protocol PodcastEpisode {
   /// The author of the episode.
   var author: String? { get }
 
+  /// The subtitle of the episode.
+  var subtitle: String? { get }
+
   /// A summary of the episode.
   var summary: String? { get }
 
   /// Indicates if the episode contains explicit content.
   var explicit: String? { get }
-
-  /// The subtitle of the episode.
-  var subtitle: String? { get }
 
   /// The duration of the episode.
   var duration: TimeInterval? { get }
