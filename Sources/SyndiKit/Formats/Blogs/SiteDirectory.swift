@@ -16,6 +16,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     internal let languageIndicies: [SiteLanguageType: Set<Int>]
     internal let categoryIndicies: [SiteCategoryType: Set<Int>]
 
+    // swiftlint:disable:next function_body_length
     internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?

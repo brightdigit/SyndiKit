@@ -1,18 +1,18 @@
 import Foundation
 
-internal struct PodcastEpisodeProperties: PodcastEpisode {
-  internal let title: String?
-  internal let episode: Int?
-  internal let author: String?
-  internal let subtitle: String?
-  internal let summary: String?
-  internal let explicit: String?
-  internal let duration: TimeInterval?
-  internal let image: iTunesImage?
-  internal let enclosure: Enclosure
-  internal let people: [PodcastPerson]
+public struct PodcastEpisodeProperties: PodcastEpisode {
+  public let title: String?
+  public let episode: Int?
+  public let author: String?
+  public let subtitle: String?
+  public let summary: String?
+  public let explicit: String?
+  public let duration: TimeInterval?
+  public let image: iTunesImage?
+  public let enclosure: Enclosure
+  public let people: [PodcastPerson]
 
-  internal init?(rssItem: RSSItem) {
+  public init?(rssItem: RSSItem) {
     guard let enclosure = rssItem.enclosure else {
       return nil
     }
