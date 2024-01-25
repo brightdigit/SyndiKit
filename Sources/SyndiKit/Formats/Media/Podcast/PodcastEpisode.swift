@@ -71,6 +71,9 @@ public protocol PodcastEpisode {
   /// A summary of the episode.
   var summary: String? { get }
 
+  /// Indicates if the episode contains explicit content.
+  var explicit: String? { get }
+
   /// The subtitle of the episode.
   var subtitle: String? { get }
 
@@ -79,9 +82,6 @@ public protocol PodcastEpisode {
 
   /// The image associated with the episode.
   var image: iTunesImage? { get }
-
-  /// Indicates if the episode contains explicit content.
-  var explicit: String? { get }
 
   /// The enclosure of the episode.
   var enclosure: Enclosure { get }
