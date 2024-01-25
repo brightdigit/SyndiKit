@@ -98,7 +98,7 @@ public struct WordPressPost {
     self.pingStatus = pingStatus
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.ID = id
+    ID = id
     self.isSticky = isSticky
     self.postDate = postDate
     self.postDateGMT = postDateGMT
@@ -181,7 +181,7 @@ extension WordPressPost {
     self.pingStatus = pingStatus.value
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.ID = id
+    ID = id
     self.isSticky = (isSticky != 0)
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT
