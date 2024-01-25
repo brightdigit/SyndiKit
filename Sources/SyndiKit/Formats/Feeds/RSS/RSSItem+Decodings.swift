@@ -2,7 +2,14 @@ import Foundation
 import XMLCoder
 
 extension RSSItem {
-  // swiftlint:disable:next function_body_length
+  // swiftlint:disable function_body_length
+  /// A struct representing an Atom category.
+  ///   Initializes a new ``RSSItem`` by decoding data from a decoder.
+  ///
+  ///   - Parameter decoder: The decoder to read data from.
+  ///
+  ///   - Throws: An error if the decoding fails.
+  /// - SeeAlso: ``EntryCategory``
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     title = try container.decode(String.self, forKey: .title)
@@ -114,4 +121,6 @@ extension RSSItem {
       CData.self, forKey: .wpPostPassword
     )
   }
+
+  // swiftlint:enable function_body_length
 }

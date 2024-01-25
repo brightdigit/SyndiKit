@@ -1,6 +1,8 @@
 import Foundation
 
+/// A struct representing an entry in an Atom feed.
 public struct AtomEntry: Codable {
+  /// The coding keys used for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case id
     case title
@@ -19,62 +21,67 @@ public struct AtomEntry: Codable {
   /// A permanent, universally unique identifier for an entry.
   public let id: EntryID
 
-  /// a Text construct that conveys a human-readable title
+  /// A human-readable title for the entry.
   public let title: String
 
-  /// The most recent instant in time when the entry was published
+  /// The most recent instant in time when the entry was published.
   public let published: Date?
 
-  /// Content of the trny.
+  /// The content of the entry.
   public let content: String?
 
-  /// The most recent instant in time when the entry was modified in a way
-  /// the publisher considers significant.
+  /// The most recent instant in time when the entry was modified.
   public let updated: Date
 
-  /// Cateogires of the entry.
+  /// The categories associated with the entry.
   public let atomCategories: [AtomCategory]
 
-  /// a reference to a Web resource.
+  /// The links associated with the entry.
   public let links: [Link]
-  /// The author of the entry.
+
+  /// The authors of the entry.
   public let authors: [Author]
 
-  /// YouTube channel ID, if from a YouTube channel.
-  public let youtubeChannelID: String?
-
-  /// YouTube video ID, if from a YouTube channel.
+  /// The YouTube video ID, if the entry is from a YouTube channel.
   public let youtubeVideoID: String?
 
-  ///  the person or entity who wrote an item
+  /// The YouTube channel ID, if the entry is from a YouTube channel.
+  public let youtubeChannelID: String?
+
+  /// The creators of the entry.
   public let creators: [String]
 
-  /// Grouping of <media:content> elements that are effectively the same content,
-  /// yet different representations.
+  /// The media group associated with the entry.
   public let mediaGroup: AtomMediaGroup?
 }
 
 extension AtomEntry: Entryable {
+  /// The categories associated with the entry.
   public var categories: [EntryCategory] {
     atomCategories
   }
 
+  /// The URL of the entry.
   public var url: URL? {
     links.first?.href
   }
 
+  /// The HTML content of the entry.
   public var contentHtml: String? {
     content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
 
+  /// The summary of the entry.
   public var summary: String? {
     nil
   }
 
+  /// The media content of the entry.
   public var media: MediaContent? {
     YouTubeIDProperties(entry: self).map(Video.youtube).map(MediaContent.video)
   }
 
+  /// The URL of the entry's image.
   public var imageURL: URL? {
     mediaGroup?.thumbnails.first?.url
   }

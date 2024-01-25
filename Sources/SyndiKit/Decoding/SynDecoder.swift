@@ -77,7 +77,7 @@ public class SynDecoder {
     self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
   }
 
-  /// Creates an instance of `RSSDecoder`
+  /// Creates an instance of ``RSSDecoder``
   public convenience init() {
     self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
   }
@@ -93,9 +93,9 @@ public class SynDecoder {
     decoder.trimValueWhitespaces = false
   }
 
-  /// Returns a `Feedable` object of the type you specify, decoded from a JSON object.
+  /// Returns a ``Feedable`` object of the type you specify, decoded from a JSON object.
   /// - Parameter data: The JSON or XML object to decode.
-  /// - Returns: A `Feedable` object
+  /// - Returns: A ``Feedable`` object
   ///
   /// If the data is not valid RSS, this method throws the
   /// `DecodingError.dataCorrupted(_:)` error.
