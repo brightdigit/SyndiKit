@@ -7,6 +7,19 @@ import Foundation
 /// [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
 /// - SeeAlso: `EntryCategory`
 public struct AtomFeed {
+  public enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case description
+    case subtitle
+    case published
+    case pubDate
+    case links = "link"
+    case entries = "entry"
+    case authors = "author"
+    case youtubeChannelID = "yt:channelId"
+  }
+
   /// Identifies the feed using a universally unique and permanent URI.
   /// If you have a long-term, renewable lease on your Internet domain name,
   /// then you can feel free to use your website's address.
