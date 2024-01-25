@@ -13,6 +13,7 @@ extension PodcastTranscript {
       self.init(rawValue: caseInsensitive)
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     init?(mimeType: MimeType) {
       switch mimeType {
       case .plain:

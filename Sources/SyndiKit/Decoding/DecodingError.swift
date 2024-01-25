@@ -20,4 +20,16 @@ extension DecodingError {
     )
     return DecodingError.dataCorrupted(context)
   }
+
+  internal static func dataCorrupted(
+    codingKey: CodingKey,
+    debugDescription: String
+  ) -> Self {
+    DecodingError.dataCorrupted(
+      .init(
+        codingPath: [codingKey],
+        debugDescription: debugDescription
+      )
+    )
+  }
 }

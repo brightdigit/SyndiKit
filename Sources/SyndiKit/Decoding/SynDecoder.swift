@@ -34,6 +34,7 @@ public class SynDecoder {
     return decoder
   }()
 
+  // swiftlint:disable:next closure_body_length
   private lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
     let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
