@@ -16,6 +16,7 @@ import Foundation
  [W3 sepcifications.](https://validator.w3.org/feed/docs/rss2.html)
  */
 public struct RSSFeed {
+  /// Root Channel of hte RSS Feed
   public let channel: RSSChannel
 }
 

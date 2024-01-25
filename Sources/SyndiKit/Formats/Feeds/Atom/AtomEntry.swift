@@ -2,6 +2,22 @@ import Foundation
 
 /// A struct representing an entry in an Atom feed.
 public struct AtomEntry: Codable {
+  /// The coding keys used for encoding and decoding.
+  public enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case published
+    case content
+    case updated
+    case links = "link"
+    case authors = "author"
+    case atomCategories = "category"
+    case youtubeVideoID = "yt:videoId"
+    case youtubeChannelID = "yt:channelId"
+    case creators = "dc:creator"
+    case mediaGroup = "media:group"
+  }
+
   /// A permanent, universally unique identifier for an entry.
   public let id: EntryID
 
@@ -37,22 +53,6 @@ public struct AtomEntry: Codable {
 
   /// The media group associated with the entry.
   public let mediaGroup: AtomMediaGroup?
-
-  /// The coding keys used for encoding and decoding.
-  public enum CodingKeys: String, CodingKey {
-    case id
-    case title
-    case published
-    case content
-    case updated
-    case links = "link"
-    case authors = "author"
-    case atomCategories = "category"
-    case youtubeVideoID = "yt:videoId"
-    case youtubeChannelID = "yt:channelId"
-    case creators = "dc:creator"
-    case mediaGroup = "media:group"
-  }
 }
 
 extension AtomEntry: Entryable {

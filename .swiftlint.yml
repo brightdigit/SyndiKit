@@ -110,6 +110,12 @@ function_parameter_count: 8
 line_length:
   - 90
   - 90
+type_name:
+  excluded:
+    - iTunesDuration
+    - iTunesEpisode
+    - iTunesOwner
+    - iTunesImage
 identifier_name:
   excluded:
     - id

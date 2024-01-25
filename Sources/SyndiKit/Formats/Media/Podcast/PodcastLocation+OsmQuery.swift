@@ -1,18 +1,28 @@
 import Foundation
 
 extension PodcastLocation {
+  /// Represents a query for OpenStreetMap (OSM) data.
   public struct OsmQuery: Codable, Equatable {
-    // swiftlint:disable:next nesting
+    /// The type of OSM element.
     public enum OsmType: String, Codable, CaseIterable {
       case node = "N"
       case way = "W"
       case relation = "R"
     }
 
+    /// The ID of the OSM element.
     public let id: Int
+
+    /// The type of the OSM element.
     public let type: OsmType
+
+    /// The revision number of the OSM element.
     public let revision: Int?
 
+    /// Initializes an `OsmQuery` instance from a decoder.
+    ///
+    /// - Parameter decoder: The decoder to read data from.
+    /// - Throws: `DecodingError.dataCorrupted` if the data is invalid.
     public init(from decoder: Decoder) throws {
       let container = try decoder.singleValueContainer()
 

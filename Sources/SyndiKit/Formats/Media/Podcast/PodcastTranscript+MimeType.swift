@@ -1,6 +1,7 @@
 import Foundation
 
 extension PodcastTranscript {
+  /// A private enum representing known MIME types for the transcript.
   private enum KnownMimeType: String, Codable {
     case plain = "text/plain"
     case html = "text/html"
@@ -9,11 +10,13 @@ extension PodcastTranscript {
     case json = "application/json"
     case subrip = "application/x-subrip"
 
+    /// Initializes a `KnownMimeType` with a case-insensitive string.
     init?(caseInsensitive: String) {
       self.init(rawValue: caseInsensitive)
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
+    // swiftlint:disable cyclomatic_complexity
+    /// Initializes a `KnownMimeType` with a `MimeType`.
     init?(mimeType: MimeType) {
       switch mimeType {
       case .plain:
@@ -38,8 +41,11 @@ extension PodcastTranscript {
         return nil
       }
     }
+
+    // swiftlint:enable cyclomatic_complexity
   }
 
+  /// An enum representing the MIME type of the transcript.
   public enum MimeType: Codable, Equatable, RawRepresentable {
     case plain
     case html
@@ -49,6 +55,7 @@ extension PodcastTranscript {
     case subrip
     case unknown(String)
 
+    /// The raw value of the MIME type.
     public var rawValue: String {
       if let knownMimeType = KnownMimeType(mimeType: self) {
         return knownMimeType.rawValue
@@ -62,10 +69,12 @@ extension PodcastTranscript {
       }
     }
 
+    /// Initializes a `MimeType` with a raw value.
     public init?(rawValue: String) {
       self.init(caseInsensitive: rawValue)
     }
 
+    /// Initializes a `MimeType` with a case-insensitive string.
     public init(caseInsensitive: String) {
       if let knownMimeType = KnownMimeType(caseInsensitive: caseInsensitive) {
         self = .init(knownMimeType: knownMimeType)
@@ -74,6 +83,7 @@ extension PodcastTranscript {
       }
     }
 
+    /// Initializes a `MimeType` with a `KnownMimeType`.
     private init(knownMimeType: KnownMimeType) {
       switch knownMimeType {
       case .plain:

@@ -1,55 +1,58 @@
 import Foundation
 
+/// A directory of site collections.
 public struct SiteCollectionDirectory: SiteDirectory {
+  /// A sequence of sites.
   public typealias SiteSequence = [Site]
 
-  public typealias LanguageSequence =
-    Dictionary<SiteLanguageType, SiteLanguage>.Values
+  /// A sequence of languages.
+  public typealias LanguageSequence = Dictionary<SiteLanguageType, SiteLanguage>.Values
 
-  public typealias CategorySequence =
-    Dictionary<SiteCategoryType, SiteCategory>.Values
+  /// A sequence of categories.
+  public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
 
+  /// The internal structure of the site collection directory.
   internal struct Instance {
     internal let allSites: [Site]
     internal let languageDictionary: [SiteLanguageType: SiteLanguage]
     internal let categoryDictionary: [SiteCategoryType: SiteCategory]
-    internal let languageIndicies: [SiteLanguageType: Set<Int>]
-    internal let categoryIndicies: [SiteCategoryType: Set<Int>]
+    internal let languageIndices: [SiteLanguageType: Set<Int>]
+    internal let categoryIndices: [SiteCategoryType: Set<Int>]
 
     // swiftlint:disable:next function_body_length
     internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
     ) -> [Site] {
-      let languageIndicies: Set<Int>?
+      let languageIndices: Set<Int>?
       if let language = language {
-        languageIndicies = self.languageIndicies[language] ?? .init()
+        languageIndices = self.languageIndices[language] ?? .init()
       } else {
-        languageIndicies = nil
+        languageIndices = nil
       }
 
-      let categoryIndicies: Set<Int>?
+      let categoryIndices: Set<Int>?
       if let category = category {
-        categoryIndicies = self.categoryIndicies[category] ?? .init()
+        categoryIndices = self.categoryIndices[category] ?? .init()
       } else {
-        categoryIndicies = nil
+        categoryIndices = nil
       }
 
-      var indicies: Set<Int>?
+      var indices: Set<Int>?
 
-      if let languageIndicies = languageIndicies {
-        indicies = languageIndicies
+      if let languageIndices = languageIndices {
+        indices = languageIndices
       }
 
-      if let categoryIndicies = categoryIndicies {
-        if let current = indicies {
-          indicies = current.intersection(categoryIndicies)
+      if let categoryIndices = categoryIndices {
+        if let current = indices {
+          indices = current.intersection(categoryIndices)
         } else {
-          indicies = categoryIndicies
+          indices = categoryIndices
         }
       }
 
-      if let current = indicies {
+      if let current = indices {
         return current.map { self.allSites[$0] }
       } else {
         return allSites
@@ -61,14 +64,14 @@ public struct SiteCollectionDirectory: SiteDirectory {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()
       var sites = [Site]()
-      var languageIndicies = [SiteLanguageType: Set<Int>]()
-      var categoryIndicies = [SiteCategoryType: Set<Int>]()
+      var languageIndices = [SiteLanguageType: Set<Int>]()
+      var categoryIndices = [SiteCategoryType: Set<Int>]()
 
       for languageContent in blogs {
         let language = SiteLanguage(content: languageContent)
-        var thisLanguageIndicies = [Int]()
+        var thisLanguageIndices = [Int]()
         for languageCategory in languageContent.categories {
-          var thisCategoryIndicies = [Int]()
+          var thisCategoryIndices = [Int]()
           let category = CategoryLanguage(
             languageCategory: languageCategory,
             language: language.type
@@ -81,13 +84,13 @@ public struct SiteCollectionDirectory: SiteDirectory {
               languageType: language.type
             )
             sites.append(site)
-            thisCategoryIndicies.append(index)
-            thisLanguageIndicies.append(index)
+            thisCategoryIndices.append(index)
+            thisLanguageIndices.append(index)
           }
-          categoryIndicies.formUnion(thisCategoryIndicies, key: category.type)
+          categoryIndices.formUnion(thisCategoryIndices, key: category.type)
           categories.append(category)
         }
-        languageIndicies.formUnion(thisLanguageIndicies, key: language.type)
+        languageIndices.formUnion(thisLanguageIndices, key: language.type)
         languages.append(language)
       }
 
@@ -96,30 +99,37 @@ public struct SiteCollectionDirectory: SiteDirectory {
       languageDictionary = Dictionary(
         uniqueKeysWithValues: languages.map { ($0.type, $0) }
       )
-      self.languageIndicies = languageIndicies
-      self.categoryIndicies = categoryIndicies
+      self.languageIndices = languageIndices
+      self.categoryIndices = categoryIndices
       allSites = sites
     }
   }
 
   private let instance: Instance
 
-  public var languages: Dictionary<
-    SiteLanguageType, SiteLanguage
-  >.Values {
+  /// A sequence of languages in the site collection directory.
+  public var languages: Dictionary<SiteLanguageType, SiteLanguage>.Values {
     instance.languageDictionary.values
   }
 
-  public var categories: Dictionary<
-    SiteCategoryType, SiteCategory
-  >.Values {
+  /// A sequence of categories in the site collection directory.
+  public var categories: Dictionary<SiteCategoryType, SiteCategory>.Values {
     instance.categoryDictionary.values
   }
 
+  /// Initializes a new instance of the `SiteCollectionDirectory` struct.
+  ///
+  /// - Parameter blogs: The site collection to use.
   internal init(blogs: SiteCollection) {
     instance = .init(blogs: blogs)
   }
 
+  /// Retrieves a list of sites based on the specified language and category.
+  ///
+  /// - Parameters:
+  ///   - language: The language of the sites to retrieve.
+  ///   - category: The category of the sites to retrieve.
+  /// - Returns: A list of sites matching the specified language and category.
   public func sites(
     withLanguage language: SiteLanguageType?,
     withCategory category: SiteCategoryType?
@@ -128,17 +138,27 @@ public struct SiteCollectionDirectory: SiteDirectory {
   }
 }
 
+/// A protocol for site directories.
 public protocol SiteDirectory {
-  associatedtype SiteSequence: Sequence
-    where SiteSequence.Element == Site
-  associatedtype LanguageSequence: Sequence
-    where LanguageSequence.Element == SiteLanguage
-  associatedtype CategorySequence: Sequence
-    where CategorySequence.Element == SiteCategory
+  /// List of Sites
+  associatedtype SiteSequence: Sequence where SiteSequence.Element == Site
+  /// List of Languages
+  associatedtype LanguageSequence: Sequence where LanguageSequence.Element == SiteLanguage
+  /// List of Categories
+  associatedtype CategorySequence: Sequence where CategorySequence.Element == SiteCategory
 
+  /// A sequence of languages in the site directory.
   var languages: LanguageSequence { get }
+
+  /// A sequence of categories in the site directory.
   var categories: CategorySequence { get }
 
+  /// Retrieves a list of sites based on the specified language and category.
+  ///
+  /// - Parameters:
+  ///   - language: The language of the sites to retrieve.
+  ///   - category: The category of the sites to retrieve.
+  /// - Returns: A list of sites matching the specified language and category.
   func sites(
     withLanguage language: SiteLanguageType?,
     withCategory category: SiteCategoryType?
@@ -146,6 +166,12 @@ public protocol SiteDirectory {
 }
 
 extension SiteDirectory {
+  /// Retrieves a list of sites based on the specified language and category.
+  ///
+  /// - Parameters:
+  ///   - language: The language of the sites to retrieve.
+  ///   - category: The category of the sites to retrieve.
+  /// - Returns: A list of sites matching the specified language and category.
   public func sites(
     withLanguage language: SiteLanguageType? = nil,
     withCategory category: SiteCategoryType? = nil

@@ -3,7 +3,7 @@ import Foundation
 /**
  An XML-based Web content and metadata syndication format.
 
- Based on the
+ Based on the 
  [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
  */
 public struct AtomFeed {

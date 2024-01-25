@@ -1,6 +1,7 @@
 import Foundation
 
 extension PodcastPerson {
+  /// A private enum representing known roles for a podcast person.
   private enum KnownRole: String {
     case guest
     case host
@@ -10,11 +11,13 @@ extension PodcastPerson {
     case composer
     case producer
 
+    /// Initializes a `KnownRole` with a case-insensitive string.
     init?(caseInsensitive: String) {
       self.init(rawValue: caseInsensitive.lowercased())
     }
 
-    // swiftlint:disable:next function_body_length cyclomatic_complexity
+    // swiftlint:disable function_body_length cyclomatic_complexity
+    /// Initializes a `KnownRole` with a `Role` value.
     init?(role: Role) {
       switch role {
       case .guest:
@@ -44,6 +47,9 @@ extension PodcastPerson {
     }
   }
 
+  // swiftlint:enable function_body_length cyclomatic_complexity
+
+  /// An enum representing the role of a podcast person.
   public enum Role: Codable, Equatable, RawRepresentable {
     case guest
     case host
@@ -54,6 +60,7 @@ extension PodcastPerson {
     case producer
     case unknown(String)
 
+    /// The raw value of the role.
     public var rawValue: String {
       if let knownRole = KnownRole(role: self) {
         return knownRole.rawValue
@@ -67,10 +74,12 @@ extension PodcastPerson {
       }
     }
 
+    /// Initializes a `Role` with a raw value.
     public init?(rawValue: String) {
       self.init(caseInsensitive: rawValue)
     }
 
+    /// Initializes a `Role` with a case-insensitive string.
     public init(caseInsensitive: String) {
       if let knownRole = KnownRole(caseInsensitive: caseInsensitive) {
         self = .init(knownRole: knownRole)

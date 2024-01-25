@@ -1,7 +1,17 @@
 import Foundation
 
 extension WordPressPost {
-  // swiftlint:disable:next cyclomatic_complexity function_body_length
+  // swiftlint:disable cyclomatic_complexity function_body_length
+  /**
+   Initializes a `WordPressPost` instance from an `RSSItem`.
+
+   - Parameter item: The `RSSItem` to initialize from.
+
+   - Throws: `WordPressError.missingField` if any required field is missing.
+
+   - Note: This initializer is marked as `public` to allow external usage.
+
+   */
   public init(item: RSSItem) throws {
     guard let name = item.wpPostName else {
       throw WordPressError.missingField(.name)
@@ -80,4 +90,6 @@ extension WordPressPost {
     self.modifiedDate = modifiedDate
     attachmentURL = item.wpAttachmentURL
   }
+
+  // swiftlint:enable cyclomatic_complexity function_body_length
 }
