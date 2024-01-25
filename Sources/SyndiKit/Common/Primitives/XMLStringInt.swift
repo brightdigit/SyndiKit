@@ -1,13 +1,13 @@
 /// XML Element which contains a `String` parsable into a `Integer`.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral {
-  public init(integerLiteral value: Int) {
-    self.value = value
-  }
-
   public typealias IntegerLiteralType = Int
 
   /// The underlying `Int` value.
   public let value: Int
+
+  public init(integerLiteral value: Int) {
+    self.value = value
+  }
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()

@@ -1,4 +1,8 @@
 public struct CategoryLanguage {
+  public let type: SiteCategoryType
+  public let descriptor: CategoryDescriptor
+  public let language: SiteLanguageType
+
   internal init(languageCategory: SiteLanguageCategory, language: SiteLanguageType) {
     type = languageCategory.slug
     descriptor = CategoryDescriptor(
@@ -7,8 +11,4 @@ public struct CategoryLanguage {
     )
     self.language = language
   }
-
-  public let type: SiteCategoryType
-  public let descriptor: CategoryDescriptor
-  public let language: SiteLanguageType
 }

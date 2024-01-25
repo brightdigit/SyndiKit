@@ -1,14 +1,17 @@
 import Foundation
 
-public extension WordPressElements {
-  struct PostMeta: Codable {
-    public let key: CData
-    public let value: CData
+public typealias WPPostMeta = WordPressElements.Category
 
-    enum CodingKeys: String, CodingKey {
+// swiftlint:disable nesting
+extension WordPressElements {
+  public struct PostMeta: Codable {
+    internal enum CodingKeys: String, CodingKey {
       case key = "wp:metaKey"
       case value = "wp:metaValue"
     }
+
+    public let key: CData
+    public let value: CData
 
     public init(key: String, value: String) {
       self.key = .init(stringLiteral: key)

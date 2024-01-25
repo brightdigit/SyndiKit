@@ -1,6 +1,13 @@
 import Foundation
 
 public struct PodcastTranscript: Codable, Equatable {
+  public enum CodingKeys: String, CodingKey {
+    case url
+    case type
+    case language
+    case rel
+  }
+
   public enum Relationship: String, Codable {
     case captions
   }
@@ -9,11 +16,4 @@ public struct PodcastTranscript: Codable, Equatable {
   public let type: MimeType
   public let language: String?
   public let rel: Relationship?
-
-  enum CodingKeys: String, CodingKey {
-    case url
-    case type
-    case language
-    case rel
-  }
 }

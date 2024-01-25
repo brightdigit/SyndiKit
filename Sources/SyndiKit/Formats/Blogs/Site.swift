@@ -1,6 +1,14 @@
 import Foundation
 
 public struct Site {
+  public let title: String
+  public let author: String
+  public let siteURL: URL
+  public let feedURL: URL
+  public let twitterURL: URL?
+  public let category: SiteCategoryType
+  public let language: SiteLanguageType
+
   internal init(
     site: SiteLanguageCategory.Site,
     categoryType: SiteCategoryType,
@@ -14,12 +22,4 @@ public struct Site {
     category = categoryType
     language = languageType
   }
-
-  public let title: String
-  public let author: String
-  public let siteURL: URL
-  public let feedURL: URL
-  public let twitterURL: URL?
-  public let category: SiteCategoryType
-  public let language: SiteLanguageType
 }

@@ -1,7 +1,7 @@
 import Foundation
 
-public extension PodcastLocation {
-  struct GeoURI: Codable, Equatable, LosslessStringConvertible {
+extension PodcastLocation {
+  public struct GeoURI: Codable, Equatable, LosslessStringConvertible {
     public let latitude: Double
     public let longitude: Double
     public let altitude: Double?
@@ -37,6 +37,7 @@ public extension PodcastLocation {
       try? self.init(singleValue: description)
     }
 
+    // swiftlint:disable:next function_body_length
     public init(singleValue: String) throws {
       let pathComponents = try Self.pathComponents(from: singleValue)
 
@@ -46,10 +47,8 @@ public extension PodcastLocation {
         let longitude = geoCoords[safe: 1]?.asDouble()
       else {
         throw DecodingError.dataCorrupted(
-          .init(
-            codingPath: [PodcastLocation.CodingKeys.geo],
-            debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
-          )
+          codingKey: PodcastLocation.CodingKeys.geo,
+          debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
         )
       }
 
@@ -80,18 +79,14 @@ public extension PodcastLocation {
       guard
         components[safe: 0] == "geo" else {
         throw DecodingError.dataCorrupted(
-          .init(
-            codingPath: [PodcastLocation.CodingKeys.geo],
-            debugDescription: "Invalid prefix for geo attribute: \(string)"
-          )
+          codingKey: PodcastLocation.CodingKeys.geo,
+          debugDescription: "Invalid prefix for geo attribute: \(string)"
         )
       }
       guard let geoPath = components[safe: 1] else {
         throw DecodingError.dataCorrupted(
-          .init(
-            codingPath: [PodcastLocation.CodingKeys.geo],
-            debugDescription: "Invalid path for geo attribute: \(string)"
-          )
+          codingKey: PodcastLocation.CodingKeys.geo,
+          debugDescription: "Invalid path for geo attribute: \(string)"
         )
       }
 

@@ -1,20 +1,20 @@
 import Foundation
 
 public struct PodcastPerson: Codable, Equatable {
-  public let role: Role?
-  public let group: String?
-  public let href: URL?
-  public let img: URL?
-
-  public let fullname: String
-
-  enum CodingKeys: String, CodingKey {
+  public enum CodingKeys: String, CodingKey {
     case role
     case group
     case href
     case img
     case fullname = ""
   }
+
+  public let role: Role?
+  public let group: String?
+  public let href: URL?
+  public let img: URL?
+
+  public let fullname: String
 
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)

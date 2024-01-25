@@ -1,7 +1,7 @@
 import Foundation
 
-internal extension FileManager {
-  func dataFromDirectory(at sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
+extension FileManager {
+  internal func dataFromDirectory(at sourceURL: URL) throws -> [(String, Result<Data, Error>)] {
     let urls = try contentsOfDirectory(
       at: sourceURL,
       includingPropertiesForKeys: nil,

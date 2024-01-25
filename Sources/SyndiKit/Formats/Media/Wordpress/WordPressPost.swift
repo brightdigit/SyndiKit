@@ -2,57 +2,38 @@ import Foundation
 
 public enum WordPressElements {}
 
+public enum WordPressError: Error, Equatable {
+  case missingField(WordPressPost.Field)
+}
+
 public struct WordPressPost {
   public typealias PostType = String
   public typealias CommentStatus = String
   public typealias PingStatus = String
   public typealias Status = String
-  init(
-    name: String,
-    title: String,
-    type: PostType,
-    link: URL,
-    pubDate: Date?,
-    creator: String,
-    body: String,
-    tags: [String],
-    categories: [String],
-    meta: [String: String],
-    status: Status,
-    commentStatus: CommentStatus,
-    pingStatus: PingStatus,
-    parentID: Int?,
-    menuOrder: Int?,
-    ID: Int,
-    isSticky: Bool,
-    postDate: Date,
-    postDateGMT: Date?,
-    modifiedDate: Date,
-    modifiedDateGMT: Date?,
-    attachmentURL: URL?
-  ) {
-    self.name = name
-    self.title = title
-    self.type = type
-    self.link = link
-    self.pubDate = pubDate
-    self.creator = creator
-    self.body = body
-    self.tags = tags
-    self.categories = categories
-    self.meta = meta
-    self.status = status
-    self.commentStatus = commentStatus
-    self.pingStatus = pingStatus
-    self.parentID = parentID
-    self.menuOrder = menuOrder
-    self.ID = ID
-    self.isSticky = isSticky
-    self.postDate = postDate
-    self.postDateGMT = postDateGMT
-    self.modifiedDate = modifiedDate
-    self.modifiedDateGMT = modifiedDateGMT
-    self.attachmentURL = attachmentURL
+
+  public enum Field: Equatable {
+    case name
+    case title
+    case type
+    case link
+    case pubDate
+    case creator
+    case body
+    case tags
+    case categories
+    case meta
+    case status
+    case commentStatus
+    case pingStatus
+    case parentID
+    case menuOrder
+    case id
+    case isSticky
+    case postDate
+    case postDateGMT
+    case modifiedDate
+    case modifiedDateGMT
   }
 
   public let name: String
@@ -77,118 +58,6 @@ public struct WordPressPost {
   public let modifiedDate: Date
   public let modifiedDateGMT: Date?
   public let attachmentURL: URL?
-
-  enum Field: Equatable {
-    case name
-    case title
-    case type
-    case link
-    case pubDate
-    case creator
-    case body
-    case tags
-    case categories
-    case meta
-    case status
-    case commentStatus
-    case pingStatus
-    case parentID
-    case menuOrder
-    case ID
-    case isSticky
-    case postDate
-    case postDateGMT
-    case modifiedDate
-    case modifiedDateGMT
-  }
-}
-
-enum WordPressError: Error, Equatable {
-  case missingField(WordPressPost.Field)
-}
-
-public extension WordPressPost {
-  // swiftlint:disable:next cyclomatic_complexity function_body_length
-  init(item: RSSItem) throws {
-    guard let name = item.wpPostName else {
-      throw WordPressError.missingField(.name)
-    }
-    guard let type = item.wpPostType else {
-      throw WordPressError.missingField(.type)
-    }
-    guard let creator = item.creators.first else {
-      throw WordPressError.missingField(.creator)
-    }
-    guard let body = item.contentEncoded else {
-      throw WordPressError.missingField(.body)
-    }
-    guard let status = item.wpStatus else {
-      throw WordPressError.missingField(.status)
-    }
-    guard let commentStatus = item.wpCommentStatus else {
-      throw WordPressError.missingField(.commentStatus)
-    }
-    guard let pingStatus = item.wpPingStatus else {
-      throw WordPressError.missingField(.pingStatus)
-    }
-    guard let parentID = item.wpPostParent else {
-      throw WordPressError.missingField(.parentID)
-    }
-    guard let menuOrder = item.wpMenuOrder else {
-      throw WordPressError.missingField(.menuOrder)
-    }
-    guard let ID = item.wpPostID else {
-      throw WordPressError.missingField(.ID)
-    }
-    guard let isSticky = item.wpIsSticky else {
-      throw WordPressError.missingField(.isSticky)
-    }
-    guard let postDate = item.wpPostDate else {
-      throw WordPressError.missingField(.postDate)
-    }
-    guard let modifiedDate = item.wpModifiedDate else {
-      throw WordPressError.missingField(.modifiedDate)
-    }
-    guard let link = item.link else {
-      throw WordPressError.missingField(.link)
-    }
-
-    let title = item.title
-    let categoryTerms = item.categoryTerms
-    let meta = item.wpPostMeta
-    let pubDate = item.pubDate
-
-    let categoryDictionary = Dictionary(grouping: categoryTerms, by: {
-      $0.domain
-    })
-
-    modifiedDateGMT = item.wpModifiedDateGMT
-    self.name = name.value
-    self.title = title
-    self.type = type.value
-    self.link = link
-    self.pubDate = pubDate
-    self.creator = creator
-    self.body = body.value
-    tags = categoryDictionary["post_tag", default: []].map { $0.value }
-    categories = categoryDictionary["category", default: []].map { $0.value }
-    self.meta = Dictionary(grouping: meta, by: {
-      $0.key.value
-    }).compactMapValues {
-      $0.last?.value.value
-    }
-    self.status = status.value
-    self.commentStatus = commentStatus.value
-    self.pingStatus = pingStatus.value
-    self.parentID = parentID
-    self.menuOrder = menuOrder
-    self.ID = ID
-    self.isSticky = (isSticky != 0)
-    self.postDate = postDate
-    postDateGMT = item.wpPostDateGMT
-    self.modifiedDate = modifiedDate
-    attachmentURL = item.wpAttachmentURL
-  }
 }
 
 extension WordPressPost: Hashable {
@@ -201,8 +70,8 @@ extension WordPressPost: Hashable {
   }
 }
 
-public extension Entryable {
-  var wpPost: WordPressPost? {
+extension Entryable {
+  public var wpPost: WordPressPost? {
     guard let rssItem = self as? RSSItem else {
       return nil
     }

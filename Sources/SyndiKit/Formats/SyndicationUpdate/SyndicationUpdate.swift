@@ -26,7 +26,7 @@ public struct SyndicationUpdate: Codable, Equatable {
   ///  to calculate the publishing schedule.
   public let base: Date?
 
-  init?(
+  internal init?(
     period: SyndicationUpdatePeriod? = nil,
     frequency: Int? = nil,
     base: Date? = nil

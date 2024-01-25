@@ -1,7 +1,7 @@
 import Foundation
 
 extension KeyedDecodingContainerProtocol {
-  func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
+  internal func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
     if let pubDateString =
       try decodeIfPresent(String.self, forKey: key),
       !pubDateString.isEmpty {
