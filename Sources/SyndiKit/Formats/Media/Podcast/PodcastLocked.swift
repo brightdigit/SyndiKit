@@ -5,7 +5,7 @@ public struct PodcastLocked: Codable, Equatable {
   /// Coding keys for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case owner
-    case isLocked = "is_locked"
+    case isLocked = ""
   }
 
   /// The owner of the podcast.
