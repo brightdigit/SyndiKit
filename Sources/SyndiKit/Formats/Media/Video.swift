@@ -1,6 +1,6 @@
-/**
- An enumeration representing different types of videos.
- */
+/// A struct representing an Atom category.
+/// An enumeration representing different types of videos.
+/// - SeeAlso: `EntryCategory`
 public enum Video {
   /// A video from YouTube.
   /// - Parameters:

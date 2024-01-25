@@ -2,16 +2,16 @@ import Foundation
 
 extension WordPressPost {
   // swiftlint:disable cyclomatic_complexity function_body_length
-  /**
-   Initializes a `WordPressPost` instance from an `RSSItem`.
-
-   - Parameter item: The `RSSItem` to initialize from.
-
-   - Throws: `WordPressError.missingField` if any required field is missing.
-
-   - Note: This initializer is marked as `public` to allow external usage.
-
-   */
+  /// A struct representing an Atom category.
+  ///   Initializes a `WordPressPost` instance from an `RSSItem`.
+  ///
+  ///   - Parameter item: The `RSSItem` to initialize from.
+  ///
+  ///   - Throws: `WordPressError.missingField` if any required field is missing.
+  ///
+  ///   - Note: This initializer is marked as `public` to allow external usage.
+  ///
+  /// - SeeAlso: `EntryCategory`
   public init(item: RSSItem) throws {
     guard let name = item.wpPostName else {
       throw WordPressError.missingField(.name)
@@ -83,7 +83,7 @@ extension WordPressPost {
     self.pingStatus = pingStatus.value
     self.parentID = parentID
     self.menuOrder = menuOrder
-    ID = id
+    self.id = id
     self.isSticky = (isSticky != 0)
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT

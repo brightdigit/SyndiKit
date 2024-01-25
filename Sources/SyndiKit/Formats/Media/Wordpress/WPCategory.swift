@@ -27,15 +27,15 @@ extension WordPressElements {
     /// The name of the category.
     public let name: String
 
-    /**
-     Initializes a new `Category` instance.
-
-     - Parameters:
-       - termID: The unique identifier of the category.
-       - niceName: The nice name of the category.
-       - parent: The parent category of the category.
-       - name: The name of the category.
-     */
+    /// A struct representing an Atom category.
+    ///     Initializes a new `Category` instance.
+    ///
+    ///     - Parameters:
+    ///       - termID: The unique identifier of the category.
+    ///       - niceName: The nice name of the category.
+    ///       - parent: The parent category of the category.
+    ///       - name: The name of the category.
+    /// - SeeAlso: `EntryCategory`
     public init(termID: Int, niceName: CData, parent: CData, name: String) {
       self.termID = termID
       self.niceName = niceName

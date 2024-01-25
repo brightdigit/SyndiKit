@@ -32,14 +32,14 @@ public struct PodcastEpisodeProperties: PodcastEpisode {
   /// The people involved in the episode.
   public let people: [PodcastPerson]
 
-  /**
-   Initializes a `PodcastEpisodeProperties` instance from an `RSSItem`.
-
-   - Parameter rssItem: The `RSSItem` to extract the properties from.
-
-   - Returns: An initialized `PodcastEpisodeProperties` instance,
-   or `nil` if the `enclosure` property is missing.
-   */
+  /// A struct representing an Atom category.
+  ///   Initializes a `PodcastEpisodeProperties` instance from an `RSSItem`.
+  ///
+  ///   - Parameter rssItem: The `RSSItem` to extract the properties from.
+  ///
+  ///   - Returns: An initialized `PodcastEpisodeProperties` instance,
+  ///   or `nil` if the `enclosure` property is missing.
+  /// - SeeAlso: `EntryCategory`
   public init?(rssItem: RSSItem) {
     guard let enclosure = rssItem.enclosure else {
       return nil

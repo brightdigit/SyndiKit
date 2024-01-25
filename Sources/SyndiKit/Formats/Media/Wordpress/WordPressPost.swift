@@ -93,7 +93,7 @@ public struct WordPressPost {
   public let menuOrder: Int?
 
   /// The ID of the post.
-  public let ID: Int
+  public let id: Int
 
   /// A boolean indicating if the post is sticky.
   public let isSticky: Bool
@@ -116,11 +116,11 @@ public struct WordPressPost {
 
 extension WordPressPost: Hashable {
   public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.ID == rhs.ID
+    lhs.id == rhs.id
   }
 
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(ID)
+    hasher.combine(id)
   }
 }
 

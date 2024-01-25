@@ -1,9 +1,9 @@
-/**
- Represents different types of media content.
-
- - podcast: A podcast episode.
- - video: A video.
- */
+/// A struct representing an Atom category.
+/// Represents different types of media content.
+///
+/// - podcast: A podcast episode.
+/// - video: A video.
+/// - SeeAlso: `EntryCategory`
 public enum MediaContent {
   /// A podcast episode.
   case podcast(PodcastEpisode)

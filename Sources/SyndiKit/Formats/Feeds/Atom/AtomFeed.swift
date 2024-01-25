@@ -1,11 +1,11 @@
 import Foundation
 
-/**
- An XML-based Web content and metadata syndication format.
-
- Based on the 
- [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
- */
+/// A struct representing an Atom category.
+/// An XML-based Web content and metadata syndication format.
+///
+/// Based on the
+/// [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
+/// - SeeAlso: `EntryCategory`
 public struct AtomFeed {
   /// Identifies the feed using a universally unique and permanent URI.
   /// If you have a long-term, renewable lease on your Internet domain name,

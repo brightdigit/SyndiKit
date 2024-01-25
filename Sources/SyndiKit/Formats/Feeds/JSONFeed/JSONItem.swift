@@ -1,8 +1,8 @@
 import Foundation
 
-/**
- A struct representing an item in JSON format.
- */
+/// A struct representing an Atom category.
+/// A struct representing an item in JSON format.
+/// - SeeAlso: `EntryCategory`
 public struct JSONItem: Codable {
   /// The unique identifier of the item.
   public let guid: EntryID
@@ -27,9 +27,9 @@ public struct JSONItem: Codable {
 }
 
 extension JSONItem: Entryable {
-  /**
-   Returns an array of authors for the item.
-   */
+  /// A struct representing an Atom category.
+  ///   Returns an array of authors for the item.
+  /// - SeeAlso: `EntryCategory`
   public var authors: [Author] {
     guard let author = author else {
       return []
@@ -42,9 +42,9 @@ extension JSONItem: Entryable {
     nil
   }
 
-  /**
-   An array of creators associated with the item.
-   */
+  /// A struct representing an Atom category.
+  ///   An array of creators associated with the item.
+  /// - SeeAlso: `EntryCategory`
   public var creators: [String] {
     []
   }
@@ -59,9 +59,9 @@ extension JSONItem: Entryable {
     guid
   }
 
-  /**
-   An array of categories associated with the item.
-   */
+  /// A struct representing an Atom category.
+  ///   An array of categories associated with the item.
+  /// - SeeAlso: `EntryCategory`
   public var categories: [EntryCategory] {
     []
   }

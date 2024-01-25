@@ -23,14 +23,14 @@ extension WordPressElements {
     /// The name of the tag.
     public let name: CData
 
-    /**
-     Initializes a new `Tag` instance.
-
-     - Parameters:
-       - termID: The term ID of the tag.
-       - slug: The slug of the tag.
-       - name: The name of the tag.
-     */
+    /// A struct representing an Atom category.
+    ///     Initializes a new `Tag` instance.
+    ///
+    ///     - Parameters:
+    ///       - termID: The term ID of the tag.
+    ///       - slug: The slug of the tag.
+    ///       - name: The name of the tag.
+    /// - SeeAlso: `EntryCategory`
     public init(termID: Int, slug: CData, name: CData) {
       self.termID = termID
       self.slug = slug

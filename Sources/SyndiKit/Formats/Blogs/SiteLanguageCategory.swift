@@ -1,12 +1,12 @@
-/**
- A struct representing a category of site languages.
-
- - Note: This struct conforms to the `Codable` protocol.
-
- - Important: All properties of this struct are read-only.
-
- - SeeAlso: `Site`
- */
+/// A struct representing an Atom category.
+/// A struct representing a category of site languages.
+///
+/// - Note: This struct conforms to the `Codable` protocol.
+///
+/// - Important: All properties of this struct are read-only.
+///
+/// - SeeAlso: `Site`
+/// - SeeAlso: `EntryCategory`
 public struct SiteLanguageCategory: Codable {
   /// The title of the category.
   public let title: String

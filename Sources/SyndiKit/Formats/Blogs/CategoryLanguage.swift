@@ -1,16 +1,16 @@
-/**
- A struct representing a category in a specific language.
-
- - Parameters:
-   - languageCategory: The category in a specific language.
-   - language: The language of the category.
-
- - Note: This struct is used internally.
-
- - SeeAlso: `SiteCategoryType`
- - SeeAlso: `CategoryDescriptor`
- - SeeAlso: `SiteLanguageType`
- */
+/// A struct representing an Atom category.
+/// A struct representing a category in a specific language.
+///
+/// - Parameters:
+///   - languageCategory: The category in a specific language.
+///   - language: The language of the category.
+///
+/// - Note: This struct is used internally.
+///
+/// - SeeAlso: `SiteCategoryType`
+/// - SeeAlso: `CategoryDescriptor`
+/// - SeeAlso: `SiteLanguageType`
+/// - SeeAlso: `EntryCategory`
 public struct CategoryLanguage {
   /// The type of the category.
   public let type: SiteCategoryType
@@ -21,13 +21,13 @@ public struct CategoryLanguage {
   /// The language of the category.
   public let language: SiteLanguageType
 
-  /**
-   Initializes a `CategoryLanguage` instance.
-
-   - Parameters:
-     - languageCategory: The category in a specific language.
-     - language: The language of the category.
-   */
+  /// A struct representing an Atom category.
+  ///   Initializes a `CategoryLanguage` instance.
+  ///
+  ///   - Parameters:
+  ///     - languageCategory: The category in a specific language.
+  ///     - language: The language of the category.
+  /// - SeeAlso: `EntryCategory`
   internal init(languageCategory: SiteLanguageCategory, language: SiteLanguageType) {
     type = languageCategory.slug
     descriptor = CategoryDescriptor(
