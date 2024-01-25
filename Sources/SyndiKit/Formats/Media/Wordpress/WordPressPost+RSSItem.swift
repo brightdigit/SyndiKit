@@ -73,7 +73,7 @@ extension WordPressPost {
     self.pingStatus = pingStatus.value
     self.parentID = parentID
     self.menuOrder = menuOrder
-    self.id = id
+    ID = id
     self.isSticky = (isSticky != 0)
     self.postDate = postDate
     postDateGMT = item.wpPostDateGMT
