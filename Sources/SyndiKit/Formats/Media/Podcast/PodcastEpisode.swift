@@ -1,46 +1,46 @@
 import Foundation
 
 /// A struct representing properties of a podcast episode.
-public struct PodcastEpisodeProperties: PodcastEpisode {
+internal struct PodcastEpisodeProperties: PodcastEpisode {
   /// The title of the episode.
-  public let title: String?
+  internal let title: String?
 
   /// The episode number.
-  public let episode: Int?
+  internal let episode: Int?
 
   /// The author of the episode.
-  public let author: String?
+  internal let author: String?
 
   /// The subtitle of the episode.
-  public let subtitle: String?
+  internal let subtitle: String?
 
   /// A summary of the episode.
-  public let summary: String?
+  internal let summary: String?
 
   /// Indicates if the episode contains explicit content.
-  public let explicit: String?
+  internal let explicit: String?
 
   /// The duration of the episode.
-  public let duration: TimeInterval?
+  internal let duration: TimeInterval?
 
   /// The image associated with the episode.
-  public let image: iTunesImage?
+  internal let image: iTunesImage?
 
   /// The enclosure of the episode.
-  public let enclosure: Enclosure
+  internal let enclosure: Enclosure
 
   /// The people involved in the episode.
-  public let people: [PodcastPerson]
+  internal let people: [PodcastPerson]
 
   /// A struct representing an Atom category.
-  ///   Initializes a `PodcastEpisodeProperties` instance from an `RSSItem`.
+  ///   Initializes a ``PodcastEpisodeProperties`` instance from an ``RSSItem``.
   ///
-  ///   - Parameter rssItem: The `RSSItem` to extract the properties from.
+  ///   - Parameter rssItem: The ``RSSItem`` to extract the properties from.
   ///
-  ///   - Returns: An initialized `PodcastEpisodeProperties` instance,
-  ///   or `nil` if the `enclosure` property is missing.
-  /// - SeeAlso: `EntryCategory`
-  public init?(rssItem: RSSItem) {
+  ///   - Returns: An initialized ``PodcastEpisodeProperties`` instance,
+  ///   or ``nil`` if the ``enclosure`` property is missing.
+  /// - SeeAlso: ``EntryCategory``
+  internal init?(rssItem: RSSItem) {
     guard let enclosure = rssItem.enclosure else {
       return nil
     }

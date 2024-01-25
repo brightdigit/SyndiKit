@@ -23,7 +23,7 @@ public struct Site {
   /// The language of the website.
   public let language: SiteLanguageType
 
-  /// Initializes a new `Site` instance.
+  /// Initializes a new ``Site`` instance.
   ///
   /// - Parameters:
   ///   - site: The `SiteLanguageCategory.Site` instance to use as a base.

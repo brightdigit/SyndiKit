@@ -7,10 +7,10 @@
 ///
 /// - Note: This struct is used internally.
 ///
-/// - SeeAlso: `SiteCategoryType`
-/// - SeeAlso: `CategoryDescriptor`
-/// - SeeAlso: `SiteLanguageType`
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``SiteCategoryType``
+/// - SeeAlso: ``CategoryDescriptor``
+/// - SeeAlso: ``SiteLanguageType``
+/// - SeeAlso: ``EntryCategory``
 public struct CategoryLanguage {
   /// The type of the category.
   public let type: SiteCategoryType
@@ -22,12 +22,12 @@ public struct CategoryLanguage {
   public let language: SiteLanguageType
 
   /// A struct representing an Atom category.
-  ///   Initializes a `CategoryLanguage` instance.
+  ///   Initializes a ``CategoryLanguage`` instance.
   ///
   ///   - Parameters:
   ///     - languageCategory: The category in a specific language.
   ///     - language: The language of the category.
-  /// - SeeAlso: `EntryCategory`
+  /// - SeeAlso: ``EntryCategory``
   internal init(languageCategory: SiteLanguageCategory, language: SiteLanguageType) {
     type = languageCategory.slug
     descriptor = CategoryDescriptor(

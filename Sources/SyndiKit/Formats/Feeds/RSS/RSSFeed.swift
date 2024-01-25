@@ -14,7 +14,7 @@ import Foundation
 /// the version attribute must be 2.0.
 /// For more details, check out the
 /// [W3 sepcifications.](https://validator.w3.org/feed/docs/rss2.html)
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 public struct RSSFeed {
   /// Root Channel of hte RSS Feed
   public let channel: RSSChannel

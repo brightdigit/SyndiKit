@@ -6,7 +6,7 @@ import Foundation
 ///
 /// For more details, check out
 /// [the Media RSS Specification](https://www.rssboard.org/media-rss).
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 public struct AtomMedia: Codable {
   /// A struct representing an Atom category.
   ///   The type of object.
@@ -15,7 +15,7 @@ public struct AtomMedia: Codable {
   ///   it is included because it simplifies decision making on the reader side,
   ///   as well as flushes out any ambiguities between MIME type and object type.
   ///   It is an optional attribute.
-  /// - SeeAlso: `EntryCategory`
+  /// - SeeAlso: ``EntryCategory``
   public let url: URL
 
   /// The direct URL to the media object.

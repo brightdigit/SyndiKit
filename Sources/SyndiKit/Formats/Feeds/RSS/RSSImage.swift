@@ -7,14 +7,14 @@ public struct RSSImage: Codable {
 
   /// The title or description of the image.
   ///
-  /// This is used in the `alt` attribute of the HTML `<img>` tag
+  /// This is used in the ``alt`` attribute of the HTML `<img>` tag
   /// when the channel is rendered in HTML.
   public let title: String
 
   /// The URL of the site that the image links to.
   ///
-  /// In practice, the image `title` and `link` should have
-  /// the same value as the channel's `title` and `link`.
+  /// In practice, the image ``title`` and ``link`` should have
+  /// the same value as the channel's ``title`` and ``link``.
   public let link: URL
 
   /// The width of the image in pixels.
@@ -25,7 +25,7 @@ public struct RSSImage: Codable {
 
   /// Additional description of the image.
   ///
-  /// This text is included in the `title` attribute of the link
+  /// This text is included in the ``title`` attribute of the link
   /// formed around the image in the HTML rendering.
   public let description: String?
 }

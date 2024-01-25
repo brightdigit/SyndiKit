@@ -1,8 +1,8 @@
-/// XML Element which contains a `String` parsable into a `Integer`.
+/// XML Element which contains a ``String`` parsable into a ``Integer``.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Int
 
-  /// The underlying `Int` value.
+  /// The underlying ``Int`` value.
   public let value: Int
 
   public init(integerLiteral value: Int) {

@@ -8,13 +8,13 @@
 ///   - descriptors: A dictionary mapping site language types to category descriptors.
 ///
 /// - Important: This struct should not be used directly.
-/// Instead, use the `SiteCategoryBuilder` to create instances of `SiteCategory`.
+/// Instead, use the ``SiteCategoryBuilder`` to create instances of ``SiteCategory``.
 ///
-/// - SeeAlso: `SiteCategoryType`
-/// - SeeAlso: `CategoryDescriptor`
-/// - SeeAlso: `CategoryLanguage`
-/// - SeeAlso: `SiteCategoryBuilder`
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``SiteCategoryType``
+/// - SeeAlso: ``CategoryDescriptor``
+/// - SeeAlso: ``CategoryLanguage``
+/// - SeeAlso: ``SiteCategoryBuilder``
+/// - SeeAlso: ``EntryCategory``
 public struct SiteCategory {
   /// The type of the site category.
   public let type: SiteCategoryType
@@ -23,13 +23,13 @@ public struct SiteCategory {
   public let descriptors: [SiteLanguageType: CategoryDescriptor]
 
   /// A struct representing an Atom category.
-  ///   Initializes a `SiteCategory` instance with the given languages.
+  ///   Initializes a ``SiteCategory`` instance with the given languages.
   ///
-  ///   - Parameter languages: An array of `CategoryLanguage` instances.
+  ///   - Parameter languages: An array of ``CategoryLanguage`` instances.
   ///
-  ///   - Returns: A new `SiteCategory` instance
-  ///   if at least one language is provided, `nil` otherwise.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: A new ``SiteCategory`` instance
+  ///   if at least one language is provided, ``nil`` otherwise.
+  /// - SeeAlso: ``EntryCategory``
   internal init?(languages: [CategoryLanguage]) {
     guard let type = languages.first?.type else {
       return nil

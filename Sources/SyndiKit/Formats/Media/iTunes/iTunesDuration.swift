@@ -37,7 +37,7 @@ public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
   /// Creates a new instance from the given description string.
   ///
   /// - Parameter description: The description string representing the duration.
-  /// - Returns: A new instance if the description is valid, otherwise `nil`.
+  /// - Returns: A new instance if the description is valid, otherwise ``nil``.
   public init?(_ description: String) {
     guard let value = Self.timeInterval(description) else {
       return nil
@@ -45,11 +45,11 @@ public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
     self.value = value
   }
 
-  /// Converts a time string to a `TimeInterval` value.
+  /// Converts a time string to a ``TimeInterval`` value.
   ///
   /// - Parameter timeString: The time string to convert.
-  /// - Returns: The `TimeInterval` value representing the time string,
-  /// or `nil` if the string is invalid.
+  /// - Returns: The ``TimeInterval`` value representing the time string,
+  /// or ``nil`` if the string is invalid.
   internal static func timeInterval(_ timeString: String) -> TimeInterval? {
     let timeStrings = timeString.components(separatedBy: ":").prefix(3)
     let doubles = timeStrings.compactMap(Double.init)

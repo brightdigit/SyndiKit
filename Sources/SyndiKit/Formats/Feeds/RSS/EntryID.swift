@@ -2,7 +2,8 @@ import Foundation
 
 /// An identifier for an entry based on the RSS guid.
 ///
-/// - Note: This enum conforms to `Codable`, `Equatable`, and `LosslessStringConvertible`.
+/// - Note: This enum conforms to
+/// ``Codable``, ``Equatable``, and ``LosslessStringConvertible``.
 public enum EntryID: Codable, Equatable, LosslessStringConvertible {
   /// An identifier in URL format.
   case url(URL)
@@ -40,19 +41,19 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
     return string
   }
 
-  /// Initializes an `EntryID` from a string.
+  /// Initializes an ``EntryID`` from a string.
   ///
   /// - Parameter description: The string representation of the entry identifier.
-  /// - Note: This initializer will never return a `nil` instance.
-  /// To avoid the `Optional` result, use `init(string:)` instead.
+  /// - Note: This initializer will never return a ``nil`` instance.
+  /// To avoid the ``Optional`` result, use `init(string:)` instead.
   public init?(_ description: String) {
     self.init(string: description)
   }
 
-  /// Initializes an `EntryID` from a string.
+  /// Initializes an ``EntryID`` from a string.
   ///
   /// - Parameter string: The string representation of the entry identifier.
-  /// - Note: Use this initializer instead of `init(_:)` to avoid the `Optional` result.
+  /// - Note: Use this initializer instead of `init(_:)` to avoid the ``Optional`` result.
   public init(string: String) {
     if let url = URL(strict: string) {
       self = .url(url)
@@ -73,7 +74,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
     }
   }
 
-  /// Initializes an `EntryID` from a decoder.
+  /// Initializes an ``EntryID`` from a decoder.
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
@@ -83,7 +84,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
     self.init(string: string)
   }
 
-  /// Encodes the `EntryID` into the given encoder.
+  /// Encodes the ``EntryID`` into the given encoder.
   ///
   /// - Parameter encoder: The encoder to write data to.
   /// - Throws: An error if the encoding process fails.

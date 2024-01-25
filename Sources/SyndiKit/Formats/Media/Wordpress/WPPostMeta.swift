@@ -20,12 +20,12 @@ extension WordPressElements {
     public let value: CData
 
     /// A struct representing an Atom category.
-    ///     Initializes a new `PostMeta` instance.
+    ///     Initializes a new ``PostMeta`` instance.
     ///
     ///     - Parameters:
     ///       - key: The key of the metadata.
     ///       - value: The value of the metadata.
-    /// - SeeAlso: `EntryCategory`
+    /// - SeeAlso: ``EntryCategory``
     public init(key: String, value: String) {
       self.key = .init(stringLiteral: key)
       self.value = .init(stringLiteral: value)
@@ -35,14 +35,14 @@ extension WordPressElements {
 
 extension WordPressElements.PostMeta: Equatable {
   /// A struct representing an Atom category.
-  ///   Checks if two `PostMeta` instances are equal.
+  ///   Checks if two ``PostMeta`` instances are equal.
   ///
   ///   - Parameters:
-  ///     - lhs: The left-hand side `PostMeta` instance.
-  ///     - rhs: The right-hand side `PostMeta` instance.
+  ///     - lhs: The left-hand side ``PostMeta`` instance.
+  ///     - rhs: The right-hand side ``PostMeta`` instance.
   ///
-  ///   - Returns: `true` if the two instances are equal, `false` otherwise.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: ``true`` if the two instances are equal, ``false`` otherwise.
+  /// - SeeAlso: ``EntryCategory``
   public static func == (
     lhs: WordPressElements.PostMeta,
     rhs: WordPressElements.PostMeta

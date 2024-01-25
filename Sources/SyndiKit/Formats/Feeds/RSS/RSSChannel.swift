@@ -3,20 +3,20 @@ import Foundation
 /// A struct representing an Atom category.
 /// A struct representing information about the channel (metadata) and its contents.
 ///
-/// - Note: This struct conforms to the `Codable` protocol.
+/// - Note: This struct conforms to the ``Codable`` protocol.
 ///
-/// - Remark: The `CodingKeys` enum is used to specify the coding keys for the struct.
+/// - Remark: The ``CodingKeys`` enum is used to specify the coding keys for the struct.
 ///
-/// - SeeAlso: `RSSItem`
-/// - SeeAlso: `RSSImage`
-/// - SeeAlso: `Author`
-/// - SeeAlso: `WordPressElements.Category`
-/// - SeeAlso: `WordPressElements.Tag`
-/// - SeeAlso: `iTunesOwner`
-/// - SeeAlso: `PodcastLocked`
-/// - SeeAlso: `PodcastFunding`
-/// - SeeAlso: `PodcastPerson`
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``RSSItem``
+/// - SeeAlso: ``RSSImage``
+/// - SeeAlso: ``Author``
+/// - SeeAlso: ``WordPressElements.Category``
+/// - SeeAlso: ``WordPressElements.Tag``
+/// - SeeAlso: ``iTunesOwner``
+/// - SeeAlso: ``PodcastLocked``
+/// - SeeAlso: ``PodcastFunding``
+/// - SeeAlso: ``PodcastPerson``
+/// - SeeAlso: ``EntryCategory``
 public struct RSSChannel: Codable {
   internal enum CodingKeys: String, CodingKey {
     case title
@@ -115,11 +115,11 @@ public struct RSSChannel: Codable {
 
 extension RSSChannel {
   /// A struct representing an Atom category.
-  ///   A computed property that returns a `SyndicationUpdate` object
-  ///   based on the `syUpdatePeriod` and `syUpdateFrequency` properties.
+  ///   A computed property that returns a ``SyndicationUpdate`` object
+  ///   based on the ``syUpdatePeriod`` and ``syUpdateFrequency`` properties.
   ///
-  ///   - Returns: A `SyndicationUpdate` object.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: A ``SyndicationUpdate`` object.
+  /// - SeeAlso: ``EntryCategory``
   public var syndication: SyndicationUpdate? {
     SyndicationUpdate(
       period: syUpdatePeriod,

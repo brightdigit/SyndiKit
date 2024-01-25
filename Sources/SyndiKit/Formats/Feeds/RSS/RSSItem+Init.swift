@@ -4,7 +4,7 @@ import XMLCoder
 extension RSSItem {
   // swiftlint:disable function_body_length
   /// A struct representing an Atom category.
-  ///   Initializes a new `RSSItem` instance.
+  ///   Initializes a new ``RSSItem`` instance.
   ///
   ///   - Parameters:
   ///     - title: The title of the RSS item.
@@ -48,7 +48,7 @@ extension RSSItem {
   ///     - wpAttachmentURL: The WordPress attachment URL of the RSS item.
   ///     - mediaContent: The media content of the RSS item.
   ///     - mediaThumbnail: The media thumbnail of the RSS item.
-  /// - SeeAlso: `EntryCategory`
+  /// - SeeAlso: ``EntryCategory``
   public init(
     title: String,
     link: URL,

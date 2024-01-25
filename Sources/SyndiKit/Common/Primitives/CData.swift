@@ -1,5 +1,4 @@
 /// #CDATA XML element.
-public typealias StringLiteralType = String
 public struct CData: Codable, ExpressibleByStringLiteral, Equatable {
   public enum CodingKeys: String, CodingKey {
     case value = "#CDATA"

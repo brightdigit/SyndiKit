@@ -17,7 +17,7 @@ public struct Enclosure: Codable {
   /// The length of the enclosure, if available.
   public let length: Int?
 
-  /// Initializes a new `Enclosure` instance from a decoder.
+  /// Initializes a new ``Enclosure`` instance from a decoder.
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
@@ -31,7 +31,7 @@ public struct Enclosure: Codable {
   /// Decodes the length of the enclosure from the given container.
   ///
   /// - Parameter container: The container to decode from.
-  /// - Returns: The length of the enclosure, or `nil` if not available.
+  /// - Returns: The length of the enclosure, or ``nil`` if not available.
   /// - Throws: An error if the decoding process fails.
   private static func decodeLength(
     from container: KeyedDecodingContainer<CodingKeys>

@@ -24,13 +24,13 @@ extension WordPressElements {
     public let name: CData
 
     /// A struct representing an Atom category.
-    ///     Initializes a new `Tag` instance.
+    ///     Initializes a new ``Tag`` instance.
     ///
     ///     - Parameters:
     ///       - termID: The term ID of the tag.
     ///       - slug: The slug of the tag.
     ///       - name: The name of the tag.
-    /// - SeeAlso: `EntryCategory`
+    /// - SeeAlso: ``EntryCategory``
     public init(termID: Int, slug: CData, name: CData) {
       self.termID = termID
       self.slug = slug
@@ -40,7 +40,7 @@ extension WordPressElements {
 }
 
 extension WordPressElements.Tag: Equatable {
-  /// Checks if two `Tag` instances are equal.
+  /// Checks if two ``Tag`` instances are equal.
   public static func == (lhs: WordPressElements.Tag, rhs: WordPressElements.Tag) -> Bool {
     lhs.termID == rhs.termID
       && lhs.slug == rhs.slug

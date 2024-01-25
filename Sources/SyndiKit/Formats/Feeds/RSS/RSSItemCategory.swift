@@ -1,18 +1,18 @@
 /// A struct representing an Atom category.
 /// A struct representing a category for an RSS item.
 ///
-/// This struct conforms to the `Codable` and `EntryCategory` protocols.
+/// This struct conforms to the ``Codable`` and ``EntryCategory`` protocols.
 ///
-/// - Note: The `CodingKeys` enum is used to specify the coding keys for the struct.
+/// - Note: The ``CodingKeys`` enum is used to specify the coding keys for the struct.
 ///
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 ///
-/// - Remark: This struct is `public` to allow access from other modules.
+/// - Remark: This struct is ``public`` to allow access from other modules.
 ///
-/// - Warning: Do not modify the `CodingKeys` enum.
+/// - Warning: Do not modify the ``CodingKeys`` enum.
 ///
 /// - Version: 1.0
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 public struct RSSItemCategory: Codable, EntryCategory {
   /// The coding keys for the struct.
   internal enum CodingKeys: String, CodingKey {
@@ -36,15 +36,15 @@ public struct RSSItemCategory: Codable, EntryCategory {
   public let nicename: String?
 
   /// A struct representing an Atom category.
-  ///   Initializes a new instance of `RSSItemCategory`.
+  ///   Initializes a new instance of ``RSSItemCategory``.
   ///
   ///   - Parameters:
   ///     - value: The value of the category.
-  ///     - domain: The domain of the category. Default value is `nil`.
-  ///     - nicename: The nicename of the category. Default value is `nil`.
+  ///     - domain: The domain of the category. Default value is ``nil``.
+  ///     - nicename: The nicename of the category. Default value is ``nil``.
   ///
-  ///   - Returns: A new instance of `RSSItemCategory`.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: A new instance of ``RSSItemCategory``.
+  /// - SeeAlso: ``EntryCategory``
   public init(value: String, domain: String? = nil, nicename: String? = nil) {
     self.value = value
     self.domain = domain
@@ -52,14 +52,14 @@ public struct RSSItemCategory: Codable, EntryCategory {
   }
 
   /// A struct representing an Atom category.
-  ///   Initializes a new instance of `RSSItemCategory` from a decoder.
+  ///   Initializes a new instance of ``RSSItemCategory`` from a decoder.
   ///
   ///   - Parameter decoder: The decoder to use for decoding.
   ///
   ///   - Throws: An error if the decoding fails.
   ///
-  ///   - Returns: A new instance of `RSSItemCategory`.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: A new instance of ``RSSItemCategory``.
+  /// - SeeAlso: ``EntryCategory``
   public init(from decoder: Decoder) throws {
     let value: String
     let container: KeyedDecodingContainer<CodingKeys>?
@@ -80,14 +80,14 @@ public struct RSSItemCategory: Codable, EntryCategory {
 
 extension RSSItemCategory: Equatable {
   /// A struct representing an Atom category.
-  ///   Checks if two `RSSItemCategory` instances are equal.
+  ///   Checks if two ``RSSItemCategory`` instances are equal.
   ///
   ///   - Parameters:
-  ///     - lhs: The left-hand side `RSSItemCategory` instance.
-  ///     - rhs: The right-hand side `RSSItemCategory` instance.
+  ///     - lhs: The left-hand side ``RSSItemCategory`` instance.
+  ///     - rhs: The right-hand side ``RSSItemCategory`` instance.
   ///
-  ///   - Returns: `true` if the instances are equal, otherwise `false`.
-  /// - SeeAlso: `EntryCategory`
+  ///   - Returns: ``true`` if the instances are equal, otherwise ``false``.
+  /// - SeeAlso: ``EntryCategory``
   public static func == (lhs: RSSItemCategory, rhs: RSSItemCategory) -> Bool {
     lhs.value == rhs.value
       && lhs.domain == rhs.domain

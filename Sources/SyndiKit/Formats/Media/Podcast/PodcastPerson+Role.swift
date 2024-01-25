@@ -11,13 +11,13 @@ extension PodcastPerson {
     case composer
     case producer
 
-    /// Initializes a `KnownRole` with a case-insensitive string.
+    /// Initializes a ``KnownRole`` with a case-insensitive string.
     init?(caseInsensitive: String) {
       self.init(rawValue: caseInsensitive.lowercased())
     }
 
     // swiftlint:disable function_body_length cyclomatic_complexity
-    /// Initializes a `KnownRole` with a `Role` value.
+    /// Initializes a ``KnownRole`` with a ``Role`` value.
     init?(role: Role) {
       switch role {
       case .guest:
@@ -69,17 +69,17 @@ extension PodcastPerson {
       } else {
         fatalError(
           // swiftlint:disable:next line_length
-          "Role attribute of <podcast:person> with value: \(self) should either be a `KnownRole`, or unknown!"
+          "Role attribute of <podcast:person> with value: \(self) should either be a ``KnownRole``, or unknown!"
         )
       }
     }
 
-    /// Initializes a `Role` with a raw value.
+    /// Initializes a ``Role`` with a raw value.
     public init?(rawValue: String) {
       self.init(caseInsensitive: rawValue)
     }
 
-    /// Initializes a `Role` with a case-insensitive string.
+    /// Initializes a ``Role`` with a case-insensitive string.
     public init(caseInsensitive: String) {
       if let knownRole = KnownRole(caseInsensitive: caseInsensitive) {
         self = .init(knownRole: knownRole)

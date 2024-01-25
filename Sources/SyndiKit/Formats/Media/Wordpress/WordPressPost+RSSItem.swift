@@ -3,15 +3,15 @@ import Foundation
 extension WordPressPost {
   // swiftlint:disable cyclomatic_complexity function_body_length
   /// A struct representing an Atom category.
-  ///   Initializes a `WordPressPost` instance from an `RSSItem`.
+  ///   Initializes a ``WordPressPost`` instance from an ``RSSItem``.
   ///
-  ///   - Parameter item: The `RSSItem` to initialize from.
+  ///   - Parameter item: The ``RSSItem`` to initialize from.
   ///
   ///   - Throws: `WordPressError.missingField` if any required field is missing.
   ///
-  ///   - Note: This initializer is marked as `public` to allow external usage.
+  ///   - Note: This initializer is marked as ``public`` to allow external usage.
   ///
-  /// - SeeAlso: `EntryCategory`
+  /// - SeeAlso: ``EntryCategory``
   public init(item: RSSItem) throws {
     guard let name = item.wpPostName else {
       throw WordPressError.missingField(.name)

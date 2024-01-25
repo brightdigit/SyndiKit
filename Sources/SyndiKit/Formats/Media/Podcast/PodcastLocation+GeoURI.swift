@@ -1,7 +1,7 @@
 import Foundation
 
 extension PodcastLocation {
-  /// A `struct` representing a geographic URI for a podcast location.
+  /// A ``struct`` representing a geographic URI for a podcast location.
   public struct GeoURI: Codable, Equatable, LosslessStringConvertible {
     /// The latitude coordinate.
     public let latitude: Double
@@ -30,7 +30,7 @@ extension PodcastLocation {
       return description
     }
 
-    /// Initializes a `GeoURI` instance with the specified coordinates.
+    /// Initializes a ``GeoURI`` instance with the specified coordinates.
     ///
     /// - Parameters:
     ///   - latitude: The latitude coordinate.
@@ -49,7 +49,7 @@ extension PodcastLocation {
       self.accuracy = accuracy
     }
 
-    /// Initializes a `GeoURI` instance from a string representation.
+    /// Initializes a ``GeoURI`` instance from a string representation.
     ///
     /// - Parameter description: The string representation of the geographic URI.
     public init?(_ description: String) {
@@ -57,10 +57,10 @@ extension PodcastLocation {
     }
 
     // swiftlint:disable function_body_length
-    /// Initializes a `GeoURI` instance from a single value string.
+    /// Initializes a ``GeoURI`` instance from a single value string.
     ///
     /// - Parameter singleValue: The single value string representing the geographic URI.
-    /// - Throws: A `DecodingError` if the single value string is invalid.
+    /// - Throws: A ``DecodingError`` if the single value string is invalid.
     public init(singleValue: String) throws {
       let pathComponents = try Self.pathComponents(from: singleValue)
 
@@ -91,10 +91,10 @@ extension PodcastLocation {
 
     // swiftlint:enable function_body_length
 
-    /// Initializes a `GeoURI` instance from a decoder.
+    /// Initializes a ``GeoURI`` instance from a decoder.
     ///
     /// - Parameter decoder: The decoder to read data from.
-    /// - Throws: A `DecodingError` if the decoding process fails.
+    /// - Throws: A ``DecodingError`` if the decoding process fails.
     public init(from decoder: Decoder) throws {
       let container = try decoder.singleValueContainer()
       let singleValue = try container.decode(String.self)
@@ -122,7 +122,7 @@ extension PodcastLocation {
       return geoPath.split(separator: ";")
     }
 
-    /// Encodes the `GeoURI` instance into the given encoder.
+    /// Encodes the ``GeoURI`` instance into the given encoder.
     ///
     /// - Parameter encoder: The encoder to write data to.
     /// - Throws: An error if the encoding process fails.

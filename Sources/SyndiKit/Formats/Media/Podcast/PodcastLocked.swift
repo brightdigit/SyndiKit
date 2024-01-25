@@ -14,7 +14,7 @@ public struct PodcastLocked: Codable, Equatable {
   /// Indicates whether the podcast is locked.
   public let isLocked: Bool
 
-  /// Initializes a new instance of `PodcastLocked` from a decoder.
+  /// Initializes a new instance of ``PodcastLocked`` from a decoder.
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.

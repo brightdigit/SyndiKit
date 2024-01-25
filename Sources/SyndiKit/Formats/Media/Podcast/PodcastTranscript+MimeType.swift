@@ -10,13 +10,13 @@ extension PodcastTranscript {
     case json = "application/json"
     case subrip = "application/x-subrip"
 
-    /// Initializes a `KnownMimeType` with a case-insensitive string.
+    /// Initializes a ``KnownMimeType`` with a case-insensitive string.
     init?(caseInsensitive: String) {
       self.init(rawValue: caseInsensitive)
     }
 
     // swiftlint:disable cyclomatic_complexity
-    /// Initializes a `KnownMimeType` with a `MimeType`.
+    /// Initializes a ``KnownMimeType`` with a ``MimeType``.
     init?(mimeType: MimeType) {
       switch mimeType {
       case .plain:
@@ -64,17 +64,17 @@ extension PodcastTranscript {
       } else {
         fatalError(
           // swiftlint:disable:next line_length
-          "Type attribute of <podcast:transcript> with value: \(self) should either be a `KnownMimeType`, or unknown!"
+          "Type attribute of <podcast:transcript> with value: \(self) should either be a ``KnownMimeType``, or unknown!"
         )
       }
     }
 
-    /// Initializes a `MimeType` with a raw value.
+    /// Initializes a ``MimeType`` with a raw value.
     public init?(rawValue: String) {
       self.init(caseInsensitive: rawValue)
     }
 
-    /// Initializes a `MimeType` with a case-insensitive string.
+    /// Initializes a ``MimeType`` with a case-insensitive string.
     public init(caseInsensitive: String) {
       if let knownMimeType = KnownMimeType(caseInsensitive: caseInsensitive) {
         self = .init(knownMimeType: knownMimeType)
@@ -83,7 +83,7 @@ extension PodcastTranscript {
       }
     }
 
-    /// Initializes a `MimeType` with a `KnownMimeType`.
+    /// Initializes a ``MimeType`` with a ``KnownMimeType``.
     private init(knownMimeType: KnownMimeType) {
       switch knownMimeType {
       case .plain:

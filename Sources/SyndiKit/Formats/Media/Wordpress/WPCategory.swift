@@ -7,7 +7,7 @@ public typealias WPCategory = WordPressElements.Category
 extension WordPressElements {
   /// A struct representing a category in WordPress.
   public struct Category: Codable {
-    /// The coding keys for the `Category` struct.
+    /// The coding keys for the ``Category`` struct.
     internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
       case niceName = "wp:categoryNicename"
@@ -28,14 +28,14 @@ extension WordPressElements {
     public let name: String
 
     /// A struct representing an Atom category.
-    ///     Initializes a new `Category` instance.
+    ///     Initializes a new ``Category`` instance.
     ///
     ///     - Parameters:
     ///       - termID: The unique identifier of the category.
     ///       - niceName: The nice name of the category.
     ///       - parent: The parent category of the category.
     ///       - name: The name of the category.
-    /// - SeeAlso: `EntryCategory`
+    /// - SeeAlso: ``EntryCategory``
     public init(termID: Int, niceName: CData, parent: CData, name: String) {
       self.termID = termID
       self.niceName = niceName
@@ -46,7 +46,7 @@ extension WordPressElements {
 }
 
 extension WordPressElements.Category: Equatable {
-  /// Checks if two `Category` instances are equal.
+  /// Checks if two ``Category`` instances are equal.
   public static func == (
     lhs: WordPressElements.Category,
     rhs: WordPressElements.Category

@@ -26,7 +26,7 @@ public struct PodcastPerson: Codable, Equatable {
   /// The full name of the person.
   public let fullname: String
 
-  /// Initializes a new instance of `PodcastPerson`
+  /// Initializes a new instance of ``PodcastPerson``
   /// by decoding data from the given decoder.
   ///
   /// - Parameter decoder: The decoder to read data from.

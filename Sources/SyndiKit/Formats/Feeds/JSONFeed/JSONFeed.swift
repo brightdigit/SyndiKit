@@ -3,10 +3,10 @@ import Foundation
 /// A struct representing an Atom category.
 /// A struct representing a JSON feed.
 ///
-/// - Note: This struct conforms to the `DecodableFeed` protocol.
+/// - Note: This struct conforms to the ``DecodableFeed`` protocol.
 ///
-/// - SeeAlso: `DecodableFeed`
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``DecodableFeed``
+/// - SeeAlso: ``EntryCategory``
 public struct JSONFeed {
   /// The version of the JSON feed.
   public let version: URL

@@ -3,7 +3,7 @@
 ///
 /// - podcast: A podcast episode.
 /// - video: A video.
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 public enum MediaContent {
   /// A podcast episode.
   case podcast(PodcastEpisode)

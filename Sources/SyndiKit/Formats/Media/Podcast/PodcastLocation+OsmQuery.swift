@@ -22,7 +22,7 @@ extension PodcastLocation {
     /// The revision number of the OSM element.
     public let revision: Int?
 
-    /// Initializes an `OsmQuery` instance from a decoder.
+    /// Initializes an ``OsmQuery`` instance from a decoder.
     ///
     /// - Parameter decoder: The decoder to read data from.
     /// - Throws: `DecodingError.dataCorrupted` if the data is invalid.

@@ -1,6 +1,6 @@
 /// A struct representing an Atom category.
 /// An enumeration representing different types of videos.
-/// - SeeAlso: `EntryCategory`
+/// - SeeAlso: ``EntryCategory``
 public enum Video {
   /// A video from YouTube.
   /// - Parameters:

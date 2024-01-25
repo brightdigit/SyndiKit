@@ -117,7 +117,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
     instance.categoryDictionary.values
   }
 
-  /// Initializes a new instance of the `SiteCollectionDirectory` struct.
+  /// Initializes a new instance of the ``SiteCollectionDirectory`` struct.
   ///
   /// - Parameter blogs: The site collection to use.
   internal init(blogs: SiteCollection) {
