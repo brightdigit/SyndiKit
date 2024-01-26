@@ -6,7 +6,7 @@ Swift Package for Decoding RSS Feeds.
 
 ![SyndiKit Logo](logo.png)
 
-Built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder) and , **SyndiKit** provides models and utilities for decoding RSS feeds of various formats and extensions.
+Built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder), **SyndiKit** provides models and utilities for decoding RSS feeds of various formats and extensions.
 
 ### Features
 
@@ -251,6 +251,10 @@ Specific extension properties provided by WordPress.
 
 - ``WordPressElements``
 - ``WordPressPost``
+- ``WPTag``
+- ``WPCategory``
+- ``WPPostMeta``
+- ``WordPressError``
 
 ### YouTube Extensions
 

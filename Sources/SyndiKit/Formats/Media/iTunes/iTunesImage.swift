@@ -1,3 +1,4 @@
 import Foundation
-// swiftlint:disable:next type_name
+
+/// A type alias for iTunes image links.
 public typealias iTunesImage = Link

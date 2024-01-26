@@ -1,46 +1,9 @@
 import Foundation
 
+/// A struct representing an entry in an Atom feed.
 public struct AtomEntry: Codable {
-  public static let defaultURL = URL(string: "/")!
-
-  /// A permanent, universally unique identifier for an entry.
-  public let id: EntryID
-
-  /// a Text construct that conveys a human-readable title
-  public let title: String
-
-  /// The most recent instant in time when the entry was published
-  public let published: Date?
-
-  /// Content of the trny.
-  public let content: String?
-
-  /// The most recent instant in time when the entry was modified in a way
-  /// the publisher considers significant.
-  public let updated: Date
-
-  /// Cateogires of the entry.
-  public let atomCategories: [AtomCategory]
-
-  /// a reference to a Web resource.
-  public let links: [Link]
-  /// The author of the entry.
-  public let authors: [Author]
-
-  /// YouTube channel ID, if from a YouTube channel.
-  public let youtubeChannelID: String?
-
-  /// YouTube video ID, if from a YouTube channel.
-  public let youtubeVideoID: String?
-
-  ///  the person or entity who wrote an item
-  public let creators: [String]
-
-  /// Grouping of <media:content> elements that are effectively the same content,
-  /// yet different representations.
-  public let mediaGroup: AtomMediaGroup?
-
-  enum CodingKeys: String, CodingKey {
+  /// The coding keys used for encoding and decoding.
+  public enum CodingKeys: String, CodingKey {
     case id
     case title
     case published
@@ -54,29 +17,71 @@ public struct AtomEntry: Codable {
     case creators = "dc:creator"
     case mediaGroup = "media:group"
   }
+
+  /// A permanent, universally unique identifier for an entry.
+  public let id: EntryID
+
+  /// A human-readable title for the entry.
+  public let title: String
+
+  /// The most recent instant in time when the entry was published.
+  public let published: Date?
+
+  /// The content of the entry.
+  public let content: String?
+
+  /// The most recent instant in time when the entry was modified.
+  public let updated: Date
+
+  /// The categories associated with the entry.
+  public let atomCategories: [AtomCategory]
+
+  /// The links associated with the entry.
+  public let links: [Link]
+
+  /// The authors of the entry.
+  public let authors: [Author]
+
+  /// The YouTube video ID, if the entry is from a YouTube channel.
+  public let youtubeVideoID: String?
+
+  /// The YouTube channel ID, if the entry is from a YouTube channel.
+  public let youtubeChannelID: String?
+
+  /// The creators of the entry.
+  public let creators: [String]
+
+  /// The media group associated with the entry.
+  public let mediaGroup: AtomMediaGroup?
 }
 
 extension AtomEntry: Entryable {
+  /// The categories associated with the entry.
   public var categories: [EntryCategory] {
     atomCategories
   }
 
-  public var url: URL {
-    links.first?.href ?? Self.defaultURL
+  /// The URL of the entry.
+  public var url: URL? {
+    links.first?.href
   }
 
+  /// The HTML content of the entry.
   public var contentHtml: String? {
     content?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
 
+  /// The summary of the entry.
   public var summary: String? {
     nil
   }
 
+  /// The media content of the entry.
   public var media: MediaContent? {
     YouTubeIDProperties(entry: self).map(Video.youtube).map(MediaContent.video)
   }
 
+  /// The URL of the entry's image.
   public var imageURL: URL? {
     mediaGroup?.thumbnails.first?.url
   }

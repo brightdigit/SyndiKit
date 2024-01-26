@@ -1,5 +1,6 @@
 import Foundation
 
+/// A struct representing an Atom category.
 /// RSS is a Web content syndication format.
 ///
 /// Its name is an acronym for Really Simple Syndication.
@@ -13,11 +14,16 @@ import Foundation
 /// the version attribute must be 2.0.
 /// For more details, check out the
 /// [W3 sepcifications.](https://validator.w3.org/feed/docs/rss2.html)
+/// - SeeAlso: ``EntryCategory``
 public struct RSSFeed {
+  /// Root Channel of hte RSS Feed
   public let channel: RSSChannel
 }
 
 extension RSSFeed: DecodableFeed {
+  internal static let source: DecoderSetup = DecoderSource.xml
+  public static let label: String = "RSS"
+
   public var youtubeChannelID: String? {
     nil
   }
@@ -60,7 +66,4 @@ extension RSSFeed: DecodableFeed {
   public var syndication: SyndicationUpdate? {
     channel.syndication
   }
-
-  static let source: DecoderSetup = DecoderSource.xml
-  static var label: String = "RSS"
 }

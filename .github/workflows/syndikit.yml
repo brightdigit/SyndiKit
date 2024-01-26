@@ -115,11 +115,17 @@ jobs:
             watchName: "Apple Watch Ultra (49mm)"
             iPhoneName: "iPhone 14 Pro Max"
           - runs-on: macos-13
-            xcode: "/Applications/Xcode_15.0.app"
-            iOSVersion: "17.0"
+            xcode: "/Applications/Xcode_15.0.1.app"
+            iOSVersion: "17.0.1"
             watchOSVersion: "10.0"
+            watchName: "Apple Watch Series 9 (41mm)"
+            iPhoneName: "iPhone 15 Pro"
+          - runs-on: macos-13
+            xcode: "/Applications/Xcode_15.1.app"
+            iOSVersion: "17.2"
+            watchOSVersion: "10.2"
             watchName: "Apple Watch Ultra (49mm)"
-            iPhoneName: "iPhone 14 Pro Max"
+            iPhoneName: "iPhone 15 Pro Max"
     steps:
       - uses: actions/checkout@v3
       - name: Cache swift package modules

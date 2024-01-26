@@ -1,53 +1,59 @@
 import Foundation
 
-/// Entry identifier based on the RSS guid.
-/// ## Topics
+/// An identifier for an entry based on the RSS guid.
 ///
-/// ### Enumeration Cases
-///
-/// - ``url(_:)``
-/// - ``uuid(_:)``
-/// - ``path(_:separatedBy:)``
-/// - ``string(_:)``
-///
-/// ### String Conversion
-///
-/// - ``init(string:)``
-/// - ``description``
-/// - ``init(_:)``
-///
-///  ### Codable Overrides
-///
-/// - ``init(from:)``
-/// - ``encode(to:)``
+/// - Note: This enum conforms to
+/// ``Codable``, ``Equatable``, and ``LosslessStringConvertible``.
 public enum EntryID: Codable, Equatable, LosslessStringConvertible {
-  /// URL format.
+  /// An identifier in URL format.
   case url(URL)
 
-  /// UUID format.
+  /// An identifier in UUID format.
   case uuid(UUID)
 
-  /// String path separated by a character string.
+  /// An identifier in string path format.
   ///
-  /// This is generally used by YouTube's RSS feed. in the format of:
+  /// This format is commonly used by YouTube's RSS feed, in the format of:
   /// ```
   /// yt:video:(YouTube Video ID)
   /// ```
   case path([String], separatedBy: String)
 
-  /// Plain un-parsable String.
+  /// An identifier in plain un-parsable string format.
   case string(String)
 
-  /// Implementation of ``LosslessStringConvertible`` initializer.
-  /// This will never return a nil instance.
-  /// Therefore you should use ``init(string:)``to  avoid the `Optional` result.
+  /// A string representation of the entry identifier.
+  public var description: String {
+    let string: String
+    switch self {
+    case let .url(url):
+      string = url.absoluteString
+
+    case let .uuid(uuid):
+      string = uuid.uuidString.lowercased()
+
+    case let .path(components, separatedBy: separator):
+      string = components.joined(separator: separator)
+
+    case let .string(value):
+      string = value
+    }
+    return string
+  }
+
+  /// Initializes an ``EntryID`` from a string.
+  ///
+  /// - Parameter description: The string representation of the entry identifier.
+  /// - Note: This initializer will never return a ``nil`` instance.
+  /// To avoid the ``Optional`` result, use `init(string:)` instead.
   public init?(_ description: String) {
     self.init(string: description)
   }
 
-  /// Parses the String into a ``EntryID``
-  /// - Parameter string: The String to parse.
-  /// You should use this rather than ``init(_:)``  to avoid the `Optional` result.
+  /// Initializes an ``EntryID`` from a string.
+  ///
+  /// - Parameter string: The string representation of the entry identifier.
+  /// - Note: Use this initializer instead of `init(_:)` to avoid the ``Optional`` result.
   public init(string: String) {
     if let url = URL(strict: string) {
       self = .url(url)
@@ -68,30 +74,20 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible {
     }
   }
 
-  public var description: String {
-    let string: String
-    switch self {
-    case let .url(url):
-      string = url.absoluteString
-
-    case let .uuid(uuid):
-      string = uuid.uuidString.lowercased()
-
-    case let .path(components, separatedBy: separator):
-      string = components.joined(separator: separator)
-
-    case let .string(value):
-      string = value
-    }
-    return string
-  }
-
+  /// Initializes an ``EntryID`` from a decoder.
+  ///
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if the decoding process fails.
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     let string = try container.decode(String.self)
     self.init(string: string)
   }
 
+  /// Encodes the ``EntryID`` into the given encoder.
+  ///
+  /// - Parameter encoder: The encoder to write data to.
+  /// - Throws: An error if the encoding process fails.
   public func encode(to encoder: Encoder) throws {
     var container = encoder.singleValueContainer()
     try container.encode(description)

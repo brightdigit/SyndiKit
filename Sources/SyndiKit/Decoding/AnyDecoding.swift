@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AnyDecoding {
+internal protocol AnyDecoding {
   static var label: String { get }
   func decodeFeed(data: Data) throws -> Feedable
 }

@@ -1,9 +1,7 @@
 /// #CDATA XML element.
 public struct CData: Codable, ExpressibleByStringLiteral, Equatable {
-  public typealias StringLiteralType = String
-
-  public init(stringLiteral value: String) {
-    self.value = value
+  public enum CodingKeys: String, CodingKey {
+    case value = "#CDATA"
   }
 
   public var description: String {
@@ -13,8 +11,8 @@ public struct CData: Codable, ExpressibleByStringLiteral, Equatable {
   /// String value of the #CDATA element.
   public let value: String
 
-  enum CodingKeys: String, CodingKey {
-    case value = "#CDATA"
+  public init(stringLiteral value: String) {
+    self.value = value
   }
 
   public init(from decoder: Decoder) throws {

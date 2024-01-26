@@ -1,5 +1,5 @@
-internal extension Sequence {
-  func mapPairResult<Success>(
+extension Sequence {
+  internal func mapPairResult<Success>(
     _ transform: @escaping (Element) throws -> Success
   ) -> [(Element, Result<Success, Error>)] {
     map { element in
@@ -7,7 +7,7 @@ internal extension Sequence {
     }
   }
 
-  func mapResult<Success>(
+  internal func mapResult<Success>(
     _ transform: @escaping (Element) throws -> Success
   ) -> [Result<Success, Error>] {
     map { element in
@@ -15,7 +15,7 @@ internal extension Sequence {
     }
   }
 
-  func flatResultMapValue<SuccessKey, SuccessValue, NewSuccess>(
+  internal func flatResultMapValue<SuccessKey, SuccessValue, NewSuccess>(
     _ transform: @escaping (SuccessValue) throws -> NewSuccess
   ) -> [(SuccessKey, Result<NewSuccess, Error>)]
     where Element == (SuccessKey, Result<SuccessValue, Error>) {
@@ -27,7 +27,7 @@ internal extension Sequence {
     }
   }
 
-  func flatResultMap<Success, NewSuccess>(
+  internal func flatResultMap<Success, NewSuccess>(
     _ transform: @escaping (Success) throws -> NewSuccess
   ) -> [Result<NewSuccess, Error>]
     where Element == Result<Success, Error> {
