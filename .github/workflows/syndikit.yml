@@ -63,6 +63,21 @@ jobs:
           - runs-on: macos-15
             xcode: "/Applications/Xcode_16.4.app"
 
+          # SPM Build Matrix - Xcode 15.0.1
+          - type: macos
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_14.3.1.app"
+
+          # SPM Build Matrix - Xcode 15.4
+          - type: macos
+            runs-on: macos-14
+            xcode: "/Applications/Xcode_15.4.app"
+
+          # SPM Build Matrix - Xcode 16.4
+          - type: macos
+            runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"            
+
           # iOS Build Matrix - Xcode 14.3.1
           - type: ios
             runs-on: macos-13
