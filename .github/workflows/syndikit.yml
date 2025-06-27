@@ -51,9 +51,13 @@ jobs:
           - runs-on: macos-13
             xcode: "/Applications/Xcode_15.0.1.app"
 
-          # SPM Build Matrix - Xcode 15.1
-          - runs-on: macos-13
-            xcode: "/Applications/Xcode_15.1.app"
+          # SPM Build Matrix - Xcode 15.4
+          - runs-on: macos-14
+            xcode: "/Applications/Xcode_15.4.app"
+
+          # SPM Build Matrix - Xcode 16.4
+          - runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"
 
           # iOS Build Matrix - Xcode 14.3.1
           - type: ios
@@ -69,12 +73,19 @@ jobs:
             deviceName: "iPhone 15 Pro"
             osVersion: "17.0.1"
 
-          # iOS Build Matrix - Xcode 15.1
+          # iOS Build Matrix - Xcode 15.4
           - type: ios
-            runs-on: macos-13
-            xcode: "/Applications/Xcode_15.1.app"
-            deviceName: "iPhone 15 Pro Max"
-            osVersion: "17.2"
+            runs-on: macos-14
+            xcode: "/Applications/Xcode_15.4.app"
+            deviceName: "iPhone 15 Pro"
+            osVersion: "17.5"
+
+          # iOS Build Matrix - Xcode 16.4
+          - type: ios
+            runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"
+            deviceName: "iPhone 16 Pro"
+            osVersion: "18.4"
 
           # watchOS Build Matrix - Xcode 14.3.1
           - type: watchos
@@ -97,13 +108,41 @@ jobs:
             deviceName: "Apple Watch Ultra (49mm)"
             osVersion: "10.2"
 
+          # watchOS Build Matrix - Xcode 15.4
+          - type: watchos
+            runs-on: macos-14
+            xcode: "/Applications/Xcode_15.4.app"
+            deviceName: "Apple Watch Series 9 (41mm)"
+            osVersion: "10.5"
+
+          # watchOS Build Matrix - Xcode 16.4
+          - type: watchos
+            runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"
+            deviceName: "Apple Watch Ultra 2 (49mm)"
+            osVersion: "11.5"
+
+          # tvOS Build Matrix - Xcode 16.4
+          - type: tvos
+            runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"
+            deviceName: "Apple TV"
+            osVersion: "18.4"
+
+          # visionOS Build Matrix - Xcode 16.4
+          - type: visionos
+            runs-on: macos-15
+            xcode: "/Applications/Xcode_16.4.app"
+            deviceName: "Apple Vision Pro"
+            osVersion: "2.4"
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Build and Test
         uses: brightdigit/swift-build@v1.1.1
         with:
-          scheme: ${{ env.PACKAGE_NAME }}-Package
+          scheme: ${{ env.PACKAGE_NAME }}
           type: ${{ matrix.type }}
           xcode: ${{ matrix.xcode }}
           deviceName: ${{ matrix.deviceName }}
