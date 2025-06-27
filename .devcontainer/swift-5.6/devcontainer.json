@@ -1,0 +1,29 @@
+{
+  "name": "SyndiKit Swift 5.6",
+  "image": "swift:5.6",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sswg.swift-lang",
+        "vscode-swift",
+        "ms-vscode.vscode-json",
+        "ms-vscode.vscode-yaml",
+        "ms-vscode.vscode-markdown"
+      ],
+      "settings": {
+        "swift.path": "/usr/bin/swift",
+        "swift.buildPath": ".build",
+        "swift.targetBuildPath": ".build/debug"
+      }
+    }
+  },
+  "postCreateCommand": "swift --version && swift package resolve",
+  "remoteUser": "root",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.build,target=/workspace/.build,type=bind,consistency=cached"
+  ]
+} 
