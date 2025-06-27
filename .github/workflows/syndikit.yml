@@ -11,19 +11,16 @@ jobs:
       PACKAGE_NAME: SyndiKit
       SWIFT_VER: ${{ matrix.swift-version }}
     runs-on: ${{ matrix.runs-on }}
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     strategy:
       matrix:
-        runs-on: [ubuntu-20.04, ubuntu-22.04]
+        runs-on: [ubuntu-22.04, ubuntu-24.04]
         swift-version: [5.7.3, 5.8.1, 5.9]
-        include:
-          - runs-on: ubuntu-20.04
-            swift-version: 5.5.3
-          - runs-on: ubuntu-20.04
-            swift-version: 5.6.3
     steps:
       - uses: actions/checkout@v4
       - uses: brightdigit/swift-build@v1.1.1
+        with:
+          scheme: ${{ env.PACKAGE_NAME }}-Package
       - uses: sersoft-gmbh/swift-coverage-action@v4
         id: coverage-files
         with:          
@@ -41,138 +38,204 @@ jobs:
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ${{ matrix.runs-on }}
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     strategy:
+      fail-fast: false
       matrix:
         include:
+          # SPM Build Matrix - Xcode 13.3
           - runs-on: macos-12
             xcode: "/Applications/Xcode_13.3.app"
-            iOSVersion: 15.4
-            watchOSVersion: 8.5
-            watchName: "Apple Watch Series 7 - 41mm"
-            iPhoneName: "iPhone 8"
+
+          # SPM Build Matrix - Xcode 13.4.1
           - runs-on: macos-12
             xcode: "/Applications/Xcode_13.4.1.app"
-            iOSVersion: 15.5
-            watchOSVersion: 8.5
-            watchName: "Apple Watch Series 7 - 41mm"
-            iPhoneName: "iPhone 11"
+
+          # SPM Build Matrix - Xcode 14.0.1
           - runs-on: macos-12
             xcode: "/Applications/Xcode_14.0.1.app"
-            iOSVersion: "16.0"
-            watchOSVersion: "9.0"
-            watchName: "Apple Watch Series 8 (41mm)"
-            iPhoneName: "iPhone 12"
+
+          # SPM Build Matrix - Xcode 14.1
           - runs-on: macos-12
             xcode: "/Applications/Xcode_14.1.app"
-            iOSVersion: "16.1"
-            watchOSVersion: "9.1"
-            watchName: "Apple Watch Ultra (49mm)"
-            iPhoneName: "iPhone 13"
+
+          # SPM Build Matrix - Xcode 14.2
           - runs-on: macos-12
             xcode: "/Applications/Xcode_14.2.app"
-            iOSVersion: "16.2"
-            watchOSVersion: "9.1"
-            watchName: "Apple Watch Ultra (49mm)"
-            iPhoneName: "iPhone 14"
+
+          # SPM Build Matrix - Xcode 14.3.1
           - runs-on: macos-13
             xcode: "/Applications/Xcode_14.3.1.app"
-            iOSVersion: "16.4"
-            watchOSVersion: "9.4"
-            watchName: "Apple Watch Ultra (49mm)"
-            iPhoneName: "iPhone 14 Pro Max"
+
+          # SPM Build Matrix - Xcode 15.0.1
           - runs-on: macos-13
             xcode: "/Applications/Xcode_15.0.1.app"
-            iOSVersion: "17.0.1"
-            watchOSVersion: "10.0"
-            watchName: "Apple Watch Series 9 (41mm)"
-            iPhoneName: "iPhone 15 Pro"
+
+          # SPM Build Matrix - Xcode 15.1
           - runs-on: macos-13
             xcode: "/Applications/Xcode_15.1.app"
-            iOSVersion: "17.2"
-            watchOSVersion: "10.2"
-            watchName: "Apple Watch Ultra (49mm)"
-            iPhoneName: "iPhone 15 Pro Max"
+
+          # iOS Build Matrix - Xcode 13.3
+          - type: ios
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_13.3.app"
+            deviceName: "iPhone 8"
+            osVersion: "15.4"
+
+          # iOS Build Matrix - Xcode 13.4.1
+          - type: ios
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_13.4.1.app"
+            deviceName: "iPhone 11"
+            osVersion: "15.5"
+
+          # iOS Build Matrix - Xcode 14.0.1
+          - type: ios
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.0.1.app"
+            deviceName: "iPhone 12"
+            osVersion: "16.0"
+
+          # iOS Build Matrix - Xcode 14.1
+          - type: ios
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.1.app"
+            deviceName: "iPhone 13"
+            osVersion: "16.1"
+
+          # iOS Build Matrix - Xcode 14.2
+          - type: ios
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.2.app"
+            deviceName: "iPhone 14"
+            osVersion: "16.2"
+
+          # iOS Build Matrix - Xcode 14.3.1
+          - type: ios
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_14.3.1.app"
+            deviceName: "iPhone 14 Pro Max"
+            osVersion: "16.4"
+
+          # iOS Build Matrix - Xcode 15.0.1
+          - type: ios
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_15.0.1.app"
+            deviceName: "iPhone 15 Pro"
+            osVersion: "17.0.1"
+
+          # iOS Build Matrix - Xcode 15.1
+          - type: ios
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_15.1.app"
+            deviceName: "iPhone 15 Pro Max"
+            osVersion: "17.2"
+
+          # watchOS Build Matrix - Xcode 13.3
+          - type: watchos
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_13.3.app"
+            deviceName: "Apple Watch Series 7 - 41mm"
+            osVersion: "8.5"
+
+          # watchOS Build Matrix - Xcode 13.4.1
+          - type: watchos
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_13.4.1.app"
+            deviceName: "Apple Watch Series 7 - 41mm"
+            osVersion: "8.5"
+
+          # watchOS Build Matrix - Xcode 14.0.1
+          - type: watchos
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.0.1.app"
+            deviceName: "Apple Watch Series 8 (41mm)"
+            osVersion: "9.0"
+
+          # watchOS Build Matrix - Xcode 14.1
+          - type: watchos
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.1.app"
+            deviceName: "Apple Watch Ultra (49mm)"
+            osVersion: "9.1"
+
+          # watchOS Build Matrix - Xcode 14.2
+          - type: watchos
+            runs-on: macos-12
+            xcode: "/Applications/Xcode_14.2.app"
+            deviceName: "Apple Watch Ultra (49mm)"
+            osVersion: "9.1"
+
+          # watchOS Build Matrix - Xcode 14.3.1
+          - type: watchos
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_14.3.1.app"
+            deviceName: "Apple Watch Ultra (49mm)"
+            osVersion: "9.4"
+
+          # watchOS Build Matrix - Xcode 15.0.1
+          - type: watchos
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_15.0.1.app"
+            deviceName: "Apple Watch Series 9 (41mm)"
+            osVersion: "10.0"
+
+          # watchOS Build Matrix - Xcode 15.1
+          - type: watchos
+            runs-on: macos-13
+            xcode: "/Applications/Xcode_15.1.app"
+            deviceName: "Apple Watch Ultra (49mm)"
+            osVersion: "10.2"
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Cache swift package modules
-        id: cache-spm-macos
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-spm
+      - uses: actions/checkout@v4
+
+      - name: Build and Test
+        uses: brightdigit/swift-build@v1.1.1
         with:
-          path: .build
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Package.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Cache mint
-        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
-        id: cache-mint
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-mint
+          scheme: ${{ env.PACKAGE_NAME }}-Package
+          type: ${{ matrix.type }}
+          xcode: ${{ matrix.xcode }}
+          deviceName: ${{ matrix.deviceName }}
+          osVersion: ${{ matrix.osVersion }}
+          
+      # Common Coverage Steps
+      - name: Process Coverage
+        uses: sersoft-gmbh/swift-coverage-action@v4
+  
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v4
         with:
-          path: .mint
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Mintfile') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Set Xcode Name
-        run: echo "XCODE_NAME=$(basename -- ${{ matrix.xcode }} | sed 's/\.[^.]*$//' | cut -d'_' -f2)" >> $GITHUB_ENV
-      - name: Setup Xcode
-        run: sudo xcode-select -s ${{ matrix.xcode }}/Contents/Developer
-      - name: Install mint
-        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
-        run: |
-          brew update
-          brew install mint
-      - name: Initialize CodeQL
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
-        uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
-      - name: Build
-        run: swift build
-      - name: Perform CodeQL Analysis
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14.3.1')
-        uses: github/codeql-action/analyze@v2
-      - name: Run Swift Package tests
-        run: swift test -v --enable-code-coverage
-      - uses: sersoft-gmbh/swift-coverage-action@v4
-      - name: Upload SPM to CodeCov.io
-        run: bash <(curl https://codecov.io/bash) -F spm -F macOS -F ${XCODE_NAME}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Clean up spm build directory
-        run: rm -rf .build
-      - name: Lint
-        run: ./scripts/lint.sh
-        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || endsWith( github.ref_name , 'Prep') ) && matrix.xcode == '/Applications/Xcode_14.3.1.app' }}
-      - name: Dump PIF
-        if: startsWith(matrix.xcode,'/Applications/Xcode_14')
-        run: |
-          swift package dump-pif > /dev/null
-          MAX_ATTEMPT=3
-          ATTEMPT=0
-          while [ -z $SUCCESS ] && [ "$ATTEMPT" -le "$MAX_ATTEMPT" ]; do
-            xcodebuild clean -scheme SyndiKit -destination 'generic/platform=iOS' | grep -q "CLEAN SUCCEEDED" && SUCCESS=true
-            ATTEMPT=$(($ATTEMPT+1))
-          done
-      - name: Run iOS target tests
-        run: xcodebuild test -scheme SyndiKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=${{ matrix.iPhoneName }},OS=${{ matrix.iOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v4
-      - name: Upload iOS Coverage to CodeCov.io
-        run: bash <(curl https://codecov.io/bash) -F iOS -F iOS${{ matrix.iOSVersion }} -F macOS -F ${XCODE_NAME}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}      
-      - name: Run watchOS target tests
-        run: xcodebuild test -scheme SyndiKit -sdk watchsimulator -destination 'platform=watchOS Simulator,name=${{ matrix.watchName }},OS=${{ matrix.watchOSVersion }}' -enableCodeCoverage YES build test
-      - uses: sersoft-gmbh/swift-coverage-action@v4
-      - name: Upload watchOS Coverage to CodeCov.io
-        run: bash <(curl https://codecov.io/bash) -F watchOS -F watchOS${{ matrix.watchOSVersion }} -F macOS -F ${XCODE_NAME}
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}          
           token: ${{ secrets.CODECOV_TOKEN }}
+          flags: ${{ matrix.type && format('{0}{1}', matrix.type, matrix.osVersion) || 'spm' }}
+
+  lint:
+    name: Linting
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}  
+    runs-on: ubuntu-latest
+    needs: [build-ubuntu, build-macos]
+    env:
+      MINT_PATH: .mint/lib
+      MINT_LINK_PATH: .mint/bin
+    steps:
+      - uses: actions/checkout@v4    
+      - name: Cache mint
+        id: cache-mint
+        uses: actions/cache@v4  
+        env:
+          cache-name: cache
+        with:
+          path: |
+            .mint
+            Mint         
+          key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+          restore-keys: |
+            ${{ runner.os }}-mint-  
+      - name: Install mint
+        if: steps.cache-mint.outputs.cache-hit == ''
+        run: |
+          git clone https://github.com/yonaskolb/Mint.git
+          cd Mint
+          swift run mint install yonaskolb/mint
+      - name: Lint
+        run: ./Scripts/lint.sh
