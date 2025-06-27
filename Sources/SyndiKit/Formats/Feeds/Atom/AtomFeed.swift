@@ -6,7 +6,7 @@ import Foundation
 /// Based on the
 /// [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
 /// - SeeAlso: ``EntryCategory``
-public struct AtomFeed {
+public struct AtomFeed: Sendable {
   public enum CodingKeys: String, CodingKey {
     case id
     case title

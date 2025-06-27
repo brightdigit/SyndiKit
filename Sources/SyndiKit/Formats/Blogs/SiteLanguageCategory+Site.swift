@@ -3,7 +3,7 @@ import Foundation
 // swiftlint:disable nesting
 extension SiteLanguageCategory {
   /// A ``struct`` representing a site.
-  public struct Site: Codable {
+  public struct Site: Codable, Sendable {
     /// The title of the site.
     public let title: String
 

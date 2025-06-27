@@ -1,5 +1,5 @@
 /// #CDATA XML element.
-public struct CData: Codable, ExpressibleByStringLiteral, Equatable {
+public struct CData: Codable, ExpressibleByStringLiteral, Equatable, Sendable {
   public enum CodingKeys: String, CodingKey {
     case value = "#CDATA"
   }

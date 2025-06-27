@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct UTF8EncodedURL: Codable {
+internal struct UTF8EncodedURL: Codable, Sendable {
   internal let value: URL
   internal let string: String?
 

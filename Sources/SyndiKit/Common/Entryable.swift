@@ -1,7 +1,7 @@
 import Foundation
 
 /// Basic Feed type with abstract properties.
-public protocol Entryable {
+public protocol Entryable: Sendable {
   /// Unique Identifier of the Item.
   var id: EntryID { get }
   /// The URL of the item.

@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing an entry in an Atom feed.
-public struct AtomEntry: Codable {
+public struct AtomEntry: Codable, Sendable {
   /// The coding keys used for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case id

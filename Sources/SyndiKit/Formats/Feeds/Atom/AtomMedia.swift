@@ -7,7 +7,7 @@ import Foundation
 /// For more details, check out
 /// [the Media RSS Specification](https://www.rssboard.org/media-rss).
 /// - SeeAlso: ``EntryCategory``
-public struct AtomMedia: Codable {
+public struct AtomMedia: Codable, Sendable {
   /// A struct representing an Atom category.
   ///   The type of object.
   ///

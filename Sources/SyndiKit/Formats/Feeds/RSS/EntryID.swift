@@ -4,7 +4,7 @@ import Foundation
 ///
 /// - Note: This enum conforms to
 /// ``Codable``, ``Equatable``, and ``LosslessStringConvertible``.
-public enum EntryID: Codable, Equatable, LosslessStringConvertible {
+public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
   /// An identifier in URL format.
   case url(URL)
 

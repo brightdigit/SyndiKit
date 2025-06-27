@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing a person associated with a podcast.
-public struct PodcastPerson: Codable, Equatable {
+public struct PodcastPerson: Codable, Equatable, Sendable {
   /// The role of the person.
   public enum CodingKeys: String, CodingKey {
     case role

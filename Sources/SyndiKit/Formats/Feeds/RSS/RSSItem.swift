@@ -1,7 +1,7 @@
 import Foundation
 import XMLCoder
 
-public struct RSSItem: Codable {
+public struct RSSItem: Codable, Sendable {
   public enum CodingKeys: String, CodingKey {
     case title
     case link

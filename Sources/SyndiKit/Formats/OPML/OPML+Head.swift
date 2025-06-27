@@ -1,7 +1,7 @@
 import Foundation
 
 extension OPML {
-  public struct Head: Codable, Equatable {
+  public struct Head: Codable, Equatable, Sendable {
     public let title: String?
     public let dateCreated: String?
     public let dateModified: String?

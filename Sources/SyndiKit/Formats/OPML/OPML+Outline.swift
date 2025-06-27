@@ -3,7 +3,7 @@ import Foundation
 // swiftlint:disable nesting discouraged_optional_boolean
 
 extension OPML {
-  public struct Outline: Codable, Equatable {
+  public struct Outline: Codable, Equatable, Sendable {
     public enum CodingKeys: String, CodingKey {
       case text
       case title

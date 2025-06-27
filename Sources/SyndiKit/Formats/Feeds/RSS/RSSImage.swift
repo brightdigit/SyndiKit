@@ -1,7 +1,7 @@
 import Foundation
 
 /// Represents a GIF, JPEG, or PNG image.
-public struct RSSImage: Codable {
+public struct RSSImage: Codable, Sendable {
   /// The URL of the image.
   public let url: URL
 

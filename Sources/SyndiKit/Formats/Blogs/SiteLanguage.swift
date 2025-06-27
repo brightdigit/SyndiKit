@@ -12,7 +12,7 @@
 ///
 /// - Author: Your Name
 /// - SeeAlso: ``EntryCategory``
-public struct SiteLanguage {
+public struct SiteLanguage: Sendable {
   /// The type of the site language.
   public let type: SiteLanguageType
 

@@ -7,7 +7,7 @@
 ///
 /// - SeeAlso: ``Site``
 /// - SeeAlso: ``EntryCategory``
-public struct SiteLanguageCategory: Codable {
+public struct SiteLanguageCategory: Codable, Sendable {
   /// The title of the category.
   public let title: String
 

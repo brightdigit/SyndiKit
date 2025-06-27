@@ -17,7 +17,7 @@ import Foundation
 /// - SeeAlso: ``PodcastFunding``
 /// - SeeAlso: ``PodcastPerson``
 /// - SeeAlso: ``EntryCategory``
-public struct RSSChannel: Codable {
+public struct RSSChannel: Codable, Sendable {
   internal enum CodingKeys: String, CodingKey {
     case title
     case link

@@ -11,7 +11,7 @@
 ///
 /// - Version: 1.0
 /// - SeeAlso: ``EntryCategory``
-public struct SiteLanguageContent: Codable {
+public struct SiteLanguageContent: Codable, Sendable {
   /// The language of the site content.
   public let language: String
 

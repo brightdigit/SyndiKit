@@ -1,8 +1,8 @@
 import Foundation
 
 public struct ListString<
-  Value: LosslessStringConvertible & Equatable
->: Codable, Equatable {
+  Value: LosslessStringConvertible & Equatable & Sendable
+>: Codable, Equatable, Sendable {
   public let values: [Value]
 
   internal init(values: [Value]) {

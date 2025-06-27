@@ -1,7 +1,7 @@
 import Foundation
 
 /// A directory of site collections.
-public struct SiteCollectionDirectory: SiteDirectory {
+public struct SiteCollectionDirectory: SiteDirectory, Sendable {
   /// A sequence of sites.
   public typealias SiteSequence = [Site]
 
@@ -12,7 +12,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
   public typealias CategorySequence = Dictionary<SiteCategoryType, SiteCategory>.Values
 
   /// The internal structure of the site collection directory.
-  internal struct Instance {
+  internal struct Instance: Sendable {
     internal let allSites: [Site]
     internal let languageDictionary: [SiteLanguageType: SiteLanguage]
     internal let categoryDictionary: [SiteCategoryType: SiteCategory]
@@ -139,7 +139,7 @@ public struct SiteCollectionDirectory: SiteDirectory {
 }
 
 /// A protocol for site directories.
-public protocol SiteDirectory {
+public protocol SiteDirectory: Sendable {
   /// List of Sites
   associatedtype SiteSequence: Sequence where SiteSequence.Element == Site
   /// List of Languages

@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing a season of a podcast.
-public struct PodcastSeason: Codable, Equatable {
+public struct PodcastSeason: Codable, Equatable, Sendable {
   /// The coding keys for the ``PodcastSeason`` struct.
   public enum CodingKeys: String, CodingKey {
     case name

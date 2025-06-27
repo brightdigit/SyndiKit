@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing a soundbite from a podcast.
-public struct PodcastSoundbite: Codable, Equatable {
+public struct PodcastSoundbite: Codable, Equatable, Sendable {
   /// The coding keys used for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case startTime

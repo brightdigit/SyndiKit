@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing the location of a podcast.
-public struct PodcastLocation: Codable, Equatable {
+public struct PodcastLocation: Codable, Equatable, Sendable {
   /// The geographic coordinates of the location.
   internal enum CodingKeys: String, CodingKey {
     case geo

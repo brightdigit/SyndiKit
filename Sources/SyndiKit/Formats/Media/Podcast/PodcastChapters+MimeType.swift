@@ -2,7 +2,7 @@ import Foundation
 
 extension PodcastChapters {
   /// A private enum representing known MIME types for podcast chapters.
-  private enum KnownMimeType: String, Codable {
+  private enum KnownMimeType: String, Codable, Sendable {
     case json = "application/json+chapters"
 
     /// Initializes a ``KnownMimeType`` from a case-insensitive string.
@@ -23,7 +23,7 @@ extension PodcastChapters {
   }
 
   /// An enum representing the MIME type of podcast chapters.
-  public enum MimeType: Codable, Equatable, RawRepresentable {
+  public enum MimeType: Codable, Equatable, RawRepresentable, Sendable {
     case json
     case unknown(String)
 

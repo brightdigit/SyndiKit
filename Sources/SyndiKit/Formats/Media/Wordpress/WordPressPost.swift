@@ -1,15 +1,15 @@
 import Foundation
 
 /// A namespace for WordPress related elements.
-public enum WordPressElements {}
+public enum WordPressElements: Sendable {}
 
 /// An error type representing a missing field in a WordPress post.
-public enum WordPressError: Error, Equatable {
+public enum WordPressError: Error, Equatable, Sendable {
   case missingField(WordPressPost.Field)
 }
 
 /// A struct representing a WordPress post.
-public struct WordPressPost {
+public struct WordPressPost: Sendable {
   /// The type of the post.
   public typealias PostType = String
 
@@ -23,7 +23,7 @@ public struct WordPressPost {
   public typealias Status = String
 
   /// An enum representing the fields of a WordPress post.
-  public enum Field: Equatable {
+  public enum Field: Equatable, Sendable {
     case name
     case title
     case type

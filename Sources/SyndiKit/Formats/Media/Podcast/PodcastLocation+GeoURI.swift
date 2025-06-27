@@ -2,7 +2,7 @@ import Foundation
 
 extension PodcastLocation {
   /// A ``struct`` representing a geographic URI for a podcast location.
-  public struct GeoURI: Codable, Equatable, LosslessStringConvertible {
+  public struct GeoURI: Codable, Equatable, LosslessStringConvertible, Sendable {
     /// The latitude coordinate.
     public let latitude: Double
 

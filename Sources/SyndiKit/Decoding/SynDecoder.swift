@@ -11,70 +11,74 @@ import XMLCoder
 /// ### Decoding
 ///
 /// - ``decode(_:)``
-public class SynDecoder {
+@available(macOS 13.0, *)
+public final class SynDecoder: Sendable {
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self
   ]
 
-  private let defaultJSONDecoderSetup: (JSONDecoder) -> Void
-  private let defaultXMLDecoderSetup: (XMLDecoder) -> Void
+  private let defaultJSONDecoderSetup: @Sendable(JSONDecoder) -> Void
+  private let defaultXMLDecoderSetup: @Sendable(XMLDecoder) -> Void
   private let types: [DecodableFeed.Type]
 
-  private lazy var defaultXMLDecoder: XMLDecoder = {
-    let decoder = XMLDecoder()
-    self.defaultXMLDecoderSetup(decoder)
-    return decoder
-  }()
+  private let defaultXMLDecoder: XMLDecoder
 
-  private lazy var defaultJSONDecoder: JSONDecoder = {
-    let decoder = JSONDecoder()
-    self.defaultJSONDecoderSetup(decoder)
-    return decoder
-  }()
+  private let defaultJSONDecoder: JSONDecoder
 
   // swiftlint:disable:next closure_body_length
-  private lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
-    let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
-      let source = type.source
-      let setup = type.source as? CustomDecoderSetup
-      let decoder: TypeDecoder
-
-      switch (source.source, setup?.setup(decoder:)) {
-      case let (.xml, .some(setup)):
-        decoder = XMLDecoder()
-        setup(decoder)
-
-      case let (.json, .some(setup)):
-        decoder = JSONDecoder()
-        setup(decoder)
-
-      case (.xml, .none):
-        decoder = self.defaultXMLDecoder
-
-      case (.json, .none):
-        decoder = self.defaultJSONDecoder
-      }
-
-      return (source.source, type.anyDecoding(using: decoder))
-    }
-    return Dictionary(grouping: decodings) { $0.0 }
-      .mapValues { $0
-        .map { $0.1 }
-        .map { (type(of: $0).label, $0) }
-      }
-      .mapValues(Dictionary.init(uniqueKeysWithValues:))
-  }()
+  private let decodings: [DecoderSource: [String: AnyDecoding]]
 
   internal init(
     types: [DecodableFeed.Type]? = nil,
-    defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
-    defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
+    defaultJSONDecoderSetup: (@Sendable(JSONDecoder) -> Void)? = nil,
+    defaultXMLDecoderSetup: (@Sendable(XMLDecoder) -> Void)? = nil
   ) {
-    self.types = types ?? Self.defaultTypes
-    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
-    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+    let resolvedTypes = types ?? Self.defaultTypes
+    let jsonSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
+    let xmlSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+
+    let xmlDecoder = XMLDecoder()
+    xmlSetup(xmlDecoder)
+    let jsonDecoder = JSONDecoder()
+    jsonSetup(jsonDecoder)
+
+    let decodings: [DecoderSource: [String: AnyDecoding]] = resolvedTypes.map { type -> (DecoderSource, AnyDecoding) in
+      let source = type.source
+      let setup = type.source as? CustomDecoderSetup
+      let decoder: TypeDecoder
+      switch (source.source, setup?.setup(decoder:)) {
+      case let (.xml, .some(setup)):
+        let xml = XMLDecoder()
+        setup(xml)
+        decoder = xml
+
+      case let (.json, .some(setup)):
+        let json = JSONDecoder()
+        setup(json)
+        decoder = json
+
+      case (.xml, .none):
+        decoder = xmlDecoder
+
+      case (.json, .none):
+        decoder = jsonDecoder
+      }
+      return (source.source, type.anyDecoding(using: decoder))
+    }
+    .reduce(into: [DecoderSource: [(String, AnyDecoding)]]()) { dict, pair in
+      let (source, decoding) = pair
+      dict[source, default: []].append((type(of: decoding).label, decoding))
+    }
+    .mapValues { Dictionary(uniqueKeysWithValues: $0) }
+
+    self.types = resolvedTypes
+    self.defaultJSONDecoderSetup = jsonSetup
+    self.defaultXMLDecoderSetup = xmlSetup
+    defaultXMLDecoder = xmlDecoder
+    defaultJSONDecoder = jsonDecoder
+    self.decodings = decodings
   }
 
   /// Creates an instance of ``RSSDecoder``
@@ -82,11 +86,13 @@ public class SynDecoder {
     self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
   }
 
+  @Sendable
   internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
   }
 
+  @Sendable
   internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))

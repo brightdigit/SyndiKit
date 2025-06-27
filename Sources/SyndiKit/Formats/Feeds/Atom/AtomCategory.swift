@@ -5,7 +5,7 @@
 ///
 /// - SeeAlso: ``EntryCategory``
 /// - SeeAlso: ``EntryCategory``
-public struct AtomCategory: Codable, EntryCategory {
+public struct AtomCategory: Codable, EntryCategory, Sendable {
   /// The term of the category.
   public let term: String
 }

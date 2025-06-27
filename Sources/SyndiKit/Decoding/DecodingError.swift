@@ -1,7 +1,7 @@
 import Foundation
 
 extension DecodingError {
-  internal struct Dictionary: Error {
+  internal struct Dictionary: Error, Sendable {
     internal init?(errors: [String: DecodingError]) {
       guard errors.count > 1 else {
         return nil

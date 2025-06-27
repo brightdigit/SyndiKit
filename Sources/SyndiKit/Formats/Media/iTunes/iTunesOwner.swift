@@ -1,3 +1,5 @@
+import Foundation
+
 /// A struct representing an Atom category.
 /// A struct representing the owner of an iTunes account.
 ///
@@ -13,7 +15,7 @@
 ///
 /// - Version: 1.0
 /// - SeeAlso: ``EntryCategory``
-public struct iTunesOwner: Codable {
+public struct iTunesOwner: Codable, Sendable {
   /// The coding keys used to encode and decode the struct.
   internal enum CodingKeys: String, CodingKey {
     case name = "itunes:name"

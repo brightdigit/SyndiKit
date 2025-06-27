@@ -1,6 +1,6 @@
 import Foundation
 
-internal protocol DecodableFeed: Decodable, Feedable {
+internal protocol DecodableFeed: Decodable, Feedable, Sendable {
   static var source: DecoderSetup { get }
   static var label: String { get }
 }

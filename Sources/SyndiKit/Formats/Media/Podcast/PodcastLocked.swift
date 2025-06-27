@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing a locked podcast.
-public struct PodcastLocked: Codable, Equatable {
+public struct PodcastLocked: Codable, Equatable, Sendable {
   /// Coding keys for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case owner

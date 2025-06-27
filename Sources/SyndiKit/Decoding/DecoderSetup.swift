@@ -1,5 +1,5 @@
 import Foundation
 
-internal protocol DecoderSetup {
+internal protocol DecoderSetup: Sendable {
   var source: DecoderSource { get }
 }
