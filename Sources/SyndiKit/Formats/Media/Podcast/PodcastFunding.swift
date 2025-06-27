@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing funding information for a podcast.
 public struct PodcastFunding: Codable, Equatable, Sendable {

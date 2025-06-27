@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing a person associated with a podcast.
 public struct PodcastPerson: Codable, Equatable, Sendable {

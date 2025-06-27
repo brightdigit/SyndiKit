@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A namespace for WordPress related elements.
 public enum WordPressElements: Sendable {}

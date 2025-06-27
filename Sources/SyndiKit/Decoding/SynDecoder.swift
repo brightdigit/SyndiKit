@@ -11,8 +11,7 @@ import XMLCoder
 /// ### Decoding
 ///
 /// - ``decode(_:)``
-@available(macOS 13.0, *)
-public final class SynDecoder: Sendable {
+public final class SynDecoder: @unchecked Sendable {
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,

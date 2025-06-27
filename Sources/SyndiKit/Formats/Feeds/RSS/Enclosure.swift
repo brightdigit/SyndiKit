@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing an enclosure for a resource.
 public struct Enclosure: Codable, Sendable {

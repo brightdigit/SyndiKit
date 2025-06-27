@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 internal struct DateFormatterDecoder: Sendable {
   internal enum RSS: Sendable {

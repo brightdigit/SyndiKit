@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 // swiftlint:disable line_length
 /// Properties concerning how often it is updated a feed is updated.
