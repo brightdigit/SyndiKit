@@ -7,20 +7,24 @@ on:
 jobs:
   build-ubuntu:
     name: Build on Ubuntu
-    env:
-      PACKAGE_NAME: SyndiKit
-      SWIFT_VER: ${{ matrix.swift-version }}
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     strategy:
       matrix:
-        runs-on: [ubuntu-22.04, ubuntu-24.04]
-        swift-version: [5.7.3, 5.8.1, 5.9]
+        include: 
+          - container: swift:6.1
+          
+          - container: swift:6.0
+          
+          - container: swift:5.6-focal
+
+          - container: swiftlang/swift:nightly-6.2-noble
     steps:
       - uses: actions/checkout@v4
       - uses: brightdigit/swift-build@v1.1.1
         with:
-          scheme: ${{ env.PACKAGE_NAME }}-Package
+          scheme: ${{ env.PACKAGE_NAME }}
       - uses: sersoft-gmbh/swift-coverage-action@v4
         id: coverage-files
         with:          
