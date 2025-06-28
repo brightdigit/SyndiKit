@@ -97,6 +97,16 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
     }
   }
 
+  /// Initializes an ``EntryID`` from a decoder.
+  ///
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if the decoding process fails.
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    let string = try container.decode(String.self)
+    self.init(string: string)
+  }
+
   private static func parsePathOrString(_ string: String) -> EntryID {
     let colonComponents = string.components(separatedBy: ":")
     if colonComponents.count > 1 {
@@ -109,16 +119,6 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
     }
 
     return .string(string)
-  }
-
-  /// Initializes an ``EntryID`` from a decoder.
-  ///
-  /// - Parameter decoder: The decoder to read data from.
-  /// - Throws: An error if the decoding process fails.
-  public init(from decoder: Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    let string = try container.decode(String.self)
-    self.init(string: string)
   }
 
   /// Encodes the ``EntryID`` into the given encoder.

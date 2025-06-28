@@ -32,15 +32,12 @@ import Foundation
 extension PodcastLocation {
   /// Represents a query for OpenStreetMap (OSM) data.
   public struct OsmQuery: Codable, Equatable, Sendable {
-    // swiftlint:disable nesting
     /// The type of OSM element.
     public enum OsmType: String, Codable, CaseIterable, Sendable {
       case node = "N"
       case way = "W"
       case relation = "R"
     }
-
-    // swiftlint:enable nesting
 
     /// The ID of the OSM element.
     public let id: Int

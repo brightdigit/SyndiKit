@@ -32,7 +32,6 @@ import Foundation
 /// A typealias for `WordPressElements.Tag`
 public typealias WPTag = WordPressElements.Tag
 
-// swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing a tag in WordPress.
   public struct Tag: Codable, Sendable {

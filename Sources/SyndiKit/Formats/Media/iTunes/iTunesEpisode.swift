@@ -27,6 +27,9 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+import Foundation
+
+// swift-format-ignore: TypeNamesShouldBeCapitalized
 /// A struct representing an Atom category.
 /// A type alias for an iTunes episode.
 ///

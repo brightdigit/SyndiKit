@@ -30,7 +30,6 @@
 import Foundation
 
 extension WordPressPost {
-  // swiftlint:disable cyclomatic_complexity function_body_length
   /// A struct representing an Atom category.
   ///   Initializes a ``WordPressPost`` instance from an ``RSSItem``.
   ///
@@ -120,6 +119,4 @@ extension WordPressPost {
     self.modifiedDate = modifiedDate
     attachmentURL = item.wpAttachmentURL
   }
-
-  // swiftlint:enable cyclomatic_complexity function_body_length
 }

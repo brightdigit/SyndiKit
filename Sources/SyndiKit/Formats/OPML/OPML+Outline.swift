@@ -33,8 +33,6 @@
   import Foundation
 #endif
 
-// swiftlint:disable nesting discouraged_optional_boolean
-
 extension OPML {
   public struct Outline: Codable, Equatable, Sendable {
     public enum CodingKeys: String, CodingKey {
@@ -65,7 +63,9 @@ extension OPML {
     public let language: String?
     public let created: String?
     public let categories: ListString<String>?
+    // swiftlint:disable:next discouraged_optional_boolean
     public let isComment: Bool?
+    // swiftlint:disable:next discouraged_optional_boolean
     public let isBreakpoint: Bool?
     public let version: String?
 

@@ -39,7 +39,6 @@ enum Content {
   )
   static let blogs: SiteCollection = try! .init(
     contentsOf: Directories.data.appendingPathComponent("blogs.json"))
-  // swiftlint:enable force_try line_length
 }
 
 extension XMLDecoder {

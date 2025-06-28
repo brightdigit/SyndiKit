@@ -88,7 +88,6 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
       }
     }
 
-    // swiftlint:disable function_body_length
     internal init(blogs: SiteCollection) {
       var categories = [CategoryLanguage]()
       var languages = [SiteLanguage]()

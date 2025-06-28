@@ -31,7 +31,6 @@ import Foundation
 import XMLCoder
 
 extension RSSItem {
-  // swiftlint:disable function_body_length
   /// A struct representing an Atom category.
   ///   Initializes a new ``RSSItem`` by decoding data from a decoder.
   ///
@@ -154,6 +153,4 @@ extension RSSItem {
       CData.self, forKey: .wpPostPassword
     )
   }
-
-  // swiftlint:enable function_body_length
 }

@@ -31,7 +31,6 @@ import Foundation
 import XMLCoder
 
 extension RSSItem {
-  // swiftlint:disable function_body_length
   /// A struct representing an Atom category.
   ///   Initializes a new ``RSSItem`` instance.
   ///
@@ -163,6 +162,4 @@ extension RSSItem {
     self.mediaContent = mediaContent
     self.mediaThumbnail = mediaThumbnail
   }
-
-  // swiftlint:enable function_body_length
 }

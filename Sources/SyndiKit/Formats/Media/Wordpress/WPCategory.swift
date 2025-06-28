@@ -32,7 +32,6 @@ import Foundation
 /// A typealias for the `WordPressElements.Category` type.
 public typealias WPCategory = WordPressElements.Category
 
-// swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing a category in WordPress.
   public struct Category: Codable, Sendable {

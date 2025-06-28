@@ -33,7 +33,6 @@
   import Foundation
 #endif
 
-// swiftlint:disable nesting
 extension SiteLanguageCategory {
   /// A ``struct`` representing a site.
   public struct Site: Codable, Sendable {

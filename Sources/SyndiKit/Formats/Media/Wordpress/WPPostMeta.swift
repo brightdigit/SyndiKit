@@ -32,7 +32,6 @@ import Foundation
 /// A typealias for `WordPressElements.Category`.
 public typealias WPPostMeta = WordPressElements.Category
 
-// swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing metadata for a WordPress post.
   public struct PostMeta: Codable, Sendable {

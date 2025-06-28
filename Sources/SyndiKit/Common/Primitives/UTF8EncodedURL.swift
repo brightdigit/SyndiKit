@@ -50,7 +50,10 @@ internal struct UTF8EncodedURL: Codable, Sendable {
     }
   }
 
-  private static func encodedURL(from string: String, error: DecodingError) throws -> URL {
+  private static func encodedURL(
+    from string: String,
+    error: DecodingError
+  ) throws -> URL {
     let encodedURLString = string.addingPercentEncoding(
       withAllowedCharacters: .urlQueryAllowed
     )

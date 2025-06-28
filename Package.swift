@@ -1,7 +1,8 @@
 // swift-tools-version:5.5
-// swiftlint:disable explicit_top_level_acl explicit_acl
+
 import PackageDescription
 
+// swiftlint:disable:next explicit_acl explicit_top_level_acl
 let package = Package(
   name: "SyndiKit",
   products: [

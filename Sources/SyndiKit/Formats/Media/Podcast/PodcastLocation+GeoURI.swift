@@ -91,7 +91,10 @@ extension PodcastLocation {
     /// - Throws: A ``DecodingError`` if the single value string is invalid.
     public init(singleValue: String) throws {
       let pathComponents = try Self.pathComponents(from: singleValue)
-      let coordinates = try Self.parseCoordinates(from: pathComponents, singleValue: singleValue)
+      let coordinates = try Self.parseCoordinates(
+        from: pathComponents,
+        singleValue: singleValue
+      )
       let altitude = Self.parseAltitude(from: pathComponents)
       let accuracy = Self.parseAccuracy(from: pathComponents)
 
