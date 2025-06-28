@@ -3,7 +3,7 @@ import XMLCoder
 
 @testable import SyndiKit
 
-public final class SyndiKitTests: XCTestCase {
+internal final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
   func testCategories() {

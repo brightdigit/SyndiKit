@@ -3,7 +3,7 @@ import XCTest
 
 @testable import SyndiKit
 
-public final class DecodingErrorTests: XCTestCase {
+internal final class DecodingErrorTests: XCTestCase {
   func testErrorsEmpty() {
     let error = DecodingError.failedAttempts([:])
 

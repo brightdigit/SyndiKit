@@ -3,7 +3,7 @@ import XMLCoder
 
 @testable import SyndiKit
 
-public final class BlogTests: XCTestCase {
+internal final class BlogTests: XCTestCase {
   func testBlogs() throws {
     let blogs = Content.blogs
     let sites = SiteCollectionDirectory(blogs: blogs)
