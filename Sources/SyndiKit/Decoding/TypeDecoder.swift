@@ -6,12 +6,12 @@ internal protocol TypeDecoder: Sendable {
 }
 
 #if swift(>=5.7)
-// Swift 5.7+ has Foundation Sendable conformance
-extension JSONDecoder: TypeDecoder {}
+  // Swift 5.7+ has Foundation Sendable conformance
+  extension JSONDecoder: TypeDecoder {}
 #else
-// Swift 5.6 and earlier - use @unchecked Sendable
-extension JSONDecoder: @unchecked Sendable {}
-extension JSONDecoder: TypeDecoder {}
+  // Swift 5.6 and earlier - use @unchecked Sendable
+  extension JSONDecoder: @unchecked Sendable {}
+  extension JSONDecoder: TypeDecoder {}
 #endif
 
 extension XMLDecoder: @unchecked Sendable {}

@@ -4,7 +4,8 @@ extension KeyedDecodingContainerProtocol {
   internal func decodeDateIfPresentAndValid(forKey key: Key) throws -> Date? {
     if let pubDateString =
       try decodeIfPresent(String.self, forKey: key),
-      !pubDateString.isEmpty {
+      !pubDateString.isEmpty
+    {
       return DateFormatterDecoder.RSS.decoder.decodeString(pubDateString)
     }
     return nil

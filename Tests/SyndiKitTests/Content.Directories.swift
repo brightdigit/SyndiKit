@@ -1,4 +1,5 @@
 import Foundation
+
 @testable import SyndiKit
 
 extension Content {

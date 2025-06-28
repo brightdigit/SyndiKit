@@ -5,11 +5,11 @@ set -e  # Exit on any error
 ERRORS=0
 
 run_command() {
-		if [ "$LINT_MODE" = "STRICT" ]; then
-				"$@" || ERRORS=$((ERRORS + 1))
-		else
-				"$@"
-		fi
+	if [ "$LINT_MODE" = "STRICT" ]; then
+			"$@" || ERRORS=$((ERRORS + 1))
+	else
+			"$@"
+	fi
 }
 
 echo "LintMode: $LINT_MODE"

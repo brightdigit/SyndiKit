@@ -1,7 +1,7 @@
 #if swift(>=5.7)
-@preconcurrency import Foundation
+  @preconcurrency import Foundation
 #else
-import Foundation
+  import Foundation
 #endif
 
 /// A struct representing funding information for a podcast.

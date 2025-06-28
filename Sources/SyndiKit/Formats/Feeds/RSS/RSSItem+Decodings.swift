@@ -33,22 +33,25 @@ extension RSSItem {
     )
     itunesImage = try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
 
-    podcastPeople = try container.decodeIfPresent(
-      [PodcastPerson].self,
-      forKey: .podcastPeople
-    ) ?? []
-    podcastTranscripts = try container.decodeIfPresent(
-      [PodcastTranscript].self,
-      forKey: .podcastTranscripts
-    ) ?? []
+    podcastPeople =
+      try container.decodeIfPresent(
+        [PodcastPerson].self,
+        forKey: .podcastPeople
+      ) ?? []
+    podcastTranscripts =
+      try container.decodeIfPresent(
+        [PodcastTranscript].self,
+        forKey: .podcastTranscripts
+      ) ?? []
     podcastChapters = try container.decodeIfPresent(
       PodcastChapters.self,
       forKey: .podcastChapters
     )
-    podcastSoundbites = try container.decodeIfPresent(
-      [PodcastSoundbite].self,
-      forKey: .podcastSoundbites
-    ) ?? []
+    podcastSoundbites =
+      try container.decodeIfPresent(
+        [PodcastSoundbite].self,
+        forKey: .podcastSoundbites
+      ) ?? []
 
     podcastSeason = try container.decodeIfPresent(
       PodcastSeason.self,
@@ -107,10 +110,11 @@ extension RSSItem {
 
     wpPostName = try container.decodeIfPresent(CData.self, forKey: .wpPostName)
     wpPostType = try container.decodeIfPresent(CData.self, forKey: .wpPostType)
-    wpPostMeta = try container.decodeIfPresent(
-      [WordPressElements.PostMeta].self,
-      forKey: .wpPostMeta
-    ) ?? []
+    wpPostMeta =
+      try container.decodeIfPresent(
+        [WordPressElements.PostMeta].self,
+        forKey: .wpPostMeta
+      ) ?? []
     wpCommentStatus = try container.decodeIfPresent(CData.self, forKey: .wpCommentStatus)
     wpPingStatus = try container.decodeIfPresent(CData.self, forKey: .wpPingStatus)
     wpStatus = try container.decodeIfPresent(CData.self, forKey: .wpStatus)

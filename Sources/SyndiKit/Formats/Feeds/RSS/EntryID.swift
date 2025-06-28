@@ -1,7 +1,7 @@
 #if swift(>=5.7)
-@preconcurrency import Foundation
+  @preconcurrency import Foundation
 #else
-import Foundation
+  import Foundation
 #endif
 
 /// An identifier for an entry based on the RSS guid.

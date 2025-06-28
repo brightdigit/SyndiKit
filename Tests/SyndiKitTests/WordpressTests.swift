@@ -1,16 +1,17 @@
 import Foundation
-@testable import SyndiKit
 import XCTest
+
+@testable import SyndiKit
 
 final class WordpressTests: XCTestCase {
   static let baseSiteURLs: [String: URL] = [
     "articles": URL(string: "https://brightdigit.com/")!,
-    "tutorials": URL(string: "https://brightdigit.com/")!
+    "tutorials": URL(string: "https://brightdigit.com/")!,
   ]
 
   static let baseBlogURLs: [String: URL] = [
     "articles": URL(string: "https://brightdigit.com")!,
-    "tutorials": URL(string: "https://learningswift.brightdigit.com")!
+    "tutorials": URL(string: "https://learningswift.brightdigit.com")!,
   ]
 
   func testDateDecoder() {
@@ -26,7 +27,8 @@ final class WordpressTests: XCTestCase {
   func testWordpressPosts() {
     let decoder = SynDecoder()
 
-    let exports = Dictionary(uniqueKeysWithValues: Content.wordpressDataSet
+    let exports = Dictionary(
+      uniqueKeysWithValues: Content.wordpressDataSet
     ).mapValues { result in
       result.flatMap { data in
         Result { try decoder.decode(data) }
@@ -97,13 +99,13 @@ final class WordpressTests: XCTestCase {
     let wpPostName = UUID().uuidString
     let wpPostType = UUID().uuidString
 
-    let wpPostParent: Int = .random(in: 0 ... 100_000)
-    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
-    let wpIsSticky: Int = .random(in: 0 ... 100_000)
-    let wpPostID: Int = .random(in: 0 ... 100_000)
+    let wpPostParent: Int = .random(in: 0...100_000)
+    let wpMenuOrder: Int = .random(in: 0...100_000)
+    let wpIsSticky: Int = .random(in: 0...100_000)
+    let wpPostID: Int = .random(in: 0...100_000)
 
-    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
-    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
 
     let item = RSSItem(
       title: title,
@@ -165,15 +167,15 @@ final class WordpressTests: XCTestCase {
     let wpPostName = UUID().uuidString
     let wpPostType = UUID().uuidString
 
-    let wpPostParent: Int = .random(in: 0 ... 100_000)
-    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
-    let wpIsSticky: Int = .random(in: 0 ... 100_000)
-    let wpPostID: Int = .random(in: 0 ... 100_000)
+    let wpPostParent: Int = .random(in: 0...100_000)
+    let wpMenuOrder: Int = .random(in: 0...100_000)
+    let wpIsSticky: Int = .random(in: 0...100_000)
+    let wpPostID: Int = .random(in: 0...100_000)
 
-    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
-    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
 
-    let postMetaKeys = (1 ... Int.random(in: 3 ... 5)).map { _ in
+    let postMetaKeys = (1...Int.random(in: 3...5)).map { _ in
       UUID().uuidString
     }
     let postMetaValues = postMetaKeys.map { _ in
@@ -183,7 +185,7 @@ final class WordpressTests: XCTestCase {
       uniqueKeysWithValues: zip(postMetaKeys, postMetaValues)
     )
     let postMetaActual = postMetaDictionary.map(WordPressElements.PostMeta.init)
-    let postMetaNoise = (1 ... Int.random(in: 3 ... 5)).compactMap { _ in
+    let postMetaNoise = (1...Int.random(in: 3...5)).compactMap { _ in
       postMetaKeys.randomElement().map {
         WordPressElements.PostMeta(key: $0, value: UUID().uuidString)
       }
@@ -252,26 +254,26 @@ final class WordpressTests: XCTestCase {
     let wpPostName = UUID().uuidString
     let wpPostType = UUID().uuidString
 
-    let wpPostParent: Int = .random(in: 0 ... 100_000)
-    let wpMenuOrder: Int = .random(in: 0 ... 100_000)
-    let wpIsSticky: Int = .random(in: 0 ... 100_000)
-    let wpPostID: Int = .random(in: 0 ... 100_000)
+    let wpPostParent: Int = .random(in: 0...100_000)
+    let wpMenuOrder: Int = .random(in: 0...100_000)
+    let wpIsSticky: Int = .random(in: 0...100_000)
+    let wpPostID: Int = .random(in: 0...100_000)
 
-    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
-    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0 ... 100_000))
-    let postTags = (5 ... 10).map { _ in UUID().uuidString }
-    let categories = (5 ... 10).map { _ in UUID().uuidString }
-    let categoryTermsNoise: [RSSItemCategory] = (5 ... 10).map { _ in
+    let wpPostDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
+    let wpModifiedDate = Date(timeIntervalSinceNow: .random(in: 0...100_000))
+    let postTags = (5...10).map { _ in UUID().uuidString }
+    let categories = (5...10).map { _ in UUID().uuidString }
+    let categoryTermsNoise: [RSSItemCategory] = (5...10).map { _ in
       RSSItemCategory(value: UUID().uuidString, domain: UUID().uuidString)
     }
 
-    let categoryTerms = postTags.map {
-      RSSItemCategory(value: $0, domain: "post_tag")
-    } +
-      categories.map {
+    let categoryTerms =
+      postTags.map {
+        RSSItemCategory(value: $0, domain: "post_tag")
+      }
+      + categories.map {
         RSSItemCategory(value: $0, domain: "category")
-      } +
-      categoryTermsNoise
+      } + categoryTermsNoise
 
     let item = RSSItem(
       title: title,

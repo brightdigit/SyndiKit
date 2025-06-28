@@ -1,9 +1,10 @@
-#if swift(>=5.7)
-@preconcurrency import Foundation
-#else
-import Foundation
-#endif
 import XMLCoder
+
+#if swift(>=5.7)
+  @preconcurrency import Foundation
+#else
+  import Foundation
+#endif
 
 public struct RSSItem: Codable, Sendable {
   public enum CodingKeys: String, CodingKey {
@@ -137,8 +138,6 @@ extension RSSItem: Entryable {
   }
 
   public var imageURL: URL? {
-    itunesImage?.href ??
-      mediaThumbnail?.url ??
-      mediaContent?.url
+    itunesImage?.href ?? mediaThumbnail?.url ?? mediaContent?.url
   }
 }

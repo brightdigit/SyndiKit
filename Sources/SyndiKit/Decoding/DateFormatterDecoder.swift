@@ -1,7 +1,7 @@
 #if swift(>=5.7)
-@preconcurrency import Foundation
+  @preconcurrency import Foundation
 #else
-import Foundation
+  import Foundation
 #endif
 
 internal struct DateFormatterDecoder: Sendable {
@@ -10,7 +10,7 @@ internal struct DateFormatterDecoder: Sendable {
       "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
       "yyyy-MM-dd'T'HH:mm:ssXXXXX",
       "E, d MMM yyyy HH:mm:ss zzz",
-      "yyyy-MM-dd HH:mm:ss"
+      "yyyy-MM-dd HH:mm:ss",
     ]
 
     internal static let decoder = DateFormatterDecoder(

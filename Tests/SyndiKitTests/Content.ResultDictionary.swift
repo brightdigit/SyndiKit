@@ -1,6 +1,7 @@
 import Foundation
-@testable import SyndiKit
 import XMLCoder
+
+@testable import SyndiKit
 
 enum Content {
   typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
@@ -36,7 +37,8 @@ enum Content {
   static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
     at: Directories.WordPress
   )
-  static let blogs: SiteCollection = try! .init(contentsOf: Directories.data.appendingPathComponent("blogs.json"))
+  static let blogs: SiteCollection = try! .init(
+    contentsOf: Directories.data.appendingPathComponent("blogs.json"))
   // swiftlint:enable force_try line_length
 }
 

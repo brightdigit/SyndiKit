@@ -15,11 +15,11 @@ public final class SynDecoder: @unchecked Sendable {
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
-    JSONFeed.self
+    JSONFeed.self,
   ]
 
-  private let defaultJSONDecoderSetup: @Sendable(JSONDecoder) -> Void
-  private let defaultXMLDecoderSetup: @Sendable(XMLDecoder) -> Void
+  private let defaultJSONDecoderSetup: @Sendable (JSONDecoder) -> Void
+  private let defaultXMLDecoderSetup: @Sendable (XMLDecoder) -> Void
   private let types: [DecodableFeed.Type]
 
   private let defaultXMLDecoder: XMLDecoder
@@ -31,8 +31,8 @@ public final class SynDecoder: @unchecked Sendable {
 
   internal init(
     types: [DecodableFeed.Type]? = nil,
-    defaultJSONDecoderSetup: (@Sendable(JSONDecoder) -> Void)? = nil,
-    defaultXMLDecoderSetup: (@Sendable(XMLDecoder) -> Void)? = nil
+    defaultJSONDecoderSetup: (@Sendable (JSONDecoder) -> Void)? = nil,
+    defaultXMLDecoderSetup: (@Sendable (XMLDecoder) -> Void)? = nil
   ) {
     let resolvedTypes = types ?? Self.defaultTypes
     let jsonSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
@@ -43,7 +43,8 @@ public final class SynDecoder: @unchecked Sendable {
     let jsonDecoder = JSONDecoder()
     jsonSetup(jsonDecoder)
 
-    let decodings: [DecoderSource: [String: AnyDecoding]] = resolvedTypes.map { type -> (DecoderSource, AnyDecoding) in
+    let decodings: [DecoderSource: [String: AnyDecoding]] = resolvedTypes.map {
+      type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let setup = type.source as? CustomDecoderSetup
       let decoder: TypeDecoder

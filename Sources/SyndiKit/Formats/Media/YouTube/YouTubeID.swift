@@ -29,7 +29,8 @@ internal struct YouTubeIDProperties: YouTubeID, Sendable {
   internal init?(entry: AtomEntry) {
     guard
       let channelID = entry.youtubeChannelID,
-      let videoID = entry.youtubeVideoID else {
+      let videoID = entry.youtubeVideoID
+    else {
       return nil
     }
     self.channelID = channelID

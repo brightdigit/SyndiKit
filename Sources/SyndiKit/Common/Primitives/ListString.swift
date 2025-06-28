@@ -13,7 +13,8 @@ public struct ListString<
     let container = try decoder.singleValueContainer()
     let listString = try container.decode(String.self)
     let strings = listString.components(separatedBy: ",")
-    let values = try strings
+    let values =
+      try strings
       .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
       .filter { !$0.isEmpty }
       .map(Self.createValueFrom)

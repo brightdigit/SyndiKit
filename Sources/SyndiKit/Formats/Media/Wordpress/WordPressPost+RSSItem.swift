@@ -62,7 +62,8 @@ extension WordPressPost {
     let pubDate = item.pubDate
 
     let categoryDictionary = Dictionary(
-      grouping: categoryTerms) {
+      grouping: categoryTerms
+    ) {
       $0.domain
     }
 

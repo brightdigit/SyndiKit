@@ -1,6 +1,7 @@
-@testable import SyndiKit
 import XCTest
 import XMLCoder
+
+@testable import SyndiKit
 
 public final class BlogTests: XCTestCase {
   func testBlogs() throws {

@@ -1,5 +1,6 @@
-@testable import SyndiKit
 import XCTest
+
+@testable import SyndiKit
 
 final class RSSItemCategoryTests: XCTestCase {
   func testTwoEqualCategories() {

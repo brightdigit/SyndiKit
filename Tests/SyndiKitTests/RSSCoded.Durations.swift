@@ -96,7 +96,7 @@ extension SyndiKitTests {
       2_495,
       922,
       1_433,
-      1_776
+      1_776,
     ],
     "raywenderlich": [
       96.0,
@@ -198,7 +198,7 @@ extension SyndiKitTests {
       2_376.0,
       2_373.0,
       2_153.0,
-      2_305.0
-    ]
+      2_305.0,
+    ],
   ]
 }

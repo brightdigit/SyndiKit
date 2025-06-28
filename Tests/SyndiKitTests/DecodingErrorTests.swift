@@ -1,6 +1,7 @@
 import Foundation
-@testable import SyndiKit
 import XCTest
+
+@testable import SyndiKit
 
 public final class DecodingErrorTests: XCTestCase {
   func testErrorsEmpty() {
@@ -41,7 +42,7 @@ public final class DecodingErrorTests: XCTestCase {
   func testErrorsMany() {
     let errors = [
       "Test1": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
-      "Test2": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))
+      "Test2": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
     ]
     let error = DecodingError.failedAttempts(errors)
 

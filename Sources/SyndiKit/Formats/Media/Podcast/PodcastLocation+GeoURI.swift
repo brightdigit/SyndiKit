@@ -106,7 +106,8 @@ extension PodcastLocation {
       let components = string.split(separator: ":")
 
       guard
-        components[safe: 0] == "geo" else {
+        components[safe: 0] == "geo"
+      else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.geo,
           debugDescription: "Invalid prefix for geo attribute: \(string)"
