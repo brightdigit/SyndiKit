@@ -57,7 +57,7 @@ extension PodcastLocation {
       let osmStr = try container.decode(String.self)
 
       let osmType = try Self.parseOsmType(from: osmStr)
-      let osmID = try Self.parseOsmID(from: osmStr)
+      let osmID = try Self.parseOsmID(from: osmStr, withType: osmType)
       let osmRevision = Self.parseOsmRevision(from: osmStr)
 
       id = osmID
@@ -76,8 +76,8 @@ extension PodcastLocation {
       return osmType
     }
 
-    private static func parseOsmID(from osmStr: String) throws -> Int {
-      guard let osmID = osmStr.split(separator: "#")[safe: 0]?.asExactInt() else {
+    private static func parseOsmID(from osmStr: String, withType osmType: OsmType) throws -> Int {
+      guard let osmID = osmStr.components(separatedBy: osmType.rawValue)[safe: 1]?.asExactInt() else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.osmQuery,
           debugDescription: "Invalid id of type Int for osm attribute: \(osmStr)"

@@ -1,5 +1,5 @@
 //
-//  Substring.SubSequence.swift
+//  StringProtocol.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -29,7 +29,7 @@
 
 import Foundation
 
-extension Substring.SubSequence {
+extension StringProtocol {
   internal func asDouble() -> Double? {
     Double(self)
   }
