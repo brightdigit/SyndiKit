@@ -18,7 +18,7 @@ extension Sequence {
   internal func flatResultMapValue<SuccessKey, SuccessValue, NewSuccess>(
     _ transform: @escaping (SuccessValue) throws -> NewSuccess
   ) -> [(SuccessKey, Result<NewSuccess, Error>)]
-    where Element == (SuccessKey, Result<SuccessValue, Error>) {
+  where Element == (SuccessKey, Result<SuccessValue, Error>) {
     map {
       let value = $0.1.flatMap { value in
         Result { try transform(value) }
@@ -30,7 +30,7 @@ extension Sequence {
   internal func flatResultMap<Success, NewSuccess>(
     _ transform: @escaping (Success) throws -> NewSuccess
   ) -> [Result<NewSuccess, Error>]
-    where Element == Result<Success, Error> {
+  where Element == Result<Success, Error> {
     map {
       $0.flatMap { success in
         Result {

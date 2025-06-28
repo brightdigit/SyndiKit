@@ -1,3 +1,32 @@
+//
+//  PodcastLocation+GeoURI.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
 import Foundation
 
 extension PodcastLocation {
@@ -56,14 +85,31 @@ extension PodcastLocation {
       try? self.init(singleValue: description)
     }
 
-    // swiftlint:disable function_body_length
     /// Initializes a ``GeoURI`` instance from a single value string.
     ///
     /// - Parameter singleValue: The single value string representing the geographic URI.
     /// - Throws: A ``DecodingError`` if the single value string is invalid.
     public init(singleValue: String) throws {
       let pathComponents = try Self.pathComponents(from: singleValue)
+      let coordinates = try Self.parseCoordinates(
+        from: pathComponents,
+        singleValue: singleValue
+      )
+      let altitude = Self.parseAltitude(from: pathComponents)
+      let accuracy = Self.parseAccuracy(from: pathComponents)
 
+      self.init(
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+        altitude: altitude,
+        accuracy: accuracy
+      )
+    }
+
+    private static func parseCoordinates(
+      from pathComponents: [Substring],
+      singleValue: String
+    ) throws -> (latitude: Double, longitude: Double) {
       guard
         let geoCoords = pathComponents[safe: 0]?.split(separator: ","),
         let latitude = geoCoords[safe: 0]?.asDouble(),
@@ -74,22 +120,16 @@ extension PodcastLocation {
           debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
         )
       }
-
-      let altitude = geoCoords[safe: 2]?.asDouble()
-
-      let accuracy = pathComponents[safe: 1]?
-        .split(separator: "=")[safe: 1]?
-        .asDouble()
-
-      self.init(
-        latitude: latitude,
-        longitude: longitude,
-        altitude: altitude,
-        accuracy: accuracy
-      )
+      return (latitude: latitude, longitude: longitude)
     }
 
-    // swiftlint:enable function_body_length
+    private static func parseAltitude(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 0]?.split(separator: ",")[safe: 2]?.asDouble()
+    }
+
+    private static func parseAccuracy(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 1]?.split(separator: "=")[safe: 1]?.asDouble()
+    }
 
     /// Initializes a ``GeoURI`` instance from a decoder.
     ///
@@ -106,7 +146,8 @@ extension PodcastLocation {
       let components = string.split(separator: ":")
 
       guard
-        components[safe: 0] == "geo" else {
+        components[safe: 0] == "geo"
+      else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.geo,
           debugDescription: "Invalid prefix for geo attribute: \(string)"

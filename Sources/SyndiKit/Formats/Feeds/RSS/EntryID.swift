@@ -1,7 +1,36 @@
+//
+//  EntryID.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
 #if swift(>=5.7)
-@preconcurrency import Foundation
+  @preconcurrency import Foundation
 #else
-import Foundation
+  import Foundation
 #endif
 
 /// An identifier for an entry based on the RSS guid.
@@ -64,17 +93,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
     } else if let uuid = UUID(uuidString: string) {
       self = .uuid(uuid)
     } else {
-      let components = string.components(separatedBy: ":")
-      if components.count > 1 {
-        self = .path(components, separatedBy: ":")
-      } else {
-        let components = string.components(separatedBy: "/")
-        if components.count > 1 {
-          self = .path(components, separatedBy: "/")
-        } else {
-          self = .string(string)
-        }
-      }
+      self = Self.parsePathOrString(string)
     }
   }
 
@@ -86,6 +105,20 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
     let container = try decoder.singleValueContainer()
     let string = try container.decode(String.self)
     self.init(string: string)
+  }
+
+  private static func parsePathOrString(_ string: String) -> EntryID {
+    let colonComponents = string.components(separatedBy: ":")
+    if colonComponents.count > 1 {
+      return .path(colonComponents, separatedBy: ":")
+    }
+
+    let slashComponents = string.components(separatedBy: "/")
+    if slashComponents.count > 1 {
+      return .path(slashComponents, separatedBy: "/")
+    }
+
+    return .string(string)
   }
 
   /// Encodes the ``EntryID`` into the given encoder.

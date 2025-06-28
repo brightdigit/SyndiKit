@@ -1,8 +1,9 @@
-@testable import SyndiKit
 import XCTest
 import XMLCoder
 
-public final class SyndiKitTests: XCTestCase {
+@testable import SyndiKit
+
+internal final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
   func testCategories() {
@@ -46,8 +47,8 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(rssItem.guid, child.id)
     XCTAssertEqual(rssItem.pubDate, child.published)
     XCTAssert(
-      rssItem.creators.first == child.authors.first?.name ||
-        rssItem.itunesAuthor == child.authors.first?.name
+      rssItem.creators.first == child.authors.first?.name
+        || rssItem.itunesAuthor == child.authors.first?.name
     )
   }
 
@@ -88,7 +89,7 @@ public final class SyndiKitTests: XCTestCase {
 
   func testEntryable() {
     let allFeeds = [
-      Content.xmlFeeds, Content.jsonFeeds
+      Content.xmlFeeds, Content.jsonFeeds,
     ].flatMap { $0 }
 
     for (name, xmlResult) in allFeeds {
@@ -155,11 +156,13 @@ public final class SyndiKitTests: XCTestCase {
 
       assertFeedableEqual(json, rss, name)
 
-      let items = zip(json.children.sorted(by: {
-        $0.title < $1.title
-      }), rss.children.sorted(by: {
-        $0.title < $1.title
-      }))
+      let items = zip(
+        json.children.sorted(by: {
+          $0.title < $1.title
+        }),
+        rss.children.sorted(by: {
+          $0.title < $1.title
+        }))
 
       for (jsonItem, rssItem) in items {
         XCTAssertEqual(
@@ -202,7 +205,12 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(person.fullname, "Leo Dion")
     XCTAssertEqual(person.role, .host)
     XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
-    XCTAssertEqual(person.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+    XCTAssertEqual(
+      person.img,
+      URL(
+        strict:
+          "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+      ))
   }
 
   func testItemPodcastElements() {
@@ -225,37 +233,49 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(host.fullname, "Leo Dion")
     XCTAssertEqual(host.role, .host)
     XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
-    XCTAssertEqual(host.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"))
+    XCTAssertEqual(
+      host.img,
+      URL(
+        strict:
+          "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+      ))
 
     let guest = item.podcastPeople[1]
     XCTAssertEqual(guest.fullname, "CompileSwift")
     XCTAssertEqual(guest.role, .guest)
     XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
-    XCTAssertEqual(guest.img, URL(strict: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"))
+    XCTAssertEqual(
+      guest.img,
+      URL(
+        strict:
+          "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
+      ))
 
     XCTAssertEqual(item.podcastTranscripts.count, 1)
 
     let transcript = item.podcastTranscripts[0]
-    XCTAssertEqual(transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
+    XCTAssertEqual(
+      transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
     XCTAssertEqual(transcript.type, .srt)
     XCTAssertEqual(transcript.rel, .captions)
 
     let chapters = item.podcastChapters
-    XCTAssertEqual(chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
+    XCTAssertEqual(
+      chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
     XCTAssertEqual(chapters?.type, .json)
   }
 
   func testPodcastPeopleUnknownRole() throws {
     let expectedRole = "worker"
     let xmlStr = """
-    <podcast:person
-      group="writing"
-      role="\(expectedRole)"
-      href="https://www.wikipedia/alicebrown"
-      img="http://example.com/images/alicebrown.jpg"
-    >  Alice Brown
-    </podcast:person>
-    """
+      <podcast:person
+        group="writing"
+        role="\(expectedRole)"
+        href="https://www.wikipedia/alicebrown"
+        img="http://example.com/images/alicebrown.jpg"
+      >  Alice Brown
+      </podcast:person>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -269,13 +289,13 @@ public final class SyndiKitTests: XCTestCase {
 
   func testPodcastPeopleMissingRole() throws {
     let xmlStr = """
-    <podcast:person
-      group="writing"
-      href="https://www.wikipedia/alicebrown"
-      img="http://example.com/images/alicebrown.jpg"
-    >  Alice Brown
-    </podcast:person>
-    """
+      <podcast:person
+        group="writing"
+        href="https://www.wikipedia/alicebrown"
+        img="http://example.com/images/alicebrown.jpg"
+      >  Alice Brown
+      </podcast:person>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -290,11 +310,11 @@ public final class SyndiKitTests: XCTestCase {
   func testPodcastChaptersUnknownMimeType() throws {
     let expectedType = "yaml"
     let xmlStr = """
-    <podcast:chapters
-      url="https://example.com/episode1/chapters.json"
-      type="\(expectedType)"
-    />
-    """
+      <podcast:chapters
+        url="https://example.com/episode1/chapters.json"
+        type="\(expectedType)"
+      />
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -312,13 +332,13 @@ public final class SyndiKitTests: XCTestCase {
     let expectedOsmType = "R"
     let expectedOsmID = 113_314
     let xmlStr = """
-    <podcast:location
-      geo="geo:\(expectedLatitude),\(expectedLongitude)"
-      osm="\(expectedOsmType)\(expectedOsmID)"
-    >
-      Austin, TX
-     </podcast:location>
-    """
+      <podcast:location
+        geo="geo:\(expectedLatitude),\(expectedLongitude)"
+        osm="\(expectedOsmType)\(expectedOsmID)"
+      >
+        Austin, TX
+       </podcast:location>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -339,13 +359,13 @@ public final class SyndiKitTests: XCTestCase {
     let expectedLongitude = 97.743_1
     let expectedAccuracy = 350.0
     let xmlStr = """
-    <podcast:location
-      geo="geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)"
-      osm="R00000"
-    >
-      Austin, TX
-     </podcast:location>
-    """
+      <podcast:location
+        geo="geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)"
+        osm="R00000"
+      >
+        Austin, TX
+       </podcast:location>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -357,7 +377,8 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
-    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
+    XCTAssertEqual(
+      sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
     XCTAssertNil(sut.geo?.altitude)
   }
 
@@ -366,13 +387,13 @@ public final class SyndiKitTests: XCTestCase {
     let expectedLongitude = 97.743_1
     let expectedAltitude = 250.0
     let xmlStr = """
-    <podcast:location
-      geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)"
-      osm="R00000"
-    >
-      Austin, TX
-     </podcast:location>
-    """
+      <podcast:location
+        geo="geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)"
+        osm="R00000"
+      >
+        Austin, TX
+       </podcast:location>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -384,25 +405,26 @@ public final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.latitude, expectedLatitude)
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
-    XCTAssertEqual(sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
+    XCTAssertEqual(
+      sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
     XCTAssertNil(sut.geo?.accuracy)
   }
 
   func testPodcastLocationWithInvalidGeoData() throws {
     let missingGeoScheme = """
-    <podcast:location geo="30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
-    """
+      <podcast:location geo="30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
+      """
 
     try assertInvalidGeoData(from: missingGeoScheme)
 
     let missingCoords = """
-    <podcast:location geo="geo:" osm="R113314">Austin, TX</podcast:location>
-    """
+      <podcast:location geo="geo:" osm="R113314">Austin, TX</podcast:location>
+      """
     try assertInvalidGeoData(from: missingCoords)
 
     let invalidCoords = """
-    <podcast:location geo="geo:cairo" osm="R113314">Austin, TX</podcast:location>
-    """
+      <podcast:location geo="geo:cairo" osm="R113314">Austin, TX</podcast:location>
+      """
     try assertInvalidGeoData(from: invalidCoords)
   }
 
@@ -442,14 +464,14 @@ public final class SyndiKitTests: XCTestCase {
 
   func testPodcastLocationWithInvalidOsmData() throws {
     let invalidOsmType = """
-    <podcast:location geo="geo:30.2672,97.7431" osm="X113314">Austin, TX</podcast:location>
-    """
+      <podcast:location geo="geo:30.2672,97.7431" osm="X113314">Austin, TX</podcast:location>
+      """
 
     try assertInvalidOsmData(from: invalidOsmType)
 
     let invalidOsmID = """
-    <podcast:location geo="geo:30.2672,97.7431" osm="R">Austin, TX</podcast:location>
-    """
+      <podcast:location geo="geo:30.2672,97.7431" osm="R">Austin, TX</podcast:location>
+      """
 
     try assertInvalidOsmData(from: invalidOsmID)
   }
@@ -467,10 +489,13 @@ public final class SyndiKitTests: XCTestCase {
     }
   }
 
-  private func assertPodcastLocationDecodingError(_ error: Error, codingKey: PodcastLocation.CodingKeys) {
+  private func assertPodcastLocationDecodingError(
+    _ error: Error, codingKey: PodcastLocation.CodingKeys
+  ) {
     guard
       let decodingError = error as? DecodingError,
-      case let DecodingError.dataCorrupted(context) = decodingError else {
+      case let DecodingError.dataCorrupted(context) = decodingError
+    else {
       XCTFail()
       return
     }
@@ -485,11 +510,11 @@ public final class SyndiKitTests: XCTestCase {
   func testPodcastEpisodes() {
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
-      "empowerapps-show": 1 ... 94,
-      "empowerapps-show-cdata_summary": 1 ... 151,
-      "radar": 1 ... 219,
-      "ideveloper": 276 ... 297,
-      "it-guy": 1 ... 330
+      "empowerapps-show": 1...94,
+      "empowerapps-show-cdata_summary": 1...151,
+      "radar": 1...219,
+      "ideveloper": 276...297,
+      "it-guy": 1...330,
     ].mapValues {
       [Int]($0.map { $0 }.reversed())
     }
@@ -595,7 +620,10 @@ public final class SyndiKitTests: XCTestCase {
       XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
       XCTAssertEqual(
         host?.img,
-        URL(string: "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg")
+        URL(
+          string:
+            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+        )
       )
 
       // Both podcasts have the same guest
@@ -606,7 +634,10 @@ public final class SyndiKitTests: XCTestCase {
       XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
       XCTAssertEqual(
         guest?.img,
-        URL(string: "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg")
+        URL(
+          string:
+            "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
+        )
       )
     }
   }
@@ -640,7 +671,7 @@ public final class SyndiKitTests: XCTestCase {
       "donnywals": SyndicationUpdate(period: .hourly, frequency: 1),
       "mjtsai": SyndicationUpdate(period: .hourly, frequency: 1),
       "raywenderlich": SyndicationUpdate(period: .hourly, frequency: 1),
-      "rhonabwy": SyndicationUpdate(period: .hourly, frequency: 1)
+      "rhonabwy": SyndicationUpdate(period: .hourly, frequency: 1),
     ]
 
     for (name, update) in updates {
@@ -660,10 +691,7 @@ public final class SyndiKitTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   func testYoutubeVideos() {
-    for (name, xmlResult) in Content.xmlFeeds {
-      guard name.hasSuffix("youtube") else {
-        continue
-      }
+    for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
 
       let feed: Feedable
       do {
