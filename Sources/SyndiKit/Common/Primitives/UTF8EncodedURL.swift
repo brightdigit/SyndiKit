@@ -44,17 +44,21 @@ internal struct UTF8EncodedURL: Codable, Sendable {
       string = nil
     } catch let error as DecodingError {
       let string = try container.decode(String.self)
-
-      let encodedURLString = string.addingPercentEncoding(
-        withAllowedCharacters: .urlQueryAllowed
-      )
-      let encodedURL = encodedURLString.flatMap(URL.init(string:))
-      guard let encodedURL = encodedURL else {
-        throw error
-      }
+      let encodedURL = try Self.encodedURL(from: string, error: error)
       value = encodedURL
       self.string = string
     }
+  }
+
+  private static func encodedURL(from string: String, error: DecodingError) throws -> URL {
+    let encodedURLString = string.addingPercentEncoding(
+      withAllowedCharacters: .urlQueryAllowed
+    )
+    let encodedURL = encodedURLString.flatMap(URL.init(string:))
+    guard let encodedURL = encodedURL else {
+      throw error
+    }
+    return encodedURL
   }
 
   internal func encode(to encoder: Encoder) throws {

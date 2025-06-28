@@ -44,34 +44,18 @@ extension PodcastTranscript {
       self.init(rawValue: caseInsensitive)
     }
 
-    // swiftlint:disable cyclomatic_complexity
     /// Initializes a ``KnownMimeType`` with a ``MimeType``.
     init?(mimeType: MimeType) {
       switch mimeType {
-      case .plain:
-        self = .plain
-
-      case .html:
-        self = .html
-
-      case .srt:
-        self = .srt
-
-      case .vtt:
-        self = .vtt
-
-      case .json:
-        self = .json
-
-      case .subrip:
-        self = .subrip
-
-      case .unknown:
-        return nil
+      case .plain: self = .plain
+      case .html: self = .html
+      case .srt: self = .srt
+      case .vtt: self = .vtt
+      case .json: self = .json
+      case .subrip: self = .subrip
+      case .unknown: return nil
       }
     }
-
-    // swiftlint:enable cyclomatic_complexity
   }
 
   /// An enum representing the MIME type of the transcript.
@@ -115,23 +99,12 @@ extension PodcastTranscript {
     /// Initializes a ``MimeType`` with a ``KnownMimeType``.
     private init(knownMimeType: KnownMimeType) {
       switch knownMimeType {
-      case .plain:
-        self = .plain
-
-      case .html:
-        self = .html
-
-      case .srt:
-        self = .srt
-
-      case .vtt:
-        self = .vtt
-
-      case .json:
-        self = .json
-
-      case .subrip:
-        self = .subrip
+      case .plain: self = .plain
+      case .html: self = .html
+      case .srt: self = .srt
+      case .vtt: self = .vtt
+      case .json: self = .json
+      case .subrip: self = .subrip
       }
     }
   }

@@ -120,26 +120,13 @@ extension PodcastPerson {
     // swiftlint:disable:next cyclomatic_complexity
     private init(knownRole: KnownRole) {
       switch knownRole {
-      case .guest:
-        self = .guest
-
-      case .host:
-        self = .host
-
-      case .editor:
-        self = .editor
-
-      case .writer:
-        self = .writer
-
-      case .designer:
-        self = .designer
-
-      case .composer:
-        self = .composer
-
-      case .producer:
-        self = .producer
+      case .guest: self = .guest
+      case .host: self = .host
+      case .editor: self = .editor
+      case .writer: self = .writer
+      case .designer: self = .designer
+      case .composer: self = .composer
+      case .producer: self = .producer
       }
     }
   }

@@ -85,14 +85,28 @@ extension PodcastLocation {
       try? self.init(singleValue: description)
     }
 
-    // swiftlint:disable function_body_length
     /// Initializes a ``GeoURI`` instance from a single value string.
     ///
     /// - Parameter singleValue: The single value string representing the geographic URI.
     /// - Throws: A ``DecodingError`` if the single value string is invalid.
     public init(singleValue: String) throws {
       let pathComponents = try Self.pathComponents(from: singleValue)
+      let coordinates = try Self.parseCoordinates(from: pathComponents, singleValue: singleValue)
+      let altitude = Self.parseAltitude(from: pathComponents)
+      let accuracy = Self.parseAccuracy(from: pathComponents)
 
+      self.init(
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+        altitude: altitude,
+        accuracy: accuracy
+      )
+    }
+
+    private static func parseCoordinates(
+      from pathComponents: [Substring],
+      singleValue: String
+    ) throws -> (latitude: Double, longitude: Double) {
       guard
         let geoCoords = pathComponents[safe: 0]?.split(separator: ","),
         let latitude = geoCoords[safe: 0]?.asDouble(),
@@ -103,22 +117,16 @@ extension PodcastLocation {
           debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
         )
       }
-
-      let altitude = geoCoords[safe: 2]?.asDouble()
-
-      let accuracy = pathComponents[safe: 1]?
-        .split(separator: "=")[safe: 1]?
-        .asDouble()
-
-      self.init(
-        latitude: latitude,
-        longitude: longitude,
-        altitude: altitude,
-        accuracy: accuracy
-      )
+      return (latitude: latitude, longitude: longitude)
     }
 
-    // swiftlint:enable function_body_length
+    private static func parseAltitude(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 0]?.split(separator: ",")[safe: 2]?.asDouble()
+    }
+
+    private static func parseAccuracy(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 1]?.split(separator: "=")[safe: 1]?.asDouble()
+    }
 
     /// Initializes a ``GeoURI`` instance from a decoder.
     ///

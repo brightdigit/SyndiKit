@@ -70,20 +70,33 @@ public struct Enclosure: Codable, Sendable {
     from container: KeyedDecodingContainer<CodingKeys>
   ) throws -> Int? {
     if container.contains(.length) {
-      do {
-        return try container.decode(Int.self, forKey: .length)
-      } catch {
-        let lengthString = try container.decode(String.self, forKey: .length)
-        if lengthString.isEmpty {
-          return nil
-        } else if let length = Int(lengthString) {
-          return length
-        } else {
-          throw error
-        }
-      }
+      return try decodeLengthValue(from: container)
     } else {
       return nil
+    }
+  }
+
+  private static func decodeLengthValue(
+    from container: KeyedDecodingContainer<CodingKeys>
+  ) throws -> Int? {
+    do {
+      return try container.decode(Int.self, forKey: .length)
+    } catch {
+      let lengthString = try container.decode(String.self, forKey: .length)
+      return try parseLengthString(lengthString, originalError: error)
+    }
+  }
+
+  private static func parseLengthString(
+    _ lengthString: String,
+    originalError: Error
+  ) throws -> Int? {
+    if lengthString.isEmpty {
+      return nil
+    } else if let length = Int(lengthString) {
+      return length
+    } else {
+      throw originalError
     }
   }
 }

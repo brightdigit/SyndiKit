@@ -93,18 +93,22 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
     } else if let uuid = UUID(uuidString: string) {
       self = .uuid(uuid)
     } else {
-      let components = string.components(separatedBy: ":")
-      if components.count > 1 {
-        self = .path(components, separatedBy: ":")
-      } else {
-        let components = string.components(separatedBy: "/")
-        if components.count > 1 {
-          self = .path(components, separatedBy: "/")
-        } else {
-          self = .string(string)
-        }
-      }
+      self = Self.parsePathOrString(string)
     }
+  }
+
+  private static func parsePathOrString(_ string: String) -> EntryID {
+    let colonComponents = string.components(separatedBy: ":")
+    if colonComponents.count > 1 {
+      return .path(colonComponents, separatedBy: ":")
+    }
+
+    let slashComponents = string.components(separatedBy: "/")
+    if slashComponents.count > 1 {
+      return .path(slashComponents, separatedBy: "/")
+    }
+
+    return .string(string)
   }
 
   /// Initializes an ``EntryID`` from a decoder.
