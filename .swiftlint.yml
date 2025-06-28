@@ -122,6 +122,11 @@ indentation_width:
   indentation_width: 2
 file_name:
     severity: error
+    excluded:
+      - iTunesImage
+      - iTunesDuration
+      - iTunesEpisode
+      - iTunesOwner
 fatal_error_message:
     severity: error
 disabled_rules:

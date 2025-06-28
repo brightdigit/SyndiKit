@@ -1,3 +1,32 @@
+//
+//  SynDecoder.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
 import Foundation
 import XMLCoder
 
@@ -26,7 +55,6 @@ public final class SynDecoder: @unchecked Sendable {
 
   private let defaultJSONDecoder: JSONDecoder
 
-  // swiftlint:disable:next closure_body_length
   private let decodings: [DecoderSource: [String: AnyDecoding]]
 
   internal init(
@@ -43,35 +71,11 @@ public final class SynDecoder: @unchecked Sendable {
     let jsonDecoder = JSONDecoder()
     jsonSetup(jsonDecoder)
 
-    let decodings: [DecoderSource: [String: AnyDecoding]] = resolvedTypes.map {
-      type -> (DecoderSource, AnyDecoding) in
-      let source = type.source
-      let setup = type.source as? CustomDecoderSetup
-      let decoder: TypeDecoder
-      switch (source.source, setup?.setup(decoder:)) {
-      case let (.xml, .some(setup)):
-        let xml = XMLDecoder()
-        setup(xml)
-        decoder = xml
-
-      case let (.json, .some(setup)):
-        let json = JSONDecoder()
-        setup(json)
-        decoder = json
-
-      case (.xml, .none):
-        decoder = xmlDecoder
-
-      case (.json, .none):
-        decoder = jsonDecoder
-      }
-      return (source.source, type.anyDecoding(using: decoder))
-    }
-    .reduce(into: [DecoderSource: [(String, AnyDecoding)]]()) { dict, pair in
-      let (source, decoding) = pair
-      dict[source, default: []].append((type(of: decoding).label, decoding))
-    }
-    .mapValues { Dictionary(uniqueKeysWithValues: $0) }
+    let decodings = Self.createDecodings(
+      from: resolvedTypes,
+      xmlDecoder: xmlDecoder,
+      jsonDecoder: jsonDecoder
+    )
 
     self.types = resolvedTypes
     self.defaultJSONDecoderSetup = jsonSetup
@@ -97,6 +101,52 @@ public final class SynDecoder: @unchecked Sendable {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
+  }
+
+  private static func createDecodings(
+    from types: [DecodableFeed.Type],
+    xmlDecoder: XMLDecoder,
+    jsonDecoder: JSONDecoder
+  ) -> [DecoderSource: [String: AnyDecoding]] {
+    types.map { type -> (DecoderSource, AnyDecoding) in
+      let source = type.source
+      let decoder = Self.createDecoder(
+        for: source,
+        xmlDecoder: xmlDecoder,
+        jsonDecoder: jsonDecoder
+      )
+      return (source.source, type.anyDecoding(using: decoder))
+    }
+    .reduce(into: [DecoderSource: [(String, AnyDecoding)]]()) { dict, pair in
+      let (source, decoding) = pair
+      dict[source, default: []].append((type(of: decoding).label, decoding))
+    }
+    .mapValues { Dictionary(uniqueKeysWithValues: $0) }
+  }
+
+  private static func createDecoder(
+    for source: DecoderSource,
+    xmlDecoder: XMLDecoder,
+    jsonDecoder: JSONDecoder
+  ) -> TypeDecoder {
+    let setup = source as? CustomDecoderSetup
+    switch (source.source, setup?.setup(decoder:)) {
+    case let (.xml, .some(setup)):
+      let xml = XMLDecoder()
+      setup(xml)
+      return xml
+
+    case let (.json, .some(setup)):
+      let json = JSONDecoder()
+      setup(json)
+      return json
+
+    case (.xml, .none):
+      return xmlDecoder
+
+    case (.json, .none):
+      return jsonDecoder
+    }
   }
 
   /// Returns a ``Feedable`` object of the type you specify, decoded from a JSON object.

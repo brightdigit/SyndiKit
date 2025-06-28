@@ -23,19 +23,19 @@ enum Content {
   static let xmlDecoder = XMLDecoder()
 
   static let xmlFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.XML,
+    directoryURL: Directories.xml,
     by: Self.synDecoder.decode(_:)
   )
   static let jsonFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.JSON,
+    directoryURL: Directories.json,
     by: Self.synDecoder.decode(_:)
   )
   static let opml = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.OPML,
+    directoryURL: Directories.opml,
     by: Self.xmlDecoder.decodeOPML(_:)
   )
   static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
-    at: Directories.WordPress
+    at: Directories.wordPress
   )
   static let blogs: SiteCollection = try! .init(
     contentsOf: Directories.data.appendingPathComponent("blogs.json"))

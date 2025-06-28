@@ -9,9 +9,9 @@ extension Content {
       .deletingLastPathComponent()
       .deletingLastPathComponent()
       .appendingPathComponent("Data")
-    static let XML = data.appendingPathComponent("XML")
-    static let JSON = data.appendingPathComponent("JSON")
-    static let OPML = data.appendingPathComponent("OPML")
-    static let WordPress = data.appendingPathComponent("WordPress")
+    static let xml = data.appendingPathComponent("XML")
+    static let json = data.appendingPathComponent("JSON")
+    static let opml = data.appendingPathComponent("OPML")
+    static let wordPress = data.appendingPathComponent("WordPress")
   }
 }
