@@ -1,3 +1,5 @@
+import Foundation
+
 /// A struct representing an Atom category.
 /// A struct representing the properties of a YouTube ID.
 ///
@@ -11,7 +13,7 @@
 ///   - videoID: The YouTube video ID.
 ///   - channelID: The YouTube channel ID.
 /// - SeeAlso: ``EntryCategory``
-internal struct YouTubeIDProperties: YouTubeID {
+internal struct YouTubeIDProperties: YouTubeID, Sendable {
   internal let videoID: String
   internal let channelID: String
 
@@ -46,7 +48,7 @@ internal struct YouTubeIDProperties: YouTubeID {
 ///
 /// - Requires: Conforming types must provide a ``videoID`` and a ``channelID``.
 /// - SeeAlso: ``EntryCategory``
-public protocol YouTubeID {
+public protocol YouTubeID: Sendable {
   /// The YouTube video ID.
   var videoID: String { get }
 

@@ -6,7 +6,7 @@ public typealias WPTag = WordPressElements.Tag
 // swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing a tag in WordPress.
-  public struct Tag: Codable {
+  public struct Tag: Codable, Sendable {
     /// The term ID of the tag.
     internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"

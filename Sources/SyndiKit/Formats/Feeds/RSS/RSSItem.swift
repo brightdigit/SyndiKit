@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 import XMLCoder
 
-public struct RSSItem: Codable {
+public struct RSSItem: Codable, Sendable {
   public enum CodingKeys: String, CodingKey {
     case title
     case link

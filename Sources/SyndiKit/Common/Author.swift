@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// a person, corporation, or similar entity.
-public struct Author: Codable, Equatable {
+public struct Author: Codable, Equatable, Sendable {
   /// Conveys a human-readable name for the person.
   public let name: String
 

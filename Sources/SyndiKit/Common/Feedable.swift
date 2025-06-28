@@ -18,7 +18,7 @@ import Foundation
 ///
 /// - ``youtubeChannelID``
 /// - ``syndication``
-public protocol Feedable {
+public protocol Feedable: Sendable {
   /// The name of the channel.
   var title: String { get }
   /// The URL to the website corresponding to the channel.

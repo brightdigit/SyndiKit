@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct Decoding<DecodingType: DecodableFeed>: AnyDecoding {
+internal struct Decoding<DecodingType: DecodableFeed>: AnyDecoding, Sendable {
   internal static var label: String {
     DecodingType.label
   }

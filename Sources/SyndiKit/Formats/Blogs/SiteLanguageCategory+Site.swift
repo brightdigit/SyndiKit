@@ -1,9 +1,13 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 // swiftlint:disable nesting
 extension SiteLanguageCategory {
   /// A ``struct`` representing a site.
-  public struct Site: Codable {
+  public struct Site: Codable, Sendable {
     /// The title of the site.
     public let title: String
 

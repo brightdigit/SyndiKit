@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
-internal struct DateFormatterDecoder {
-  internal enum RSS {
+internal struct DateFormatterDecoder: Sendable {
+  internal enum RSS: Sendable {
     private static let dateFormatStrings = [
       "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
       "yyyy-MM-dd'T'HH:mm:ssXXXXX",
@@ -38,6 +42,7 @@ internal struct DateFormatterDecoder {
     return nil
   }
 
+  @Sendable
   internal func decode(from decoder: Decoder) throws -> Date {
     let container = try decoder.singleValueContainer()
     let dateStr = try container.decode(String.self)

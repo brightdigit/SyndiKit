@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing an enclosure for a resource.
-public struct Enclosure: Codable {
+public struct Enclosure: Codable, Sendable {
   internal enum CodingKeys: String, CodingKey {
     case url
     case type

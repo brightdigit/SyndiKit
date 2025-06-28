@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing the duration of an iTunes track.
-public struct iTunesDuration: Codable, ExpressibleByFloatLiteral {
+public struct iTunesDuration: Codable, ExpressibleByFloatLiteral, Sendable {
   /// The type used to represent a floating-point literal.
   public typealias FloatLiteralType = TimeInterval
 

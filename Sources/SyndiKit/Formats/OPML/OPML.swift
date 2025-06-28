@@ -1,6 +1,6 @@
 import Foundation
 
-public struct OPML: Codable, Equatable {
+public struct OPML: Codable, Equatable, Sendable {
   internal enum CodingKeys: String, CodingKey {
     case version
     case head

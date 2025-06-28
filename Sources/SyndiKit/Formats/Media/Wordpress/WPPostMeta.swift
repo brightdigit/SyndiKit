@@ -6,7 +6,7 @@ public typealias WPPostMeta = WordPressElements.Category
 // swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing metadata for a WordPress post.
-  public struct PostMeta: Codable {
+  public struct PostMeta: Codable, Sendable {
     /// The coding keys for encoding and decoding.
     internal enum CodingKeys: String, CodingKey {
       case key = "wp:metaKey"

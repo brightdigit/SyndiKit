@@ -1,7 +1,7 @@
 import Foundation
 
 /// A group of media elements in an Atom feed.
-public struct AtomMediaGroup: Codable {
+public struct AtomMediaGroup: Codable, Sendable {
   /// Coding keys for encoding and decoding.
   public enum CodingKeys: String, CodingKey {
     case title = "media:title"

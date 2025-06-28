@@ -7,7 +7,7 @@
 ///
 /// - SeeAlso: ``Category``
 /// - SeeAlso: ``EntryCategory``
-public struct CategoryDescriptor {
+public struct CategoryDescriptor: Sendable {
   /// The title of the category.
   public let title: String
 

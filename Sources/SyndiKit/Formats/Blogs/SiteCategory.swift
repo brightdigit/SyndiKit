@@ -15,7 +15,7 @@
 /// - SeeAlso: ``CategoryLanguage``
 /// - SeeAlso: ``SiteCategoryBuilder``
 /// - SeeAlso: ``EntryCategory``
-public struct SiteCategory {
+public struct SiteCategory: Sendable {
   /// The type of the site category.
   public let type: SiteCategoryType
 

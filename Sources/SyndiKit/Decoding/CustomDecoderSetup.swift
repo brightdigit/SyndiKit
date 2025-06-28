@@ -1,5 +1,5 @@
 import Foundation
 
-internal protocol CustomDecoderSetup {
+internal protocol CustomDecoderSetup: Sendable {
   func setup(decoder: TypeDecoder)
 }

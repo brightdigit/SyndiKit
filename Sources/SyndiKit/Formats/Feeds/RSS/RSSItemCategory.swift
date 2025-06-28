@@ -13,7 +13,7 @@
 ///
 /// - Version: 1.0
 /// - SeeAlso: ``EntryCategory``
-public struct RSSItemCategory: Codable, EntryCategory {
+public struct RSSItemCategory: Codable, EntryCategory, Sendable {
   /// The coding keys for the struct.
   internal enum CodingKeys: String, CodingKey {
     case value = "#CDATA"

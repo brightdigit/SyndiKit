@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing a website.
-public struct Site {
+public struct Site: Sendable {
   /// The title of the website.
   public let title: String
 

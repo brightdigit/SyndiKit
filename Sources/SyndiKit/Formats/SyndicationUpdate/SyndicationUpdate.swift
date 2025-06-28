@@ -1,11 +1,15 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 // swiftlint:disable line_length
 /// Properties concerning how often it is updated a feed is updated.
 ///
 /// These properties come from
 ///  [the RDF Site Summary Syndication Module](https://web.resource.org/rss/1.0/modules/syndication/).
-public struct SyndicationUpdate: Codable, Equatable {
+public struct SyndicationUpdate: Codable, Equatable, Sendable {
   // swiftlint:enable line_length
 
   /// Describes the period over which the channel format is updated.

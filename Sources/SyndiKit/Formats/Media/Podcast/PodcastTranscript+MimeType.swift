@@ -2,7 +2,7 @@ import Foundation
 
 extension PodcastTranscript {
   /// A private enum representing known MIME types for the transcript.
-  private enum KnownMimeType: String, Codable {
+  private enum KnownMimeType: String, Codable, Sendable {
     case plain = "text/plain"
     case html = "text/html"
     case srt = "text/srt"
@@ -46,7 +46,7 @@ extension PodcastTranscript {
   }
 
   /// An enum representing the MIME type of the transcript.
-  public enum MimeType: Codable, Equatable, RawRepresentable {
+  public enum MimeType: Codable, Equatable, RawRepresentable, Sendable {
     case plain
     case html
     case srt

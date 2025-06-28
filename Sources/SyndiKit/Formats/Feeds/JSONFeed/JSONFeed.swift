@@ -1,4 +1,8 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing an Atom category.
 /// A struct representing a JSON feed.
@@ -7,7 +11,7 @@ import Foundation
 ///
 /// - SeeAlso: ``DecodableFeed``
 /// - SeeAlso: ``EntryCategory``
-public struct JSONFeed {
+public struct JSONFeed: Sendable {
   /// The version of the JSON feed.
   public let version: URL
 

@@ -1,7 +1,11 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
 /// A struct representing a podcast transcript.
-public struct PodcastTranscript: Codable, Equatable {
+public struct PodcastTranscript: Codable, Equatable, Sendable {
   /// The coding keys for the podcast transcript.
   public enum CodingKeys: String, CodingKey {
     case url
@@ -11,7 +15,7 @@ public struct PodcastTranscript: Codable, Equatable {
   }
 
   /// The relationship between the podcast transcript and the podcast.
-  public enum Relationship: String, Codable {
+  public enum Relationship: String, Codable, Sendable {
     case captions
   }
 

@@ -1,6 +1,10 @@
+#if swift(>=5.7)
+@preconcurrency import Foundation
+#else
 import Foundation
+#endif
 
-internal struct UTF8EncodedURL: Codable {
+internal struct UTF8EncodedURL: Codable, Sendable {
   internal let value: URL
   internal let string: String?
 

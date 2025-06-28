@@ -2,7 +2,7 @@ import Foundation
 
 extension PodcastPerson {
   /// A private enum representing known roles for a podcast person.
-  private enum KnownRole: String {
+  private enum KnownRole: String, Codable, Sendable {
     case guest
     case host
     case editor
@@ -50,7 +50,7 @@ extension PodcastPerson {
   // swiftlint:enable function_body_length cyclomatic_complexity
 
   /// An enum representing the role of a podcast person.
-  public enum Role: Codable, Equatable, RawRepresentable {
+  public enum Role: Codable, Equatable, RawRepresentable, Sendable {
     case guest
     case host
     case editor

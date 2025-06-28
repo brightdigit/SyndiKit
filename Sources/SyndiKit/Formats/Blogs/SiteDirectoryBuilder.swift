@@ -1,7 +1,7 @@
 import Foundation
 
 /// A builder for creating a site collection directory.
-public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder {
+public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder, Sendable {
   /// Initializes a new instance of ``SiteCollectionDirectoryBuilder``.
   public init() {}
 
@@ -18,7 +18,7 @@ public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder {
 }
 
 /// A protocol for building site directories.
-public protocol SiteDirectoryBuilder {
+public protocol SiteDirectoryBuilder: Sendable {
   /// The type of site directory to build.
   associatedtype SiteDirectoryType: SiteDirectory
 

@@ -6,7 +6,7 @@ public typealias WPCategory = WordPressElements.Category
 // swiftlint:disable nesting
 extension WordPressElements {
   /// A struct representing a category in WordPress.
-  public struct Category: Codable {
+  public struct Category: Codable, Sendable {
     /// The coding keys for the ``Category`` struct.
     internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"

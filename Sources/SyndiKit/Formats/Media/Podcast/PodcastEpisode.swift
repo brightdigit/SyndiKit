@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct representing properties of a podcast episode.
-internal struct PodcastEpisodeProperties: PodcastEpisode {
+internal struct PodcastEpisodeProperties: PodcastEpisode, Sendable {
   /// The title of the episode.
   internal let title: String?
 
@@ -58,7 +58,7 @@ internal struct PodcastEpisodeProperties: PodcastEpisode {
 }
 
 /// A protocol representing a podcast episode.
-public protocol PodcastEpisode {
+public protocol PodcastEpisode: Sendable {
   /// The title of the episode.
   var title: String? { get }
 
