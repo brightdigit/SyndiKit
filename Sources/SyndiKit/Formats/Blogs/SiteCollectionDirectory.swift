@@ -52,20 +52,34 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
     ) -> [Site] {
-      let languageIndices: Set<Int>?
-      if let language = language {
-        languageIndices = self.languageIndices[language] ?? .init()
-      } else {
-        languageIndices = nil
-      }
+      filteredSites(language: language, category: category)
+    }
 
-      let categoryIndices: Set<Int>?
-      if let category = category {
-        categoryIndices = self.categoryIndices[category] ?? .init()
-      } else {
-        categoryIndices = nil
-      }
+    private func filteredSites(
+      language: SiteLanguageType?,
+      category: SiteCategoryType?
+    ) -> [Site] {
+      let languageIndices = getLanguageIndices(for: language)
+      let categoryIndices = getCategoryIndices(for: category)
+      let combinedIndices = combineIndices(
+        languageIndices: languageIndices, categoryIndices: categoryIndices)
+      return getSitesFromIndices(combinedIndices)
+    }
 
+    private func getLanguageIndices(for language: SiteLanguageType?) -> Set<Int>? {
+      guard let language = language else { return nil }
+      return self.languageIndices[language] ?? .init()
+    }
+
+    private func getCategoryIndices(for category: SiteCategoryType?) -> Set<Int>? {
+      guard let category = category else { return nil }
+      return self.categoryIndices[category] ?? .init()
+    }
+
+    private func combineIndices(
+      languageIndices: Set<Int>?,
+      categoryIndices: Set<Int>?
+    ) -> Set<Int>? {
       var indices: Set<Int>?
 
       if let languageIndices = languageIndices {
@@ -80,6 +94,10 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
         }
       }
 
+      return indices
+    }
+
+    private func getSitesFromIndices(_ indices: Set<Int>?) -> [Site] {
       if let current = indices {
         return current.map { self.allSites[$0] }
       } else {

@@ -58,6 +58,40 @@ extension RSSItem {
     let mediaProps = try MediaProperties(from: container)
     let wpProps = try WordPressProperties(from: container)
 
+    return createRSSItem(
+      basicFields: basicFields,
+      itunesFields: itunesFields,
+      podcastFields: podcastFields,
+      wordpressFields: wordpressFields,
+      mediaFields: mediaFields
+    )
+  }
+
+  private static func createRSSItem(
+    basicFields: BasicFields,
+    itunesFields: ITunesFields,
+    podcastFields: PodcastFields,
+    wordpressFields: WordPressFields,
+    mediaFields: MediaFields
+  ) -> RSSItem {
+    let basicProps = createBasicRSSItemProperties(basicFields: basicFields)
+    let itunesProps = createITunesRSSItemProperties(itunesFields: itunesFields)
+    let podcastProps = createPodcastRSSItemProperties(podcastFields: podcastFields)
+    let wordpressProps = createWordPressRSSItemProperties(wordpressFields: wordpressFields)
+    let mediaProps = createMediaRSSItemProperties(mediaFields: mediaFields)
+
+    let basicRSSProps = createBasicRSSProperties(basicProps: basicProps)
+    let itunesRSSProps = createITunesRSSProperties(itunesProps: itunesProps)
+    let podcastRSSProps = createPodcastRSSProperties(podcastProps: podcastProps)
+    let wordpressRSSProps = createWordPressRSSProperties(wordpressProps: wordpressProps)
+    let mediaRSSProps = createMediaRSSProperties(mediaProps: mediaProps)
+
+    let basicRSSParams = createBasicRSSParameters(basicRSSProps: basicRSSProps)
+    let itunesRSSParams = createITunesRSSParameters(itunesRSSProps: itunesRSSProps)
+    let podcastRSSParams = createPodcastRSSParameters(podcastRSSProps: podcastRSSProps)
+    let wordpressRSSParams = createWordPressRSSParameters(wordpressRSSProps: wordpressRSSProps)
+    let mediaRSSParams = createMediaRSSParameters(mediaRSSProps: mediaRSSProps)
+
     return RSSItem(
       basicProperties: basicProps,
       itunesProperties: iTunesProps,
