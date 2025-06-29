@@ -30,6 +30,7 @@
 import Foundation
 import XMLCoder
 
+@available(macOS 13.0, *)
 extension SynDecoder {
   @Sendable
   internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
@@ -38,7 +39,7 @@ extension SynDecoder {
   }
 
   @Sendable
-  internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
+  internal static func setupXMLDecoder(_ decoder: XMLCoder.XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false

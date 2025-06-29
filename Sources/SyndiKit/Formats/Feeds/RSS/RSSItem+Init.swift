@@ -128,38 +128,191 @@ extension RSSItem {
     self.contentEncoded = contentEncoded.map(CData.init)
     self.categoryTerms = categoryTerms
     self.content = content
-    self.itunesTitle = itunesTitle
-    self.itunesEpisode = itunesEpisode.map(iTunesEpisode.init)
-    self.itunesAuthor = itunesAuthor
-    self.itunesSubtitle = itunesSubtitle
-    self.itunesSummary = itunesSummary
-    self.itunesExplicit = itunesExplicit
-    self.itunesDuration = itunesDuration.map(iTunesDuration.init)
-    self.itunesImage = itunesImage
-    self.podcastPeople = podcastPeople
-    self.podcastTranscripts = podcastTranscripts
-    self.podcastChapters = podcastChapters
-    self.podcastSoundbites = podcastSoundbites
-    self.podcastSeason = podcastSeason
+
+    let itunes = RSSItem.makeITunesProperties(
+      itunesTitle: itunesTitle,
+      itunesEpisode: itunesEpisode,
+      itunesAuthor: itunesAuthor,
+      itunesSubtitle: itunesSubtitle,
+      itunesSummary: itunesSummary,
+      itunesExplicit: itunesExplicit,
+      itunesDuration: itunesDuration,
+      itunesImage: itunesImage
+    )
+    self.itunesTitle = itunes.title
+    self.itunesEpisode = itunes.episode
+    self.itunesAuthor = itunes.author
+    self.itunesSubtitle = itunes.subtitle
+    self.itunesSummary = itunes.summary
+    self.itunesExplicit = itunes.explicit
+    self.itunesDuration = itunes.duration
+    self.itunesImage = itunes.image
+
+    let podcast = RSSItem.makePodcastProperties(
+      podcastPeople: podcastPeople,
+      podcastTranscripts: podcastTranscripts,
+      podcastChapters: podcastChapters,
+      podcastSoundbites: podcastSoundbites,
+      podcastSeason: podcastSeason
+    )
+    self.podcastPeople = podcast.people
+    self.podcastTranscripts = podcast.transcripts
+    self.podcastChapters = podcast.chapters
+    self.podcastSoundbites = podcast.soundbites
+    self.podcastSeason = podcast.season
+
     self.enclosure = enclosure
     self.creators = creators
-    self.wpCommentStatus = wpCommentStatus.map(CData.init)
-    self.wpPingStatus = wpPingStatus.map(CData.init)
-    self.wpStatus = wpStatus.map(CData.init)
-    self.wpPostParent = wpPostParent
-    self.wpMenuOrder = wpMenuOrder
-    self.wpIsSticky = wpIsSticky
-    self.wpPostPassword = wpPostPassword.map(CData.init)
-    self.wpPostID = wpPostID
-    self.wpPostDate = wpPostDate
-    self.wpPostDateGMT = wpPostDateGMT
-    self.wpModifiedDate = wpModifiedDate
-    self.wpModifiedDateGMT = wpModifiedDateGMT
-    self.wpPostName = wpPostName.map(CData.init)
-    self.wpPostType = wpPostType.map(CData.init)
-    self.wpPostMeta = wpPostMeta
-    self.wpAttachmentURL = wpAttachmentURL
+
+    let wp = RSSItem.makeWordPressProperties(
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostPassword: wpPostPassword,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpPostDateGMT: wpPostDateGMT,
+      wpModifiedDate: wpModifiedDate,
+      wpModifiedDateGMT: wpModifiedDateGMT,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType,
+      wpPostMeta: wpPostMeta,
+      wpAttachmentURL: wpAttachmentURL
+    )
+    self.wpCommentStatus = wp.commentStatus
+    self.wpPingStatus = wp.pingStatus
+    self.wpStatus = wp.status
+    self.wpPostParent = wp.postParent
+    self.wpMenuOrder = wp.menuOrder
+    self.wpIsSticky = wp.isSticky
+    self.wpPostPassword = wp.postPassword
+    self.wpPostID = wp.postID
+    self.wpPostDate = wp.postDate
+    self.wpPostDateGMT = wp.postDateGMT
+    self.wpModifiedDate = wp.modifiedDate
+    self.wpModifiedDateGMT = wp.modifiedDateGMT
+    self.wpPostName = wp.postName
+    self.wpPostType = wp.postType
+    self.wpPostMeta = wp.postMeta
+    self.wpAttachmentURL = wp.attachmentURL
     self.mediaContent = mediaContent
     self.mediaThumbnail = mediaThumbnail
+  }
+
+  private struct ITunesProperties {
+    let title: String?
+    let episode: iTunesEpisode?
+    let author: String?
+    let subtitle: String?
+    let summary: CData?
+    let explicit: String?
+    let duration: iTunesDuration?
+    let image: iTunesImage?
+  }
+
+  private struct PodcastProperties {
+    let people: [PodcastPerson]
+    let transcripts: [PodcastTranscript]
+    let chapters: PodcastChapters?
+    let soundbites: [PodcastSoundbite]
+    let season: PodcastSeason?
+  }
+
+  private struct WordPressProperties {
+    let commentStatus: CData?
+    let pingStatus: CData?
+    let status: CData?
+    let postParent: Int?
+    let menuOrder: Int?
+    let isSticky: Int?
+    let postPassword: CData?
+    let postID: Int?
+    let postDate: Date?
+    let postDateGMT: Date?
+    let modifiedDate: Date?
+    let modifiedDateGMT: Date?
+    let postName: CData?
+    let postType: CData?
+    let postMeta: [WordPressElements.PostMeta]
+    let attachmentURL: URL?
+  }
+
+  private static func makeITunesProperties(
+    itunesTitle: String?,
+    itunesEpisode: Int?,
+    itunesAuthor: String?,
+    itunesSubtitle: String?,
+    itunesSummary: CData?,
+    itunesExplicit: String?,
+    itunesDuration: TimeInterval?,
+    itunesImage: iTunesImage?
+  ) -> ITunesProperties {
+    ITunesProperties(
+      title: itunesTitle,
+      episode: itunesEpisode.map(iTunesEpisode.init),
+      author: itunesAuthor,
+      subtitle: itunesSubtitle,
+      summary: itunesSummary,
+      explicit: itunesExplicit,
+      duration: itunesDuration.map(iTunesDuration.init),
+      image: itunesImage
+    )
+  }
+
+  private static func makePodcastProperties(
+    podcastPeople: [PodcastPerson],
+    podcastTranscripts: [PodcastTranscript],
+    podcastChapters: PodcastChapters?,
+    podcastSoundbites: [PodcastSoundbite],
+    podcastSeason: PodcastSeason?
+  ) -> PodcastProperties {
+    PodcastProperties(
+      people: podcastPeople,
+      transcripts: podcastTranscripts,
+      chapters: podcastChapters,
+      soundbites: podcastSoundbites,
+      season: podcastSeason
+    )
+  }
+
+  private static func makeWordPressProperties(
+    wpCommentStatus: String?,
+    wpPingStatus: String?,
+    wpStatus: String?,
+    wpPostParent: Int?,
+    wpMenuOrder: Int?,
+    wpIsSticky: Int?,
+    wpPostPassword: String?,
+    wpPostID: Int?,
+    wpPostDate: Date?,
+    wpPostDateGMT: Date?,
+    wpModifiedDate: Date?,
+    wpModifiedDateGMT: Date?,
+    wpPostName: String?,
+    wpPostType: String?,
+    wpPostMeta: [WordPressElements.PostMeta],
+    wpAttachmentURL: URL?
+  ) -> WordPressProperties {
+    WordPressProperties(
+      commentStatus: wpCommentStatus.map(CData.init),
+      pingStatus: wpPingStatus.map(CData.init),
+      status: wpStatus.map(CData.init),
+      postParent: wpPostParent,
+      menuOrder: wpMenuOrder,
+      isSticky: wpIsSticky,
+      postPassword: wpPostPassword.map(CData.init),
+      postID: wpPostID,
+      postDate: wpPostDate,
+      postDateGMT: wpPostDateGMT,
+      modifiedDate: wpModifiedDate,
+      modifiedDateGMT: wpModifiedDateGMT,
+      postName: wpPostName.map(CData.init),
+      postType: wpPostType.map(CData.init),
+      postMeta: wpPostMeta,
+      attachmentURL: wpAttachmentURL
+    )
   }
 }

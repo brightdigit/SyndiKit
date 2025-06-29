@@ -20,7 +20,7 @@ enum Content {
   }
 
   static let synDecoder = SynDecoder()
-  static let xmlDecoder = XMLDecoder()
+  static let xmlDecoder = XMLCoder.XMLDecoder()
 
   static let xmlFeeds = try! Content.resultDictionaryFrom(
     directoryURL: Directories.xml,
@@ -41,7 +41,7 @@ enum Content {
     contentsOf: Directories.data.appendingPathComponent("blogs.json"))
 }
 
-extension XMLDecoder {
+extension XMLCoder.XMLDecoder {
   func decodeOPML(_ data: Data) throws -> OPML {
     try decode(OPML.self, from: data)
   }

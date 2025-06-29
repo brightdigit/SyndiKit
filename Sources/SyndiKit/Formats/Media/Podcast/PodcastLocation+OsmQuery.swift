@@ -77,7 +77,8 @@ extension PodcastLocation {
     }
 
     private static func parseOsmID(from osmStr: String, withType osmType: OsmType) throws -> Int {
-      guard let osmID = osmStr.components(separatedBy: osmType.rawValue)[safe: 1]?.asExactInt() else {
+      guard let osmID = osmStr.components(separatedBy: osmType.rawValue)[safe: 1]?.asExactInt()
+      else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.osmQuery,
           debugDescription: "Invalid id of type Int for osm attribute: \(osmStr)"

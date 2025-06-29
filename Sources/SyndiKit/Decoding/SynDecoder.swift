@@ -40,7 +40,8 @@ import XMLCoder
 /// ### Decoding
 ///
 /// - ``decode(_:)``
-public final class SynDecoder: @unchecked Sendable {
+@available(macOS 13.0, *)
+public final class SynDecoder: Sendable {
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
@@ -48,7 +49,7 @@ public final class SynDecoder: @unchecked Sendable {
   ]
 
   private let defaultJSONDecoderSetup: @Sendable (JSONDecoder) -> Void
-  private let defaultXMLDecoderSetup: @Sendable (XMLDecoder) -> Void
+  private let defaultXMLDecoderSetup: @Sendable (XMLCoder.XMLDecoder) -> Void
   private let types: [DecodableFeed.Type]
 
   private let defaultXMLDecoder: XMLDecoder
@@ -60,14 +61,17 @@ public final class SynDecoder: @unchecked Sendable {
   internal init(
     types: [DecodableFeed.Type]? = nil,
     defaultJSONDecoderSetup: (@Sendable (JSONDecoder) -> Void)? = nil,
-    defaultXMLDecoderSetup: (@Sendable (XMLDecoder) -> Void)? = nil
+    defaultXMLDecoderSetup: (@Sendable (XMLCoder.XMLDecoder) -> Void)? = nil
   ) {
     let resolvedTypes = types ?? Self.defaultTypes
     let jsonSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
     let xmlSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
 
-    let xmlDecoder = XMLDecoder()
-    xmlSetup(xmlDecoder)
+    let xmlDecoder = XMLDecoder {
+      let decoder = XMLCoder.XMLDecoder()
+      xmlSetup(decoder)
+      return decoder
+    }
     let jsonDecoder = JSONDecoder()
     jsonSetup(jsonDecoder)
 
