@@ -41,8 +41,24 @@ extension SynDecoder {
   @Sendable
   internal static func setupXMLDecoder(_ decoder: XMLCoder.XMLDecoder) {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
     decoder.trimValueWhitespaces = false
+    decoder.dateDecodingStrategy = .custom { decoder in
+      let container = try decoder.singleValueContainer()
+      let dateStr = try container.decode(String.self)
+
+      // Handle empty strings gracefully by returning a default date
+      if dateStr.isEmpty {
+        return Date.distantPast
+      }
+
+      // Try to decode with the RSS decoder
+      if let date = DateFormatterDecoder.RSS.decoder.decodeString(dateStr) {
+        return date
+      }
+
+      // If parsing fails, return a default date instead of throwing
+      return Date.distantPast
+    }
   }
 
   internal static func createDecodings(

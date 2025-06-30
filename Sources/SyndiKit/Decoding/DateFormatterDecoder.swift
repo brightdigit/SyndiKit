@@ -7,7 +7,7 @@
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
-//  files (the “Software”), to deal in the Software without
+//  files (the "Software"), to deal in the Software without
 //  restriction, including without limitation the rights to use,
 //  copy, modify, merge, publish, distribute, sublicense, and/or
 //  sell copies of the Software, and to permit persons to whom the
@@ -17,7 +17,7 @@
 //  The above copyright notice and this permission notice shall be
 //  included in all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 //  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 //  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 //  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
@@ -85,5 +85,45 @@ internal struct DateFormatterDecoder: Sendable {
       debugDescription: "Invalid Date from '\(dateStr)'"
     )
     throw DecodingError.dataCorrupted(context)
+  }
+
+  @Sendable
+  internal static func decodeDateHandlingEmpty(from decoder: Decoder) throws -> Date {
+    let container = try decoder.singleValueContainer()
+    let dateStr = try container.decode(String.self)
+
+    // Handle empty strings gracefully by throwing a specific error
+    if dateStr.isEmpty {
+      let context = DecodingError.Context(
+        codingPath: decoder.codingPath,
+        debugDescription: "Empty Date string"
+      )
+      throw DecodingError.dataCorrupted(context)
+    }
+
+    // Try to decode with the RSS decoder
+    if let date = RSS.decoder.decodeString(dateStr) {
+      return date
+    }
+
+    let context = DecodingError.Context(
+      codingPath: decoder.codingPath,
+      debugDescription: "Invalid Date from '\(dateStr)'"
+    )
+    throw DecodingError.dataCorrupted(context)
+  }
+
+  @Sendable
+  internal static func decodeDateOptional(from decoder: Decoder) throws -> Date? {
+    let container = try decoder.singleValueContainer()
+    let dateStr = try container.decode(String.self)
+
+    // Handle empty strings gracefully by returning nil
+    if dateStr.isEmpty {
+      return nil
+    }
+
+    // Try to decode with the RSS decoder
+    return RSS.decoder.decodeString(dateStr)
   }
 }

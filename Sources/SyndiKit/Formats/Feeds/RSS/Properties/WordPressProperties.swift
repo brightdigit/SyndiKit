@@ -123,7 +123,10 @@ internal struct WordPressProperties {
     let (postDateGMT, modifiedDateGMT) = try Self.decodeWordPressDateGMT(from: container)
     let attachmentURL = try Self.decodeWordPressAttachmentURL(from: container)
     self.init(
-      wpCommentStatus: try container.decodeIfPresent(String.self, forKey: .wpCommentStatus),
+      wpCommentStatus: try container.decodeIfPresent(
+        String.self,
+        forKey: .wpCommentStatus
+      ),
       wpPingStatus: try container.decodeIfPresent(String.self, forKey: .wpPingStatus),
       wpStatus: try container.decodeIfPresent(String.self, forKey: .wpStatus),
       wpPostParent: try container.decodeIfPresent(Int.self, forKey: .wpPostParent),
@@ -159,7 +162,10 @@ internal struct WordPressProperties {
       postDateGMT = nil
     }
 
-    let wpModifiedDateGMT = try container.decodeIfPresent(String.self, forKey: .wpModifiedDateGMT)
+    let wpModifiedDateGMT = try container.decodeIfPresent(
+      String.self,
+      forKey: .wpModifiedDateGMT
+    )
     let modifiedDateGMT: Date?
     if let wpModifiedDateGMT = wpModifiedDateGMT {
       if wpModifiedDateGMT == "0000-00-00 00:00:00" {
@@ -177,7 +183,10 @@ internal struct WordPressProperties {
   private static func decodeWordPressAttachmentURL(
     from container: KeyedDecodingContainer<RSSItem.CodingKeys>
   ) throws -> URL? {
-    let wpAttachmentURLCDData = try container.decodeIfPresent(CData.self, forKey: .wpAttachmentURL)
+    let wpAttachmentURLCDData = try container.decodeIfPresent(
+      CData.self,
+      forKey: .wpAttachmentURL
+    )
     return wpAttachmentURLCDData.map { $0.value }.flatMap(URL.init(string:))
   }
 }

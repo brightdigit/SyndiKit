@@ -87,7 +87,10 @@ internal struct ITunesProperties {
       subtitle: try container.decodeIfPresent(String.self, forKey: .itunesSubtitle),
       summary: try container.decodeIfPresent(CData.self, forKey: .itunesSummary),
       explicit: try container.decodeIfPresent(String.self, forKey: .itunesExplicit),
-      duration: try container.decodeIfPresent(iTunesDuration.self, forKey: .itunesDuration),
+      duration: try container.decodeIfPresent(
+        iTunesDuration.self,
+        forKey: .itunesDuration
+      ),
       image: try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
     )
   }

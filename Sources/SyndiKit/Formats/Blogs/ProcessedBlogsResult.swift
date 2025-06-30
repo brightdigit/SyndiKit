@@ -76,7 +76,10 @@ internal struct ProcessedBlogsResult: Sendable {
         contentsOf: SiteCollectionProcessor.createSites(
           from: languageContent,
           language: languageResult.language))
-      languageIndices.formUnion(languageResult.languageIndices, key: languageResult.language.type)
+      languageIndices.formUnion(
+        languageResult.languageIndices,
+        key: languageResult.language.type
+      )
       for (categoryType, indices) in languageResult.categoryIndices {
         categoryIndices.formUnion(indices, key: categoryType)
       }

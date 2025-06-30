@@ -182,5 +182,23 @@ extension RSSItem {
       wpPostMeta: wpPostMeta,
       wpAttachmentURL: wpAttachmentURL
     )
+    self.wpCommentStatus = wp.commentStatus
+    self.wpPingStatus = wp.pingStatus
+    self.wpStatus = wp.status
+    self.wpPostParent = wp.postParent
+    self.wpMenuOrder = wp.menuOrder
+    self.wpIsSticky = wp.isSticky
+    self.wpPostPassword = wp.postPassword
+    self.wpPostID = wp.postID
+    self.wpPostDate = wp.postDate
+    self.wpPostDateGMT = wp.postDateGMT
+    self.wpModifiedDate = wp.modifiedDate
+    self.wpModifiedDateGMT = wp.modifiedDateGMT
+    self.wpPostName = wp.postName
+    self.wpPostType = wp.postType
+    self.wpPostMeta = wp.postMeta
+    self.wpAttachmentURL = wp.attachmentURL
+    self.mediaContent = mediaContent
+    self.mediaThumbnail = mediaThumbnail
   }
 }

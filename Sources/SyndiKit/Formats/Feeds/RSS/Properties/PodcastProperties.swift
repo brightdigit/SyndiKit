@@ -66,7 +66,10 @@ internal struct PodcastProperties {
 
   internal init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
     self.init(
-      podcastPeople: try container.decodeIfPresent([PodcastPerson].self, forKey: .podcastPeople)
+      podcastPeople: try container.decodeIfPresent(
+        [PodcastPerson].self,
+        forKey: .podcastPeople
+      )
         ?? [],
       podcastTranscripts: try container.decodeIfPresent(
         [PodcastTranscript].self, forKey: .podcastTranscripts
@@ -77,7 +80,10 @@ internal struct PodcastProperties {
       podcastSoundbites: try container.decodeIfPresent(
         [PodcastSoundbite].self, forKey: .podcastSoundbites
       ) ?? [],
-      podcastSeason: try container.decodeIfPresent(PodcastSeason.self, forKey: .podcastSeason)
+      podcastSeason: try container.decodeIfPresent(
+        PodcastSeason.self,
+        forKey: .podcastSeason
+      )
     )
   }
 }

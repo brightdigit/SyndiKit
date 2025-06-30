@@ -340,8 +340,9 @@ extension WordPressPost {
     )
   }
 
-  private static func processCategoryAndMetaData(processedFields: ProcessedFields) -> ProcessedData
-  {
+  private static func processCategoryAndMetaData(
+    processedFields: ProcessedFields
+  ) -> ProcessedData {
     let categoryDictionary = Dictionary(
       grouping: processedFields.categoryTerms.filter { $0.domain != nil }
     ) {
@@ -380,14 +381,24 @@ extension WordPressPost {
     )
   }
 
-  private static func createCategoryProperties(processedData: ProcessedData) -> CategoryProperties {
+  private static func createCategoryProperties(
+    processedData: ProcessedData
+  ) -> CategoryProperties {
     CategoryProperties(
-      tags: processedData.categoryDictionary["post_tag", default: []].map { $0.value },
-      categories: processedData.categoryDictionary["category", default: []].map { $0.value }
+      tags:
+        processedData
+        .categoryDictionary["post_tag", default: []]
+        .map { $0.value },
+      categories:
+        processedData
+        .categoryDictionary["category", default: []]
+        .map { $0.value }
     )
   }
 
-  private static func createMetaProperties(processedData: ProcessedData) -> MetaProperties {
+  private static func createMetaProperties(
+    processedData: ProcessedData
+  ) -> MetaProperties {
     MetaProperties(meta: processedData.metaDictionary)
   }
 
@@ -430,7 +441,9 @@ extension WordPressPost {
     )
   }
 
-  private static func createWordPressDateProps(dateProps: DateProperties) -> WordPressDateProps {
+  private static func createWordPressDateProps(
+    dateProps: DateProperties
+  ) -> WordPressDateProps {
     WordPressDateProps(
       postDate: dateProps.postDate,
       postDateGMT: dateProps.postDateGMT,
