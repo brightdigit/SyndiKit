@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<5.7)
+  import Foundation
+#else
+  import Foundation
+#endif
 import XMLCoder
 
 extension RSSItem {

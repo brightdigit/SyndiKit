@@ -28,6 +28,7 @@
 //
 
 import Foundation
+
 import XMLCoder
 
 /// An object that decodes instances of Feedable from JSON or XML objects.
