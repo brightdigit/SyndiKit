@@ -75,7 +75,9 @@ internal struct ProcessedBlogsResult: Sendable {
       sites.append(
         contentsOf: SiteCollectionProcessor.createSites(
           from: languageContent,
-          language: languageResult.language))
+          language: languageResult.language
+        )
+      )
       languageIndices.formUnion(
         languageResult.languageIndices,
         key: languageResult.language.type

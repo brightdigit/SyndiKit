@@ -62,17 +62,23 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
       let languageIndices = getLanguageIndices(for: language)
       let categoryIndices = getCategoryIndices(for: category)
       let combinedIndices = combineIndices(
-        languageIndices: languageIndices, categoryIndices: categoryIndices)
+        languageIndices: languageIndices,
+        categoryIndices: categoryIndices
+      )
       return getSitesFromIndices(combinedIndices)
     }
 
     private func getLanguageIndices(for language: SiteLanguageType?) -> Set<Int>? {
-      guard let language = language else { return nil }
+      guard let language = language else {
+        return nil
+      }
       return self.languageIndices[language] ?? .init()
     }
 
     private func getCategoryIndices(for category: SiteCategoryType?) -> Set<Int>? {
-      guard let category = category else { return nil }
+      guard let category = category else {
+        return nil
+      }
       return self.categoryIndices[category] ?? .init()
     }
 
