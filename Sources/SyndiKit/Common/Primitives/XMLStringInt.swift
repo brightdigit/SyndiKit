@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(>=6.1)
+#if swift(>=5.7)
   internal import Foundation
 #endif
 

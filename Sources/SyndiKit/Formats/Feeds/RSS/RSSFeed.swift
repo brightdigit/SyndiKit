@@ -50,7 +50,7 @@ public struct RSSFeed: Sendable {
 }
 
 extension RSSFeed: DecodableFeed {
-  internal static let source: DecoderSetup = DecoderSource.xml
+  internal static let source: any DecoderSetup = DecoderSource.xml
   public static let label: String = "RSS"
 
   public var youtubeChannelID: String? {
@@ -64,7 +64,7 @@ extension RSSFeed: DecodableFeed {
     return [author]
   }
 
-  public var children: [Entryable] {
+  public var children: [any Entryable] {
     channel.items
   }
 
