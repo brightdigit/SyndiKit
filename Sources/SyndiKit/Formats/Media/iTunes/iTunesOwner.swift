@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<5.7)
+  import Foundation
+#else
+  import Foundation
+#endif
 
 // swift-format-ignore: TypeNamesShouldBeCapitalized
 /// A struct representing an Atom category.

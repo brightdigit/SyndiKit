@@ -7,7 +7,7 @@
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
-//  files (the “Software”), to deal in the Software without
+//  files (the "Software"), to deal in the Software without
 //  restriction, including without limitation the rights to use,
 //  copy, modify, merge, publish, distribute, sublicense, and/or
 //  sell copies of the Software, and to permit persons to whom the
@@ -17,7 +17,7 @@
 //  The above copyright notice and this permission notice shall be
 //  included in all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 //  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 //  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 //  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
@@ -29,44 +29,42 @@
 
 import Foundation
 
-/// A typealias for the `WordPressElements.Category` type.
+/// A typealias for `WordPressElements.Category`
 public typealias WPCategory = WordPressElements.Category
 
 extension WordPressElements {
   /// A struct representing a category in WordPress.
   public struct Category: Codable, Sendable {
-    /// The coding keys for the ``Category`` struct.
+    /// The term ID of the category.
     internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
-      case niceName = "wp:categoryNicename"
+      case nicename = "wp:categoryNicename"
       case parent = "wp:categoryParent"
-      case name = "wp:catName"
+      case name = "wp:categoryName"
     }
 
-    /// The unique identifier of the category.
+    /// The term ID of the category.
     public let termID: Int
 
     /// The nice name of the category.
-    public let niceName: CData
+    public let nicename: CData
 
-    /// The parent category of the category.
+    /// The parent category.
     public let parent: CData
 
     /// The name of the category.
     public let name: String
 
-    /// A struct representing an Atom category.
-    ///     Initializes a new ``Category`` instance.
+    /// Initializes a new ``Category`` instance.
     ///
-    ///     - Parameters:
-    ///       - termID: The unique identifier of the category.
-    ///       - niceName: The nice name of the category.
-    ///       - parent: The parent category of the category.
-    ///       - name: The name of the category.
-    /// - SeeAlso: ``EntryCategory``
-    public init(termID: Int, niceName: CData, parent: CData, name: String) {
+    /// - Parameters:
+    ///   - termID: The term ID of the category.
+    ///   - nicename: The nice name of the category.
+    ///   - parent: The parent category.
+    ///   - name: The name of the category.
+    public init(termID: Int, nicename: CData, parent: CData, name: String) {
       self.termID = termID
-      self.niceName = niceName
+      self.nicename = nicename
       self.parent = parent
       self.name = name
     }
@@ -75,12 +73,9 @@ extension WordPressElements {
 
 extension WordPressElements.Category: Equatable {
   /// Checks if two ``Category`` instances are equal.
-  public static func == (
-    lhs: WordPressElements.Category,
-    rhs: WordPressElements.Category
-  ) -> Bool {
+  public static func == (lhs: WordPressElements.Category, rhs: WordPressElements.Category) -> Bool {
     lhs.termID == rhs.termID
-      && lhs.niceName == rhs.niceName
+      && lhs.nicename == rhs.nicename
       && lhs.parent == rhs.parent
       && lhs.name == rhs.name
   }
