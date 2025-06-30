@@ -27,13 +27,17 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-internal import Foundation
+#if swift(>=6.1)
+  internal import Foundation
+#else
+  import Foundation
+#endif
 
 /// Describes the period over which the channel format is updated.
 public enum SyndicationUpdatePeriod: String, Codable, Sendable {
   case hourly, daily, weekly, monthly, yearly
 
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue =
       try container

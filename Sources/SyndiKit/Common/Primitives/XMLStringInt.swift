@@ -27,7 +27,9 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-internal import Foundation
+#if swift(>=6.1)
+  internal import Foundation
+#endif
 
 /// XML Element which contains a ``String`` parsable into a ``Integer``.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral, Sendable {

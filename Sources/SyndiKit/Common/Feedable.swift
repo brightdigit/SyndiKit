@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-public import Foundation
+#if swift(>=6.1)
+  public import Foundation
+#else
+  import Foundation
+#endif
 
 /// Basic abstract Feed
 /// ## Topics

@@ -27,7 +27,9 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-internal import Foundation
+#if swift(>=6.1)
+  internal import Foundation
+#endif
 
 public struct ListString<
   Value: LosslessStringConvertible & Equatable & Sendable
