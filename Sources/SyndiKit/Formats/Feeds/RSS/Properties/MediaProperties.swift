@@ -1,5 +1,5 @@
 //
-//  TypeDecoder.swift
+//  MediaProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,8 +28,19 @@
 //
 
 import Foundation
-@preconcurrency import XMLCoder
 
-internal protocol TypeDecoder: Sendable {
-  func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: DecodableFeed
+internal struct MediaProperties {
+    let content: AtomMedia?
+    let thumbnail: AtomMedia?
+
+  internal init(content: AtomMedia? = nil, thumbnail: AtomMedia? = nil) {
+    self.content = content
+    self.thumbnail = thumbnail
+  }
+    init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
+        self.init(
+            content: try container.decodeIfPresent(AtomMedia.self, forKey: .mediaContent),
+            thumbnail: try container.decodeIfPresent(AtomMedia.self, forKey: .mediaThumbnail)
+        )
+    }
 }

@@ -76,8 +76,15 @@ extension PodcastLocation {
       return osmType
     }
 
-    private static func parseOsmID(from osmStr: String, withType osmType: OsmType) throws -> Int {
-      guard let osmID = osmStr.components(separatedBy: osmType.rawValue)[safe: 1]?.asExactInt()
+    private static func parseOsmID(
+      from osmStr: String,
+      withType osmType: OsmType
+    ) throws -> Int {
+      let osmID = osmStr.components(
+        separatedBy: osmType.rawValue
+      )[safe: 1]?
+      .asExactInt()
+      guard let osmID
       else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.osmQuery,

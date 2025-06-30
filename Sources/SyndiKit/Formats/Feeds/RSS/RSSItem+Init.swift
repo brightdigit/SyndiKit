@@ -79,7 +79,7 @@ extension RSSItem {
   /// - SeeAlso: ``EntryCategory``
   public init(
     title: String,
-    link: URL,
+    link: URL?,
     description: String?,
     guid: EntryID,
     pubDate: Date? = nil,
@@ -129,7 +129,7 @@ extension RSSItem {
     self.categoryTerms = categoryTerms
     self.content = content
 
-    let itunes = RSSItem.makeITunesProperties(
+    let itunes = ITunesProperties(
       itunesTitle: itunesTitle,
       itunesEpisode: itunesEpisode,
       itunesAuthor: itunesAuthor,
@@ -148,7 +148,7 @@ extension RSSItem {
     self.itunesDuration = itunes.duration
     self.itunesImage = itunes.image
 
-    let podcast = RSSItem.makePodcastProperties(
+    let podcast = PodcastProperties(
       podcastPeople: podcastPeople,
       podcastTranscripts: podcastTranscripts,
       podcastChapters: podcastChapters,
@@ -164,7 +164,7 @@ extension RSSItem {
     self.enclosure = enclosure
     self.creators = creators
 
-    let wp = RSSItem.makeWordPressProperties(
+    let wp = WordPressProperties(
       wpCommentStatus: wpCommentStatus,
       wpPingStatus: wpPingStatus,
       wpStatus: wpStatus,
@@ -200,119 +200,5 @@ extension RSSItem {
     self.wpAttachmentURL = wp.attachmentURL
     self.mediaContent = mediaContent
     self.mediaThumbnail = mediaThumbnail
-  }
-
-  private struct ITunesProperties {
-    let title: String?
-    let episode: iTunesEpisode?
-    let author: String?
-    let subtitle: String?
-    let summary: CData?
-    let explicit: String?
-    let duration: iTunesDuration?
-    let image: iTunesImage?
-  }
-
-  private struct PodcastProperties {
-    let people: [PodcastPerson]
-    let transcripts: [PodcastTranscript]
-    let chapters: PodcastChapters?
-    let soundbites: [PodcastSoundbite]
-    let season: PodcastSeason?
-  }
-
-  private struct WordPressProperties {
-    let commentStatus: CData?
-    let pingStatus: CData?
-    let status: CData?
-    let postParent: Int?
-    let menuOrder: Int?
-    let isSticky: Int?
-    let postPassword: CData?
-    let postID: Int?
-    let postDate: Date?
-    let postDateGMT: Date?
-    let modifiedDate: Date?
-    let modifiedDateGMT: Date?
-    let postName: CData?
-    let postType: CData?
-    let postMeta: [WordPressElements.PostMeta]
-    let attachmentURL: URL?
-  }
-
-  private static func makeITunesProperties(
-    itunesTitle: String?,
-    itunesEpisode: Int?,
-    itunesAuthor: String?,
-    itunesSubtitle: String?,
-    itunesSummary: CData?,
-    itunesExplicit: String?,
-    itunesDuration: TimeInterval?,
-    itunesImage: iTunesImage?
-  ) -> ITunesProperties {
-    ITunesProperties(
-      title: itunesTitle,
-      episode: itunesEpisode.map(iTunesEpisode.init),
-      author: itunesAuthor,
-      subtitle: itunesSubtitle,
-      summary: itunesSummary,
-      explicit: itunesExplicit,
-      duration: itunesDuration.map(iTunesDuration.init),
-      image: itunesImage
-    )
-  }
-
-  private static func makePodcastProperties(
-    podcastPeople: [PodcastPerson],
-    podcastTranscripts: [PodcastTranscript],
-    podcastChapters: PodcastChapters?,
-    podcastSoundbites: [PodcastSoundbite],
-    podcastSeason: PodcastSeason?
-  ) -> PodcastProperties {
-    PodcastProperties(
-      people: podcastPeople,
-      transcripts: podcastTranscripts,
-      chapters: podcastChapters,
-      soundbites: podcastSoundbites,
-      season: podcastSeason
-    )
-  }
-
-  private static func makeWordPressProperties(
-    wpCommentStatus: String?,
-    wpPingStatus: String?,
-    wpStatus: String?,
-    wpPostParent: Int?,
-    wpMenuOrder: Int?,
-    wpIsSticky: Int?,
-    wpPostPassword: String?,
-    wpPostID: Int?,
-    wpPostDate: Date?,
-    wpPostDateGMT: Date?,
-    wpModifiedDate: Date?,
-    wpModifiedDateGMT: Date?,
-    wpPostName: String?,
-    wpPostType: String?,
-    wpPostMeta: [WordPressElements.PostMeta],
-    wpAttachmentURL: URL?
-  ) -> WordPressProperties {
-    WordPressProperties(
-      commentStatus: wpCommentStatus.map(CData.init),
-      pingStatus: wpPingStatus.map(CData.init),
-      status: wpStatus.map(CData.init),
-      postParent: wpPostParent,
-      menuOrder: wpMenuOrder,
-      isSticky: wpIsSticky,
-      postPassword: wpPostPassword.map(CData.init),
-      postID: wpPostID,
-      postDate: wpPostDate,
-      postDateGMT: wpPostDateGMT,
-      modifiedDate: wpModifiedDate,
-      modifiedDateGMT: wpModifiedDateGMT,
-      postName: wpPostName.map(CData.init),
-      postType: wpPostType.map(CData.init),
-      postMeta: wpPostMeta,
-      attachmentURL: wpAttachmentURL
-    )
   }
 }

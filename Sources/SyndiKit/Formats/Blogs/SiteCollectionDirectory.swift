@@ -1,5 +1,5 @@
 //
-//  SiteDirectory.swift
+//  SiteCollectionDirectory.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -48,7 +48,6 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
     internal let languageIndices: [SiteLanguageType: Set<Int>]
     internal let categoryIndices: [SiteCategoryType: Set<Int>]
 
-    // swiftlint:disable:next function_body_length
     internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
@@ -89,7 +88,7 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
     }
 
     internal init(blogs: SiteCollection) {
-      let result = Self.processBlogs(blogs)
+      let result = ProcessedBlogsResult.process(blogs)
       self.languageDictionary = Dictionary(
         uniqueKeysWithValues: result.languages.map { ($0.type, $0) }
       )
@@ -98,100 +97,6 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
       self.languageIndices = result.languageIndices
       self.categoryIndices = result.categoryIndices
       allSites = result.sites
-    }
-
-    private struct ProcessedBlogsResult {
-      let categories: [CategoryLanguage]
-      let languages: [SiteLanguage]
-      let sites: [Site]
-      let languageIndices: [SiteLanguageType: Set<Int>]
-      let categoryIndices: [SiteCategoryType: Set<Int>]
-    }
-
-    private struct LanguageContentResult {
-      let language: SiteLanguage
-      let languageIndices: [Int]
-      let categories: [CategoryLanguage]
-      let categoryIndices: [SiteCategoryType: [Int]]
-    }
-
-    private static func processBlogs(_ blogs: SiteCollection) -> ProcessedBlogsResult {
-      var categories = [CategoryLanguage]()
-      var languages = [SiteLanguage]()
-      var sites = [Site]()
-      var languageIndices = [SiteLanguageType: Set<Int>]()
-      var categoryIndices = [SiteCategoryType: Set<Int>]()
-
-      for languageContent in blogs {
-        let languageResult = Self.processLanguageContent(
-          languageContent,
-          sitesCount: sites.count
-        )
-        sites.append(
-          contentsOf: Self.createSites(from: languageContent, language: languageResult.language))
-        languageIndices.formUnion(languageResult.languageIndices, key: languageResult.language.type)
-        for (categoryType, indices) in languageResult.categoryIndices {
-          categoryIndices.formUnion(indices, key: categoryType)
-        }
-        languages.append(languageResult.language)
-        categories.append(contentsOf: languageResult.categories)
-      }
-      return ProcessedBlogsResult(
-        categories: categories,
-        languages: languages,
-        sites: sites,
-        languageIndices: languageIndices,
-        categoryIndices: categoryIndices
-      )
-    }
-
-    private static func processLanguageContent(
-      _ languageContent: SiteLanguageContent,
-      sitesCount: Int
-    ) -> LanguageContentResult {
-      let language = SiteLanguage(content: languageContent)
-      var thisLanguageIndices = [Int]()
-      var thisCategories = [CategoryLanguage]()
-      var thisCategoryIndices = [SiteCategoryType: [Int]]()
-
-      for languageCategory in languageContent.categories {
-        let category = CategoryLanguage(
-          languageCategory: languageCategory,
-          language: language.type
-        )
-        let categorySiteIndices = (0..<languageCategory.sites.count).map { sitesCount + $0 }
-        thisCategoryIndices[category.type] = categorySiteIndices
-        thisLanguageIndices.append(contentsOf: categorySiteIndices)
-        thisCategories.append(category)
-      }
-      return LanguageContentResult(
-        language: language,
-        languageIndices: thisLanguageIndices,
-        categories: thisCategories,
-        categoryIndices: thisCategoryIndices
-      )
-    }
-
-    private static func createSites(
-      from languageContent: SiteLanguageContent,
-      language: SiteLanguage
-    ) -> [Site] {
-      var sites = [Site]()
-      for languageCategory in languageContent.categories {
-        let category = CategoryLanguage(
-          languageCategory: languageCategory,
-          language: language.type
-        )
-        for site in languageCategory.sites {
-          let site = Site(
-            site: site,
-            categoryType: category.type,
-            languageType: language.type
-          )
-          sites.append(site)
-        }
-      }
-      return sites
     }
   }
 

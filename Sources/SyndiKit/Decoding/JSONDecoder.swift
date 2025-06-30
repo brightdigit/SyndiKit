@@ -1,5 +1,5 @@
 //
-//  TypeDecoder.swift
+//  JSONDecoder.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,8 +28,6 @@
 //
 
 import Foundation
-@preconcurrency import XMLCoder
 
-internal protocol TypeDecoder: Sendable {
-  func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: DecodableFeed
-}
+@available(macOS 13.0, *)
+extension JSONDecoder: TypeDecoder {}

@@ -1,5 +1,5 @@
 //
-//  TypeDecoder.swift
+//  XMLDecoder.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,8 +28,27 @@
 //
 
 import Foundation
-@preconcurrency import XMLCoder
+import XMLCoder
 
-internal protocol TypeDecoder: Sendable {
-  func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: DecodableFeed
+internal struct XMLDecoder: TypeDecoder {
+  internal let getCoreOfficeXMLDecoder: @Sendable () -> XMLCoder.XMLDecoder
+
+  internal init() {
+    self.init {
+      .init()
+    }
+  }
+
+  internal init(
+    _ getCoreOfficeXMLDecoder: @escaping @Sendable () -> XMLCoder.XMLDecoder
+  ) {
+    self.getCoreOfficeXMLDecoder = getCoreOfficeXMLDecoder
+  }
+
+  internal func decode<T>(
+    _ type: T.Type,
+    from data: Data
+  ) throws -> T where T: DecodableFeed {
+    try getCoreOfficeXMLDecoder().decode(type, from: data)
+  }
 }
