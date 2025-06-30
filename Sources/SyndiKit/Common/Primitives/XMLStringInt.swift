@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+internal import Foundation
+
 /// XML Element which contains a ``String`` parsable into a ``Integer``.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral, Sendable {
   public typealias IntegerLiteralType = Int

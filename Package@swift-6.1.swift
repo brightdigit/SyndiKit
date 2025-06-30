@@ -46,6 +46,11 @@ let package = Package(
         .enableUpcomingFeature("UnavailableFromAsync"),
         .enableUpcomingFeature("VoidResultBuilder"),
         .enableUpcomingFeature("YieldsIsolated"),
+        // Additional upcoming features from SE proposals
+        .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+        .enableUpcomingFeature("NonescapableTypes"),
+        .enableUpcomingFeature("MemberImportVisibility"),
         // Experimental features
         .enableExperimentalFeature("AccessLevelOnImport"),
         .enableExperimentalFeature("ExistentialAny"),
@@ -88,6 +93,11 @@ let package = Package(
         .enableUpcomingFeature("UnavailableFromAsync"),
         .enableUpcomingFeature("VoidResultBuilder"),
         .enableUpcomingFeature("YieldsIsolated"),
+        // Additional upcoming features from SE proposals
+        .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+        .enableUpcomingFeature("NonescapableTypes"),
+        .enableUpcomingFeature("MemberImportVisibility"),
         // Experimental features
         .enableExperimentalFeature("AccessLevelOnImport"),
         .enableExperimentalFeature("ExistentialAny"),
@@ -103,4 +113,4 @@ let package = Package(
       ]
     )
   ]
-) 
+)

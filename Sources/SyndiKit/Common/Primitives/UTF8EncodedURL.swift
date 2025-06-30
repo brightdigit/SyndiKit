@@ -30,7 +30,7 @@
 #if swift(<5.7)
   @preconcurrency import Foundation
 #else
-  import Foundation
+  internal import Foundation
 #endif
 
 internal struct UTF8EncodedURL: Codable, Sendable {

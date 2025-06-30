@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+internal import Foundation
+
 /// Describes the period over which the channel format is updated.
 public enum SyndicationUpdatePeriod: String, Codable, Sendable {
   case hourly, daily, weekly, monthly, yearly
