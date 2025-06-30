@@ -64,7 +64,7 @@ public struct PodcastPerson: Codable, Equatable, Sendable {
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     role = try container.decodeIfPresent(Role.self, forKey: .role)
     group = try container.decodeIfPresent(String.self, forKey: .group)

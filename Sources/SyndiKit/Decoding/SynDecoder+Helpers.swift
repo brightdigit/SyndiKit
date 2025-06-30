@@ -62,11 +62,11 @@ extension SynDecoder {
   }
 
   internal static func createDecodings(
-    from types: [DecodableFeed.Type],
+    from types: [any DecodableFeed.Type],
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
-  ) -> [DecoderSource: [String: AnyDecoding]] {
-    types.map { type -> (DecoderSource, AnyDecoding) in
+  ) -> [DecoderSource: [String: any AnyDecoding]] {
+    types.map { type -> (DecoderSource, any AnyDecoding) in
       let source = type.source
       let decoder = Self.createDecoder(
         for: source,
@@ -83,11 +83,11 @@ extension SynDecoder {
   }
 
   internal static func createDecoder(
-    for source: DecoderSetup,
+    for source: any DecoderSetup,
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
-  ) -> TypeDecoder {
-    let setup = source as? CustomDecoderSetup
+  ) -> any TypeDecoder {
+    let setup = source as? any CustomDecoderSetup
     switch (source.source, setup?.setup(decoder:)) {
     case let (.xml, .some(setup)):
       let xml = XMLDecoder()

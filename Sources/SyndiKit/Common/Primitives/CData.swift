@@ -44,7 +44,7 @@ public struct CData: Codable, ExpressibleByStringLiteral, Equatable, Sendable {
     self.value = value
   }
 
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let value: String
     do {
       let container = try decoder.container(keyedBy: CodingKeys.self)

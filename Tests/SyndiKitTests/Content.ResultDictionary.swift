@@ -1,5 +1,5 @@
-import Foundation
-import XMLCoder
+internal import Foundation
+@preconcurrency import XMLCoder
 
 @testable import SyndiKit
 

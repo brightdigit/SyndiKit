@@ -1,4 +1,4 @@
-import Foundation
+internal import Foundation
 
 extension FileManager {
   internal func dataFromDirectory(at sourceURL: URL) throws -> [(String, Result<Data, Error>)] {

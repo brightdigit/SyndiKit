@@ -46,7 +46,7 @@ public protocol Entryable: Sendable {
   /// The author of the item.
   var authors: [Author] { get }
   /// Includes the item in one or more categories.
-  var categories: [EntryCategory] { get }
+  var categories: [any EntryCategory] { get }
   /// Creator of the item.
   var creators: [String] { get }
   /// Abstraction of Podcast episode or Youtube video info.

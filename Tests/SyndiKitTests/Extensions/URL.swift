@@ -1,4 +1,4 @@
-import Foundation
+internal import Foundation
 
 extension URL {
   var remainingPath: String {

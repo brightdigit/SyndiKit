@@ -1,4 +1,4 @@
-import Foundation
+internal import Foundation
 import SyndiKit
 import XCTest
 
