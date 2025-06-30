@@ -24,6 +24,7 @@ final class WordpressTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
+  @available(macOS 13.0, *)
   func testWordpressPosts() {
     let decoder = SynDecoder()
 
@@ -325,6 +326,7 @@ final class WordpressTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
+  @available(macOS 13.0, *)
   func testWpAttachmentURL() {
     let decoder = SynDecoder()
 

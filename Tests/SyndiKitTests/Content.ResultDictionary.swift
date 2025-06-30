@@ -19,6 +19,7 @@ enum Content {
     }.map(Dictionary.init(uniqueKeysWithValues:)).get()
   }
 
+  @available(macOS 13.0, *)
   static let synDecoder = SynDecoder()
   static let xmlDecoder = XMLCoder.XMLDecoder()
 
