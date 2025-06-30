@@ -42,19 +42,19 @@ import Foundation
 /// - SeeAlso: ``Site``
 internal struct ProcessedBlogsResult: Sendable {
   /// The categories found in the site collection.
-  let categories: [CategoryLanguage]
+  internal let categories: [CategoryLanguage]
 
   /// The languages found in the site collection.
-  let languages: [SiteLanguage]
+  internal let languages: [SiteLanguage]
 
   /// The sites found in the site collection.
-  let sites: [Site]
+  internal let sites: [Site]
 
   /// A mapping of language types to sets of site indices.
-  let languageIndices: [SiteLanguageType: Set<Int>]
+  internal let languageIndices: [SiteLanguageType: Set<Int>]
 
   /// A mapping of category types to sets of site indices.
-  let categoryIndices: [SiteCategoryType: Set<Int>]
+  internal let categoryIndices: [SiteCategoryType: Set<Int>]
 
   /// Creates a processed blogs result from a site collection.
   ///
@@ -73,7 +73,9 @@ internal struct ProcessedBlogsResult: Sendable {
         sitesCount: sites.count
       )
       sites.append(
-        contentsOf: SiteCollectionProcessor.createSites(from: languageContent, language: languageResult.language))
+        contentsOf: SiteCollectionProcessor.createSites(
+          from: languageContent,
+          language: languageResult.language))
       languageIndices.formUnion(languageResult.languageIndices, key: languageResult.language.type)
       for (categoryType, indices) in languageResult.categoryIndices {
         categoryIndices.formUnion(indices, key: categoryType)

@@ -30,65 +30,65 @@
 import Foundation
 
 internal struct ITunesProperties {
-    let title: String?
-    let episode: iTunesEpisode?
-    let author: String?
-    let subtitle: String?
-    let summary: CData?
-    let explicit: String?
-    let duration: iTunesDuration?
-    let image: iTunesImage?
+  internal let title: String?
+  internal let episode: iTunesEpisode?
+  internal let author: String?
+  internal let subtitle: String?
+  internal let summary: CData?
+  internal let explicit: String?
+  internal let duration: iTunesDuration?
+  internal let image: iTunesImage?
 
-    init(
-        title: String?,
-        episode: iTunesEpisode?,
-        author: String?,
-        subtitle: String?,
-        summary: CData?,
-        explicit: String?,
-        duration: iTunesDuration?,
-        image: iTunesImage?
-    ) {
-        self.title = title
-        self.episode = episode
-        self.author = author
-        self.subtitle = subtitle
-        self.summary = summary
-        self.explicit = explicit
-        self.duration = duration
-        self.image = image
-    }
+  internal init(
+    title: String? = nil,
+    episode: iTunesEpisode? = nil,
+    author: String? = nil,
+    subtitle: String? = nil,
+    summary: CData? = nil,
+    explicit: String? = nil,
+    duration: iTunesDuration? = nil,
+    image: iTunesImage? = nil
+  ) {
+    self.title = title
+    self.episode = episode
+    self.author = author
+    self.subtitle = subtitle
+    self.summary = summary
+    self.explicit = explicit
+    self.duration = duration
+    self.image = image
+  }
 
-    init(
-        itunesTitle: String?,
-        itunesEpisode: Int?,
-        itunesAuthor: String?,
-        itunesSubtitle: String?,
-        itunesSummary: CData?,
-        itunesExplicit: String?,
-        itunesDuration: TimeInterval?,
-        itunesImage: iTunesImage?
-    ) {
-        self.title = itunesTitle
-        self.episode = itunesEpisode.map(iTunesEpisode.init)
-        self.author = itunesAuthor
-        self.subtitle = itunesSubtitle
-        self.summary = itunesSummary
-        self.explicit = itunesExplicit
-        self.duration = itunesDuration.map(iTunesDuration.init)
-        self.image = itunesImage
-    }
+  internal init(
+    itunesTitle: String?,
+    itunesEpisode: Int?,
+    itunesAuthor: String?,
+    itunesSubtitle: String?,
+    itunesSummary: CData?,
+    itunesExplicit: String?,
+    itunesDuration: TimeInterval?,
+    itunesImage: iTunesImage?
+  ) {
+    self.title = itunesTitle
+    self.episode = itunesEpisode.map(iTunesEpisode.init)
+    self.author = itunesAuthor
+    self.subtitle = itunesSubtitle
+    self.summary = itunesSummary
+    self.explicit = itunesExplicit
+    self.duration = itunesDuration.map(iTunesDuration.init)
+    self.image = itunesImage
+  }
 
-    init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
-        self.init(
-            title: try container.decodeIfPresent(String.self, forKey: .itunesTitle),
-            episode: try container.decodeIfPresent(iTunesEpisode.self, forKey: .itunesEpisode),
-            author: try container.decodeIfPresent(String.self, forKey: .itunesAuthor),
-            subtitle: try container.decodeIfPresent(String.self, forKey: .itunesSubtitle),
-            summary: try container.decodeIfPresent(CData.self, forKey: .itunesSummary),
-            explicit: try container.decodeIfPresent(String.self, forKey: .itunesExplicit),
-            duration: try container.decodeIfPresent(iTunesDuration.self, forKey: .itunesDuration),
-            image: try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
-        )
-    }
+  internal init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
+    self.init(
+      title: try container.decodeIfPresent(String.self, forKey: .itunesTitle),
+      episode: try container.decodeIfPresent(iTunesEpisode.self, forKey: .itunesEpisode),
+      author: try container.decodeIfPresent(String.self, forKey: .itunesAuthor),
+      subtitle: try container.decodeIfPresent(String.self, forKey: .itunesSubtitle),
+      summary: try container.decodeIfPresent(CData.self, forKey: .itunesSummary),
+      explicit: try container.decodeIfPresent(String.self, forKey: .itunesExplicit),
+      duration: try container.decodeIfPresent(iTunesDuration.self, forKey: .itunesDuration),
+      image: try container.decodeIfPresent(iTunesImage.self, forKey: .itunesImage)
+    )
+  }
 }

@@ -30,18 +30,29 @@
 import Foundation
 
 internal struct BasicProperties {
-    let title: String
-    let link: URL?
-    let description: CData?
-    let guid: EntryID
-    let pubDate: Date?
-    let contentEncoded: CData?
-    let categoryTerms: [RSSItemCategory]
-    let content: String?
-    let enclosure: Enclosure?
-    let creators: [String]
+  internal let title: String
+  internal let link: URL?
+  internal let description: CData?
+  internal let guid: EntryID
+  internal let pubDate: Date?
+  internal let contentEncoded: CData?
+  internal let categoryTerms: [RSSItemCategory]
+  internal let content: String?
+  internal let enclosure: Enclosure?
+  internal let creators: [String]
 
-  internal init(title: String, link: URL? = nil, description: CData? = nil, guid: EntryID, pubDate: Date? = nil, contentEncoded: CData? = nil, categoryTerms: [RSSItemCategory], content: String? = nil, enclosure: Enclosure? = nil, creators: [String]) {
+  internal init(
+    title: String,
+    link: URL? = nil,
+    description: CData? = nil,
+    guid: EntryID,
+    pubDate: Date? = nil,
+    contentEncoded: CData? = nil,
+    categoryTerms: [RSSItemCategory],
+    content: String? = nil,
+    enclosure: Enclosure? = nil,
+    creators: [String]
+  ) {
     self.title = title
     self.link = link
     self.description = description
@@ -54,18 +65,18 @@ internal struct BasicProperties {
     self.creators = creators
   }
 
-    init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
-        self.init(
-            title: try container.decode(String.self, forKey: .title),
-            link: try container.decodeIfPresent(URL.self, forKey: .link),
-            description: try container.decodeIfPresent(CData.self, forKey: .description),
-            guid: try container.decode(EntryID.self, forKey: .guid),
-            pubDate: try container.decodeDateIfPresentAndValid(forKey: .pubDate),
-            contentEncoded: try container.decodeIfPresent(CData.self, forKey: .contentEncoded),
-            categoryTerms: try container.decode([RSSItemCategory].self, forKey: .categoryTerms),
-            content: try container.decodeIfPresent(String.self, forKey: .content),
-            enclosure: try container.decodeIfPresent(Enclosure.self, forKey: .enclosure),
-            creators: try container.decode([String].self, forKey: .creators)
-        )
-    }
+  internal init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
+    self.init(
+      title: try container.decode(String.self, forKey: .title),
+      link: try container.decodeIfPresent(URL.self, forKey: .link),
+      description: try container.decodeIfPresent(CData.self, forKey: .description),
+      guid: try container.decode(EntryID.self, forKey: .guid),
+      pubDate: try container.decodeDateIfPresentAndValid(forKey: .pubDate),
+      contentEncoded: try container.decodeIfPresent(CData.self, forKey: .contentEncoded),
+      categoryTerms: try container.decode([RSSItemCategory].self, forKey: .categoryTerms),
+      content: try container.decodeIfPresent(String.self, forKey: .content),
+      enclosure: try container.decodeIfPresent(Enclosure.self, forKey: .enclosure),
+      creators: try container.decode([String].self, forKey: .creators)
+    )
+  }
 }

@@ -30,33 +30,54 @@
 import Foundation
 
 internal struct PodcastProperties {
-    let people: [PodcastPerson]
-    let transcripts: [PodcastTranscript]
-    let chapters: PodcastChapters?
-    let soundbites: [PodcastSoundbite]
-    let season: PodcastSeason?
+  internal let people: [PodcastPerson]
+  internal let transcripts: [PodcastTranscript]
+  internal let chapters: PodcastChapters?
+  internal let soundbites: [PodcastSoundbite]
+  internal let season: PodcastSeason?
 
-    init(
-        podcastPeople: [PodcastPerson],
-        podcastTranscripts: [PodcastTranscript],
-        podcastChapters: PodcastChapters?,
-        podcastSoundbites: [PodcastSoundbite],
-        podcastSeason: PodcastSeason?
-    ) {
-        self.people = podcastPeople
-        self.transcripts = podcastTranscripts
-        self.chapters = podcastChapters
-        self.soundbites = podcastSoundbites
-        self.season = podcastSeason
-    }
+  internal init(
+    people: [PodcastPerson] = [],
+    transcripts: [PodcastTranscript] = [],
+    chapters: PodcastChapters? = nil,
+    soundbites: [PodcastSoundbite] = [],
+    season: PodcastSeason? = nil
+  ) {
+    self.people = people
+    self.transcripts = transcripts
+    self.chapters = chapters
+    self.soundbites = soundbites
+    self.season = season
+  }
 
-    init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
-        self.init(
-            podcastPeople: try container.decodeIfPresent([PodcastPerson].self, forKey: .podcastPeople) ?? [],
-            podcastTranscripts: try container.decodeIfPresent([PodcastTranscript].self, forKey: .podcastTranscripts) ?? [],
-            podcastChapters: try container.decodeIfPresent(PodcastChapters.self, forKey: .podcastChapters),
-            podcastSoundbites: try container.decodeIfPresent([PodcastSoundbite].self, forKey: .podcastSoundbites) ?? [],
-            podcastSeason: try container.decodeIfPresent(PodcastSeason.self, forKey: .podcastSeason)
-        )
-    }
+  internal init(
+    podcastPeople: [PodcastPerson],
+    podcastTranscripts: [PodcastTranscript],
+    podcastChapters: PodcastChapters?,
+    podcastSoundbites: [PodcastSoundbite],
+    podcastSeason: PodcastSeason?
+  ) {
+    self.people = podcastPeople
+    self.transcripts = podcastTranscripts
+    self.chapters = podcastChapters
+    self.soundbites = podcastSoundbites
+    self.season = podcastSeason
+  }
+
+  internal init(from container: KeyedDecodingContainer<RSSItem.CodingKeys>) throws {
+    self.init(
+      podcastPeople: try container.decodeIfPresent([PodcastPerson].self, forKey: .podcastPeople)
+        ?? [],
+      podcastTranscripts: try container.decodeIfPresent(
+        [PodcastTranscript].self, forKey: .podcastTranscripts
+      ) ?? [],
+      podcastChapters: try container.decodeIfPresent(
+        PodcastChapters.self, forKey: .podcastChapters
+      ),
+      podcastSoundbites: try container.decodeIfPresent(
+        [PodcastSoundbite].self, forKey: .podcastSoundbites
+      ) ?? [],
+      podcastSeason: try container.decodeIfPresent(PodcastSeason.self, forKey: .podcastSeason)
+    )
+  }
 }
