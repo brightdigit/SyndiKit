@@ -27,11 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#else
-  import Foundation
-#endif
+import Foundation
 
 extension URL {
   internal init?(strict string: String) {

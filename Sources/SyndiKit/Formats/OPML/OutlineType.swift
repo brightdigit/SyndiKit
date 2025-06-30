@@ -27,11 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#else
-  import Foundation
-#endif
+import Foundation
 
 public enum OutlineType: String, Codable, Sendable {
   case rss
