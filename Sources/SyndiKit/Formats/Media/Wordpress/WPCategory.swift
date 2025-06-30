@@ -73,7 +73,10 @@ extension WordPressElements {
 
 extension WordPressElements.Category: Equatable {
   /// Checks if two ``Category`` instances are equal.
-  public static func == (lhs: WordPressElements.Category, rhs: WordPressElements.Category) -> Bool {
+  public static func == (
+    lhs: WordPressElements.Category,
+    rhs: WordPressElements.Category
+  ) -> Bool {
     lhs.termID == rhs.termID
       && lhs.nicename == rhs.nicename
       && lhs.parent == rhs.parent
