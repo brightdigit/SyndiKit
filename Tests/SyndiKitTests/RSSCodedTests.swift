@@ -3,6 +3,7 @@ import XMLCoder
 
 @testable import SyndiKit
 
+@available(macOS 13.0, *)
 internal final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 

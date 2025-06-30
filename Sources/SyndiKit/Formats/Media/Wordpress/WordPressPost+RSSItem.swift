@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<5.7)
+  @preconcurrency import Foundation
+#else
+  import Foundation
+#endif
 
 extension WordPressPost {
   /// A struct representing an Atom category.

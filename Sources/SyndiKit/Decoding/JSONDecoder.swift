@@ -29,5 +29,10 @@
 
 import Foundation
 
-@available(macOS 13.0, *)
-extension JSONDecoder: TypeDecoder {}
+#if swift(<5.7)
+  @available(macOS 13.0, *)
+  extension JSONDecoder: @unchecked Sendable, TypeDecoder {}
+#else
+  @available(macOS 13.0, *)
+  extension JSONDecoder: TypeDecoder {}
+#endif

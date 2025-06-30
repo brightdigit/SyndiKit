@@ -29,44 +29,42 @@
 
 import Foundation
 
-/// A typealias for the `WordPressElements.Category` type.
+/// A typealias for `WordPressElements.Category`
 public typealias WPCategory = WordPressElements.Category
 
 extension WordPressElements {
   /// A struct representing a category in WordPress.
   public struct Category: Codable, Sendable {
-    /// The coding keys for the ``Category`` struct.
+    /// The term ID of the category.
     internal enum CodingKeys: String, CodingKey {
       case termID = "wp:termId"
-      case niceName = "wp:categoryNicename"
+      case nicename = "wp:categoryNicename"
       case parent = "wp:categoryParent"
       case name = "wp:catName"
     }
 
-    /// The unique identifier of the category.
+    /// The term ID of the category.
     public let termID: Int
 
     /// The nice name of the category.
-    public let niceName: CData
+    public let nicename: CData
 
-    /// The parent category of the category.
+    /// The parent category.
     public let parent: CData
 
     /// The name of the category.
     public let name: String
 
-    /// A struct representing an Atom category.
-    ///     Initializes a new ``Category`` instance.
+    /// Initializes a new ``Category`` instance.
     ///
-    ///     - Parameters:
-    ///       - termID: The unique identifier of the category.
-    ///       - niceName: The nice name of the category.
-    ///       - parent: The parent category of the category.
-    ///       - name: The name of the category.
-    /// - SeeAlso: ``EntryCategory``
-    public init(termID: Int, niceName: CData, parent: CData, name: String) {
+    /// - Parameters:
+    ///   - termID: The term ID of the category.
+    ///   - nicename: The nice name of the category.
+    ///   - parent: The parent category.
+    ///   - name: The name of the category.
+    public init(termID: Int, nicename: CData, parent: CData, name: String) {
       self.termID = termID
-      self.niceName = niceName
+      self.nicename = nicename
       self.parent = parent
       self.name = name
     }
@@ -80,7 +78,7 @@ extension WordPressElements.Category: Equatable {
     rhs: WordPressElements.Category
   ) -> Bool {
     lhs.termID == rhs.termID
-      && lhs.niceName == rhs.niceName
+      && lhs.nicename == rhs.nicename
       && lhs.parent == rhs.parent
       && lhs.name == rhs.name
   }

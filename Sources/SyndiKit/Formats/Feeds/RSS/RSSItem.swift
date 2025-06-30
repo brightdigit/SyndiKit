@@ -29,7 +29,7 @@
 
 import XMLCoder
 
-#if swift(>=5.7)
+#if swift(<5.7)
   @preconcurrency import Foundation
 #else
   import Foundation

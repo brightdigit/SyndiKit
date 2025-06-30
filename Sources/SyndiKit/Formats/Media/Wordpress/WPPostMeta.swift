@@ -29,8 +29,8 @@
 
 import Foundation
 
-/// A typealias for `WordPressElements.Category`.
-public typealias WPPostMeta = WordPressElements.Category
+/// A typealias for `WordPressElements.PostMeta`.
+public typealias WPPostMeta = WordPressElements.PostMeta
 
 extension WordPressElements {
   /// A struct representing metadata for a WordPress post.
