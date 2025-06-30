@@ -1,5 +1,6 @@
 import Foundation
 
+@available(macOS 13.0, *)
 extension SyndiKitTests {
   internal static let durationSets: [String: [TimeInterval]] = [
     "empowerapps-show": [

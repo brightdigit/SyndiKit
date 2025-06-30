@@ -19,13 +19,16 @@ enum Content {
     }.map(Dictionary.init(uniqueKeysWithValues:)).get()
   }
 
+  @available(macOS 13.0, *)
   static let synDecoder = SynDecoder()
   static let xmlDecoder = XMLCoder.XMLDecoder()
 
+  @available(macOS 13.0, *)
   static let xmlFeeds = try! Content.resultDictionaryFrom(
     directoryURL: Directories.xml,
     by: Self.synDecoder.decode(_:)
   )
+  @available(macOS 13.0, *)
   static let jsonFeeds = try! Content.resultDictionaryFrom(
     directoryURL: Directories.json,
     by: Self.synDecoder.decode(_:)

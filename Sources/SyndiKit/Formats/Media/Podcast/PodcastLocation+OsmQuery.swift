@@ -80,11 +80,11 @@ extension PodcastLocation {
       from osmStr: String,
       withType osmType: OsmType
     ) throws -> Int {
-      let osmID = osmStr.components(
+      let osmIDString = osmStr.components(
         separatedBy: osmType.rawValue
       )[safe: 1]?
       .asExactInt()
-      guard let osmID
+      guard let osmID = osmIDString
       else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.osmQuery,
