@@ -1,10 +1,10 @@
+@testable import SyndiKit
+
 #if swift(<6.1)
   import Foundation
 #else
   internal import Foundation
 #endif
-
-@testable import SyndiKit
 
 extension Content {
   internal enum Directories {

@@ -30,7 +30,7 @@
 #if swift(<6.1)
   import Foundation
 #else
-  internal import Foundation
+  public import Foundation
 #endif
 
 /// A struct representing a soundbite from a podcast.

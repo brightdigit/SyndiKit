@@ -29,8 +29,10 @@
 
 #if swift(<5.7)
   import Foundation
-#else
+#elseif swift(<6.1)
   import Foundation
+#else
+  public import Foundation
 #endif
 
 // swift-format-ignore: TypeNamesShouldBeCapitalized

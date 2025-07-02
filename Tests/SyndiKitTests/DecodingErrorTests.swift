@@ -1,12 +1,12 @@
+import XCTest
+
+@testable import SyndiKit
+
 #if swift(<6.1)
   import Foundation
 #else
   internal import Foundation
 #endif
-
-import XCTest
-
-@testable import SyndiKit
 
 internal final class DecodingErrorTests: XCTestCase {
   func testErrorsEmpty() {

@@ -1,11 +1,11 @@
+import SyndiKit
+import XCTest
+
 #if swift(<6.1)
   import Foundation
 #else
   internal import Foundation
 #endif
-
-import SyndiKit
-import XCTest
 
 final class RSSGUIDTests: XCTestCase {
   func testGUIDURL() {

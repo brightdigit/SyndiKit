@@ -1,10 +1,10 @@
+import SyndiKit
+
 #if swift(<6.1)
   import Foundation
 #else
   internal import Foundation
 #endif
-
-import SyndiKit
 
 extension JSONFeed {
   internal var homePageURLHttp: URL? {
