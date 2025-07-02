@@ -71,7 +71,7 @@ extension SynDecoder {
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
   ) -> [DecoderSource: [String: any AnyDecoding]] {
-    types.map { type -> (DecoderSource, any AnyDecoding) in
+    types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let decoder = Self.createDecoder(
         for: source,
