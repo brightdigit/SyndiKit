@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 /// A struct representing the location of a podcast.
 public struct PodcastLocation: Codable, Equatable, Sendable {

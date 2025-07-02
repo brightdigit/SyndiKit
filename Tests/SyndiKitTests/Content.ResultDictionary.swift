@@ -1,5 +1,10 @@
-internal import Foundation
-@preconcurrency import XMLCoder
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
+
+import XMLCoder
 
 @testable import SyndiKit
 

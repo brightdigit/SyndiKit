@@ -1,4 +1,8 @@
-internal import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 extension FileManager {
   internal func dataFromDirectory(at sourceURL: URL) throws -> [(String, Result<Data, Error>)] {

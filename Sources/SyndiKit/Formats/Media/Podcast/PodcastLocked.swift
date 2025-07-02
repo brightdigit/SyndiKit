@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 /// A struct representing a locked podcast.
 public struct PodcastLocked: Codable, Equatable, Sendable {

@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 internal struct Decoding<DecodingType: DecodableFeed>: AnyDecoding, Sendable {
   internal static var label: String {

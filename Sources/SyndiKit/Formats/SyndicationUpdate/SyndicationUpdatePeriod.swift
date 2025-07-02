@@ -27,10 +27,12 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(>=5.7)
-  internal import Foundation
-#else
+#if swift(<5.7)
+  @preconcurrency import Foundation
+#elseif swift(<6.1)
   import Foundation
+#else
+  internal import Foundation
 #endif
 
 /// Describes the period over which the channel format is updated.

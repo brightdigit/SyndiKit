@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 // swift-format-ignore: TypeNamesShouldBeCapitalized
 /// A struct representing the duration of an iTunes track.
