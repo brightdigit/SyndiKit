@@ -29,8 +29,10 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#else
+#elseif swift(<6.1)
   import Foundation
+#else
+  internal import Foundation
 #endif
 
 internal struct UTF8EncodedURL: Codable, Sendable {
@@ -64,7 +66,7 @@ internal struct UTF8EncodedURL: Codable, Sendable {
     return encodedURL
   }
 
-  internal func encode(to encoder: Encoder) throws {
+  internal func encode(to encoder: any Encoder) throws {
     var container = encoder.singleValueContainer()
     if let string = string {
       try container.encode(string)

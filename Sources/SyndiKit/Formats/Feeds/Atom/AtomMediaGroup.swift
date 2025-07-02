@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 /// A group of media elements in an Atom feed.
 public struct AtomMediaGroup: Codable, Sendable {

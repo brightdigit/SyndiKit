@@ -27,6 +27,12 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
+
 /// XML Element which contains a ``String`` parsable into a ``Integer``.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral, Sendable {
   public typealias IntegerLiteralType = Int
@@ -38,7 +44,7 @@ public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral, Sendable {
     self.value = value
   }
 
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self)
       .trimmingCharacters(in: .whitespacesAndNewlines)

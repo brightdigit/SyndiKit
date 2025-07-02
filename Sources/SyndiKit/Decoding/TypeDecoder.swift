@@ -27,8 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
 import XMLCoder
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 internal protocol TypeDecoder: Sendable {
   func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: DecodableFeed

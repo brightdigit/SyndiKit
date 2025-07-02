@@ -27,8 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
 import XMLCoder
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 @available(macOS 13.0, *)
 extension SynDecoder {
@@ -62,10 +67,10 @@ extension SynDecoder {
   }
 
   internal static func createDecodings(
-    from types: [DecodableFeed.Type],
+    from types: [any DecodableFeed.Type],
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
-  ) -> [DecoderSource: [String: AnyDecoding]] {
+  ) -> [DecoderSource: [String: any AnyDecoding]] {
     types.map { type -> (DecoderSource, AnyDecoding) in
       let source = type.source
       let decoder = Self.createDecoder(
@@ -83,11 +88,11 @@ extension SynDecoder {
   }
 
   internal static func createDecoder(
-    for source: DecoderSetup,
+    for source: any DecoderSetup,
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
-  ) -> TypeDecoder {
-    let setup = source as? CustomDecoderSetup
+  ) -> any TypeDecoder {
+    let setup = source as? any CustomDecoderSetup
     switch (source.source, setup?.setup(decoder:)) {
     case let (.xml, .some(setup)):
       let xml = XMLDecoder()

@@ -1,10 +1,14 @@
-import Foundation
-
 @testable import SyndiKit
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 extension Content {
   internal enum Directories {
-    static let data = URL(fileURLWithPath: #file)
+    static let data = URL(fileURLWithPath: #filePath)
       .deletingLastPathComponent()
       .deletingLastPathComponent()
       .deletingLastPathComponent()

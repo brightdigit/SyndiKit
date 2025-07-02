@@ -27,8 +27,15 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
 import XMLCoder
+
+#if swift(<5.7)
+  import Foundation
+#elseif swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 extension RSSItem {
   /// Initializes a new ``RSSItem`` instance with property sets.

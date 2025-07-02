@@ -1,7 +1,12 @@
-import Foundation
 import XMLCoder
 
 @testable import SyndiKit
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 enum Content {
   typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
@@ -21,7 +26,9 @@ enum Content {
 
   @available(macOS 13.0, *)
   static let synDecoder = SynDecoder()
-  static let xmlDecoder = XMLCoder.XMLDecoder()
+  static var xmlDecoder: XMLCoder.XMLDecoder {
+    XMLCoder.XMLDecoder()
+  }
 
   @available(macOS 13.0, *)
   static let xmlFeeds = try! Content.resultDictionaryFrom(

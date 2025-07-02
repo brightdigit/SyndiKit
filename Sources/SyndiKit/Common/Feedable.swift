@@ -27,7 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<5.7)
+  @preconcurrency import Foundation
+#elseif swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 /// Basic abstract Feed
 /// ## Topics

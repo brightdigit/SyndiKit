@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 extension PodcastLocation {
   /// A ``struct`` representing a geographic URI for a podcast location.
