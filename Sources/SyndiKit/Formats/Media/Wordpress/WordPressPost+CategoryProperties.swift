@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+CategoryProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,15 +28,26 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
 internal import Foundation
 #endif
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+extension WordPressPost {
+  /// A struct containing category properties for creating a WordPress post.
+  public struct CategoryProperties: Sendable {
+    /// The tags associated with the post.
+    public let tags: [String]
+
+    /// The categories associated with the post.
+    public let categories: [String]
+
+    /// Initializes a CategoryProperties instance with tags and categories.
+    public init(tags: [String], categories: [String]) {
+      self.tags = tags
+      self.categories = categories
+    }
+  }
 }

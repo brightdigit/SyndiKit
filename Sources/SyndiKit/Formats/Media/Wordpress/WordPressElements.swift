@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressElements.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,16 +27,5 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#elseif swift(<6.1)
-  import Foundation
-#else
-internal import Foundation
-#endif
-
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
-}
+/// A namespace for WordPress related elements.
+public enum WordPressElements: Sendable {}

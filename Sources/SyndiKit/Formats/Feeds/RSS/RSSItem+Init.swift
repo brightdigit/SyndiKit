@@ -209,50 +209,60 @@ extension RSSItem {
     mediaContent: AtomMedia? = nil,
     mediaThumbnail: AtomMedia? = nil
   ) {
-    self.title = title
-    self.link = link
-    self.description = description.map(CData.init)
-    self.guid = guid
-    self.pubDate = pubDate
-    self.contentEncoded = contentEncoded.map(CData.init)
-    self.categoryTerms = categoryTerms
-    self.content = content
+    let itunes = ITunesProperties(
+      itunesTitle: itunesTitle,
+      itunesEpisode: itunesEpisode,
+      itunesAuthor: itunesAuthor,
+      itunesSubtitle: itunesSubtitle,
+      itunesSummary: itunesSummary,
+      itunesExplicit: itunesExplicit,
+      itunesDuration: itunesDuration,
+      itunesImage: itunesImage
+    )
 
-    self.itunesTitle = itunesTitle
-    self.itunesEpisode = itunesEpisode.map(iTunesEpisode.init)
-    self.itunesAuthor = itunesAuthor
-    self.itunesSubtitle = itunesSubtitle
-    self.itunesSummary = itunesSummary
-    self.itunesExplicit = itunesExplicit
-    self.itunesDuration = itunesDuration.map(iTunesDuration.init)
-    self.itunesImage = itunesImage
+    let podcast = PodcastProperties(
+      people: podcastPeople,
+      transcripts: podcastTranscripts,
+      chapters: podcastChapters,
+      soundbites: podcastSoundbites,
+      season: podcastSeason
+    )
 
-    self.podcastPeople = podcastPeople
-    self.podcastTranscripts = podcastTranscripts
-    self.podcastChapters = podcastChapters
-    self.podcastSoundbites = podcastSoundbites
-    self.podcastSeason = podcastSeason
+    let wordPress = WordPressProperties(
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostPassword: wpPostPassword,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpPostDateGMT: wpPostDateGMT,
+      wpModifiedDate: wpModifiedDate,
+      wpModifiedDateGMT: wpModifiedDateGMT,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType,
+      wpPostMeta: wpPostMeta,
+      wpAttachmentURL: wpAttachmentURL
+    )
 
-    self.enclosure = enclosure
-    self.creators = creators
-
-    self.wpCommentStatus = wpCommentStatus.map(CData.init)
-    self.wpPingStatus = wpPingStatus.map(CData.init)
-    self.wpStatus = wpStatus.map(CData.init)
-    self.wpPostParent = wpPostParent
-    self.wpMenuOrder = wpMenuOrder
-    self.wpIsSticky = wpIsSticky
-    self.wpPostPassword = wpPostPassword.map(CData.init)
-    self.wpPostID = wpPostID
-    self.wpPostDate = wpPostDate
-    self.wpPostDateGMT = wpPostDateGMT
-    self.wpModifiedDate = wpModifiedDate
-    self.wpModifiedDateGMT = wpModifiedDateGMT
-    self.wpPostName = wpPostName.map(CData.init)
-    self.wpPostType = wpPostType.map(CData.init)
-    self.wpPostMeta = wpPostMeta
-    self.wpAttachmentURL = wpAttachmentURL
-    self.mediaContent = mediaContent
-    self.mediaThumbnail = mediaThumbnail
+    self.init(
+      title: title,
+      link: link,
+      description: description,
+      guid: guid,
+      pubDate: pubDate,
+      contentEncoded: contentEncoded,
+      categoryTerms: categoryTerms,
+      content: content,
+      itunes: itunes,
+      podcast: podcast,
+      enclosure: enclosure,
+      creators: creators,
+      wordPress: wordPress,
+      mediaContent: mediaContent,
+      mediaThumbnail: mediaThumbnail
+    )
   }
 }

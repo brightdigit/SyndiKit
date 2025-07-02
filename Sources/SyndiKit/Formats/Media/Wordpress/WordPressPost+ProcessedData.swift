@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+ProcessedData.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,15 +28,29 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
 internal import Foundation
 #endif
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+extension WordPressPost {
+  /// A struct containing processed category and meta data for creating a WordPress post.
+  public struct ProcessedData: Sendable {
+    /// Dictionary of categories grouped by domain.
+    public let categoryDictionary: [String: [RSSItemCategory]]
+
+    /// Dictionary of meta data with key-value pairs.
+    public let metaDictionary: [String: String]
+
+    /// Initializes a ProcessedData instance with category and meta dictionaries.
+    public init(
+      categoryDictionary: [String: [RSSItemCategory]],
+      metaDictionary: [String: String]
+    ) {
+      self.categoryDictionary = categoryDictionary
+      self.metaDictionary = metaDictionary
+    }
+  }
 }

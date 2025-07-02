@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  Entryable+WordPressPost.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,16 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#elseif swift(<6.1)
-  import Foundation
-#else
-internal import Foundation
-#endif
+extension Entryable {
+  /// Returns a WordPress post if the entry is an RSS item.
+  public var wpPost: WordPressPost? {
+    guard let rssItem = self as? RSSItem else {
+      return nil
+    }
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+    return try? WordPressPost(item: rssItem)
+  }
 }

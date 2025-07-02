@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+MetaProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,15 +28,22 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
 internal import Foundation
 #endif
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+extension WordPressPost {
+  /// A struct containing meta properties for creating a WordPress post.
+  public struct MetaProperties: Sendable {
+    /// The meta data dictionary with key-value pairs.
+    public let meta: [String: String]
+
+    /// Initializes a MetaProperties instance with meta data.
+    public init(meta: [String: String]) {
+      self.meta = meta
+    }
+  }
 }

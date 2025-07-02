@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+Hashable.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,16 +27,12 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#elseif swift(<6.1)
-  import Foundation
-#else
-internal import Foundation
-#endif
+extension WordPressPost: Hashable {
+  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
+    lhs.id == rhs.id
+  }
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 }

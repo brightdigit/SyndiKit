@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+ProcessedFields.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,15 +28,49 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
-internal import Foundation
+  public import Foundation
 #endif
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+extension WordPressPost {
+  /// A struct containing processed optional fields for creating a WordPress post.
+  public struct ProcessedFields: Sendable {
+    /// The category terms associated with the post.
+    public let categoryTerms: [RSSItemCategory]
+
+    /// The meta data associated with the post.
+    public let meta: [WordPressElements.PostMeta]
+
+    /// The publication date of the post.
+    public let pubDate: Date?
+
+    /// The modified date in GMT.
+    public let modifiedDateGMT: Date?
+
+    /// The post date in GMT.
+    public let postDateGMT: Date?
+
+    /// The attachment URL of the post.
+    public let attachmentURL: URL?
+
+    /// Initializes a ProcessedFields instance with optional fields.
+    public init(
+      categoryTerms: [RSSItemCategory],
+      meta: [WordPressElements.PostMeta],
+      pubDate: Date?,
+      modifiedDateGMT: Date?,
+      postDateGMT: Date?,
+      attachmentURL: URL?
+    ) {
+      self.categoryTerms = categoryTerms
+      self.meta = meta
+      self.pubDate = pubDate
+      self.modifiedDateGMT = modifiedDateGMT
+      self.postDateGMT = postDateGMT
+      self.attachmentURL = attachmentURL
+    }
+  }
 }

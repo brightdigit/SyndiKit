@@ -35,14 +35,6 @@
   public import Foundation
 #endif
 
-/// A namespace for WordPress related elements.
-public enum WordPressElements: Sendable {}
-
-/// An error type representing a missing field in a WordPress post.
-public enum WordPressError: Error, Equatable, Sendable {
-  case missingField(WordPressPost.Field)
-}
-
 /// A struct representing a WordPress post.
 public struct WordPressPost: Sendable {
   /// The type of the post.
@@ -147,25 +139,91 @@ public struct WordPressPost: Sendable {
 
   /// The attachment URL of the post.
   public let attachmentURL: URL?
-}
 
-extension WordPressPost: Hashable {
-  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.id == rhs.id
+  /// Initializes a WordPressPost instance from an RSSItem.
+  ///
+  /// - Parameter item: The RSSItem to initialize from.
+  /// - Throws: `WordPressError.missingField` if any required field is missing.
+  public init(item: RSSItem) throws {
+    let validatedFields = try Validator.validateRequiredFields(item: item)
+    let processedFields = Processor.processOptionalFields(item: item)
+
+    self = Processor.createWordPressPost(
+      validatedFields: validatedFields,
+      processedFields: processedFields
+    )
   }
 
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-  }
-}
-
-extension Entryable {
-  /// Returns a WordPress post if the entry is an RSS item.
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
+  /// Initializes a WordPressPost instance with all properties.
+  ///
+  /// - Parameters:
+  ///   - name: The name of the post.
+  ///   - title: The title of the post.
+  ///   - type: The type of the post.
+  ///   - link: The link URL of the post.
+  ///   - pubDate: The publication date of the post.
+  ///   - creator: The creator of the post.
+  ///   - body: The body content of the post.
+  ///   - tags: The tags associated with the post.
+  ///   - categories: The categories associated with the post.
+  ///   - meta: The meta data dictionary.
+  ///   - status: The status of the post.
+  ///   - commentStatus: The comment status of the post.
+  ///   - pingStatus: The ping status of the post.
+  ///   - parentID: The parent ID of the post.
+  ///   - menuOrder: The menu order of the post.
+  ///   - id: The ID of the post.
+  ///   - isSticky: Whether the post is sticky.
+  ///   - postDate: The post date.
+  ///   - postDateGMT: The post date in GMT.
+  ///   - modifiedDate: The modified date.
+  ///   - modifiedDateGMT: The modified date in GMT.
+  ///   - attachmentURL: The attachment URL of the post.
+  public init(
+    name: String,
+    title: String,
+    type: PostType,
+    link: URL,
+    pubDate: Date?,
+    creator: String,
+    body: String,
+    tags: [String],
+    categories: [String],
+    meta: [String: String],
+    status: Status,
+    commentStatus: CommentStatus,
+    pingStatus: PingStatus,
+    parentID: Int?,
+    menuOrder: Int?,
+    id: Int,
+    isSticky: Bool,
+    postDate: Date,
+    postDateGMT: Date?,
+    modifiedDate: Date,
+    modifiedDateGMT: Date?,
+    attachmentURL: URL?
+  ) {
+    self.name = name
+    self.title = title
+    self.type = type
+    self.link = link
+    self.pubDate = pubDate
+    self.creator = creator
+    self.body = body
+    self.tags = tags
+    self.categories = categories
+    self.meta = meta
+    self.status = status
+    self.commentStatus = commentStatus
+    self.pingStatus = pingStatus
+    self.parentID = parentID
+    self.menuOrder = menuOrder
+    self.id = id
+    self.isSticky = isSticky
+    self.postDate = postDate
+    self.postDateGMT = postDateGMT
+    self.modifiedDate = modifiedDate
+    self.modifiedDateGMT = modifiedDateGMT
+    self.attachmentURL = attachmentURL
   }
 }

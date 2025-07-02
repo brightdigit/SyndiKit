@@ -32,7 +32,7 @@
 #elseif swift(<6.1)
   import Foundation
 #else
-  public import Foundation
+internal import Foundation
 #endif
 
 extension StringProtocol {

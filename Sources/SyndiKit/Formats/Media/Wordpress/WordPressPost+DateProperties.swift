@@ -1,5 +1,5 @@
 //
-//  OutlineType.swift
+//  WordPressPost+DateProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,15 +28,39 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
-internal import Foundation
+  public import Foundation
 #endif
 
-public enum OutlineType: String, Codable, Sendable {
-  case rss
-  case link
-  case include
+extension WordPressPost {
+  /// A struct containing date properties for creating a WordPress post.
+  public struct DateProperties: Sendable {
+    /// The post date.
+    public let postDate: Date
+
+    /// The post date in GMT.
+    public let postDateGMT: Date?
+
+    /// The modified date.
+    public let modifiedDate: Date
+
+    /// The modified date in GMT.
+    public let modifiedDateGMT: Date?
+
+    /// Initializes a DateProperties instance with date information.
+    public init(
+      postDate: Date,
+      postDateGMT: Date?,
+      modifiedDate: Date,
+      modifiedDateGMT: Date?
+    ) {
+      self.postDate = postDate
+      self.postDateGMT = postDateGMT
+      self.modifiedDate = modifiedDate
+      self.modifiedDateGMT = modifiedDateGMT
+    }
+  }
 }
