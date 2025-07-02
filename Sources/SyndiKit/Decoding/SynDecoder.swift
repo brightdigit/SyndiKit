@@ -27,8 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
 import XMLCoder
+
+#if swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 /// An object that decodes instances of Feedable from JSON or XML objects.
 /// ## Topics

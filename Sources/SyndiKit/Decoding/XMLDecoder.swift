@@ -27,8 +27,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
 import XMLCoder
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 internal struct XMLDecoder: TypeDecoder {
   internal let getCoreOfficeXMLDecoder: @Sendable () -> XMLCoder.XMLDecoder

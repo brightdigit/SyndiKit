@@ -1,7 +1,12 @@
-import Foundation
 import XCTest
 
 @testable import SyndiKit
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 final class WordpressTests: XCTestCase {
   static let baseSiteURLs: [String: URL] = [

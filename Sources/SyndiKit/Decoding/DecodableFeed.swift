@@ -27,19 +27,23 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 internal protocol DecodableFeed: Decodable, Feedable {
-  static var source: DecoderSetup { get }
+  static var source: any DecoderSetup { get }
   static var label: String { get }
 }
 
 extension DecodableFeed {
-  internal static func decoding(using decoder: TypeDecoder) -> Decoding<Self> {
+  internal static func decoding(using decoder: any TypeDecoder) -> Decoding<Self> {
     Decoding(for: Self.self, using: decoder)
   }
 
-  internal static func anyDecoding(using decoder: TypeDecoder) -> AnyDecoding {
+  internal static func anyDecoding(using decoder: any TypeDecoder) -> AnyDecoding {
     Self.decoding(using: decoder)
   }
 }

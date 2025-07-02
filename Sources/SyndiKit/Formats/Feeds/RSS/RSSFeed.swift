@@ -27,7 +27,11 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+#if swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 /// A struct representing an Atom category.
 /// RSS is a Web content syndication format.
@@ -50,7 +54,7 @@ public struct RSSFeed: Sendable {
 }
 
 extension RSSFeed: DecodableFeed {
-  internal static let source: DecoderSetup = DecoderSource.xml
+  internal static let source: any DecoderSetup = DecoderSource.xml
   public static let label: String = "RSS"
 
   public var youtubeChannelID: String? {
@@ -64,7 +68,7 @@ extension RSSFeed: DecodableFeed {
     return [author]
   }
 
-  public var children: [Entryable] {
+  public var children: [any Entryable] {
     channel.items
   }
 
