@@ -32,7 +32,7 @@
 #elseif swift(<6.1)
   import Foundation
 #else
-internal import Foundation
+  internal import Foundation
 #endif
 
 // swift-format-ignore: TypeNamesShouldBeCapitalized

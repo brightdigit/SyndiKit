@@ -1,5 +1,5 @@
 //
-//  StringProtocol.swift
+//  WordPressPost+Init.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -28,31 +28,25 @@
 //
 
 #if swift(<5.7)
-  import Foundation
+  @preconcurrency import Foundation
 #elseif swift(<6.1)
   import Foundation
 #else
-  internal import Foundation
+  public import Foundation
 #endif
 
-extension StringProtocol {
-  internal func asDouble() -> Double? {
-    Double(self)
-  }
+extension WordPressPost {
+  /// Initializes a WordPressPost instance from an RSSItem.
+  ///
+  /// - Parameter item: The RSSItem to initialize from.
+  /// - Throws: `WordPressError.missingField` if any required field is missing.
+  public init(item: RSSItem) throws {
+    let validatedFields = try ValidatedFields(item: item)
+    let processedFields = Processor.processOptionalFields(item: item)
 
-  internal func asInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(double)
-  }
-
-  internal func asExactInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(exactly: double)
+    self = Processor.createWordPressPost(
+      validatedFields: validatedFields,
+      processedFields: processedFields
+    )
   }
 }

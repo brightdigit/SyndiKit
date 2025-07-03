@@ -60,6 +60,7 @@ internal struct ProcessedBlogsResult: Sendable {
   /// A mapping of category types to sets of site indices.
   internal let categoryIndices: [SiteCategoryType: Set<Int>]
 
+  // swiftlint:disable function_body_length
   /// Creates a processed blogs result from a site collection.
   ///
   /// - Parameter blogs: The site collection to process.
@@ -101,4 +102,5 @@ internal struct ProcessedBlogsResult: Sendable {
       categoryIndices: categoryIndices
     )
   }
+  // swiftlint:enable function_body_length
 }

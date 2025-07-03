@@ -38,47 +38,6 @@
 extension WordPressPost {
   /// A struct responsible for validating required fields from an RSSItem.
   public struct Validator: Sendable {
-    /// Validates all required fields from an RSSItem
-    ///  and returns a ValidatedFields instance.
-    ///
-    /// - Parameter item: The RSSItem to validate.
-    /// - Returns: A ValidatedFields instance containing all validated required fields.
-    /// - Throws: WordPressError.missingField if any required field is missing.
-    public static func validateRequiredFields(item: RSSItem) throws -> ValidatedFields {
-      let name = try validateName(item)
-      let type = try validateType(item)
-      let creator = try validateCreator(item)
-      let body = try validateBody(item)
-      let status = try validateStatus(item)
-      let commentStatus = try validateCommentStatus(item)
-      let pingStatus = try validatePingStatus(item)
-      let parentID = try validateParentID(item)
-      let menuOrder = try validateMenuOrder(item)
-      let id = try validateID(item)
-      let isSticky = try validateIsSticky(item)
-      let postDate = try validatePostDate(item)
-      let modifiedDate = try validateModifiedDate(item)
-      let link = try validateLink(item)
-
-      return ValidatedFields(
-        name: name,
-        type: type,
-        creator: creator,
-        body: body,
-        status: status,
-        commentStatus: commentStatus,
-        pingStatus: pingStatus,
-        parentID: parentID,
-        menuOrder: menuOrder,
-        id: id,
-        isSticky: isSticky,
-        postDate: postDate,
-        modifiedDate: modifiedDate,
-        link: link,
-        title: item.title
-      )
-    }
-
     /// Validates the name field from an RSSItem.
     ///
     /// - Parameter item: The RSSItem to validate.
@@ -90,7 +49,6 @@ extension WordPressPost {
       }
       return name
     }
-
     /// Validates the type field from an RSSItem.
     ///
     /// - Parameter item: The RSSItem to validate.

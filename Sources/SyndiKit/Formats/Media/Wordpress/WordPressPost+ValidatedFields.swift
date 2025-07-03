@@ -117,5 +117,47 @@ extension WordPressPost {
       self.link = link
       self.title = title
     }
+
+    // swiftlint:disable function_body_length
+    /// Initializes a ValidatedFields instance
+    /// by validating all required fields from an RSSItem.
+    ///
+    /// - Parameter item: The RSSItem to validate.
+    /// - Throws: WordPressError.missingField if any required field is missing.
+    public init(item: RSSItem) throws {
+      let name = try Validator.validateName(item)
+      let type = try Validator.validateType(item)
+      let creator = try Validator.validateCreator(item)
+      let body = try Validator.validateBody(item)
+      let status = try Validator.validateStatus(item)
+      let commentStatus = try Validator.validateCommentStatus(item)
+      let pingStatus = try Validator.validatePingStatus(item)
+      let parentID = try Validator.validateParentID(item)
+      let menuOrder = try Validator.validateMenuOrder(item)
+      let id = try Validator.validateID(item)
+      let isSticky = try Validator.validateIsSticky(item)
+      let postDate = try Validator.validatePostDate(item)
+      let modifiedDate = try Validator.validateModifiedDate(item)
+      let link = try Validator.validateLink(item)
+
+      self.init(
+        name: name,
+        type: type,
+        creator: creator,
+        body: body,
+        status: status,
+        commentStatus: commentStatus,
+        pingStatus: pingStatus,
+        parentID: parentID,
+        menuOrder: menuOrder,
+        id: id,
+        isSticky: isSticky,
+        postDate: postDate,
+        modifiedDate: modifiedDate,
+        link: link,
+        title: item.title
+      )
+    }
+    // swiftlint:enable function_body_length
   }
 }

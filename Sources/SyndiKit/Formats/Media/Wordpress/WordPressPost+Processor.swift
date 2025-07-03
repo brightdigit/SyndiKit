@@ -32,7 +32,7 @@
 #elseif swift(<6.1)
   import Foundation
 #else
-internal import Foundation
+  internal import Foundation
 #endif
 
 extension WordPressPost {
@@ -64,17 +64,7 @@ extension WordPressPost {
     public static func processCategoryAndMetaData(
       processedFields: ProcessedFields
     ) -> ProcessedData {
-      let categoryDictionary = Dictionary( grouping: processedFields.categoryTerms.compactMap{ term in
-        term.domain.map{
-          ($0, term)
-        }
-      }) {
-        $0.0
-      }.mapValues{
-        $0.map{
-          $0.1
-        }
-      }
+      let categoryDictionary = processedFields.groupByDomain()
 
       let metaDictionary = Dictionary(grouping: processedFields.meta) { $0.key.value }
         .compactMapValues { $0.last?.value.value }

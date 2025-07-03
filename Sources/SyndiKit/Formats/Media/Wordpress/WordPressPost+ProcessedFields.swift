@@ -72,5 +72,27 @@ extension WordPressPost {
       self.postDateGMT = postDateGMT
       self.attachmentURL = attachmentURL
     }
+
+    internal func groupByDomain() -> [String: [RSSItemCategory]] {
+      let domainTermTuple = self
+        .categoryTerms
+        .compactMap { term -> (String, RSSItemCategory)? in
+          guard let domain = term.domain else {
+            return nil
+          }
+          return (domain, term)
+        }
+
+      return Dictionary(
+        grouping: domainTermTuple
+      ) {
+        $0.0
+      }
+      .mapValues {
+        $0.map {
+          $0.1
+        }
+      }
+    }
   }
 }

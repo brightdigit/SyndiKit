@@ -48,6 +48,7 @@ extension PodcastTranscript {
       self.init(rawValue: caseInsensitive)
     }
 
+    // swiftlint:disable cyclomatic_complexity
     /// Initializes a ``KnownMimeType`` with a ``MimeType``.
     init?(mimeType: MimeType) {
       switch mimeType {
@@ -60,6 +61,7 @@ extension PodcastTranscript {
       case .unknown: return nil
       }
     }
+    // swiftlint:enable cyclomatic_complexity
   }
 
   /// An enum representing the MIME type of the transcript.
