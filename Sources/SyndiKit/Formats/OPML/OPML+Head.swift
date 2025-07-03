@@ -34,6 +34,9 @@
 #endif
 
 extension OPML {
+  /// A struct representing the head section of an OPML document.
+  /// The head contains metadata about the OPML document including title, dates,
+  /// owner information, and window settings.
   public struct Head: Codable, Equatable, Sendable {
     public let title: String?
     public let dateCreated: String?

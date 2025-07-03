@@ -34,6 +34,9 @@
 #endif
 
 extension OPML {
+  /// A struct representing the body section of an OPML document.
+  /// The body contains the main outline elements that represent the hierarchical
+  /// structure.
   public struct Body: Codable, Equatable, Sendable {
     // swiftlint:disable:next nesting
     internal enum CodingKeys: String, CodingKey {

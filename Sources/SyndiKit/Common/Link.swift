@@ -34,6 +34,9 @@
 #else
   public import Foundation
 #endif
+
+/// A struct representing a link with a URL and optional relationship type.
+/// Used in various feed formats to represent hyperlinks with metadata.
 public struct Link: Codable, Sendable {
   public let href: URL
   public let rel: String?

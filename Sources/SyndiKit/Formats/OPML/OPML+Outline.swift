@@ -36,6 +36,10 @@
 #endif
 
 extension OPML {
+  /// A struct representing an outline element in an OPML document.
+  /// Outlines can represent feed subscriptions, categories, or other hierarchical
+  /// content. They can contain nested outlines and various metadata like URLs,
+  /// types, and descriptions.
   public struct Outline: Codable, Equatable, Sendable {
     public enum CodingKeys: String, CodingKey {
       case text

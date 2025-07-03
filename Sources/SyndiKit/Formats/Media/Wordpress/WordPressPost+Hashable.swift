@@ -28,10 +28,17 @@
 //
 
 extension WordPressPost: Hashable {
+  /// Compares two WordPressPost instances for equality based on their IDs.
+  /// - Parameters:
+  ///   - lhs: The left-hand side WordPressPost to compare.
+  ///   - rhs: The right-hand side WordPressPost to compare.
+  /// - Returns: `true` if the posts have the same ID, `false` otherwise.
   public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
     lhs.id == rhs.id
   }
 
+  /// Hashes the WordPressPost based on its ID.
+  /// - Parameter hasher: The hasher to use for combining the hash value.
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }

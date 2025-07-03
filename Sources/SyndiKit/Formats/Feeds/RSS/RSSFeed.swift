@@ -55,12 +55,15 @@ public struct RSSFeed: Sendable {
 
 extension RSSFeed: DecodableFeed {
   internal static let source: any DecoderSetup = DecoderSource.xml
+  /// The label identifying this feed type as "RSS".
   public static let label: String = "RSS"
 
+  /// The YouTube channel ID associated with this feed, if any.
   public var youtubeChannelID: String? {
     nil
   }
 
+  /// The authors of this feed, derived from the channel author.
   public var authors: [Author] {
     guard let author = channel.author else {
       return []
@@ -68,34 +71,43 @@ extension RSSFeed: DecodableFeed {
     return [author]
   }
 
+  /// The child entries of this feed, which are the RSS items.
   public var children: [any Entryable] {
     channel.items
   }
 
+  /// The title of this feed, derived from the channel title.
   public var title: String {
     channel.title
   }
 
+  /// The site URL of this feed, derived from the channel link.
   public var siteURL: URL? {
     channel.link
   }
 
+  /// The summary of this feed, derived from the channel description.
   public var summary: String? {
     channel.description
   }
 
+  /// The last updated date of this feed, derived from the channel last build date.
   public var updated: Date? {
     channel.lastBuildDate
   }
 
+  /// The copyright information for this feed, derived from the channel copyright.
   public var copyright: String? {
     channel.copyright
   }
 
+  /// The image URL of this feed, derived from the channel image link.
   public var image: URL? {
     channel.image?.link
   }
 
+  /// The syndication update information for this feed, derived from the channel
+  /// syndication.
   public var syndication: SyndicationUpdate? {
     channel.syndication
   }

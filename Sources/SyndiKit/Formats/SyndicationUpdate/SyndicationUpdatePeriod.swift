@@ -39,6 +39,12 @@
 public enum SyndicationUpdatePeriod: String, Codable, Sendable {
   case hourly, daily, weekly, monthly, yearly
 
+  /// Initializes a SyndicationUpdatePeriod from a decoder.
+  /// Trims whitespace and newlines from the decoded string before attempting to
+  /// create the enum value.
+  /// - Parameter decoder: The decoder to read from.
+  /// - Throws: `DecodingError.dataCorrupted` if the decoded string doesn't match
+  ///   any valid enum case.
   public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue =
