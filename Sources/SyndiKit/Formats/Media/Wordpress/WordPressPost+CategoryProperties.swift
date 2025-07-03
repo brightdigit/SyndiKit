@@ -1,5 +1,5 @@
 //
-//  SyndicationUpdatePeriod.swift
+//  WordPressPost+CategoryProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -35,30 +35,19 @@
   internal import Foundation
 #endif
 
-/// Describes the period over which the channel format is updated.
-public enum SyndicationUpdatePeriod: String, Codable, Sendable {
-  case hourly, daily, weekly, monthly, yearly
+extension WordPressPost {
+  /// A struct containing category properties for creating a WordPress post.
+  public struct CategoryProperties: Sendable {
+    /// The tags associated with the post.
+    public let tags: [String]
 
-  /// Initializes a SyndicationUpdatePeriod from a decoder.
-  /// Trims whitespace and newlines from the decoded string before attempting to
-  /// create the enum value.
-  /// - Parameter decoder: The decoder to read from.
-  /// - Throws: `DecodingError.dataCorrupted` if the decoded string doesn't match
-  ///   any valid enum case.
-  public init(from decoder: any Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    let stringValue =
-      try container
-      .decode(String.self)
-      .trimmingCharacters(in: .whitespacesAndNewlines)
-    guard let value = Self(rawValue: stringValue) else {
-      let context = DecodingError.Context(
-        codingPath: decoder.codingPath,
-        debugDescription: "Invalid Enum",
-        underlyingError: nil
-      )
-      throw DecodingError.dataCorrupted(context)
+    /// The categories associated with the post.
+    public let categories: [String]
+
+    /// Initializes a CategoryProperties instance with tags and categories.
+    public init(tags: [String], categories: [String]) {
+      self.tags = tags
+      self.categories = categories
     }
-    self = value
   }
 }

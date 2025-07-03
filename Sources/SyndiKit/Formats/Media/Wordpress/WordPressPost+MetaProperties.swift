@@ -1,5 +1,5 @@
 //
-//  SyndicationUpdatePeriod.swift
+//  WordPressPost+MetaProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -35,30 +35,15 @@
   internal import Foundation
 #endif
 
-/// Describes the period over which the channel format is updated.
-public enum SyndicationUpdatePeriod: String, Codable, Sendable {
-  case hourly, daily, weekly, monthly, yearly
+extension WordPressPost {
+  /// A struct containing meta properties for creating a WordPress post.
+  public struct MetaProperties: Sendable {
+    /// The meta data dictionary with key-value pairs.
+    public let meta: [String: String]
 
-  /// Initializes a SyndicationUpdatePeriod from a decoder.
-  /// Trims whitespace and newlines from the decoded string before attempting to
-  /// create the enum value.
-  /// - Parameter decoder: The decoder to read from.
-  /// - Throws: `DecodingError.dataCorrupted` if the decoded string doesn't match
-  ///   any valid enum case.
-  public init(from decoder: any Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    let stringValue =
-      try container
-      .decode(String.self)
-      .trimmingCharacters(in: .whitespacesAndNewlines)
-    guard let value = Self(rawValue: stringValue) else {
-      let context = DecodingError.Context(
-        codingPath: decoder.codingPath,
-        debugDescription: "Invalid Enum",
-        underlyingError: nil
-      )
-      throw DecodingError.dataCorrupted(context)
+    /// Initializes a MetaProperties instance with meta data.
+    public init(meta: [String: String]) {
+      self.meta = meta
     }
-    self = value
   }
 }

@@ -33,6 +33,10 @@
   internal import Foundation
 #endif
 
+/// A struct representing an OPML (Outline Processor Markup Language) document.
+/// OPML is an XML format for outlines that can be used to exchange subscription lists
+/// between feed readers. It consists of a version, head section with metadata,
+/// and body section with outline elements.
 public struct OPML: Codable, Equatable, Sendable {
   internal enum CodingKeys: String, CodingKey {
     case version

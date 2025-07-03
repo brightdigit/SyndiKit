@@ -149,9 +149,7 @@ extension PodcastLocation {
     private static func pathComponents(from string: String) throws -> [Substring] {
       let components = string.split(separator: ":")
 
-      guard
-        components[safe: 0] == "geo"
-      else {
+      guard components.first == "geo" else {
         throw DecodingError.dataCorrupted(
           codingKey: PodcastLocation.CodingKeys.geo,
           debugDescription: "Invalid prefix for geo attribute: \(string)"

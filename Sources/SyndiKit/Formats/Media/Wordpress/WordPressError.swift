@@ -1,5 +1,5 @@
 //
-//  StringProtocol.swift
+//  WordPressError.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,32 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#elseif swift(<6.1)
-  import Foundation
-#else
-  internal import Foundation
-#endif
-
-extension StringProtocol {
-  internal func asDouble() -> Double? {
-    Double(self)
-  }
-
-  internal func asInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(double)
-  }
-
-  internal func asExactInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(exactly: double)
-  }
+/// An error type representing a missing field in a WordPress post.
+public enum WordPressError: Error, Equatable, Sendable {
+  case missingField(WordPressPost.Field)
 }

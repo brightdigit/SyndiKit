@@ -33,6 +33,11 @@
   internal import Foundation
 #endif
 
+/// A struct representing a list of values that can be encoded/decoded as a
+/// comma-separated string. Useful for handling feed formats where multiple
+/// values are stored in a single string field.
+/// - Parameter Value: The type of values to store, must be LosslessStringConvertible,
+///   Equatable, and Sendable.
 public struct ListString<
   Value: LosslessStringConvertible & Equatable & Sendable
 >: Codable, Equatable, Sendable {

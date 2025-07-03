@@ -1,5 +1,5 @@
 //
-//  SyndicationUpdatePeriod.swift
+//  WordPressPost+Init.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -32,33 +32,21 @@
 #elseif swift(<6.1)
   import Foundation
 #else
-  internal import Foundation
+  public import Foundation
 #endif
 
-/// Describes the period over which the channel format is updated.
-public enum SyndicationUpdatePeriod: String, Codable, Sendable {
-  case hourly, daily, weekly, monthly, yearly
+extension WordPressPost {
+  /// Initializes a WordPressPost instance from an RSSItem.
+  ///
+  /// - Parameter item: The RSSItem to initialize from.
+  /// - Throws: `WordPressError.missingField` if any required field is missing.
+  public init(item: RSSItem) throws {
+    let validatedFields = try ValidatedFields(item: item)
+    let processedFields = Processor.processOptionalFields(item: item)
 
-  /// Initializes a SyndicationUpdatePeriod from a decoder.
-  /// Trims whitespace and newlines from the decoded string before attempting to
-  /// create the enum value.
-  /// - Parameter decoder: The decoder to read from.
-  /// - Throws: `DecodingError.dataCorrupted` if the decoded string doesn't match
-  ///   any valid enum case.
-  public init(from decoder: any Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    let stringValue =
-      try container
-      .decode(String.self)
-      .trimmingCharacters(in: .whitespacesAndNewlines)
-    guard let value = Self(rawValue: stringValue) else {
-      let context = DecodingError.Context(
-        codingPath: decoder.codingPath,
-        debugDescription: "Invalid Enum",
-        underlyingError: nil
-      )
-      throw DecodingError.dataCorrupted(context)
-    }
-    self = value
+    self = Processor.createWordPressPost(
+      validatedFields: validatedFields,
+      processedFields: processedFields
+    )
   }
 }

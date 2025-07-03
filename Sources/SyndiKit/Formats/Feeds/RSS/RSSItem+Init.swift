@@ -38,89 +38,7 @@ import XMLCoder
 #endif
 
 extension RSSItem {
-  /// Initializes a new ``RSSItem`` instance with property sets.
-  ///
-  /// - Parameters:
-  ///   - title: The title of the RSS item.
-  ///   - link: The URL link of the RSS item.
-  ///   - description: The description of the RSS item.
-  ///   - guid: The globally unique identifier of the RSS item.
-  ///   - pubDate: The publication date of the RSS item.
-  ///   - contentEncoded: The encoded content of the RSS item.
-  ///   - categoryTerms: The category terms of the RSS item.
-  ///   - content: The content of the RSS item.
-  ///   - itunes: The iTunes properties of the RSS item.
-  ///   - podcast: The podcast properties of the RSS item.
-  ///   - enclosure: The enclosure of the RSS item.
-  ///   - creators: The creators of the RSS item.
-  ///   - wordPress: The WordPress properties of the RSS item.
-  ///   - mediaContent: The media content of the RSS item.
-  ///   - mediaThumbnail: The media thumbnail of the RSS item.
-  /// - SeeAlso: ``EntryCategory``
-  internal init(
-    title: String,
-    link: URL?,
-    description: String?,
-    guid: EntryID,
-    pubDate: Date? = nil,
-    contentEncoded: String? = nil,
-    categoryTerms: [RSSItemCategory] = [],
-    content: String? = nil,
-    itunes: ITunesProperties,
-    podcast: PodcastProperties,
-    enclosure: Enclosure? = nil,
-    creators: [String] = [],
-    wordPress: WordPressProperties,
-    mediaContent: AtomMedia? = nil,
-    mediaThumbnail: AtomMedia? = nil
-  ) {
-    self.title = title
-    self.link = link
-    self.description = description.map(CData.init)
-    self.guid = guid
-    self.pubDate = pubDate
-    self.contentEncoded = contentEncoded.map(CData.init)
-    self.categoryTerms = categoryTerms
-    self.content = content
-
-    self.itunesTitle = itunes.title
-    self.itunesEpisode = itunes.episode
-    self.itunesAuthor = itunes.author
-    self.itunesSubtitle = itunes.subtitle
-    self.itunesSummary = itunes.summary
-    self.itunesExplicit = itunes.explicit
-    self.itunesDuration = itunes.duration
-    self.itunesImage = itunes.image
-
-    self.podcastPeople = podcast.people
-    self.podcastTranscripts = podcast.transcripts
-    self.podcastChapters = podcast.chapters
-    self.podcastSoundbites = podcast.soundbites
-    self.podcastSeason = podcast.season
-
-    self.enclosure = enclosure
-    self.creators = creators
-
-    self.wpCommentStatus = wordPress.commentStatus
-    self.wpPingStatus = wordPress.pingStatus
-    self.wpStatus = wordPress.status
-    self.wpPostParent = wordPress.postParent
-    self.wpMenuOrder = wordPress.menuOrder
-    self.wpIsSticky = wordPress.isSticky
-    self.wpPostPassword = wordPress.postPassword
-    self.wpPostID = wordPress.postID
-    self.wpPostDate = wordPress.postDate
-    self.wpPostDateGMT = wordPress.postDateGMT
-    self.wpModifiedDate = wordPress.modifiedDate
-    self.wpModifiedDateGMT = wordPress.modifiedDateGMT
-    self.wpPostName = wordPress.postName
-    self.wpPostType = wordPress.postType
-    self.wpPostMeta = wordPress.postMeta
-    self.wpAttachmentURL = wordPress.attachmentURL
-    self.mediaContent = mediaContent
-    self.mediaThumbnail = mediaThumbnail
-  }
-
+  // swiftlint:disable function_body_length
   /// Initializes a new ``RSSItem`` instance with individual properties.
   ///
   /// - Parameters:
@@ -209,50 +127,61 @@ extension RSSItem {
     mediaContent: AtomMedia? = nil,
     mediaThumbnail: AtomMedia? = nil
   ) {
-    self.title = title
-    self.link = link
-    self.description = description.map(CData.init)
-    self.guid = guid
-    self.pubDate = pubDate
-    self.contentEncoded = contentEncoded.map(CData.init)
-    self.categoryTerms = categoryTerms
-    self.content = content
+    let itunes = ITunesProperties(
+      itunesTitle: itunesTitle,
+      itunesEpisode: itunesEpisode,
+      itunesAuthor: itunesAuthor,
+      itunesSubtitle: itunesSubtitle,
+      itunesSummary: itunesSummary,
+      itunesExplicit: itunesExplicit,
+      itunesDuration: itunesDuration,
+      itunesImage: itunesImage
+    )
 
-    self.itunesTitle = itunesTitle
-    self.itunesEpisode = itunesEpisode.map(iTunesEpisode.init)
-    self.itunesAuthor = itunesAuthor
-    self.itunesSubtitle = itunesSubtitle
-    self.itunesSummary = itunesSummary
-    self.itunesExplicit = itunesExplicit
-    self.itunesDuration = itunesDuration.map(iTunesDuration.init)
-    self.itunesImage = itunesImage
+    let podcast = PodcastProperties(
+      people: podcastPeople,
+      transcripts: podcastTranscripts,
+      chapters: podcastChapters,
+      soundbites: podcastSoundbites,
+      season: podcastSeason
+    )
 
-    self.podcastPeople = podcastPeople
-    self.podcastTranscripts = podcastTranscripts
-    self.podcastChapters = podcastChapters
-    self.podcastSoundbites = podcastSoundbites
-    self.podcastSeason = podcastSeason
+    let wordPress = WordPressProperties(
+      wpCommentStatus: wpCommentStatus,
+      wpPingStatus: wpPingStatus,
+      wpStatus: wpStatus,
+      wpPostParent: wpPostParent,
+      wpMenuOrder: wpMenuOrder,
+      wpIsSticky: wpIsSticky,
+      wpPostPassword: wpPostPassword,
+      wpPostID: wpPostID,
+      wpPostDate: wpPostDate,
+      wpPostDateGMT: wpPostDateGMT,
+      wpModifiedDate: wpModifiedDate,
+      wpModifiedDateGMT: wpModifiedDateGMT,
+      wpPostName: wpPostName,
+      wpPostType: wpPostType,
+      wpPostMeta: wpPostMeta,
+      wpAttachmentURL: wpAttachmentURL
+    )
 
-    self.enclosure = enclosure
-    self.creators = creators
-
-    self.wpCommentStatus = wpCommentStatus.map(CData.init)
-    self.wpPingStatus = wpPingStatus.map(CData.init)
-    self.wpStatus = wpStatus.map(CData.init)
-    self.wpPostParent = wpPostParent
-    self.wpMenuOrder = wpMenuOrder
-    self.wpIsSticky = wpIsSticky
-    self.wpPostPassword = wpPostPassword.map(CData.init)
-    self.wpPostID = wpPostID
-    self.wpPostDate = wpPostDate
-    self.wpPostDateGMT = wpPostDateGMT
-    self.wpModifiedDate = wpModifiedDate
-    self.wpModifiedDateGMT = wpModifiedDateGMT
-    self.wpPostName = wpPostName.map(CData.init)
-    self.wpPostType = wpPostType.map(CData.init)
-    self.wpPostMeta = wpPostMeta
-    self.wpAttachmentURL = wpAttachmentURL
-    self.mediaContent = mediaContent
-    self.mediaThumbnail = mediaThumbnail
+    self.init(
+      title: title,
+      link: link,
+      description: description,
+      guid: guid,
+      pubDate: pubDate,
+      contentEncoded: contentEncoded,
+      categoryTerms: categoryTerms,
+      content: content,
+      itunes: itunes,
+      podcast: podcast,
+      enclosure: enclosure,
+      creators: creators,
+      wordPress: wordPress,
+      mediaContent: mediaContent,
+      mediaThumbnail: mediaThumbnail
+    )
   }
+  // swiftlint:enable function_body_length
 }

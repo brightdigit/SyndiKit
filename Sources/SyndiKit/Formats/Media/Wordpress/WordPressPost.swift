@@ -35,14 +35,6 @@
   public import Foundation
 #endif
 
-/// A namespace for WordPress related elements.
-public enum WordPressElements: Sendable {}
-
-/// An error type representing a missing field in a WordPress post.
-public enum WordPressError: Error, Equatable, Sendable {
-  case missingField(WordPressPost.Field)
-}
-
 /// A struct representing a WordPress post.
 public struct WordPressPost: Sendable {
   /// The type of the post.
@@ -147,25 +139,4 @@ public struct WordPressPost: Sendable {
 
   /// The attachment URL of the post.
   public let attachmentURL: URL?
-}
-
-extension WordPressPost: Hashable {
-  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.id == rhs.id
-  }
-
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-  }
-}
-
-extension Entryable {
-  /// Returns a WordPress post if the entry is an RSS item.
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
-  }
 }

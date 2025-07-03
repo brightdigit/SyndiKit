@@ -37,6 +37,9 @@ import XMLCoder
   public import Foundation
 #endif
 
+/// A struct representing an RSS item/entry.
+/// RSS items contain the individual pieces of content within an RSS feed,
+/// including title, link, description, publication date, and various media attachments.
 public struct RSSItem: Codable, Sendable {
   public enum CodingKeys: String, CodingKey {
     case title
@@ -129,22 +132,28 @@ public struct RSSItem: Codable, Sendable {
 }
 
 extension RSSItem: Entryable {
+  /// The categories associated with this RSS item.
   public var categories: [EntryCategory] {
     categoryTerms
   }
 
+  /// The URL associated with this RSS item.
   public var url: URL? {
     link
   }
 
+  /// The HTML content of this RSS item, derived from content:encoded, content,
+  /// or description.
   public var contentHtml: String? {
     contentEncoded?.value ?? content ?? description?.value
   }
 
+  /// The summary of this RSS item, derived from the description.
   public var summary: String? {
     description?.value
   }
 
+  /// The authors of this RSS item, derived from creators or iTunes author.
   public var authors: [Author] {
     let creatorAuthors = creators.map { Author(name: $0) }
     if !creatorAuthors.isEmpty {
@@ -153,18 +162,23 @@ extension RSSItem: Entryable {
     return itunesAuthor.map { [Author(name: $0)] } ?? []
   }
 
+  /// The unique identifier for this RSS item.
   public var id: EntryID {
     guid
   }
 
+  /// The publication date of this RSS item.
   public var published: Date? {
     pubDate
   }
 
+  /// The media content associated with this RSS item, if it represents a podcast episode.
   public var media: MediaContent? {
     PodcastEpisodeProperties(rssItem: self).map(MediaContent.podcast)
   }
 
+  /// The image URL associated with this RSS item, derived from iTunes image,
+  /// media thumbnail, or media content.
   public var imageURL: URL? {
     itunesImage?.href ?? mediaThumbnail?.url ?? mediaContent?.url
   }

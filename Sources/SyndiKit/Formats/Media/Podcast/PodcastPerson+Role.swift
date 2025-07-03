@@ -49,6 +49,7 @@ extension PodcastPerson {
       self.init(rawValue: caseInsensitive.lowercased())
     }
 
+    // swiftlint:disable cyclomatic_complexity
     /// Initializes a ``KnownRole`` with a ``Role`` value.
     init?(role: Role) {
       switch role {
@@ -77,6 +78,7 @@ extension PodcastPerson {
         return nil
       }
     }
+    // swiftlint:enable cyclomatic_complexity
   }
 
   /// An enum representing the role of a podcast person.

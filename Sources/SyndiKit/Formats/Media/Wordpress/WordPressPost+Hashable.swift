@@ -1,5 +1,5 @@
 //
-//  StringProtocol.swift
+//  WordPressPost+Hashable.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,32 +27,19 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  import Foundation
-#elseif swift(<6.1)
-  import Foundation
-#else
-  internal import Foundation
-#endif
-
-extension StringProtocol {
-  internal func asDouble() -> Double? {
-    Double(self)
+extension WordPressPost: Hashable {
+  /// Compares two WordPressPost instances for equality based on their IDs.
+  /// - Parameters:
+  ///   - lhs: The left-hand side WordPressPost to compare.
+  ///   - rhs: The right-hand side WordPressPost to compare.
+  /// - Returns: `true` if the posts have the same ID, `false` otherwise.
+  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
+    lhs.id == rhs.id
   }
 
-  internal func asInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(double)
-  }
-
-  internal func asExactInt() -> Int? {
-    guard let double = Double(self) else {
-      return nil
-    }
-
-    return Int(exactly: double)
+  /// Hashes the WordPressPost based on its ID.
+  /// - Parameter hasher: The hasher to use for combining the hash value.
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
   }
 }
