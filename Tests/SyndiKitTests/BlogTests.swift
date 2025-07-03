@@ -1,8 +1,9 @@
-@testable import SyndiKit
 import XCTest
 import XMLCoder
 
-public final class BlogTests: XCTestCase {
+@testable import SyndiKit
+
+internal final class BlogTests: XCTestCase {
   func testBlogs() throws {
     let blogs = Content.blogs
     let sites = SiteCollectionDirectory(blogs: blogs)

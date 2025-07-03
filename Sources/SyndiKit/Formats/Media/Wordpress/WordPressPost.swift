@@ -1,15 +1,42 @@
-import Foundation
+//
+//  WordPressPost.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
 
-/// A namespace for WordPress related elements.
-public enum WordPressElements {}
-
-/// An error type representing a missing field in a WordPress post.
-public enum WordPressError: Error, Equatable {
-  case missingField(WordPressPost.Field)
-}
+#if swift(<5.7)
+  @preconcurrency import Foundation
+#elseif swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 /// A struct representing a WordPress post.
-public struct WordPressPost {
+public struct WordPressPost: Sendable {
   /// The type of the post.
   public typealias PostType = String
 
@@ -23,7 +50,7 @@ public struct WordPressPost {
   public typealias Status = String
 
   /// An enum representing the fields of a WordPress post.
-  public enum Field: Equatable {
+  public enum Field: Equatable, Sendable {
     case name
     case title
     case type
@@ -112,25 +139,4 @@ public struct WordPressPost {
 
   /// The attachment URL of the post.
   public let attachmentURL: URL?
-}
-
-extension WordPressPost: Hashable {
-  public static func == (lhs: WordPressPost, rhs: WordPressPost) -> Bool {
-    lhs.id == rhs.id
-  }
-
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-  }
-}
-
-extension Entryable {
-  /// Returns a WordPress post if the entry is an RSS item.
-  public var wpPost: WordPressPost? {
-    guard let rssItem = self as? RSSItem else {
-      return nil
-    }
-
-    return try? WordPressPost(item: rssItem)
-  }
 }

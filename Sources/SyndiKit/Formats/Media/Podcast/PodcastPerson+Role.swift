@@ -1,8 +1,41 @@
-import Foundation
+//
+//  PodcastPerson+Role.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 extension PodcastPerson {
   /// A private enum representing known roles for a podcast person.
-  private enum KnownRole: String {
+  private enum KnownRole: String, Codable, Sendable {
     case guest
     case host
     case editor
@@ -16,7 +49,7 @@ extension PodcastPerson {
       self.init(rawValue: caseInsensitive.lowercased())
     }
 
-    // swiftlint:disable function_body_length cyclomatic_complexity
+    // swiftlint:disable cyclomatic_complexity
     /// Initializes a ``KnownRole`` with a ``Role`` value.
     init?(role: Role) {
       switch role {
@@ -45,12 +78,11 @@ extension PodcastPerson {
         return nil
       }
     }
+    // swiftlint:enable cyclomatic_complexity
   }
 
-  // swiftlint:enable function_body_length cyclomatic_complexity
-
   /// An enum representing the role of a podcast person.
-  public enum Role: Codable, Equatable, RawRepresentable {
+  public enum Role: Codable, Equatable, RawRepresentable, Sendable {
     case guest
     case host
     case editor
@@ -91,26 +123,13 @@ extension PodcastPerson {
     // swiftlint:disable:next cyclomatic_complexity
     private init(knownRole: KnownRole) {
       switch knownRole {
-      case .guest:
-        self = .guest
-
-      case .host:
-        self = .host
-
-      case .editor:
-        self = .editor
-
-      case .writer:
-        self = .writer
-
-      case .designer:
-        self = .designer
-
-      case .composer:
-        self = .composer
-
-      case .producer:
-        self = .producer
+      case .guest: self = .guest
+      case .host: self = .host
+      case .editor: self = .editor
+      case .writer: self = .writer
+      case .designer: self = .designer
+      case .composer: self = .composer
+      case .producer: self = .producer
       }
     }
   }

@@ -1,13 +1,14 @@
-@testable import SyndiKit
 import XCTest
 import XMLCoder
+
+@testable import SyndiKit
 
 internal final class XMLStringIntTests: XCTestCase {
   internal func testDecodeValidXMLValue() throws {
     let expectedAge = 10
     let xmlStr = """
-    <age>\(expectedAge)</age>
-    """
+      <age>\(expectedAge)</age>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")
@@ -21,8 +22,8 @@ internal final class XMLStringIntTests: XCTestCase {
 
   internal func testDecodeInvalidXMLValue() throws {
     let xmlStr = """
-    <age>invalid</age>
-    """
+      <age>invalid</age>
+      """
 
     guard let data = xmlStr.data(using: .utf8) else {
       XCTFail("Expected data out of \(xmlStr)")

@@ -1,5 +1,39 @@
-import Foundation
+//
+//  SynDecoder.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
 import XMLCoder
+
+#if swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
 
 /// An object that decodes instances of Feedable from JSON or XML objects.
 /// ## Topics
@@ -11,86 +45,58 @@ import XMLCoder
 /// ### Decoding
 ///
 /// - ``decode(_:)``
-public class SynDecoder {
+@available(macOS 13.0, *)
+public final class SynDecoder: Sendable {
   private static let defaultTypes: [DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
-    JSONFeed.self
+    JSONFeed.self,
   ]
 
-  private let defaultJSONDecoderSetup: (JSONDecoder) -> Void
-  private let defaultXMLDecoderSetup: (XMLDecoder) -> Void
+  private let defaultJSONDecoderSetup: @Sendable (JSONDecoder) -> Void
+  private let defaultXMLDecoderSetup: @Sendable (XMLCoder.XMLDecoder) -> Void
   private let types: [DecodableFeed.Type]
 
-  private lazy var defaultXMLDecoder: XMLDecoder = {
-    let decoder = XMLDecoder()
-    self.defaultXMLDecoderSetup(decoder)
-    return decoder
-  }()
+  private let defaultXMLDecoder: XMLDecoder
 
-  private lazy var defaultJSONDecoder: JSONDecoder = {
-    let decoder = JSONDecoder()
-    self.defaultJSONDecoderSetup(decoder)
-    return decoder
-  }()
+  private let defaultJSONDecoder: JSONDecoder
 
-  // swiftlint:disable:next closure_body_length
-  private lazy var decodings: [DecoderSource: [String: AnyDecoding]] = {
-    let decodings = types.map { type -> (DecoderSource, AnyDecoding) in
-      let source = type.source
-      let setup = type.source as? CustomDecoderSetup
-      let decoder: TypeDecoder
-
-      switch (source.source, setup?.setup(decoder:)) {
-      case let (.xml, .some(setup)):
-        decoder = XMLDecoder()
-        setup(decoder)
-
-      case let (.json, .some(setup)):
-        decoder = JSONDecoder()
-        setup(decoder)
-
-      case (.xml, .none):
-        decoder = self.defaultXMLDecoder
-
-      case (.json, .none):
-        decoder = self.defaultJSONDecoder
-      }
-
-      return (source.source, type.anyDecoding(using: decoder))
-    }
-    return Dictionary(grouping: decodings) { $0.0 }
-      .mapValues { $0
-        .map { $0.1 }
-        .map { (type(of: $0).label, $0) }
-      }
-      .mapValues(Dictionary.init(uniqueKeysWithValues:))
-  }()
+  private let decodings: [DecoderSource: [String: AnyDecoding]]
 
   internal init(
     types: [DecodableFeed.Type]? = nil,
-    defaultJSONDecoderSetup: ((JSONDecoder) -> Void)? = nil,
-    defaultXMLDecoderSetup: ((XMLDecoder) -> Void)? = nil
+    defaultJSONDecoderSetup: (@Sendable (JSONDecoder) -> Void)? = nil,
+    defaultXMLDecoderSetup: (@Sendable (XMLCoder.XMLDecoder) -> Void)? = nil
   ) {
-    self.types = types ?? Self.defaultTypes
-    self.defaultJSONDecoderSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
-    self.defaultXMLDecoderSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+    let resolvedTypes = types ?? Self.defaultTypes
+    let jsonSetup = defaultJSONDecoderSetup ?? Self.setupJSONDecoder(_:)
+    let xmlSetup = defaultXMLDecoderSetup ?? Self.setupXMLDecoder(_:)
+
+    let xmlDecoder = XMLDecoder {
+      let decoder = XMLCoder.XMLDecoder()
+      xmlSetup(decoder)
+      return decoder
+    }
+    let jsonDecoder = JSONDecoder()
+    jsonSetup(jsonDecoder)
+
+    let decodings = Self.createDecodings(
+      from: resolvedTypes,
+      xmlDecoder: xmlDecoder,
+      jsonDecoder: jsonDecoder
+    )
+
+    self.types = resolvedTypes
+    self.defaultJSONDecoderSetup = jsonSetup
+    self.defaultXMLDecoderSetup = xmlSetup
+    defaultXMLDecoder = xmlDecoder
+    defaultJSONDecoder = jsonDecoder
+    self.decodings = decodings
   }
 
   /// Creates an instance of ``RSSDecoder``
   public convenience init() {
     self.init(types: nil, defaultJSONDecoderSetup: nil, defaultXMLDecoderSetup: nil)
-  }
-
-  internal static func setupJSONDecoder(_ decoder: JSONDecoder) {
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
-  }
-
-  internal static func setupXMLDecoder(_ decoder: XMLDecoder) {
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .custom(DateFormatterDecoder.RSS.decoder.decode(from:))
-    decoder.trimValueWhitespaces = false
   }
 
   /// Returns a ``Feedable`` object of the type you specify, decoded from a JSON object.
@@ -110,29 +116,11 @@ public class SynDecoder {
   /// print(feed.title) // Prints "Empower Apps"
   /// ```
   public func decode(_ data: Data) throws -> Feedable {
-    var errors = [String: DecodingError]()
-
-    guard let firstByte = data.first else {
-      throw DecodingError.dataCorrupted(
-        .init(codingPath: [], debugDescription: "Empty Data.")
-      )
-    }
-    guard let source = DecoderSource(rawValue: firstByte) else {
-      throw DecodingError.dataCorrupted(
-        .init(codingPath: [], debugDescription: "Unmatched First Byte: \(firstByte)")
-      )
-    }
+    let firstByte = try Self.getFirstByte(from: data)
+    let source = try Self.getSource(from: firstByte)
     guard let decodings = decodings[source] else {
-      throw DecodingError.failedAttempts(errors)
+      throw DecodingError.failedAttempts([:])
     }
-    for (label, decoding) in decodings {
-      do {
-        return try decoding.decodeFeed(data: data)
-      } catch let decodingError as DecodingError {
-        errors[label] = decodingError
-      }
-    }
-
-    throw DecodingError.failedAttempts(errors)
+    return try Self.decodeFeed(data, with: decodings)
   }
 }
