@@ -1,18 +1,19 @@
-@testable import SyndiKit
 import XCTest
+
+@testable import SyndiKit
 
 final class WordPressElementsTests: XCTestCase {
   func testCategoryEquatable() {
     let c1 = WordPressElements.Category(
       termID: 1,
-      niceName: .init(stringLiteral: "uncategorized"),
+      nicename: .init(stringLiteral: "uncategorized"),
       parent: .init(stringLiteral: ""),
       name: "Uncategorized"
     )
 
     let c2 = WordPressElements.Category(
       termID: 2,
-      niceName: .init(stringLiteral: "podcasting"),
+      nicename: .init(stringLiteral: "podcasting"),
       parent: .init(stringLiteral: ""),
       name: "Podcasting"
     )

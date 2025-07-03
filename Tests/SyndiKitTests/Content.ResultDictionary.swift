@@ -1,6 +1,12 @@
-import Foundation
-@testable import SyndiKit
 import XMLCoder
+
+@testable import SyndiKit
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 enum Content {
   typealias ResultDictionary<SuccessValueType> = [String: Result<SuccessValueType, Error>]
@@ -18,29 +24,34 @@ enum Content {
     }.map(Dictionary.init(uniqueKeysWithValues:)).get()
   }
 
+  @available(macOS 13.0, *)
   static let synDecoder = SynDecoder()
-  static let xmlDecoder = XMLDecoder()
+  static var xmlDecoder: XMLCoder.XMLDecoder {
+    XMLCoder.XMLDecoder()
+  }
 
+  @available(macOS 13.0, *)
   static let xmlFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.XML,
+    directoryURL: Directories.xml,
     by: Self.synDecoder.decode(_:)
   )
+  @available(macOS 13.0, *)
   static let jsonFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.JSON,
+    directoryURL: Directories.json,
     by: Self.synDecoder.decode(_:)
   )
   static let opml = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.OPML,
+    directoryURL: Directories.opml,
     by: Self.xmlDecoder.decodeOPML(_:)
   )
   static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
-    at: Directories.WordPress
+    at: Directories.wordPress
   )
-  static let blogs: SiteCollection = try! .init(contentsOf: Directories.data.appendingPathComponent("blogs.json"))
-  // swiftlint:enable force_try line_length
+  static let blogs: SiteCollection = try! .init(
+    contentsOf: Directories.data.appendingPathComponent("blogs.json"))
 }
 
-extension XMLDecoder {
+extension XMLCoder.XMLDecoder {
   func decodeOPML(_ data: Data) throws -> OPML {
     try decode(OPML.self, from: data)
   }

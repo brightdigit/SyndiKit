@@ -1,16 +1,21 @@
-import Foundation
 @testable import SyndiKit
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 extension Content {
   internal enum Directories {
-    static let data = URL(fileURLWithPath: #file)
+    static let data = URL(fileURLWithPath: #filePath)
       .deletingLastPathComponent()
       .deletingLastPathComponent()
       .deletingLastPathComponent()
       .appendingPathComponent("Data")
-    static let XML = data.appendingPathComponent("XML")
-    static let JSON = data.appendingPathComponent("JSON")
-    static let OPML = data.appendingPathComponent("OPML")
-    static let WordPress = data.appendingPathComponent("WordPress")
+    static let xml = data.appendingPathComponent("XML")
+    static let json = data.appendingPathComponent("JSON")
+    static let opml = data.appendingPathComponent("OPML")
+    static let wordPress = data.appendingPathComponent("WordPress")
   }
 }

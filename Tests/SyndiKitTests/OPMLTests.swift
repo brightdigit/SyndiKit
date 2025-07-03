@@ -1,5 +1,6 @@
-@testable import SyndiKit
 import XCTest
+
+@testable import SyndiKit
 
 internal final class OPMLTests: XCTestCase {
   internal func testSubscriptionList() throws {
@@ -12,7 +13,10 @@ internal final class OPMLTests: XCTestCase {
     let firstOutline = opml?.body.outlines.first
 
     XCTAssertEqual(firstOutline?.text, "CNET News.com")
-    XCTAssertEqual(firstOutline?.description, "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.")
+    XCTAssertEqual(
+      firstOutline?.description,
+      "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media."
+    )
     XCTAssertEqual(firstOutline?.htmlUrl, URL(string: "http://news.com.com/")!)
     XCTAssertEqual(firstOutline?.language, "unknown")
     XCTAssertEqual(firstOutline?.title, "CNET News.com")

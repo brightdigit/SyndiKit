@@ -1,5 +1,43 @@
-import Foundation
+//
+//  ListString.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
 
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
+
+/// A struct representing a list of values that can be encoded/decoded as a
+/// comma-separated string. Useful for handling feed formats where multiple
+/// values are stored in a single string field.
+/// - Parameter Value: The type of values to store, must be LosslessStringConvertible,
+///   Equatable, and Sendable.
 public struct ListString<
   Value: LosslessStringConvertible & Equatable & Sendable
 >: Codable, Equatable, Sendable {
@@ -9,11 +47,12 @@ public struct ListString<
     self.values = values
   }
 
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let listString = try container.decode(String.self)
     let strings = listString.components(separatedBy: ",")
-    let values = try strings
+    let values =
+      try strings
       .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
       .filter { !$0.isEmpty }
       .map(Self.createValueFrom)
@@ -30,7 +69,7 @@ public struct ListString<
     return value
   }
 
-  public func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: any Encoder) throws {
     var container = encoder.singleValueContainer()
     let strings = values.map(String.init)
     let listString = strings.joined(separator: ",")

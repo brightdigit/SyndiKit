@@ -1,10 +1,45 @@
-#if swift(>=5.7)
-@preconcurrency import Foundation
-#else
-import Foundation
-#endif
+//
+//  RSSItem.swift
+//  SyndiKit
+//
+//  Created by Leo Dion.
+//  Copyright © 2025 BrightDigit.
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the “Software”), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or
+//  sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+
 import XMLCoder
 
+#if swift(<5.7)
+  @preconcurrency import Foundation
+#elseif swift(<6.1)
+  import Foundation
+#else
+  public import Foundation
+#endif
+
+/// A struct representing an RSS item/entry.
+/// RSS items contain the individual pieces of content within an RSS feed,
+/// including title, link, description, publication date, and various media attachments.
 public struct RSSItem: Codable, Sendable {
   public enum CodingKeys: String, CodingKey {
     case title
@@ -97,48 +132,54 @@ public struct RSSItem: Codable, Sendable {
 }
 
 extension RSSItem: Entryable {
+  /// The categories associated with this RSS item.
   public var categories: [EntryCategory] {
     categoryTerms
   }
 
+  /// The URL associated with this RSS item.
   public var url: URL? {
     link
   }
 
+  /// The HTML content of this RSS item, derived from content:encoded, content,
+  /// or description.
   public var contentHtml: String? {
     contentEncoded?.value ?? content ?? description?.value
   }
 
+  /// The summary of this RSS item, derived from the description.
   public var summary: String? {
     description?.value
   }
 
+  /// The authors of this RSS item, derived from creators or iTunes author.
   public var authors: [Author] {
-    let authors = creators.map(Author.init)
-    guard authors.isEmpty else {
-      return authors
+    let creatorAuthors = creators.map { Author(name: $0) }
+    if !creatorAuthors.isEmpty {
+      return creatorAuthors
     }
-    guard let author = itunesAuthor.map(Author.init) else {
-      return []
-    }
-    return [author]
+    return itunesAuthor.map { [Author(name: $0)] } ?? []
   }
 
+  /// The unique identifier for this RSS item.
   public var id: EntryID {
     guid
   }
 
+  /// The publication date of this RSS item.
   public var published: Date? {
     pubDate
   }
 
+  /// The media content associated with this RSS item, if it represents a podcast episode.
   public var media: MediaContent? {
     PodcastEpisodeProperties(rssItem: self).map(MediaContent.podcast)
   }
 
+  /// The image URL associated with this RSS item, derived from iTunes image,
+  /// media thumbnail, or media content.
   public var imageURL: URL? {
-    itunesImage?.href ??
-      mediaThumbnail?.url ??
-      mediaContent?.url
+    itunesImage?.href ?? mediaThumbnail?.url ?? mediaContent?.url
   }
 }
