@@ -262,9 +262,13 @@ open class XMLEncoder {
             guard let dynamicType = codableType as? DynamicNodeEncoding.Type else {
                 return { _ in nil }
             }
+            #if swift(>=6.1)
+            return dynamicType.nodeEncoding(for:)
+            #else
             return { (@Sendable key: CodingKey) in
                 dynamicType.nodeEncoding(for: key)
             }
+            #endif
         }
     }
 
