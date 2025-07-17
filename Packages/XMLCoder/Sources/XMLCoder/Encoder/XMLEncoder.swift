@@ -263,11 +263,11 @@ open class XMLEncoder {
                 return { _ in nil }
             }
             #if swift(>=6.1)
-            return dynamicType.nodeEncoding(for:)
+                return dynamicType.nodeEncoding(for:)
             #else
-            return { (@Sendable key: CodingKey) in
-                dynamicType.nodeEncoding(for: key)
-            }
+                return { (@Sendable key: CodingKey) in
+                    dynamicType.nodeEncoding(for: key)
+                }
             #endif
         }
     }
