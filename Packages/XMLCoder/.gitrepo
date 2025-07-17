@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:brightdigit/XMLCoder.git
+	branch = syndikit-swift-6.2
+	commit = efda1cc8e0a97d198b6d16d53ff73751bd93f801
+	parent = 743565fbeae7a19f1b2a7a7bd618cccb3b6deb60
+	method = merge
+	cmdver = 0.4.9
