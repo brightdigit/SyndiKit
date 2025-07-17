@@ -1,3 +1,0 @@
-ignore:
-  - "Sample XML"  # ignore folders and all its contents
-  - "Tests"

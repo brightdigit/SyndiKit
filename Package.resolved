@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "XMLCoder",
+        "repositoryURL": "https://github.com/brightdigit/XMLCoder",
+        "state": {
+          "branch": null,
+          "revision": "8ba70f27664ea8c8b7f38fb4c6f2fd4c129eb9c5",
+          "version": "1.0.0-alpha.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -15,7 +15,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(path: "Packages/XMLCoder")
+    .package(url: "https://github.com/brightdigit/XMLCoder", from: "1.0.0-alpha.1")
   ],
   targets: [
     .target(
