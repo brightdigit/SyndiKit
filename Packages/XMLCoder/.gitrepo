@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:brightdigit/XMLCoder.git
 	branch = syndikit-swift-6.2
-	commit = efda1cc8e0a97d198b6d16d53ff73751bd93f801
-	parent = 743565fbeae7a19f1b2a7a7bd618cccb3b6deb60
+	commit = 80efd7c1ac472aa8f7527315d92d8ca260c47ac9
+	parent = 28b79176d665a5b9f14f52640127010ea3de1b7e
 	method = merge
 	cmdver = 0.4.9
