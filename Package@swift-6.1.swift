@@ -24,7 +24,6 @@ let swiftSettings: [SwiftSetting] = [
     .enableExperimentalFeature("MoveOnlyResilientTypes"),        // Move-only resilient types
     .enableExperimentalFeature("MoveOnlyTuples"),                // Move-only tuples
     .enableExperimentalFeature("NoncopyableGenerics"),           // SE-0427: Noncopyable generics
-    .enableExperimentalFeature("OneWayClosureParameters"),       // One-way closure parameters
     .enableExperimentalFeature("RawLayout"),                     // Raw layout types
     .enableExperimentalFeature("ReferenceBindings"),             // Reference bindings
     .enableExperimentalFeature("SendingArgsAndResults"),         // SE-0430: sending parameter and result values
