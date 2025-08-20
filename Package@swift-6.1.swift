@@ -57,12 +57,7 @@ let package = Package(
         .enableExperimentalFeature("StrictConcurrency"),
         .enableExperimentalFeature("TransferringArgsAndResults"),
         .enableExperimentalFeature("TypedThrows"),
-        .enableExperimentalFeature("VariadicGenerics"),
-        // Compiler warnings
-        .unsafeFlags([
-          "-Xfrontend", "-warn-long-function-bodies=100",
-          "-Xfrontend", "-warn-long-expression-type-checking=100"
-        ])
+        .enableExperimentalFeature("VariadicGenerics")
       ]
     ),
     .testTarget(
