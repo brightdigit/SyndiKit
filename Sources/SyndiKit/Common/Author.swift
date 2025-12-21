@@ -35,8 +35,32 @@
   public import Foundation
 #endif
 
-/// a person, corporation, or similar entity.
+/// Represents a person, corporation, or similar entity.
+///
+/// Parses author information from multiple formats:
+/// - **Atom format**: Separate `<name>`, `<email>`, `<uri>` child elements
+/// - **RSS RFC 822 format**: "email@example.com (Display Name)"
+/// - **Email only**: "email@example.com"
+/// - **Name only**: "Display Name"
+///
+/// ## Examples
+/// ```xml
+/// <!-- RSS format -->
+/// <managingEditor>podcast@example.com (Jane Doe)</managingEditor>
+///
+/// <!-- Atom format -->
+/// <author>
+///   <name>Jane Doe</name>
+///   <email>podcast@example.com</email>
+/// </author>
+/// ```
 public struct Author: Codable, Equatable, Sendable {
+  internal enum CodingKeys: String, CodingKey {
+    case name
+    case email
+    case uri
+  }
+
   /// Conveys a human-readable name for the person.
   public let name: String
 
@@ -50,5 +74,84 @@ public struct Author: Codable, Equatable, Sendable {
     self.name = name
     email = nil
     uri = nil
+  }
+
+  internal init(name: String, email: String?, uri: URL?) {
+    self.name = name
+    self.email = email
+    self.uri = uri
+  }
+
+  public init(from decoder: any Decoder) throws {
+    // Try keyed container first (Atom format with child elements)
+    if let keyedContainer = try? decoder.container(
+      keyedBy: CodingKeys.self
+    ),
+      let decodedName = try? keyedContainer.decode(
+        String.self,
+        forKey: .name
+      )
+    {
+      // Atom format with structured <name>, <email>, <uri>
+      name = decodedName
+      email = try keyedContainer.decodeIfPresent(
+        String.self,
+        forKey: .email
+      )
+      uri = try keyedContainer.decodeIfPresent(URL.self, forKey: .uri)
+    } else {
+      // Fall back to single value container (RSS format)
+      let container = try decoder.singleValueContainer()
+      let rawString = try container.decode(String.self)
+      let parsed = Self.parseRFC822Author(rawString)
+      name = parsed.name
+      email = parsed.email
+      uri = nil
+    }
+  }
+
+  private static func parseRFC822Author(
+    _ string: String
+  ) -> (name: String, email: String?) {
+    let trimmed = string.trimmingCharacters(
+      in: .whitespacesAndNewlines
+    )
+
+    // Check for "email (name)" pattern
+    if let openParen = trimmed.firstIndex(of: "("),
+      let closeParen = trimmed.lastIndex(of: ")"),
+      openParen < closeParen
+    {
+      // Extract email (before parentheses)
+      let emailPart = trimmed[..<openParen]
+        .trimmingCharacters(in: .whitespacesAndNewlines)
+
+      // Extract name (inside parentheses)
+      let nameStart = trimmed.index(after: openParen)
+      let namePart = trimmed[nameStart..<closeParen]
+        .trimmingCharacters(in: .whitespacesAndNewlines)
+
+      return (
+        name: String(namePart),
+        email: emailPart.isEmpty ? nil : String(emailPart)
+      )
+    }
+
+    // No parentheses found - check if it looks like an email
+    if trimmed.contains("@") {
+      // Email-only format
+      return (name: trimmed, email: trimmed)
+    }
+
+    // Name-only format
+    return (name: trimmed, email: nil)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    // Try to preserve format by encoding with keyed container
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(name, forKey: .name)
+    try container.encodeIfPresent(email, forKey: .email)
+    try container.encodeIfPresent(uri, forKey: .uri)
   }
 }
