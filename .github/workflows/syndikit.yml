@@ -47,12 +47,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # SPM Build Matrix - Xcode 14.3.1
-          - runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.1.app"
-
           # SPM Build Matrix - Xcode 15.0.1
-          - runs-on: macos-13
+          - runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
 
           # SPM Build Matrix - Xcode 15.4
@@ -62,11 +58,6 @@ jobs:
           # SPM Build Matrix - Xcode 16.4
           - runs-on: macos-15
             xcode: "/Applications/Xcode_16.4.app"
-
-          # SPM Build Matrix - Xcode 15.0.1
-          - type: macos
-            runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.1.app"
 
           # SPM Build Matrix - Xcode 15.4
           - type: macos
@@ -78,16 +69,9 @@ jobs:
             runs-on: macos-15
             xcode: "/Applications/Xcode_16.4.app"            
 
-          # iOS Build Matrix - Xcode 14.3.1
-          - type: ios
-            runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.1.app"
-            deviceName: "iPhone 14 Pro Max"
-            osVersion: "16.4"
-
           # iOS Build Matrix - Xcode 15.0.1
           - type: ios
-            runs-on: macos-13
+            runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
             deviceName: "iPhone 15 Pro"
             osVersion: "17.0.1"
@@ -106,26 +90,19 @@ jobs:
             deviceName: "iPhone 16 Pro"
             osVersion: "18.4"
 
-          # watchOS Build Matrix - Xcode 14.3.1
-          - type: watchos
-            runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.1.app"
-            deviceName: "Apple Watch Ultra (49mm)"
-            osVersion: "9.4"
-
           # watchOS Build Matrix - Xcode 15.0.1
           - type: watchos
-            runs-on: macos-13
+            runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
             deviceName: "Apple Watch Series 9 (41mm)"
             osVersion: "10.0"
 
           # watchOS Build Matrix - Xcode 15.1
-          - type: watchos
-            runs-on: macos-13
-            xcode: "/Applications/Xcode_15.1.app"
-            deviceName: "Apple Watch Ultra (49mm)"
-            osVersion: "10.2"
+          # - type: watchos
+          #   runs-on: macos-14
+          #   xcode: "/Applications/Xcode_15.1.app"
+          #   deviceName: "Apple Watch Ultra (49mm)"
+          #   osVersion: "10.2"
 
           # watchOS Build Matrix - Xcode 15.4
           - type: watchos
@@ -217,8 +194,8 @@ jobs:
         container:
           - swift:6.0
           - swift:6.1
-          - swiftlang/swift:nightly-6.1-noble
-          - swiftlang/swift:nightly-6.2-noble
+          - swift:6.2
+          - swiftlang/swift:nightly-6.3-noble
     container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v4
