@@ -44,13 +44,8 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     strategy:
-      fail-fast: false
       matrix:
         include:
-          # SPM Build Matrix - Xcode 14.3.1
-          - runs-on: macos-13
-            xcode: "/Applications/Xcode_14.3.1.app"
-
           # SPM Build Matrix - Xcode 15.0.1
           - runs-on: macos-13
             xcode: "/Applications/Xcode_15.0.1.app"
@@ -217,8 +212,8 @@ jobs:
         container:
           - swift:6.0
           - swift:6.1
-          - swiftlang/swift:nightly-6.1-noble
-          - swiftlang/swift:nightly-6.2-noble
+          - swift:6.2
+          - swiftlang/swift:nightly-6.3-noble
     container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v4
