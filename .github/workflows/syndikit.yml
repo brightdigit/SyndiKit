@@ -44,6 +44,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           # SPM Build Matrix - Xcode 15.0.1
