@@ -98,11 +98,11 @@ jobs:
             osVersion: "10.0"
 
           # watchOS Build Matrix - Xcode 15.1
-          - type: watchos
-            runs-on: macos-14
-            xcode: "/Applications/Xcode_15.1.app"
-            deviceName: "Apple Watch Ultra (49mm)"
-            osVersion: "10.2"
+          # - type: watchos
+          #   runs-on: macos-14
+          #   xcode: "/Applications/Xcode_15.1.app"
+          #   deviceName: "Apple Watch Ultra (49mm)"
+          #   osVersion: "10.2"
 
           # watchOS Build Matrix - Xcode 15.4
           - type: watchos
