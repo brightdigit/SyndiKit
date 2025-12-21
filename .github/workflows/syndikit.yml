@@ -47,7 +47,7 @@ jobs:
       matrix:
         include:
           # SPM Build Matrix - Xcode 15.0.1
-          - runs-on: macos-13
+          - runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
 
           # SPM Build Matrix - Xcode 15.4
@@ -70,7 +70,7 @@ jobs:
 
           # iOS Build Matrix - Xcode 15.0.1
           - type: ios
-            runs-on: macos-13
+            runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
             deviceName: "iPhone 15 Pro"
             osVersion: "17.0.1"
@@ -91,14 +91,14 @@ jobs:
 
           # watchOS Build Matrix - Xcode 15.0.1
           - type: watchos
-            runs-on: macos-13
+            runs-on: macos-14
             xcode: "/Applications/Xcode_15.0.1.app"
             deviceName: "Apple Watch Series 9 (41mm)"
             osVersion: "10.0"
 
           # watchOS Build Matrix - Xcode 15.1
           - type: watchos
-            runs-on: macos-13
+            runs-on: macos-14
             xcode: "/Applications/Xcode_15.1.app"
             deviceName: "Apple Watch Ultra (49mm)"
             osVersion: "10.2"
