@@ -327,8 +327,9 @@ jobs:
         swift-version: ["6.1", "6.2"]
         # Testing API 21+ (64-bit architectures) to avoid zlib linking issues on 32-bit ARM
         # See: https://github.com/android/ndk/issues/1391
-        api-level: [28, 33, 34]
-        arch: ["aarch64"]  # 64-bit ARM only, avoiding armeabi-v7a zlib issues
+        # Note: Architecture is auto-detected based on runner (ubuntu-latest uses x86_64)
+        # Test branch: Using single API level to verify Swift 6.2 zlib regression
+        api-level: [28]
 
     steps:
       - uses: actions/checkout@v4
@@ -357,7 +358,6 @@ jobs:
           android-swift-version: ${{ matrix.swift-version }}
           android-api-level: ${{ matrix.api-level }}
           android-run-tests: true
-          android-arch: ${{ matrix.arch }}
           android-copy-files: Data/
 
   lint:
