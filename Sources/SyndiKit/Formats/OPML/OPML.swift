@@ -44,8 +44,11 @@ public struct OPML: Codable, Equatable, Sendable {
     case body
   }
 
+  /// The version of the OPML specification.
   public let version: String
 
+  /// The head section containing metadata about the OPML document.
   public let head: Head
+  /// The body section containing the outline elements.
   public let body: Body
 }

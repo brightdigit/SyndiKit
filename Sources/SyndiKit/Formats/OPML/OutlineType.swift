@@ -35,6 +35,7 @@
   internal import Foundation
 #endif
 
+/// The type of outline element in an OPML document.
 public enum OutlineType: String, Codable, Sendable {
   case rss
   case link

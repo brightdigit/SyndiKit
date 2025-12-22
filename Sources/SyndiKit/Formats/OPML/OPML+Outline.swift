@@ -41,6 +41,7 @@ extension OPML {
   /// content. They can contain nested outlines and various metadata like URLs,
   /// types, and descriptions.
   public struct Outline: Codable, Equatable, Sendable {
+    /// Coding keys for encoding and decoding outline elements.
     public enum CodingKeys: String, CodingKey {
       case text
       case title
@@ -59,22 +60,36 @@ extension OPML {
       case outlines = "outline"
     }
 
+    /// The text content of the outline element.
     public let text: String
+    /// The title of the outline element.
     public let title: String?
+    /// A description of the outline element.
     public let description: String?
+    /// The type of outline (rss, link, or include).
     public let type: OutlineType?
+    /// A URL associated with the outline element.
     public let url: URL?
+    /// The URL of the HTML page associated with the feed.
     public let htmlUrl: URL?
+    /// The URL of the XML feed.
     public let xmlUrl: URL?
+    /// The language code for the outline element.
     public let language: String?
+    /// The creation date of the outline element.
     public let created: String?
+    /// A comma-separated list of category names.
     public let categories: ListString<String>?
     // swiftlint:disable:next discouraged_optional_boolean
+    /// Whether this outline is a comment.
     public let isComment: Bool?
     // swiftlint:disable:next discouraged_optional_boolean
+    /// Whether this outline is a breakpoint.
     public let isBreakpoint: Bool?
+    /// The version of the outline element.
     public let version: String?
 
+    /// Nested outline elements.
     public let outlines: [Outline]?
   }
 }

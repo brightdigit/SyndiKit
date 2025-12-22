@@ -136,3 +136,5 @@ disabled_rules:
     - closure_parameter_position
     - trailing_comma
     - opening_brace
+    - inclusive_language
+    - discouraged_optional_boolean

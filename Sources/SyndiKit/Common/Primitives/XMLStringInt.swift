@@ -35,15 +35,22 @@
 
 /// XML Element which contains a ``String`` parsable into a ``Integer``.
 public struct XMLStringInt: Codable, ExpressibleByIntegerLiteral, Sendable {
+  /// The type of the integer literal.
   public typealias IntegerLiteralType = Int
 
   /// The underlying ``Int`` value.
   public let value: Int
 
+  /// Creates an instance from an integer literal.
+  /// - Parameter value: The integer value to initialize with.
   public init(integerLiteral value: Int) {
     self.value = value
   }
 
+  /// Creates a new instance by decoding from the given decoder.
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if reading from the decoder fails or the string
+  ///   cannot be parsed as an integer.
   public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self)

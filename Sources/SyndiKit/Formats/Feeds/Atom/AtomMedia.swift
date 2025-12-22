@@ -56,6 +56,9 @@ public struct AtomMedia: Codable, Sendable {
   /// The direct URL to the media object.
   public let medium: String?
 
+  /// Creates a new instance by decoding from the given decoder.
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if reading from the decoder fails.
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     url = try container.decode(UTF8EncodedURL.self, forKey: .url).value

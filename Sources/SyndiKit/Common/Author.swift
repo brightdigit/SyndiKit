@@ -70,6 +70,8 @@ public struct Author: Codable, Equatable, Sendable {
   /// Contains a home page for the person.
   public let uri: URL?
 
+  /// Creates an author with only a name.
+  /// - Parameter name: The name of the author.
   public init(name: String) {
     self.name = name
     email = nil
@@ -82,6 +84,12 @@ public struct Author: Codable, Equatable, Sendable {
     self.uri = uri
   }
 
+  /// Creates a new instance by decoding from the given decoder.
+  ///
+  /// Supports both Atom format (structured child elements) and RSS RFC 822 format
+  /// ("email@example.com (Display Name)").
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if reading from the decoder fails.
   public init(from decoder: any Decoder) throws {
     // Try keyed container first (Atom format with child elements)
     if let keyedContainer = try? decoder.container(
@@ -151,6 +159,9 @@ public struct Author: Codable, Equatable, Sendable {
     return (name: trimmed, email: nil)
   }
 
+  /// Encodes this value into the given encoder.
+  /// - Parameter encoder: The encoder to write data to.
+  /// - Throws: An error if encoding fails.
   public func encode(to encoder: any Encoder) throws {
     // Try to preserve format by encoding with keyed container
     var container = encoder.container(keyedBy: CodingKeys.self)

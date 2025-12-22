@@ -38,6 +38,8 @@
 /// A struct representing a link with a URL and optional relationship type.
 /// Used in various feed formats to represent hyperlinks with metadata.
 public struct Link: Codable, Sendable {
+  /// The URL of the link.
   public let href: URL
+  /// The relationship type of the link (e.g., "alternate", "self", "related").
   public let rel: String?
 }

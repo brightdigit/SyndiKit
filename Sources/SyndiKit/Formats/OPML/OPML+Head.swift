@@ -55,18 +55,31 @@ extension OPML {
       case windowRight
     }
 
+    /// The title of the OPML document.
     public let title: String?
+    /// The date when the OPML document was created.
     public let dateCreated: String?
+    /// The date when the OPML document was last modified.
     public let dateModified: String?
+    /// The name of the document owner.
     public let ownerName: String?
+    /// The email address of the document owner.
     public let ownerEmail: String?
+    /// The unique identifier of the document owner.
     public let ownerId: String?
+    /// A URL pointing to documentation for the OPML format used.
     public let docs: String?
+    /// A comma-separated list of line numbers that are expanded in the outline.
     public let expansionStates: ListString<Int>?
+    /// The vertical scroll position of the outline window.
     public let vertScrollState: Int?
+    /// The top position of the outline window.
     public let windowTop: Int?
+    /// The left position of the outline window.
     public let windowLeft: Int?
+    /// The bottom position of the outline window.
     public let windowBottom: Int?
+    /// The right position of the outline window.
     public let windowRight: Int?
   }
 }
