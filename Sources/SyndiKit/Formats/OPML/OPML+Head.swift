@@ -38,20 +38,6 @@ extension OPML {
   /// The head contains metadata about the OPML document including title, dates,
   /// owner information, and window settings.
   public struct Head: Codable, Equatable, Sendable {
-    public let title: String?
-    public let dateCreated: String?
-    public let dateModified: String?
-    public let ownerName: String?
-    public let ownerEmail: String?
-    public let ownerId: String?
-    public let docs: String?
-    public let expansionStates: ListString<Int>?
-    public let vertScrollState: Int?
-    public let windowTop: Int?
-    public let windowLeft: Int?
-    public let windowBottom: Int?
-    public let windowRight: Int?
-
     // swiftlint:disable:next nesting
     internal enum CodingKeys: String, CodingKey {
       case title
@@ -68,5 +54,19 @@ extension OPML {
       case windowBottom
       case windowRight
     }
+
+    public let title: String?
+    public let dateCreated: String?
+    public let dateModified: String?
+    public let ownerName: String?
+    public let ownerEmail: String?
+    public let ownerId: String?
+    public let docs: String?
+    public let expansionStates: ListString<Int>?
+    public let vertScrollState: Int?
+    public let windowTop: Int?
+    public let windowLeft: Int?
+    public let windowBottom: Int?
+    public let windowRight: Int?
   }
 }
