@@ -316,7 +316,7 @@ jobs:
           flags: windows,swift-${{ matrix.swift.version }}
 
   build-android:
-    name: Build on Android (64-bit only)
+    name: Build on Android
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ubuntu-latest
