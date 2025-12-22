@@ -333,6 +333,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout swift-build action
+        uses: actions/checkout@v4
+        with:
+          repository: brightdigit/swift-build
+          ref: add-android-copy-files
+          path: .github/actions/swift-build
+
       - name: Free Disk Space
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -343,7 +350,7 @@ jobs:
           sudo docker image prune --all --force
 
       - name: Build and Test
-        uses: brightdigit/swift-build@v1.4.1
+        uses: ./.github/actions/swift-build
         with:
           scheme: ${{ env.PACKAGE_NAME }}
           type: android
@@ -351,6 +358,7 @@ jobs:
           android-api-level: ${{ matrix.api-level }}
           android-run-tests: true
           android-arch: ${{ matrix.arch }}
+          android-copy-files: Data/
 
   lint:
     name: Linting
