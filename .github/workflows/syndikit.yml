@@ -324,7 +324,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift-version: ["6.1", "6.2"]
+        swift-version: ["6.1.3", "6.2.3"]
         # Testing API 21+ (64-bit architectures) to avoid zlib linking issues on 32-bit ARM
         # See: https://github.com/android/ndk/issues/1391
         # Note: Architecture is auto-detected based on runner (ubuntu-latest uses x86_64)
