@@ -69,6 +69,8 @@ public struct RSSChannel: Codable, Sendable {
     case copyright
     case image
     case author
+    case managingEditor
+    case webMaster
     case wpCategories = "wp:category"
     case wpTags = "wp:tag"
     case wpBaseSiteURL = "wp:baseSiteUrl"
@@ -125,6 +127,12 @@ public struct RSSChannel: Codable, Sendable {
 
   /// The author of the channel.
   public let author: Author?
+
+  /// Email address for person responsible for editorial content.
+  public let managingEditor: Author?
+
+  /// Email address for person responsible for technical issues.
+  public let webMaster: Author?
 
   /// The categories associated with the channel.
   public let wpCategories: [WordPressElements.Category]
