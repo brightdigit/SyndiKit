@@ -126,7 +126,7 @@ jobs:
             runs-on: macos-26
             xcode: "/Applications/Xcode_26.0.app"
             deviceName: "iPhone 17 Pro"
-            osVersion: "26.0"
+            osVersion: "26.0.1"
 
           # iOS Build Matrix - Xcode 26.1
           - type: ios
