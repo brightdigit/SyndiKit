@@ -349,7 +349,6 @@ jobs:
           android-swift-version: ${{ matrix.swift-version }}
           android-api-level: ${{ matrix.api-level }}
           android-run-tests: true
-          android-arch: ${{ matrix.arch }}
           android-copy-files: Data/
 
   lint:
