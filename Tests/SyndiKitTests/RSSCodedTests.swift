@@ -172,8 +172,8 @@ internal final class SyndiKitTests: XCTestCase {
         )
 
         XCTAssertEqual(
-          jsonItem.contentHtml?.trimAndNilIfEmpty(),
-          rssItem.contentHtml?.trimAndNilIfEmpty(),
+          jsonItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
+          rssItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
           jsonItem.title
         )
       }
@@ -764,5 +764,57 @@ internal final class SyndiKitTests: XCTestCase {
         XCTAssertEqual(iTunesDuration(String(actual))?.value, actual)
       }
     }
+  }
+
+  // MARK: - Author Parsing Integration Tests
+
+  func testRaywenderlichManagingEditor() throws {
+    guard let feed = try? Content.xmlFeeds["raywenderlich"]?.get(),
+      let rssFeed = feed as? RSSFeed
+    else {
+      XCTFail("Failed to load raywenderlich feed")
+      return
+    }
+
+    // Test managingEditor parsing from RFC 822 format
+    XCTAssertNotNil(rssFeed.channel.managingEditor)
+    XCTAssertEqual(
+      rssFeed.channel.managingEditor?.name,
+      "Ray Wenderlich"
+    )
+    XCTAssertEqual(
+      rssFeed.channel.managingEditor?.email,
+      "podcast@raywenderlich.com"
+    )
+  }
+
+  func testNewsRSSManagingEditorAndWebMaster() throws {
+    guard let feed = try? Content.xmlFeeds["news"]?.get(),
+      let rssFeed = feed as? RSSFeed
+    else {
+      XCTFail("Failed to load news feed")
+      return
+    }
+
+    // Test email-only format
+    XCTAssertNotNil(rssFeed.channel.managingEditor)
+    XCTAssertEqual(
+      rssFeed.channel.managingEditor?.name,
+      "webmaster@GameStar.de"
+    )
+    XCTAssertEqual(
+      rssFeed.channel.managingEditor?.email,
+      "webmaster@GameStar.de"
+    )
+
+    XCTAssertNotNil(rssFeed.channel.webMaster)
+    XCTAssertEqual(
+      rssFeed.channel.webMaster?.name,
+      "webmaster@GameStar.de"
+    )
+    XCTAssertEqual(
+      rssFeed.channel.webMaster?.email,
+      "webmaster@GameStar.de"
+    )
   }
 }
