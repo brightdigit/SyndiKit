@@ -328,7 +328,6 @@ jobs:
         # Testing API 21+ (64-bit architectures) to avoid zlib linking issues on 32-bit ARM
         # See: https://github.com/android/ndk/issues/1391
         api-level: [28, 33, 34]
-        arch: ["aarch64"]  # 64-bit ARM only, avoiding armeabi-v7a zlib issues
 
     steps:
       - uses: actions/checkout@v4
