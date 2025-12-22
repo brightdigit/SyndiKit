@@ -8,7 +8,7 @@
 
 extension Content {
   internal enum Directories {
-    static let data = URL(filePath: #filePath, directoryHint: .notDirectory)
+    static let data = URL(fileURLWithPath: #filePath)
       .deletingLastPathComponent()
       .deletingLastPathComponent()
       .deletingLastPathComponent()
