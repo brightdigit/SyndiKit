@@ -43,6 +43,7 @@ extension OPML {
       case outlines = "outline"
     }
 
+    /// The collection of outline elements in the OPML body.
     public let outlines: [Outline]
   }
 }

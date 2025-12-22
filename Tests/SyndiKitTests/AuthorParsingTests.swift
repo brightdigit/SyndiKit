@@ -166,6 +166,120 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
+  // MARK: - Malformed Input Tests
+
+  func testUnclosedParenthesis() throws {
+    let xml = """
+      <author>email@example.com (Name Without Closing</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Without closing paren, falls through to email detection
+    XCTAssertEqual(author.name, "email@example.com (Name Without Closing")
+    XCTAssertEqual(author.email, "email@example.com (Name Without Closing")
+    XCTAssertNil(author.uri)
+  }
+
+  func testMultipleAtSymbols() throws {
+    let xml = """
+      <author>user@@domain.com</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Should be treated as name-only due to invalid email format
+    XCTAssertEqual(author.name, "user@@domain.com")
+    XCTAssertNil(author.email)
+    XCTAssertNil(author.uri)
+  }
+
+  func testTextAfterParenthesis() throws {
+    let xml = """
+      <author>email@example.com (Display Name) extra text</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Parser correctly extracts name from parentheses, extra text is ignored
+    XCTAssertEqual(author.name, "Display Name")
+    XCTAssertEqual(author.email, "email@example.com")
+    XCTAssertNil(author.uri)
+  }
+
+  func testEmptyParentheses() throws {
+    let xml = """
+      <author>email@example.com ()</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Should extract empty name from parentheses
+    XCTAssertEqual(author.name, "")
+    XCTAssertEqual(author.email, "email@example.com")
+    XCTAssertNil(author.uri)
+  }
+
+  func testLeadingAtSymbol() throws {
+    let xml = """
+      <author>@example.com</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Should be treated as name-only due to invalid email format
+    XCTAssertEqual(author.name, "@example.com")
+    XCTAssertNil(author.email)
+    XCTAssertNil(author.uri)
+  }
+
+  func testTrailingAtSymbol() throws {
+    let xml = """
+      <author>username@</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Should be treated as name-only due to invalid email format
+    XCTAssertEqual(author.name, "username@")
+    XCTAssertNil(author.email)
+    XCTAssertNil(author.uri)
+  }
+
+  func testOnlyAtSymbol() throws {
+    let xml = """
+      <author>@</author>
+      """
+    let decoder = XMLCoder.XMLDecoder()
+    let author = try decoder.decode(
+      Author.self,
+      from: Data(xml.utf8)
+    )
+
+    // Should be treated as name-only
+    XCTAssertEqual(author.name, "@")
+    XCTAssertNil(author.email)
+    XCTAssertNil(author.uri)
+  }
+
   // MARK: - Atom Format Backward Compatibility
 
   func testAtomAuthorStillWorks() throws {

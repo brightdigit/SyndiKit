@@ -52,6 +52,18 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
     internal let languageIndices: [SiteLanguageType: Set<Int>]
     internal let categoryIndices: [SiteCategoryType: Set<Int>]
 
+    internal init(blogs: SiteCollection) {
+      let result = ProcessedBlogsResult.process(blogs)
+      self.languageDictionary = Dictionary(
+        uniqueKeysWithValues: result.languages.map { ($0.type, $0) }
+      )
+      self.categoryDictionary = Dictionary(grouping: result.categories) { $0.type }
+        .compactMapValues(SiteCategory.init)
+      self.languageIndices = result.languageIndices
+      self.categoryIndices = result.categoryIndices
+      allSites = result.sites
+    }
+
     internal func sites(
       withLanguage language: SiteLanguageType?,
       withCategory category: SiteCategoryType?
@@ -113,18 +125,6 @@ public struct SiteCollectionDirectory: SiteDirectory, Sendable {
       } else {
         return allSites
       }
-    }
-
-    internal init(blogs: SiteCollection) {
-      let result = ProcessedBlogsResult.process(blogs)
-      self.languageDictionary = Dictionary(
-        uniqueKeysWithValues: result.languages.map { ($0.type, $0) }
-      )
-      self.categoryDictionary = Dictionary(grouping: result.categories) { $0.type }
-        .compactMapValues(SiteCategory.init)
-      self.languageIndices = result.languageIndices
-      self.categoryIndices = result.categoryIndices
-      allSites = result.sites
     }
   }
 

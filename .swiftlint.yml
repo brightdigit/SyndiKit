@@ -11,7 +11,6 @@ opt_in_rules:
   - contains_over_range_nil_comparison
   - convenience_type
   - discouraged_object_literal
-  - discouraged_optional_boolean
   - empty_collection_literal
   - empty_count
   - empty_string
@@ -136,3 +135,4 @@ disabled_rules:
     - closure_parameter_position
     - trailing_comma
     - opening_brace
+    - inclusive_language

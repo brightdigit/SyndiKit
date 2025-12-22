@@ -42,6 +42,7 @@
 /// [specifications here](https://datatracker.ietf.org/doc/html/rfc4287#section-4.1.2).
 /// - SeeAlso: ``EntryCategory``
 public struct AtomFeed: Sendable {
+  /// Coding keys for encoding and decoding Atom feed elements.
   public enum CodingKeys: String, CodingKey {
     case id
     case title

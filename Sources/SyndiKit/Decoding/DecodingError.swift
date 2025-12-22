@@ -35,14 +35,14 @@
 
 extension DecodingError {
   internal struct Dictionary: Error, Sendable {
+    internal let errors: [String: DecodingError]
+
     internal init?(errors: [String: DecodingError]) {
       guard errors.count > 1 else {
         return nil
       }
       self.errors = errors
     }
-
-    internal let errors: [String: DecodingError]
   }
 
   internal static func failedAttempts(_ errors: [String: DecodingError]) -> Self {

@@ -110,31 +110,6 @@ extension PodcastLocation {
       )
     }
 
-    private static func parseCoordinates(
-      from pathComponents: [Substring],
-      singleValue: String
-    ) throws -> (latitude: Double, longitude: Double) {
-      guard
-        let geoCoords = pathComponents[safe: 0]?.split(separator: ","),
-        let latitude = geoCoords[safe: 0]?.asDouble(),
-        let longitude = geoCoords[safe: 1]?.asDouble()
-      else {
-        throw DecodingError.dataCorrupted(
-          codingKey: PodcastLocation.CodingKeys.geo,
-          debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
-        )
-      }
-      return (latitude: latitude, longitude: longitude)
-    }
-
-    private static func parseAltitude(from pathComponents: [Substring]) -> Double? {
-      pathComponents[safe: 0]?.split(separator: ",")[safe: 2]?.asDouble()
-    }
-
-    private static func parseAccuracy(from pathComponents: [Substring]) -> Double? {
-      pathComponents[safe: 1]?.split(separator: "=")[safe: 1]?.asDouble()
-    }
-
     /// Initializes a ``GeoURI`` instance from a decoder.
     ///
     /// - Parameter decoder: The decoder to read data from.
@@ -163,6 +138,31 @@ extension PodcastLocation {
       }
 
       return geoPath.split(separator: ";")
+    }
+
+    private static func parseCoordinates(
+      from pathComponents: [Substring],
+      singleValue: String
+    ) throws -> (latitude: Double, longitude: Double) {
+      guard
+        let geoCoords = pathComponents[safe: 0]?.split(separator: ","),
+        let latitude = geoCoords[safe: 0]?.asDouble(),
+        let longitude = geoCoords[safe: 1]?.asDouble()
+      else {
+        throw DecodingError.dataCorrupted(
+          codingKey: PodcastLocation.CodingKeys.geo,
+          debugDescription: "Invalid coordinates for geo attribute: \(singleValue)"
+        )
+      }
+      return (latitude: latitude, longitude: longitude)
+    }
+
+    private static func parseAltitude(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 0]?.split(separator: ",")[safe: 2]?.asDouble()
+    }
+
+    private static func parseAccuracy(from pathComponents: [Substring]) -> Double? {
+      pathComponents[safe: 1]?.split(separator: "=")[safe: 1]?.asDouble()
     }
 
     /// Encodes the ``GeoURI`` instance into the given encoder.

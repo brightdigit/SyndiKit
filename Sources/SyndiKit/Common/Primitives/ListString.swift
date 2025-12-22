@@ -41,12 +41,20 @@
 public struct ListString<
   Value: LosslessStringConvertible & Equatable & Sendable
 >: Codable, Equatable, Sendable {
+  /// The array of parsed values from the comma-separated string.
   public let values: [Value]
 
+  /// Creates an instance with the given values.
+  /// - Parameter values: The array of values to store.
   internal init(values: [Value]) {
     self.values = values
   }
 
+  /// Creates a new instance by decoding from the given decoder.
+  ///
+  /// Decodes a comma-separated string into an array of values.
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if decoding fails or values cannot be parsed.
   public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let listString = try container.decode(String.self)
@@ -69,6 +77,9 @@ public struct ListString<
     return value
   }
 
+  /// Encodes this value into the given encoder.
+  /// - Parameter encoder: The encoder to write data to.
+  /// - Throws: An error if encoding fails.
   public func encode(to encoder: any Encoder) throws {
     var container = encoder.singleValueContainer()
     let strings = values.map(String.init)

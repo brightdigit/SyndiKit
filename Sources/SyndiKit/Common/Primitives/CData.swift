@@ -29,10 +29,12 @@
 
 /// #CDATA XML element.
 public struct CData: Codable, ExpressibleByStringLiteral, Equatable, Sendable {
+  /// Coding keys for encoding and decoding CDATA elements.
   public enum CodingKeys: String, CodingKey {
     case value = "#CDATA"
   }
 
+  /// A textual representation of this CDATA element.
   public var description: String {
     value
   }
@@ -40,10 +42,15 @@ public struct CData: Codable, ExpressibleByStringLiteral, Equatable, Sendable {
   /// String value of the #CDATA element.
   public let value: String
 
+  /// Creates an instance from a string literal.
+  /// - Parameter value: The string value to initialize with.
   public init(stringLiteral value: String) {
     self.value = value
   }
 
+  /// Creates a new instance by decoding from the given decoder.
+  /// - Parameter decoder: The decoder to read data from.
+  /// - Throws: An error if reading from the decoder fails.
   public init(from decoder: any Decoder) throws {
     let value: String
     do {

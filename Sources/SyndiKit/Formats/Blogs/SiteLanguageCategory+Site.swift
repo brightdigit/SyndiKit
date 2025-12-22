@@ -38,6 +38,15 @@
 extension SiteLanguageCategory {
   /// A ``struct`` representing a site.
   public struct Site: Codable, Sendable {
+    /// Coding keys to map properties to JSON keys.
+    internal enum CodingKeys: String, CodingKey {
+      case title
+      case author
+      case siteURL = "site_url"
+      case feedURL = "feed_url"
+      case twitterURL = "twitter_url"
+    }
+
     /// The title of the site.
     public let title: String
 
@@ -52,15 +61,6 @@ extension SiteLanguageCategory {
 
     /// The URL of the site's Twitter page.
     public let twitterURL: URL?
-
-    /// Coding keys to map properties to JSON keys.
-    internal enum CodingKeys: String, CodingKey {
-      case title
-      case author
-      case siteURL = "site_url"
-      case feedURL = "feed_url"
-      case twitterURL = "twitter_url"
-    }
   }
 }
 
