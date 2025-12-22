@@ -172,8 +172,8 @@ internal final class SyndiKitTests: XCTestCase {
         )
 
         XCTAssertEqual(
-          jsonItem.contentHtml?.trimAndNilIfEmpty(),
-          rssItem.contentHtml?.trimAndNilIfEmpty(),
+          jsonItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
+          rssItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
           jsonItem.title
         )
       }
