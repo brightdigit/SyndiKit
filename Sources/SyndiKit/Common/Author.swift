@@ -138,7 +138,11 @@ public struct Author: Codable, Equatable, Sendable {
     }
 
     // No parentheses found - check if it looks like an email
-    if trimmed.contains("@") {
+    if trimmed.contains("@"),
+      !trimmed.starts(with: "@"),
+      !trimmed.hasSuffix("@"),
+      trimmed.filter({ $0 == "@" }).count == 1
+    {
       // Email-only format
       return (name: trimmed, email: trimmed)
     }

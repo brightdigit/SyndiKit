@@ -109,7 +109,7 @@ WordPress export decoding involves multi-step processing:
 4. Process metadata via `WordPressPost+Processor.swift`
 5. Access via `Entryable.media` property as `.podcast(.wordpress(post))`
 
-WordPress-specific files are in `Formats/Media/Wordpress/`.
+WordPress-specific files are in `Formats/Media/WordPress/`.
 
 ### Swift Version Compatibility
 
@@ -220,7 +220,7 @@ Commits with "ci skip" in the message skip CI runs.
 
 ## Documentation
 
-Documentation is built with DocC and hosted at https://syndikit.dev
+Documentation is built with DocC and hosted on Swift Package Index.
 
 Generate documentation locally:
 ```bash

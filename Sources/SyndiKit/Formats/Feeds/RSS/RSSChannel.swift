@@ -128,10 +128,26 @@ public struct RSSChannel: Codable, Sendable {
   /// The author of the channel.
   public let author: Author?
 
-  /// Email address for person responsible for editorial content.
+  /// Email address and name for the person responsible for editorial content.
+  ///
+  /// Parses RFC 822 format like `podcast@example.com (Jane Doe)` or plain
+  /// email addresses. This property supports multiple input formats:
+  /// - RFC 822: `email@example.com (Display Name)`
+  /// - Email only: `email@example.com`
+  /// - Name only: `Display Name`
+  ///
+  /// - SeeAlso: ``Author``
   public let managingEditor: Author?
 
-  /// Email address for person responsible for technical issues.
+  /// Email address and name for the person responsible for technical issues.
+  ///
+  /// Parses RFC 822 format like `webmaster@example.com (John Smith)` or
+  /// plain email addresses. This property supports multiple input formats:
+  /// - RFC 822: `email@example.com (Display Name)`
+  /// - Email only: `email@example.com`
+  /// - Name only: `Display Name`
+  ///
+  /// - SeeAlso: ``Author``
   public let webMaster: Author?
 
   /// The categories associated with the channel.
