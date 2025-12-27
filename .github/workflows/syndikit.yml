@@ -266,6 +266,7 @@ jobs:
           xcode: ${{ matrix.xcode }}
           deviceName: ${{ matrix.deviceName }}
           osVersion: ${{ matrix.osVersion }}
+          build-only: ${{ contains(matrix.xcode, 'Xcode_15') }}
           skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15') }}
           
       # Common Coverage Steps
