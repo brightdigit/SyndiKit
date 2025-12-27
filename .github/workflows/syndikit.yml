@@ -262,6 +262,7 @@ jobs:
           xcode: ${{ matrix.xcode }}
           deviceName: ${{ matrix.deviceName }}
           osVersion: ${{ matrix.osVersion }}
+          skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15') }}
           
       # Common Coverage Steps
       - name: Process Coverage
