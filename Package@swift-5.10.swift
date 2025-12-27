@@ -13,7 +13,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/brightdigit/XMLCoder", from: "1.0.0-alpha.1"),
-    .package(url: "https://github.com/swiftlang/swift-testing", from: "0.6.0")
+    .package(url: "https://github.com/swiftlang/swift-testing", exact: "0.5.1")
   ],
   targets: [
     .target(
