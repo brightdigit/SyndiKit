@@ -32,6 +32,7 @@ jobs:
       - uses: brightdigit/swift-build@v1.4.2
         with:
           scheme: ${{ env.PACKAGE_NAME }}
+          skip-package-resolved: ${{ contains(matrix.container, 'swift:5.') }}
       - uses: sersoft-gmbh/swift-coverage-action@v4
         id: coverage-files
         with:          
