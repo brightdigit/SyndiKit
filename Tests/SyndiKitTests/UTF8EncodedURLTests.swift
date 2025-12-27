@@ -1,23 +1,23 @@
-import XCTest
+import Foundation
+import Testing
 import XMLCoder
 
 @testable import SyndiKit
 
-internal final class UTF8EncodedURLTests: XCTestCase {
-  internal func testDecode() throws {
+@Suite("UTF8 Encoded URL Tests")
+internal struct UTF8EncodedURLTests {
+  @Test("Decode UTF8 encoded URL from JSON")
+  func decode() throws {
     let expectedURL = URL(strict: "http://www.example.com/index.php")!
     let urlStr = """
       "\(expectedURL)"
       """
 
-    guard let data = urlStr.data(using: .utf8) else {
-      XCTFail("Expected data out of \(urlStr)")
-      return
-    }
+    let data = try #require(urlStr.data(using: .utf8), "Expected data out of \(urlStr)")
 
     let sut = try JSONDecoder().decode(UTF8EncodedURL.self, from: data)
 
-    XCTAssertEqual(sut.value, expectedURL)
-    XCTAssertNil(sut.string)
+    #expect(sut.value == expectedURL)
+    #expect(sut.string == nil)
   }
 }

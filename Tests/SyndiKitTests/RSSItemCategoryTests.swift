@@ -1,9 +1,11 @@
-import XCTest
+import Testing
 
 @testable import SyndiKit
 
-final class RSSItemCategoryTests: XCTestCase {
-  func testTwoEqualCategories() {
+@Suite("RSS Item Category Tests")
+struct RSSItemCategoryTests {
+  @Test("Two equal categories are equal")
+  func twoEqualCategories() {
     let c1 = RSSItemCategory(
       value: "Top Menu",
       domain: "nav_menu",
@@ -16,10 +18,11 @@ final class RSSItemCategoryTests: XCTestCase {
       nicename: "top-menu"
     )
 
-    XCTAssertEqual(c1, c2)
+    #expect(c1 == c2)
   }
 
-  func testTwoUnequalCategories() {
+  @Test("Two unequal categories are not equal")
+  func twoUnequalCategories() {
     let c1 = RSSItemCategory(
       value: "Uncategorized",
       domain: "category",
@@ -32,6 +35,6 @@ final class RSSItemCategoryTests: XCTestCase {
       nicename: "top-menu"
     )
 
-    XCTAssertNotEqual(c1, c2)
+    #expect(c1 != c2)
   }
 }

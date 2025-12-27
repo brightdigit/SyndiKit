@@ -1,4 +1,4 @@
-import XCTest
+import Testing
 
 @testable import SyndiKit
 
@@ -8,43 +8,47 @@ import XCTest
   internal import Foundation
 #endif
 
-internal final class DecodingErrorTests: XCTestCase {
-  func testErrorsEmpty() {
+@Suite("Decoding Error Tests")
+internal struct DecodingErrorTests {
+  @Test("Empty failed attempts returns data corrupted error")
+  func errorsEmpty() {
     let error = DecodingError.failedAttempts([:])
 
     guard case let DecodingError.dataCorrupted(context) = error else {
-      XCTFail()
+      Issue.record("Expected dataCorrupted error")
       return
     }
 
-    XCTAssertNil(context.underlyingError)
+    #expect(context.underlyingError == nil)
   }
 
-  func testErrorsOne() {
+  @Test("Single failed attempt returns nested data corrupted error")
+  func errorsOne() {
     let debugDescription = UUID().uuidString
     let error = DecodingError.failedAttempts([
       "Test": .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
     ])
 
     guard case let DecodingError.dataCorrupted(parentContext) = error else {
-      XCTFail()
+      Issue.record("Expected dataCorrupted error")
       return
     }
 
     guard let decodingError = parentContext.underlyingError as? DecodingError else {
-      XCTFail()
+      Issue.record("Expected underlying error to be DecodingError")
       return
     }
 
     guard case let DecodingError.dataCorrupted(childContext) = decodingError else {
-      XCTFail()
+      Issue.record("Expected nested dataCorrupted error")
       return
     }
 
-    XCTAssertEqual(childContext.debugDescription, debugDescription)
+    #expect(childContext.debugDescription == debugDescription)
   }
 
-  func testErrorsMany() {
+  @Test("Multiple failed attempts returns error dictionary")
+  func errorsMany() {
     let errors = [
       "Test1": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
       "Test2": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
@@ -52,15 +56,15 @@ internal final class DecodingErrorTests: XCTestCase {
     let error = DecodingError.failedAttempts(errors)
 
     guard case let DecodingError.dataCorrupted(context) = error else {
-      XCTFail()
+      Issue.record("Expected dataCorrupted error")
       return
     }
 
     guard let collection = context.underlyingError as? DecodingError.Dictionary else {
-      XCTFail()
+      Issue.record("Expected underlying error to be DecodingError.Dictionary")
       return
     }
 
-    XCTAssertEqual(collection.errors.count, errors.count)
+    #expect(collection.errors.count == errors.count)
   }
 }

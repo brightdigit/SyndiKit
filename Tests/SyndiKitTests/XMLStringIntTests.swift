@@ -1,37 +1,35 @@
-import XCTest
+import Foundation
+import Testing
 import XMLCoder
 
 @testable import SyndiKit
 
-internal final class XMLStringIntTests: XCTestCase {
-  internal func testDecodeValidXMLValue() throws {
+@Suite("XML String Int Tests")
+internal struct XMLStringIntTests {
+  @Test("Decode valid XML integer value")
+  func decodeValidXMLValue() throws {
     let expectedAge = 10
     let xmlStr = """
       <age>\(expectedAge)</age>
       """
 
-    guard let data = xmlStr.data(using: .utf8) else {
-      XCTFail("Expected data out of \(xmlStr)")
-      return
-    }
+    let data = try #require(xmlStr.data(using: .utf8), "Expected data out of \(xmlStr)")
 
     let sut = try XMLDecoder().decode(XMLStringInt.self, from: data)
 
-    XCTAssertEqual(sut.value, expectedAge)
+    #expect(sut.value == expectedAge)
   }
 
-  internal func testDecodeInvalidXMLValue() throws {
+  @Test("Decode invalid XML integer value throws error")
+  func decodeInvalidXMLValue() throws {
     let xmlStr = """
       <age>invalid</age>
       """
 
-    guard let data = xmlStr.data(using: .utf8) else {
-      XCTFail("Expected data out of \(xmlStr)")
-      return
-    }
+    let data = try #require(xmlStr.data(using: .utf8), "Expected data out of \(xmlStr)")
 
-    XCTAssertThrowsError(try XMLDecoder().decode(XMLStringInt.self, from: data)) { error in
-      XCTAssertNotNil(error as? DecodingError)
+    #expect(throws: DecodingError.self) {
+      try XMLDecoder().decode(XMLStringInt.self, from: data)
     }
   }
 }

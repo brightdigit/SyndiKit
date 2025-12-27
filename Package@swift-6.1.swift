@@ -6,7 +6,10 @@ import PackageDescription
 let package = Package(
   name: "SyndiKit",
   platforms: [
-    .macOS(.v13)
+    .macOS(.v13),
+    .iOS(.v16),
+    .watchOS(.v9),
+    .tvOS(.v16)
   ],
   products: [
     .library(

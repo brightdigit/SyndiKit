@@ -1,9 +1,11 @@
-import XCTest
+import Testing
 
 @testable import SyndiKit
 
-final class WordPressElementsTests: XCTestCase {
-  func testCategoryEquatable() {
+@Suite("WordPress Elements Tests")
+struct WordPressElementsTests {
+  @Test("WordPress categories with different IDs are not equal")
+  func categoryEquatable() {
     let c1 = WordPressElements.Category(
       termID: 1,
       nicename: .init(stringLiteral: "uncategorized"),
@@ -18,10 +20,11 @@ final class WordPressElementsTests: XCTestCase {
       name: "Podcasting"
     )
 
-    XCTAssertNotEqual(c1, c2)
+    #expect(c1 != c2)
   }
 
-  func testTagEquatable() {
+  @Test("WordPress tags with different IDs are not equal")
+  func tagEquatable() {
     let t1 = WordPressElements.Tag(
       termID: 1,
       slug: .init(stringLiteral: "uncategorized"),
@@ -34,10 +37,11 @@ final class WordPressElementsTests: XCTestCase {
       name: .init(stringLiteral: "Podcasting")
     )
 
-    XCTAssertNotEqual(t1, t2)
+    #expect(t1 != t2)
   }
 
-  func testPostMetaEquatable() {
+  @Test("WordPress post meta with different keys are not equal")
+  func postMetaEquatable() {
     let pm1 = WordPressElements.PostMeta(
       key: "_edit_last",
       value: "1"
@@ -48,6 +52,6 @@ final class WordPressElementsTests: XCTestCase {
       value: "57"
     )
 
-    XCTAssertNotEqual(pm1, pm2)
+    #expect(pm1 != pm2)
   }
 }
