@@ -5,6 +5,12 @@ import PackageDescription
 // swiftlint:disable:next explicit_acl explicit_top_level_acl
 let package = Package(
   name: "SyndiKit",
+  platforms: [
+    .macOS(.v10_15),
+    .iOS(.v13),
+    .watchOS(.v6),
+    .tvOS(.v13)
+  ],
   products: [
     .library(
       name: "SyndiKit",
