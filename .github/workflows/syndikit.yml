@@ -55,10 +55,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # SPM Build Matrix - Xcode 15.0.1
-          - runs-on: macos-14
-            xcode: "/Applications/Xcode_15.0.1.app"
-
           # SPM Build Matrix - Xcode 15.4
           - runs-on: macos-14
             xcode: "/Applications/Xcode_15.4.app"
@@ -104,13 +100,6 @@ jobs:
             runs-on: macos-26
             xcode: "/Applications/Xcode_26.2.app"
 
-          # iOS Build Matrix - Xcode 15.0.1
-          - type: ios
-            runs-on: macos-14
-            xcode: "/Applications/Xcode_15.0.1.app"
-            deviceName: "iPhone 15 Pro"
-            osVersion: "17.0.1"
-
           # iOS Build Matrix - Xcode 15.4
           - type: ios
             runs-on: macos-14
@@ -145,20 +134,6 @@ jobs:
             xcode: "/Applications/Xcode_26.2.app"
             deviceName: "iPhone 17 Pro"
             osVersion: "26.2"
-
-          # watchOS Build Matrix - Xcode 15.0.1
-          - type: watchos
-            runs-on: macos-14
-            xcode: "/Applications/Xcode_15.0.1.app"
-            deviceName: "Apple Watch Series 9 (41mm)"
-            osVersion: "10.0"
-
-          # watchOS Build Matrix - Xcode 15.1
-          # - type: watchos
-          #   runs-on: macos-14
-          #   xcode: "/Applications/Xcode_15.1.app"
-          #   deviceName: "Apple Watch Ultra (49mm)"
-          #   osVersion: "10.2"
 
           # watchOS Build Matrix - Xcode 15.4
           - type: watchos
@@ -255,7 +230,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Disable Xcode macro fingerprint validation
-        if: ${{ contains(matrix.xcode, 'Xcode_15') && matrix.type != '' }}
+        if: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
         run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
 
       - name: Build and Test
@@ -266,8 +241,8 @@ jobs:
           xcode: ${{ matrix.xcode }}
           deviceName: ${{ matrix.deviceName }}
           osVersion: ${{ matrix.osVersion }}
-          build-only: ${{ contains(matrix.xcode, 'Xcode_15') }}
-          skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15') }}
+          build-only: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
+          skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15.4') }}
           
       # Common Coverage Steps
       - name: Process Coverage
