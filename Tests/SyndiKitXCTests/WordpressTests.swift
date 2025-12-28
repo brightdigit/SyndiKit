@@ -1,6 +1,7 @@
 import XCTest
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 #if swift(<6.1)
   import Foundation

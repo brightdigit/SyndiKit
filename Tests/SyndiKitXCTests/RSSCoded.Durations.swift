@@ -4,6 +4,8 @@
   internal import Foundation
 #endif
 
+@testable import SyndiKitTestSupport
+
 @available(macOS 13.0, *)
 extension SyndiKitTests {
   internal static let durationSets: [String: [TimeInterval]] = [

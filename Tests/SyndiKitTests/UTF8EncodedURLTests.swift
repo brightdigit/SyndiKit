@@ -1,8 +1,14 @@
-import Foundation
 import Testing
 import XMLCoder
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
+
+#if swift(<6.1)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
 @Suite("UTF8 Encoded URL Tests")
 internal struct UTF8EncodedURLTests {

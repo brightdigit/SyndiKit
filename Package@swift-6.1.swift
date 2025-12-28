@@ -63,9 +63,70 @@ let package = Package(
         .enableExperimentalFeature("VariadicGenerics")
       ]
     ),
+
+    .target(
+      name: "SyndiKitTestSupport",
+      dependencies: [
+        "SyndiKit",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitTestSupport"
+    ),
+
     .testTarget(
       name: "SyndiKitTests",
-      dependencies: ["SyndiKit"],
+      dependencies: [
+        "SyndiKit",
+        "SyndiKitTestSupport"
+      ],
+      swiftSettings: [
+        // Upcoming features that are not yet enabled by default in Swift 6
+        .enableUpcomingFeature("ExistentialAny"),
+        .enableUpcomingFeature("StrictConcurrency"),
+        .enableUpcomingFeature("TransferringArgsAndResults"),
+        .enableUpcomingFeature("TypedThrows"),
+        .enableUpcomingFeature("VariadicGenerics"),
+        .enableUpcomingFeature("AccessLevelOnImport"),
+        .enableUpcomingFeature("DisableAvailabilityChecking"),
+        .enableUpcomingFeature("FullTypedThrows"),
+        .enableUpcomingFeature("MoveOnlyClasses"),
+        .enableUpcomingFeature("NoImplicitCopy"),
+        .enableUpcomingFeature("OldOwnershipOperatorSpelling"),
+        .enableUpcomingFeature("OneWayClosureParameters"),
+        .enableUpcomingFeature("PackageDescriptionAPI"),
+        .enableUpcomingFeature("PreliminaryConcurrency"),
+        .enableUpcomingFeature("ReferenceBindings"),
+        .enableUpcomingFeature("SendingArgsAndResults"),
+        .enableUpcomingFeature("Swift6Concurrency"),
+        .enableUpcomingFeature("Swift6ImplicitCopy"),
+        .enableUpcomingFeature("Swift6Language"),
+        .enableUpcomingFeature("Swift6Mode"),
+        .enableUpcomingFeature("UnavailableFromAsync"),
+        .enableUpcomingFeature("VoidResultBuilder"),
+        .enableUpcomingFeature("YieldsIsolated"),
+        // Additional upcoming features from SE proposals
+        .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+        .enableUpcomingFeature("NonescapableTypes"),
+        .enableUpcomingFeature("MemberImportVisibility"),
+        // Experimental features
+        .enableExperimentalFeature("AccessLevelOnImport"),
+        .enableExperimentalFeature("ExistentialAny"),
+        .enableExperimentalFeature("StrictConcurrency"),
+        .enableExperimentalFeature("TransferringArgsAndResults"),
+        .enableExperimentalFeature("TypedThrows"),
+        .enableExperimentalFeature("VariadicGenerics"),
+      ]
+    ),
+
+    .testTarget(
+      name: "SyndiKitXCTests",
+      dependencies: [
+        "SyndiKit",
+        "SyndiKitTestSupport",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitXCTests",
       swiftSettings: [
         // Upcoming features that are not yet enabled by default in Swift 6
         .enableUpcomingFeature("ExistentialAny"),

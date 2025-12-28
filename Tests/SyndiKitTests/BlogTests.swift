@@ -2,6 +2,7 @@ import Testing
 import XMLCoder
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 @Suite("Blog Tests")
 internal struct BlogTests {

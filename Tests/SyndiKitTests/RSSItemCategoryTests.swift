@@ -1,6 +1,7 @@
 import Testing
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 @Suite("RSS Item Category Tests")
 struct RSSItemCategoryTests {

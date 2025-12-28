@@ -1,6 +1,7 @@
 import Testing
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 @Suite("WordPress Elements Tests")
 struct WordPressElementsTests {

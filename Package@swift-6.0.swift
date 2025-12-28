@@ -25,10 +25,33 @@ let package = Package(
       name: "SyndiKit",
       dependencies: ["XMLCoder"]
     ),
+
+    .target(
+      name: "SyndiKitTestSupport",
+      dependencies: [
+        "SyndiKit",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitTestSupport"
+    ),
+
     .testTarget(
       name: "SyndiKitTests",
-      dependencies: ["SyndiKit"]
+      dependencies: [
+        "SyndiKit",
+        "SyndiKitTestSupport"
+      ]
       // Swift Testing is built into Swift 6.0 toolchain
+    ),
+
+    .testTarget(
+      name: "SyndiKitXCTests",
+      dependencies: [
+        "SyndiKit",
+        "SyndiKitTestSupport",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitXCTests"
     )
   ]
 )

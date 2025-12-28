@@ -26,12 +26,33 @@ let package = Package(
       name: "SyndiKit",
       dependencies: ["XMLCoder"]
     ),
+
+    .target(
+      name: "SyndiKitTestSupport",
+      dependencies: [
+        "SyndiKit",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitTestSupport"
+    ),
+
     .testTarget(
       name: "SyndiKitTests",
       dependencies: [
         "SyndiKit",
+        "SyndiKitTestSupport",
         .product(name: "Testing", package: "swift-testing")
       ]
+    ),
+
+    .testTarget(
+      name: "SyndiKitXCTests",
+      dependencies: [
+        "SyndiKit",
+        "SyndiKitTestSupport",
+        "XMLCoder"
+      ],
+      path: "Tests/SyndiKitXCTests"
     )
   ]
 )
