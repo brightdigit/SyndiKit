@@ -1,10 +1,10 @@
+@testable import SyndiKitTestSupport
+
 #if swift(<6.1)
   import Foundation
 #else
   internal import Foundation
 #endif
-
-@testable import SyndiKitTestSupport
 
 @available(macOS 13.0, *)
 extension SyndiKitTests {
