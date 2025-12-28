@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -6,10 +6,10 @@ import PackageDescription
 let package = Package(
   name: "SyndiKit",
   platforms: [
-    .macOS(.v10_15),
-    .iOS(.v13),
-    .watchOS(.v6),
-    .tvOS(.v13)
+    .macOS(.v13),
+    .iOS(.v16),
+    .watchOS(.v9),
+    .tvOS(.v16)
   ],
   products: [
     .library(
@@ -18,8 +18,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/brightdigit/XMLCoder", from: "1.0.0-alpha.1"),
-    .package(url: "https://github.com/swiftlang/swift-testing", exact: "0.5.1")
+    .package(url: "https://github.com/brightdigit/XMLCoder", from: "1.0.0-alpha.1")
   ],
   targets: [
     .target(
@@ -40,9 +39,9 @@ let package = Package(
       name: "SyndiKitTests",
       dependencies: [
         "SyndiKit",
-        "SyndiKitTestSupport",
-        .product(name: "Testing", package: "swift-testing")
+        "SyndiKitTestSupport"
       ]
+      // Swift Testing is built into Swift 6.0 toolchain
     ),
 
     .testTarget(

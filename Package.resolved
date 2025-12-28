@@ -1,16 +1,15 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "XMLCoder",
-        "repositoryURL": "https://github.com/brightdigit/XMLCoder",
-        "state": {
-          "branch": null,
-          "revision": "8ba70f27664ea8c8b7f38fb4c6f2fd4c129eb9c5",
-          "version": "1.0.0-alpha.1"
-        }
+  "originHash" : "320e2204da38dbb1f31985cb6fdbb01ae28f884647014693e65309f42c67fd63",
+  "pins" : [
+    {
+      "identity" : "xmlcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/brightdigit/XMLCoder",
+      "state" : {
+        "revision" : "8ba70f27664ea8c8b7f38fb4c6f2fd4c129eb9c5",
+        "version" : "1.0.0-alpha.1"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 3
 }

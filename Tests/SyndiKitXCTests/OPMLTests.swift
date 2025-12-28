@@ -1,6 +1,7 @@
 import XCTest
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 internal final class OPMLTests: XCTestCase {
   internal func testSubscriptionList() throws {

@@ -2,6 +2,7 @@ import XCTest
 import XMLCoder
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 @available(macOS 13.0, *)
 internal final class SyndiKitTests: XCTestCase {

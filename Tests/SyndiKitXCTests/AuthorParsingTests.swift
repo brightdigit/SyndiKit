@@ -31,6 +31,7 @@ import XCTest
 import XMLCoder
 
 @testable import SyndiKit
+@testable import SyndiKitTestSupport
 
 #if swift(<5.7)
   @preconcurrency import Foundation
