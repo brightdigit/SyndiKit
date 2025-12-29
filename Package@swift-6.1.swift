@@ -53,14 +53,7 @@ let package = Package(
         .enableUpcomingFeature("InferIsolatedConformances"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
         .enableUpcomingFeature("NonescapableTypes"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        // Experimental features
-        .enableExperimentalFeature("AccessLevelOnImport"),
-        .enableExperimentalFeature("ExistentialAny"),
-        .enableExperimentalFeature("StrictConcurrency"),
-        .enableExperimentalFeature("TransferringArgsAndResults"),
-        .enableExperimentalFeature("TypedThrows"),
-        .enableExperimentalFeature("VariadicGenerics")
+        .enableUpcomingFeature("MemberImportVisibility")
       ]
     ),
 
@@ -108,14 +101,7 @@ let package = Package(
         .enableUpcomingFeature("InferIsolatedConformances"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
         .enableUpcomingFeature("NonescapableTypes"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        // Experimental features
-        .enableExperimentalFeature("AccessLevelOnImport"),
-        .enableExperimentalFeature("ExistentialAny"),
-        .enableExperimentalFeature("StrictConcurrency"),
-        .enableExperimentalFeature("TransferringArgsAndResults"),
-        .enableExperimentalFeature("TypedThrows"),
-        .enableExperimentalFeature("VariadicGenerics"),
+        .enableUpcomingFeature("MemberImportVisibility")
       ]
     ),
 
@@ -156,14 +142,7 @@ let package = Package(
         .enableUpcomingFeature("InferIsolatedConformances"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
         .enableUpcomingFeature("NonescapableTypes"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        // Experimental features
-        .enableExperimentalFeature("AccessLevelOnImport"),
-        .enableExperimentalFeature("ExistentialAny"),
-        .enableExperimentalFeature("StrictConcurrency"),
-        .enableExperimentalFeature("TransferringArgsAndResults"),
-        .enableExperimentalFeature("TypedThrows"),
-        .enableExperimentalFeature("VariadicGenerics"),
+        .enableUpcomingFeature("MemberImportVisibility")
       ]
     )
   ]
