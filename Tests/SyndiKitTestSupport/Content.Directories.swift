@@ -2,7 +2,7 @@
   import SyndiKit
   import Foundation
 #else
-  package import SyndiKit
+  internal import SyndiKit
   internal import Foundation
 #endif
 
