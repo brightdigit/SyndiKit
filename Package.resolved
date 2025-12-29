@@ -1,13 +1,13 @@
 {
-  "originHash" : "320e2204da38dbb1f31985cb6fdbb01ae28f884647014693e65309f42c67fd63",
+  "originHash" : "b07b4f57cf16b11b9782af07779a09637d8d8ef6cf31652f2b322d028a15984e",
   "pins" : [
     {
       "identity" : "xmlcoder",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/brightdigit/XMLCoder",
+      "location" : "https://github.com/CoreOffice/XMLCoder",
       "state" : {
-        "revision" : "8ba70f27664ea8c8b7f38fb4c6f2fd4c129eb9c5",
-        "version" : "1.0.0-alpha.1"
+        "revision" : "5e1ada828d2618ecb79c974e03f79c8f4df90b71",
+        "version" : "0.18.0"
       }
     }
   ],
