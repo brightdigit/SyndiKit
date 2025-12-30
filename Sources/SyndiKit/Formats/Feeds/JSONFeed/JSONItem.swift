@@ -97,7 +97,7 @@ extension JSONItem: Entryable {
   /// A struct representing an Atom category.
   ///   An array of categories associated with the item.
   /// - SeeAlso: ``EntryCategory``
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     []
   }
 

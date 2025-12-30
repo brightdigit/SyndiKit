@@ -40,5 +40,5 @@ public enum Video: Sendable {
   /// A video from YouTube.
   /// - Parameters:
   ///   - id: The ID of the YouTube video.
-  case youtube(YouTubeID)
+  case youtube(any YouTubeID)
 }

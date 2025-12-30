@@ -175,7 +175,7 @@ public struct RSSItem: Codable, Sendable {
 
 extension RSSItem: Entryable {
   /// The categories associated with this RSS item.
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     categoryTerms
   }
 

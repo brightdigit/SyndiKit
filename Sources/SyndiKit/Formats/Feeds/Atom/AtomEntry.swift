@@ -92,7 +92,7 @@ public struct AtomEntry: Codable, Sendable {
 
 extension AtomEntry: Entryable {
   /// The categories associated with the entry.
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     atomCategories
   }
 

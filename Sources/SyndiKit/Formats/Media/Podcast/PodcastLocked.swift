@@ -51,7 +51,7 @@ public struct PodcastLocked: Codable, Equatable, Sendable {
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     owner = try container.decodeIfPresent(String.self, forKey: .owner)
     isLocked = try container.decode(String.self, forKey: .isLocked).lowercased() == "yes"

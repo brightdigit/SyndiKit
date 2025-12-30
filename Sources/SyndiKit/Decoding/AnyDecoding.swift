@@ -35,5 +35,5 @@
 
 internal protocol AnyDecoding: Sendable {
   static var label: String { get }
-  func decodeFeed(data: Data) throws -> Feedable
+  func decodeFeed(data: Data) throws -> any Feedable
 }

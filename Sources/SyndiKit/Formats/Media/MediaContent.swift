@@ -41,7 +41,7 @@
 /// - SeeAlso: ``EntryCategory``
 public enum MediaContent: Sendable {
   /// A podcast episode.
-  case podcast(PodcastEpisode)
+  case podcast(any PodcastEpisode)
 
   /// A video.
   case video(Video)

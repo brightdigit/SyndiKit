@@ -92,7 +92,7 @@ public struct AtomFeed: Sendable {
 
 extension AtomFeed: DecodableFeed {
   /// The source of the decoder for AtomFeed.
-  internal static let source: DecoderSetup = DecoderSource.xml
+  internal static let source: any DecoderSetup = DecoderSource.xml
 
   /// The label for AtomFeed.
   internal static let label: String = "Atom"
@@ -103,7 +103,7 @@ extension AtomFeed: DecodableFeed {
   }
 
   /// The children of the AtomFeed.
-  public var children: [Entryable] {
+  public var children: [any Entryable] {
     entries
   }
 

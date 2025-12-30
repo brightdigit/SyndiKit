@@ -55,7 +55,7 @@ extension DecodingError {
   }
 
   internal static func dataCorrupted(
-    codingKey: CodingKey,
+    codingKey: any CodingKey,
     debugDescription: String
   ) -> Self {
     DecodingError.dataCorrupted(

@@ -38,13 +38,13 @@ internal struct Decoding<DecodingType: DecodableFeed>: AnyDecoding, Sendable {
     DecodingType.label
   }
 
-  internal let decoder: TypeDecoder
+  internal let decoder: any TypeDecoder
 
-  internal init(for _: DecodingType.Type, using decoder: TypeDecoder) {
+  internal init(for _: DecodingType.Type, using decoder: any TypeDecoder) {
     self.decoder = decoder
   }
 
-  internal func decodeFeed(data: Data) throws -> Feedable {
+  internal func decodeFeed(data: Data) throws -> any Feedable {
     try decode(data: data)
   }
 
