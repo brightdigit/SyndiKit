@@ -145,8 +145,8 @@ internal final class SyndiKitTests: XCTestCase {
         continue
       }
 
-      let json: Feedable
-      let rss: Feedable
+      let json: any Feedable
+      let rss: any Feedable
 
       do {
         json = try jsonResult.get()
@@ -695,7 +695,7 @@ internal final class SyndiKitTests: XCTestCase {
   func testYoutubeVideos() {
     for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
 
-      let feed: Feedable
+      let feed: any Feedable
       do {
         feed = try xmlResult.get()
       } catch {
@@ -711,7 +711,7 @@ internal final class SyndiKitTests: XCTestCase {
       let items = zip(atom.entries, feed.children)
 
       for (entry, item) in items {
-        let youtube = item.media.flatMap { media -> YouTubeID? in
+        let youtube = item.media.flatMap { media -> (any YouTubeID)? in
           guard case let .video(video) = media else {
             return nil
           }

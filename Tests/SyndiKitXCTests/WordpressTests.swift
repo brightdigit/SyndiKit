@@ -43,7 +43,7 @@ final class WordpressTests: XCTestCase {
     }
 
     for (name, result) in exports {
-      let feedable: Feedable
+      let feedable: any Feedable
       do {
         feedable = try result.get()
       } catch {
@@ -345,7 +345,7 @@ final class WordpressTests: XCTestCase {
     }
 
     for (name, result) in exports {
-      let feedable: Feedable
+      let feedable: any Feedable
       do {
         feedable = try result.get()
       } catch {
