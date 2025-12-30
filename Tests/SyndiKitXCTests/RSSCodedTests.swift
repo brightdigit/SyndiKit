@@ -19,7 +19,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  fileprivate func assertAtomEntry(_ atomEntry: AtomEntry, _ entryChild: Entryable) {
+  fileprivate func assertAtomEntry(_ atomEntry: AtomEntry, _ entryChild: any Entryable) {
     XCTAssertEqual(
       atomEntry.atomCategories.map { $0.term },
       entryChild.categories.map { $0.term }
@@ -28,7 +28,7 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertNil(entryChild.summary)
   }
 
-  fileprivate func assertFeed(_ feed: Feedable, atomFeed: AtomFeed) {
+  fileprivate func assertFeed(_ feed: any Feedable, atomFeed: AtomFeed) {
     XCTAssertEqual(feed.updated, atomFeed.pubDate ?? atomFeed.published)
     XCTAssertNil(feed.copyright)
     XCTAssertNil(feed.image)
@@ -39,7 +39,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  fileprivate func assertRSSItem(_ rssItem: RSSItem, child: Entryable) {
+  fileprivate func assertRSSItem(_ rssItem: RSSItem, child: any Entryable) {
     XCTAssertEqual(
       rssItem.categoryTerms.map { $0.term },
       child.categories.map { $0.term }
@@ -54,7 +54,7 @@ internal final class SyndiKitTests: XCTestCase {
     )
   }
 
-  fileprivate func assertJSONItem(_ jsonItem: JSONItem, child: Entryable) {
+  fileprivate func assertJSONItem(_ jsonItem: JSONItem, child: any Entryable) {
     XCTAssertNil(jsonItem.creators.first)
     XCTAssertNil(jsonItem.media)
     XCTAssertEqual(jsonItem.categories.count, 0)
@@ -63,7 +63,7 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(jsonItem.guid, child.id)
   }
 
-  fileprivate func assertFeed(_ feed: Feedable, rssFeed: RSSFeed) {
+  fileprivate func assertFeed(_ feed: any Feedable, rssFeed: RSSFeed) {
     XCTAssertNil(feed.youtubeChannelID)
     XCTAssertEqual(feed.authors.first, rssFeed.channel.author)
     XCTAssertEqual(feed.updated, rssFeed.channel.lastBuildDate)
@@ -78,7 +78,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  fileprivate func assert(jsonFeed: JSONFeed, feed: Feedable) {
+  fileprivate func assert(jsonFeed: JSONFeed, feed: any Feedable) {
     XCTAssertNil(jsonFeed.updated)
     XCTAssertNil(jsonFeed.copyright)
     XCTAssertNil(jsonFeed.image)
@@ -95,7 +95,7 @@ internal final class SyndiKitTests: XCTestCase {
     ].flatMap { $0 }
 
     for (name, xmlResult) in allFeeds {
-      let feed: Feedable
+      let feed: any Feedable
       do {
         feed = try xmlResult.get()
       } catch {
@@ -116,8 +116,8 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   fileprivate func assertFeedableEqual(
-    _ json: Feedable,
-    _ rss: Feedable,
+    _ json: any Feedable,
+    _ rss: any Feedable,
     _ name: String
   ) {
     XCTAssertEqual(
@@ -145,8 +145,8 @@ internal final class SyndiKitTests: XCTestCase {
         continue
       }
 
-      let json: Feedable
-      let rss: Feedable
+      let json: any Feedable
+      let rss: any Feedable
 
       do {
         json = try jsonResult.get()
@@ -492,7 +492,7 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   private func assertPodcastLocationDecodingError(
-    _ error: Error, codingKey: PodcastLocation.CodingKeys
+    _ error: any Error, codingKey: PodcastLocation.CodingKeys
   ) {
     guard
       let decodingError = error as? DecodingError,
@@ -695,7 +695,7 @@ internal final class SyndiKitTests: XCTestCase {
   func testYoutubeVideos() {
     for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
 
-      let feed: Feedable
+      let feed: any Feedable
       do {
         feed = try xmlResult.get()
       } catch {
@@ -711,7 +711,7 @@ internal final class SyndiKitTests: XCTestCase {
       let items = zip(atom.entries, feed.children)
 
       for (entry, item) in items {
-        let youtube = item.media.flatMap { media -> YouTubeID? in
+        let youtube = item.media.flatMap { media -> (any YouTubeID)? in
           guard case let .video(video) = media else {
             return nil
           }

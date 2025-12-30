@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -65,7 +65,7 @@ internal struct DateFormatterDecoder: Sendable {
   }
 
   @Sendable
-  internal static func decodeDateHandlingEmpty(from decoder: Decoder) throws -> Date {
+  internal static func decodeDateHandlingEmpty(from decoder: any Decoder) throws -> Date {
     let container = try decoder.singleValueContainer()
     let dateStr = try container.decode(String.self)
 
@@ -91,7 +91,7 @@ internal struct DateFormatterDecoder: Sendable {
   }
 
   @Sendable
-  internal static func decodeDateOptional(from decoder: Decoder) throws -> Date? {
+  internal static func decodeDateOptional(from decoder: any Decoder) throws -> Date? {
     let container = try decoder.singleValueContainer()
     let dateStr = try container.decode(String.self)
 
@@ -114,7 +114,7 @@ internal struct DateFormatterDecoder: Sendable {
   }
 
   @Sendable
-  internal func decode(from decoder: Decoder) throws -> Date {
+  internal func decode(from decoder: any Decoder) throws -> Date {
     let container = try decoder.singleValueContainer()
     let dateStr = try container.decode(String.self)
 

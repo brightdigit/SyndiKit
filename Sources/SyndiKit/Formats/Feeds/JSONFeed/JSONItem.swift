@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -97,7 +97,7 @@ extension JSONItem: Entryable {
   /// A struct representing an Atom category.
   ///   An array of categories associated with the item.
   /// - SeeAlso: ``EntryCategory``
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     []
   }
 

@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -103,7 +103,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let string = try container.decode(String.self)
     self.init(string: string)
@@ -127,7 +127,7 @@ public enum EntryID: Codable, Equatable, LosslessStringConvertible, Sendable {
   ///
   /// - Parameter encoder: The encoder to write data to.
   /// - Throws: An error if the encoding process fails.
-  public func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: any Encoder) throws {
     var container = encoder.singleValueContainer()
     try container.encode(description)
   }

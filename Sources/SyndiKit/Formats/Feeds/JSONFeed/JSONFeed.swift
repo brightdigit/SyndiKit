@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -64,7 +64,7 @@ public struct JSONFeed: Sendable {
 
 extension JSONFeed: DecodableFeed {
   /// The source of the decoder for JSON feed.
-  internal static let source: DecoderSetup = DecoderSource.json
+  internal static let source: any DecoderSetup = DecoderSource.json
 
   /// The label for the JSON feed.
   internal static let label: String = "JSON"
@@ -75,7 +75,7 @@ extension JSONFeed: DecodableFeed {
   }
 
   /// The children of the JSON feed.
-  public var children: [Entryable] {
+  public var children: [any Entryable] {
     items
   }
 

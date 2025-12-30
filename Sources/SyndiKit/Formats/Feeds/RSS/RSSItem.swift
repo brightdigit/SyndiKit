@@ -31,7 +31,7 @@ import XMLCoder
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -175,7 +175,7 @@ public struct RSSItem: Codable, Sendable {
 
 extension RSSItem: Entryable {
   /// The categories associated with this RSS item.
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     categoryTerms
   }
 

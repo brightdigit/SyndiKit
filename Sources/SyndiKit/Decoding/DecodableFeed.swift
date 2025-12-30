@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -43,7 +43,7 @@ extension DecodableFeed {
     Decoding(for: Self.self, using: decoder)
   }
 
-  internal static func anyDecoding(using decoder: any TypeDecoder) -> AnyDecoding {
+  internal static func anyDecoding(using decoder: any TypeDecoder) -> any AnyDecoding {
     Self.decoding(using: decoder)
   }
 }

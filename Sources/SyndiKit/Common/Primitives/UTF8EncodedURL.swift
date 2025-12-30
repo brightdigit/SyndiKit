@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -39,7 +39,7 @@ internal struct UTF8EncodedURL: Codable, Sendable {
   internal let value: URL
   internal let string: String?
 
-  internal init(from decoder: Decoder) throws {
+  internal init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     do {
       value = try container.decode(URL.self)

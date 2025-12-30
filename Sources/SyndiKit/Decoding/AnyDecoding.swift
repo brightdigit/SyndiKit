@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -35,5 +35,5 @@
 
 internal protocol AnyDecoding: Sendable {
   static var label: String { get }
-  func decodeFeed(data: Data) throws -> Feedable
+  func decodeFeed(data: Data) throws -> any Feedable
 }

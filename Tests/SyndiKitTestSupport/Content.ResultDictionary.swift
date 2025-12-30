@@ -1,10 +1,10 @@
 import XMLCoder
 
-#if swift(<6.1)
+#if swift(<6.0)
   import SyndiKit
   import Foundation
 #else
-  package import SyndiKit
+  internal import SyndiKit
   internal import Foundation
 #endif
 

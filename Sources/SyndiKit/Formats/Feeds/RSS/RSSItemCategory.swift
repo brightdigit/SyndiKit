@@ -89,7 +89,7 @@ public struct RSSItemCategory: Codable, EntryCategory, Sendable {
   ///
   ///   - Returns: A new instance of ``RSSItemCategory``.
   /// - SeeAlso: ``EntryCategory``
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let value: String
     let container: KeyedDecodingContainer<CodingKeys>?
     do {

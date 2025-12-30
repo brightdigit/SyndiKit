@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -56,7 +56,7 @@ public struct Enclosure: Codable, Sendable {
   ///
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if the decoding process fails.
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     url = try container.decode(UTF8EncodedURL.self, forKey: .url).value
     type = try container.decode(String.self, forKey: .type)
@@ -91,7 +91,7 @@ public struct Enclosure: Codable, Sendable {
 
   private static func parseLengthString(
     _ lengthString: String,
-    originalError: Error
+    originalError: any Error
   ) throws -> Int? {
     if lengthString.isEmpty {
       return nil

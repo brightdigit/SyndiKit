@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -74,7 +74,7 @@ public protocol Feedable: Sendable {
   var image: URL? { get }
 
   /// Items or stories attached to the feed.
-  var children: [Entryable] { get }
+  var children: [any Entryable] { get }
 
   /// For YouTube channels, this will be the youtube channel ID.
   var youtubeChannelID: String? { get }

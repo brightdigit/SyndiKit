@@ -29,7 +29,7 @@
 
 import XMLCoder
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -71,7 +71,7 @@ extension SynDecoder {
     xmlDecoder: XMLDecoder,
     jsonDecoder: JSONDecoder
   ) -> [DecoderSource: [String: any AnyDecoding]] {
-    types.map { type -> (DecoderSource, AnyDecoding) in
+    types.map { type -> (DecoderSource, any AnyDecoding) in
       let source = type.source
       let decoder = Self.createDecoder(
         for: source,
@@ -80,7 +80,7 @@ extension SynDecoder {
       )
       return (source.source, type.anyDecoding(using: decoder))
     }
-    .reduce(into: [DecoderSource: [(String, AnyDecoding)]]()) { dict, pair in
+    .reduce(into: [DecoderSource: [(String, any AnyDecoding)]]()) { dict, pair in
       let (source, decoding) = pair
       dict[source, default: []].append((type(of: decoding).label, decoding))
     }
@@ -114,8 +114,8 @@ extension SynDecoder {
 
   internal static func decodeFeed(
     _ data: Data,
-    with decodings: [String: AnyDecoding]
-  ) throws -> Feedable {
+    with decodings: [String: any AnyDecoding]
+  ) throws -> any Feedable {
     var errors = [String: DecodingError]()
     for (label, decoding) in decodings {
       do {
