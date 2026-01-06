@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   internal import Foundation

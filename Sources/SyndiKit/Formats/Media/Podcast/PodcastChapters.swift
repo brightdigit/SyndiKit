@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation

@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -41,7 +41,7 @@
 /// - SeeAlso: ``EntryCategory``
 public enum MediaContent: Sendable {
   /// A podcast episode.
-  case podcast(PodcastEpisode)
+  case podcast(any PodcastEpisode)
 
   /// A video.
   case video(Video)

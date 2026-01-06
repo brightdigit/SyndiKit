@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -114,7 +114,7 @@ extension PodcastLocation {
     ///
     /// - Parameter decoder: The decoder to read data from.
     /// - Throws: A ``DecodingError`` if the decoding process fails.
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
       let container = try decoder.singleValueContainer()
       let singleValue = try container.decode(String.self)
 
@@ -169,7 +169,7 @@ extension PodcastLocation {
     ///
     /// - Parameter encoder: The encoder to write data to.
     /// - Throws: An error if the encoding process fails.
-    public func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
       var container = encoder.singleValueContainer()
       try container.encode(description)
     }

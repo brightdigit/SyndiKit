@@ -1,4 +1,4 @@
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation

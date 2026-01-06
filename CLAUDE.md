@@ -116,7 +116,7 @@ WordPress-specific files are in `Formats/Media/WordPress/`.
 The codebase maintains compatibility across Swift versions using conditional imports:
 
 ```swift
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   public import Foundation

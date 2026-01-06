@@ -29,7 +29,7 @@
 
 import XMLCoder
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -47,7 +47,7 @@ import XMLCoder
 /// - ``decode(_:)``
 @available(macOS 13.0, *)
 public final class SynDecoder: Sendable {
-  private static let defaultTypes: [DecodableFeed.Type] = [
+  private static let defaultTypes: [any DecodableFeed.Type] = [
     RSSFeed.self,
     AtomFeed.self,
     JSONFeed.self,
@@ -55,16 +55,16 @@ public final class SynDecoder: Sendable {
 
   private let defaultJSONDecoderSetup: @Sendable (JSONDecoder) -> Void
   private let defaultXMLDecoderSetup: @Sendable (XMLCoder.XMLDecoder) -> Void
-  private let types: [DecodableFeed.Type]
+  private let types: [any DecodableFeed.Type]
 
   private let defaultXMLDecoder: XMLDecoder
 
   private let defaultJSONDecoder: JSONDecoder
 
-  private let decodings: [DecoderSource: [String: AnyDecoding]]
+  private let decodings: [DecoderSource: [String: any AnyDecoding]]
 
   internal init(
-    types: [DecodableFeed.Type]? = nil,
+    types: [any DecodableFeed.Type]? = nil,
     defaultJSONDecoderSetup: (@Sendable (JSONDecoder) -> Void)? = nil,
     defaultXMLDecoderSetup: (@Sendable (XMLCoder.XMLDecoder) -> Void)? = nil
   ) {
@@ -115,7 +115,7 @@ public final class SynDecoder: Sendable {
   ///
   /// print(feed.title) // Prints "Empower Apps"
   /// ```
-  public func decode(_ data: Data) throws -> Feedable {
+  public func decode(_ data: Data) throws -> any Feedable {
     let firstByte = try Self.getFirstByte(from: data)
     let source = try Self.getSource(from: firstByte)
     guard let decodings = decodings[source] else {

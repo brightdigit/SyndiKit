@@ -1,8 +1,8 @@
-@testable import SyndiKit
-
-#if swift(<6.1)
+#if swift(<6.0)
+  import SyndiKit
   import Foundation
 #else
+  internal import SyndiKit
   internal import Foundation
 #endif
 

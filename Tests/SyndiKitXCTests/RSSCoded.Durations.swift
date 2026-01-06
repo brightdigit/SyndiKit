@@ -1,4 +1,6 @@
-#if swift(<6.1)
+@testable import SyndiKitTestSupport
+
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation

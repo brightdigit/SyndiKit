@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -56,7 +56,7 @@ extension PodcastLocation {
     ///
     /// - Parameter decoder: The decoder to read data from.
     /// - Throws: `DecodingError.dataCorrupted` if the data is invalid.
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
       let container = try decoder.singleValueContainer()
       let osmStr = try container.decode(String.self)
 

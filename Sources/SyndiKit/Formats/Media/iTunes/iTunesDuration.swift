@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -54,7 +54,7 @@ public struct iTunesDuration: Codable, ExpressibleByFloatLiteral, Sendable {
   /// - Parameter decoder: The decoder to read data from.
   /// - Throws: An error if reading from the decoder fails,
   /// or if the data is corrupted or invalid.
-  public init(from decoder: Decoder) throws {
+  public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
     let stringValue = try container.decode(String.self)
     guard let value = Self.timeInterval(stringValue) else {

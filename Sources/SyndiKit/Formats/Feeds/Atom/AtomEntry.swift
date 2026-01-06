@@ -29,7 +29,7 @@
 
 #if swift(<5.7)
   @preconcurrency import Foundation
-#elseif swift(<6.1)
+#elseif swift(<6.0)
   import Foundation
 #else
   public import Foundation
@@ -92,7 +92,7 @@ public struct AtomEntry: Codable, Sendable {
 
 extension AtomEntry: Entryable {
   /// The categories associated with the entry.
-  public var categories: [EntryCategory] {
+  public var categories: [any EntryCategory] {
     atomCategories
   }
 

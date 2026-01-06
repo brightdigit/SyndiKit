@@ -27,7 +27,7 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<6.1)
+#if swift(<6.0)
   import Foundation
 #else
   internal import Foundation
@@ -55,7 +55,7 @@ extension DecodingError {
   }
 
   internal static func dataCorrupted(
-    codingKey: CodingKey,
+    codingKey: any CodingKey,
     debugDescription: String
   ) -> Self {
     DecodingError.dataCorrupted(
