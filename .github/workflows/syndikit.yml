@@ -16,19 +16,21 @@ jobs:
       fail-fast: false
       matrix:
         os: [noble, jammy]
+        type: ["wasm", "wasm-embedded"]
         swift:
-          - version: "5.10"
-          - version: "6.0"
-          - version: "6.1"
+          # - version: "5.10"
+          # - version: "6.0"
+          # - version: "6.1"
           - version: "6.2"
-          - version: "6.3"
-            nightly: true
+          # - version: "6.3"
+          #   nightly: true
     steps:
       - uses: actions/checkout@v4
       - uses: brightdigit/swift-build@mistkit-fix
         with:
           scheme: ${{ env.PACKAGE_NAME }}
           skip-package-resolved: ${{ contains(matrix.swift.version, '5.') }}
+          type: ${{ matrix.type }}
       - uses: sersoft-gmbh/swift-coverage-action@v4
         id: coverage-files
         with:          
