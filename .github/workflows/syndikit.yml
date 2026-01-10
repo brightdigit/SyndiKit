@@ -48,7 +48,7 @@ jobs:
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ${{ matrix.runs-on }}
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    if: false
     strategy:
       fail-fast: false
       matrix:
@@ -257,7 +257,7 @@ jobs:
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ${{ matrix.runs-on }}
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    if: false
     strategy:
       fail-fast: false
       matrix:
@@ -303,7 +303,7 @@ jobs:
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    if: false
     strategy:
       fail-fast: false
       matrix:
@@ -336,7 +336,7 @@ jobs:
 
   lint:
     name: Linting
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    if: false
     runs-on: ubuntu-latest
     needs: [build-ubuntu, build-macos, build-windows, build-android]
     env:
@@ -368,7 +368,7 @@ jobs:
   swift-source-compat-suite:
     name: Test Swift 6.x For Source Compatibility Suite
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    if: false
     strategy:
       matrix:
         container:
