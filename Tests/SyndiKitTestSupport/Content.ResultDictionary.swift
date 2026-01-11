@@ -13,10 +13,10 @@ enum Content {
 
   #if os(WASI)
   /// Lazy-loading dictionary for WASM to avoid memory exhaustion
-  /// Loads and decodes files on-demand instead of all at once
+  /// Loads and decodes files on-demand without caching to minimize memory usage
   ///
   /// Note: Marked @unchecked Sendable because tests run synchronously in WASM
-  /// and the cache is only accessed from a single thread
+  /// and decoding happens from a single thread
   final class LazyResultDictionary<SuccessValueType>: Collection, @unchecked Sendable {
     typealias Element = (key: String, value: Result<SuccessValueType, Error>)
     typealias Index = Array<String>.Index
@@ -24,7 +24,6 @@ enum Content {
     private let directoryURL: URL
     private let decoder: @Sendable (Data) throws -> SuccessValueType
     private let fileNames: [String]
-    private var cache: [String: Result<SuccessValueType, Error>] = [:]
 
     init(directoryURL: URL, fileNames: [String], decoder: @escaping @Sendable (Data) throws -> SuccessValueType) {
       self.directoryURL = directoryURL
@@ -33,12 +32,8 @@ enum Content {
     }
 
     subscript(key: String) -> Result<SuccessValueType, Error>? {
-      // Check cache first
-      if let cached = cache[key] {
-        return cached
-      }
-
-      // Load and decode on-demand
+      // Load and decode on-demand without caching
+      // This keeps memory usage minimal in WASM's 256MB constraint
       let fileURL = directoryURL.appendingPathComponent(key).appendingPathExtension(
         directoryURL.lastPathComponent == "JSON" ? "json" :
         directoryURL.lastPathComponent == "OPML" ? "opml" : "xml"
@@ -49,7 +44,6 @@ enum Content {
         return try decoder(data)
       }
 
-      cache[key] = result
       return result
     }
 
