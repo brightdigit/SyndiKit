@@ -16,85 +16,56 @@
 /// - ✅ Data(contentsOf:) can read individual files
 /// - ❌ FileManager.contentsOfDirectory() is unsupported
 ///
+/// **WASM Memory Optimization:**
+/// Only includes smallest feeds (<50KB) to minimize memory usage in WASM's constrained environment.
+/// Large feeds (empowerapps-show: 2.9MB, it-guy: 4.6MB) are excluded to prevent OOM crashes.
+///
 /// Maintainer note: When adding new test fixture files to Data/, update these lists.
 internal enum TestFileManifests {
-  /// XML feed test files in Data/XML/
+  /// XML feed test files in Data/XML/ (small/medium subset for WASM)
+  /// Only feeds <110KB to stay within memory limits
+  /// Excludes largest feeds: empowerapps-show (2.9MB), it-guy (4.6MB), swiftweeklybrief (2.9MB)
   static let xmlFiles: [String] = [
-    "advancedswift.xml",
-    "andyibanez.xml",
-    "appfigures.youtube.xml",
-    "apple.developer.xml",
-    "apple.releases.xml",
-    "atomicbird.xml",
-    "avanderlee.xml",
-    "cnn_latest.xml",
-    "cocoacasts.xml",
-    "donnywals.xml",
-    "empowerapps-show-cdata_summary.xml",
-    "empowerapps-show.xml",
-    "enekoalonso.xml",
-    "fivestars.xml",
-    "ideveloper.xml",
-    "ios-goodies.xml",
-    "iosdevweekly.xml",
-    "it-guy.xml",
-    "kilo.youtube.xml",
-    "mecid.xml",
-    "mjtsai.xml",
-    "mokacoding.xml",
-    "news.rss",
-    "radar.xml",
-    "raywenderlich.xml",
-    "revenuecat.xml",
-    "rhonabwy.xml",
-    "senestenyt.xml",
-    "stewart.youtube.xml",
-    "swiftbysundell.xml",
-    "swiftpackageindex.xml",
-    "swiftweeklybrief.xml",
-    "timac.xml",
-    "tundsdev.youtube.xml",
-    "vincent.youtube.xml",
-    "wait-wait-dont-tell-me.xml",
-    "wwdcnotes.xml"
+    "senestenyt.xml",          // 7.4K
+    "apple.releases.xml",      // 11K
+    "avanderlee.xml",          // 15K
+    "donnywals.xml",           // 15K
+    "kilo.youtube.xml",        // 20K
+    "appfigures.youtube.xml",  // 22K
+    "vincent.youtube.xml",     // 24K
+    "revenuecat.xml",          // 32K
+    "cocoacasts.xml",          // 36K
+    "stewart.youtube.xml",     // 37K
+    "tundsdev.youtube.xml",    // 37K
+    "atomicbird.xml",          // 39K
+    "timac.xml",               // 45K
+    "news.rss",                // 60K - used in tests
+    "andyibanez.xml",          // 77K
+    "mokacoding.xml",          // 98K
+    "ios-goodies.xml",         // 101K
+    "swiftpackageindex.xml"    // 102K
   ]
 
-  /// JSON feed test files in Data/JSON/
+  /// JSON feed test files in Data/JSON/ (small/medium subset for WASM)
+  /// Only feeds <110KB to stay within memory limits
   static let jsonFiles: [String] = [
-    "advancedswift.json",
-    "andyibanez.json",
-    "appfigures.youtube.json",
-    "apple.developer.json",
-    "apple.releases.json",
-    "atomicbird.json",
-    "avanderlee.json",
-    "cnn_latest.json",
-    "cocoacasts.json",
-    "donnywals.json",
-    "empowerapps-show.json",
-    "enekoalonso.json",
-    "fivestars.json",
-    "ideveloper.json",
-    "ios-goodies.json",
-    "iosdevweekly.json",
-    "it-guy.json",
-    "kilo.youtube.json",
-    "mecid.json",
-    "mjtsai.json",
-    "mokacoding.json",
-    "radar.json",
-    "raywenderlich.json",
-    "revenuecat.json",
-    "rhonabwy.json",
     "senestenyt.json",
-    "stewart.youtube.json",
-    "swiftbysundell.json",
-    "swiftpackageindex.json",
-    "swiftweeklybrief.json",
-    "timac.json",
-    "tundsdev.youtube.json",
+    "apple.releases.json",
+    "avanderlee.json",
+    "donnywals.json",
+    "kilo.youtube.json",
+    "appfigures.youtube.json",
     "vincent.youtube.json",
-    "wwdcnotes.json"
+    "revenuecat.json",
+    "cocoacasts.json",
+    "stewart.youtube.json",
+    "tundsdev.youtube.json",
+    "atomicbird.json",
+    "timac.json",
+    "andyibanez.json",
+    "mokacoding.json",
+    "ios-goodies.json",
+    "swiftpackageindex.json"
   ]
 
   /// OPML test files in Data/OPML/

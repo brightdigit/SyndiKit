@@ -32,6 +32,17 @@ enum Content {
     }
 
     subscript(key: String) -> Result<SuccessValueType, Error>? {
+      // Check if feed is in the allowed list
+      // This prevents loading large feeds that could cause OOM on WASM
+      let fileName = key + "." + (
+        directoryURL.lastPathComponent == "JSON" ? "json" :
+        directoryURL.lastPathComponent == "OPML" ? "opml" : "xml"
+      )
+
+      guard fileNames.contains(fileName) else {
+        return nil  // Feed not available in WASM (too large)
+      }
+
       // Load and decode on-demand without caching
       // This keeps memory usage minimal in WASM's 256MB constraint
       let fileURL = directoryURL.appendingPathComponent(key).appendingPathExtension(
