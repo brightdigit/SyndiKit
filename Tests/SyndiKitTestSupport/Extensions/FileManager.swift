@@ -16,8 +16,6 @@ extension FileManager {
       switch directoryName {
       case "OPML":
         filenames = TestFileManifests.opmlFiles
-      case "WordPress":
-        filenames = TestFileManifests.wordPressFiles
       default:
         throw CocoaError(.fileNoSuchFile)
       }

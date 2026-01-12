@@ -34,11 +34,5 @@
       "states.opml",
       "subscriptionList.opml",
     ]
-
-    /// WordPress export test files in Data/WordPress/
-    static let wordPressFiles: [String] = [
-      "articles.xml",
-      "tutorials.xml",
-    ]
   }
 #endif
