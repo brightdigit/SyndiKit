@@ -20,6 +20,11 @@ final class WordpressTests: XCTestCase {
     "tutorials": URL(string: "https://learningswift.brightdigit.com")!,
   ]
 
+  #if os(WASI)
+    private static let wasiSkipMessage =
+      "Test requires wordpressDataSet not available on WASI platform (memory constraints)"
+  #endif
+
   func testDateDecoder() {
     let dateDecoder = DateFormatterDecoder.RSS.decoder
     let result = dateDecoder.decodeString("Fri, 06 Oct 2017 17:21:35 +0000")
@@ -31,7 +36,10 @@ final class WordpressTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWordpressPosts() {
+  func testWordpressPosts() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
     let decoder = SynDecoder()
 
     let exports = Dictionary(
@@ -73,6 +81,7 @@ final class WordpressTests: XCTestCase {
         dump(feed.channel.items[index])
       }
     }
+    #endif
   }
 
   func testInitMissingName() {
@@ -333,7 +342,10 @@ final class WordpressTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWpAttachmentURL() {
+  func testWpAttachmentURL() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
     let decoder = SynDecoder()
 
     let exports = Dictionary(
@@ -370,5 +382,6 @@ final class WordpressTests: XCTestCase {
         XCTAssertEqual(item.wpAttachmentURL, post.attachmentURL)
       }
     }
+    #endif
   }
 }

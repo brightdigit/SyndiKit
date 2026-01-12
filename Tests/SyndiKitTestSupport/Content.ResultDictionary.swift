@@ -105,13 +105,13 @@ enum Content {
     directoryURL: Directories.json,
     by: Self.synDecoder.decode(_:)
   )
+  static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
+    at: Directories.wordPress
+  )
   #endif
   static let opml = try! Content.resultDictionaryFrom(
     directoryURL: Directories.opml,
     by: Self.xmlDecoder.decodeOPML(_:)
-  )
-  static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
-    at: Directories.wordPress
   )
   static let blogs: SiteCollection = try! .init(
     contentsOf: Directories.data.appendingPathComponent("blogs.json"))
