@@ -34,12 +34,12 @@ jobs:
           type: ${{ matrix.type }}
           wasmtime-version: 40.0.1
       - uses: sersoft-gmbh/swift-coverage-action@v4
-        if: steps.build.outputs.contains-code-coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
         id: coverage-files
         with:
           fail-on-empty-output: true
       - name: Upload coverage to Codecov
-        if: steps.build.outputs.contains-code-coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
         uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
@@ -249,11 +249,11 @@ jobs:
 
       # Common Coverage Steps
       - name: Process Coverage
-        if: steps.build.outputs.contains-code-coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
         uses: sersoft-gmbh/swift-coverage-action@v4
 
       - name: Upload Coverage
-        if: steps.build.outputs.contains-code-coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -301,7 +301,7 @@ jobs:
           windows-swift-build: ${{ matrix.swift.build }}
 
       - name: Upload Coverage
-        if: steps.build.outputs.contains-code-coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
