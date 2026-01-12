@@ -9,38 +9,24 @@
 extension Content {
   internal enum Directories {
     static let data: URL = {
-      // Strategy 1: Working directory relative (most reliable for SPM/WASM/Android)
-      // Try this FIRST because it works on WASM when tests run from package root
-      let workingDirPath = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        .appendingPathComponent("Data")
-
-      if FileManager.default.fileExists(atPath: workingDirPath.path) {
-        return workingDirPath
-      }
-
-      // Strategy 2: Source-relative path (works on macOS/Linux)
+      // Try source-relative path first (works on macOS, Ubuntu CI)
       let sourcePath = URL(fileURLWithPath: #filePath)
         .deletingLastPathComponent()
         .deletingLastPathComponent()
         .deletingLastPathComponent()
         .appendingPathComponent("Data")
 
+      // Check if the source-relative path exists
       if FileManager.default.fileExists(atPath: sourcePath.path) {
         return sourcePath
       }
 
-      // Strategy 3: Parent directory search (for nested execution contexts)
-      var searchPath = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-      for _ in 0..<3 {
-        let candidatePath = searchPath.appendingPathComponent("Data")
-        if FileManager.default.fileExists(atPath: candidatePath.path) {
-          return candidatePath
-        }
-        searchPath = searchPath.deletingLastPathComponent()
-      }
+      // Fall back to current working directory + Data (works on Android emulator)
+      // The Android test runner executes from /data/local/tmp/android-xctest
+      // and copy-files copies Data/ to that location
+      let workingDirPath = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+        .appendingPathComponent("Data")
 
-      // Fallback to working directory path (original behavior)
-      // If this doesn't exist, the error will be caught by try! in Content.ResultDictionary
       return workingDirPath
     }()
 
