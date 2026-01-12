@@ -27,16 +27,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: brightdigit/swift-build@mistkit-fix
+        id: build
         with:
           scheme: ${{ env.PACKAGE_NAME }}
           skip-package-resolved: ${{ contains(matrix.swift.version, '5.') }}
           type: ${{ matrix.type }}
           wasmtime-version: 40.0.1
       - uses: sersoft-gmbh/swift-coverage-action@v4
+        if: steps.build.outputs.contains-code-coverage
         id: coverage-files
-        with:          
+        with:
           fail-on-empty-output: true
       - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage
         uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
@@ -233,6 +236,7 @@ jobs:
         run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
 
       - name: Build and Test
+        id: build
         uses: brightdigit/swift-build@v1.4.2
         with:
           scheme: ${{ env.PACKAGE_NAME }}
@@ -242,12 +246,14 @@ jobs:
           osVersion: ${{ matrix.osVersion }}
           build-only: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
           skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15.4') }}
-          
+
       # Common Coverage Steps
       - name: Process Coverage
+        if: steps.build.outputs.contains-code-coverage
         uses: sersoft-gmbh/swift-coverage-action@v4
-  
+
       - name: Upload Coverage
+        if: steps.build.outputs.contains-code-coverage
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -287,6 +293,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build and Test
+        id: build
         uses: brightdigit/swift-build@v1.4.2
         with:
           scheme: ${{ env.PACKAGE_NAME }}
@@ -294,6 +301,7 @@ jobs:
           windows-swift-build: ${{ matrix.swift.build }}
 
       - name: Upload Coverage
+        if: steps.build.outputs.contains-code-coverage
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
