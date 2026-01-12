@@ -14,10 +14,6 @@ extension FileManager {
       let filenames: [String]
 
       switch directoryName {
-      case "XML":
-        filenames = TestFileManifests.xmlFiles
-      case "JSON":
-        filenames = TestFileManifests.jsonFiles
       case "OPML":
         filenames = TestFileManifests.opmlFiles
       case "WordPress":

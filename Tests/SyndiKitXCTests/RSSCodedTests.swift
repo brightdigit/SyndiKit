@@ -4,11 +4,29 @@ import XMLCoder
 @testable import SyndiKit
 @testable import SyndiKitTestSupport
 
+/// Comprehensive RSS feed decoding tests
+///
+/// ## Platform Support
+/// - **macOS/Linux/Windows**: Full test suite including large feed integration tests
+/// - **WASI**: Subset of tests using inline XML fixtures (large feeds excluded due to memory constraints)
+///
+/// Tests using `Content.xmlFeeds` and `Content.jsonFeeds` are excluded on WASI
+/// because these properties are compile-time disabled due to FileManager limitations
+/// and memory constraints. Core parsing is validated via inline XML test fixtures.
 @available(macOS 13.0, *)
 internal final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
-  func testCategories() {
+  #if os(WASI)
+    private static let wasiSkipMessage =
+      "Test requires xmlFeeds/jsonFeeds properties not available on WASI platform (memory constraints)"
+  #endif
+
+  func testCategories() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feeds = try? Content.xmlFeeds["advancedswift"]?.get() else {
       XCTFail("No Feeds")
       return
@@ -89,7 +107,11 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testEntryable() {
+  func testEntryable() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     let allFeeds = [
       Content.xmlFeeds, Content.jsonFeeds,
     ].flatMap { $0 }
@@ -140,6 +162,10 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   func testJSONXMLEquality() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     for (name, xmlResult) in Content.xmlFeeds {
       guard let jsonResult = Content.jsonFeeds[name] else {
         continue
@@ -181,7 +207,11 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testChannelPodcastElements() {
+  func testChannelPodcastElements() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -215,7 +245,11 @@ internal final class SyndiKitTests: XCTestCase {
       ))
   }
 
-  func testItemPodcastElements() {
+  func testItemPodcastElements() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -431,6 +465,10 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   func testPodcastMissingLink() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["wait-wait-dont-tell-me"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -509,7 +547,11 @@ internal final class SyndiKitTests: XCTestCase {
     )
   }
 
-  func testPodcastEpisodes() {
+  func testPodcastEpisodes() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     let missingEpisodes = ["it-guy": [76, 56, 45]]
     let podcasts = [
       "empowerapps-show": 1...94,
@@ -552,7 +594,11 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testEpisodeStringSummary() {
+  func testEpisodeStringSummary() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -575,7 +621,11 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertNotNil(episode.summary)
   }
 
-  func testEpisodesWithNoPersons() {
+  func testEpisodesWithNoPersons() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -596,7 +646,11 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertTrue(item.podcastPeople.isEmpty)
   }
 
-  func testEpisodesWithHostAndGuestPersons() {
+  func testEpisodesWithHostAndGuestPersons() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -644,7 +698,11 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testEpisodeCDataSummary() {
+  func testEpisodeCDataSummary() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
       XCTFail("Missing Podcast \(name)")
       return
@@ -667,7 +725,11 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertNotNil(episode.summary)
   }
 
-  func testSyndication() {
+  func testSyndication() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     let updates = [
       "avanderlee": SyndicationUpdate(period: .hourly, frequency: 1),
       "donnywals": SyndicationUpdate(period: .hourly, frequency: 1),
@@ -692,7 +754,11 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
-  func testYoutubeVideos() {
+  func testYoutubeVideos() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
 
       let feed: any Feedable
@@ -734,7 +800,11 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testDurations() {
+  func testDurations() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     for (name, expecteds) in Self.durationSets {
       guard let feed = try? Content.xmlFeeds[name]?.get() else {
         XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name].debugDescription)")
@@ -770,6 +840,10 @@ internal final class SyndiKitTests: XCTestCase {
   // MARK: - Author Parsing Integration Tests
 
   func testRaywenderlichManagingEditor() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["raywenderlich"]?.get(),
       let rssFeed = feed as? RSSFeed
     else {
@@ -790,6 +864,10 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   func testNewsRSSManagingEditorAndWebMaster() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #endif
+
     guard let feed = try? Content.xmlFeeds["news"]?.get(),
       let rssFeed = feed as? RSSFeed
     else {

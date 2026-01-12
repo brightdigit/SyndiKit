@@ -93,21 +93,7 @@ enum Content {
     XMLCoder.XMLDecoder()
   }
 
-  #if os(WASI)
-  // WASM: Use lazy loading to avoid memory exhaustion from loading all 37 XML files at once
-  @available(macOS 13.0, *)
-  static let xmlFeeds = LazyResultDictionary<Feedable>(
-    directoryURL: Directories.xml,
-    fileNames: TestFileManifests.xmlFiles,
-    decoder: Self.synDecoder.decode(_:)
-  )
-  @available(macOS 13.0, *)
-  static let jsonFeeds = LazyResultDictionary<Feedable>(
-    directoryURL: Directories.json,
-    fileNames: TestFileManifests.jsonFiles,
-    decoder: Self.synDecoder.decode(_:)
-  )
-  #else
+  #if !os(WASI)
   // macOS/Linux: Load all feeds eagerly (faster, more memory available)
   @available(macOS 13.0, *)
   static let xmlFeeds = try! Content.resultDictionaryFrom(
