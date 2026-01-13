@@ -9,16 +9,25 @@ extension FileManager {
     #if os(WASI)
       // WASM: Use explicit file list instead of contentsOfDirectory
       // Directory enumeration is not supported in WASI (POSIX error 58)
-      // but individual file reading works fine
-      let directoryName = sourceURL.lastPathComponent
-      let filenames: [String]
+      // Only OPML tests run on WASM due to memory constraints (~144KB total)
 
-      switch directoryName {
-      case "OPML":
-        filenames = TestFileManifests.opmlFiles
-      default:
+      // Verify we're accessing the OPML directory (sanity check for future maintainers)
+      guard sourceURL.lastPathComponent == "OPML" else {
         throw CocoaError(.fileNoSuchFile)
       }
+
+      // Explicit list of OPML test files
+      // Update this list when adding new test fixtures to Data/OPML/
+      let filenames: [String] = [
+        "category.opml",
+        "category_invalidExpansionState.opml",
+        "development.opml",
+        "directory.opml",
+        "placesLived.opml",
+        "simpleScript.opml",
+        "states.opml",
+        "subscriptionList.opml",
+      ]
 
       return filenames.map { filename in
         let url = sourceURL.appendingPathComponent(filename)

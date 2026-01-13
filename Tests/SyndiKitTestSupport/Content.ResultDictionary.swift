@@ -46,6 +46,8 @@ enum Content {
       at: Directories.wordPress
     )
   #endif
+  // WASM: Only OPML tests run (uses explicit file list in FileManager.dataFromDirectory)
+  // All other test data (xmlFeeds, jsonFeeds, wordpressDataSet) is disabled above due to memory constraints
   static let opml = try! Content.resultDictionaryFrom(
     directoryURL: Directories.opml,
     by: Self.xmlDecoder.decodeOPML(_:)
