@@ -20,59 +20,84 @@ final class WordpressTests: XCTestCase {
     "tutorials": URL(string: "https://learningswift.brightdigit.com")!,
   ]
 
-  func testDateDecoder() {
-    let dateDecoder = DateFormatterDecoder.RSS.decoder
-    let result = dateDecoder.decodeString("Fri, 06 Oct 2017 17:21:35 +0000")
-    XCTAssertNotNil(result)
+  #if os(WASI)
+    private static let wasiSkipMessage =
+      "Test requires wordpressDataSet not available on WASI platform (memory constraints)"
+  #endif
 
-    let another = dateDecoder.decodeString("2017-10-06 16:59:50")
-    XCTAssertNotNil(another)
+  func testDateDecoderRFC822() throws {
+    #if os(WASI)
+      throw XCTSkip(
+        "RFC 822 date format requires ICU locale data for month/day names, "
+          + "which is unavailable on WASI. See GitHub issue #115"
+      )
+    #else
+      let dateDecoder = DateFormatterDecoder.RSS.decoder
+      let result = dateDecoder.decodeString("Fri, 06 Oct 2017 17:21:35 +0000")
+      XCTAssertNotNil(
+        result,
+        "Failed to parse RFC 822 date format"
+      )
+    #endif
+  }
+
+  func testDateDecoderWordPressCustomFormat() {
+    let dateDecoder = DateFormatterDecoder.RSS.decoder
+    let result = dateDecoder.decodeString("2017-10-06 16:59:50")
+    XCTAssertNotNil(
+      result,
+      "Failed to parse WordPress custom date format (yyyy-MM-dd HH:mm:ss)"
+    )
   }
 
   // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWordpressPosts() {
-    let decoder = SynDecoder()
+  func testWordpressPosts() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+      let decoder = SynDecoder()
 
-    let exports = Dictionary(
-      uniqueKeysWithValues: Content.wordpressDataSet
-    ).mapValues { result in
-      result.flatMap { data in
-        Result { try decoder.decode(data) }
-      }
-    }
-
-    for (name, result) in exports {
-      let feedable: any Feedable
-      do {
-        feedable = try result.get()
-      } catch {
-        XCTAssertNil(error, name)
-
-        continue
+      let exports = Dictionary(
+        uniqueKeysWithValues: Content.wordpressDataSet
+      ).mapValues { result in
+        result.flatMap { data in
+          Result { try decoder.decode(data) }
+        }
       }
 
-      guard let feed = feedable as? RSSFeed else {
-        XCTFail()
-        continue
+      for (name, result) in exports {
+        let feedable: any Feedable
+        do {
+          feedable = try result.get()
+        } catch {
+          XCTAssertNil(error, name)
+
+          continue
+        }
+
+        guard let feed = feedable as? RSSFeed else {
+          XCTFail()
+          continue
+        }
+
+        XCTAssertNotNil(feed.channel.wpBaseSiteURL)
+        XCTAssertNotNil(feed.channel.wpBaseBlogURL)
+        XCTAssertEqual(feed.channel.wpBaseSiteURL, Self.baseSiteURLs[name])
+        XCTAssertEqual(feed.channel.wpBaseBlogURL, Self.baseBlogURLs[name])
+        XCTAssertGreaterThan(feed.channel.wpTags.count, 0)
+        XCTAssertGreaterThan(feed.channel.wpCategories.count, 0)
+        let notPostIndex = feed.channel.items.firstIndex(where: {
+          $0.wpPostID == nil
+        })
+
+        XCTAssertNil(notPostIndex)
+
+        if let index = notPostIndex {
+          dump(feed.channel.items[index])
+        }
       }
-
-      XCTAssertNotNil(feed.channel.wpBaseSiteURL)
-      XCTAssertNotNil(feed.channel.wpBaseBlogURL)
-      XCTAssertEqual(feed.channel.wpBaseSiteURL, Self.baseSiteURLs[name])
-      XCTAssertEqual(feed.channel.wpBaseBlogURL, Self.baseBlogURLs[name])
-      XCTAssertGreaterThan(feed.channel.wpTags.count, 0)
-      XCTAssertGreaterThan(feed.channel.wpCategories.count, 0)
-      let notPostIndex = feed.channel.items.firstIndex(where: {
-        $0.wpPostID == nil
-      })
-
-      XCTAssertNil(notPostIndex)
-
-      if let index = notPostIndex {
-        dump(feed.channel.items[index])
-      }
-    }
+    #endif
   }
 
   func testInitMissingName() {
@@ -333,42 +358,46 @@ final class WordpressTests: XCTestCase {
 
   // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWpAttachmentURL() {
-    let decoder = SynDecoder()
+  func testWpAttachmentURL() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+      let decoder = SynDecoder()
 
-    let exports = Dictionary(
-      uniqueKeysWithValues: Content.wordpressDataSet
-    ).mapValues { result in
-      result.flatMap { data in
-        Result { try decoder.decode(data) }
-      }
-    }
-
-    for (name, result) in exports {
-      let feedable: any Feedable
-      do {
-        feedable = try result.get()
-      } catch {
-        XCTAssertNil(error, name)
-
-        continue
+      let exports = Dictionary(
+        uniqueKeysWithValues: Content.wordpressDataSet
+      ).mapValues { result in
+        result.flatMap { data in
+          Result { try decoder.decode(data) }
+        }
       }
 
-      guard let feed = feedable as? RSSFeed else {
-        XCTFail()
-        continue
-      }
+      for (name, result) in exports {
+        let feedable: any Feedable
+        do {
+          feedable = try result.get()
+        } catch {
+          XCTAssertNil(error, name)
 
-      let items = feed.channel.items.compactMap { item in
-        (try? WordPressPost(item: item)).map { (item, $0) }
-      }.filter {
-        $0.1.type == "attachment"
-      }
+          continue
+        }
 
-      for (item, post) in items {
-        XCTAssertNotNil(item.wpAttachmentURL)
-        XCTAssertEqual(item.wpAttachmentURL, post.attachmentURL)
+        guard let feed = feedable as? RSSFeed else {
+          XCTFail()
+          continue
+        }
+
+        let items = feed.channel.items.compactMap { item in
+          (try? WordPressPost(item: item)).map { (item, $0) }
+        }.filter {
+          $0.1.type == "attachment"
+        }
+
+        for (item, post) in items {
+          XCTAssertNotNil(item.wpAttachmentURL)
+          XCTAssertEqual(item.wpAttachmentURL, post.attachmentURL)
+        }
       }
-    }
+    #endif
   }
 }

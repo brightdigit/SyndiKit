@@ -4,19 +4,37 @@ import XMLCoder
 @testable import SyndiKit
 @testable import SyndiKitTestSupport
 
+/// Comprehensive RSS feed decoding tests
+///
+/// ## Platform Support
+/// - **macOS/Linux/Windows**: Full test suite including large feed integration tests
+/// - **WASI**: Subset of tests using inline XML fixtures (large feeds excluded due to memory constraints)
+///
+/// Tests using `Content.xmlFeeds` and `Content.jsonFeeds` are excluded on WASI
+/// because these properties are compile-time disabled due to FileManager limitations
+/// and memory constraints. Core parsing is validated via inline XML test fixtures.
 @available(macOS 13.0, *)
 internal final class SyndiKitTests: XCTestCase {
   static let itemCount = 20
 
-  func testCategories() {
-    guard let feeds = try? Content.xmlFeeds["advancedswift"]?.get() else {
-      XCTFail("No Feeds")
-      return
-    }
+  #if os(WASI)
+    private static let wasiSkipMessage =
+      "Test requires xmlFeeds/jsonFeeds properties not available on WASI platform (memory constraints)"
+  #endif
 
-    for item in feeds.children {
-      XCTAssert(item.categories.contains(where: { $0.term == "iOS" }))
-    }
+  func testCategories() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+      guard let feeds = try? Content.xmlFeeds["advancedswift"]?.get() else {
+        XCTFail("No Feeds")
+        return
+      }
+
+      for item in feeds.children {
+        XCTAssert(item.categories.contains(where: { $0.term == "iOS" }))
+      }
+    #endif
   }
 
   fileprivate func assertAtomEntry(_ atomEntry: AtomEntry, _ entryChild: any Entryable) {
@@ -89,30 +107,34 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testEntryable() {
-    let allFeeds = [
-      Content.xmlFeeds, Content.jsonFeeds,
-    ].flatMap { $0 }
+  func testEntryable() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+      let allFeeds = [
+        Content.xmlFeeds, Content.jsonFeeds,
+      ].flatMap { $0 }
 
-    for (name, xmlResult) in allFeeds {
-      let feed: any Feedable
-      do {
-        feed = try xmlResult.get()
-      } catch {
-        XCTAssertNil(error, "Failed to decode \(name)")
-        continue
-      }
+      for (name, xmlResult) in allFeeds {
+        let feed: any Feedable
+        do {
+          feed = try xmlResult.get()
+        } catch {
+          XCTAssertNil(error, "Failed to decode \(name)")
+          continue
+        }
 
-      if let atomFeed = feed as? AtomFeed {
-        assertFeed(feed, atomFeed: atomFeed)
-      } else if let rssFeed = feed as? RSSFeed {
-        assertFeed(feed, rssFeed: rssFeed)
-      } else if let jsonFeed = feed as? JSONFeed {
-        assert(jsonFeed: jsonFeed, feed: feed)
-      } else {
-        continue
+        if let atomFeed = feed as? AtomFeed {
+          assertFeed(feed, atomFeed: atomFeed)
+        } else if let rssFeed = feed as? RSSFeed {
+          assertFeed(feed, rssFeed: rssFeed)
+        } else if let jsonFeed = feed as? JSONFeed {
+          assert(jsonFeed: jsonFeed, feed: feed)
+        } else {
+          continue
+        }
       }
-    }
+    #endif
   }
 
   fileprivate func assertFeedableEqual(
@@ -140,131 +162,145 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   func testJSONXMLEquality() throws {
-    for (name, xmlResult) in Content.xmlFeeds {
-      guard let jsonResult = Content.jsonFeeds[name] else {
-        continue
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+      for (name, xmlResult) in Content.xmlFeeds {
+        guard let jsonResult = Content.jsonFeeds[name] else {
+          continue
+        }
+
+        let json: any Feedable
+        let rss: any Feedable
+
+        do {
+          json = try jsonResult.get()
+          rss = try xmlResult.get()
+        } catch {
+          XCTAssertNil(error, "failed decoding \(name)")
+          continue
+        }
+
+        assertFeedableEqual(json, rss, name)
+
+        let items = zip(
+          json.children.sorted(by: {
+            $0.title < $1.title
+          }),
+          rss.children.sorted(by: {
+            $0.title < $1.title
+          }))
+
+        for (jsonItem, rssItem) in items {
+          XCTAssertEqual(
+            jsonItem.title.trimAndNilIfEmpty(),
+            rssItem.title.trimAndNilIfEmpty()
+          )
+
+          XCTAssertEqual(
+            jsonItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
+            rssItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
+            jsonItem.title
+          )
+        }
       }
-
-      let json: any Feedable
-      let rss: any Feedable
-
-      do {
-        json = try jsonResult.get()
-        rss = try xmlResult.get()
-      } catch {
-        XCTAssertNil(error, "failed decoding \(name)")
-        continue
-      }
-
-      assertFeedableEqual(json, rss, name)
-
-      let items = zip(
-        json.children.sorted(by: {
-          $0.title < $1.title
-        }),
-        rss.children.sorted(by: {
-          $0.title < $1.title
-        }))
-
-      for (jsonItem, rssItem) in items {
-        XCTAssertEqual(
-          jsonItem.title.trimAndNilIfEmpty(),
-          rssItem.title.trimAndNilIfEmpty()
-        )
-
-        XCTAssertEqual(
-          jsonItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
-          rssItem.contentHtml?.trimAndNilIfEmpty()?.normalizeLineEndings(),
-          jsonItem.title
-        )
-      }
-    }
+    #endif
   }
 
-  func testChannelPodcastElements() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
+  func testChannelPodcastElements() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
+      }
 
-    XCTAssertEqual(rss.channel.podcastLocked?.owner, "leogdion@brightdigit.com")
-    XCTAssertEqual(rss.channel.podcastLocked?.isLocked, false)
+      guard let rss = feed as? RSSFeed else {
+        XCTFail("Wrong Type \(name)")
+        return
+      }
 
-    XCTAssertEqual(rss.channel.podcastFundings.count, 1)
+      XCTAssertEqual(rss.channel.podcastLocked?.owner, "leogdion@brightdigit.com")
+      XCTAssertEqual(rss.channel.podcastLocked?.isLocked, false)
 
-    let funding = rss.channel.podcastFundings[0]
-    XCTAssertEqual(funding.description, "Support this podcast on Patreon")
-    XCTAssertEqual(funding.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
+      XCTAssertEqual(rss.channel.podcastFundings.count, 1)
 
-    XCTAssertEqual(rss.channel.podcastPeople.count, 1)
+      let funding = rss.channel.podcastFundings[0]
+      XCTAssertEqual(funding.description, "Support this podcast on Patreon")
+      XCTAssertEqual(funding.url, URL(strict: "https://www.patreon.com/empowerappsshow"))
 
-    let person = rss.channel.podcastPeople[0]
-    XCTAssertEqual(person.fullname, "Leo Dion")
-    XCTAssertEqual(person.role, .host)
-    XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
-    XCTAssertEqual(
-      person.img,
-      URL(
-        strict:
-          "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-      ))
+      XCTAssertEqual(rss.channel.podcastPeople.count, 1)
+
+      let person = rss.channel.podcastPeople[0]
+      XCTAssertEqual(person.fullname, "Leo Dion")
+      XCTAssertEqual(person.role, .host)
+      XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
+      XCTAssertEqual(
+        person.img,
+        URL(
+          strict:
+            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+        ))
+    #endif
   }
 
-  func testItemPodcastElements() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
+  func testItemPodcastElements() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
+      }
 
-    guard let item = rss.channel.items.first else {
-      XCTFail("Missing Item \(name)")
-      return
-    }
+      guard let rss = feed as? RSSFeed else {
+        XCTFail("Wrong Type \(name)")
+        return
+      }
 
-    let host = item.podcastPeople[0]
-    XCTAssertEqual(host.fullname, "Leo Dion")
-    XCTAssertEqual(host.role, .host)
-    XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
-    XCTAssertEqual(
-      host.img,
-      URL(
-        strict:
-          "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-      ))
+      guard let item = rss.channel.items.first else {
+        XCTFail("Missing Item \(name)")
+        return
+      }
 
-    let guest = item.podcastPeople[1]
-    XCTAssertEqual(guest.fullname, "CompileSwift")
-    XCTAssertEqual(guest.role, .guest)
-    XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
-    XCTAssertEqual(
-      guest.img,
-      URL(
-        strict:
-          "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
-      ))
+      let host = item.podcastPeople[0]
+      XCTAssertEqual(host.fullname, "Leo Dion")
+      XCTAssertEqual(host.role, .host)
+      XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
+      XCTAssertEqual(
+        host.img,
+        URL(
+          strict:
+            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+        ))
 
-    XCTAssertEqual(item.podcastTranscripts.count, 1)
+      let guest = item.podcastPeople[1]
+      XCTAssertEqual(guest.fullname, "CompileSwift")
+      XCTAssertEqual(guest.role, .guest)
+      XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
+      XCTAssertEqual(
+        guest.img,
+        URL(
+          strict:
+            "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
+        ))
 
-    let transcript = item.podcastTranscripts[0]
-    XCTAssertEqual(
-      transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
-    XCTAssertEqual(transcript.type, .srt)
-    XCTAssertEqual(transcript.rel, .captions)
+      XCTAssertEqual(item.podcastTranscripts.count, 1)
 
-    let chapters = item.podcastChapters
-    XCTAssertEqual(
-      chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
-    XCTAssertEqual(chapters?.type, .json)
+      let transcript = item.podcastTranscripts[0]
+      XCTAssertEqual(
+        transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
+      XCTAssertEqual(transcript.type, .srt)
+      XCTAssertEqual(transcript.rel, .captions)
+
+      let chapters = item.podcastChapters
+      XCTAssertEqual(
+        chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
+      XCTAssertEqual(chapters?.type, .json)
+    #endif
   }
 
   func testPodcastPeopleUnknownRole() throws {
@@ -431,24 +467,29 @@ internal final class SyndiKitTests: XCTestCase {
   }
 
   func testPodcastMissingLink() throws {
-    guard let feed = try? Content.xmlFeeds["wait-wait-dont-tell-me"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
+      guard let feed = try? Content.xmlFeeds["wait-wait-dont-tell-me"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
+      }
 
-    guard rss.channel.items.count > 193 else {
-      XCTFail("Missing Item \(name)")
-      return
-    }
+      guard let rss = feed as? RSSFeed else {
+        XCTFail("Wrong Type \(name)")
+        return
+      }
 
-    let item = rss.channel.items[193]
+      guard rss.channel.items.count > 193 else {
+        XCTFail("Missing Item \(name)")
+        return
+      }
 
-    XCTAssertNil(item.link)
+      let item = rss.channel.items[193]
+
+      XCTAssertNil(item.link)
+    #endif
   }
 
   private func assertInvalidGeoData(from xmlStr: String) throws {
@@ -509,313 +550,363 @@ internal final class SyndiKitTests: XCTestCase {
     )
   }
 
-  func testPodcastEpisodes() {
-    let missingEpisodes = ["it-guy": [76, 56, 45]]
-    let podcasts = [
-      "empowerapps-show": 1...94,
-      "empowerapps-show-cdata_summary": 1...151,
-      "radar": 1...219,
-      "ideveloper": 276...297,
-      "it-guy": 1...330,
-    ].mapValues {
-      [Int]($0.map { $0 }.reversed())
-    }
+  func testPodcastEpisodes() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    for (name, episodeNumbers) in podcasts {
-      guard let feed = try? Content.xmlFeeds[name]?.get() else {
+      let missingEpisodes = ["it-guy": [76, 56, 45]]
+      let podcasts = [
+        "empowerapps-show": 1...94,
+        "empowerapps-show-cdata_summary": 1...151,
+        "radar": 1...219,
+        "ideveloper": 276...297,
+        "it-guy": 1...330,
+      ].mapValues {
+        [Int]($0.map { $0 }.reversed())
+      }
+
+      for (name, episodeNumbers) in podcasts {
+        guard let feed = try? Content.xmlFeeds[name]?.get() else {
+          XCTFail("Missing Podcast \(name)")
+          continue
+        }
+
+        guard let rss = feed as? RSSFeed else {
+          XCTFail("Wrong Type \(name)")
+          continue
+        }
+
+        var episodeNumbers = episodeNumbers
+        let actualEps = rss.channel.items.compactMap { $0.itunesEpisode?.value }
+
+        if let missingEpNumbers = missingEpisodes[name] {
+          episodeNumbers.removeAll(where: missingEpNumbers.contains(_:))
+        }
+
+        if name == "it-guy" {
+          let value = episodeNumbers.remove(at: 330 - 110)
+          episodeNumbers.insert(value, at: 330 - 110 + 1)
+        }
+
+        let numbers = zip(episodeNumbers, actualEps)
+
+        for (expected, actual) in numbers {
+          XCTAssertEqual(expected, actual)
+        }
+      }
+    #endif
+  }
+
+  func testEpisodeStringSummary() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
         XCTFail("Missing Podcast \(name)")
-        continue
+        return
       }
 
       guard let rss = feed as? RSSFeed else {
         XCTFail("Wrong Type \(name)")
-        continue
+        return
       }
 
-      var episodeNumbers = episodeNumbers
-      let actualEps = rss.channel.items.compactMap { $0.itunesEpisode?.value }
+      let items = rss.channel.items
 
-      if let missingEpNumbers = missingEpisodes[name] {
-        episodeNumbers.removeAll(where: missingEpNumbers.contains(_:))
+      let title = "Platforms State of Union 2023 with Peter Witham"
+
+      guard let episode = items.first(where: { $0.title == title }) else {
+        XCTFail("Missing episode \(title)")
+        return
       }
 
-      if name == "it-guy" {
-        let value = episodeNumbers.remove(at: 330 - 110)
-        episodeNumbers.insert(value, at: 330 - 110 + 1)
-      }
-
-      let numbers = zip(episodeNumbers, actualEps)
-
-      for (expected, actual) in numbers {
-        XCTAssertEqual(expected, actual)
-      }
-    }
+      XCTAssertNotNil(episode.summary)
+    #endif
   }
 
-  func testEpisodeStringSummary() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
+  func testEpisodesWithNoPersons() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
-
-    let items = rss.channel.items
-
-    let title = "Platforms State of Union 2023 with Peter Witham"
-
-    guard let episode = items.first(where: { $0.title == title }) else {
-      XCTFail("Missing episode \(title)")
-      return
-    }
-
-    XCTAssertNotNil(episode.summary)
-  }
-
-  func testEpisodesWithNoPersons() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
-
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
-
-    let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
-
-    guard let item = rss.channel.items.first(where: { $0.title == itemTitle }) else {
-      XCTFail("Expected to find episode of title: \(itemTitle)")
-      return
-    }
-
-    XCTAssertTrue(item.podcastPeople.isEmpty)
-  }
-
-  func testEpisodesWithHostAndGuestPersons() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
-
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
-
-    let item1Title = "WWDC Spectacular (Part 2) with Peter Witham"
-    let item2Title = "How to WWDC with Peter Witham"
-
-    let items = rss.channel.items.filter { $0.title == item1Title || $0.title == item2Title }
-
-    XCTAssertFalse(items.isEmpty)
-
-    for item in items {
-      let host = item.podcastPeople.first(where: { $0.role == .host })
-
-      XCTAssertNotNil(host)
-      XCTAssertEqual(host?.fullname, "Leo Dion")
-      XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
-      XCTAssertEqual(
-        host?.img,
-        URL(
-          string:
-            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-        )
-      )
-
-      // Both podcasts have the same guest
-      let guest = item.podcastPeople.first(where: { $0.role == .guest })
-
-      XCTAssertNotNil(guest)
-      XCTAssertEqual(guest?.fullname, "CompileSwift")
-      XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
-      XCTAssertEqual(
-        guest?.img,
-        URL(
-          string:
-            "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
-        )
-      )
-    }
-  }
-
-  func testEpisodeCDataSummary() {
-    guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
-      XCTFail("Missing Podcast \(name)")
-      return
-    }
-
-    guard let rss = feed as? RSSFeed else {
-      XCTFail("Wrong Type \(name)")
-      return
-    }
-
-    let items = rss.channel.items
-
-    let title = "Dynamic Island with Steve Lipton"
-
-    guard let episode = items.first(where: { $0.title == title }) else {
-      XCTFail("Missing episode \(title)")
-      return
-    }
-
-    XCTAssertNotNil(episode.summary)
-  }
-
-  func testSyndication() {
-    let updates = [
-      "avanderlee": SyndicationUpdate(period: .hourly, frequency: 1),
-      "donnywals": SyndicationUpdate(period: .hourly, frequency: 1),
-      "mjtsai": SyndicationUpdate(period: .hourly, frequency: 1),
-      "raywenderlich": SyndicationUpdate(period: .hourly, frequency: 1),
-      "rhonabwy": SyndicationUpdate(period: .hourly, frequency: 1),
-    ]
-
-    for (name, update) in updates {
-      guard let feed = try? Content.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name].debugDescription)")
-        continue
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
       }
 
       guard let rss = feed as? RSSFeed else {
-        XCTFail("Wrong Type")
-        continue
+        XCTFail("Wrong Type \(name)")
+        return
       }
 
-      XCTAssertEqual(rss.channel.syndication, update)
-    }
+      let itemTitle = "My Taylor Deep Dish Swift Heroes World Tour"
+
+      guard let item = rss.channel.items.first(where: { $0.title == itemTitle }) else {
+        XCTFail("Expected to find episode of title: \(itemTitle)")
+        return
+      }
+
+      XCTAssertTrue(item.podcastPeople.isEmpty)
+    #endif
+  }
+
+  func testEpisodesWithHostAndGuestPersons() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
+      }
+
+      guard let rss = feed as? RSSFeed else {
+        XCTFail("Wrong Type \(name)")
+        return
+      }
+
+      let item1Title = "WWDC Spectacular (Part 2) with Peter Witham"
+      let item2Title = "How to WWDC with Peter Witham"
+
+      let items = rss.channel.items.filter { $0.title == item1Title || $0.title == item2Title }
+
+      XCTAssertFalse(items.isEmpty)
+
+      for item in items {
+        let host = item.podcastPeople.first(where: { $0.role == .host })
+
+        XCTAssertNotNil(host)
+        XCTAssertEqual(host?.fullname, "Leo Dion")
+        XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
+        XCTAssertEqual(
+          host?.img,
+          URL(
+            string:
+              "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+          )
+        )
+
+        // Both podcasts have the same guest
+        let guest = item.podcastPeople.first(where: { $0.role == .guest })
+
+        XCTAssertNotNil(guest)
+        XCTAssertEqual(guest?.fullname, "CompileSwift")
+        XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
+        XCTAssertEqual(
+          guest?.img,
+          URL(
+            string:
+              "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
+          )
+        )
+      }
+    #endif
+  }
+
+  func testEpisodeCDataSummary() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+
+      guard let feed = try? Content.xmlFeeds["empowerapps-show-cdata_summary"]?.get() else {
+        XCTFail("Missing Podcast \(name)")
+        return
+      }
+
+      guard let rss = feed as? RSSFeed else {
+        XCTFail("Wrong Type \(name)")
+        return
+      }
+
+      let items = rss.channel.items
+
+      let title = "Dynamic Island with Steve Lipton"
+
+      guard let episode = items.first(where: { $0.title == title }) else {
+        XCTFail("Missing episode \(title)")
+        return
+      }
+
+      XCTAssertNotNil(episode.summary)
+    #endif
+  }
+
+  func testSyndication() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
+
+      let updates = [
+        "avanderlee": SyndicationUpdate(period: .hourly, frequency: 1),
+        "donnywals": SyndicationUpdate(period: .hourly, frequency: 1),
+        "mjtsai": SyndicationUpdate(period: .hourly, frequency: 1),
+        "raywenderlich": SyndicationUpdate(period: .hourly, frequency: 1),
+        "rhonabwy": SyndicationUpdate(period: .hourly, frequency: 1),
+      ]
+
+      for (name, update) in updates {
+        guard let feed = try? Content.xmlFeeds[name]?.get() else {
+          XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name].debugDescription)")
+          continue
+        }
+
+        guard let rss = feed as? RSSFeed else {
+          XCTFail("Wrong Type")
+          continue
+        }
+
+        XCTAssertEqual(rss.channel.syndication, update)
+      }
+    #endif
   }
 
   // swiftlint:disable:next function_body_length
-  func testYoutubeVideos() {
-    for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
+  func testYoutubeVideos() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-      let feed: any Feedable
-      do {
-        feed = try xmlResult.get()
-      } catch {
-        XCTAssertNotNil(error)
-        continue
-      }
+      for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
 
-      guard let atom = feed as? AtomFeed else {
-        XCTFail()
-        continue
-      }
-
-      let items = zip(atom.entries, feed.children)
-
-      for (entry, item) in items {
-        let youtube = item.media.flatMap { media -> (any YouTubeID)? in
-          guard case let .video(video) = media else {
-            return nil
-          }
-          guard case let .youtube(youtube) = video else {
-            return nil
-          }
-          return youtube
-        }
-        guard let group = entry.mediaGroup else {
-          XCTAssertNotNil(entry.mediaGroup)
+        let feed: any Feedable
+        do {
+          feed = try xmlResult.get()
+        } catch {
+          XCTAssertNotNil(error)
           continue
         }
-        XCTAssertNotNil(group.title)
-        XCTAssertFalse(group.contents.isEmpty)
-        XCTAssertFalse(group.thumbnails.isEmpty)
-        XCTAssertFalse(group.descriptions.isEmpty)
-        XCTAssertNotNil(youtube)
-        XCTAssertEqual(entry.youtubeVideoID, youtube?.videoID)
-      }
-    }
-  }
 
-  func testDurations() {
-    for (name, expecteds) in Self.durationSets {
-      guard let feed = try? Content.xmlFeeds[name]?.get() else {
-        XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name].debugDescription)")
-        continue
-      }
+        guard let atom = feed as? AtomFeed else {
+          XCTFail()
+          continue
+        }
 
-      guard let rss = feed as? RSSFeed else {
-        XCTFail("Wrong Type")
-        continue
-      }
+        let items = zip(atom.entries, feed.children)
 
-      let actuals = rss.channel.items.compactMap { $0.itunesDuration?.value }
-      let durations = feed.children.map {
-        $0.media.flatMap { media -> TimeInterval? in
-          if case let .podcast(episode) = media {
-            return episode.duration
-          } else {
-            return nil
+        for (entry, item) in items {
+          let youtube = item.media.flatMap { media -> (any YouTubeID)? in
+            guard case let .video(video) = media else {
+              return nil
+            }
+            guard case let .youtube(youtube) = video else {
+              return nil
+            }
+            return youtube
           }
+          guard let group = entry.mediaGroup else {
+            XCTAssertNotNil(entry.mediaGroup)
+            continue
+          }
+          XCTAssertNotNil(group.title)
+          XCTAssertFalse(group.contents.isEmpty)
+          XCTAssertFalse(group.thumbnails.isEmpty)
+          XCTAssertFalse(group.descriptions.isEmpty)
+          XCTAssertNotNil(youtube)
+          XCTAssertEqual(entry.youtubeVideoID, youtube?.videoID)
         }
       }
+    #endif
+  }
 
-      XCTAssertEqual(actuals, durations)
-      let times = zip(actuals, expecteds)
+  func testDurations() throws {
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-      for (index, (actual, expected)) in times.enumerated() {
-        XCTAssertEqual(actual, expected, "no equal at \(index)")
-        XCTAssertEqual(iTunesDuration(String(actual))?.value, actual)
+      for (name, expecteds) in Self.durationSets {
+        guard let feed = try? Content.xmlFeeds[name]?.get() else {
+          XCTFail("Missing Podcast: \(name), \(Content.xmlFeeds[name].debugDescription)")
+          continue
+        }
+
+        guard let rss = feed as? RSSFeed else {
+          XCTFail("Wrong Type")
+          continue
+        }
+
+        let actuals = rss.channel.items.compactMap { $0.itunesDuration?.value }
+        let durations = feed.children.map {
+          $0.media.flatMap { media -> TimeInterval? in
+            if case let .podcast(episode) = media {
+              return episode.duration
+            } else {
+              return nil
+            }
+          }
+        }
+
+        XCTAssertEqual(actuals, durations)
+        let times = zip(actuals, expecteds)
+
+        for (index, (actual, expected)) in times.enumerated() {
+          XCTAssertEqual(actual, expected, "no equal at \(index)")
+          XCTAssertEqual(iTunesDuration(String(actual))?.value, actual)
+        }
       }
-    }
+    #endif
   }
 
   // MARK: - Author Parsing Integration Tests
 
   func testRaywenderlichManagingEditor() throws {
-    guard let feed = try? Content.xmlFeeds["raywenderlich"]?.get(),
-      let rssFeed = feed as? RSSFeed
-    else {
-      XCTFail("Failed to load raywenderlich feed")
-      return
-    }
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    // Test managingEditor parsing from RFC 822 format
-    XCTAssertNotNil(rssFeed.channel.managingEditor)
-    XCTAssertEqual(
-      rssFeed.channel.managingEditor?.name,
-      "Ray Wenderlich"
-    )
-    XCTAssertEqual(
-      rssFeed.channel.managingEditor?.email,
-      "podcast@raywenderlich.com"
-    )
+      guard let feed = try? Content.xmlFeeds["raywenderlich"]?.get(),
+        let rssFeed = feed as? RSSFeed
+      else {
+        XCTFail("Failed to load raywenderlich feed")
+        return
+      }
+
+      // Test managingEditor parsing from RFC 822 format
+      XCTAssertNotNil(rssFeed.channel.managingEditor)
+      XCTAssertEqual(
+        rssFeed.channel.managingEditor?.name,
+        "Ray Wenderlich"
+      )
+      XCTAssertEqual(
+        rssFeed.channel.managingEditor?.email,
+        "podcast@raywenderlich.com"
+      )
+    #endif
   }
 
   func testNewsRSSManagingEditorAndWebMaster() throws {
-    guard let feed = try? Content.xmlFeeds["news"]?.get(),
-      let rssFeed = feed as? RSSFeed
-    else {
-      XCTFail("Failed to load news feed")
-      return
-    }
+    #if os(WASI)
+      throw XCTSkip(Self.wasiSkipMessage)
+    #else
 
-    // Test email-only format
-    XCTAssertNotNil(rssFeed.channel.managingEditor)
-    XCTAssertEqual(
-      rssFeed.channel.managingEditor?.name,
-      "webmaster@GameStar.de"
-    )
-    XCTAssertEqual(
-      rssFeed.channel.managingEditor?.email,
-      "webmaster@GameStar.de"
-    )
+      guard let feed = try? Content.xmlFeeds["news"]?.get(),
+        let rssFeed = feed as? RSSFeed
+      else {
+        XCTFail("Failed to load news feed")
+        return
+      }
 
-    XCTAssertNotNil(rssFeed.channel.webMaster)
-    XCTAssertEqual(
-      rssFeed.channel.webMaster?.name,
-      "webmaster@GameStar.de"
-    )
-    XCTAssertEqual(
-      rssFeed.channel.webMaster?.email,
-      "webmaster@GameStar.de"
-    )
+      // Test email-only format
+      XCTAssertNotNil(rssFeed.channel.managingEditor)
+      XCTAssertEqual(
+        rssFeed.channel.managingEditor?.name,
+        "webmaster@GameStar.de"
+      )
+      XCTAssertEqual(
+        rssFeed.channel.managingEditor?.email,
+        "webmaster@GameStar.de"
+      )
+
+      XCTAssertNotNil(rssFeed.channel.webMaster)
+      XCTAssertEqual(
+        rssFeed.channel.webMaster?.name,
+        "webmaster@GameStar.de"
+      )
+      XCTAssertEqual(
+        rssFeed.channel.webMaster?.email,
+        "webmaster@GameStar.de"
+      )
+    #endif
   }
 }
