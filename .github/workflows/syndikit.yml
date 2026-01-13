@@ -41,7 +41,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
   build-wasm:
-    name: Build on Ubuntu (WASM)
+    name: Build on WASM
     env:
       PACKAGE_NAME: SyndiKit
     runs-on: ubuntu-latest
@@ -53,12 +53,7 @@ jobs:
         os: [noble, jammy]
         type: ["wasm", "wasm-embedded"]
         swift:
-          # - version: "5.10"
-          # - version: "6.0"
-          # - version: "6.1"
           - version: "6.2"
-          # - version: "6.3"
-          #   nightly: true
     steps:
       - uses: actions/checkout@v4
       - uses: brightdigit/swift-build@mistkit-fix
