@@ -62,7 +62,6 @@ jobs:
           scheme: ${{ env.PACKAGE_NAME }}
           skip-package-resolved: ${{ contains(matrix.swift.version, '5.') }}
           type: ${{ matrix.type }}
-          wasmtime-version: 40.0.1
       - uses: sersoft-gmbh/swift-coverage-action@v4
         if: steps.build.outputs.contains-code-coverage == 'true'
         id: coverage-files
