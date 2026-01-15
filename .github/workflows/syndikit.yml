@@ -206,7 +206,7 @@ jobs:
             runs-on: macos-15
             xcode: "/Applications/Xcode_16.4.app"
             deviceName: "Apple TV"
-            osVersion: "18.6"
+            osVersion: "18.5"
 
           # tvOS Build Matrix - Xcode 26.0
           - type: tvos
