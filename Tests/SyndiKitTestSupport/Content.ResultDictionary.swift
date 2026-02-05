@@ -30,22 +30,27 @@ enum Content {
     XMLCoder.XMLDecoder()
   }
 
-  @available(macOS 13.0, *)
-  static let xmlFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.xml,
-    by: Self.synDecoder.decode(_:)
-  )
-  @available(macOS 13.0, *)
-  static let jsonFeeds = try! Content.resultDictionaryFrom(
-    directoryURL: Directories.json,
-    by: Self.synDecoder.decode(_:)
-  )
+  #if !os(WASI)
+    // macOS/Linux: Load all feeds eagerly (faster, more memory available)
+    @available(macOS 13.0, *)
+    static let xmlFeeds = try! Content.resultDictionaryFrom(
+      directoryURL: Directories.xml,
+      by: Self.synDecoder.decode(_:)
+    )
+    @available(macOS 13.0, *)
+    static let jsonFeeds = try! Content.resultDictionaryFrom(
+      directoryURL: Directories.json,
+      by: Self.synDecoder.decode(_:)
+    )
+    static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
+      at: Directories.wordPress
+    )
+  #endif
+  // WASM: Only OPML tests run (uses explicit file list in FileManager.dataFromDirectory)
+  // All other test data (xmlFeeds, jsonFeeds, wordpressDataSet) is disabled above due to memory constraints
   static let opml = try! Content.resultDictionaryFrom(
     directoryURL: Directories.opml,
     by: Self.xmlDecoder.decodeOPML(_:)
-  )
-  static let wordpressDataSet = try! FileManager.default.dataFromDirectory(
-    at: Directories.wordPress
   )
   static let blogs: SiteCollection = try! .init(
     contentsOf: Directories.data.appendingPathComponent("blogs.json"))
