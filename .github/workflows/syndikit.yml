@@ -36,7 +36,7 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
-          flags: swift-${{ matrix.swift.version }},ubuntu
+          flags: ubuntu,ubuntu-${{ matrix.os }},swift-${{ matrix.swift.version }}${{ matrix.swift.nightly && '-nightly' || '' }}
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
@@ -72,7 +72,7 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
-          flags: swift-${{ matrix.swift.version }}-${{ matrix.os }}${{ matrix.swift.nightly && '-nightly' || '' }}
+          flags: ubuntu,ubuntu-${{ matrix.os }},swift-${{ matrix.swift.version }}${{ matrix.swift.nightly && '-nightly' || '' }},${{ matrix.type }}
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}    
@@ -279,11 +279,40 @@ jobs:
       - name: Process Coverage
         uses: sersoft-gmbh/swift-coverage-action@v4
 
+      - name: Set coverage flags
+        id: coverage-flags
+        run: |
+          # Select Xcode version
+          sudo xcode-select -s "${{ matrix.xcode }}"
+
+          # Extract Xcode version from path like /Applications/Xcode_16.4.app
+          XCODE_VERSION=$(echo "${{ matrix.xcode }}" | sed -n 's/.*Xcode_\([0-9.]*\).*/\1/p')
+
+          # Extract Swift version
+          SWIFT_VERSION=$(xcrun swift --version | head -n 1 | sed -n 's/.*Swift version \([0-9.]*\).*/\1/p')
+
+          # Extract macOS version from runs-on
+          MACOS_VERSION=$(echo "${{ matrix.runs-on }}" | sed 's/macos-//')
+
+          # Determine platform
+          PLATFORM="${{ matrix.type || 'macos' }}"
+
+          # Build flags
+          if [ -n "${{ matrix.osVersion }}" ]; then
+            # Platform build (iOS, tvOS, etc.)
+            FLAGS="${PLATFORM},${PLATFORM}-${{ matrix.osVersion }},swift-${SWIFT_VERSION},xcode-${XCODE_VERSION}"
+          else
+            # SPM/macOS build
+            FLAGS="macos,macos-${MACOS_VERSION},swift-${SWIFT_VERSION},xcode-${XCODE_VERSION}"
+          fi
+
+          echo "flags=${FLAGS}" >> $GITHUB_OUTPUT
+
       - name: Upload Coverage
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: ${{ matrix.type && format('{0}{1}', matrix.type, matrix.osVersion) || 'spm' }}
+          flags: ${{ steps.coverage-flags.outputs.flags }}
 
   build-windows:
     name: Build on Windows
@@ -325,11 +354,20 @@ jobs:
           windows-swift-version: ${{ matrix.swift.version }}
           windows-swift-build: ${{ matrix.swift.build }}
 
+      - name: Set coverage flags
+        id: coverage-flags
+        shell: bash
+        run: |
+          # Extract version from swift-6.1-release format
+          VERSION=$(echo "${{ matrix.swift.version }}" | sed 's/swift-\([0-9.]*\)-.*/\1/')
+          OS_VERSION=$(echo "${{ matrix.runs-on }}" | sed 's/windows-//')
+          echo "flags=windows,windows-${OS_VERSION},swift-${VERSION}" >> $GITHUB_OUTPUT
+
       - name: Upload Coverage
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: windows,swift-${{ matrix.swift.version }}
+          flags: ${{ steps.coverage-flags.outputs.flags }}
 
   build-android:
     name: Build on Android
@@ -366,6 +404,15 @@ jobs:
           android-api-level: ${{ matrix.api-level }}
           android-run-tests: true
           android-copy-files: Data/
+
+      - name: Process Coverage
+        uses: sersoft-gmbh/swift-coverage-action@v4
+
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: android,android-api-${{ matrix.api-level }},swift-${{ matrix.swift-version }}
 
   lint:
     name: Linting
