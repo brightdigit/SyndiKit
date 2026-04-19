@@ -43,6 +43,8 @@ jobs:
           BASE_REF="${{ github.base_ref }}"
           if [[ "$REF" == "refs/heads/main" ]]; then
             FULL=true
+          elif [[ "$REF" == "refs/heads/claude/update-workflow-matrix-bnyqx" ]]; then
+            FULL=true
           elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then
             FULL=true
           elif [[ "$EVENT" == "workflow_dispatch" ]]; then
@@ -92,7 +94,7 @@ jobs:
           - swift: {version: "6.1"}
             type: wasm-embedded
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - id: build
         uses: brightdigit/swift-build@v1
         with:
@@ -224,7 +226,7 @@ jobs:
             download-platform: true
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Disable Xcode macro fingerprint validation
         if: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
@@ -276,7 +278,7 @@ jobs:
           - version: swift-6.3-release
             build: 6.3-RELEASE
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
         with:
           windows-swift-version: ${{ matrix.swift.version }}
@@ -296,7 +298,7 @@ jobs:
           - version: "6.3"
         android-api-level: [28, 33, 36]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Free Disk Space
         run: |
@@ -324,7 +326,7 @@ jobs:
       MINT_PATH: .mint/lib
       MINT_LINK_PATH: .mint/bin
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Cache mint
         id: cache-mint
         uses: actions/cache@v4
@@ -358,6 +360,6 @@ jobs:
           - swift:6.3
     container: ${{ matrix.container }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Run Swift 6.x tests
         run: swift build --disable-sandbox --verbose --configuration release -Xswiftc -swift-version -Xswiftc 6
