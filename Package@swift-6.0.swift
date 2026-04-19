@@ -39,7 +39,8 @@ let package = Package(
     .target(
       name: "SyndiKit",
       dependencies: ["XMLCoder"],
-      swiftSettings: swift6Features
+      swiftSettings: swift6Features,
+      linkerSettings: [.linkedLibrary("z", .when(platforms: [.android]))]
     ),
 
     .target(
