@@ -43,7 +43,7 @@ jobs:
           BASE_REF="${{ github.base_ref }}"
           if [[ "$REF" == "refs/heads/main" ]]; then
             FULL=true
-          elif [[ "$REF" == "refs/heads/claude/update-workflow-matrix-bnyqx" ]]; then
+          elif [[ "$REF" == "refs/pull/124/merge" ]]; then
             FULL=true
           elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then
             FULL=true
