@@ -36,6 +36,8 @@ jobs:
     steps:
       - id: check
         name: Determine matrix scope
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           FULL=false
           REF="${{ github.ref }}"
@@ -43,14 +45,17 @@ jobs:
           BASE_REF="${{ github.base_ref }}"
           if [[ "$REF" == "refs/heads/main" ]]; then
             FULL=true
-          elif [[ "$REF" == "refs/heads/claude/update-workflow-matrix-bnyqx" ]]; then
-            FULL=true
           elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then
             FULL=true
           elif [[ "$EVENT" == "workflow_dispatch" ]]; then
             FULL=true
           elif [[ "$EVENT" == "pull_request" ]]; then
             if [[ "$BASE_REF" == "main" || "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+              FULL=true
+            fi
+          elif [[ "$EVENT" == "push" ]]; then
+            PR_BASE=$(gh pr view "${{ github.ref_name }}" --repo "${{ github.repository }}" --json baseRefName --jq '.baseRefName' 2>/dev/null || echo "")
+            if [[ "$PR_BASE" == "main" || "$PR_BASE" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then
               FULL=true
             fi
           fi
