@@ -24,9 +24,15 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
+        id: build
         with:
           scheme: ${{ env.PACKAGE_NAME }}
           skip-package-resolved: ${{ contains(matrix.swift.version, '5.') }}
+      - name: Install curl
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        run: |
+          apt-get update -q
+          apt-get install -y curl          
       - uses: sersoft-gmbh/swift-coverage-action@v5
         id: coverage-files
         with:
@@ -335,6 +341,7 @@ jobs:
 
       - name: Build and Test
         uses: brightdigit/swift-build@v1
+        id: build
         with:
           scheme: ${{ env.PACKAGE_NAME }}
           type: android
@@ -343,11 +350,9 @@ jobs:
           android-run-tests: true
           android-copy-files: Data/
 
-      - name: Process Coverage
-        uses: sersoft-gmbh/swift-coverage-action@v5
-
       - name: Upload Coverage
         uses: codecov/codecov-action@v6
+        if: steps.build.outputs.contains-code-coverage == 'true'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: android,android-api-${{ matrix.api-level }},swift-${{ matrix.swift-version }}
