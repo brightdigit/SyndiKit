@@ -1,0 +1,16 @@
+[settings]
+# Enable experimental features (required for the spm backend)
+experimental = true
+
+[tools]
+# Swift development tools (managed via mise)
+# 604.x aligns swift-format (and its swift-syntax) with the Swift 6.4 toolchain.
+# Only one 604 tag exists so far; bump when a newer 604 prerelease/release lands.
+"spm:swiftlang/swift-format" = "604.0.0-prerelease-2025-12-17"
+"aqua:realm/SwiftLint" = "0.63.2"
+"spm:peripheryapp/periphery" = "3.7.4"
+
+[tasks]
+swift-format = "swift-format"
+swiftlint = "swiftlint"
+periphery = "periphery"

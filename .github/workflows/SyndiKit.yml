@@ -1,0 +1,42 @@
+name: SyndiKit
+on:
+  push:
+    branches: [main, brightdigit-com-260406]
+    tags: ['v*.*.*']
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build-ubuntu:
+    name: Build on Ubuntu
+    runs-on: ubuntu-latest
+    container: swift:6.3-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: brightdigit/swift-build@v1
+
+  build-macos:
+    name: Build on macOS
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: brightdigit/swift-build@v1
+
+  lint:
+    name: Linting
+    needs: [build-ubuntu]
+    runs-on: ubuntu-latest
+    container: swift:6.3-noble
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install mise
+        run: |
+          curl https://mise.run | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Lint
+        run: ./Scripts/lint.sh
+        env:
+          LINT_MODE: STRICT
