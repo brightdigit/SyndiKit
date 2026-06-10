@@ -1,5 +1,5 @@
 //
-//  PodcastEpisode.swift
+//  PodcastEpisodeProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -30,38 +30,59 @@
 #if swift(<6.0)
   import Foundation
 #else
-  public import Foundation
+  internal import Foundation
 #endif
 
-/// A protocol representing a podcast episode.
-public protocol PodcastEpisode: Sendable {
+/// A struct representing properties of a podcast episode.
+internal struct PodcastEpisodeProperties: PodcastEpisode, Sendable {
   /// The title of the episode.
-  var title: String? { get }
+  internal let title: String?
 
   /// The episode number.
-  var episode: Int? { get }
+  internal let episode: Int?
 
   /// The author of the episode.
-  var author: String? { get }
+  internal let author: String?
 
   /// The subtitle of the episode.
-  var subtitle: String? { get }
+  internal let subtitle: String?
 
   /// A summary of the episode.
-  var summary: String? { get }
+  internal let summary: String?
 
   /// Indicates if the episode contains explicit content.
-  var explicit: String? { get }
+  internal let explicit: String?
 
   /// The duration of the episode.
-  var duration: TimeInterval? { get }
+  internal let duration: TimeInterval?
 
   /// The image associated with the episode.
-  var image: iTunesImage? { get }
+  internal let image: iTunesImage?
 
   /// The enclosure of the episode.
-  var enclosure: Enclosure { get }
+  internal let enclosure: Enclosure
 
   /// The people involved in the episode.
-  var people: [PodcastPerson] { get }
+  internal let people: [PodcastPerson]
+
+  /// A struct representing an Atom category.
+  ///   Initializes a ``PodcastEpisodeProperties`` instance from an ``RSSItem``.
+  ///
+  ///   - Parameter rssItem: The ``RSSItem`` to extract the properties from.
+  /// - SeeAlso: ``EntryCategory``
+  internal init?(rssItem: RSSItem) {
+    guard let enclosure = rssItem.enclosure else {
+      return nil
+    }
+    title = rssItem.itunesTitle
+    episode = rssItem.itunesEpisode?.value
+    author = rssItem.itunesAuthor
+    subtitle = rssItem.itunesSubtitle
+    summary = rssItem.itunesSummary?.value
+    explicit = rssItem.itunesExplicit
+    duration = rssItem.itunesDuration?.value
+    image = rssItem.itunesImage
+    self.enclosure = enclosure
+    people = rssItem.podcastPeople
+  }
 }

@@ -1,5 +1,5 @@
 //
-//  CategoryDescriptor.swift
+//  SiteCollectionDirectoryBuilder.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,19 +27,25 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-/// A struct representing an Atom category.
-/// A descriptor for a category.
-///
-/// - Note: This struct is publicly accessible.
-///
-/// - Important: The ``title`` and ``description`` properties are read-only.
-///
-/// - SeeAlso: ``Category``
-/// - SeeAlso: ``EntryCategory``
-public struct CategoryDescriptor: Sendable {
-  /// The title of the category.
-  public let title: String
+#if swift(<6.0)
+  import Foundation
+#else
+  internal import Foundation
+#endif
 
-  /// The description of the category.
-  public let description: String
+/// A builder for creating a site collection directory.
+public struct SiteCollectionDirectoryBuilder: SiteDirectoryBuilder, Sendable {
+  /// Initializes a new instance of ``SiteCollectionDirectoryBuilder``.
+  public init() {}
+
+  /// A struct representing an Atom category.
+  ///   Creates a site collection directory from a site collection.
+  ///
+  ///   - Parameter blogs: The site collection to build the directory from.
+  ///
+  ///   - Returns: A new instance of ``SiteCollectionDirectory``.
+  /// - SeeAlso: ``EntryCategory``
+  public func directory(fromCollection blogs: SiteCollection) -> SiteCollectionDirectory {
+    SiteCollectionDirectory(blogs: blogs)
+  }
 }

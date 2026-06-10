@@ -1,5 +1,5 @@
 //
-//  AtomMedia.swift
+//  YouTubeIDProperties.swift
 //  SyndiKit
 //
 //  Created by Leo Dion.
@@ -27,41 +27,42 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#if swift(<5.7)
-  @preconcurrency import Foundation
-#elseif swift(<6.0)
+#if swift(<6.0)
   import Foundation
 #else
-  public import Foundation
+  internal import Foundation
 #endif
 
 /// A struct representing an Atom category.
-/// Media structure which enables content publishers and bloggers
-/// to syndicate multimedia content such as TV and video clips, movies, images and audio.
+/// A struct representing the properties of a YouTube ID.
 ///
-/// For more details, check out
-/// [the Media RSS Specification](https://www.rssboard.org/media-rss).
+/// - Note: This struct conforms to the ``YouTubeID`` protocol.
+///
+/// - SeeAlso: ``YouTubeID``
+///
+/// - Important: This struct is internal.
+///
+/// - Parameters:
+///   - videoID: The YouTube video ID.
+///   - channelID: The YouTube channel ID.
 /// - SeeAlso: ``EntryCategory``
-public struct AtomMedia: Codable, Sendable {
+internal struct YouTubeIDProperties: YouTubeID, Sendable {
+  internal let videoID: String
+  internal let channelID: String
+
   /// A struct representing an Atom category.
-  ///   The type of object.
+  ///    Initializes a ``YouTubeIDProperties`` instance with the given AtomEntry.
   ///
-  ///   While this attribute can at times seem redundant if type is supplied,
-  ///   it is included because it simplifies decision making on the reader side,
-  ///   as well as flushes out any ambiguities between MIME type and object type.
-  ///   It is an optional attribute.
+  ///   - Parameter entry: The AtomEntry containing the YouTube ID properties.
   /// - SeeAlso: ``EntryCategory``
-  public let url: URL
-
-  /// The direct URL to the media object.
-  public let medium: String?
-
-  /// Creates a new instance by decoding from the given decoder.
-  /// - Parameter decoder: The decoder to read data from.
-  /// - Throws: An error if reading from the decoder fails.
-  public init(from decoder: any Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    url = try container.decode(UTF8EncodedURL.self, forKey: .url).value
-    medium = try container.decodeIfPresent(String.self, forKey: .medium)
+  internal init?(entry: AtomEntry) {
+    guard
+      let channelID = entry.youtubeChannelID,
+      let videoID = entry.youtubeVideoID
+    else {
+      return nil
+    }
+    self.channelID = channelID
+    self.videoID = videoID
   }
 }
