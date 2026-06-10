@@ -34,8 +34,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install mise
         run: |
+          apt-get update && apt-get install -y --no-install-recommends curl ca-certificates
           curl https://mise.run | sh
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Cache mise tools
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/mise/installs
+          key: mise-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.mise.toml') }}
+          restore-keys: |
+            mise-${{ runner.os }}-${{ runner.arch }}-
       - name: Lint
         run: ./Scripts/lint.sh
         env:
