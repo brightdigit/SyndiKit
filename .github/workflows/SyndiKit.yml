@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     container: swift:6.3-noble
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
 
   build-macos:
     name: Build on macOS
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
 
   lint:
@@ -31,14 +31,14 @@ jobs:
     runs-on: ubuntu-latest
     container: swift:6.3-noble
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install mise
         run: |
           apt-get update && apt-get install -y --no-install-recommends curl ca-certificates
           curl https://mise.run | sh
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Cache mise tools
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.local/share/mise/installs
           key: mise-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.mise.toml') }}
