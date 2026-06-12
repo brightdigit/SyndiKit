@@ -6,11 +6,7 @@
 ERRORS=0
 
 run_command() {
-	if [ "$LINT_MODE" = "STRICT" ]; then
-		"$@" || ERRORS=$((ERRORS + 1))
-	else
-		"$@"
-	fi
+	"$@" || ERRORS=$((ERRORS + 1))
 }
 
 if [ "$LINT_MODE" = "INSTALL" ]; then
@@ -60,10 +56,10 @@ fi
 if [ "$LINT_MODE" = "NONE" ]; then
 	exit
 elif [ "$LINT_MODE" = "STRICT" ]; then
-	SWIFTFORMAT_OPTIONS="--configuration .swift-format"
+	SWIFTFORMAT_LINT_OPTIONS="--strict"
 	SWIFTLINT_OPTIONS="--strict"
 else
-	SWIFTFORMAT_OPTIONS="--configuration .swift-format"
+	SWIFTFORMAT_LINT_OPTIONS=""
 	SWIFTLINT_OPTIONS=""
 fi
 
@@ -73,18 +69,21 @@ pushd $PACKAGE_DIR
 run_command "$MISE_BIN" install
 
 if [ -z "$CI" ]; then
-	run_command $TOOL_CMD swift-format format $SWIFTFORMAT_OPTIONS --recursive --parallel --in-place Sources Tests
+	run_command $TOOL_CMD swift-format format --configuration .swift-format --recursive --parallel --in-place Sources Tests
 	run_command $TOOL_CMD swiftlint --fix
 fi
 
 if [ -z "$FORMAT_ONLY" ]; then
-	run_command $TOOL_CMD swift-format lint --configuration .swift-format --recursive --parallel $SWIFTFORMAT_OPTIONS Sources Tests
+	run_command $TOOL_CMD swift-format lint --configuration .swift-format --recursive --parallel $SWIFTFORMAT_LINT_OPTIONS Sources Tests
 	run_command $TOOL_CMD swiftlint lint $SWIFTLINT_OPTIONS
 	# Check for compilation errors
 	run_command swift build --build-tests
 fi
 
-$PACKAGE_DIR/Scripts/header.sh -d $PACKAGE_DIR/Sources -c "Leo Dion" -o "BrightDigit" -p "SyndiKit"
+# header.sh rewrites file headers in place, so it only runs locally — never in CI.
+if [ -z "$CI" ]; then
+	$PACKAGE_DIR/Scripts/header.sh -d $PACKAGE_DIR/Sources -c "Leo Dion" -o "BrightDigit" -p "SyndiKit"
+fi
 
 if [ -z "$CI" ]; then
 	run_command $TOOL_CMD periphery scan $PERIPHERY_OPTIONS --disable-update-check
