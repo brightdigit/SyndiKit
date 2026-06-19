@@ -31,19 +31,17 @@ jobs:
     runs-on: ubuntu-latest
     container: swift:6.3-noble
     steps:
-      - uses: actions/checkout@v6
-      - name: Install mise
+      - name: Install curl (required by mise-action)
         run: |
-          apt-get update && apt-get install -y --no-install-recommends curl ca-certificates
-          curl https://mise.run | sh
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-      - name: Cache mise tools
-        uses: actions/cache@v5
+          apt-get update -q
+          apt-get install -y --no-install-recommends curl ca-certificates
+      - uses: actions/checkout@v6
+      - uses: jdx/mise-action@v4
+        env:
+          MISE_HTTP_TIMEOUT: 300s
+          MISE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: ~/.local/share/mise/installs
-          key: mise-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.mise.toml') }}
-          restore-keys: |
-            mise-${{ runner.os }}-${{ runner.arch }}-
+          cache: true
       - name: Lint
         run: ./Scripts/lint.sh
         env:
