@@ -1,35 +1,184 @@
 name: SyndiKit
+
+# Standalone CI for SyndiKit, following the BrightDigit CI template. SyndiKit is
+# the pure-Swift cross-platform gold standard, so it carries the full leg set:
+# Linux + self-hosted macOS (Xcode-beta / Swift 6.4) + Windows + the Apple
+# platform suite (iOS/watchOS/tvOS). Migrated from Swift 6.3 to nightly 6.4.
 on:
   push:
     branches: [main, brightdigit-com-260406]
     tags: ['v*.*.*']
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
   pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build-ubuntu:
     name: Build on Ubuntu
     runs-on: ubuntu-latest
-    container: swift:6.3-noble
+    container: swiftlang/swift:nightly-6.4.x-noble
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
       - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
+        id: build
+      - name: Install curl (required by Codecov uploader)
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        run: |
+          if ! command -v curl &> /dev/null; then
+            apt-get update -q
+            apt-get install -y --no-install-recommends curl ca-certificates
+          fi
+      # brightdigit fork of swift-coverage-action: upstream @v5 can't pair the
+      # profdata with the test binary under Swift 6.4's swiftbuild layout
+      # (.so + <Name>-test-runner, no .xctest) — issue #92. Pinned by SHA.
+      - uses: brightdigit/swift-coverage-action@2f8538f723b99ab2406ac3a0e5b3355a9de4cf6c
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        id: coverage-files
+        with:
+          search-paths: .build
+          fail-on-empty-output: true
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          flags: noble,swift-6.4
+          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
 
+  configure:
+    name: Configure Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      full-matrix: ${{ steps.check.outputs.full }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: check
+        name: Determine matrix scope
+        run: |
+          FULL=false
+          REF="${{ github.ref }}"; EVENT="${{ github.event_name }}"; BASE_REF="${{ github.base_ref }}"
+          if [[ "$REF" == "refs/heads/main" ]]; then FULL=true
+          elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true
+          elif [[ "$EVENT" == "workflow_dispatch" ]]; then FULL=true
+          elif [[ "$EVENT" == "pull_request" && ( "$BASE_REF" == "main" || "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ) ]]; then FULL=true
+          fi
+          echo "full=$FULL" >> "$GITHUB_OUTPUT"
+
+  # Self-hosted macOS runner ships /Applications/Xcode-beta.app (Swift 6.4) — the
+  # only path to a 6.4 toolchain on macOS today (migrated from macos-15). Always runs.
   build-macos:
     name: Build on macOS
-    runs-on: macos-15
+    runs-on: [self-hosted, macOS]
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
       - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          xcode: "/Applications/Xcode-beta.app"
+      - name: Process coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          search-paths: .build
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          flags: spm,macos
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  # Windows nightly 6.4 via swift.org development snapshot (compnerd/gha-setup-swift
+  # under swift-build). Hosted runners — the only self-hosted runner is macOS.
+  # Gated to full-matrix runs. Blocking: SyndiKit is verified cross-platform.
+  # Bump the snapshot id periodically (swift.org GCs old development snapshots).
+  build-windows:
+    name: Build on Windows
+    needs: configure
+    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [windows-2022, windows-2025]
+        swift:
+          - version: swift-6.4.x-branch
+            build: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-01-a
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          windows-swift-version: ${{ matrix.swift.version }}
+          windows-swift-build: ${{ matrix.swift.build }}
+
+  # Full Apple-platform suite. NOTE: macos-26 hosted runners ship a RELEASED
+  # Xcode (Xcode_26.4), not the nightly 6.4 toolchain — these legs validate
+  # iOS/watchOS/tvOS source compatibility on released Xcode, not nightly 6.4.
+  build-macos-platforms:
+    name: Build on macOS (Platforms)
+    needs: configure
+    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { type: macos,   runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app" }
+          - { type: ios,     runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "iPhone 17 Pro",              osVersion: "26.4.1", download-platform: true }
+          - { type: watchos, runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "Apple Watch Ultra 3 (49mm)", osVersion: "26.4",   download-platform: true }
+          - { type: tvos,    runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "Apple TV",                   osVersion: "26.4",   download-platform: true }
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build and Test
+        id: build
+        uses: brightdigit/swift-build@v1
+        with:
+          type: ${{ matrix.type }}
+          xcode: ${{ matrix.xcode }}
+          deviceName: ${{ matrix.deviceName }}
+          osVersion: ${{ matrix.osVersion }}
+          download-platform: ${{ matrix.download-platform }}
+      - name: Process coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          search-paths: .build
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: ${{ format('{0}{1}', matrix.type, matrix.osVersion) }}
+
+  # WASM + Android legs deferred: no nightly Swift 6.4 support yet.
+  #  - WASM: blocked by brightdigit/swift-build — it derives a -RELEASE wasm SDK
+  #    URL from the running toolchain, with no input for a nightly snapshot bundle.
+  #    Tracking: https://github.com/brightdigit/swift-build/issues/115.
+  #  - Android: blocked upstream — no nightly 6.4 Android SDK published yet.
+  # SyndiKit builds on both once unblocked (it's pure-Swift); job bodies live in
+  # git history of the monorepo .github/workflows/packages.yaml.
 
   lint:
     name: Linting
-    needs: [build-ubuntu]
+    if: ${{ !cancelled() && !failure() && !contains(github.event.head_commit.message, 'ci skip') }}
+    needs: [build-ubuntu, build-macos, build-windows, build-macos-platforms]
     runs-on: ubuntu-latest
-    container: swift:6.3-noble
+    container: swiftlang/swift:nightly-6.4.x-noble
     steps:
       - name: Install curl (required by mise-action)
         run: |
