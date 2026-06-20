@@ -63,12 +63,11 @@ jobs:
       # WASM build, folded into the Ubuntu job (same nightly-6.4.x-noble container,
       # one spin-up). Gated on the ENABLE_WASM repo variable — set it to 'false'
       # where a dependency can't build for wasm (e.g. Yams; see that package's issue
-      # tracker). continue-on-error while the swift-build wasm-sdk-url path is
+      # tracker). Blocking leg; the swift-build wasm-sdk-url path is
       # validated. Bump the snapshot SDK URL/checksum periodically.
       - name: Build on WASM
         id: wasm
         if: ${{ vars.ENABLE_WASM != 'false' }}
-        continue-on-error: true
         uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
         with:
           type: wasm
@@ -158,14 +157,13 @@ jobs:
 
   # Full Apple-platform suite (iOS/watchOS/tvOS) on Swift 6.4, on the self-hosted
   # runner with /Applications/Xcode-beta.app (Xcode 27), using the 27.0 simulator
-  # runtimes installed there. continue-on-error: simulator runs on the nightly
+  # runtimes installed there. Blocking leg; simulator runs on the nightly
   # toolchain are the most fragile leg. Bump deviceName/osVersion as Xcode-beta moves.
   build-macos-platforms:
     name: Build on macOS (Platforms)
     needs: configure
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
     runs-on: [self-hosted, macOS]
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
@@ -198,14 +196,13 @@ jobs:
 
   # Android on nightly 6.4 via a swift.org swift-6.4.x-branch snapshot SDK bundle
   # (custom-sdk-url path through swift-build → skiptools/swift-android-action).
-  # continue-on-error until the leg goes green. build-only (android-run-tests: false).
+  # Blocking leg; build-only (android-run-tests: false).
   # Bump the snapshot id periodically.
   build-android:
     name: Build on Android
     needs: configure
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
     runs-on: ubuntu-latest
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
