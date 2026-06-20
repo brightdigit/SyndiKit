@@ -62,19 +62,28 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       full-matrix: ${{ steps.check.outputs.full }}
+      run-windows: ${{ steps.check.outputs.windows }}
     steps:
       - uses: actions/checkout@v6
       - id: check
         name: Determine matrix scope
         run: |
-          FULL=false
+          # Three tiers: small set (build-ubuntu/build-macos/lint, always) <
+          # full-matrix (macOS-platforms/wasm/android) < +Windows. full-matrix runs on
+          # main / semver / dispatch / PRs into main or semver. Windows is the most
+          # expensive leg, so run-windows is the same MINUS PRs into semver branches.
+          FULL=false; WIN=false
           REF="${{ github.ref }}"; EVENT="${{ github.event_name }}"; BASE_REF="${{ github.base_ref }}"
-          if [[ "$REF" == "refs/heads/main" ]]; then FULL=true
-          elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true
-          elif [[ "$EVENT" == "workflow_dispatch" ]]; then FULL=true
-          elif [[ "$EVENT" == "pull_request" && ( "$BASE_REF" == "main" || "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ) ]]; then FULL=true
+          if [[ "$REF" == "refs/heads/main" ]]; then FULL=true; WIN=true
+          elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "workflow_dispatch" ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "pull_request" ]]; then
+            if [[ "$BASE_REF" == "main" ]]; then FULL=true; WIN=true
+            elif [[ "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true
+            fi
           fi
           echo "full=$FULL" >> "$GITHUB_OUTPUT"
+          echo "windows=$WIN" >> "$GITHUB_OUTPUT"
 
   # Self-hosted macOS runner ships /Applications/Xcode-beta.app (Swift 6.4) — the
   # only path to a 6.4 toolchain on macOS today (migrated from macos-15). Always runs.
@@ -103,12 +112,14 @@ jobs:
 
   # Windows nightly 6.4 via swift.org development snapshot (compnerd/gha-setup-swift
   # under swift-build). Hosted runners — the only self-hosted runner is macOS.
-  # Gated to full-matrix runs. Blocking: SyndiKit is verified cross-platform.
+  # Most expensive leg — own tier (run-windows): main / semver / dispatch / PRs
+  # into main, but NOT PRs into semver branches (those still get the rest of the
+  # full matrix, just not Windows). Blocking: SyndiKit is verified cross-platform.
   # Bump the snapshot id periodically (swift.org GCs old development snapshots).
   build-windows:
     name: Build on Windows
     needs: configure
-    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    if: ${{ needs.configure.outputs.run-windows == 'true' }}
     runs-on: ${{ matrix.runs-on }}
     strategy:
       fail-fast: false
