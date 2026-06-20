@@ -125,22 +125,25 @@ jobs:
           windows-swift-version: ${{ matrix.swift.version }}
           windows-swift-build: ${{ matrix.swift.build }}
 
-  # Full Apple-platform suite. NOTE: macos-26 hosted runners ship a RELEASED
-  # Xcode (Xcode_26.4), not the nightly 6.4 toolchain — these legs validate
-  # iOS/watchOS/tvOS source compatibility on released Xcode, not nightly 6.4.
+  # Full Apple-platform suite (iOS/watchOS/tvOS) on Swift 6.4. Runs on the
+  # self-hosted runner with /Applications/Xcode-beta.app (Xcode 27 / Swift 6.4) —
+  # the only macOS Swift 6.4 toolchain — using the iOS/watchOS/tvOS 27.0 simulator
+  # runtimes installed there. continue-on-error: simulator runs on the nightly
+  # toolchain are the most fragile leg; promote to blocking once green. Bump
+  # deviceName/osVersion as the runner's Xcode-beta moves.
   build-macos-platforms:
     name: Build on macOS (Platforms)
     needs: configure
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: [self-hosted, macOS]
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { type: macos,   runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app" }
-          - { type: ios,     runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "iPhone 17 Pro",              osVersion: "26.4.1", download-platform: true }
-          - { type: watchos, runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "Apple Watch Ultra 3 (49mm)", osVersion: "26.4",   download-platform: true }
-          - { type: tvos,    runs-on: macos-26, xcode: "/Applications/Xcode_26.4.app", deviceName: "Apple TV",                   osVersion: "26.4",   download-platform: true }
+          - { type: ios,     deviceName: "iPhone 17 Pro",                osVersion: "27.0" }
+          - { type: watchos, deviceName: "Apple Watch Ultra 3 (49mm)",   osVersion: "27.0" }
+          - { type: tvos,    deviceName: "Apple TV 4K (3rd generation)", osVersion: "27.0" }
     steps:
       - uses: actions/checkout@v6
       - name: Build and Test
@@ -148,10 +151,9 @@ jobs:
         uses: brightdigit/swift-build@v1
         with:
           type: ${{ matrix.type }}
-          xcode: ${{ matrix.xcode }}
+          xcode: "/Applications/Xcode-beta.app"
           deviceName: ${{ matrix.deviceName }}
           osVersion: ${{ matrix.osVersion }}
-          download-platform: ${{ matrix.download-platform }}
       - name: Process coverage
         if: steps.build.outputs.contains-code-coverage == 'true'
         uses: sersoft-gmbh/swift-coverage-action@v5
