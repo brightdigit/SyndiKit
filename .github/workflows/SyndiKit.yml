@@ -159,6 +159,9 @@ jobs:
   # runner with /Applications/Xcode-beta.app (Xcode 27), using the 27.0 simulator
   # runtimes installed there. Blocking leg; simulator runs on the nightly
   # toolchain are the most fragile leg. Bump deviceName/osVersion as Xcode-beta moves.
+  # The watchOS leg is gated on the ENABLE_WATCHOS repo variable (set 'false' to skip it
+  # where the watchOS-27 SDK rejects deps inferring 8.0 — SwiftPM #10188; see
+  # brightdigit.com#119). iOS/tvOS always run.
   build-macos-platforms:
     name: Build on macOS (Platforms)
     needs: configure
@@ -175,6 +178,9 @@ jobs:
       - uses: actions/checkout@v6
       - name: Build and Test
         id: build
+        # watchOS disabled where ENABLE_WATCHOS=false (SwiftPM #10188, watchOS-27
+        # deployment-target clamp); re-enable per brightdigit.com#119.
+        if: ${{ !(matrix.type == 'watchos' && vars.ENABLE_WATCHOS == 'false') }}
         uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
         with:
           type: ${{ matrix.type }}
