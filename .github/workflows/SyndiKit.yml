@@ -6,7 +6,7 @@ name: SyndiKit
 # platform suite (iOS/watchOS/tvOS). Migrated from Swift 6.3 to nightly 6.4.
 on:
   push:
-    branches: [main, brightdigit-com-260406]
+    branches: [main]
     tags: ['v*.*.*']
     paths-ignore:
       - '**.md'
