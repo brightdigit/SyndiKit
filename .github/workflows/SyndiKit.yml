@@ -28,13 +28,31 @@ concurrency:
 jobs:
   build-ubuntu:
     name: Build on Ubuntu
+    needs: configure
     runs-on: ubuntu-latest
     container: swiftlang/swift:nightly-6.4.x-noble
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    # Ubuntu variants from a matrix (configure → ubuntu-type): standard ('') always;
+    # wasm + wasm-embedded when ENABLE_WASM != 'false'. Both wasm variants share the
+    # same nightly-6.4.x SDK bundle. OpenAPI packages guard URLSession behind
+    # #if !os(WASI) so the wasm/embedded legs build.
+    strategy:
+      fail-fast: false
+      matrix:
+        type: ${{ fromJSON(needs.configure.outputs.ubuntu-type) }}
     steps:
       - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
         id: build
+        with:
+          type: ${{ matrix.type }}
+          wasm-sdk-url: https://download.swift.org/swift-6.4.x-branch/wasm-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_wasm.artifactbundle.tar.gz
+          wasm-sdk-checksum: c014a0162de6eeeef4f07904ce096ccee5405c1478a12c99a3a9750bd42d7702
+          wasm-swift-flags: >-
+            -Xcc -D_WASI_EMULATED_SIGNAL -Xcc -D_WASI_EMULATED_MMAN
+            -Xlinker -lwasi-emulated-signal -Xlinker -lwasi-emulated-mman
+            -Xlinker -lwasi-emulated-getpid
+            -Xlinker --initial-memory=536870912 -Xlinker --max-memory=536870912
       - name: Install curl (required by Codecov uploader)
         if: steps.build.outputs.contains-code-coverage == 'true'
         run: |
@@ -60,24 +78,6 @@ jobs:
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
-      # WASM build, folded into the Ubuntu job (same nightly-6.4.x-noble container,
-      # one spin-up). Gated on the ENABLE_WASM repo variable — set it to 'false'
-      # where a dependency can't build for wasm (e.g. Yams; see that package's issue
-      # tracker). Blocking leg; the swift-build wasm-sdk-url path is
-      # validated. Bump the snapshot SDK URL/checksum periodically.
-      - name: Build on WASM
-        id: wasm
-        if: ${{ vars.ENABLE_WASM != 'false' }}
-        uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
-        with:
-          type: wasm
-          wasm-sdk-url: https://download.swift.org/swift-6.4.x-branch/wasm-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_wasm.artifactbundle.tar.gz
-          wasm-sdk-checksum: c014a0162de6eeeef4f07904ce096ccee5405c1478a12c99a3a9750bd42d7702
-          wasm-swift-flags: >-
-            -Xcc -D_WASI_EMULATED_SIGNAL -Xcc -D_WASI_EMULATED_MMAN
-            -Xlinker -lwasi-emulated-signal -Xlinker -lwasi-emulated-mman
-            -Xlinker -lwasi-emulated-getpid
-            -Xlinker --initial-memory=536870912 -Xlinker --max-memory=536870912
 
   configure:
     name: Configure Matrix
@@ -85,6 +85,7 @@ jobs:
     outputs:
       full-matrix: ${{ steps.check.outputs.full }}
       run-windows: ${{ steps.check.outputs.windows }}
+      ubuntu-type: ${{ steps.check.outputs.ubuntu-type }}
     steps:
       - uses: actions/checkout@v6
       - id: check
@@ -106,6 +107,13 @@ jobs:
           fi
           echo "full=$FULL" >> "$GITHUB_OUTPUT"
           echo "windows=$WIN" >> "$GITHUB_OUTPUT"
+          # Ubuntu build variants: standard ('') always; wasm + wasm-embedded
+          # unless the package disables wasm via ENABLE_WASM (e.g. Yams).
+          if [[ "${{ vars.ENABLE_WASM }}" != "false" ]]; then
+            echo 'ubuntu-type=["","wasm","wasm-embedded"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ubuntu-type=[""]' >> "$GITHUB_OUTPUT"
+          fi
 
   # macOS on Swift 6.4 via the self-hosted runner with /Applications/Xcode-beta.app.
   build-macos:
