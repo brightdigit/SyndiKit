@@ -5,7 +5,7 @@
 #endif
 
 extension URL {
-  var remainingPath: String {
+  internal var remainingPath: String {
     let path = self.path
 
     return path == "/" ? "" : path

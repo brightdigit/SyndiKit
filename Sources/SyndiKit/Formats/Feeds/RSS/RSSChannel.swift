@@ -7,7 +7,7 @@
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
-//  files (the “Software”), to deal in the Software without
+//  files (the "Software"), to deal in the Software without
 //  restriction, including without limitation the rights to use,
 //  copy, modify, merge, publish, distribute, sublicense, and/or
 //  sell copies of the Software, and to permit persons to whom the
@@ -17,7 +17,7 @@
 //  The above copyright notice and this permission notice shall be
 //  included in all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 //  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 //  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 //  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
@@ -70,6 +70,8 @@ public struct RSSChannel: Codable, Sendable {
     case image
     case author
     case managingEditor
+    // RSS 2.0 spec element name <webMaster>; public API, cannot rename.
+    // swiftlint:disable:next inclusive_language
     case webMaster
     case wpCategories = "wp:category"
     case wpTags = "wp:tag"
@@ -139,6 +141,8 @@ public struct RSSChannel: Codable, Sendable {
   /// - SeeAlso: ``Author``
   public let managingEditor: Author?
 
+  // RSS 2.0 spec element name <webMaster>; public API, cannot rename.
+  // swiftlint:disable inclusive_language
   /// Email address and name for the person responsible for technical issues.
   ///
   /// Parses RFC 822 format like `webmaster@example.com (John Smith)` or
@@ -149,6 +153,7 @@ public struct RSSChannel: Codable, Sendable {
   ///
   /// - SeeAlso: ``Author``
   public let webMaster: Author?
+  // swiftlint:enable inclusive_language
 
   /// The categories associated with the channel.
   public let wpCategories: [WordPressElements.Category]

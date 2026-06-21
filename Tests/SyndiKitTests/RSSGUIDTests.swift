@@ -10,14 +10,14 @@ import Testing
 #endif
 
 @Suite("RSS GUID Tests")
-struct RSSGUIDTests {
+internal struct RSSGUIDTests {
   @Test("Entry ID parses URL format")
-  func guidURL() {
+  internal func guidURL() {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
 
     let urlGUID = EntryID(string: urlString)
 
-    guard case let .url(url) = urlGUID else {
+    guard case .url(let url) = urlGUID else {
       Issue.record("Expected .url case")
       return
     }
@@ -25,13 +25,13 @@ struct RSSGUIDTests {
   }
 
   @Test("Entry ID parses UUID format")
-  func guidUUID() {
+  internal func guidUUID() {
     let expectedUUID = UUID()
 
     let expectedUUIDString = expectedUUID.uuidString
     let uuidGUID = EntryID(string: expectedUUIDString)
 
-    guard case let .uuid(actualUUID) = uuidGUID else {
+    guard case .uuid(let actualUUID) = uuidGUID else {
       Issue.record("Expected .uuid case")
       return
     }
@@ -39,12 +39,12 @@ struct RSSGUIDTests {
   }
 
   @Test("Entry ID parses YouTube path format")
-  func guidYouTube() {
+  internal func guidYouTube() {
     let expectedPath = ["yt", "video", "3hccNoPE59U"]
 
     let pathGUID = EntryID(string: expectedPath.joined(separator: ":"))
 
-    guard case let .path(actualPath, ":") = pathGUID else {
+    guard case .path(let actualPath, ":") = pathGUID else {
       Issue.record("Expected .path case")
       return
     }

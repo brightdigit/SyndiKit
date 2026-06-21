@@ -1,0 +1,270 @@
+name: SyndiKit
+
+# Standalone CI for this BrightDigit Swift package on Swift 6.4 (the BrightDigit
+# CI template). These five workflows are kept byte-identical except the name above;
+# the only per-package difference is externalized to the ENABLE_WASM repo variable.
+# Linux + wasm run in the nightly-6.4 container; macOS + the Apple-platform suite
+# run on the self-hosted runner with /Applications/Xcode-beta.app (Xcode 27 /
+# Swift 6.4); Windows on a swift.org nightly snapshot; Android via a swift.org SDK
+# bundle. The wasm step is gated on ENABLE_WASM — set it to 'false' where a
+# dependency can't build for wasm (e.g. Yams).
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-ubuntu:
+    name: Build on Ubuntu
+    needs: configure
+    runs-on: ubuntu-latest
+    container: swiftlang/swift:nightly-6.4.x-noble
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    # Ubuntu variants from a matrix (configure → ubuntu-type): standard ('') always;
+    # wasm + wasm-embedded when ENABLE_WASM != 'false'. Both wasm variants share the
+    # same nightly-6.4.x SDK bundle. OpenAPI packages guard URLSession behind
+    # #if !os(WASI) so the wasm/embedded legs build.
+    strategy:
+      fail-fast: false
+      matrix:
+        type: ${{ fromJSON(needs.configure.outputs.ubuntu-type) }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          type: ${{ matrix.type }}
+          # wasm / wasm-embedded are build-only: WasmKit doesn't mount the Foundation
+          # resource bundles the tests load, and embedded hits OpenAPIRuntime keypath
+          # limits at runtime. The standard ('') leg runs the full suite + coverage.
+          build-only: ${{ matrix.type != '' }}
+          wasm-sdk-url: https://download.swift.org/swift-6.4.x-branch/wasm-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_wasm.artifactbundle.tar.gz
+          wasm-sdk-checksum: c014a0162de6eeeef4f07904ce096ccee5405c1478a12c99a3a9750bd42d7702
+          wasm-swift-flags: >-
+            -Xcc -D_WASI_EMULATED_SIGNAL -Xcc -D_WASI_EMULATED_MMAN
+            -Xlinker -lwasi-emulated-signal -Xlinker -lwasi-emulated-mman
+            -Xlinker -lwasi-emulated-getpid
+            -Xlinker --initial-memory=536870912 -Xlinker --max-memory=536870912
+      - name: Install curl (required by Codecov uploader)
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        run: |
+          if ! command -v curl &> /dev/null; then
+            apt-get update -q
+            apt-get install -y --no-install-recommends curl ca-certificates
+          fi
+      # brightdigit fork of swift-coverage-action: upstream @v5 can't pair the
+      # profdata with the test binary under Swift 6.4's swiftbuild layout
+      # (.so + <Name>-test-runner, no .xctest) — issue #92. Pinned by SHA.
+      - uses: brightdigit/swift-coverage-action@2f8538f723b99ab2406ac3a0e5b3355a9de4cf6c
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        id: coverage-files
+        with:
+          search-paths: .build
+          fail-on-empty-output: true
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          flags: noble,swift-6.4
+          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
+
+  configure:
+    name: Configure Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      full-matrix: ${{ steps.check.outputs.full }}
+      run-windows: ${{ steps.check.outputs.windows }}
+      ubuntu-type: ${{ steps.check.outputs.ubuntu-type }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: check
+        name: Determine matrix scope
+        run: |
+          # Three tiers: small set (build-ubuntu[+wasm]/build-macos/lint, always) <
+          # full-matrix (macOS-platforms/android) < +Windows. full-matrix runs on
+          # main / semver / dispatch / PRs into main or semver. Windows is the most
+          # expensive leg, so run-windows is the same MINUS PRs into semver branches.
+          FULL=false; WIN=false
+          REF="${{ github.ref }}"; EVENT="${{ github.event_name }}"; BASE_REF="${{ github.base_ref }}"
+          if [[ "$REF" == "refs/heads/main" ]]; then FULL=true; WIN=true
+          elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "workflow_dispatch" ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "pull_request" ]]; then
+            if [[ "$BASE_REF" == "main" ]]; then FULL=true; WIN=true
+            elif [[ "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true
+            fi
+          fi
+          echo "full=$FULL" >> "$GITHUB_OUTPUT"
+          echo "windows=$WIN" >> "$GITHUB_OUTPUT"
+          # Ubuntu build variants: standard ('') always; wasm + wasm-embedded
+          # unless the package disables wasm via ENABLE_WASM (e.g. Yams).
+          if [[ "${{ vars.ENABLE_WASM }}" != "false" ]]; then
+            echo 'ubuntu-type=["","wasm","wasm-embedded"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ubuntu-type=[""]' >> "$GITHUB_OUTPUT"
+          fi
+
+  # macOS on Swift 6.4 via the self-hosted runner with /Applications/Xcode-beta.app.
+  build-macos:
+    name: Build on macOS
+    runs-on: [self-hosted, macOS]
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          xcode: "/Applications/Xcode-beta.app"
+      - name: Process coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          search-paths: .build
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          flags: spm,macos
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  # Windows nightly 6.4 via a swift.org development snapshot (compnerd/gha-setup-swift
+  # under swift-build), on hosted runners. Own tier (run-windows): the most
+  # expensive leg, so it runs on main / semver / dispatch / PRs into main, but NOT
+  # PRs into semver branches. Bump the snapshot id periodically (swift.org GCs them).
+  build-windows:
+    name: Build on Windows
+    needs: configure
+    if: ${{ needs.configure.outputs.run-windows == 'true' }}
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [windows-2022, windows-2025]
+        swift:
+          - version: swift-6.4.x-branch
+            build: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-01-a
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          windows-swift-version: ${{ matrix.swift.version }}
+          windows-swift-build: ${{ matrix.swift.build }}
+
+  # Full Apple-platform suite (iOS/watchOS/tvOS) on Swift 6.4, on the self-hosted
+  # runner with /Applications/Xcode-beta.app (Xcode 27), using the 27.0 simulator
+  # runtimes installed there. Blocking leg; simulator runs on the nightly
+  # toolchain are the most fragile leg. Bump deviceName/osVersion as Xcode-beta moves.
+  # The watchOS leg is gated on the ENABLE_WATCHOS repo variable (set 'false' to skip it
+  # where the watchOS-27 SDK rejects deps inferring 8.0 — SwiftPM #10188; see
+  # brightdigit.com#119). iOS/tvOS always run.
+  build-macos-platforms:
+    name: Build on macOS (Platforms)
+    needs: configure
+    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    runs-on: [self-hosted, macOS]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { type: ios,     deviceName: "iPhone 17 Pro",                osVersion: "27.0" }
+          - { type: watchos, deviceName: "Apple Watch Ultra 3 (49mm)",   osVersion: "27.0" }
+          - { type: tvos,    deviceName: "Apple TV 4K (3rd generation)", osVersion: "27.0" }
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build and Test
+        id: build
+        # watchOS disabled where ENABLE_WATCHOS=false (SwiftPM #10188, watchOS-27
+        # deployment-target clamp); re-enable per brightdigit.com#119.
+        if: ${{ !(matrix.type == 'watchos' && vars.ENABLE_WATCHOS == 'false') }}
+        uses: brightdigit/swift-build@v1
+        with:
+          type: ${{ matrix.type }}
+          xcode: "/Applications/Xcode-beta.app"
+          deviceName: ${{ matrix.deviceName }}
+          osVersion: ${{ matrix.osVersion }}
+      - name: Process coverage
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          search-paths: .build
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: ${{ format('{0}{1}', matrix.type, matrix.osVersion) }}
+
+  # Android on nightly 6.4 via a swift.org swift-6.4.x-branch snapshot SDK bundle
+  # (custom-sdk-url path through swift-build → skiptools/swift-android-action).
+  # Blocking leg; build-only (android-run-tests: false).
+  # Bump the snapshot id periodically.
+  build-android:
+    name: Build on Android
+    needs: configure
+    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        android-api-level: [34]
+    steps:
+      - uses: actions/checkout@v6
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: false
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+      - uses: brightdigit/swift-build@v1
+        with:
+          type: android
+          android-swift-version: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a
+          android-sdk-url: https://download.swift.org/swift-6.4.x-branch/android-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android.artifactbundle.tar.gz
+          android-sdk-id: swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android
+          android-api-level: ${{ matrix.android-api-level }}
+          android-run-tests: false
+
+  lint:
+    name: Linting
+    if: ${{ !cancelled() && !failure() && !contains(github.event.head_commit.message, 'ci skip') }}
+    needs: [build-ubuntu, build-macos, build-windows, build-macos-platforms]
+    runs-on: ubuntu-latest
+    container: swiftlang/swift:nightly-6.4.x-noble
+    steps:
+      - name: Install curl (required by mise-action)
+        run: |
+          apt-get update -q
+          apt-get install -y --no-install-recommends curl ca-certificates
+      - uses: actions/checkout@v6
+      - uses: jdx/mise-action@v4
+        env:
+          MISE_HTTP_TIMEOUT: 300s
+          MISE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          cache: true
+      - name: Lint
+        run: ./Scripts/lint.sh
+        env:
+          LINT_MODE: STRICT

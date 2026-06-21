@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+// swiftlint:disable file_length
+
 import XCTest
 import XMLCoder
 
@@ -38,13 +40,14 @@ import XMLCoder
 #elseif swift(<6.0)
   import Foundation
 #else
-  public import Foundation
+  internal import Foundation
 #endif
 
-final class AuthorParsingTests: XCTestCase {
+// swiftlint:disable:next type_body_length
+internal final class AuthorParsingTests: XCTestCase {
   // MARK: - RFC 822 Format Tests
 
-  func testAuthorWithEmailAndName() throws {
+  internal func testAuthorWithEmailAndName() throws {
     let xml = """
       <author>podcast@example.com (Jane Doe)</author>
       """
@@ -59,7 +62,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testAuthorWithEmailOnly() throws {
+  internal func testAuthorWithEmailOnly() throws {
     let xml = """
       <author>webmaster@example.com</author>
       """
@@ -74,7 +77,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testAuthorWithNameOnly() throws {
+  internal func testAuthorWithNameOnly() throws {
     let xml = """
       <author>John Doe</author>
       """
@@ -89,7 +92,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testAuthorWithComplexName() throws {
+  internal func testAuthorWithComplexName() throws {
     let xml = """
       <author>doctor@example.com (Dr. John Q. Doe, Jr.)</author>
       """
@@ -104,7 +107,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testAuthorWithExtraWhitespace() throws {
+  internal func testAuthorWithExtraWhitespace() throws {
     let xml = """
       <author>  podcast@example.com  ( Jane Doe )  </author>
       """
@@ -121,7 +124,7 @@ final class AuthorParsingTests: XCTestCase {
 
   // MARK: - Edge Cases
 
-  func testAuthorWithEmptyString() throws {
+  internal func testAuthorWithEmptyString() throws {
     let xml = """
       <author></author>
       """
@@ -136,7 +139,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testAuthorWithMultipleParentheses() throws {
+  internal func testAuthorWithMultipleParentheses() throws {
     let xml = """
       <author>test@example.com (John (Johnny) Doe)</author>
       """
@@ -152,7 +155,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testInternationalCharacters() throws {
+  internal func testInternationalCharacters() throws {
     let xml = """
       <author>test@example.com (François Müller)</author>
       """
@@ -169,7 +172,7 @@ final class AuthorParsingTests: XCTestCase {
 
   // MARK: - Malformed Input Tests
 
-  func testUnclosedParenthesis() throws {
+  internal func testUnclosedParenthesis() throws {
     let xml = """
       <author>email@example.com (Name Without Closing</author>
       """
@@ -185,7 +188,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testMultipleAtSymbols() throws {
+  internal func testMultipleAtSymbols() throws {
     let xml = """
       <author>user@@domain.com</author>
       """
@@ -201,7 +204,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testTextAfterParenthesis() throws {
+  internal func testTextAfterParenthesis() throws {
     let xml = """
       <author>email@example.com (Display Name) extra text</author>
       """
@@ -217,7 +220,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testEmptyParentheses() throws {
+  internal func testEmptyParentheses() throws {
     let xml = """
       <author>email@example.com ()</author>
       """
@@ -233,7 +236,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testLeadingAtSymbol() throws {
+  internal func testLeadingAtSymbol() throws {
     let xml = """
       <author>@example.com</author>
       """
@@ -249,7 +252,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testTrailingAtSymbol() throws {
+  internal func testTrailingAtSymbol() throws {
     let xml = """
       <author>username@</author>
       """
@@ -265,7 +268,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertNil(author.uri)
   }
 
-  func testOnlyAtSymbol() throws {
+  internal func testOnlyAtSymbol() throws {
     let xml = """
       <author>@</author>
       """
@@ -283,7 +286,7 @@ final class AuthorParsingTests: XCTestCase {
 
   // MARK: - Atom Format Backward Compatibility
 
-  func testAtomAuthorStillWorks() throws {
+  internal func testAtomAuthorStillWorks() throws {
     let xml = """
       <author>
         <name>Jane Doe</name>
@@ -302,7 +305,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertEqual(author.uri, URL(string: "https://example.com"))
   }
 
-  func testAtomAuthorWithOnlyName() throws {
+  internal func testAtomAuthorWithOnlyName() throws {
     let xml = """
       <author>
         <name>Jane Doe</name>
@@ -321,7 +324,7 @@ final class AuthorParsingTests: XCTestCase {
 
   // MARK: - Encoding Tests
 
-  func testAuthorRoundTrip() throws {
+  internal func testAuthorRoundTrip() throws {
     let original = Author(
       name: "Jane Doe",
       email: "jane@example.com",
@@ -339,7 +342,7 @@ final class AuthorParsingTests: XCTestCase {
     XCTAssertEqual(decoded.uri, original.uri)
   }
 
-  func testAuthorRoundTripWithoutEmail() throws {
+  internal func testAuthorRoundTripWithoutEmail() throws {
     let original = Author(name: "Jane Doe", email: nil, uri: nil)
 
     let encoder = XMLCoder.XMLEncoder()
@@ -355,7 +358,7 @@ final class AuthorParsingTests: XCTestCase {
 
   // MARK: - Existing API Compatibility
 
-  func testPublicInitializerStillWorks() {
+  internal func testPublicInitializerStillWorks() {
     let author = Author(name: "Jane Doe")
 
     XCTAssertEqual(author.name, "Jane Doe")
