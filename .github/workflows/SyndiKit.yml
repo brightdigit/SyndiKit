@@ -46,6 +46,10 @@ jobs:
         id: build
         with:
           type: ${{ matrix.type }}
+          # wasm / wasm-embedded are build-only: WasmKit doesn't mount the Foundation
+          # resource bundles the tests load, and embedded hits OpenAPIRuntime keypath
+          # limits at runtime. The standard ('') leg runs the full suite + coverage.
+          build-only: ${{ matrix.type != '' }}
           wasm-sdk-url: https://download.swift.org/swift-6.4.x-branch/wasm-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_wasm.artifactbundle.tar.gz
           wasm-sdk-checksum: c014a0162de6eeeef4f07904ce096ccee5405c1478a12c99a3a9750bd42d7702
           wasm-swift-flags: >-
