@@ -42,7 +42,7 @@ jobs:
         type: ${{ fromJSON(needs.configure.outputs.ubuntu-type) }}
     steps:
       - uses: actions/checkout@v6
-      - uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
+      - uses: brightdigit/swift-build@v1
         id: build
         with:
           type: ${{ matrix.type }}
@@ -126,7 +126,7 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
       - uses: actions/checkout@v6
-      - uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
+      - uses: brightdigit/swift-build@v1
         id: build
         with:
           xcode: "/Applications/Xcode-beta.app"
@@ -161,7 +161,7 @@ jobs:
             build: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-01-a
     steps:
       - uses: actions/checkout@v6
-      - uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
+      - uses: brightdigit/swift-build@v1
         id: build
         with:
           windows-swift-version: ${{ matrix.swift.version }}
@@ -193,7 +193,7 @@ jobs:
         # watchOS disabled where ENABLE_WATCHOS=false (SwiftPM #10188, watchOS-27
         # deployment-target clamp); re-enable per brightdigit.com#119.
         if: ${{ !(matrix.type == 'watchos' && vars.ENABLE_WATCHOS == 'false') }}
-        uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
+        uses: brightdigit/swift-build@v1
         with:
           type: ${{ matrix.type }}
           xcode: "/Applications/Xcode-beta.app"
@@ -237,7 +237,7 @@ jobs:
           large-packages: true
           docker-images: true
           swap-storage: true
-      - uses: brightdigit/swift-build@sdk-url-checksum-nightly-6.4
+      - uses: brightdigit/swift-build@v1
         with:
           type: android
           android-swift-version: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a
