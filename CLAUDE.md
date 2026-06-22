@@ -33,10 +33,10 @@ swift test --filter RSSCodedTests.testPodcastDecode
 ./Scripts/lint.sh
 ```
 
-The linting script uses Mint to run swift-format and SwiftLint. Tools are defined in `Mintfile`:
-- `swift-format@600.0.0` for code formatting
-- `SwiftLint@0.58.2` for linting rules
-- `periphery@3.0.1` for unused code detection
+The linting script uses [mise](https://mise.jdx.dev) to run swift-format and SwiftLint. Tools are pinned in `.mise.toml`:
+- `swift-format@604.0.0-prerelease-2025-12-17` for code formatting
+- `SwiftLint@0.63.2` for linting rules
+- `periphery@3.7.4` for unused code detection
 
 Linting behavior is controlled by `LINT_MODE` environment variable:
 - `NONE`: Skip linting entirely
@@ -205,30 +205,27 @@ Date decoding is configured in `Decoding/DecoderSetup.swift`.
 
 ## CI/CD
 
-The project uses GitHub Actions (`.github/workflows/syndikit.yml`):
+The main CI workflow (`.github/workflows/SyndiKit.yml`) is BrightDigit's shared Swift 6.4 CI template, driven by the `brightdigit/swift-build@v1` action:
 
-- **Ubuntu**: Swift 6.2, 6.1, 6.0, 5.6-focal, and nightly-6.3-noble
-- **macOS**: Multiple Xcode versions (15.0.1, 15.4, 16.4, 26.0, 26.1, 26.2)
-- **Windows**: Windows 2022 and 2025 with Swift 6.1 and 6.2
-- **Android**: API levels 28, 33, 34 with Swift 6.1
-- Platform-specific tests for iOS, watchOS, tvOS, visionOS
+- **Ubuntu**: Swift 6.4 (`nightly-6.4.x-noble` container), plus `wasm` and `wasm-embedded` builds gated by the `ENABLE_WASM` repo variable
+- **macOS**: self-hosted runner using `/Applications/Xcode-beta.app` (Xcode 27 / Swift 6.4)
+- **Apple platforms**: iOS / watchOS / tvOS on the self-hosted runner; watchOS gated by the `ENABLE_WATCHOS` repo variable
+- **Windows**: Windows 2022 and 2025 on a swift.org 6.4 nightly snapshot
+- **Android**: API level 34 via a swift.org 6.4 SDK bundle (build-only)
 - Codecov integration for coverage tracking
-- Swift 6.x source compatibility suite
-- Linting runs after all platform builds complete
+- Linting (`./Scripts/lint.sh` with `LINT_MODE=STRICT`) runs after all platform builds complete
+
+Supporting workflows:
+- `check-unsafe-flags.yml`: fails the build if `unsafeFlags` appear in the package manifest
+- `swift-source-compat.yml`: release build on the Swift 6.4 nightly toolchain
+- `cleanup-caches.yml`: purges a branch's Actions caches when the branch is deleted
+- `codeql.yml`: CodeQL security analysis
+- `claude.yml` / `claude-code-review.yml`: Claude Code integration on issues and PRs
 
 Commits with "ci skip" in the message skip CI runs.
 
 ## Documentation
 
-Documentation is built with DocC and hosted on Swift Package Index.
-
-Generate documentation locally:
-```bash
-./Scripts/docc.sh
-```
-
-The project maintains two documentation formats:
-1. DocC (preferred): Hosted on Swift Package Index
-2. SourceDocs markdown: In `Documentation/Reference/`
+Documentation is built with DocC from the `Sources/SyndiKit/SyndiKit.docc/` catalog and hosted on [Swift Package Index](https://swiftpackageindex.com/brightdigit/SyndiKit/documentation) (configured via `.spi.yml`). SPI builds and serves the DocC archive automatically — there is no local hosting step.
 
 When adding public APIs, include DocC-style documentation comments with Topics sections.

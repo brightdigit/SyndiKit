@@ -1,6 +1,6 @@
 {
-  "name": "Swift 5.8",
-  "image": "swift:5.8",
+  "name": "Swift 6.2",
+  "image": "swift:6.2",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": "false",
