@@ -253,17 +253,12 @@ jobs:
     runs-on: ubuntu-latest
     container: swiftlang/swift:nightly-6.4.x-noble
     steps:
-      - name: Install curl (required by mise-action)
+      - name: Install curl (required by setup-tools)
         run: |
           apt-get update -q
           apt-get install -y --no-install-recommends curl ca-certificates
       - uses: actions/checkout@v6
-      - uses: jdx/mise-action@v4
-        env:
-          MISE_HTTP_TIMEOUT: 300s
-          MISE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          cache: true
+      - uses: ./.github/actions/setup-tools
       - name: Lint
         run: ./Scripts/lint.sh
         env:
