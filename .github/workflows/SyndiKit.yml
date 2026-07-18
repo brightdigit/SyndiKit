@@ -4,7 +4,7 @@ name: SyndiKit
 # CI template). These five workflows are kept byte-identical except the name above;
 # the only per-package difference is externalized to the ENABLE_WASM repo variable.
 # Linux + wasm run in the nightly-6.4 container; macOS + the Apple-platform suite
-# run on the self-hosted runner with /Applications/Xcode-beta.app (Xcode 27 /
+# run on the GitHub-hosted xcode-27 runner with /Applications/Xcode_27.0.app (Xcode 27 /
 # Swift 6.4); Windows on a swift.org nightly snapshot; Android via a swift.org SDK
 # bundle. The wasm step is gated on ENABLE_WASM — set it to 'false' where a
 # dependency can't build for wasm (e.g. Yams).
@@ -119,17 +119,17 @@ jobs:
             echo 'ubuntu-type=[""]' >> "$GITHUB_OUTPUT"
           fi
 
-  # macOS on Swift 6.4 via the self-hosted runner with /Applications/Xcode-beta.app.
+  # macOS on Swift 6.4 via the GitHub-hosted xcode-27 runner.
   build-macos:
     name: Build on macOS
-    runs-on: [self-hosted, macOS]
+    runs-on: xcode-27
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
       - uses: actions/checkout@v6
       - uses: brightdigit/swift-build@v1
         id: build
         with:
-          xcode: "/Applications/Xcode-beta.app"
+          xcode: "/Applications/Xcode_27.0.app"
       - name: Process coverage
         if: steps.build.outputs.contains-code-coverage == 'true'
         uses: sersoft-gmbh/swift-coverage-action@v5
@@ -167,9 +167,8 @@ jobs:
           windows-swift-version: ${{ matrix.swift.version }}
           windows-swift-build: ${{ matrix.swift.build }}
 
-  # Full Apple-platform suite (iOS/watchOS/tvOS) on Swift 6.4, on the self-hosted
-  # runner with /Applications/Xcode-beta.app (Xcode 27), using the 27.0 simulator
-  # runtimes installed there. Blocking leg; simulator runs on the nightly
+  # Full Apple-platform suite (iOS/watchOS/tvOS) on Swift 6.4, on the GitHub-hosted
+  # xcode-27 runner with downloadable 27.0 simulator runtimes. Blocking leg; simulator runs on the nightly
   # toolchain are the most fragile leg. Bump deviceName/osVersion as Xcode-beta moves.
   # The watchOS leg is gated on the ENABLE_WATCHOS repo variable (set 'false' to skip it
   # where the watchOS-27 SDK rejects deps inferring 8.0 — SwiftPM #10188; see
@@ -178,7 +177,7 @@ jobs:
     name: Build on macOS (Platforms)
     needs: configure
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
-    runs-on: [self-hosted, macOS]
+    runs-on: xcode-27
     strategy:
       fail-fast: false
       matrix:
@@ -196,9 +195,10 @@ jobs:
         uses: brightdigit/swift-build@v1
         with:
           type: ${{ matrix.type }}
-          xcode: "/Applications/Xcode-beta.app"
+          xcode: "/Applications/Xcode_27.0.app"
           deviceName: ${{ matrix.deviceName }}
           osVersion: ${{ matrix.osVersion }}
+          download-platform: true
       - name: Process coverage
         if: steps.build.outputs.contains-code-coverage == 'true'
         uses: sersoft-gmbh/swift-coverage-action@v5
