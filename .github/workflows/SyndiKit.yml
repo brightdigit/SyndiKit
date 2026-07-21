@@ -37,7 +37,7 @@ jobs:
     # same nightly-6.4.x SDK bundle. OpenAPI packages guard URLSession behind
     # #if !os(WASI) so the wasm/embedded legs build.
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         type: ${{ fromJSON(needs.configure.outputs.ubuntu-type) }}
     steps:
@@ -64,22 +64,17 @@ jobs:
             apt-get update -q
             apt-get install -y --no-install-recommends curl ca-certificates
           fi
-      # brightdigit fork of swift-coverage-action: upstream @v5 can't pair the
-      # profdata with the test binary under Swift 6.4's swiftbuild layout
-      # (.so + <Name>-test-runner, no .xctest) — issue #92. Pinned by SHA.
-      - uses: brightdigit/swift-coverage-action@2f8538f723b99ab2406ac3a0e5b3355a9de4cf6c
+      - uses: sersoft-gmbh/swift-coverage-action@v5
         if: steps.build.outputs.contains-code-coverage == 'true'
         id: coverage-files
         with:
           search-paths: .build
-          fail-on-empty-output: true
       - name: Upload coverage to Codecov
         if: steps.build.outputs.contains-code-coverage == 'true'
         uses: codecov/codecov-action@v7
         with:
           fail_ci_if_error: false
           flags: noble,swift-6.4
-          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ join(fromJSON(steps.coverage-files.outputs.files), ',') }}
 
@@ -153,7 +148,7 @@ jobs:
     if: ${{ needs.configure.outputs.run-windows == 'true' }}
     runs-on: ${{ matrix.runs-on }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         runs-on: [windows-2022, windows-2025]
         swift:
@@ -179,19 +174,17 @@ jobs:
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
     runs-on: xcode-27
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         include:
           - { type: ios,     deviceName: "iPhone 17 Pro",                osVersion: "27.0" }
           - { type: watchos, deviceName: "Apple Watch Ultra 3 (49mm)",   osVersion: "27.0" }
           - { type: tvos,    deviceName: "Apple TV 4K (3rd generation)", osVersion: "27.0" }
+          - { type: visionos, deviceName: "Apple Vision Pro",           osVersion: "27.0" }
     steps:
       - uses: actions/checkout@v6
       - name: Build and Test
         id: build
-        # watchOS disabled where ENABLE_WATCHOS=false (SwiftPM #10188, watchOS-27
-        # deployment-target clamp); re-enable per brightdigit.com#119.
-        if: ${{ !(matrix.type == 'watchos' && vars.ENABLE_WATCHOS == 'false') }}
         uses: brightdigit/swift-build@v1
         with:
           type: ${{ matrix.type }}
@@ -222,7 +215,7 @@ jobs:
     if: ${{ needs.configure.outputs.full-matrix == 'true' }}
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         android-api-level: [34]
     steps:
