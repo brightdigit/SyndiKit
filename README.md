@@ -14,7 +14,7 @@ Swift Package built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder)
 [![License](https://img.shields.io/github/license/brightdigit/SyndiKit)](LICENSE)
 
 <!-- CI/CD & Code Quality -->
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/brightdigit/SyndiKit/syndikit.yml?label=actions&logo=github&?branch=main)](https://github.com/brightdigit/SyndiKit/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/brightdigit/SyndiKit/SyndiKit.yml?label=actions&logo=github&branch=main)](https://github.com/brightdigit/SyndiKit/actions)
 [![Maintainability](https://qlty.sh/gh/brightdigit/projects/SyndiKit/maintainability.svg)](https://qlty.sh/gh/brightdigit/projects/SyndiKit)
 [![Codecov](https://img.shields.io/codecov/c/github/brightdigit/SyndiKit)](https://codecov.io/gh/brightdigit/SyndiKit)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/brightdigit/SyndiKit)](https://www.codefactor.io/repository/github/brightdigit/SyndiKit)
