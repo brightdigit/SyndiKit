@@ -208,8 +208,8 @@ Date decoding is configured in `Decoding/DecoderSetup.swift`.
 The main CI workflow (`.github/workflows/SyndiKit.yml`) runs on GitHub-hosted
 runners, driven by the `brightdigit/swift-build@v1` action. A `configure` job
 derives the matrix scope in three tiers: a small always-on set (Ubuntu / macOS /
-source-compat / lint), a `full-matrix` tier that expands the Ubuntu and macOS
-fan-out and adds Android, and a `run-windows` tier that adds Windows.
+lint), a `full-matrix` tier that expands the Ubuntu and macOS fan-out and adds
+Android, and a `run-windows` tier that adds Windows.
 Full/Windows run on `main`, semver branches, `workflow_dispatch`, and PRs into
 `main` or semver (Windows excludes PRs into semver branches). In the
 reduced/simple tier, Ubuntu runs noble × Swift 6.3/6.4 and macOS runs SPM only
@@ -225,13 +225,12 @@ the older Ubuntu Swifts + jammy and the macOS platform/simulator legs.
   device legs run across Xcode 15.4/16.4/26.4 in the full tier
 - **Windows**: Windows 2022 and 2025 with Swift 6.3-RELEASE and a 6.4 nightly snapshot
 - **Android**: Swift 6.3 (API 28/36) and Swift 6.4 nightly snapshot (API 36)
-- Swift 6.x source compatibility suite (swift:6.0/6.1/6.2/6.3 + nightly 6.4),
-  run as an in-file job
 - Codecov integration for coverage tracking
 - mise-based STRICT linting (via the `setup-tools` composite action) runs after
   all platform builds complete
 
 Supporting workflows:
+- `swift-source-compat.yml`: release `swift build` across swift:5.10/6.0/6.1/6.2/6.3 + nightly-6.4 (source-compatibility suite)
 - `check-unsafe-flags.yml`: fails the build if `unsafeFlags` appear in the package manifest
 - `cleanup-caches.yml`: purges a branch's Actions caches when the branch is deleted
 - `codeql.yml`: CodeQL security analysis

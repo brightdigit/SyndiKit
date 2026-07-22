@@ -310,25 +310,6 @@ jobs:
           flags: android,${{ matrix.label }},${{ matrix.android-api-level }}
           fail_ci_if_error: false
 
-  swift-source-compat-suite:
-    name: Test Swift 6.x For Source Compatibility Suite
-    runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
-    strategy:
-      fail-fast: false
-      matrix:
-        container:
-          - swift:6.0
-          - swift:6.1
-          - swift:6.2
-          - swift:6.3
-          - swiftlang/swift:nightly-6.4.x-noble
-    container: ${{ matrix.container }}
-    steps:
-      - uses: actions/checkout@v6
-      - name: Run Swift 6.x tests
-        run: swift build --disable-sandbox --verbose --configuration release -Xswiftc -swift-version -Xswiftc 6
-
   lint:
     name: Linting
     if: ${{ !cancelled() && !failure() && !contains(github.event.head_commit.message, 'ci skip') }}
