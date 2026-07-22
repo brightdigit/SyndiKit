@@ -253,9 +253,12 @@ jobs:
           flags: windows,${{ matrix.swift.version }}
           fail_ci_if_error: false
 
-  # Android via swift-build → skiptools/swift-android-action. Swift 6.3 (release SDK,
-  # api 28/33/36, tests) and Swift 6.4 (nightly snapshot SDK bundle, api 34, build
-  # only). Blank inputs are ignored by swift-build. full-matrix tier.
+  # Android via swift-build → skiptools/swift-android-action. Cross-product of
+  # Swift 6.3 (release SDK) and Swift 6.4 (nightly snapshot SDK bundle) against
+  # API levels 28 and 34. API 36 is skipped: its NDK sysroot omits
+  # crtbegin_dynamic.o / crtend_android.o and the Swift toolchain still asks the
+  # linker for them (see https://github.com/android/ndk/issues/1391). Blank
+  # inputs are ignored by swift-build. full-matrix tier.
   build-android:
     name: Build on Android
     needs: configure
@@ -264,22 +267,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - label: "6.3"
-            android-swift-version: "6.3"
-            android-api-level: 28
-            android-run-tests: true
-            android-copy-files: "Data/"            
-          - label: "6.3"
-            android-swift-version: "6.3"
-            android-api-level: 36
-            android-copy-files: "Data/"            
-          - label: "6.4"
-            android-swift-version: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a
-            android-api-level: 36
-            android-copy-files: "Data/"
-            android-sdk-url: https://download.swift.org/swift-6.4.x-branch/android-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android.artifactbundle.tar.gz
-            android-sdk-id: swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android
+        swift:
+          - version: "6.3"
+            label: "6.3"
+          - version: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a
+            label: "6.4"
+            sdk-url: https://download.swift.org/swift-6.4.x-branch/android-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android.artifactbundle.tar.gz
+            sdk-id: swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android
+        android-api-level: [28, 34]
     steps:
       - uses: actions/checkout@v6
       - name: Free disk space
@@ -296,18 +291,18 @@ jobs:
         id: build
         with:
           type: android
-          android-swift-version: ${{ matrix.android-swift-version }}
+          android-swift-version: ${{ matrix.swift.version }}
           android-api-level: ${{ matrix.android-api-level }}
-          android-run-tests: ${{ matrix.android-run-tests }}
-          android-copy-files: ${{ matrix.android-copy-files }}
-          android-sdk-url: ${{ matrix.android-sdk-url }}
-          android-sdk-id: ${{ matrix.android-sdk-id }}
+          android-run-tests: true
+          android-copy-files: "Data/"
+          android-sdk-url: ${{ matrix.swift.sdk-url }}
+          android-sdk-id: ${{ matrix.swift.sdk-id }}
       - name: Upload coverage to Codecov
         if: steps.build.outputs.contains-code-coverage == 'true'
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: android,${{ matrix.label }},${{ matrix.android-api-level }}
+          flags: android,${{ matrix.swift.label }},${{ matrix.android-api-level }}
           fail_ci_if_error: false
 
   lint:
