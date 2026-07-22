@@ -15,3 +15,4 @@ rather than leaving both.
 <!-- Append directives below, one per line. Example:
 - Always run ./Scripts/lint.sh before committing; never call swiftlint directly.
 -->
+- Prefer external JSON files under `.github/matrices/` for CI build matrices instead of inlining large JSON in workflow YAML.

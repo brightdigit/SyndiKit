@@ -7,7 +7,7 @@ name: SyndiKit
 # expensive leg — full MINUS PRs into semver branches).
 # Ubuntu folds stable Swift 5.10/6.0/6.1/6.2/6.3 and nightly 6.4 into one job
 # (container chosen per version); wasm / wasm-embedded run on 6.3 + 6.4 only.
-# macOS covers Xcode 15.4/16.4/26.4 (SPM + macOS + iOS + watchOS + tvOS + visionOS).
+# macOS covers Xcode 15.4/16.4/26.6 (SPM + macOS + iOS + watchOS + tvOS + visionOS).
 # Windows + Android each cover Swift 6.3 + 6.4. The wasm step is gated on the
 # ENABLE_WASM repo variable (set 'false' where a dependency can't build for wasm).
 on:
@@ -65,16 +65,17 @@ jobs:
       - id: matrix
         name: Build matrix values
         run: |
-          # macOS SPM legs run only Swift 6.3 (Xcode 26.4, macos-26) and Swift 6.4
+          # macOS SPM legs run only Swift 6.3 (Xcode 26.6, macos-26) and Swift 6.4
           # (Xcode 27, the arm64 xcode-27 preview runner). This is the whole macOS
           # scope in reduced runs; the full runs add it to the platform/simulator legs.
-          MACOS_SPM='[{"runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app"},{"runs-on":"xcode-27","xcode":"/Applications/Xcode_27.0.app"}]'
+          # Matrix entries live in .github/matrices/ — compact with jq for GITHUB_OUTPUT.
+          MACOS_SPM=$(jq -c . .github/matrices/macos-spm.json)
           # Swift 6.4 (nightly) rides in the same list as the stable versions so it
           # folds into the single build-ubuntu job. Reduced runs keep 6.3 + 6.4 (Ubuntu)
           # and SPM-only on macOS so the primary toolchains still get exercised on
           # ordinary PRs; the full platform/simulator matrix is a full-matrix-only cost.
           if [[ "${{ steps.check.outputs.full }}" == "true" ]]; then
-            MACOS_FULL='[{"runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app"},{"runs-on":"xcode-27","xcode":"/Applications/Xcode_27.0.app"},{"type":"macos","runs-on":"macos-14","xcode":"/Applications/Xcode_15.4.app"},{"type":"macos","runs-on":"macos-15","xcode":"/Applications/Xcode_16.4.app"},{"type":"macos","runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app"},{"type":"ios","runs-on":"macos-14","xcode":"/Applications/Xcode_15.4.app","deviceName":"iPhone 15 Pro","osVersion":"17.5"},{"type":"ios","runs-on":"macos-15","xcode":"/Applications/Xcode_16.4.app","deviceName":"iPhone 16","osVersion":"18.5"},{"type":"ios","runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app","deviceName":"iPhone 17","osVersion":"26.4","download-platform":true},{"type":"watchos","runs-on":"macos-14","xcode":"/Applications/Xcode_15.4.app","deviceName":"Apple Watch Series 9 (41mm)","osVersion":"10.5"},{"type":"watchos","runs-on":"macos-15","xcode":"/Applications/Xcode_16.4.app","deviceName":"Apple Watch Ultra 2 (49mm)","osVersion":"11.5"},{"type":"watchos","runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app","deviceName":"Apple Watch Ultra 3 (49mm)","osVersion":"26.4","download-platform":true},{"type":"tvos","runs-on":"macos-15","xcode":"/Applications/Xcode_16.4.app","deviceName":"Apple TV 4K (3rd generation)","osVersion":"18.5"},{"type":"tvos","runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app","deviceName":"Apple TV 4K (3rd generation)","osVersion":"26.4","download-platform":true},{"type":"visionos","runs-on":"macos-15","xcode":"/Applications/Xcode_16.4.app","deviceName":"Apple Vision Pro","osVersion":"2.5"},{"type":"visionos","runs-on":"macos-26","xcode":"/Applications/Xcode_26.4.app","deviceName":"Apple Vision Pro","osVersion":"26.4","download-platform":true}]'
+            MACOS_FULL=$(jq -c . .github/matrices/macos-full.json)
             {
               echo 'ubuntu-os=["noble","jammy"]'
               echo 'ubuntu-swift=[{"version":"5.10"},{"version":"6.0"},{"version":"6.1"},{"version":"6.2"},{"version":"6.3"},{"version":"6.4"}]'
@@ -170,10 +171,10 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   # Apple platforms on GitHub-hosted runners. Matrix comes from `configure`:
-  # SPM runs only on Swift 6.3 (Xcode 26.4 / macos-26) and Swift 6.4 (Xcode 27 /
+  # SPM runs only on Swift 6.3 (Xcode 26.6 / macos-26) and Swift 6.4 (Xcode 27 /
   # the arm64 xcode-27 preview runner) — that is the whole macOS scope on reduced
   # runs. Full runs add the macOS + iOS + watchOS + tvOS + visionOS device legs
-  # across Xcode 15.4/16.4/26.4 for OS-version breadth.
+  # across Xcode 15.4/16.4/26.6 for OS-version breadth.
   build-macos:
     name: Build on macOS
     needs: configure
