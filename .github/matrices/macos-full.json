@@ -1,0 +1,99 @@
+[
+  {
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app"
+  },
+  {
+    "runs-on": "xcode-27",
+    "xcode": "/Applications/Xcode_27.0.app"
+  },
+  {
+    "type": "macos",
+    "runs-on": "macos-14",
+    "xcode": "/Applications/Xcode_15.4.app"
+  },
+  {
+    "type": "macos",
+    "runs-on": "macos-15",
+    "xcode": "/Applications/Xcode_16.4.app"
+  },
+  {
+    "type": "macos",
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app"
+  },
+  {
+    "type": "ios",
+    "runs-on": "macos-14",
+    "xcode": "/Applications/Xcode_15.4.app",
+    "deviceName": "iPhone 15 Pro",
+    "osVersion": "17.5"
+  },
+  {
+    "type": "ios",
+    "runs-on": "macos-15",
+    "xcode": "/Applications/Xcode_16.4.app",
+    "deviceName": "iPhone 16",
+    "osVersion": "18.5"
+  },
+  {
+    "type": "ios",
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app",
+    "deviceName": "iPhone 17",
+    "osVersion": "26.5",
+    "download-platform": true
+  },
+  {
+    "type": "watchos",
+    "runs-on": "macos-14",
+    "xcode": "/Applications/Xcode_15.4.app",
+    "deviceName": "Apple Watch Series 9 (41mm)",
+    "osVersion": "10.5"
+  },
+  {
+    "type": "watchos",
+    "runs-on": "macos-15",
+    "xcode": "/Applications/Xcode_16.4.app",
+    "deviceName": "Apple Watch Ultra 2 (49mm)",
+    "osVersion": "11.5"
+  },
+  {
+    "type": "watchos",
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app",
+    "deviceName": "Apple Watch Ultra 3 (49mm)",
+    "osVersion": "26.5",
+    "download-platform": true
+  },
+  {
+    "type": "tvos",
+    "runs-on": "macos-15",
+    "xcode": "/Applications/Xcode_16.4.app",
+    "deviceName": "Apple TV 4K (3rd generation)",
+    "osVersion": "18.5"
+  },
+  {
+    "type": "tvos",
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app",
+    "deviceName": "Apple TV 4K (3rd generation)",
+    "osVersion": "26.5",
+    "download-platform": true
+  },
+  {
+    "type": "visionos",
+    "runs-on": "macos-15",
+    "xcode": "/Applications/Xcode_16.4.app",
+    "deviceName": "Apple Vision Pro",
+    "osVersion": "2.5"
+  },
+  {
+    "type": "visionos",
+    "runs-on": "macos-26",
+    "xcode": "/Applications/Xcode_26.6.app",
+    "deviceName": "Apple Vision Pro",
+    "osVersion": "26.5",
+    "download-platform": true
+  }
+]

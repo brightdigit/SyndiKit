@@ -1,9 +1,9 @@
 #if swift(<6.0)
-  import SyndiKit
   import Foundation
+  import SyndiKit
 #else
-  internal import SyndiKit
   internal import Foundation
+  internal import SyndiKit
 #endif
 
 extension JSONFeed {

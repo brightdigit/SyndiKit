@@ -1,0 +1,325 @@
+name: SyndiKit
+
+# Multi-version CI for this Swift package, all on GitHub-hosted runners.
+# The `configure` job derives the matrix scope in three tiers: a small set
+# (build-ubuntu / build-macos / source-compat / lint) always runs; `full-matrix`
+# adds the Apple-platform legs + Android; `run-windows` adds Windows (the most
+# expensive leg — full MINUS PRs into semver branches).
+# Ubuntu folds stable Swift 5.10/6.0/6.1/6.2/6.3 and nightly 6.4 into one job
+# (container chosen per version); wasm / wasm-embedded run on 6.3 + 6.4 only.
+# macOS covers Xcode 15.4/16.4/26.6 (SPM + macOS + iOS + watchOS + tvOS + visionOS).
+# Windows + Android each cover Swift 6.3 + 6.4. The wasm step is gated on the
+# ENABLE_WASM repo variable (set 'false' where a dependency can't build for wasm).
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PACKAGE_NAME: SyndiKit
+
+jobs:
+  configure:
+    name: Configure Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      full-matrix: ${{ steps.check.outputs.full }}
+      run-windows: ${{ steps.check.outputs.windows }}
+      ubuntu-os: ${{ steps.matrix.outputs.ubuntu-os }}
+      ubuntu-swift: ${{ steps.matrix.outputs.ubuntu-swift }}
+      ubuntu-type: ${{ steps.matrix.outputs.ubuntu-type }}
+      macos-matrix: ${{ steps.matrix.outputs.macos-matrix }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: check
+        name: Determine matrix scope
+        run: |
+          # Three tiers: small set (build-ubuntu/build-macos/source-compat/lint,
+          # always) < full-matrix (macOS-platforms/android) < +Windows. full-matrix
+          # runs on main / semver / dispatch / PRs into main or semver. Windows is the
+          # most expensive leg, so run-windows is the same MINUS PRs into semver.
+          FULL=false; WIN=false
+          REF="${{ github.ref }}"; EVENT="${{ github.event_name }}"; BASE_REF="${{ github.base_ref }}"
+          if [[ "$REF" == "refs/heads/main" ]]; then FULL=true; WIN=true
+          elif [[ "$REF" =~ ^refs/heads/v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "workflow_dispatch" ]]; then FULL=true; WIN=true
+          elif [[ "$EVENT" == "pull_request" ]]; then
+            if [[ "$BASE_REF" == "main" ]]; then FULL=true; WIN=true
+            elif [[ "$BASE_REF" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+ ]]; then FULL=true
+            fi
+          fi
+          echo "full=$FULL" >> "$GITHUB_OUTPUT"
+          echo "windows=$WIN" >> "$GITHUB_OUTPUT"
+      - id: matrix
+        name: Build matrix values
+        run: |
+          # macOS SPM legs run only Swift 6.3 (Xcode 26.6, macos-26) and Swift 6.4
+          # (Xcode 27, the arm64 xcode-27 preview runner). This is the whole macOS
+          # scope in reduced runs; the full runs add it to the platform/simulator legs.
+          # Matrix entries live in .github/matrices/ — compact with jq for GITHUB_OUTPUT.
+          MACOS_SPM=$(jq -c . .github/matrices/macos-spm.json)
+          # Swift 6.4 (nightly) rides in the same list as the stable versions so it
+          # folds into the single build-ubuntu job. Reduced runs keep 6.3 + 6.4 (Ubuntu)
+          # and SPM-only on macOS so the primary toolchains still get exercised on
+          # ordinary PRs; the full platform/simulator matrix is a full-matrix-only cost.
+          if [[ "${{ steps.check.outputs.full }}" == "true" ]]; then
+            MACOS_FULL=$(jq -c . .github/matrices/macos-full.json)
+            {
+              echo 'ubuntu-os=["noble","jammy"]'
+              echo 'ubuntu-swift=[{"version":"5.10"},{"version":"6.0"},{"version":"6.1"},{"version":"6.2"},{"version":"6.3"},{"version":"6.4"}]'
+              echo "macos-matrix={\"include\":${MACOS_FULL}}"
+            } >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo 'ubuntu-os=["noble"]'
+              echo 'ubuntu-swift=[{"version":"6.3"},{"version":"6.4"}]'
+              echo "macos-matrix={\"include\":${MACOS_SPM}}"
+            } >> "$GITHUB_OUTPUT"
+          fi
+          # Ubuntu build variants: standard ('') always; wasm + wasm-embedded unless
+          # the package disables wasm via ENABLE_WASM (e.g. Yams).
+          if [[ "${{ vars.ENABLE_WASM }}" != "false" ]]; then
+            echo 'ubuntu-type=["","wasm","wasm-embedded"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ubuntu-type=[""]' >> "$GITHUB_OUTPUT"
+          fi
+
+  # Single Ubuntu job across stable Swift 5.10/6.0/6.1/6.2/6.3 (swift.org images) and
+  # nightly 6.4 (swiftlang nightly image), chosen by the container expression below.
+  # wasm / wasm-embedded run on 6.3 + 6.4 only (older versions excluded); those legs
+  # are build-only. The nightly wasm SDK is passed explicitly for 6.4; 6.3 uses the
+  # swift-build default release wasm SDK.
+  build-ubuntu:
+    name: Build on Ubuntu
+    needs: configure
+    runs-on: ubuntu-latest
+    container: ${{ matrix.swift.version == '6.4' && 'swiftlang/swift:nightly-6.4.x-noble' || format('swift:{0}-{1}', matrix.swift.version, matrix.os) }}
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJSON(needs.configure.outputs.ubuntu-os) }}
+        swift: ${{ fromJSON(needs.configure.outputs.ubuntu-swift) }}
+        type: ${{ fromJSON(needs.configure.outputs.ubuntu-type) }}
+        exclude:
+          # nightly-6.4 is noble-only
+          - os: jammy
+            swift: {version: "6.4"}
+          # wasm / wasm-embedded run only on 6.3 and 6.4
+          - swift: {version: "5.10"}
+            type: wasm
+          - swift: {version: "5.10"}
+            type: wasm-embedded
+          - swift: {version: "6.0"}
+            type: wasm
+          - swift: {version: "6.0"}
+            type: wasm-embedded
+          - swift: {version: "6.1"}
+            type: wasm
+          - swift: {version: "6.1"}
+            type: wasm-embedded
+          - swift: {version: "6.2"}
+            type: wasm
+          - swift: {version: "6.2"}
+            type: wasm-embedded
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          type: ${{ matrix.type }}
+          # wasm / wasm-embedded are build-only; the standard ('') leg runs the full
+          # suite + coverage.
+          build-only: ${{ matrix.type != '' }}
+          skip-package-resolved: ${{ contains(matrix.swift.version, '5.') }}
+          # Nightly-6.4 wasm needs the snapshot SDK bundle explicitly; 6.3 wasm falls
+          # back to swift-build's default release SDK (empty url).
+          wasm-sdk-url: ${{ matrix.type != '' && matrix.swift.version == '6.4' && 'https://download.swift.org/swift-6.4.x-branch/wasm-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_wasm.artifactbundle.tar.gz' || '' }}
+          wasm-sdk-checksum: ${{ matrix.type != '' && matrix.swift.version == '6.4' && 'c014a0162de6eeeef4f07904ce096ccee5405c1478a12c99a3a9750bd42d7702' || '' }}
+          wasm-swift-flags: ${{ matrix.type != '' && matrix.swift.version == '6.4' && '-Xcc -D_WASI_EMULATED_SIGNAL -Xcc -D_WASI_EMULATED_MMAN -Xlinker -lwasi-emulated-signal -Xlinker -lwasi-emulated-mman -Xlinker -lwasi-emulated-getpid -Xlinker --initial-memory=536870912 -Xlinker --max-memory=536870912' || '' }}
+      - name: Install curl (required by Codecov uploader)
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        run: |
+          if ! command -v curl &> /dev/null; then
+            apt-get update -q
+            apt-get install -y --no-install-recommends curl ca-certificates
+          fi
+      - name: Process coverage
+        if: ${{ steps.build.outputs.contains-code-coverage == 'true' && matrix.swift.version != '6.4' }}
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          search-paths: .build
+          fail-on-empty-output: true
+      - name: Upload coverage to Codecov
+        if: ${{ steps.build.outputs.contains-code-coverage == 'true' && matrix.swift.version != '6.4' }}
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: true
+          flags: spm,${{ matrix.os }},${{ matrix.swift.version }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  # Apple platforms on GitHub-hosted runners. Matrix comes from `configure`:
+  # SPM runs only on Swift 6.3 (Xcode 26.6 / macos-26) and Swift 6.4 (Xcode 27 /
+  # the arm64 xcode-27 preview runner) — that is the whole macOS scope on reduced
+  # runs. Full runs add the macOS + iOS + watchOS + tvOS + visionOS device legs
+  # across Xcode 15.4/16.4/26.6 for OS-version breadth.
+  build-macos:
+    name: Build on macOS
+    needs: configure
+    runs-on: ${{ matrix.runs-on }}
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.configure.outputs.macos-matrix) }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Disable Xcode macro fingerprint validation
+        if: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
+        run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
+
+      - id: build
+        name: Build and Test
+        uses: brightdigit/swift-build@v1
+        with:
+          scheme: ${{ env.PACKAGE_NAME }}
+          type: ${{ matrix.type }}
+          xcode: ${{ matrix.xcode }}
+          deviceName: ${{ matrix.deviceName }}
+          osVersion: ${{ matrix.osVersion }}
+          download-platform: ${{ matrix.download-platform }}
+          build-only: ${{ contains(matrix.xcode, 'Xcode_15.4') && matrix.type != '' }}
+          skip-package-resolved: ${{ contains(matrix.xcode, 'Xcode_15.4') }}
+
+      - name: Process Coverage
+        if: ${{ steps.build.outputs.contains-code-coverage == 'true' }}
+        uses: sersoft-gmbh/swift-coverage-action@v5
+        with:
+          fail-on-empty-output: true
+          search-paths: |
+            ./.build
+            /Users/runner/work/_temp/DerivedData
+
+      - name: Upload Coverage
+        if: ${{ steps.build.outputs.contains-code-coverage == 'true' }}
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          # Append the runner so the SPM and macOS legs stay distinct across Xcodes
+          # (they carry no osVersion of their own and would otherwise collide).
+          flags: ${{ matrix.type && format('{0}{1},{2}', matrix.type, matrix.osVersion, matrix.runs-on) || format('spm,{0}', matrix.runs-on) }}
+          fail_ci_if_error: true
+
+  # Windows on hosted runners: Swift 6.3 release + 6.4 nightly snapshot, via
+  # compnerd/gha-setup-swift under swift-build. Own tier (run-windows). Bump the
+  # snapshot id periodically (swift.org GCs them).
+  build-windows:
+    name: Build on Windows
+    needs: configure
+    if: ${{ needs.configure.outputs.run-windows == 'true' }}
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [windows-2022, windows-2025]
+        swift:
+          - version: swift-6.3-release
+            build: 6.3-RELEASE
+          - version: swift-6.4.x-branch
+            build: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-01-a
+    steps:
+      - uses: actions/checkout@v6
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          windows-swift-version: ${{ matrix.swift.version }}
+          windows-swift-build: ${{ matrix.swift.build }}
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: windows,${{ matrix.swift.version }}
+          fail_ci_if_error: false
+
+  # Android via swift-build → skiptools/swift-android-action. Cross-product of
+  # Swift 6.3 (release SDK) and Swift 6.4 (nightly snapshot SDK bundle) against
+  # API levels 28 and 34. API 36 is skipped: its NDK sysroot omits
+  # crtbegin_dynamic.o / crtend_android.o and the Swift toolchain still asks the
+  # linker for them (see https://github.com/android/ndk/issues/1391). Blank
+  # inputs are ignored by swift-build. full-matrix tier.
+  build-android:
+    name: Build on Android
+    needs: configure
+    if: ${{ needs.configure.outputs.full-matrix == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        swift:
+          - version: "6.3"
+            label: "6.3"
+          - version: 6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a
+            label: "6.4"
+            sdk-url: https://download.swift.org/swift-6.4.x-branch/android-sdk/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a/swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android.artifactbundle.tar.gz
+            sdk-id: swift-6.4.x-DEVELOPMENT-SNAPSHOT-2026-06-15-a_android
+        android-api-level: [28, 34]
+    steps:
+      - uses: actions/checkout@v6
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: false
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+      - uses: brightdigit/swift-build@v1
+        id: build
+        with:
+          type: android
+          android-swift-version: ${{ matrix.swift.version }}
+          android-api-level: ${{ matrix.android-api-level }}
+          android-run-tests: true
+          android-copy-files: "Data/"
+          android-sdk-url: ${{ matrix.swift.sdk-url }}
+          android-sdk-id: ${{ matrix.swift.sdk-id }}
+      - name: Upload coverage to Codecov
+        if: steps.build.outputs.contains-code-coverage == 'true'
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: android,${{ matrix.swift.label }},${{ matrix.android-api-level }}
+          fail_ci_if_error: false
+
+  lint:
+    name: Linting
+    if: ${{ !cancelled() && !failure() && !contains(github.event.head_commit.message, 'ci skip') }}
+    needs: [build-ubuntu, build-macos, build-windows, build-android]
+    runs-on: ubuntu-latest
+    container: swiftlang/swift:nightly-6.4.x-noble
+    steps:
+      - name: Install curl (required by setup-tools)
+        run: |
+          apt-get update -q
+          apt-get install -y --no-install-recommends curl ca-certificates
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-tools
+      - name: Lint
+        run: ./Scripts/lint.sh
+        env:
+          LINT_MODE: STRICT
