@@ -12,10 +12,10 @@ import Testing
 @Suite("Decoding Error Tests")
 internal struct DecodingErrorTests {
   @Test("Empty failed attempts returns data corrupted error")
-  func errorsEmpty() {
+  internal func errorsEmpty() {
     let error = DecodingError.failedAttempts([:])
 
-    guard case let DecodingError.dataCorrupted(context) = error else {
+    guard case DecodingError.dataCorrupted(let context) = error else {
       Issue.record("Expected dataCorrupted error")
       return
     }
@@ -24,13 +24,13 @@ internal struct DecodingErrorTests {
   }
 
   @Test("Single failed attempt returns nested data corrupted error")
-  func errorsOne() {
+  internal func errorsOne() {
     let debugDescription = UUID().uuidString
     let error = DecodingError.failedAttempts([
       "Test": .dataCorrupted(.init(codingPath: [], debugDescription: debugDescription))
     ])
 
-    guard case let DecodingError.dataCorrupted(parentContext) = error else {
+    guard case DecodingError.dataCorrupted(let parentContext) = error else {
       Issue.record("Expected dataCorrupted error")
       return
     }
@@ -40,7 +40,7 @@ internal struct DecodingErrorTests {
       return
     }
 
-    guard case let DecodingError.dataCorrupted(childContext) = decodingError else {
+    guard case DecodingError.dataCorrupted(let childContext) = decodingError else {
       Issue.record("Expected nested dataCorrupted error")
       return
     }
@@ -49,14 +49,14 @@ internal struct DecodingErrorTests {
   }
 
   @Test("Multiple failed attempts returns error dictionary")
-  func errorsMany() {
+  internal func errorsMany() {
     let errors = [
       "Test1": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
       "Test2": DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "")),
     ]
     let error = DecodingError.failedAttempts(errors)
 
-    guard case let DecodingError.dataCorrupted(context) = error else {
+    guard case DecodingError.dataCorrupted(let context) = error else {
       Issue.record("Expected dataCorrupted error")
       return
     }

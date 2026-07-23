@@ -1,3 +1,5 @@
+// swiftlint:disable:this file_name
+
 @testable import SyndiKitTestSupport
 
 #if swift(<6.0)

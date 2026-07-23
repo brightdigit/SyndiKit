@@ -1,3 +1,5 @@
+// swiftlint:disable file_length
+
 import XCTest
 
 @testable import SyndiKit
@@ -9,23 +11,26 @@ import XCTest
   internal import Foundation
 #endif
 
-final class WordpressTests: XCTestCase {
-  static let baseSiteURLs: [String: URL] = [
+// swiftlint:disable:next type_body_length
+internal final class WordpressTests: XCTestCase {
+  // swiftlint:disable force_unwrapping
+  internal static let baseSiteURLs: [String: URL] = [
     "articles": URL(string: "https://brightdigit.com/")!,
     "tutorials": URL(string: "https://brightdigit.com/")!,
   ]
 
-  static let baseBlogURLs: [String: URL] = [
+  internal static let baseBlogURLs: [String: URL] = [
     "articles": URL(string: "https://brightdigit.com")!,
     "tutorials": URL(string: "https://learningswift.brightdigit.com")!,
   ]
+  // swiftlint:enable force_unwrapping
 
   #if os(WASI)
     private static let wasiSkipMessage =
       "Test requires wordpressDataSet not available on WASI platform (memory constraints)"
   #endif
 
-  func testDateDecoderRFC822() throws {
+  internal func testDateDecoderRFC822() throws {
     #if os(WASI)
       throw XCTSkip(
         "RFC 822 date format requires ICU locale data for month/day names, "
@@ -41,7 +46,7 @@ final class WordpressTests: XCTestCase {
     #endif
   }
 
-  func testDateDecoderWordPressCustomFormat() {
+  internal func testDateDecoderWordPressCustomFormat() {
     let dateDecoder = DateFormatterDecoder.RSS.decoder
     let result = dateDecoder.decodeString("2017-10-06 16:59:50")
     XCTAssertNotNil(
@@ -50,9 +55,8 @@ final class WordpressTests: XCTestCase {
     )
   }
 
-  // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWordpressPosts() throws {
+  internal func testWordpressPosts() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -77,7 +81,7 @@ final class WordpressTests: XCTestCase {
         }
 
         guard let feed = feedable as? RSSFeed else {
-          XCTFail()
+          XCTFail("Expected RSSFeed for \(name)")
           continue
         }
 
@@ -100,9 +104,9 @@ final class WordpressTests: XCTestCase {
     #endif
   }
 
-  func testInitMissingName() {
+  internal func testInitMissingName() throws {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
-    let url = URL(strict: urlString)!
+    let url = try XCTUnwrap(URL(strict: urlString))
     let itemMissingName = RSSItem(
       title: UUID().uuidString,
       link: url,
@@ -117,9 +121,9 @@ final class WordpressTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
-  func testInitAllFields() {
+  internal func testInitAllFields() throws {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
-    let url = URL(strict: urlString)!
+    let url = try XCTUnwrap(URL(strict: urlString))
     let title = UUID().uuidString
     let description = UUID().uuidString
 
@@ -185,9 +189,9 @@ final class WordpressTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
-  func testInitAllFieldsMeta() {
+  internal func testInitAllFieldsMeta() throws {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
-    let url = URL(strict: urlString)!
+    let url = try XCTUnwrap(URL(strict: urlString))
     let title = UUID().uuidString
     let description = UUID().uuidString
 
@@ -272,9 +276,9 @@ final class WordpressTests: XCTestCase {
   }
 
   // swiftlint:disable:next function_body_length
-  func testInitAllFieldsWMeta() {
+  internal func testInitAllFieldsWMeta() throws {
     let urlString = "https://developer.apple.com/news/?id=jxky8h89"
-    let url = URL(strict: urlString)!
+    let url = try XCTUnwrap(URL(strict: urlString))
     let title = UUID().uuidString
     let description = UUID().uuidString
 
@@ -356,9 +360,8 @@ final class WordpressTests: XCTestCase {
     XCTAssertEqual(post.tags, postTags)
   }
 
-  // swiftlint:disable:next function_body_length
   @available(macOS 13.0, *)
-  func testWpAttachmentURL() throws {
+  internal func testWpAttachmentURL() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -383,15 +386,17 @@ final class WordpressTests: XCTestCase {
         }
 
         guard let feed = feedable as? RSSFeed else {
-          XCTFail()
+          XCTFail("Expected RSSFeed for \(name)")
           continue
         }
 
-        let items = feed.channel.items.compactMap { item in
-          (try? WordPressPost(item: item)).map { (item, $0) }
-        }.filter {
-          $0.1.type == "attachment"
-        }
+        let items = feed.channel.items
+          .compactMap { item in
+            (try? WordPressPost(item: item)).map { (item, $0) }
+          }
+          .filter {
+            $0.1.type == "attachment"
+          }
 
         for (item, post) in items {
           XCTAssertNotNil(item.wpAttachmentURL)

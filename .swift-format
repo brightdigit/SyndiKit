@@ -1,12 +1,12 @@
 {
   "fileScopedDeclarationPrivacy" : {
-    "accessLevel" : "private"
+    "accessLevel" : "fileprivate"
   },
-  "indentConditionalCompilationBlocks" : true,
-  "indentSwitchCaseLabels" : false,
   "indentation" : {
     "spaces" : 2
   },
+  "indentConditionalCompilationBlocks" : true,
+  "indentSwitchCaseLabels" : false,
   "lineBreakAroundMultilineExpressionChainComponents" : false,
   "lineBreakBeforeControlFlowKeywords" : false,
   "lineBreakBeforeEachArgument" : false,
@@ -29,13 +29,13 @@
     "BeginDocumentationCommentWithOneLineSummary" : false,
     "DoNotUseSemicolons" : true,
     "DontRepeatTypeInStaticProperties" : true,
-    "FileScopedDeclarationPrivacy" : true,
+    "FileScopedDeclarationPrivacy" : false,
     "FullyIndirectEnum" : true,
     "GroupNumericLiterals" : true,
     "IdentifiersMustBeASCII" : true,
-    "NeverForceUnwrap" : false,
-    "NeverUseForceTry" : false,
-    "NeverUseImplicitlyUnwrappedOptionals" : false,
+    "NeverForceUnwrap" : true,
+    "NeverUseForceTry" : true,
+    "NeverUseImplicitlyUnwrappedOptionals" : true,
     "NoAccessLevelOnExtensionDeclaration" : true,
     "NoAssignmentInExpressions" : true,
     "NoBlockComments" : true,
@@ -56,13 +56,13 @@
     "TypeNamesShouldBeCapitalized" : true,
     "UseEarlyExits" : false,
     "UseExplicitNilCheckInConditions" : true,
-    "UseLetInEveryBoundCaseVariable" : false,
+    "UseLetInEveryBoundCaseVariable" : true,
     "UseShorthandTypeNames" : true,
     "UseSingleLinePropertyGetter" : true,
     "UseSynthesizedInitializer" : true,
     "UseTripleSlashForDocumentationComments" : true,
     "UseWhereClausesInForLoops" : true,
-    "ValidateDocumentationComments" : false
+    "ValidateDocumentationComments" : true
   },
   "spacesAroundRangeFormationOperators" : false,
   "tabWidth" : 2,

@@ -1,23 +1,18 @@
-<img alt="SyndiKit" title="SyndiKit" src="Assets/logo.svg" height="200">
+![SyndiKit Logo](Sources/SyndiKit/SyndiKit.docc/Resources/logo.png)
 
 # SyndiKit
 
-Swift Package built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://swiftpackageindex.com/brightdigit/syndikit/~/documentation)
 
-<!-- Platform Compatibility -->
 [![Swift Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/brightdigit/SyndiKit)
 [![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbrightdigit%2FSyndiKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/brightdigit/SyndiKit)
-
-<!-- Documentation & Quality -->
-[![Static Badge](https://img.shields.io/badge/-Source_Compatibility-white?logo=swift&link=https%3A%2F%2Fwww.swift.org%2Fdocumentation%2Fsource-compatibility%2F)](https://www.swift.org/documentation/source-compatibility/)
 [![Documentation](https://img.shields.io/badge/docc-read_documentation-blue)](https://swiftpackageindex.com/brightdigit/SyndiKit/documentation)
 [![License](https://img.shields.io/github/license/brightdigit/SyndiKit)](LICENSE)
-
-<!-- CI/CD & Code Quality -->
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/brightdigit/SyndiKit/syndikit.yml?label=actions&logo=github&?branch=main)](https://github.com/brightdigit/SyndiKit/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/brightdigit/SyndiKit/SyndiKit.yml?label=actions&logo=github&branch=main)](https://github.com/brightdigit/SyndiKit/actions)
 [![Maintainability](https://qlty.sh/gh/brightdigit/projects/SyndiKit/maintainability.svg)](https://qlty.sh/gh/brightdigit/projects/SyndiKit)
 [![Codecov](https://img.shields.io/codecov/c/github/brightdigit/SyndiKit)](https://codecov.io/gh/brightdigit/SyndiKit)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/brightdigit/SyndiKit)](https://www.codefactor.io/repository/github/brightdigit/SyndiKit)
+
+Swift Package built on top of [XMLCoder](https://github.com/CoreOffice/XMLCoder) for Decoding RSS Feeds. Check out the [DocC-Built Site!](https://swiftpackageindex.com/brightdigit/syndikit/~/documentation)
 
 ## Table of Contents
 
@@ -72,7 +67,7 @@ To integrate **SyndiKit** into your project using SPM, specify it in your Packag
 let package = Package(
   ...
   dependencies: [
-    .package(url: "https://github.com/brightdigit/SyndiKit", from: "0.7.0")
+    .package(url: "https://github.com/brightdigit/SyndiKit", from: "1.0.0-alpha.1")
   ],
   targets: [
       .target(

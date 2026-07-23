@@ -1,3 +1,6 @@
+// swiftlint:disable:this file_name
+// swiftlint:disable file_length
+
 import XCTest
 import XMLCoder
 
@@ -14,15 +17,24 @@ import XMLCoder
 /// because these properties are compile-time disabled due to FileManager limitations
 /// and memory constraints. Core parsing is validated via inline XML test fixtures.
 @available(macOS 13.0, *)
+// swiftlint:disable:next type_body_length
 internal final class SyndiKitTests: XCTestCase {
-  static let itemCount = 20
+  internal static let itemCount = 20
+
+  private static let hostImageURLString =
+    "https://images.transistor.fm/file/transistor/images/person/"
+    + "401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
+
+  private static let guestImageURLString =
+    "https://images.transistor.fm/file/transistor/images/person/"
+    + "e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
 
   #if os(WASI)
     private static let wasiSkipMessage =
       "Test requires xmlFeeds/jsonFeeds properties not available on WASI platform (memory constraints)"
   #endif
 
-  func testCategories() throws {
+  internal func testCategories() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -107,7 +119,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testEntryable() throws {
+  internal func testEntryable() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -161,7 +173,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testJSONXMLEquality() throws {
+  internal func testJSONXMLEquality() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -189,7 +201,8 @@ internal final class SyndiKitTests: XCTestCase {
           }),
           rss.children.sorted(by: {
             $0.title < $1.title
-          }))
+          })
+        )
 
         for (jsonItem, rssItem) in items {
           XCTAssertEqual(
@@ -207,7 +220,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testChannelPodcastElements() throws {
+  internal func testChannelPodcastElements() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -239,14 +252,12 @@ internal final class SyndiKitTests: XCTestCase {
       XCTAssertEqual(person.href, URL(strict: "https://brightdigit.com"))
       XCTAssertEqual(
         person.img,
-        URL(
-          strict:
-            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-        ))
+        URL(strict: Self.hostImageURLString)
+      )
     #endif
   }
 
-  func testItemPodcastElements() throws {
+  internal func testItemPodcastElements() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -272,10 +283,8 @@ internal final class SyndiKitTests: XCTestCase {
       XCTAssertEqual(host.href, URL(strict: "https://brightdigit.com"))
       XCTAssertEqual(
         host.img,
-        URL(
-          strict:
-            "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-        ))
+        URL(strict: Self.hostImageURLString)
+      )
 
       let guest = item.podcastPeople[1]
       XCTAssertEqual(guest.fullname, "CompileSwift")
@@ -283,27 +292,29 @@ internal final class SyndiKitTests: XCTestCase {
       XCTAssertEqual(guest.href, URL(strict: "https://compileswift.com"))
       XCTAssertEqual(
         guest.img,
-        URL(
-          strict:
-            "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
-        ))
+        URL(strict: Self.guestImageURLString)
+      )
 
       XCTAssertEqual(item.podcastTranscripts.count, 1)
 
       let transcript = item.podcastTranscripts[0]
       XCTAssertEqual(
-        transcript.url, URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt")!)
+        transcript.url,
+        try XCTUnwrap(URL(strict: "https://share.transistor.fm/s/336118a1/transcript.srt"))
+      )
       XCTAssertEqual(transcript.type, .srt)
       XCTAssertEqual(transcript.rel, .captions)
 
       let chapters = item.podcastChapters
       XCTAssertEqual(
-        chapters?.url, URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json")!)
+        chapters?.url,
+        try XCTUnwrap(URL(strict: "https://share.transistor.fm/s/336118a1/chapters.json"))
+      )
       XCTAssertEqual(chapters?.type, .json)
     #endif
   }
 
-  func testPodcastPeopleUnknownRole() throws {
+  internal func testPodcastPeopleUnknownRole() throws {
     let expectedRole = "worker"
     let xmlStr = """
       <podcast:person
@@ -325,7 +336,7 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.role, .unknown(expectedRole))
   }
 
-  func testPodcastPeopleMissingRole() throws {
+  internal func testPodcastPeopleMissingRole() throws {
     let xmlStr = """
       <podcast:person
         group="writing"
@@ -345,7 +356,7 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertNil(sut.role)
   }
 
-  func testPodcastChaptersUnknownMimeType() throws {
+  internal func testPodcastChaptersUnknownMimeType() throws {
     let expectedType = "yaml"
     let xmlStr = """
       <podcast:chapters
@@ -364,9 +375,9 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.type, .unknown(expectedType))
   }
 
-  func testPodcastLocationOfTypeRelation() throws {
-    let expectedLatitude = 30.267_2
-    let expectedLongitude = 97.743_1
+  internal func testPodcastLocationOfTypeRelation() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
     let expectedOsmType = "R"
     let expectedOsmID = 113_314
     let xmlStr = """
@@ -375,7 +386,7 @@ internal final class SyndiKitTests: XCTestCase {
         osm="\(expectedOsmType)\(expectedOsmID)"
       >
         Austin, TX
-       </podcast:location>
+      </podcast:location>
       """
 
     guard let data = xmlStr.data(using: .utf8) else {
@@ -392,9 +403,9 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertNil(sut.osmQuery?.revision)
   }
 
-  func testPodcastLocationWithAccuracy() throws {
-    let expectedLatitude = 30.267_2
-    let expectedLongitude = 97.743_1
+  internal func testPodcastLocationWithAccuracy() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
     let expectedAccuracy = 350.0
     let xmlStr = """
       <podcast:location
@@ -402,7 +413,7 @@ internal final class SyndiKitTests: XCTestCase {
         osm="R00000"
       >
         Austin, TX
-       </podcast:location>
+      </podcast:location>
       """
 
     guard let data = xmlStr.data(using: .utf8) else {
@@ -416,13 +427,15 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.accuracy, expectedAccuracy)
     XCTAssertEqual(
-      sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)")
+      sut.geo?.description,
+      "geo:\(expectedLatitude),\(expectedLongitude);u=\(expectedAccuracy)"
+    )
     XCTAssertNil(sut.geo?.altitude)
   }
 
-  func testPodcastLocationWithAltitude() throws {
-    let expectedLatitude = 30.267_2
-    let expectedLongitude = 97.743_1
+  internal func testPodcastLocationWithAltitude() throws {
+    let expectedLatitude = 30.2672
+    let expectedLongitude = 97.7431
     let expectedAltitude = 250.0
     let xmlStr = """
       <podcast:location
@@ -430,7 +443,7 @@ internal final class SyndiKitTests: XCTestCase {
         osm="R00000"
       >
         Austin, TX
-       </podcast:location>
+      </podcast:location>
       """
 
     guard let data = xmlStr.data(using: .utf8) else {
@@ -444,11 +457,13 @@ internal final class SyndiKitTests: XCTestCase {
     XCTAssertEqual(sut.geo?.longitude, expectedLongitude)
     XCTAssertEqual(sut.geo?.altitude, expectedAltitude)
     XCTAssertEqual(
-      sut.geo?.description, "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)")
+      sut.geo?.description,
+      "geo:\(expectedLatitude),\(expectedLongitude),\(expectedAltitude)"
+    )
     XCTAssertNil(sut.geo?.accuracy)
   }
 
-  func testPodcastLocationWithInvalidGeoData() throws {
+  internal func testPodcastLocationWithInvalidGeoData() throws {
     let missingGeoScheme = """
       <podcast:location geo="30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
       """
@@ -466,7 +481,7 @@ internal final class SyndiKitTests: XCTestCase {
     try assertInvalidGeoData(from: invalidCoords)
   }
 
-  func testPodcastMissingLink() throws {
+  internal func testPodcastMissingLink() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -505,7 +520,7 @@ internal final class SyndiKitTests: XCTestCase {
     }
   }
 
-  func testPodcastLocationWithInvalidOsmData() throws {
+  internal func testPodcastLocationWithInvalidOsmData() throws {
     let invalidOsmType = """
       <podcast:location geo="geo:30.2672,97.7431" osm="X113314">Austin, TX</podcast:location>
       """
@@ -537,9 +552,9 @@ internal final class SyndiKitTests: XCTestCase {
   ) {
     guard
       let decodingError = error as? DecodingError,
-      case let DecodingError.dataCorrupted(context) = decodingError
+      case DecodingError.dataCorrupted(let context) = decodingError
     else {
-      XCTFail()
+      XCTFail("Expected DecodingError.dataCorrupted, got \(error)")
       return
     }
 
@@ -550,7 +565,7 @@ internal final class SyndiKitTests: XCTestCase {
     )
   }
 
-  func testPodcastEpisodes() throws {
+  internal func testPodcastEpisodes() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -563,7 +578,7 @@ internal final class SyndiKitTests: XCTestCase {
         "ideveloper": 276...297,
         "it-guy": 1...330,
       ].mapValues {
-        [Int]($0.map { $0 }.reversed())
+        Array($0.reversed())
       }
 
       for (name, episodeNumbers) in podcasts {
@@ -598,7 +613,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testEpisodeStringSummary() throws {
+  internal func testEpisodeStringSummary() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -626,7 +641,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testEpisodesWithNoPersons() throws {
+  internal func testEpisodesWithNoPersons() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -652,7 +667,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testEpisodesWithHostAndGuestPersons() throws {
+  internal func testEpisodesWithHostAndGuestPersons() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -682,10 +697,7 @@ internal final class SyndiKitTests: XCTestCase {
         XCTAssertEqual(host?.href, URL(strict: "https://brightdigit.com"))
         XCTAssertEqual(
           host?.img,
-          URL(
-            string:
-              "https://images.transistor.fm/file/transistor/images/person/401f05b8-f63f-4b96-803f-c7ac9233b459/1664979700-image.jpg"
-          )
+          URL(string: Self.hostImageURLString)
         )
 
         // Both podcasts have the same guest
@@ -696,16 +708,13 @@ internal final class SyndiKitTests: XCTestCase {
         XCTAssertEqual(guest?.href, URL(strict: "https://compileswift.com"))
         XCTAssertEqual(
           guest?.img,
-          URL(
-            string:
-              "https://images.transistor.fm/file/transistor/images/person/e36ebf22-69fa-4e4f-a79b-1348c4d39267/1668262451-image.jpg"
-          )
+          URL(string: Self.guestImageURLString)
         )
       }
     #endif
   }
 
-  func testEpisodeCDataSummary() throws {
+  internal func testEpisodeCDataSummary() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -733,7 +742,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testSyndication() throws {
+  internal func testSyndication() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -762,14 +771,24 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  // swiftlint:disable:next function_body_length
-  func testYoutubeVideos() throws {
+  private func youtubeID(from item: any Entryable) -> (any YouTubeID)? {
+    item.media.flatMap { media -> (any YouTubeID)? in
+      guard case .video(let video) = media else {
+        return nil
+      }
+      guard case .youtube(let youtube) = video else {
+        return nil
+      }
+      return youtube
+    }
+  }
+
+  internal func testYoutubeVideos() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
 
       for (name, xmlResult) in Content.xmlFeeds where name.hasSuffix("youtube") {
-
         let feed: any Feedable
         do {
           feed = try xmlResult.get()
@@ -779,22 +798,14 @@ internal final class SyndiKitTests: XCTestCase {
         }
 
         guard let atom = feed as? AtomFeed else {
-          XCTFail()
+          XCTFail("Expected AtomFeed for \(name)")
           continue
         }
 
         let items = zip(atom.entries, feed.children)
 
         for (entry, item) in items {
-          let youtube = item.media.flatMap { media -> (any YouTubeID)? in
-            guard case let .video(video) = media else {
-              return nil
-            }
-            guard case let .youtube(youtube) = video else {
-              return nil
-            }
-            return youtube
-          }
+          let youtube = youtubeID(from: item)
           guard let group = entry.mediaGroup else {
             XCTAssertNotNil(entry.mediaGroup)
             continue
@@ -810,7 +821,7 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testDurations() throws {
+  internal func testDurations() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -829,7 +840,7 @@ internal final class SyndiKitTests: XCTestCase {
         let actuals = rss.channel.items.compactMap { $0.itunesDuration?.value }
         let durations = feed.children.map {
           $0.media.flatMap { media -> TimeInterval? in
-            if case let .podcast(episode) = media {
+            if case .podcast(let episode) = media {
               return episode.duration
             } else {
               return nil
@@ -850,7 +861,7 @@ internal final class SyndiKitTests: XCTestCase {
 
   // MARK: - Author Parsing Integration Tests
 
-  func testRaywenderlichManagingEditor() throws {
+  internal func testRaywenderlichManagingEditor() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else
@@ -875,7 +886,8 @@ internal final class SyndiKitTests: XCTestCase {
     #endif
   }
 
-  func testNewsRSSManagingEditorAndWebMaster() throws {
+  // swiftlint:disable:next inclusive_language
+  internal func testNewsRSSManagingEditorAndWebMaster() throws {
     #if os(WASI)
       throw XCTSkip(Self.wasiSkipMessage)
     #else

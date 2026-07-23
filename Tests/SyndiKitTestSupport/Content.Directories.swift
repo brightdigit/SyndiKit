@@ -1,14 +1,14 @@
 #if swift(<6.0)
-  import SyndiKit
   import Foundation
+  import SyndiKit
 #else
-  internal import SyndiKit
   internal import Foundation
+  internal import SyndiKit
 #endif
 
 extension Content {
   internal enum Directories {
-    static let data: URL = {
+    internal static let data: URL = {
       // Strategy 1: Working directory relative (most reliable for SPM/WASM/Android)
       // Try this FIRST because it works on WASM when tests run from package root
       let workingDirPath = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
@@ -44,9 +44,9 @@ extension Content {
       return workingDirPath
     }()
 
-    static let xml = data.appendingPathComponent("XML")
-    static let json = data.appendingPathComponent("JSON")
-    static let opml = data.appendingPathComponent("OPML")
-    static let wordPress = data.appendingPathComponent("WordPress")
+    internal static let xml = data.appendingPathComponent("XML")
+    internal static let json = data.appendingPathComponent("JSON")
+    internal static let opml = data.appendingPathComponent("OPML")
+    internal static let wordPress = data.appendingPathComponent("WordPress")
   }
 }

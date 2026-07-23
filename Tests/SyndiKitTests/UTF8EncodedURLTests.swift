@@ -13,8 +13,8 @@ import XMLCoder
 @Suite("UTF8 Encoded URL Tests")
 internal struct UTF8EncodedURLTests {
   @Test("Decode UTF8 encoded URL from JSON")
-  func decode() throws {
-    let expectedURL = URL(strict: "http://www.example.com/index.php")!
+  internal func decode() throws {
+    let expectedURL = try #require(URL(strict: "http://www.example.com/index.php"))
     let urlStr = """
       "\(expectedURL)"
       """
