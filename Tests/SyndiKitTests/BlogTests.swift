@@ -7,7 +7,7 @@ import XMLCoder
 @Suite("Blog Tests")
 internal struct BlogTests {
   @Test("Site category count validation")
-  func blogs() throws {
+  internal func blogs() throws {
     let blogs = Content.blogs
     let sites = SiteCollectionDirectory(blogs: blogs)
 

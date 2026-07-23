@@ -13,7 +13,7 @@ import XMLCoder
 @Suite("XML String Int Tests")
 internal struct XMLStringIntTests {
   @Test("Decode valid XML integer value")
-  func decodeValidXMLValue() throws {
+  internal func decodeValidXMLValue() throws {
     let expectedAge = 10
     let xmlStr = """
       <age>\(expectedAge)</age>
@@ -27,7 +27,7 @@ internal struct XMLStringIntTests {
   }
 
   @Test("Decode invalid XML integer value throws error")
-  func decodeInvalidXMLValue() throws {
+  internal func decodeInvalidXMLValue() throws {
     let xmlStr = """
       <age>invalid</age>
       """

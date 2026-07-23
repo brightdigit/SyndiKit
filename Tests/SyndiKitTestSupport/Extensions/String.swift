@@ -11,7 +11,7 @@ extension String {
   }
 
   internal func normalizeLineEndings() -> String {
-    return replacingOccurrences(of: "\r\n", with: "\n")
+    replacingOccurrences(of: "\r\n", with: "\n")
       .replacingOccurrences(of: "\r", with: "\n")
   }
 }
