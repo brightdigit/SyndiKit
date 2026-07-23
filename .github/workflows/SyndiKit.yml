@@ -260,6 +260,10 @@ jobs:
   # crtbegin_dynamic.o / crtend_android.o and the Swift toolchain still asks the
   # linker for them (see https://github.com/android/ndk/issues/1391). Blank
   # inputs are ignored by swift-build. full-matrix tier.
+  # Build-only for now: Swift 6.4 nightly on-device tests fail with
+  # "not executable: 64-bit ELF file" on the emulator (6.3 passes). Tracked in
+  # https://github.com/brightdigit/SyndiKit/issues/137 — re-enable
+  # android-run-tests when that is fixed.
   build-android:
     name: Build on Android
     needs: configure
@@ -294,7 +298,7 @@ jobs:
           type: android
           android-swift-version: ${{ matrix.swift.version }}
           android-api-level: ${{ matrix.android-api-level }}
-          android-run-tests: true
+          android-run-tests: false
           android-copy-files: "Data/"
           android-sdk-url: ${{ matrix.swift.sdk-url }}
           android-sdk-id: ${{ matrix.swift.sdk-id }}
