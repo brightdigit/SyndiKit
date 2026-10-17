@@ -56,18 +56,3 @@ extension AtomFeed {
     youtubeChannelID = try container.decodeIfPresent(String.self, forKey: .youtubeChannelID)
   }
 }
-
-/// A ``Link`` that decodes to `nil` when its `href` is empty.
-private struct NonEmptyLink: Decodable {
-  private enum CodingKeys: String, CodingKey {
-    case href
-  }
-
-  fileprivate let link: Link?
-
-  fileprivate init(from decoder: any Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    let href = try container.decodeIfPresent(String.self, forKey: .href)
-    link = href?.isEmpty == false ? try Link(from: decoder) : nil
-  }
-}
