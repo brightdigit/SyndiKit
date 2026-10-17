@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<feed xmlns:im="http://itunes.apple.com/rss" xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+		<id>https://itunes.apple.com/us/rss/customerreviews/page=1/id=361309726/sortby=mostrecent/xml</id><title>iTunes Store: Customer Reviews</title><updated>2026-10-17T14:01:33-07:00</updated><link rel="alternate" type="text/html" href="https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=us&amp;id=1"/><link rel="self" href="https://itunes.apple.com/us/rss/customerreviews/page=1/id=361309726/sortby=mostrecent/xml"/><link rel="first" href="https://itunes.apple.com/us/rss/customerreviews/page=1/id=361309726/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=361309726/sortby=mostrecent/xml"/><link rel="last" href="https://itunes.apple.com/us/rss/customerreviews/page=10/id=361309726/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=361309726/sortby=mostrecent/xml"/><link rel="previous" href="https://itunes.apple.com/us/rss/customerreviews/page=1/id=361309726/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=361309726/sortby=mostrecent/xml"/><link rel="next" href="https://itunes.apple.com/us/rss/customerreviews/page=2/id=361309726/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=361309726/sortby=mostrecent/xml"/><icon>http://itunes.apple.com/favicon.ico</icon><author><name>iTunes Store</name><uri>http://www.apple.com/itunes/</uri></author><rights>Copyright 2008 Apple Inc.</rights>
+		
+			<entry>
+				<updated>2013-04-22T19:21:20-07:00</updated>
+				
+					<id im:id="284882215" im:bundleId="com.facebook.Facebook">https://itunes.apple.com/us/app/facebook/id284882215?mt=8&amp;uo=2</id>
+				
+					<title>Facebook - Facebook, Inc.</title>
+				
+					
+				
+					<im:name>Facebook</im:name>
+				
+					<link rel="alternate" type="text/html" href="https://itunes.apple.com/us/app/facebook/id284882215?mt=8&amp;uo=2"/>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<category im:id="6005" term="Social Networking" scheme="https://itunes.apple.com/us/genre/ios-social-networking/id6005?mt=8&amp;uo=2" label="Social Networking"/>
+				
+					<im:artist href="https://itunes.apple.com/us/artist/facebook-inc./id284882218?mt=8&amp;uo=2">Facebook, Inc.</im:artist>
+				
+					<im:price amount="0.00000" currency="USD">Free</im:price>
+				
+					<im:image height="53">http://a1679.phobos.apple.com/us/r1000/116/Purple2/v4/04/db/ed/04dbeded-452a-6d4b-6ab4-2112d642b787/mzl.iuriajxv.53x53-50.png</im:image>
+				
+					<im:image height="75">http://a547.phobos.apple.com/us/r1000/116/Purple2/v4/04/db/ed/04dbeded-452a-6d4b-6ab4-2112d642b787/mzl.iuriajxv.75x75-65.png</im:image>
+				
+					<im:image height="100">http://a80.phobos.apple.com/us/r1000/116/Purple2/v4/04/db/ed/04dbeded-452a-6d4b-6ab4-2112d642b787/mzl.iuriajxv.100x100-75.png</im:image>
+				
+					<rights>&#169; Facebook, Inc.</rights>
+				
+					<im:releaseDate label="July 11, 2008">2008-07-11T00:00:00-07:00</im:releaseDate>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                        &lt;td align=&quot;center&quot; width=&quot;166&quot; valign=&quot;top&quot;&gt;
+                            &lt;a href=&quot;https://itunes.apple.com/us/app/facebook/id284882215?mt=8&amp;uo=2&quot;&gt;&lt;img border=&quot;0&quot; alt=&quot;Facebook, Inc. - Facebook artwork&quot; src=&quot;http://a80.phobos.apple.com/us/r1000/116/Purple2/v4/04/db/ed/04dbeded-452a-6d4b-6ab4-2112d642b787/mzl.iuriajxv.100x100-75.png&quot; /&gt;&lt;/a&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;10&quot;&gt;&lt;img alt=&quot;&quot; width=&quot;10&quot; height=&quot;1&quot; src=&quot;http://r.mzstatic.com/images/spacer.gif&quot; /&gt;&lt;/td&gt;
+                    	&lt;td width=&quot;95%&quot;&gt;
+                    
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/facebook/id284882215?mt=8&amp;uo=2&quot;&gt;Facebook&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        &lt;a href=&quot;https://itunes.apple.com/us/artist/facebook-inc./id284882218?mt=8&amp;amp;uo=2&quot;&gt;Facebook, Inc.&lt;/a&gt;
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+						 	&lt;br/&gt;
+                            &lt;b&gt;Genre:&lt;/b&gt; &lt;a href=&quot;https://itunes.apple.com/us/genre/ios-social-networking/id6005?mt=8&amp;uo=2&quot;&gt;Social Networking&lt;/a&gt;
+                        
+						 	&lt;br/&gt;
+                            &lt;b&gt;Release Date:&lt;/b&gt; July 11, 2008
+                        
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+            
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt; &amp;#169; © Facebook, Inc.&lt;/font&gt;
+	        
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+			<entry>
+				
+					<id>14673402466</id>
+				
+					<title>Decent for simple stuff, lacks depth of LibreOffice and MS Office</title>
+				
+					<content type="text">It seems to me that when apple makes things free, they really make sure the features reflect how “free” it is.</content>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<im:voteSum>0</im:voteSum>
+				
+					<im:voteCount>0</im:voteCount>
+				
+					<im:rating>2</im:rating>
+				
+					<updated>2026-10-16T06:15:30-07:00</updated>
+				
+					<im:version>15.4</im:version>
+				
+					<author><name>Reviewer 1</name><uri>https://itunes.apple.com/reviews/id1</uri></author>
+				
+					<link rel="related" href="https://itunes.apple.com/us/review?id=361309726&amp;type=Purple%20Software"/>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                    
+                    	&lt;td width=&quot;100%&quot;&gt;
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://apps.apple.com/us/app/pages-create-documents/id361309726?uo=2&quot;&gt;Decent for simple stuff, lacks depth of LibreOffice and MS Office&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;&lt;br/&gt;It seems to me that when apple makes things free, they really make sure the features reflect how “free” it is.&lt;/font&gt;&lt;br/&gt;
+            
+            
+            
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+			<entry>
+				
+					<id>14673386564</id>
+				
+					<title>Copy and Paste Not an Option</title>
+				
+					<content type="text">I was required to download the updated Pages app and now I can’t copy and paste from one Pages doc to another. I can paste to Notes, copy that text and then paste into the new doc, but that’s a ridiculous waste of time. I hope this gets resolved quickly.</content>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<im:voteSum>0</im:voteSum>
+				
+					<im:voteCount>0</im:voteCount>
+				
+					<im:rating>2</im:rating>
+				
+					<updated>2026-10-16T06:10:47-07:00</updated>
+				
+					<im:version>15.4</im:version>
+				
+					<author><name>Reviewer 2</name><uri>https://itunes.apple.com/reviews/id2</uri></author>
+				
+					<link rel="related" href="https://itunes.apple.com/us/review?id=361309726&amp;type=Purple%20Software"/>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                    
+                    	&lt;td width=&quot;100%&quot;&gt;
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://apps.apple.com/us/app/pages-create-documents/id361309726?uo=2&quot;&gt;Copy and Paste Not an Option&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;&lt;br/&gt;I was required to download the updated Pages app and now I can’t copy and paste from one Pages doc to another. I can paste to Notes, copy that text and then paste into the new doc, but that’s a ridiculous waste of time. I hope this gets resolved quickly.&lt;/font&gt;&lt;br/&gt;
+            
+            
+            
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+			<entry>
+				
+					<id>14673072681</id>
+				
+					<title>Just what I need!</title>
+				
+					<content type="text">Works perfectly for me. Helps me do a better job communicating and explaining my thoughts. Very easy to use and very helpful. Thank you.</content>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<im:voteSum>0</im:voteSum>
+				
+					<im:voteCount>0</im:voteCount>
+				
+					<im:rating>5</im:rating>
+				
+					<updated>2026-10-16T04:33:20-07:00</updated>
+				
+					<im:version>15.4</im:version>
+				
+					<author><name>Reviewer 3</name><uri>https://itunes.apple.com/reviews/id3</uri></author>
+				
+					<link rel="related" href="https://itunes.apple.com/us/review?id=361309726&amp;type=Purple%20Software"/>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                    
+                    	&lt;td width=&quot;100%&quot;&gt;
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://apps.apple.com/us/app/pages-create-documents/id361309726?uo=2&quot;&gt;Just what I need!&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;&lt;br/&gt;Works perfectly for me. Helps me do a better job communicating and explaining my thoughts. Very easy to use and very helpful. Thank you.&lt;/font&gt;&lt;br/&gt;
+            
+            
+            
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+			<entry>
+				
+					<id>14672846431</id>
+				
+					<title>Glitchy new version</title>
+				
+					<content type="text">The new version is slow and glitchy. I can’t make basic changes to color fonts (the option either doesn’t show or is hidden on the top), many editing options can’t be made unless you are minimized, otherwise they disappear. How can I go back to the old version?</content>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<im:voteSum>0</im:voteSum>
+				
+					<im:voteCount>0</im:voteCount>
+				
+					<im:rating>2</im:rating>
+				
+					<updated>2026-10-16T03:12:06-07:00</updated>
+				
+					<im:version>15.4</im:version>
+				
+					<author><name>Reviewer 4</name><uri>https://itunes.apple.com/reviews/id4</uri></author>
+				
+					<link rel="related" href="https://itunes.apple.com/us/review?id=361309726&amp;type=Purple%20Software"/>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                    
+                    	&lt;td width=&quot;100%&quot;&gt;
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://apps.apple.com/us/app/pages-create-documents/id361309726?uo=2&quot;&gt;Glitchy new version&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;&lt;br/&gt;The new version is slow and glitchy. I can’t make basic changes to color fonts (the option either doesn’t show or is hidden on the top), many editing options can’t be made unless you are minimized, otherwise they disappear. How can I go back to the old version?&lt;/font&gt;&lt;br/&gt;
+            
+            
+            
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+			<entry>
+				
+					<id>14672270032</id>
+				
+					<title>Does not support anything else</title>
+				
+					<content type="text">Having to exclusively use Apple approved apps and softwares is a real hassle. If someone doesn’t use apple there is no way to edit their documents.</content>
+				
+					<im:contentType term="Application" label="Application"/>
+				
+					<im:voteSum>0</im:voteSum>
+				
+					<im:voteCount>0</im:voteCount>
+				
+					<im:rating>1</im:rating>
+				
+					<updated>2026-10-15T22:55:32-07:00</updated>
+				
+					<im:version>15.4</im:version>
+				
+					<author><name>Reviewer 5</name><uri>https://itunes.apple.com/reviews/id5</uri></author>
+				
+					<link rel="related" href="https://itunes.apple.com/us/review?id=361309726&amp;type=Purple%20Software"/>
+				
+				
+					<content type="html">&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                &lt;tr valign=&quot;top&quot; align=&quot;left&quot;&gt;
+                    
+                    
+                    	&lt;td width=&quot;100%&quot;&gt;
+                    
+                        &lt;b&gt;&lt;a href=&quot;https://apps.apple.com/us/app/pages-create-documents/id361309726?uo=2&quot;&gt;Does not support anything else&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;
+                        
+                        
+                        
+                        
+
+                        
+
+                       &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;
+						
+                        &lt;/font&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            
+                &lt;font size=&quot;2&quot; face=&quot;Helvetica,Arial,Geneva,Swiss,SunSans-Regular&quot;&gt;&lt;br/&gt;Having to exclusively use Apple approved apps and softwares is a real hassle. If someone doesn’t use apple there is no way to edit their documents.&lt;/font&gt;&lt;br/&gt;
+            
+            
+            
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+				
+			</entry>
+		
+	</feed>
