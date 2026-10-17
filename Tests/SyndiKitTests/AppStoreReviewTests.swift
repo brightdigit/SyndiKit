@@ -70,6 +70,14 @@ internal struct AppStoreReviewTests {
       #expect(iTunesReviewProperties(entry: metadata) == nil)
     }
 
+    @Test("A page without reviews decodes, skipping its empty links")
+    internal func emptyPageDecodes() throws {
+      let feed = try #require(try Content.xmlFeeds["app-store-reviews-empty"]?.get())
+      let atomFeed = try #require(feed as? AtomFeed)
+      #expect(atomFeed.entries.isEmpty)
+      #expect(atomFeed.links.map(\.rel) == ["alternate", "self"])
+    }
+
     @Test("The text body comes from content type=\"text\"")
     internal func reviewContentPrefersText() throws {
       for entry in try Self.reviewPage().entries.dropFirst() {
