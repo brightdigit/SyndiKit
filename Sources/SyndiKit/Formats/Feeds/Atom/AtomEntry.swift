@@ -42,7 +42,7 @@ public struct AtomEntry: Codable, Sendable {
     case id
     case title
     case published
-    case content
+    case contents = "content"
     case updated
     case links = "link"
     case authors = "author"
@@ -51,6 +51,10 @@ public struct AtomEntry: Codable, Sendable {
     case youtubeChannelID = "yt:channelId"
     case creators = "dc:creator"
     case mediaGroup = "media:group"
+    case itunesRating = "im:rating"
+    case itunesVersion = "im:version"
+    case itunesVoteSum = "im:voteSum"
+    case itunesVoteCount = "im:voteCount"
   }
 
   /// A permanent, universally unique identifier for an entry.
@@ -62,8 +66,8 @@ public struct AtomEntry: Codable, Sendable {
   /// The most recent instant in time when the entry was published.
   public let published: Date?
 
-  /// The content of the entry.
-  public let content: String?
+  /// Every `<content>` element of the entry, in document order.
+  public let contents: [AtomContent]
 
   /// The most recent instant in time when the entry was modified.
   public let updated: Date
@@ -88,6 +92,23 @@ public struct AtomEntry: Codable, Sendable {
 
   /// The media group associated with the entry.
   public let mediaGroup: AtomMediaGroup?
+
+  /// The App Store review rating (`im:rating`), if the entry is a customer review.
+  public let itunesRating: XMLStringInt?
+
+  /// The app version a customer review was written for (`im:version`).
+  public let itunesVersion: String?
+
+  /// The sum of helpful votes on a customer review (`im:voteSum`).
+  public let itunesVoteSum: XMLStringInt?
+
+  /// The number of votes on a customer review (`im:voteCount`).
+  public let itunesVoteCount: XMLStringInt?
+
+  /// The content of the entry, preferring `type="text"` when there are several.
+  public var content: String? {
+    contents.preferring(["text"])?.value
+  }
 }
 
 extension AtomEntry: Entryable {
@@ -101,9 +122,11 @@ extension AtomEntry: Entryable {
     links.first?.href
   }
 
-  /// The HTML content of the entry.
+  /// The HTML content of the entry, preferring `type="html"` or `type="xhtml"`
+  /// when there are several.
   public var contentHtml: String? {
-    content?.trimmingCharacters(in: .whitespacesAndNewlines)
+    contents.preferring(["html", "xhtml"])?.value
+      .trimmingCharacters(in: .whitespacesAndNewlines)
   }
 
   /// The summary of the entry.
